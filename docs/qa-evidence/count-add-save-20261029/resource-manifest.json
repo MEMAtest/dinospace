@@ -1,0 +1,239 @@
+{
+  "at": "2026-10-29T17:41:59.169822+00:00",
+  "newCheckouts": 0,
+  "newProfiles": 0,
+  "newDependencyInstalls": 0,
+  "evidenceBudgetBytes": 8388608,
+  "profileBeforeKiB": 1076680,
+  "profileGrowthBudgetBytes": 67108864,
+  "newAssets": "Existing art and packaged narration reused; no paid voice or story calls",
+  "freeSpaceBeforeGiB": "87",
+  "completedAt": "2026-10-29T18:25:59.939120+00:00",
+  "profileAfterKiB": 1104136,
+  "profileGrowthBytes": 28114944,
+  "removedTaskTemporaryBytes": 1145026,
+  "cleanup": [
+    {
+      "path": "tmp/pair15-build-r1.log",
+      "bytes": 14592,
+      "sha256": "4c2805aa0575d6234ceee61175cdb067abd6cbf683ae234c8bcbff870eda8d14",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-build-r2.log",
+      "bytes": 14592,
+      "sha256": "de91d0fea1d529ed32cc001db088b03b2a5490e01a74eda20e9afbb983094d70",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-build-r3.log",
+      "bytes": 14591,
+      "sha256": "6848f46c908615dc304072b8448fe0c375c460d10fb527baeb77a06d22564fea",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-build-r4.log",
+      "bytes": 14592,
+      "sha256": "c9eee5374f0d37543d7266ce1ad916eb450ef88a088e9f5c10d067bae5987293",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-build-r5.log",
+      "bytes": 14592,
+      "sha256": "b4ca15e76fa594f9c491aead6ba7f53c050b4393002fdd545dd2a75ae32c92a3",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-build-r6.log",
+      "bytes": 14591,
+      "sha256": "8a22f8d1822402dbe937fb0e68192975228a758914b623c5c91c2c89621a4f6b",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-cutover-after.cjs",
+      "bytes": 5137,
+      "sha256": "a8bcb19b477415c8b8f5c3e6806e1e8afa343aa671b65752c37020fb2bba9564",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-cutover-before.cjs",
+      "bytes": 5138,
+      "sha256": "8027fda58474344e04c8db3ab965d6b35e30e3fea3bc7af0fff932ee7212ab46",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-native-progress-inventory.cjs",
+      "bytes": 771,
+      "sha256": "5aff030fd49127d814b50c4eec7bdd7442bfd313eab58c8357bdb80b00559999",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-netlify-draft.json",
+      "bytes": 538,
+      "sha256": "0de0d9cad2a95e3845b762ef8ab414e038b81ad0454773dda11409605abfa7c0",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-netlify-prod.json",
+      "bytes": 502,
+      "sha256": "bd08969580f812d32ee0e9bf62cdb1abfa2f1d9e7db9240706a620cf1f29b31f",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-parent-claims.log",
+      "bytes": 2140,
+      "sha256": "4d54066f70a38b4c853bc31dcf6dab6b7b429a2f8305be4cd828653a98d69a0c",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-progress-inventory.cjs",
+      "bytes": 663,
+      "sha256": "2b800fbf5ceb5a9ebde8be9d0cb2f339acb70899bdbea170acb5ebeb6d9316da",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-quick-addition-1440-r3.cjs",
+      "bytes": 55158,
+      "sha256": "9657e796bf482070c99a37e712ab7c46fbf39319bcdae349587c0360397c76e5",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-quick-addition-r3-async-fixed.cjs",
+      "bytes": 55168,
+      "sha256": "404bfc9a4a2096f168435b0cb5534da700a2c20a56a32c98b33c60347e0144a1",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-quick-addition-r3.cjs",
+      "bytes": 55111,
+      "sha256": "781ec2f0214d7311d645eae551f469385a74e6fc750099a6e5fa5479e390b283",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-quick-count-1440-r3.cjs",
+      "bytes": 55021,
+      "sha256": "61064dc0183aba8b638c11351dced267b88981d02a26cd8e6c5c42cc4c909b3e",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-quick-count-r2.cjs",
+      "bytes": 54636,
+      "sha256": "3dec942b475f9b9b31c04938f316033a9c16c7d81bba08755a19516990a3407f",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-quick-count-r3.cjs",
+      "bytes": 55019,
+      "sha256": "dcbb28e63ce0199e3d5205fb2a636e0fb9d8cb4b26e98b76d63995e042b36900",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-tests-r1.log",
+      "bytes": 71539,
+      "sha256": "0f925102242fbc2f5f79249bbd44560ae017a669ae42cd78c14d11c00c7e9972",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-tests-r2.log",
+      "bytes": 71553,
+      "sha256": "99709170b47375e6f8924fc81e17c67a0360c60596fdf245363b1f57ac4b5aaf",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-tests-r3.log",
+      "bytes": 71544,
+      "sha256": "a89112d6bbf0980bbd4f2a574844e3d95512b578843568a8790a9f21a67cefe6",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-tests-r4.log",
+      "bytes": 71664,
+      "sha256": "1f0b6b198553010aeb591169259bd72a633b97cda3040b9b5878b7041251985d",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-tests-r5.log",
+      "bytes": 71685,
+      "sha256": "6c3adab3aa397f23ae6864b3a5e4fc3358632f89be1fdf3fd571238e1195db33",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-tests-r6.log",
+      "bytes": 71640,
+      "sha256": "aa834e481379ec911af999356e11ed390fbe8658e5a834d486e394a203c8af1e",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/pair15-vercel.log",
+      "bytes": 17665,
+      "sha256": "8a9538f8786596b02c64e14cf8de1b29b17b32f4990dd3d286deb6492349be48",
+      "reason": "Task-owned intermediate/generated duplicate; final source/reports/deployment identity retained in canonical evidence"
+    },
+    {
+      "path": "tmp/native-quick-addition-390-r3-async-fixed.log",
+      "bytes": 56116,
+      "sha256": "dd6e038734ef4a08e1897a062633bc6813cf96f3c01bbc16c71fd78b2b035b7a",
+      "reason": "Verified exact-result duplicate of canonical passed JSON"
+    },
+    {
+      "path": "tmp/native-quick-addition-1440-r3.log",
+      "bytes": 56092,
+      "sha256": "d19df8cdfb434a343dd6e99ef93d30b89194fffeb58411c6736fa358f2bd1f04",
+      "reason": "Verified exact-result duplicate of canonical passed JSON"
+    },
+    {
+      "path": "tmp/cutover-after.log",
+      "bytes": 20665,
+      "sha256": "7a655ee581f618cc2f6f61b77da51467aa8708f84196d6bf1b9554dca7a5cab9",
+      "reason": "Verified exact-result duplicate of canonical passed JSON"
+    },
+    {
+      "path": "tmp/cutover-before.log",
+      "bytes": 20737,
+      "sha256": "3d8486a7674bc262a478cf31b2b233915090fe28109c59c8bae1f4c84529e5c5",
+      "reason": "Verified exact-result duplicate of canonical passed JSON"
+    },
+    {
+      "path": "tmp/native-quick-count-390-r3.log",
+      "bytes": 55787,
+      "sha256": "66bca6fd3da2c6fd0267709e1850a710c7d377e6473f6d945674374d62fd1728",
+      "reason": "Verified exact-result duplicate of canonical passed JSON"
+    },
+    {
+      "path": "tmp/native-quick-count-1440-r3.log",
+      "bytes": 55787,
+      "sha256": "3ed799f87087699535613e0f16c0faf0a00ee6de0788649b83e9bb41d257ebfa",
+      "reason": "Verified exact-result duplicate of canonical passed JSON"
+    }
+  ],
+  "retainedFailedRawLogs": [
+    {
+      "path": "tmp/canonical-initial-progress.log",
+      "bytes": 1755,
+      "reason": "Raw failed diagnostic retained until final handoff review; canonical JSON/failure image also retained"
+    },
+    {
+      "path": "tmp/native-quick-count-390-r2.log",
+      "bytes": 54805,
+      "reason": "Raw failed diagnostic retained until final handoff review; canonical JSON/failure image also retained"
+    },
+    {
+      "path": "tmp/native-quick-addition-390-r3.log",
+      "bytes": 55451,
+      "reason": "Raw failed diagnostic retained until final handoff review; canonical JSON/failure image also retained"
+    },
+    {
+      "path": "tmp/native-quick-count-390-r2-media-fixed.log",
+      "bytes": 55194,
+      "reason": "Raw failed diagnostic retained until final handoff review; canonical JSON/failure image also retained"
+    },
+    {
+      "path": "tmp/native-initial-progress.log",
+      "bytes": 1091,
+      "reason": "Raw failed diagnostic retained until final handoff review; canonical JSON/failure image also retained"
+    }
+  ],
+  "retainedEvidenceBytesBeforeManifest": 1111851,
+  "newPaidCalls": 0,
+  "recovery": "Source commits retained on canonical branch; final evidence in this folder. No worktree/profile/data removed."
+}

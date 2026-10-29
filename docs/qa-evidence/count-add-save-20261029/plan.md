@@ -1,6 +1,6 @@
 # Pair15 — Count the Stars and Addition Adventure
 
-Status: planned only. Do not implement until Pair14 canonical gameplay passes. The human authorized all remaining pairs without another proceed question. Reuse the canonical checkout/dependencies and single synthetic headless profile; no resets, new profiles, paid calls or new monitoring.
+Status: delivered after Pair14canonicalacceptance; see README.md and production-summary.json for the accepted723-test/four-journey release. The human authorized all remaining pairs without another proceed question. Reuse the canonical checkout/dependencies and single synthetic headless profile; no resets, new profiles, paid calls or new monitoring.
 
 The read-only Luna audit found existing difficulty/content intact: Count ranges1–5,1–10,1–20 with15motifs and six unique rounds; Addition groups≤10, bonds and stories≤20, six unique rounds. The concrete gap is swallowed save failures and ordinary, non-idempotent parent rewards. Audit teaching/art during actual play; do not invent extra imagery work without a visible issue.
 

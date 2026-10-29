@@ -1,0 +1,1364 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "rows": [
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 0,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 3,
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/93fa9195-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/93fa9195-matilda.mp3",
+            "currentTime": 0.068625,
+            "duration": 1.996916,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1310.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1327
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1329.4000000357628
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 1,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 1,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 2,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 4,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 3,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 2,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 4,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 5,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 5,
+      "replay": false,
+      "faultSequence": true,
+      "currentRunStars": 3,
+      "modelCount": 1,
+      "faultRecovery": {
+        "boardIdentity": {
+          "episode": "star-garden",
+          "question": "rocket-lights:1:orbit",
+          "seed": "2452767657"
+        },
+        "retries": [
+          {
+            "stage": "local-write",
+            "restored": true,
+            "fired": true,
+            "didSet": false,
+            "mode": "write",
+            "key": "amari_amari_count_the_stars_batch3_v1"
+          },
+          {
+            "stage": "local-readback",
+            "restored": true,
+            "fired": true,
+            "didSet": true,
+            "mode": "readback",
+            "key": "amari_amari_count_the_stars_batch3_v1"
+          },
+          {
+            "stage": "parent-write",
+            "restored": true,
+            "fired": true,
+            "didSet": false,
+            "mode": "write",
+            "key": "amari_rewards_v2"
+          },
+          {
+            "stage": "parent-readback",
+            "restored": true,
+            "fired": true,
+            "didSet": true,
+            "mode": "readback",
+            "key": "amari_rewards_v2"
+          }
+        ],
+        "heldFact": true,
+        "pendingReloadRecovery": {
+          "receiptId": "star-garden:best:3",
+          "rewardDelta": 3,
+          "token": "dino:counting:star-garden:best:3",
+          "parentAmountBeforeReload": 3,
+          "parentAmountAfterReload": 3,
+          "pointsBeforeReload": 424,
+          "pointsAfterReload": 424,
+          "claimedAfterReload": true
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 3,
+      "wrongRetry": true,
+      "recount": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 3,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 1,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 4,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 5,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 2,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 0,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 4,
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/93fa9195-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/93fa9195-matilda.mp3",
+            "currentTime": 0.066384,
+            "duration": 1.996916,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3412.399999976158
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3427.300000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3429.800000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 1,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 10,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 2,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 7,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 3,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 5,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 4,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 6,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 5,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 1,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 7,
+      "wrongRetry": true,
+      "recount": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 8,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 9,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 1,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 4,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 3,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 0,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 4,
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/93fa9195-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/93fa9195-matilda.mp3",
+            "currentTime": 0.086306,
+            "duration": 1.996916,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 9945.100000023842
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 9960.600000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 9963
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 1,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 3,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 2,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 16,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 3,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 15,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 4,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 11,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 5,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 18,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 6,
+      "wrongRetry": true,
+      "recount": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 15,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 14,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 18,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 9,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 7,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 2,
+      "faultSequence": false,
+      "prompt": "Put 1 apple and 5 apples together. How many altogether?",
+      "equation": "1 + 5 = ?",
+      "answerFromVisible": 6,
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/26b33fc6-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/26b33fc6-matilda.mp3",
+            "currentTime": 0.075136,
+            "duration": 1.068118,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 23845.69999998808
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 23860.600000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 23862.80000001192
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "hint": true,
+      "joinSplit": true,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 2,
+      "faultSequence": false,
+      "prompt": "Put 3 stars and 3 stars together. How many altogether?",
+      "equation": "3 + 3 = ?",
+      "answerFromVisible": 6,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 2,
+      "faultSequence": false,
+      "prompt": "Put 7 stars and 3 stars together. How many altogether?",
+      "equation": "7 + 3 = ?",
+      "answerFromVisible": 10,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 2,
+      "faultSequence": false,
+      "prompt": "Put 6 flowers and 2 flowers together. How many altogether?",
+      "equation": "6 + 2 = ?",
+      "answerFromVisible": 8,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 2,
+      "faultSequence": false,
+      "prompt": "Put 5 shells and 5 shells together. How many altogether?",
+      "equation": "5 + 5 = ?",
+      "answerFromVisible": 10,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 2,
+      "faultSequence": "completion-chain",
+      "prompt": "Put 7 gems and 1 gem together. How many altogether?",
+      "equation": "7 + 1 = ?",
+      "answerFromVisible": 8,
+      "faultRecovery": [
+        {
+          "stage": "local-write",
+          "restored": true,
+          "fired": true,
+          "didSet": false,
+          "mode": "write",
+          "key": "amari_addition_progress_v1"
+        },
+        {
+          "stage": "local-readback",
+          "restored": true,
+          "fired": true,
+          "didSet": true,
+          "mode": "readback",
+          "key": "amari_addition_progress_v1"
+        },
+        {
+          "stage": "parent-write",
+          "restored": true,
+          "fired": true,
+          "didSet": false,
+          "mode": "write",
+          "key": "amari_rewards_v2"
+        },
+        {
+          "stage": "parent-readback",
+          "restored": true,
+          "fired": true,
+          "didSet": true,
+          "mode": "readback",
+          "key": "amari_rewards_v2"
+        }
+      ],
+      "completionSurface": "Chapter complete! You earned 3 stars. Choose the next unlocked chapter or replay this one. ContinueReplay Put Groups Together",
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "faultSequence": false,
+      "prompt": "Put 1 flower and 3 flowers together. How many altogether?",
+      "equation": "1 + 3 = ?",
+      "answerFromVisible": 4,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "faultSequence": false,
+      "prompt": "Put 2 flowers and 5 flowers together. How many altogether?",
+      "equation": "2 + 5 = ?",
+      "answerFromVisible": 7,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "faultSequence": false,
+      "prompt": "Put 1 flower and 8 flowers together. How many altogether?",
+      "equation": "1 + 8 = ?",
+      "answerFromVisible": 9,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "faultSequence": false,
+      "prompt": "Put 1 star and 6 stars together. How many altogether?",
+      "equation": "1 + 6 = ?",
+      "answerFromVisible": 7,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "faultSequence": false,
+      "prompt": "Put 8 shells and 1 shell together. How many altogether?",
+      "equation": "8 + 1 = ?",
+      "answerFromVisible": 9,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "faultSequence": false,
+      "prompt": "Put 7 stars and 2 stars together. How many altogether?",
+      "equation": "7 + 2 = ?",
+      "answerFromVisible": 9,
+      "wrongRetry": true,
+      "completionSurface": "Replay complete! Your best is 3 stars. Choose the next unlocked chapter or replay this one. ContinueReplay Put Groups Together",
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 2,
+      "faultSequence": false,
+      "prompt": "12 and what number make 12?",
+      "equation": "12 + ? = 12",
+      "answerFromVisible": 0,
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/01797aad-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/01797aad-matilda.mp3",
+            "currentTime": 0.074929,
+            "duration": 2.229116,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 26127.80000001192
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 26143.399999976158
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 26145.899999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "hint": true,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 2,
+      "faultSequence": false,
+      "prompt": "0 and what number make 13?",
+      "equation": "0 + ? = 13",
+      "answerFromVisible": 13
+    }
+  ],
+  "games": {
+    "count": {
+      "title": "Count the Stars",
+      "key": "amari_amari_count_the_stars_batch3_v1",
+      "rowCount": 36,
+      "savedProgress": {
+        "version": 1,
+        "unlockedEpisode": 2,
+        "completedEpisodeIds": [
+          "star-garden",
+          "constellation-workshop",
+          "galaxy-survey"
+        ],
+        "bestStars": {
+          "star-garden": 3,
+          "constellation-workshop": 3,
+          "galaxy-survey": 3
+        },
+        "earnedConstellationPageIds": [
+          "constellation-star-garden",
+          "constellation-workshop",
+          "galaxy-survey"
+        ],
+        "recentQuestionIds": {
+          "0": [
+            "moon-berries:5:orbit",
+            "rocket-lights:1:orbit",
+            "comet-seeds:3:grouped",
+            "fireflies:3:orbit",
+            "moon-berries:1:grouped",
+            "fireflies:4:orbit",
+            "tiny-planets:5:grouped",
+            "rocket-lights:2:orbit"
+          ],
+          "1": [
+            "observatory-windows:6:orbit",
+            "meteor-trails:1:grouped",
+            "meteor-trails:7:grouped",
+            "star-clusters:8:grouped",
+            "observatory-windows:9:orbit",
+            "satellite-bolts:1:orbit",
+            "moon-rocks:4:orbit",
+            "observatory-windows:3:orbit"
+          ],
+          "2": [
+            "planet-rings:11:orbit",
+            "constellation-maps:18:grouped",
+            "crater-gems:6:orbit",
+            "planet-rings:15:orbit",
+            "constellation-maps:14:grouped",
+            "crater-gems:18:grouped",
+            "nebula-dots:9:orbit",
+            "satellite-panels:7:orbit"
+          ]
+        },
+        "rewardReceipts": [
+          {
+            "id": "star-garden:best:3",
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          {
+            "id": "constellation-workshop:best:3",
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          {
+            "id": "galaxy-survey:best:3",
+            "rewardDelta": 3,
+            "claimed": true
+          }
+        ]
+      },
+      "storage": {
+        "changed": [
+          "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+          "qa_rewards_20261024_amari_game_diagnostics_v1",
+          "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+          "qa_rewards_20261024_amari_games_played",
+          "qa_rewards_20261024_amari_learning_attempts_v1",
+          "qa_rewards_20261024_amari_points",
+          "qa_rewards_20261024_amari_rewards_v2",
+          "qa_rewards_20261024_amari_skill_mastery_v1"
+        ],
+        "unexpected": [],
+        "unchanged": [
+          "amari-sound-on",
+          "qa_rewards_20261024_amari_addition_progress_v1",
+          "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+          "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+          "qa_rewards_20261024_amari_challenge_done",
+          "qa_rewards_20261024_amari_challenge_progress",
+          "qa_rewards_20261024_amari_chapter_badges_v1",
+          "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+          "qa_rewards_20261024_amari_chess_game_v1",
+          "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+          "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+          "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+          "qa_rewards_20261024_amari_cosmic_tactics_v1",
+          "qa_rewards_20261024_amari_curriculum_badges_v1",
+          "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_preferences_v1",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_discovery_active_player",
+          "qa_rewards_20261024_amari_discovery_passport_v1",
+          "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+          "qa_rewards_20261024_amari_favourite_games",
+          "qa_rewards_20261024_amari_game_levels_v1",
+          "qa_rewards_20261024_amari_german_chapter_progress_v1",
+          "qa_rewards_20261024_amari_german_recent_targets_v1",
+          "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+          "qa_rewards_20261024_amari_lastplay",
+          "qa_rewards_20261024_amari_learning_migration_v1",
+          "qa_rewards_20261024_amari_letter_launch_progress_v1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+          "qa_rewards_20261024_amari_letter_trace_progress_v1",
+          "qa_rewards_20261024_amari_little_progress",
+          "qa_rewards_20261024_amari_memory_best",
+          "qa_rewards_20261024_amari_memory_completion_v1",
+          "qa_rewards_20261024_amari_memory_passport_v1",
+          "qa_rewards_20261024_amari_memory_resume_v1",
+          "qa_rewards_20261024_amari_monster_math_progress_v1",
+          "qa_rewards_20261024_amari_oddoneout_progress_v1",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+          "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+          "qa_rewards_20261024_amari_recent_games",
+          "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+          "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+          "qa_rewards_20261024_amari_spelling_progress_v1",
+          "qa_rewards_20261024_amari_spelling_recent_v1",
+          "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+          "qa_rewards_20261024_amari_storybook_active_child_v1",
+          "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "qa_rewards_20261024_amari_storybook_profiles_v1",
+          "qa_rewards_20261024_amari_storybook_progress_v1",
+          "qa_rewards_20261024_amari_streak",
+          "qa_rewards_20261024_amari_voice_mode_v4",
+          "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+          "qa_rewards_20261024_amari_writing_samples_v1",
+          "qa_rewards_20261024_askia_challenge_done",
+          "qa_rewards_20261024_askia_challenge_progress",
+          "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+          "qa_rewards_20261024_askia_favourite_games",
+          "qa_rewards_20261024_askia_game_levels_v1",
+          "qa_rewards_20261024_askia_games_played",
+          "qa_rewards_20261024_askia_lastplay",
+          "qa_rewards_20261024_askia_little_progress",
+          "qa_rewards_20261024_askia_points",
+          "qa_rewards_20261024_askia_recent_games",
+          "qa_rewards_20261024_askia_rewards_v2",
+          "qa_rewards_20261024_askia_streak",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+        ]
+      },
+      "rewards": {
+        "receiptCount": 3,
+        "receipts": [
+          {
+            "id": "star-garden:best:3",
+            "rewardDelta": 3,
+            "claimed": true,
+            "token": "dino:counting:star-garden:best:3"
+          },
+          {
+            "id": "constellation-workshop:best:3",
+            "rewardDelta": 3,
+            "claimed": true,
+            "token": "dino:counting:constellation-workshop:best:3"
+          },
+          {
+            "id": "galaxy-survey:best:3",
+            "rewardDelta": 3,
+            "claimed": true,
+            "token": "dino:counting:galaxy-survey:best:3"
+          }
+        ],
+        "beforePoints": 421,
+        "afterPoints": 430,
+        "changedTokens": [
+          "dino:counting:constellation-workshop:best:3",
+          "dino:counting:galaxy-survey:best:3",
+          "dino:counting:star-garden:best:3"
+        ],
+        "newlyClaimed": [
+          {
+            "token": "dino:counting:star-garden:best:3",
+            "from": 0,
+            "to": 3
+          },
+          {
+            "token": "dino:counting:constellation-workshop:best:3",
+            "from": 0,
+            "to": 3
+          },
+          {
+            "token": "dino:counting:galaxy-survey:best:3",
+            "from": 0,
+            "to": 3
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-59oGv4DS.js",
+    "landed": "player"
+  },
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "providerAttempts": [],
+  "soundOriginals": {
+    "count": true,
+    "addition": true
+  },
+  "faultCases": {
+    "countStartWrite": {
+      "restored": true,
+      "fired": true,
+      "didSet": false,
+      "mode": "write",
+      "key": "amari_amari_count_the_stars_batch3_v1",
+      "retriedSameQueue": true,
+      "visibleRun": {
+        "questionId": "fireflies:3:grouped",
+        "seed": "2452767657",
+        "episodeId": "star-garden"
+      },
+      "queueIds": [
+        "rocket-lights:3:grouped",
+        "moon-berries:3:grouped",
+        "fireflies:3:grouped",
+        "tiny-planets:1:orbit",
+        "tiny-planets:4:grouped",
+        "comet-seeds:2:grouped",
+        "moon-berries:5:orbit",
+        "rocket-lights:1:orbit"
+      ]
+    },
+    "countCompletion": {
+      "boardIdentity": {
+        "episode": "star-garden",
+        "question": "rocket-lights:1:orbit",
+        "seed": "2452767657"
+      },
+      "retries": [
+        {
+          "stage": "local-write",
+          "restored": true,
+          "fired": true,
+          "didSet": false,
+          "mode": "write",
+          "key": "amari_amari_count_the_stars_batch3_v1"
+        },
+        {
+          "stage": "local-readback",
+          "restored": true,
+          "fired": true,
+          "didSet": true,
+          "mode": "readback",
+          "key": "amari_amari_count_the_stars_batch3_v1"
+        },
+        {
+          "stage": "parent-write",
+          "restored": true,
+          "fired": true,
+          "didSet": false,
+          "mode": "write",
+          "key": "amari_rewards_v2"
+        },
+        {
+          "stage": "parent-readback",
+          "restored": true,
+          "fired": true,
+          "didSet": true,
+          "mode": "readback",
+          "key": "amari_rewards_v2"
+        }
+      ],
+      "heldFact": true,
+      "pendingReloadRecovery": {
+        "receiptId": "star-garden:best:3",
+        "rewardDelta": 3,
+        "token": "dino:counting:star-garden:best:3",
+        "parentAmountBeforeReload": 3,
+        "parentAmountAfterReload": 3,
+        "pointsBeforeReload": 424,
+        "pointsAfterReload": 424,
+        "claimedAfterReload": true
+      }
+    },
+    "additionStartWrite": {
+      "restored": true,
+      "fired": true,
+      "didSet": false,
+      "mode": "write",
+      "key": "amari_addition_progress_v1",
+      "retriedSameQueue": true,
+      "visibleRun": {
+        "questionId": "groups:apple:1:5",
+        "seed": "1541591802"
+      },
+      "queueIds": [
+        "groups:gem:7:2",
+        "groups:flower:7:3",
+        "groups:apple:1:5",
+        "groups:star:3:3",
+        "groups:star:7:3",
+        "groups:flower:6:2",
+        "groups:shell:5:5",
+        "groups:gem:7:1"
+      ]
+    },
+    "additionCompletionChain": [
+      {
+        "stage": "local-write",
+        "restored": true,
+        "fired": true,
+        "didSet": false,
+        "mode": "write",
+        "key": "amari_addition_progress_v1"
+      },
+      {
+        "stage": "local-readback",
+        "restored": true,
+        "fired": true,
+        "didSet": true,
+        "mode": "readback",
+        "key": "amari_addition_progress_v1"
+      },
+      {
+        "stage": "parent-write",
+        "restored": true,
+        "fired": true,
+        "didSet": false,
+        "mode": "write",
+        "key": "amari_rewards_v2"
+      },
+      {
+        "stage": "parent-readback",
+        "restored": true,
+        "fired": true,
+        "didSet": true,
+        "mode": "readback",
+        "key": "amari_rewards_v2"
+      }
+    ]
+  },
+  "faultEligibility": {
+    "addition": {
+      "startChapter": 0,
+      "completionChapter": 0,
+      "pendingReloadChapter": 1,
+      "material": [
+        {
+          "id": "groups",
+          "index": 0,
+          "oldStars": 0,
+          "completed": false
+        },
+        {
+          "id": "bonds",
+          "index": 1,
+          "oldStars": 0,
+          "completed": false
+        },
+        {
+          "id": "stories",
+          "index": 2,
+          "oldStars": 0,
+          "completed": false
+        }
+      ]
+    }
+  },
+  "failure": {
+    "message": "Advance after held explanation is not wholly inside the viewport: {\"text\":\"Next question\",\"rect\":{\"x\":35,\"y\":697,\"width\":320,\"height\":56,\"right\":355,\"bottom\":753},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"pointerEvents\":\"auto\"}",
+    "stack": "Error: Advance after held explanation is not wholly inside the viewport: {\"text\":\"Next question\",\"rect\":{\"x\":35,\"y\":697,\"width\":320,\"height\":56,\"right\":355,\"bottom\":753},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"pointerEvents\":\"auto\"}\n    at measureControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:147:13)\n    at async Object.clickControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:156:22)\n    at async helper.clickControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:606:21)\n    at async additionQuestion (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:355:5)\n    at async runGame (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:557:11)\n    at async runCountAddition (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:614:5)\n    at async evalmachine.<anonymous>:4:8"
+  },
+  "controlAudit": {
+    "checked": 548,
+    "minimumWidth": 48,
+    "minimumHeight": 48,
+    "allCenterHits": true,
+    "allInsideViewport": true,
+    "labelCounts": {
+      "Choose Amari in the normal player picker": 1,
+      "Maths Missions world": 2,
+      "Count the Stars catalogue entry": 1,
+      "Open the secondary Count survey picker": 6,
+      "Select naturally unlocked Count survey Star Garden": 2,
+      "Count same-queue survey start write fault": 1,
+      "Retry the same Count survey queue after write recovery": 1,
+      "Count model board": 36,
+      "Count visible object 1": 36,
+      "Count visible object 2": 31,
+      "Count visible object 3": 29,
+      "Select count from the rendered object model": 35,
+      "Replay visible counting explanation": 35,
+      "Advance after count explanation": 35,
+      "Count visible object 4": 24,
+      "Count visible object 5": 19,
+      "Count held survey result write fault": 1,
+      "Count held survey result readback fault": 1,
+      "Count parent reward write fault": 1,
+      "Count parent reward readback fault": 1,
+      "Start selected Count survey 1": 1,
+      "Use visible count strategy clue": 3,
+      "Record a visible incorrect count before retry": 18,
+      "Use the visible recount recovery": 3,
+      "Recount visible object 1": 3,
+      "Recount visible object 2": 3,
+      "Recount visible object 3": 3,
+      "Return after lower Count replay": 3,
+      "Select naturally unlocked Count survey Constellation Workshop": 2,
+      "Start selected Count survey 2": 2,
+      "Count visible object 6": 16,
+      "Count visible object 7": 14,
+      "Count visible object 8": 11,
+      "Count visible object 9": 10,
+      "Count visible object 10": 8,
+      "Count completion map control": 2,
+      "Return to Count survey map": 2,
+      "Recount visible object 4": 2,
+      "Recount visible object 5": 2,
+      "Recount visible object 6": 2,
+      "Recount visible object 7": 1,
+      "Select naturally unlocked Count survey Galaxy Survey": 2,
+      "Start selected Count survey 3": 2,
+      "Count visible object 11": 7,
+      "Count visible object 12": 6,
+      "Count visible object 13": 6,
+      "Count visible object 14": 6,
+      "Count visible object 15": 5,
+      "Count visible object 16": 3,
+      "Count visible object 17": 2,
+      "Count visible object 18": 2,
+      "Return to the normal world chooser": 1,
+      "Addition Adventure catalogue entry": 1,
+      "Open the secondary Addition chapter picker": 2,
+      "Select naturally unlocked Put Groups Together": 1,
+      "Addition same-queue start write fault": 1,
+      "Retry the same Addition chapter queue after write recovery": 1,
+      "Visible addition object group": 24,
+      "Use visible addition clue": 2,
+      "Join the two visible addition groups": 1,
+      "Split the visible addition groups": 1,
+      "Record a visible incorrect addition answer before retry": 8,
+      "Choose answer from the visible arithmetic model": 14,
+      "Replay visible worked explanation": 14,
+      "Advance after held explanation": 11,
+      "Addition held result write fault": 1,
+      "Held Addition explanation during save recovery": 1,
+      "Addition held result readback fault": 1,
+      "Addition parent reward write fault": 1,
+      "Addition parent reward readback fault": 1,
+      "Retry the same held Addition result after storage recovery": 1,
+      "Replay Put Groups Together for lower-rating proof": 1,
+      "Finish the six-question Addition result after its held explanation": 1,
+      "Continue after lower addition replay": 1,
+      "Select naturally unlocked Number Bonds": 2,
+      "Start selected Addition chapter Number Bonds": 1,
+      "Visible number-bond whole model": 2,
+      "Visible number-bond known part model": 2
+    }
+  },
+  "stage": "native",
+  "runtimeSource": "ac595fb3c0250c3af415b9b0643aaf98678ca808",
+  "entry": "/assets/arcade-59oGv4DS.js",
+  "sourceHead": "ac595fb3c0250c3af415b9b0643aaf98678ca808",
+  "sourceHashes": {
+    "src/App.jsx": "c35b5866947d90f5b25f96a2223746240184633c0306432da51ff98d12c87b1a",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/countTheStarsBatch3.js": "c1d38e827d00a07b22d36da90f4364149f0825ea77c9e6f277a54f8c24e21b23",
+    "src/data/countTheStarsProgress.js": "01f7608246634a8a160b906b6171e88373e200f66a620f325c6382d449f097b7",
+    "src/data/arithmeticAdventure.js": "5e3dfd0f4d2de27262b89daf967f7942926601ab3354da7d6430d35d6aba93f7",
+    "src/data/arithmeticProgress.js": "697a21ae88249b6971eedcf46b01c78d1c44cb75b6beef79fbddd29b498cc4dd",
+    "src/data/playerRewards.js": "8fe472893669cdbad29e41677951ff5eabccd06904e8147962df750764f441b6",
+    "src/components/games/AmariCountTheStars.jsx": "f05fbc3f3f35f9b810e7d3651e5e9a2dcf39260554398a9793e54739cc9ccd09",
+    "src/components/games/AdditionAdventure.jsx": "b703be475b9dc0ab05bc9b16aee3d692ce536051b4c9e6806c7c61826a3ab232",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/count-add-save-20261029/protocol.md": "e150908f6bc698318b2d2f8a25a83877c87329f4d560b51b5d7bd31467901bf2",
+    "docs/qa-evidence/count-add-save-20261029/count-add-native.cjs": "733cf0334c5bbde01d71691a212e458b48ab9612856f28bdb16182a2f0f53d22"
+  },
+  "driverSHA256": "733cf0334c5bbde01d71691a212e458b48ab9612856f28bdb16182a2f0f53d22",
+  "runnerSHA256": "6f1640693a218edfc073a7b7240c387a4a8cd1e70272c4cc5f77baa18c57d60b",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1424155,
+    "entrySha256": "efb33a848436f46dfba30493cfdd70df3da9d23720356a2ada03fbdbf6e71622",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair15-native",
+  "faultModeRequested": true,
+  "scope": "Full actual-visible-control Count the Stars and Addition Adventure acceptance for three chapters, six normal questions and six lower-rated replay questions per chapter at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

@@ -1,0 +1,222 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "rows": [
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 0,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 5,
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/93fa9195-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/93fa9195-matilda.mp3",
+            "currentTime": 0.054322,
+            "duration": 1.996916,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1196.1000000238419
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1209.4000000357628
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1212
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 1,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 1,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 2,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 4,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 3,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 2,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 4,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "modelCount": 3,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 5,
+      "replay": false,
+      "faultSequence": true,
+      "currentRunStars": 3,
+      "modelCount": 3,
+      "faultRecovery": {
+        "boardIdentity": {
+          "episode": "star-garden",
+          "question": "moon-berries:3:grouped",
+          "seed": "1487549335"
+        },
+        "retries": [
+          {
+            "stage": "local-write",
+            "restored": true,
+            "fired": true,
+            "didSet": false,
+            "mode": "write",
+            "key": "amari_amari_count_the_stars_batch3_v1"
+          }
+        ]
+      }
+    }
+  ],
+  "games": {},
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-1LvK62Py.js",
+    "landed": "player"
+  },
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "providerAttempts": [],
+  "soundOriginals": {
+    "count": true
+  },
+  "faultCases": {
+    "countStartWrite": {
+      "restored": true,
+      "fired": true,
+      "didSet": false,
+      "mode": "write",
+      "key": "amari_amari_count_the_stars_batch3_v1",
+      "retriedSameQueue": true,
+      "visibleRun": {
+        "questionId": "moon-berries:5:grouped",
+        "seed": "1487549335",
+        "episodeId": "star-garden"
+      },
+      "queueIds": [
+        "moon-berries:4:grouped",
+        "rocket-lights:3:orbit",
+        "moon-berries:5:grouped",
+        "tiny-planets:1:grouped",
+        "fireflies:4:grouped",
+        "comet-seeds:2:orbit",
+        "rocket-lights:3:grouped",
+        "moon-berries:3:grouped"
+      ]
+    }
+  },
+  "failure": {
+    "message": "Count held survey result readback fault is not wholly inside the viewport: {\"text\":\"Retry saving survey\",\"rect\":{\"x\":64,\"y\":716,\"width\":262,\"height\":48,\"right\":326,\"bottom\":764},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}",
+    "stack": "Error: Count held survey result readback fault is not wholly inside the viewport: {\"text\":\"Retry saving survey\",\"rect\":{\"x\":64,\"y\":716,\"width\":262,\"height\":48,\"right\":326,\"bottom\":764},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}\n    at measureControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:147:13)\n    at async Object.clickControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:156:22)\n    at async helper.clickControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:606:21)\n    at async runFaultClick (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:394:9)\n    at async countQuestion (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:200:13)\n    at async runGame (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:512:9)\n    at async runCountAddition (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:613:5)"
+  },
+  "controlAudit": {
+    "checked": 47,
+    "minimumWidth": 48,
+    "minimumHeight": 48,
+    "allCenterHits": true,
+    "allInsideViewport": true,
+    "labelCounts": {
+      "Choose Amari in the normal player picker": 1,
+      "Maths Missions world": 1,
+      "Count the Stars catalogue entry": 1,
+      "Open the secondary Count survey picker": 1,
+      "Select naturally unlocked Count survey Star Garden": 1,
+      "Count same-queue survey start write fault": 1,
+      "Retry the same Count survey queue after write recovery": 1,
+      "Count model board": 6,
+      "Count visible object 1": 6,
+      "Count visible object 2": 5,
+      "Count visible object 3": 4,
+      "Count visible object 4": 2,
+      "Count visible object 5": 1,
+      "Select count from the rendered object model": 5,
+      "Replay visible counting explanation": 5,
+      "Advance after count explanation": 5,
+      "Count held survey result write fault": 1
+    }
+  },
+  "stage": "native",
+  "runtimeSource": "4afeb1cdfaaee01329165dc9bf3fdefe375825bd",
+  "entry": "/assets/arcade-1LvK62Py.js",
+  "sourceHead": "4afeb1cdfaaee01329165dc9bf3fdefe375825bd",
+  "sourceHashes": {
+    "src/App.jsx": "c35b5866947d90f5b25f96a2223746240184633c0306432da51ff98d12c87b1a",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/countTheStarsBatch3.js": "c1d38e827d00a07b22d36da90f4364149f0825ea77c9e6f277a54f8c24e21b23",
+    "src/data/countTheStarsProgress.js": "01f7608246634a8a160b906b6171e88373e200f66a620f325c6382d449f097b7",
+    "src/data/arithmeticAdventure.js": "5e3dfd0f4d2de27262b89daf967f7942926601ab3354da7d6430d35d6aba93f7",
+    "src/data/arithmeticProgress.js": "6bf1d8ff79a4ca85660bfd2c8df96b4e8808ddba6622bee0fbded4463e2d2ca7",
+    "src/data/playerRewards.js": "8fe472893669cdbad29e41677951ff5eabccd06904e8147962df750764f441b6",
+    "src/components/games/AmariCountTheStars.jsx": "65f6e05cfbdee95cd6faaf01c19da12478f49d0da7865e239622739f1e2bdad5",
+    "src/components/games/AdditionAdventure.jsx": "931308d2b57df7aabeae2bf117748bc15724b3795cfb5ac36587f4fa4e8201bd",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/count-add-save-20261029/protocol.md": "e150908f6bc698318b2d2f8a25a83877c87329f4d560b51b5d7bd31467901bf2",
+    "docs/qa-evidence/count-add-save-20261029/count-add-native.cjs": "733cf0334c5bbde01d71691a212e458b48ab9612856f28bdb16182a2f0f53d22"
+  },
+  "driverSHA256": "733cf0334c5bbde01d71691a212e458b48ab9612856f28bdb16182a2f0f53d22",
+  "runnerSHA256": "6f1640693a218edfc073a7b7240c387a4a8cd1e70272c4cc5f77baa18c57d60b",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1423923,
+    "entrySha256": "9386d0691ded31b8eff54435b788481829603814104af9f6b4131f61d6ef6ccb",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair15-native",
+  "faultModeRequested": true,
+  "scope": "Full actual-visible-control Count the Stars and Addition Adventure acceptance for three chapters, six normal questions and six lower-rated replay questions per chapter at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

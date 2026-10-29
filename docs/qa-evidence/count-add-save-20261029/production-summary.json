@@ -1,0 +1,1431 @@
+{
+  "passed": true,
+  "stage": "production",
+  "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+  "entry": "/assets/arcade-BQHHIXkm.js",
+  "worker": "amari-discovery-v52",
+  "at": "2026-10-29T18:24:25.947138+00:00",
+  "cases": [
+    {
+      "report": "production-count-add-1440x844-arcade-BQHHIXkm-20261029T182141-558204000.json",
+      "sha256": "940cc3a28b7b7fc2a8f3d64e3cc2cd6e957b9b77ea00aa132f098c313c2e6129",
+      "stage": "production",
+      "viewport": "1440x844",
+      "questions": 72,
+      "games": {
+        "count": {
+          "title": "Count the Stars",
+          "key": "amari_amari_count_the_stars_batch3_v1",
+          "rowCount": 36,
+          "savedProgress": {
+            "version": 1,
+            "unlockedEpisode": 2,
+            "completedEpisodeIds": [
+              "star-garden",
+              "constellation-workshop",
+              "galaxy-survey"
+            ],
+            "bestStars": {
+              "star-garden": 3,
+              "constellation-workshop": 3,
+              "galaxy-survey": 3
+            },
+            "earnedConstellationPageIds": [
+              "constellation-star-garden",
+              "constellation-workshop",
+              "galaxy-survey"
+            ],
+            "recentQuestionIds": {
+              "0": [
+                "comet-seeds:1:orbit",
+                "fireflies:5:grouped",
+                "comet-seeds:3:orbit",
+                "fireflies:1:grouped",
+                "tiny-planets:4:orbit",
+                "rocket-lights:1:grouped",
+                "moon-berries:5:grouped",
+                "comet-seeds:2:grouped"
+              ],
+              "1": [
+                "moon-rocks:9:orbit",
+                "moon-rocks:3:grouped",
+                "satellite-bolts:8:grouped",
+                "moon-rocks:6:grouped",
+                "star-clusters:2:orbit",
+                "meteor-trails:7:grouped",
+                "satellite-bolts:4:orbit",
+                "observatory-windows:5:orbit"
+              ],
+              "2": [
+                "constellation-maps:18:orbit",
+                "nebula-dots:9:grouped",
+                "crater-gems:6:orbit",
+                "satellite-panels:9:grouped",
+                "nebula-dots:12:grouped",
+                "planet-rings:17:orbit",
+                "planet-rings:2:grouped",
+                "constellation-maps:19:grouped"
+              ]
+            },
+            "rewardReceipts": [
+              {
+                "id": "star-garden:best:3",
+                "rewardDelta": 1,
+                "claimed": true
+              },
+              {
+                "id": "constellation-workshop:best:3",
+                "rewardDelta": 3,
+                "claimed": true
+              },
+              {
+                "id": "galaxy-survey:best:3",
+                "rewardDelta": 3,
+                "claimed": true
+              }
+            ]
+          },
+          "storage": {
+            "changed": [
+              "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+              "qa_rewards_20261024_amari_game_diagnostics_v1",
+              "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+              "qa_rewards_20261024_amari_learning_attempts_v1",
+              "qa_rewards_20261024_amari_skill_mastery_v1"
+            ],
+            "unexpected": [],
+            "unchanged": [
+              "amari-sound-on",
+              "qa_rewards_20261024_amari_addition_progress_v1",
+              "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+              "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+              "qa_rewards_20261024_amari_challenge_done",
+              "qa_rewards_20261024_amari_challenge_progress",
+              "qa_rewards_20261024_amari_chapter_badges_v1",
+              "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+              "qa_rewards_20261024_amari_chess_game_v1",
+              "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+              "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+              "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+              "qa_rewards_20261024_amari_cosmic_tactics_v1",
+              "qa_rewards_20261024_amari_curriculum_badges_v1",
+              "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_curriculum_preferences_v1",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_discovery_active_player",
+              "qa_rewards_20261024_amari_discovery_passport_v1",
+              "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+              "qa_rewards_20261024_amari_favourite_games",
+              "qa_rewards_20261024_amari_game_levels_v1",
+              "qa_rewards_20261024_amari_games_played",
+              "qa_rewards_20261024_amari_german_chapter_progress_v1",
+              "qa_rewards_20261024_amari_german_recent_targets_v1",
+              "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+              "qa_rewards_20261024_amari_lastplay",
+              "qa_rewards_20261024_amari_learning_migration_v1",
+              "qa_rewards_20261024_amari_letter_launch_progress_v1",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+              "qa_rewards_20261024_amari_letter_trace_progress_v1",
+              "qa_rewards_20261024_amari_little_progress",
+              "qa_rewards_20261024_amari_memory_best",
+              "qa_rewards_20261024_amari_memory_completion_v1",
+              "qa_rewards_20261024_amari_memory_passport_v1",
+              "qa_rewards_20261024_amari_memory_resume_v1",
+              "qa_rewards_20261024_amari_monster_math_progress_v1",
+              "qa_rewards_20261024_amari_numberline_progress_v1",
+              "qa_rewards_20261024_amari_oddoneout_progress_v1",
+              "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+              "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+              "qa_rewards_20261024_amari_points",
+              "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+              "qa_rewards_20261024_amari_recent_games",
+              "qa_rewards_20261024_amari_rewards_v2",
+              "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+              "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+              "qa_rewards_20261024_amari_spelling_progress_v1",
+              "qa_rewards_20261024_amari_spelling_recent_v1",
+              "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+              "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+              "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+              "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+              "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+              "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+              "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+              "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+              "qa_rewards_20261024_amari_storybook_progress_v1",
+              "qa_rewards_20261024_amari_streak",
+              "qa_rewards_20261024_amari_subtraction_progress_v1",
+              "qa_rewards_20261024_amari_timeteller_progress_v1",
+              "qa_rewards_20261024_amari_voice_mode_v4",
+              "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+              "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+              "qa_rewards_20261024_amari_writing_samples_v1",
+              "qa_rewards_20261024_askia_challenge_done",
+              "qa_rewards_20261024_askia_challenge_progress",
+              "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+              "qa_rewards_20261024_askia_favourite_games",
+              "qa_rewards_20261024_askia_games_played",
+              "qa_rewards_20261024_askia_lastplay",
+              "qa_rewards_20261024_askia_little_progress",
+              "qa_rewards_20261024_askia_points",
+              "qa_rewards_20261024_askia_recent_games",
+              "qa_rewards_20261024_askia_rewards_v2",
+              "qa_rewards_20261024_askia_streak",
+              "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+              "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+            ]
+          },
+          "rewards": {
+            "receiptCount": 3,
+            "receipts": [
+              {
+                "id": "star-garden:best:3",
+                "rewardDelta": 1,
+                "claimed": true,
+                "token": "dino:counting:star-garden:best:3"
+              },
+              {
+                "id": "constellation-workshop:best:3",
+                "rewardDelta": 3,
+                "claimed": true,
+                "token": "dino:counting:constellation-workshop:best:3"
+              },
+              {
+                "id": "galaxy-survey:best:3",
+                "rewardDelta": 3,
+                "claimed": true,
+                "token": "dino:counting:galaxy-survey:best:3"
+              }
+            ],
+            "beforePoints": 458,
+            "afterPoints": 458,
+            "changedTokens": [],
+            "newlyClaimed": []
+          }
+        },
+        "addition": {
+          "title": "Addition Adventure",
+          "key": "amari_addition_progress_v1",
+          "rowCount": 36,
+          "savedProgress": {
+            "version": 1,
+            "completedChapterIds": [
+              "groups",
+              "bonds",
+              "stories"
+            ],
+            "bestStars": {
+              "groups": 3,
+              "bonds": 3,
+              "stories": 3
+            },
+            "recentQuestionIds": {
+              "0": [
+                "groups:gem:8:2",
+                "groups:shell:4:5",
+                "groups:flower:7:0",
+                "groups:cookie:0:9",
+                "groups:flower:3:1",
+                "groups:gem:1:3",
+                "groups:cookie:2:1",
+                "groups:gem:4:3"
+              ],
+              "1": [
+                "bond:8:4",
+                "bond:19:7",
+                "bond:20:9",
+                "bond:18:8",
+                "bond:8:5",
+                "bond:12:10",
+                "bond:18:15",
+                "bond:17:17"
+              ],
+              "2": [
+                "story:0:1:0:11",
+                "story:5:5:3:14",
+                "story:3:4:5:10",
+                "story:4:4:5:5",
+                "story:0:4:7:9",
+                "story:4:2:15:2",
+                "story:0:2:3:13",
+                "story:2:0:9:1"
+              ]
+            },
+            "unlockedChapter": 2,
+            "rewardReceipts": {
+              "groups:best:3": {
+                "id": "groups:best:3",
+                "chapterId": "groups",
+                "bestStars": 3,
+                "rewardDelta": 3,
+                "claimed": true
+              },
+              "bonds:best:3": {
+                "id": "bonds:best:3",
+                "chapterId": "bonds",
+                "bestStars": 3,
+                "rewardDelta": 3,
+                "claimed": true
+              },
+              "stories:best:3": {
+                "id": "stories:best:3",
+                "chapterId": "stories",
+                "bestStars": 3,
+                "rewardDelta": 3,
+                "claimed": true
+              }
+            }
+          },
+          "storage": {
+            "changed": [
+              "qa_rewards_20261024_amari_addition_progress_v1",
+              "qa_rewards_20261024_amari_game_diagnostics_v1",
+              "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+              "qa_rewards_20261024_amari_learning_attempts_v1",
+              "qa_rewards_20261024_amari_skill_mastery_v1"
+            ],
+            "unexpected": [],
+            "unchanged": [
+              "amari-sound-on",
+              "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+              "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+              "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+              "qa_rewards_20261024_amari_challenge_done",
+              "qa_rewards_20261024_amari_challenge_progress",
+              "qa_rewards_20261024_amari_chapter_badges_v1",
+              "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+              "qa_rewards_20261024_amari_chess_game_v1",
+              "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+              "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+              "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+              "qa_rewards_20261024_amari_cosmic_tactics_v1",
+              "qa_rewards_20261024_amari_curriculum_badges_v1",
+              "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_curriculum_preferences_v1",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_discovery_active_player",
+              "qa_rewards_20261024_amari_discovery_passport_v1",
+              "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+              "qa_rewards_20261024_amari_favourite_games",
+              "qa_rewards_20261024_amari_game_levels_v1",
+              "qa_rewards_20261024_amari_games_played",
+              "qa_rewards_20261024_amari_german_chapter_progress_v1",
+              "qa_rewards_20261024_amari_german_recent_targets_v1",
+              "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+              "qa_rewards_20261024_amari_lastplay",
+              "qa_rewards_20261024_amari_learning_migration_v1",
+              "qa_rewards_20261024_amari_letter_launch_progress_v1",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+              "qa_rewards_20261024_amari_letter_trace_progress_v1",
+              "qa_rewards_20261024_amari_little_progress",
+              "qa_rewards_20261024_amari_memory_best",
+              "qa_rewards_20261024_amari_memory_completion_v1",
+              "qa_rewards_20261024_amari_memory_passport_v1",
+              "qa_rewards_20261024_amari_memory_resume_v1",
+              "qa_rewards_20261024_amari_monster_math_progress_v1",
+              "qa_rewards_20261024_amari_numberline_progress_v1",
+              "qa_rewards_20261024_amari_oddoneout_progress_v1",
+              "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+              "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+              "qa_rewards_20261024_amari_points",
+              "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+              "qa_rewards_20261024_amari_recent_games",
+              "qa_rewards_20261024_amari_rewards_v2",
+              "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+              "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+              "qa_rewards_20261024_amari_spelling_progress_v1",
+              "qa_rewards_20261024_amari_spelling_recent_v1",
+              "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+              "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+              "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+              "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+              "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+              "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+              "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+              "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+              "qa_rewards_20261024_amari_storybook_progress_v1",
+              "qa_rewards_20261024_amari_streak",
+              "qa_rewards_20261024_amari_subtraction_progress_v1",
+              "qa_rewards_20261024_amari_timeteller_progress_v1",
+              "qa_rewards_20261024_amari_voice_mode_v4",
+              "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+              "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+              "qa_rewards_20261024_amari_writing_samples_v1",
+              "qa_rewards_20261024_askia_challenge_done",
+              "qa_rewards_20261024_askia_challenge_progress",
+              "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+              "qa_rewards_20261024_askia_favourite_games",
+              "qa_rewards_20261024_askia_games_played",
+              "qa_rewards_20261024_askia_lastplay",
+              "qa_rewards_20261024_askia_little_progress",
+              "qa_rewards_20261024_askia_points",
+              "qa_rewards_20261024_askia_recent_games",
+              "qa_rewards_20261024_askia_rewards_v2",
+              "qa_rewards_20261024_askia_streak",
+              "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+              "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+            ]
+          },
+          "rewards": {
+            "receiptCount": 3,
+            "receipts": [
+              {
+                "id": "groups:best:3",
+                "rewardDelta": 3,
+                "claimed": true,
+                "token": "dino:addition:groups:best:3"
+              },
+              {
+                "id": "bonds:best:3",
+                "rewardDelta": 3,
+                "claimed": true,
+                "token": "dino:addition:bonds:best:3"
+              },
+              {
+                "id": "stories:best:3",
+                "rewardDelta": 3,
+                "claimed": true,
+                "token": "dino:addition:stories:best:3"
+              }
+            ],
+            "beforePoints": 458,
+            "afterPoints": 458,
+            "changedTokens": [],
+            "newlyClaimed": []
+          }
+        }
+      },
+      "faultCases": null,
+      "faultEligibility": {
+        "count": {
+          "completionChapter": null,
+          "material": []
+        },
+        "addition": {
+          "startChapter": 2,
+          "completionChapter": null,
+          "pendingReloadChapter": null,
+          "material": []
+        }
+      },
+      "reload": {
+        "countRawIdentical": true,
+        "additionRawIdentical": true,
+        "parentRawIdentical": true,
+        "countCompleted": [
+          "star-garden",
+          "constellation-workshop",
+          "galaxy-survey"
+        ],
+        "additionCompleted": [
+          "groups",
+          "bonds",
+          "stories"
+        ]
+      },
+      "controlAudit": {
+        "checked": 609,
+        "minimumWidth": 48,
+        "minimumHeight": 48,
+        "allCenterHits": true,
+        "allInsideViewport": true,
+        "labelCounts": {
+          "Choose Amari in the normal player picker": 1,
+          "Maths Missions world": 2,
+          "Count the Stars catalogue entry": 1,
+          "Open the secondary Count survey picker": 6,
+          "Select naturally unlocked Count survey Star Garden": 2,
+          "Start selected Count survey 1": 2,
+          "Count model board": 36,
+          "Count visible object 1": 36,
+          "Count visible object 2": 32,
+          "Select count from the rendered object model": 36,
+          "Replay visible counting explanation": 36,
+          "Advance after count explanation": 36,
+          "Count visible object 3": 28,
+          "Count visible object 4": 25,
+          "Count visible object 5": 20,
+          "Count completion map control": 3,
+          "Return to Count survey map": 3,
+          "Use visible count strategy clue": 3,
+          "Record a visible incorrect count before retry": 18,
+          "Use the visible recount recovery": 3,
+          "Recount visible object 1": 3,
+          "Recount visible object 2": 3,
+          "Recount visible object 3": 3,
+          "Return after lower Count replay": 3,
+          "Select naturally unlocked Count survey Constellation Workshop": 2,
+          "Start selected Count survey 2": 2,
+          "Count visible object 6": 17,
+          "Count visible object 7": 15,
+          "Count visible object 8": 13,
+          "Count visible object 9": 10,
+          "Recount visible object 4": 2,
+          "Recount visible object 5": 2,
+          "Recount visible object 6": 2,
+          "Recount visible object 7": 1,
+          "Recount visible object 8": 1,
+          "Select naturally unlocked Count survey Galaxy Survey": 2,
+          "Start selected Count survey 3": 2,
+          "Count visible object 10": 7,
+          "Count visible object 11": 6,
+          "Count visible object 12": 6,
+          "Count visible object 13": 5,
+          "Count visible object 14": 4,
+          "Count visible object 15": 4,
+          "Count visible object 16": 4,
+          "Count visible object 17": 3,
+          "Count visible object 18": 2,
+          "Count visible object 19": 1,
+          "Return to the normal world chooser": 1,
+          "Addition Adventure catalogue entry": 1,
+          "Open the secondary Addition chapter picker": 3,
+          "Select naturally unlocked Put Groups Together": 1,
+          "Start selected Addition chapter Put Groups Together": 1,
+          "Use visible addition clue": 3,
+          "Join the two visible addition groups": 2,
+          "Split the visible addition groups": 2,
+          "Record a visible incorrect addition answer before retry": 21,
+          "Choose answer from the visible arithmetic model": 36,
+          "Replay visible worked explanation": 36,
+          "Advance after held explanation": 30,
+          "Finish the six-question Addition result after its held explanation": 6,
+          "Replay Put Groups Together for lower-rating proof": 1,
+          "Continue after lower addition replay": 3,
+          "Select naturally unlocked Number Bonds": 2,
+          "Start selected Addition chapter Number Bonds": 1,
+          "Replay Number Bonds for lower-rating proof": 1,
+          "Select naturally unlocked Addition Stories": 2,
+          "Start selected Addition chapter Addition Stories": 1,
+          "Replay Addition Stories for lower-rating proof": 1
+        }
+      },
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "providerAttempts": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "providerAttempts": [],
+      "driverSHA256": "5cdbe9e4bb5fce187888fcbdab31c460714101b6c1ce5d3407aac9b08c7c2c36"
+    },
+    {
+      "report": "production-count-add-390x740-arcade-BQHHIXkm-20261029T182055-602862000.json",
+      "sha256": "6425928c82d000bc8ad96b319fe3048d6a374b97d5602cdf53ba73cd12ed695d",
+      "stage": "production",
+      "viewport": "390x740",
+      "questions": 72,
+      "games": {
+        "count": {
+          "title": "Count the Stars",
+          "key": "amari_amari_count_the_stars_batch3_v1",
+          "rowCount": 36,
+          "savedProgress": {
+            "version": 1,
+            "unlockedEpisode": 2,
+            "completedEpisodeIds": [
+              "star-garden",
+              "constellation-workshop",
+              "galaxy-survey"
+            ],
+            "bestStars": {
+              "star-garden": 3,
+              "constellation-workshop": 3,
+              "galaxy-survey": 3
+            },
+            "earnedConstellationPageIds": [
+              "constellation-star-garden",
+              "constellation-workshop",
+              "galaxy-survey"
+            ],
+            "recentQuestionIds": {
+              "0": [
+                "rocket-lights:1:orbit",
+                "tiny-planets:3:grouped",
+                "fireflies:1:grouped",
+                "comet-seeds:5:orbit",
+                "moon-berries:1:grouped",
+                "tiny-planets:4:grouped",
+                "fireflies:2:grouped",
+                "rocket-lights:3:orbit"
+              ],
+              "1": [
+                "observatory-windows:3:orbit",
+                "observatory-windows:9:grouped",
+                "moon-rocks:2:orbit",
+                "observatory-windows:6:orbit",
+                "satellite-bolts:1:grouped",
+                "satellite-bolts:9:grouped",
+                "meteor-trails:10:grouped",
+                "star-clusters:7:grouped"
+              ],
+              "2": [
+                "nebula-dots:10:grouped",
+                "satellite-panels:14:grouped",
+                "constellation-maps:11:orbit",
+                "nebula-dots:17:grouped",
+                "constellation-maps:16:grouped",
+                "planet-rings:14:orbit",
+                "satellite-panels:2:grouped",
+                "crater-gems:19:orbit"
+              ]
+            },
+            "rewardReceipts": [
+              {
+                "id": "star-garden:best:3",
+                "rewardDelta": 1,
+                "claimed": true
+              },
+              {
+                "id": "constellation-workshop:best:3",
+                "rewardDelta": 3,
+                "claimed": true
+              },
+              {
+                "id": "galaxy-survey:best:3",
+                "rewardDelta": 3,
+                "claimed": true
+              }
+            ]
+          },
+          "storage": {
+            "changed": [
+              "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+              "qa_rewards_20261024_amari_game_diagnostics_v1",
+              "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+              "qa_rewards_20261024_amari_games_played",
+              "qa_rewards_20261024_amari_learning_attempts_v1",
+              "qa_rewards_20261024_amari_points",
+              "qa_rewards_20261024_amari_rewards_v2",
+              "qa_rewards_20261024_amari_skill_mastery_v1"
+            ],
+            "unexpected": [],
+            "unchanged": [
+              "amari-sound-on",
+              "qa_rewards_20261024_amari_addition_progress_v1",
+              "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+              "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+              "qa_rewards_20261024_amari_challenge_done",
+              "qa_rewards_20261024_amari_challenge_progress",
+              "qa_rewards_20261024_amari_chapter_badges_v1",
+              "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+              "qa_rewards_20261024_amari_chess_game_v1",
+              "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+              "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+              "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+              "qa_rewards_20261024_amari_cosmic_tactics_v1",
+              "qa_rewards_20261024_amari_curriculum_badges_v1",
+              "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_curriculum_preferences_v1",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_discovery_active_player",
+              "qa_rewards_20261024_amari_discovery_passport_v1",
+              "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+              "qa_rewards_20261024_amari_favourite_games",
+              "qa_rewards_20261024_amari_game_levels_v1",
+              "qa_rewards_20261024_amari_german_chapter_progress_v1",
+              "qa_rewards_20261024_amari_german_recent_targets_v1",
+              "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+              "qa_rewards_20261024_amari_lastplay",
+              "qa_rewards_20261024_amari_learning_migration_v1",
+              "qa_rewards_20261024_amari_letter_launch_progress_v1",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+              "qa_rewards_20261024_amari_letter_trace_progress_v1",
+              "qa_rewards_20261024_amari_little_progress",
+              "qa_rewards_20261024_amari_memory_best",
+              "qa_rewards_20261024_amari_memory_completion_v1",
+              "qa_rewards_20261024_amari_memory_passport_v1",
+              "qa_rewards_20261024_amari_memory_resume_v1",
+              "qa_rewards_20261024_amari_monster_math_progress_v1",
+              "qa_rewards_20261024_amari_numberline_progress_v1",
+              "qa_rewards_20261024_amari_oddoneout_progress_v1",
+              "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+              "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+              "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+              "qa_rewards_20261024_amari_recent_games",
+              "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+              "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+              "qa_rewards_20261024_amari_spelling_progress_v1",
+              "qa_rewards_20261024_amari_spelling_recent_v1",
+              "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+              "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+              "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+              "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+              "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+              "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+              "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+              "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+              "qa_rewards_20261024_amari_storybook_progress_v1",
+              "qa_rewards_20261024_amari_streak",
+              "qa_rewards_20261024_amari_subtraction_progress_v1",
+              "qa_rewards_20261024_amari_timeteller_progress_v1",
+              "qa_rewards_20261024_amari_voice_mode_v4",
+              "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+              "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+              "qa_rewards_20261024_amari_writing_samples_v1",
+              "qa_rewards_20261024_askia_challenge_done",
+              "qa_rewards_20261024_askia_challenge_progress",
+              "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+              "qa_rewards_20261024_askia_favourite_games",
+              "qa_rewards_20261024_askia_games_played",
+              "qa_rewards_20261024_askia_lastplay",
+              "qa_rewards_20261024_askia_little_progress",
+              "qa_rewards_20261024_askia_points",
+              "qa_rewards_20261024_askia_recent_games",
+              "qa_rewards_20261024_askia_rewards_v2",
+              "qa_rewards_20261024_askia_streak",
+              "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+              "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+            ]
+          },
+          "rewards": {
+            "receiptCount": 3,
+            "receipts": [
+              {
+                "id": "star-garden:best:3",
+                "rewardDelta": 1,
+                "claimed": true,
+                "token": "dino:counting:star-garden:best:3"
+              },
+              {
+                "id": "constellation-workshop:best:3",
+                "rewardDelta": 3,
+                "claimed": true,
+                "token": "dino:counting:constellation-workshop:best:3"
+              },
+              {
+                "id": "galaxy-survey:best:3",
+                "rewardDelta": 3,
+                "claimed": true,
+                "token": "dino:counting:galaxy-survey:best:3"
+              }
+            ],
+            "beforePoints": 442,
+            "afterPoints": 449,
+            "changedTokens": [
+              "dino:counting:constellation-workshop:best:3",
+              "dino:counting:galaxy-survey:best:3",
+              "dino:counting:star-garden:best:3"
+            ],
+            "newlyClaimed": [
+              {
+                "token": "dino:counting:star-garden:best:3",
+                "from": 0,
+                "to": 1
+              },
+              {
+                "token": "dino:counting:constellation-workshop:best:3",
+                "from": 0,
+                "to": 3
+              },
+              {
+                "token": "dino:counting:galaxy-survey:best:3",
+                "from": 0,
+                "to": 3
+              }
+            ]
+          }
+        },
+        "addition": {
+          "title": "Addition Adventure",
+          "key": "amari_addition_progress_v1",
+          "rowCount": 36,
+          "savedProgress": {
+            "version": 1,
+            "completedChapterIds": [
+              "groups",
+              "bonds",
+              "stories"
+            ],
+            "bestStars": {
+              "groups": 3,
+              "bonds": 3,
+              "stories": 3
+            },
+            "recentQuestionIds": {
+              "0": [
+                "groups:flower:2:6",
+                "groups:apple:7:0",
+                "groups:gem:1:6",
+                "groups:gem:9:0",
+                "groups:cookie:6:0",
+                "groups:star:0:10",
+                "groups:gem:1:5",
+                "groups:cookie:7:0"
+              ],
+              "1": [
+                "bond:10:5",
+                "bond:14:10",
+                "bond:16:0",
+                "bond:17:12",
+                "bond:13:6",
+                "bond:11:10",
+                "bond:6:3",
+                "bond:11:5"
+              ],
+              "2": [
+                "story:2:3:9:7",
+                "story:2:1:4:4",
+                "story:5:3:1:1",
+                "story:0:4:3:0",
+                "story:0:1:14:6",
+                "story:0:5:9:3",
+                "story:1:1:0:20",
+                "story:2:2:9:0"
+              ]
+            },
+            "unlockedChapter": 2,
+            "rewardReceipts": {
+              "groups:best:3": {
+                "id": "groups:best:3",
+                "chapterId": "groups",
+                "bestStars": 3,
+                "rewardDelta": 3,
+                "claimed": true
+              },
+              "bonds:best:3": {
+                "id": "bonds:best:3",
+                "chapterId": "bonds",
+                "bestStars": 3,
+                "rewardDelta": 3,
+                "claimed": true
+              },
+              "stories:best:3": {
+                "id": "stories:best:3",
+                "chapterId": "stories",
+                "bestStars": 3,
+                "rewardDelta": 3,
+                "claimed": true
+              }
+            }
+          },
+          "storage": {
+            "changed": [
+              "qa_rewards_20261024_amari_addition_progress_v1",
+              "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+              "qa_rewards_20261024_amari_game_diagnostics_v1",
+              "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+              "qa_rewards_20261024_amari_games_played",
+              "qa_rewards_20261024_amari_learning_attempts_v1",
+              "qa_rewards_20261024_amari_points",
+              "qa_rewards_20261024_amari_rewards_v2",
+              "qa_rewards_20261024_amari_skill_mastery_v1"
+            ],
+            "unexpected": [],
+            "unchanged": [
+              "amari-sound-on",
+              "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+              "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+              "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+              "qa_rewards_20261024_amari_challenge_done",
+              "qa_rewards_20261024_amari_challenge_progress",
+              "qa_rewards_20261024_amari_chapter_badges_v1",
+              "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+              "qa_rewards_20261024_amari_chess_game_v1",
+              "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+              "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+              "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+              "qa_rewards_20261024_amari_cosmic_tactics_v1",
+              "qa_rewards_20261024_amari_curriculum_badges_v1",
+              "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_curriculum_preferences_v1",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+              "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+              "qa_rewards_20261024_amari_discovery_active_player",
+              "qa_rewards_20261024_amari_discovery_passport_v1",
+              "qa_rewards_20261024_amari_favourite_games",
+              "qa_rewards_20261024_amari_game_levels_v1",
+              "qa_rewards_20261024_amari_german_chapter_progress_v1",
+              "qa_rewards_20261024_amari_german_recent_targets_v1",
+              "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+              "qa_rewards_20261024_amari_lastplay",
+              "qa_rewards_20261024_amari_learning_migration_v1",
+              "qa_rewards_20261024_amari_letter_launch_progress_v1",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+              "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+              "qa_rewards_20261024_amari_letter_trace_progress_v1",
+              "qa_rewards_20261024_amari_little_progress",
+              "qa_rewards_20261024_amari_memory_best",
+              "qa_rewards_20261024_amari_memory_completion_v1",
+              "qa_rewards_20261024_amari_memory_passport_v1",
+              "qa_rewards_20261024_amari_memory_resume_v1",
+              "qa_rewards_20261024_amari_monster_math_progress_v1",
+              "qa_rewards_20261024_amari_numberline_progress_v1",
+              "qa_rewards_20261024_amari_oddoneout_progress_v1",
+              "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+              "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+              "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+              "qa_rewards_20261024_amari_recent_games",
+              "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+              "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+              "qa_rewards_20261024_amari_spelling_progress_v1",
+              "qa_rewards_20261024_amari_spelling_recent_v1",
+              "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+              "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+              "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+              "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+              "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+              "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+              "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+              "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+              "qa_rewards_20261024_amari_storybook_progress_v1",
+              "qa_rewards_20261024_amari_streak",
+              "qa_rewards_20261024_amari_subtraction_progress_v1",
+              "qa_rewards_20261024_amari_timeteller_progress_v1",
+              "qa_rewards_20261024_amari_voice_mode_v4",
+              "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+              "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+              "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+              "qa_rewards_20261024_amari_writing_samples_v1",
+              "qa_rewards_20261024_askia_challenge_done",
+              "qa_rewards_20261024_askia_challenge_progress",
+              "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+              "qa_rewards_20261024_askia_favourite_games",
+              "qa_rewards_20261024_askia_games_played",
+              "qa_rewards_20261024_askia_lastplay",
+              "qa_rewards_20261024_askia_little_progress",
+              "qa_rewards_20261024_askia_points",
+              "qa_rewards_20261024_askia_recent_games",
+              "qa_rewards_20261024_askia_rewards_v2",
+              "qa_rewards_20261024_askia_streak",
+              "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+              "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+            ]
+          },
+          "rewards": {
+            "receiptCount": 3,
+            "receipts": [
+              {
+                "id": "groups:best:3",
+                "rewardDelta": 3,
+                "claimed": true,
+                "token": "dino:addition:groups:best:3"
+              },
+              {
+                "id": "bonds:best:3",
+                "rewardDelta": 3,
+                "claimed": true,
+                "token": "dino:addition:bonds:best:3"
+              },
+              {
+                "id": "stories:best:3",
+                "rewardDelta": 3,
+                "claimed": true,
+                "token": "dino:addition:stories:best:3"
+              }
+            ],
+            "beforePoints": 449,
+            "afterPoints": 458,
+            "changedTokens": [
+              "dino:addition:bonds:best:3",
+              "dino:addition:groups:best:3",
+              "dino:addition:stories:best:3"
+            ],
+            "newlyClaimed": [
+              {
+                "token": "dino:addition:groups:best:3",
+                "from": 0,
+                "to": 3
+              },
+              {
+                "token": "dino:addition:bonds:best:3",
+                "from": 0,
+                "to": 3
+              },
+              {
+                "token": "dino:addition:stories:best:3",
+                "from": 0,
+                "to": 3
+              }
+            ]
+          }
+        }
+      },
+      "faultCases": {
+        "countStartWrite": {
+          "restored": true,
+          "fired": true,
+          "didSet": false,
+          "mode": "write",
+          "key": "amari_amari_count_the_stars_batch3_v1",
+          "retriedSameQueue": true,
+          "visibleRun": {
+            "questionId": "tiny-planets:2:orbit",
+            "seed": "2149636694",
+            "episodeId": "star-garden"
+          },
+          "queueIds": [
+            "tiny-planets:5:grouped",
+            "rocket-lights:4:orbit",
+            "tiny-planets:2:orbit",
+            "fireflies:3:orbit",
+            "moon-berries:5:orbit",
+            "comet-seeds:4:grouped",
+            "rocket-lights:1:orbit",
+            "tiny-planets:3:grouped"
+          ]
+        },
+        "countCompletion": {
+          "boardIdentity": {
+            "episode": "star-garden",
+            "question": "tiny-planets:3:grouped",
+            "seed": "2149636694"
+          },
+          "retries": [
+            {
+              "stage": "local-write",
+              "restored": true,
+              "fired": true,
+              "didSet": false,
+              "mode": "write",
+              "key": "amari_amari_count_the_stars_batch3_v1"
+            },
+            {
+              "stage": "local-readback",
+              "restored": true,
+              "fired": true,
+              "didSet": true,
+              "mode": "readback",
+              "key": "amari_amari_count_the_stars_batch3_v1"
+            },
+            {
+              "stage": "parent-write",
+              "restored": true,
+              "fired": true,
+              "didSet": false,
+              "mode": "write",
+              "key": "amari_rewards_v2"
+            },
+            {
+              "stage": "parent-readback",
+              "restored": true,
+              "fired": true,
+              "didSet": true,
+              "mode": "readback",
+              "key": "amari_rewards_v2"
+            }
+          ],
+          "heldFact": true,
+          "pendingReloadRecovery": {
+            "receiptId": "star-garden:best:3",
+            "rewardDelta": 1,
+            "token": "dino:counting:star-garden:best:3",
+            "parentAmountBeforeReload": 1,
+            "parentAmountAfterReload": 1,
+            "pointsBeforeReload": 443,
+            "pointsAfterReload": 443,
+            "claimedAfterReload": true
+          }
+        },
+        "additionStartWrite": {
+          "restored": true,
+          "fired": true,
+          "didSet": false,
+          "mode": "write",
+          "key": "amari_addition_progress_v1",
+          "retriedSameQueue": true,
+          "visibleRun": {
+            "questionId": "groups:cookie:3:4",
+            "seed": "103755540"
+          },
+          "queueIds": [
+            "groups:cookie:1:5",
+            "groups:apple:4:5",
+            "groups:cookie:3:4",
+            "groups:star:3:6",
+            "groups:cookie:1:7",
+            "groups:flower:1:9",
+            "groups:flower:2:6",
+            "groups:apple:7:0"
+          ]
+        },
+        "additionCompletionChain": [
+          {
+            "stage": "local-write",
+            "restored": true,
+            "fired": true,
+            "didSet": false,
+            "mode": "write",
+            "key": "amari_addition_progress_v1"
+          },
+          {
+            "stage": "local-readback",
+            "restored": true,
+            "fired": true,
+            "didSet": true,
+            "mode": "readback",
+            "key": "amari_addition_progress_v1"
+          },
+          {
+            "stage": "parent-write",
+            "restored": true,
+            "fired": true,
+            "didSet": false,
+            "mode": "write",
+            "key": "amari_rewards_v2"
+          },
+          {
+            "stage": "parent-readback",
+            "restored": true,
+            "fired": true,
+            "didSet": true,
+            "mode": "readback",
+            "key": "amari_rewards_v2"
+          }
+        ],
+        "additionPendingReload": {
+          "stage": "pending-parent-write-reload",
+          "fault": {
+            "restored": true,
+            "fired": true,
+            "didSet": false,
+            "mode": "write",
+            "key": "amari_rewards_v2"
+          },
+          "receiptId": "bonds:best:3",
+          "rewardDelta": 3,
+          "token": "dino:addition:bonds:best:3",
+          "parentBefore": {
+            "points": 452,
+            "amount": 0
+          },
+          "parentAfterFault": {
+            "points": 452,
+            "amount": 0
+          },
+          "parentAfterReload": {
+            "points": 455,
+            "amount": 3
+          },
+          "claimedAfterReload": true
+        }
+      },
+      "faultEligibility": {
+        "count": {
+          "completionChapter": 0,
+          "material": [
+            {
+              "id": "star-garden",
+              "index": 0,
+              "oldStars": 2,
+              "completed": true
+            },
+            {
+              "id": "constellation-workshop",
+              "index": 1,
+              "oldStars": 0,
+              "completed": false
+            },
+            {
+              "id": "galaxy-survey",
+              "index": 2,
+              "oldStars": 0,
+              "completed": false
+            }
+          ]
+        },
+        "addition": {
+          "startChapter": 0,
+          "completionChapter": 0,
+          "pendingReloadChapter": 1,
+          "material": [
+            {
+              "id": "groups",
+              "index": 0,
+              "oldStars": 0,
+              "completed": false
+            },
+            {
+              "id": "bonds",
+              "index": 1,
+              "oldStars": 0,
+              "completed": false
+            },
+            {
+              "id": "stories",
+              "index": 2,
+              "oldStars": 0,
+              "completed": false
+            }
+          ]
+        }
+      },
+      "reload": {
+        "countRawIdentical": true,
+        "additionRawIdentical": true,
+        "parentRawIdentical": true,
+        "countCompleted": [
+          "star-garden",
+          "constellation-workshop",
+          "galaxy-survey"
+        ],
+        "additionCompleted": [
+          "groups",
+          "bonds",
+          "stories"
+        ]
+      },
+      "controlAudit": {
+        "checked": 624,
+        "minimumWidth": 48,
+        "minimumHeight": 48,
+        "allCenterHits": true,
+        "allInsideViewport": true,
+        "labelCounts": {
+          "Choose Amari in the normal player picker": 1,
+          "Maths Missions world": 2,
+          "Count the Stars catalogue entry": 1,
+          "Open the secondary Count survey picker": 6,
+          "Select naturally unlocked Count survey Star Garden": 2,
+          "Count same-queue survey start write fault": 1,
+          "Retry the same Count survey queue after write recovery": 1,
+          "Count model board": 36,
+          "Count visible object 1": 36,
+          "Count visible object 2": 31,
+          "Select count from the rendered object model": 35,
+          "Replay visible counting explanation": 35,
+          "Advance after count explanation": 35,
+          "Count visible object 3": 27,
+          "Count visible object 4": 23,
+          "Count visible object 5": 19,
+          "Count held survey result write fault": 1,
+          "Count held survey result readback fault": 1,
+          "Count parent reward write fault": 1,
+          "Count parent reward readback fault": 1,
+          "Start selected Count survey 1": 1,
+          "Use visible count strategy clue": 3,
+          "Record a visible incorrect count before retry": 18,
+          "Use the visible recount recovery": 3,
+          "Recount visible object 1": 3,
+          "Return after lower Count replay": 3,
+          "Select naturally unlocked Count survey Constellation Workshop": 2,
+          "Start selected Count survey 2": 2,
+          "Count visible object 6": 17,
+          "Count visible object 7": 15,
+          "Count visible object 8": 13,
+          "Count visible object 9": 12,
+          "Count completion map control": 2,
+          "Return to Count survey map": 2,
+          "Recount visible object 2": 2,
+          "Count visible object 10": 10,
+          "Select naturally unlocked Count survey Galaxy Survey": 2,
+          "Start selected Count survey 3": 2,
+          "Count visible object 11": 8,
+          "Count visible object 12": 7,
+          "Count visible object 13": 7,
+          "Count visible object 14": 7,
+          "Count visible object 15": 5,
+          "Count visible object 16": 5,
+          "Count visible object 17": 3,
+          "Count visible object 18": 2,
+          "Recount visible object 3": 1,
+          "Recount visible object 4": 1,
+          "Recount visible object 5": 1,
+          "Recount visible object 6": 1,
+          "Recount visible object 7": 1,
+          "Recount visible object 8": 1,
+          "Recount visible object 9": 1,
+          "Recount visible object 10": 1,
+          "Recount visible object 11": 1,
+          "Count visible object 19": 1,
+          "Return to the normal world chooser": 1,
+          "Addition Adventure catalogue entry": 1,
+          "Open the secondary Addition chapter picker": 4,
+          "Select naturally unlocked Put Groups Together": 1,
+          "Addition same-queue start write fault": 1,
+          "Retry the same Addition chapter queue after write recovery": 1,
+          "Use visible addition clue": 3,
+          "Join the two visible addition groups": 2,
+          "Split the visible addition groups": 2,
+          "Record a visible incorrect addition answer before retry": 21,
+          "Choose answer from the visible arithmetic model": 36,
+          "Replay visible worked explanation": 36,
+          "Advance after held explanation": 30,
+          "Addition held result write fault": 1,
+          "Held Addition explanation during save recovery": 1,
+          "Addition held result readback fault": 1,
+          "Addition parent reward write fault": 1,
+          "Addition parent reward readback fault": 1,
+          "Retry the same held Addition result after storage recovery": 1,
+          "Replay Put Groups Together for lower-rating proof": 1,
+          "Finish the six-question Addition result after its held explanation": 4,
+          "Continue after lower addition replay": 3,
+          "Select naturally unlocked Number Bonds": 3,
+          "Start selected Addition chapter Number Bonds": 1,
+          "Addition pending receipt parent write fault": 1,
+          "Replay Number Bonds from its intro after pending-receipt reload": 1,
+          "Select naturally unlocked Addition Stories": 2,
+          "Start selected Addition chapter Addition Stories": 1,
+          "Replay Addition Stories for lower-rating proof": 1
+        }
+      },
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "providerAttempts": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "providerAttempts": [],
+      "driverSHA256": "5cdbe9e4bb5fce187888fcbdab31c460714101b6c1ce5d3407aac9b08c7c2c36"
+    }
+  ],
+  "publicUrl": "https://dinospace.netlify.app",
+  "backendDeployment": "dpl_6wtPMCLZDRPBuVHj1MSuKXtdPkF3",
+  "netlifyGatewayDeploy": "6ae38e425a0e2655b35aa219",
+  "tests": {
+    "passed": 723,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2\u21923only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery.",
+  "newPaidCalls": 0,
+  "personalBooksRecovered": 0,
+  "evidence": {
+    "native-summary.json": "550d7b04ae55361d8c0cf02e1367804711a53596c2a949b432a03a327442141f",
+    "production-core.json": "e1cce44149e8e1fb569b5d0fd6c5649fa7f9f34c7e6268f7254d7bf9a2ec9017",
+    "published-identity.json": "0ba61ad152175d51700c8e6cdca153e58ee9413f99c034efbd1919fab9324777",
+    "cutover-retention.json": "de3aec55e039d7f2ae11a8bfc9c60179ded43cf8eb1754b084063ca1fac6a94a",
+    "retained-art-lineage.json": "495bb07e38ed470c2cfab4f742a43e093a7872f9bf0bd62ae3bd7941f67b4a90",
+    "worker-budget-review.json": "ecd4852f9646978fb59d06273097fe84f41d42fd5e1bbf0ec9d22b6758c2b6f5",
+    "known-failure.json": "3a79085b968ce42682a238f2b885963bd810ccf7dc1aea1e3acef92f54767eec"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "scope": "One first-survey question only; no full acceptance",
+  "entry": "/assets/arcade-1LvK62Py.js",
+  "modelCount": 1,
+  "audio": {
+    "checked": true,
+    "packaged": true,
+    "events": [
+      {
+        "src": "http://127.0.0.1:5180/audio/en/93fa9195-matilda.mp3",
+        "origin": "http://127.0.0.1:5180",
+        "pathname": "/audio/en/93fa9195-matilda.mp3",
+        "currentTime": 0.015817,
+        "duration": 1.996916,
+        "paused": false,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 1363.699999988079
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 1416.8999999761581
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 1419.300000011921
+          }
+        ],
+        "packaged": true
+      }
+    ]
+  },
+  "answered": true
+}

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+  "previousRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "unchangedPaths": [
+    "public/art",
+    "public/audio",
+    "public/storybooks"
+  ],
+  "verification": "Source-equal to prior served corpus; current model/art and packaged audio require actual-control verification. No repeat corpus downloads.",
+  "references": [
+    {
+      "path": "docs/qa-evidence/sky-monster-save-20261029/retained-art-lineage.json",
+      "sha256": "a306f21ded6634a39ffb6f6caf573ccc79107e28923e8b4823911402a534fa8c"
+    }
+  ]
+}

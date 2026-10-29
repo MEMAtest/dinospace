@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 15,
+  "activePair": 16,
   "pairs": [
     {
       "number": 1,
@@ -322,9 +322,29 @@
           "name": "Addition Adventure"
         }
       ],
+      "status": "live_verified",
+      "role": "Strict durable save/reward repair and current viewport integration",
+      "evidence": "docs/qa-evidence/count-add-save-20261029/README.md",
+      "openGates": [],
+      "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+      "verifiedAt": "2026-10-29T18:24:25.947138+00:00",
+      "production": "docs/qa-evidence/count-add-save-20261029/production-summary.json"
+    },
+    {
+      "number": 16,
+      "games": [
+        {
+          "id": "subtraction",
+          "name": "Subtraction Station"
+        },
+        {
+          "id": "numberline",
+          "name": "Number Line Jump"
+        }
+      ],
       "status": "in_progress",
       "role": "Strict durable save/reward repair and current viewport integration",
-      "evidence": "docs/qa-evidence/count-add-save-20261029/plan.md",
+      "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/plan.md",
       "openGates": [
         "Strict local/parent receipt recovery",
         "Full native+canonical affected mechanics both viewports"
@@ -377,12 +397,16 @@
     {
       "id": "counting",
       "name": "Count the Stars",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Fullnative/canonicalmechanicsandstrict-save/rewardrecoverypassedatbothviewports",
+      "integrationEvidence": "docs/qa-evidence/count-add-save-20261029/production-summary.json",
+      "integrationRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d"
     },
     {
       "id": "addition",
       "name": "Addition Adventure",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Fullnative/canonicalmechanicsandstrict-save/rewardrecoverypassedatbothviewports",
+      "integrationEvidence": "docs/qa-evidence/count-add-save-20261029/production-summary.json",
+      "integrationRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d"
     },
     {
       "id": "subtraction",

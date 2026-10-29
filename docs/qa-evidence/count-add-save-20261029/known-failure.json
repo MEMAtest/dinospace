@@ -1,0 +1,58 @@
+{
+  "at": "2026-10-29T17:52:02.954543+00:00",
+  "baselineRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "reports": [
+    {
+      "path": "docs/qa-evidence/final-integration-20261029/production-retained-390x740-20261029T174141-124467000.json",
+      "classification": "driver plus separately observed product layout",
+      "finding": "Old Count recipe reported no visible distractor; screenshot shows the huge scene with answer section below740. This does not prove missing options."
+    },
+    {
+      "path": "docs/qa-evidence/final-integration-20261029/production-retained-390x740-20261029T174232-4292000.json",
+      "classification": "product",
+      "finding": "Addition wrong retry/audio/correct answer reached held Next at y786\u2013842, beyond390x740 viewport."
+    }
+  ],
+  "scope": "Baseline failures remain failed; candidate full acceptance is pending.",
+  "candidateFindings": [
+    {
+      "report": "native-quick-count-390-r2.json",
+      "classification": "driver",
+      "finding": "Media observer installed before navigation was lost with old document; reinstall after navigation fixes observation. Instruction clip exists and subsequent playback advanced. No missing-recording product claim."
+    },
+    {
+      "report": "native-quick-count-390-r2-media-fixed.json",
+      "classification": "product",
+      "finding": "Count numeric answer y782\u2013846 exceeded390x740. Removed duplicate toolbar outside counting phase and compacted passive scene previews; R3first-question phonecheckpasses."
+    },
+    {
+      "report": "native-quick-addition-390-r3.json",
+      "classification": "driver",
+      "finding": "Promise from group aria-label getAttribute used as string; async await correction in narrow diagnostic passes actual hint/join-split/wrong/audio/Next."
+    },
+    {
+      "report": "native-count-add-390x740-arcade-1LvK62Py-20261029T180335-981832000.json",
+      "classification": "product",
+      "finding": "After6normalCountquestions, blockedlocalwrite correctlyheldfact butRetry y716\u2013764 clipped24px. R4hidesredundantstrategycopyoutsideactivecount; failedreportnotaccepted."
+    },
+    {
+      "report": "native-count-add-390x740-arcade-59oGv4DS-20261029T180611-585568000.json",
+      "classification": "product",
+      "finding": "Count36normal/lowerrowsandfault/reloadbranchescompleted; Additiongroupsnormal/replayandfaultchaincompleted, thenbond13heldNexty697\u2013753clipped13px. R5hidesredundantlockedbondcaption; overallreportremainsfailed."
+    },
+    {
+      "report": "native-count-add-390x740-arcade-DKBilamx-20261029T181040-470893000.json",
+      "classification": "driver",
+      "finding": "Passive emptyzero Additiongroupheight40wasincorrectlyjudgedas44touchcontrol. Interactivecontrolsremain44minimum; passivegroup boundsvalidated separately. Sourceunchanged; reportremainsfailed."
+    },
+    {
+      "report": "native-count-add-390x740-arcade-DKBilamx-20261029T181202-596508000.json",
+      "classification": "product",
+      "finding": "54rows: Countcomplete andAdditionfirstchapterpassed; bondfinalwritefailureheldworkbutRetryy767\u2013815off740. Duplicatequestionaudioandlongalertcopycompactedforthenextcandidate. Firstcompletionwriteblocked; report remainsfailed."
+    }
+  ],
+  "candidateSourceReview": {
+    "runtime": "5eef0f32a642e1076adf35aeef6a51d34301adce",
+    "finding": "Final Addition correct answer automatically left explanation; R2requires explicit Finish chapter. Candidate never published."
+  }
+}

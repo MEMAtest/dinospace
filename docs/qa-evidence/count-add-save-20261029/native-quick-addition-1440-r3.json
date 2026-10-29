@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "chapter": 1,
+  "index": 0,
+  "replay": false,
+  "scope": "One first-chapter question only; no full acceptance",
+  "entry": "/assets/arcade-1LvK62Py.js",
+  "prompt": "Put 4 apples and 1 apple together. How many altogether?",
+  "equation": "4 + 1 = ?",
+  "answerFromVisible": 5,
+  "audio": {
+    "checked": true,
+    "packaged": true,
+    "events": [
+      {
+        "src": "http://127.0.0.1:5180/audio/en/e560edb2-matilda.mp3",
+        "origin": "http://127.0.0.1:5180",
+        "pathname": "/audio/en/e560edb2-matilda.mp3",
+        "currentTime": 0.061758,
+        "duration": 1.068118,
+        "paused": false,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 1435.199999988079
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 1449.800000011921
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 1452
+          }
+        ],
+        "packaged": true
+      }
+    ]
+  },
+  "hint": true,
+  "joinSplit": true,
+  "wrongRetry": true,
+  "answered": true
+}

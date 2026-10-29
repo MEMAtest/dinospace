@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-29T18:14:58.766425+00:00",
+  "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+  "entry": "/assets/arcade-BQHHIXkm.js",
+  "worker": 52,
+  "tests": {
+    "passed": 723,
+    "failed": 0,
+    "skipped": 0
+  },
+  "lint": "Scoped changed source ESLint passed",
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "hashes": {
+    "src/App.jsx": "c35b5866947d90f5b25f96a2223746240184633c0306432da51ff98d12c87b1a",
+    "src/data/playerRewards.js": "8fe472893669cdbad29e41677951ff5eabccd06904e8147962df750764f441b6",
+    "src/data/countTheStarsProgress.js": "01f7608246634a8a160b906b6171e88373e200f66a620f325c6382d449f097b7",
+    "src/data/arithmeticProgress.js": "697a21ae88249b6971eedcf46b01c78d1c44cb75b6beef79fbddd29b498cc4dd",
+    "src/components/games/AmariCountTheStars.jsx": "f05fbc3f3f35f9b810e7d3651e5e9a2dcf39260554398a9793e54739cc9ccd09",
+    "src/components/games/AdditionAdventure.jsx": "42e2750c31c309566f4c00c5aec33f6683d50d0f113ca66a7a3dda121340aa94",
+    "src/discoveryPremium.css": "67fdc38b2a1a37c4bdaa4332126572ad78de8afb72a4a00422f58df3fd47dd4b",
+    "public/sw.js": "39b6ef4c1d1e0f045d3de3dac3b6b63cd5da698bf68cc78e449b2f4239e9a0a9"
+  },
+  "native": "Bothfullviewports72questionspassed; retainedCountfaultscope indexed separately",
+  "production": "Bothfullcanonicalviewports72questionsandcurrentCount/Addfaultrecoverypassed",
+  "preliminaryChecks": {
+    "native390": "First question both games passed; Addition wrong+hint+join/split/audio",
+    "native1440": "First question both games passed",
+    "scope": "Not full acceptance; canonical remains prior release"
+  },
+  "driverSHA256": "5cdbe9e4bb5fce187888fcbdab31c460714101b6c1ce5d3407aac9b08c7c2c36",
+  "runnerSHA256": "6f1640693a218edfc073a7b7240c387a4a8cd1e70272c4cc5f77baa18c57d60b",
+  "precache": {
+    "requests": 167,
+    "bytes": 29820884,
+    "requestCeiling": 168,
+    "byteCeiling": 41943040
+  },
+  "verifiedAt": "2026-10-29T18:24:25.947138+00:00"
+}

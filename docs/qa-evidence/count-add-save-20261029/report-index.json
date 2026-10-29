@@ -1,0 +1,77 @@
+{
+  "reports": [
+    {
+      "path": "native-count-add-1440x844-arcade-BQHHIXkm-20261029T181626-476144000.json",
+      "sha256": "2ab992af7c80db0e2d7400c6e25476b3db18f3024bbc99b9cc70e1b6c43b830f",
+      "passed": true,
+      "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+      "stage": "native",
+      "viewport": "1440x844",
+      "failure": null
+    },
+    {
+      "path": "native-count-add-390x740-arcade-1LvK62Py-20261029T180335-981832000.json",
+      "sha256": "35e42c960704ab239239b22639a8e350b3c41828f7521cd1f68907b0cb19d876",
+      "passed": false,
+      "runtime": "4afeb1cdfaaee01329165dc9bf3fdefe375825bd",
+      "stage": "native",
+      "viewport": "390x740",
+      "failure": "Count held survey result readback fault is not wholly inside the viewport: {\"text\":\"Retry saving survey\",\"rect\":{\"x\":64,\"y\":716,\"width\":262,\"height\":48,\"right\":326,\"bottom\":764},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}"
+    },
+    {
+      "path": "native-count-add-390x740-arcade-59oGv4DS-20261029T180611-585568000.json",
+      "sha256": "0063aab980a1fd454f2bd8640ae7bba4f03308e7a8ac2258e518457ec035970a",
+      "passed": false,
+      "runtime": "ac595fb3c0250c3af415b9b0643aaf98678ca808",
+      "stage": "native",
+      "viewport": "390x740",
+      "failure": "Advance after held explanation is not wholly inside the viewport: {\"text\":\"Next question\",\"rect\":{\"x\":35,\"y\":697,\"width\":320,\"height\":56,\"right\":355,\"bottom\":753},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"pointerEvents\":\"auto\"}"
+    },
+    {
+      "path": "native-count-add-390x740-arcade-BQHHIXkm-20261029T181457-657283000.json",
+      "sha256": "ca9c4083e3fb7ca04d7bdc3911011e3fd588c74004fec814aedf04a02686fc2c",
+      "passed": true,
+      "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+      "stage": "native",
+      "viewport": "390x740",
+      "failure": null
+    },
+    {
+      "path": "native-count-add-390x740-arcade-DKBilamx-20261029T181040-470893000.json",
+      "sha256": "f97632d184371ce323c92c4b2d790766dc0e4981f17711655ef08fa4abdf6c04",
+      "passed": false,
+      "runtime": "6677e1d353b74e773435c0e13297aeeee4588c68",
+      "stage": "native",
+      "viewport": "390x740",
+      "failure": "Visible addition object group is below 44px: {\"text\":\"First group, 0 stars\",\"rect\":{\"x\":35,\"y\":341,\"width\":145,\"height\":40,\"right\":180,\"bottom\":381},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"pointerEvents\":\"auto\"}"
+    },
+    {
+      "path": "native-count-add-390x740-arcade-DKBilamx-20261029T181202-596508000.json",
+      "sha256": "e7cb5d4f38b0f8845d53bee13baed7c8ef10e80a49b33768369682e7a3a751c2",
+      "passed": false,
+      "runtime": "6677e1d353b74e773435c0e13297aeeee4588c68",
+      "stage": "native",
+      "viewport": "390x740",
+      "failure": "Addition held result readback fault is not wholly inside the viewport: {\"text\":\"Retry saving this result\",\"rect\":{\"x\":90.390625,\"y\":767,\"width\":209.203125,\"height\":48,\"right\":299.59375,\"bottom\":815},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}"
+    },
+    {
+      "path": "production-count-add-1440x844-arcade-BQHHIXkm-20261029T182141-558204000.json",
+      "sha256": "940cc3a28b7b7fc2a8f3d64e3cc2cd6e957b9b77ea00aa132f098c313c2e6129",
+      "passed": true,
+      "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+      "stage": "production",
+      "viewport": "1440x844",
+      "failure": null
+    },
+    {
+      "path": "production-count-add-390x740-arcade-BQHHIXkm-20261029T182055-602862000.json",
+      "sha256": "6425928c82d000bc8ad96b319fe3048d6a374b97d5602cdf53ba73cd12ed695d",
+      "passed": true,
+      "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+      "stage": "production",
+      "viewport": "390x740",
+      "failure": null
+    }
+  ],
+  "failedReportsRetainFailedStatus": true
+}

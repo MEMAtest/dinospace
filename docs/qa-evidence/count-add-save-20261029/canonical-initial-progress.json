@@ -1,0 +1,60 @@
+{
+  "origin": "https://dinospace.netlify.app",
+  "entry": "/assets/arcade-CffuUT0f.js",
+  "namespaced": true,
+  "progress": {
+    "amari_amari_count_the_stars_batch3_v1": {
+      "version": 1,
+      "unlockedEpisode": 1,
+      "completedEpisodeIds": [
+        "star-garden"
+      ],
+      "bestStars": {
+        "star-garden": 2
+      },
+      "earnedConstellationPageIds": [
+        "constellation-star-garden"
+      ],
+      "recentQuestionIds": {
+        "0": [
+          "moon-berries:5:grouped",
+          "moon-berries:3:grouped",
+          "fireflies:1:orbit",
+          "moon-berries:3:orbit",
+          "tiny-planets:4:grouped",
+          "comet-seeds:2:grouped",
+          "tiny-planets:5:grouped",
+          "rocket-lights:4:orbit"
+        ],
+        "1": [
+          "moon-rocks:3:grouped",
+          "satellite-bolts:10:grouped",
+          "meteor-trails:8:grouped",
+          "satellite-bolts:2:orbit",
+          "observatory-windows:3:grouped",
+          "satellite-bolts:6:orbit",
+          "star-clusters:10:orbit",
+          "moon-rocks:9:grouped"
+        ]
+      }
+    },
+    "amari_addition_progress_v1": {
+      "version": 1,
+      "completedChapterIds": [],
+      "bestStars": {},
+      "recentQuestionIds": {
+        "0": [
+          "groups:gem:3:0",
+          "groups:gem:3:1",
+          "groups:cookie:5:4",
+          "groups:shell:2:6",
+          "groups:shell:1:0",
+          "groups:flower:0:10",
+          "groups:cookie:1:5",
+          "groups:apple:4:5"
+        ]
+      },
+      "unlockedChapter": 0
+    }
+  }
+}
