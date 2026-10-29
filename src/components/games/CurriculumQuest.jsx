@@ -311,7 +311,7 @@ const ExplorerWords = ({ module, soundOn, onLaunchGame }) => <details className=
   </div>
 </details>;
 
-const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, playerId, initialModule }) => {
+const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, onPhaseChange, playerId, initialModule }) => {
   const [moduleId, setModuleId] = useState(() => initialCurriculumModule(initialModule, playerId));
   const stagePickerRef = useRef(null);
   const badgeCache = useRef(new Map());
@@ -469,6 +469,12 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
     }
     setReadySessionKey(sessionKey);
   }, [difficulty, moduleId, playerId, rounds, resetRound, holdSaveFailure]);
+
+  useEffect(() => {
+    const sessionKey = `${playerId || 'amari'}:${moduleId}:${difficulty}`;
+    if (readySessionKey !== sessionKey) return;
+    onPhaseChange?.(queueComplete ? 'finish' : lessonOpen ? 'start' : 'play');
+  }, [difficulty, lessonOpen, moduleId, onPhaseChange, playerId, queueComplete, readySessionKey]);
 
   useEffect(() => {
     const preferenceState = inspectCurriculumPreferences(curriculumStorage(), playerId);
