@@ -142,6 +142,8 @@ export const letterLaunchPromptFor = (round) => round.kind === 'case-match'
       ? `Listen to ${round.target.word.toLowerCase()}. Tap the letter for its first sound${FIRST_SOUND_GRAPHEMES[round.target.letter] ? `, written ${FIRST_SOUND_GRAPHEMES[round.target.letter]}` : ''}.`
       : `Which sound starts ${round.target.word}? Say the word slowly, then choose its first sound.`;
 export const letterLaunchNextSoundPrompt = (grapheme) => {
+  // The final tile consumes the last sound; there is no next cue to play.
+  if (typeof grapheme !== 'string' || !grapheme) return '';
   const example = FIRST_SOUND_EXAMPLES[grapheme.toUpperCase()];
   return example ? `The next sound is the first sound in ${example[0].toLowerCase()}.` : '';
 };

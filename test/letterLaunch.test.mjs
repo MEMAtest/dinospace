@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildLetterLaunchRound, CASE_CONFUSABLES, letterLaunchClueCaption, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, letterLaunchTargetForPlayer, letterLaunchRandomFor, LETTER_LAUNCH_PROMPT_CORPUS } from '../src/data/letterLaunch.js';
+import { letterLaunchNextSoundPrompt, buildLetterLaunchRound, CASE_CONFUSABLES, letterLaunchClueCaption, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, letterLaunchTargetForPlayer, letterLaunchRandomFor, LETTER_LAUNCH_PROMPT_CORPUS } from '../src/data/letterLaunch.js';
 import { getTaughtGraphemes, LITERACY_PROFILE_KEY, PHASE_WORDS } from '../src/data/literacy.js';
 import { SESSION_LEVELS } from '../src/data/sessionLevels.js';
 import { getOfflineVoiceClip } from '../src/data/offlineVoice.js';
@@ -202,4 +202,9 @@ test('offline voice corpus contains every reachable round prompt and next CVC so
     }
   }
   assert.ok(LETTER_LAUNCH_PROMPT_CORPUS.every((prompt) => !prompt.includes('/')), 'spoken prompts use modeled words, not IPA slashes');
+});
+
+test('a completed sound-tile word has no next-sound cue and does not crash', () => {
+  for (const completed of [undefined, null, '']) assert.equal(letterLaunchNextSoundPrompt(completed), '');
+  assert.equal(typeof letterLaunchNextSoundPrompt('s'), 'string');
 });
