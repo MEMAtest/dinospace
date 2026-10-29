@@ -8,6 +8,11 @@
 .dino-jigsaw-tray{border:5px solid #e8ad5c;background:linear-gradient(130deg,#fff0beee,#d99a59ee);box-shadow:0 7px 0 #9c5529,0 14px 22px #713f2255}
 .dino-jigsaw-tray [data-piece]{box-shadow:0 6px 0 #ad7c47,0 10px 16px #54301f66}
 .dino-jigsaw-preview{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border:6px solid #fff;border-radius:1.5rem;box-shadow:0 12px 22px #422d3066}
+[data-little-game="dinojigsaw"] .pair-compact-start-hero,
+[data-little-game="dinojigsaw"] .pair-compact-review-art{display:flex;justify-content:center;flex-shrink:0}
+[data-little-game="dinojigsaw"] .pair-compact-review-art{height:min(32vh,16rem)}
+[data-little-game="dinojigsaw"] .pair-compact-start-hero>.dino-jigsaw-preview,
+[data-little-game="dinojigsaw"] .pair-compact-review-art>.dino-jigsaw-preview{height:100%;width:auto;max-width:100%;flex:none}
 .dino-jigsaw-task{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 8px;margin:0 0 9px;padding:12px 14px;border:2px solid #f9d783;border-radius:16px;background:#fffdf3;color:#49301a;line-height:1.35;text-align:center;box-shadow:0 4px 0 #aa702f}
 .dino-jigsaw-task strong{font-size:1.2rem;color:#462313}
 .dino-jigsaw-round-meta{align-self:center;white-space:nowrap;font-size:.85rem;font-weight:850}

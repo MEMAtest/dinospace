@@ -8,6 +8,7 @@ import {
   completeChessGameMatch, markChessGameRewardClaimed, pendingChessGameRewards,
   readChessGameProgress, saveChessGameMatch,
 } from '../../data/chessGameProgress.js';
+import { drainChessRewardReceipts } from '../../data/chessRewardRecovery.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
 import './chessGame.css';
 
@@ -63,16 +64,21 @@ export default function ChessGame({
   const [moveListOpen, setMoveListOpen] = useState(false);
   const [confirmNew, setConfirmNew] = useState(false);
   const [finished, setFinished] = useState(false);
+  const [loadRevision, setLoadRevision] = useState(0);
   const gameRef = useRef(createChessGame());
   const matchRef = useRef(null);
+  const progressRef = useRef(null);
+  const loadedPlayerRef = useRef(null);
+  const onCelebrateRef = useRef(onCelebrate);
+  onCelebrateRef.current = onCelebrate;
   const expectedRef = useRef(null);
   const pendingRef = useRef(null);
   const workerRef = useRef(null);
   const workerRequestRef = useRef(null);
   const generationRef = useRef(0);
   const busyRef = useRef(false);
-  const claimInFlightRef = useRef(new Set());
-  const recoveredPlayerRef = useRef(null);
+  const claimInFlightRef = useRef(new Map());
+  const recoveryRunRef = useRef(0);
   const squareRefs = useRef(new Map());
   const [renderedMatch, setRenderedMatch] = useState(null);
   const currentGame = gameRef.current;
@@ -92,17 +98,20 @@ export default function ChessGame({
   }, []);
 
   const load = useCallback(() => {
+    recoveryRunRef.current += 1;
+    loadedPlayerRef.current = null;
     stopComputer();
     pendingRef.current = null;
     setConflictError(false); setComputerError(false);
-    recoveredPlayerRef.current = null;
     const result = readChessGameProgress(playerId);
     if (!result.ok) {
       setLoadError(result.error || 'Saved chess data could not be read.');
+      progressRef.current = null;
       setProgress(null);
       return false;
     }
     setLoadError('');
+    progressRef.current = result.progress;
     setProgress(result.progress);
     matchRef.current = result.progress.match;
     expectedRef.current = result.progress.match;
@@ -126,18 +135,21 @@ export default function ChessGame({
       setFinished(false);
       setMode('setup');
     }
+    loadedPlayerRef.current = playerId;
+    setLoadRevision((revision) => revision + 1);
     return true;
   }, [playerId, stopComputer]);
 
   useEffect(() => { load(); return () => stopComputer(false); }, [load, stopComputer]);
 
   const claimReceipt = useCallback(async (receipt, quiet = false) => {
-    if (!receipt || receipt.rewardDelta <= 0 || claimInFlightRef.current.has(receipt.id)) return true;
-    claimInFlightRef.current.add(receipt.id);
-    try {
+    if (!receipt || receipt.rewardDelta <= 0) return true;
+    const existing = claimInFlightRef.current.get(receipt.id);
+    if (existing) return existing;
+    const operation = Promise.resolve().then(async () => {
       let claim;
       try {
-        claim = onCelebrate(
+        claim = onCelebrateRef.current(
           quiet ? 'Chess game reward recovered.' : 'Chess game complete!',
           4, 0, 'chess', { quiet, rewardToken: rewardClaimToken('chess', receipt.id) },
         );
@@ -145,33 +157,44 @@ export default function ChessGame({
       if (!claim || claim.persisted !== true) return false;
       const saved = markChessGameRewardClaimed(playerId, receipt.id);
       if (!saved.ok) return false;
+      progressRef.current = saved.progress;
       setProgress(saved.progress);
       matchRef.current = saved.progress.match;
       setRenderedMatch(saved.progress.match);
       return true;
-    } finally {
-      claimInFlightRef.current.delete(receipt.id);
+    });
+    claimInFlightRef.current.set(receipt.id, operation);
+    try { return await operation; }
+    finally { if (claimInFlightRef.current.get(receipt.id) === operation) claimInFlightRef.current.delete(receipt.id); }
+  }, [playerId]);
+
+  const drainPendingRewards = useCallback(async (quiet, isCurrent = () => true) => {
+    const result = await drainChessRewardReceipts({
+      getPendingReceipts: () => pendingChessGameRewards(progressRef.current),
+      claimReceipt: async (receipt) => ({ ok: await claimReceipt(receipt, quiet) }),
+      isCurrent,
+    });
+    if (!result.ok && !result.cancelled && result.receipt) {
+      pendingRef.current = { kind: 'parent', receipt: result.receipt, input: null };
+      setFinished(Boolean(matchRef.current?.result));
+      setMode(matchRef.current ? 'playing' : 'complete');
+      setMessage(quiet
+        ? 'A saved game reward still needs to be confirmed. Retry it on the result screen.'
+        : 'The reward is still waiting to be confirmed. Retry when ready.');
     }
-  }, [onCelebrate, playerId]);
+    return result;
+  }, [claimReceipt]);
 
   useEffect(() => {
-    if (!progress || recoveredPlayerRef.current === playerId) return;
-    recoveredPlayerRef.current = playerId;
-    let cancelled = false;
-    const recover = async () => {
-      for (const receipt of pendingChessGameRewards(progress)) {
-        if (cancelled) return;
-        const ok = await claimReceipt(receipt, true);
-        if (!ok && !cancelled) {
-          pendingRef.current = { kind: 'parent', receipt, input: null };
-          setFinished(true); setMode(matchRef.current ? 'playing' : 'complete');
-          setMessage('A saved game reward still needs to be confirmed. Retry it on the result screen.');
-        }
-      }
+    if (!loadRevision || loadedPlayerRef.current !== playerId || !progressRef.current) return undefined;
+    const runId = ++recoveryRunRef.current;
+    let active = true;
+    drainPendingRewards(true, () => active && recoveryRunRef.current === runId);
+    return () => {
+      active = false;
+      if (recoveryRunRef.current === runId) recoveryRunRef.current += 1;
     };
-    recover();
-    return () => { cancelled = true; };
-  }, [claimReceipt, progress, playerId]);
+  }, [drainPendingRewards, loadRevision, playerId]);
 
   const publishGame = (game, nextMatch = matchRef.current) => {
     gameRef.current = game;
@@ -201,6 +224,7 @@ export default function ChessGame({
       setFinished(false);
       return false;
     }
+    progressRef.current = result.progress;
     setProgress(result.progress);
     matchRef.current = result.progress.match;
     expectedRef.current = result.progress.match;
@@ -244,6 +268,7 @@ export default function ChessGame({
     }
     matchRef.current = result.progress.match;
     expectedRef.current = result.progress.match;
+    progressRef.current = result.progress;
     setProgress(result.progress);
     setRenderedMatch(result.progress.match);
     pendingRef.current = null;
@@ -262,9 +287,8 @@ export default function ChessGame({
     try {
       if (pending.kind === 'finish') { await claimFinished(pending.input); return; }
       if (pending.kind === 'parent') {
-        const ok = await claimReceipt(pending.receipt, false);
-        if (ok) { pendingRef.current = null; setMessage(matchRef.current?.status.message || 'Reward confirmed.'); }
-        else setMessage('The reward is still waiting to be confirmed. Retry when ready.');
+        const outcome = await drainPendingRewards(false);
+        if (outcome.ok) { pendingRef.current = null; setMessage(matchRef.current?.status.message || 'Reward confirmed.'); }
         return;
       }
       if (pending.kind === 'board') {
@@ -273,6 +297,7 @@ export default function ChessGame({
         pendingRef.current = null;
         matchRef.current = result.progress.match;
         expectedRef.current = result.progress.match;
+        progressRef.current = result.progress;
         setProgress(result.progress);
         setRenderedMatch(result.progress.match);
         if (getChessStatus(gameRef.current).gameOver) { await claimFinished(pending.input); return; }
@@ -327,7 +352,7 @@ export default function ChessGame({
       }
       expectedRef.current = result.progress.match;
       matchRef.current = result.progress.match;
-      setProgress(result.progress); setRenderedMatch(result.progress.match);
+      progressRef.current = result.progress; setProgress(result.progress); setRenderedMatch(result.progress.match);
       setComputerError(false); setMode('playing'); setMessage(getChessStatus(latest.game).message);
     };
     worker.onerror = () => {
@@ -359,11 +384,14 @@ export default function ChessGame({
 
   const resume = () => {
     if (!matchRef.current || matchRef.current.result) return;
-    const restored = restoreChessGame(matchRef.current);
+    const savedMatch = matchRef.current;
+    const restored = restoreChessGame(savedMatch);
     if (!restored.ok) { setLoadError(restored.error); return; }
-    publishGame(restored.game, matchRef.current);
+    setDifficulty(savedMatch.difficulty);
+    setHumanColor(savedMatch.humanColor);
+    publishGame(restored.game, savedMatch);
     setMode('playing'); setFinished(false);
-    if (restored.game.turn() !== colorCode(matchRef.current.humanColor)) requestComputer(restored.game, matchRef.current);
+    if (restored.game.turn() !== colorCode(savedMatch.humanColor)) requestComputer(restored.game, savedMatch);
     else setMessage('Your turn. Choose a piece, then a highlighted legal square.');
   };
 

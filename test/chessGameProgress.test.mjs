@@ -9,6 +9,7 @@ import {
   readChessGameProgress,
   saveChessGameMatch,
 } from '../src/data/chessGameProgress.js';
+import { drainChessRewardReceipts } from '../src/data/chessRewardRecovery.js';
 
 const makeStore = (initial = {}) => {
   const values = new Map(Object.entries(initial));
@@ -213,4 +214,65 @@ test('failed write preserves original bytes and does not claim saved completion'
   assert.equal(result.ok, false);
   assert.equal(result.progress.match.result, null);
   assert.equal(base.raw(key), original);
+});
+
+function createThreePendingReceipts() {
+  const storage = makeStore();
+  for (const difficulty of ['beginner', 'growing', 'challenge']) {
+    const id = `pending-${difficulty}`;
+    saveFoolsMateStart(storage, id, difficulty);
+    const completed = completeChessGameMatch('amari', makeMatch(finishFoolsMate(), id, difficulty, { finishedAt: 100 }), storage);
+    assert.equal(completed.ok, true);
+    assert.equal(completed.receipt.parentClaimed, false);
+  }
+  return storage;
+}
+
+test('async recovery drains three pending receipts while each durable progress update is published', async () => {
+  const storage = createThreePendingReceipts();
+  let latest = readChessGameProgress('amari', storage).progress;
+  const calls = [];
+  const result = await drainChessRewardReceipts({
+    getPendingReceipts: () => pendingChessGameRewards(latest),
+    claimReceipt: async (receipt) => {
+      await new Promise((resolve) => setImmediate(resolve));
+      calls.push(receipt.id);
+      const saved = markChessGameRewardClaimed('amari', receipt.id, storage);
+      if (saved.ok) latest = saved.progress;
+      return { ok: saved.ok, error: saved.error };
+    },
+  });
+
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.claimedIds, ['pending-beginner', 'pending-growing', 'pending-challenge']);
+  assert.deepEqual(calls, result.claimedIds);
+  assert.equal(pendingChessGameRewards(latest).length, 0);
+  assert.ok(latest.completionReceipts.every((receipt) => receipt.parentClaimed));
+});
+
+test('failed recovery leaves the current and later receipts pending for Retry to drain', async () => {
+  const storage = createThreePendingReceipts();
+  let latest = readChessGameProgress('amari', storage).progress;
+  let shouldFailGrowing = true;
+  const claim = async (receipt) => {
+    await new Promise((resolve) => setImmediate(resolve));
+    if (receipt.id === 'pending-growing' && shouldFailGrowing) {
+      shouldFailGrowing = false;
+      return { ok: false, error: 'temporary parent write failure' };
+    }
+    const saved = markChessGameRewardClaimed('amari', receipt.id, storage);
+    if (saved.ok) latest = saved.progress;
+    return { ok: saved.ok, error: saved.error };
+  };
+  const getPendingReceipts = () => pendingChessGameRewards(latest);
+
+  const first = await drainChessRewardReceipts({ getPendingReceipts, claimReceipt: claim });
+  assert.equal(first.ok, false);
+  assert.equal(first.receipt.id, 'pending-growing');
+  assert.deepEqual(getPendingReceipts().map(({ id }) => id), ['pending-growing', 'pending-challenge']);
+
+  const retry = await drainChessRewardReceipts({ getPendingReceipts, claimReceipt: claim });
+  assert.equal(retry.ok, true);
+  assert.deepEqual(retry.claimedIds, ['pending-growing', 'pending-challenge']);
+  assert.equal(getPendingReceipts().length, 0);
 });
