@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Home, Lightbulb, RotateCcw, ShieldCheck, Sparkles, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import DinoIcon from '../shared/DinoIcon.jsx';
@@ -15,6 +15,7 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
   const [recentWords, setRecentWords] = useState(() => progress.recentWordsByLevel[progress.currentLevel] || []);
   const [phase, setPhase] = useState('intro');
   const [selectedLevel, setSelectedLevel] = useState(() => progress.currentLevel);
+  useLayoutEffect(() => { window.scrollTo(0, 0); }, [phase, selectedLevel]);
   const [runSeed, setRunSeed] = useState(() => makeHangmanSeed());
   const [wordIndex, setWordIndex] = useState(0);
   const [round, setRound] = useState(freshRound);
@@ -272,7 +273,7 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
               const levelWords = poolForLevel(index);
               const isUnlocked = unlocked(index);
               const isCompleted = completed(index);
-              return <button key={item.id} type="button" disabled={!isUnlocked || levelWords.length < item.target} onClick={() => setSelectedLevel(index)} aria-pressed={selectedLevel === index} className={`min-h-28 rounded-2xl border p-4 text-left transition ${selectedLevel === index ? 'border-fuchsia-200 bg-fuchsia-300/20 ring-2 ring-fuchsia-200' : isUnlocked ? 'border-white/20 bg-black/15 hover:bg-white/10' : 'cursor-not-allowed border-white/10 bg-black/20 opacity-55'}`}>
+              return <button key={item.id} type="button" disabled={!isUnlocked || levelWords.length < item.target} onClick={() => { setSelectedLevel(index); window.scrollTo(0, 0); }} aria-pressed={selectedLevel === index} className={`min-h-28 rounded-2xl border p-4 text-left transition ${selectedLevel === index ? 'border-fuchsia-200 bg-fuchsia-300/20 ring-2 ring-fuchsia-200' : isUnlocked ? 'border-white/20 bg-black/15 hover:bg-white/10' : 'cursor-not-allowed border-white/10 bg-black/20 opacity-55'}`}>
                 <span className="flex items-center justify-between gap-2"><strong className="text-lg">{index + 1}. {item.name}</strong><span>{isCompleted ? '✓ Complete' : isUnlocked ? 'Unlocked' : '🔒 Locked'}</span></span>
                 <span className="mt-1 block font-bold text-cyan-100">{item.lengthLabel} · rescue {item.target}</span>
                 <span className="mt-1 block text-sm text-white/75">{levelWords.length < item.target ? 'Choose more taught sounds to build this word pool.' : item.description}</span>
