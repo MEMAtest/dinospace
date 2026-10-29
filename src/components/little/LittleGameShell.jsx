@@ -212,7 +212,7 @@ const LittleGameShell = ({
         setPairSaveWarning('Saved Shadow Match rewards could not be checked. Retry before playing another level.');
         return false;
       }
-      setLevel(loaded.level);
+      setLevel((selectedLevel) => Math.max(minimumPairLevel, Math.min(selectedLevel, loaded.level)));
       setHighestLevel(loaded.level);
       for (const receipt of loaded.receipts) {
         if (!await claimShadowReceipt(receipt)) return false;
@@ -223,7 +223,7 @@ const LittleGameShell = ({
       shadowDrainBusyRef.current = false;
       setShadowRewardPending(false);
     }
-  }, [bigKid, claimShadowReceipt, gameId, pairSafeProgress, playerId]);
+  }, [bigKid, claimShadowReceipt, gameId, minimumPairLevel, pairSafeProgress, playerId]);
 
   useEffect(() => {
     if (pairSafeProgress && gameId === 'shadowmatch') void drainShadowReceipts();
