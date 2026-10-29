@@ -55,6 +55,10 @@ export default function ChessGame({
   const [humanColor, setHumanColor] = useState('white');
   const [, setBoardVersion] = useState(0);
   const [selected, setSelected] = useState(null);
+  const [dragging, setDragging] = useState(null);
+  const pointerRef = useRef(null);
+  const suppressClickRef = useRef(false);
+  const clickTimerRef = useRef(null);
   const [promotionFrom, setPromotionFrom] = useState(null);
   const [message, setMessage] = useState('Choose a side and difficulty, then start a game.');
   const [saving, setSaving] = useState(false);
@@ -401,6 +405,18 @@ export default function ChessGame({
   const legalTargets = new Map(legalFromSelected.map((move) => [move.to, move]));
   const isHumanPiece = (piece) => piece && piece.color === colorCode(humanColor);
 
+  const moveHumanPiece = (from, to) => {
+    if (!humanTurn || busyRef.current || !isHumanPiece(currentGame.get(from))) return;
+    const moves = legalMovesFrom(currentGame, from).filter((move) => move.to === to);
+    if (moves.length && moves.some((move) => move.promotion)) { setPromotionFrom({ from, to }); return; }
+    if (moves.length) {
+      const candidate = restoreChessGame(serializeChessGame(currentGame)).game;
+      candidate.move({ from, to });
+      persistBoard(candidate, 'advance', expectedRef.current, candidate.isGameOver() ? null : 'computer');
+      playSfx('chess-move');
+    } else setMessage('That move is not legal. The board stays ready for another try.');
+  };
+
   const chooseSquare = (square) => {
     if (!humanTurn || busyRef.current) return;
     const piece = currentGame.get(square);
@@ -410,19 +426,46 @@ export default function ChessGame({
       return;
     }
     if (square === selected) { setSelected(null); return; }
-    const moves = legalMovesFrom(currentGame, selected).filter((move) => move.to === square);
-    if (moves.length && moves.some((move) => move.promotion)) { setPromotionFrom({ from: selected, to: square }); return; }
-    if (moves.length) {
-      const candidate = restoreChessGame(serializeChessGame(currentGame)).game;
-      candidate.move({ from: selected, to: square });
-      const continuation = candidate.isGameOver() ? null : 'computer';
-      persistBoard(candidate, 'advance', expectedRef.current, continuation);
-      playSfx('chess-move');
-      return;
-    }
-    if (isHumanPiece(piece)) setSelected(square);
-    else setMessage('That move is not legal. The board stays ready for another try.');
+    if (isHumanPiece(piece)) { setSelected(square); return; }
+    moveHumanPiece(selected, square);
   };
+
+  const beginPointer = (event, square) => {
+    if (!humanTurn || busyRef.current || event.button !== 0 || event.isPrimary === false || !isHumanPiece(currentGame.get(square))) return;
+    suppressClickRef.current = false;
+    if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
+    pointerRef.current = { id: event.pointerId, from: square, x: event.clientX, y: event.clientY, size: event.currentTarget.getBoundingClientRect().width, moved: false };
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+  };
+  const movePointer = (event) => {
+    const pointer = pointerRef.current;
+    if (!pointer || pointer.id !== event.pointerId) return;
+    if (!pointer.moved && Math.hypot(event.clientX - pointer.x, event.clientY - pointer.y) < 6) return;
+    event.preventDefault();
+    pointer.moved = true;
+    setSelected(pointer.from);
+    setDragging({ from: pointer.from, x: event.clientX, y: event.clientY, size: pointer.size });
+  };
+  const finishPointer = (event, cancelled = false) => {
+    const pointer = pointerRef.current;
+    if (!pointer || pointer.id !== event.pointerId) return;
+    pointerRef.current = null;
+    setDragging(null);
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+    if (!pointer.moved) return;
+    event.preventDefault();
+    suppressClickRef.current = true;
+    clickTimerRef.current = setTimeout(() => { suppressClickRef.current = false; }, 0);
+    const target = cancelled ? null : document.elementFromPoint(event.clientX, event.clientY)?.closest('[data-chess-square]');
+    const to = target?.getAttribute('data-chess-square');
+    if (to && to !== pointer.from) moveHumanPiece(pointer.from, to);
+    else setMessage('Move cancelled. Your board has not changed.');
+  };
+
+  useEffect(() => {
+    if (mode !== 'playing' || thinking || saving || finished) { pointerRef.current = null; setDragging(null); }
+  }, [mode, thinking, saving, finished]);
+  useEffect(() => () => { if (clickTimerRef.current) clearTimeout(clickTimerRef.current); pointerRef.current = null; }, []);
 
   const promote = (promotion) => {
     if (!promotionFrom) return;
@@ -466,7 +509,7 @@ export default function ChessGame({
       {confirmNew && <div className="chess-confirm" role="alertdialog" aria-labelledby="chess-new-title"><h2 id="chess-new-title">Start a new game?</h2><p>This replaces the currently saved board. Its completed rewards stay saved.</p><div><button className="chess-full-button" onClick={() => setConfirmNew(false)}>Keep saved game</button><button className="chess-full-primary" onClick={() => startNew(true)}>Start new game</button></div></div>}
       <button className="chess-full-primary" disabled={saving || Boolean(loadError)} onClick={() => startNew(false)}>{matchRef.current ? 'New game' : 'Start game'}</button>
       {pendingError && <div role="alert" className="chess-save-error"><p>{message}</p><button className="chess-full-primary" disabled={saving} onClick={retryPending}>Retry save</button></div>}
-      <details className="chess-howto"><summary><ChevronDown size={18} /> How to play</summary><p>Tap one of your pieces, then choose a highlighted square. The board marks your last move, checks, legal moves and captures. Castling, en passant, promotion, checkmate and draws follow standard chess rules.</p></details>
+      <details className="chess-howto"><summary><ChevronDown size={18} /> How to play</summary><p>Drag one of your pieces to a highlighted square, or tap the piece and then its destination. The board marks your last move, checks, legal moves and captures. Castling, en passant, promotion, checkmate and draws follow standard chess rules.</p></details>
     </section>
   </main>;
 
@@ -474,6 +517,7 @@ export default function ChessGame({
     <header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer<span className="chess-header-level">{DIFFICULTY_LABELS[match?.difficulty || difficulty]}</span></h1>{soundControl}</header>
     <section className="chess-match-layout" aria-label="Chess match">
       <div className="chess-match-status"><strong>{status.gameOver ? status.message : thinking ? 'Computer thinking…' : `${colorName(currentSnapshot.turn)} to move${status.inCheck ? ' · Check!' : ''}`}</strong><span>You are {colorName(colorCode(humanColor))} · Computer is {colorName(humanColor === 'white' ? 'b' : 'w')}</span></div>
+      {!status.gameOver && <p className="chess-move-instruction">Drag a piece, or tap it then tap a highlighted square.</p>}
       <div className="chess-board-frame">
         <div className="chess-play-board" role="grid" aria-label={`Chess board. ${colorName(colorCode(humanColor))} at bottom`}>
           {squareOrder.map(({ square, piece }, index) => {
@@ -483,14 +527,14 @@ export default function ChessGame({
             const isCheck = checkSquare === square;
             const isLight = ((square.charCodeAt(0) - 97) + Number(square[1])) % 2 === 0;
             const label = `${square}, ${piece ? `${colorName(piece.color)} ${piece.name}` : 'empty square'}${legalMove ? legalMove.captured ? ', legal capture' : ', legal move' : ''}${isSelected ? ', selected' : ''}${isLast ? ', last move' : ''}${isCheck ? ', king in check' : ''}`;
-            return <button key={square} ref={(node) => node ? squareRefs.current.set(square, node) : squareRefs.current.delete(square)} type="button" role="gridcell" tabIndex={index === 0 ? 0 : undefined} aria-label={label} aria-selected={isSelected} disabled={!humanTurn} onClick={() => chooseSquare(square)} onKeyDown={(event) => {
+            return <button key={square} ref={(node) => node ? squareRefs.current.set(square, node) : squareRefs.current.delete(square)} type="button" role="gridcell" tabIndex={index === 0 ? 0 : undefined} aria-label={label} aria-selected={isSelected} disabled={!humanTurn} data-chess-square={square} onPointerDown={(event) => beginPointer(event, square)} onPointerMove={movePointer} onPointerUp={(event) => finishPointer(event)} onPointerCancel={(event) => finishPointer(event, true)} onLostPointerCapture={(event) => { if (pointerRef.current?.id === event.pointerId) finishPointer(event, true); }} onClick={(event) => { if (event.detail > 0 && suppressClickRef.current) { suppressClickRef.current = false; return; } chooseSquare(square); }} onKeyDown={(event) => {
               const whiteBottom = humanColor === 'white';
               const deltas = { ArrowUp: [0, whiteBottom ? 1 : -1], ArrowDown: [0, whiteBottom ? -1 : 1], ArrowLeft: [whiteBottom ? -1 : 1, 0], ArrowRight: [whiteBottom ? 1 : -1, 0] };
               const delta = deltas[event.key]; if (!delta) return;
               event.preventDefault();
               const file = square.charCodeAt(0) - 97 + delta[0], rank = Number(square[1]) + delta[1];
               if (file >= 0 && file < 8 && rank >= 1 && rank <= 8) squareRefs.current.get(`${String.fromCharCode(97 + file)}${rank}`)?.focus();
-            }} className={`chess-play-square ${isLight ? 'chess-play-square--light' : 'chess-play-square--dark'} ${isLast ? 'chess-play-square--last' : ''} ${isSelected ? 'chess-play-square--selected' : ''} ${isCheck ? 'chess-play-square--check' : ''} ${legalMove ? legalMove.captured ? 'chess-play-square--capture' : 'chess-play-square--legal' : ''}`}>
+            }} className={`chess-play-square ${isLight ? 'chess-play-square--light' : 'chess-play-square--dark'} ${isLast ? 'chess-play-square--last' : ''} ${isSelected ? 'chess-play-square--selected' : ''} ${dragging?.from === square ? 'chess-play-square--dragging' : ''} ${isCheck ? 'chess-play-square--check' : ''} ${legalMove ? legalMove.captured ? 'chess-play-square--capture' : 'chess-play-square--legal' : ''}`}>
               {(square[0] === (humanColor === 'white' ? 'a' : 'h') || square[1] === (humanColor === 'white' ? '1' : '8')) && <span className="chess-play-coordinate">{square}</span>}
               {legalMove && <span className={`chess-play-target ${legalMove.captured ? 'chess-play-target--capture' : ''}`} aria-hidden="true" />}
               <PieceMark piece={piece} />
@@ -507,6 +551,7 @@ export default function ChessGame({
         {moveListOpen && <ol className="chess-move-list" aria-label="Saved move history">{currentSnapshot.history.map((move, index) => <li key={`${move.from}-${move.to}-${index}`}>{formatMove(move, index)}</li>)}</ol>}
       </div>
     </section>
+    {dragging && <div className="chess-drag-piece" aria-hidden="true" style={{ left: dragging.x - dragging.size / 2, top: dragging.y - dragging.size / 2, width: dragging.size, height: dragging.size }}><PieceMark piece={currentGame.get(dragging.from)} /></div>}
     {promotionFrom && <div className="chess-promotion-backdrop"><section className="chess-promotion-dialog" role="dialog" aria-modal="true" aria-labelledby="chess-promote-title"><h2 id="chess-promote-title">Choose your promotion</h2><p>Your pawn reached the last rank. Pick what it becomes.</p><div className="chess-promotion-options">{['q', 'r', 'b', 'n'].map((piece) => <button key={piece} className="chess-promotion-choice" onClick={() => promote(piece)} aria-label={`Promote to ${CHESS_PIECE_NAMES[piece]}`}><PieceMark piece={{ color: colorCode(humanColor), type: piece }} /><span>{CHESS_PIECE_NAMES[piece]}</span></button>)}</div><button className="chess-full-button" onClick={() => setPromotionFrom(null)}>Cancel</button></section></div>}
   </main>;
 }
