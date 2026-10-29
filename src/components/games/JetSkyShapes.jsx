@@ -587,7 +587,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
               <summary className="flex min-h-12 cursor-pointer items-center justify-center px-3 text-sm font-black text-sky-900">Choose another sky</summary>
               <div className="grid gap-2 p-2 sm:grid-cols-3">
                 {SKY_SHAPE_EPISODES.map((entry, index) => (
-                  <SkyShapeEpisodeCard key={entry.id} episode={entry} index={index} progress={progress} confirmedEpisodeIds={confirmedEpisodeIds} selected={episodeIndex === index} disabled={!progressState.ok || index > progress.unlockedEpisode || rewardBusy || pendingSkyShapesRewards(progressState.progress).length > 0} onSelect={() => setEpisodeIndex(index)} />
+                  <SkyShapeEpisodeCard key={entry.id} episode={entry} index={index} progress={progress} confirmedEpisodeIds={confirmedEpisodeIds} selected={episodeIndex === index} disabled={!progressState.ok || index > progress.unlockedEpisode || rewardBusy || pendingSkyShapesRewards(progressState.progress).length > 0} onSelect={(event) => { setEpisodeIndex(index); event.currentTarget.closest('details')?.removeAttribute('open'); window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }} />
                 ))}
               </div>
             </details>
