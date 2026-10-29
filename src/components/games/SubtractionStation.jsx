@@ -340,8 +340,8 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     if (question.type === 'compare') {
       const paired = Math.min(question.a, question.b);
       const pairCount = Math.max(question.a, question.b);
-      return <div className="mx-auto max-w-md rounded-2xl border-2 border-violet-200 bg-white p-2 sm:p-3">
-        <p className="mb-1 text-xs font-black sm:text-sm">Blue = Group A; gold = Group B. Outlined counters are unpaired.</p>
+      return <div className="mx-auto max-w-md rounded-2xl border-2 border-violet-200 bg-white p-1.5 sm:p-3">
+        <p className="mb-0.5 whitespace-nowrap text-[11px] font-black sm:mb-1 sm:text-sm">Blue = Group A · Gold = Group B · outlined = unpaired</p>
         <div className="mx-auto grid max-w-[380px] grid-cols-4 gap-1 sm:max-w-sm sm:gap-2" role="group" aria-label={`Aligned pairs: Group A has ${question.a}; Group B has ${question.b}`}>
           {pairCount === 0 ? <p className="col-span-4 rounded-xl bg-slate-50 p-2 text-center text-sm font-bold">Both groups are empty. There are 0 unpaired.</p> : Array.from({ length: pairCount }, (_, index) => <div key={index} aria-label={`Pair position ${index + 1}`} className="flex min-h-10 items-center justify-center gap-0.5 rounded-lg border border-slate-200 bg-slate-50 p-1 sm:min-h-12 sm:gap-1 sm:rounded-xl sm:p-2">
             <span aria-label={index < question.a ? `Group A counter ${index + 1}${index < paired ? ', paired' : ', unpaired'}` : 'No Group A counter'} className={`flex h-7 w-7 items-center justify-center rounded-md ${index < question.a ? 'bg-sky-100' : 'bg-white'} ${index >= paired && index < question.a ? 'ring-2 ring-amber-500' : ''}`}>{index < question.a ? <span className={`h-5 w-5 rounded-full ${colorClass.blue}`} /> : <span aria-hidden="true" className="text-slate-300">·</span>}</span>
@@ -349,7 +349,6 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
             <span aria-label={index < question.b ? `Group B counter ${index + 1}${index < paired ? ', paired' : ', unpaired'}` : 'No Group B counter'} className={`flex h-7 w-7 items-center justify-center rounded-md ${index < question.b ? 'bg-amber-100' : 'bg-white'} ${index >= paired && index < question.b ? 'ring-2 ring-amber-500' : ''}`}>{index < question.b ? <span className={`h-5 w-5 rounded-full ${colorClass.gold}`} /> : <span aria-hidden="true" className="text-slate-300">·</span>}</span>
           </div>)}
         </div>
-        <p className="mt-2 rounded-xl bg-violet-50 p-2 text-sm font-bold">{question.a === question.b ? `Same number: ${locked ? '0 unpaired.' : 'How many are unpaired?'}` : `Unpaired difference: ${locked ? question.answer : '?'}`}</p>
       </div>;
     }
     const selected = new Set(removedTokens);
@@ -395,9 +394,9 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     : `${question?.a} − ${question?.b} = ${locked ? question?.answer : '?'}`;
   return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6" data-subtraction-phase="play" data-subtraction-question={question?.id} data-subtraction-run-seed={seed}>
     <header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-2 shadow sm:p-3"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex+1} of 3 · Question {roundIndex+1} of 6</p><h1 className="text-lg font-black sm:text-3xl">Subtraction Station</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>
-    <main className="mx-auto mt-3 max-w-4xl rounded-3xl bg-white/90 p-3 text-center shadow-xl sm:mt-4 sm:p-6">
-      <p className="mb-2 text-lg font-bold" aria-live="polite">{question?.prompt}</p>
-      {question?.type === 'compare' && <p className="mb-2 text-xl font-black" aria-label={`Difference model: ${equation}`}>{equation}</p>}
+    <main className="mx-auto mt-2 max-w-4xl rounded-3xl bg-white/90 p-2 text-center shadow-xl sm:mt-4 sm:p-6">
+      <p className="mb-1 text-base font-bold leading-5 sm:mb-2 sm:text-lg sm:leading-normal" aria-live="polite">{question?.prompt}</p>
+      {question?.type === 'compare' && !locked && <p className="mb-1 text-xl font-black sm:mb-2" aria-label={`Difference model: ${equation}`}>{equation}</p>}
       {!locked && <div className="mx-auto mb-2 flex flex-wrap justify-center gap-2" role="group" aria-label="Question tools"><button className="inline-flex min-h-12 items-center gap-1 rounded-xl bg-violet-100 px-3 text-sm font-black sm:gap-2 sm:px-4 sm:text-base" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button><button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-1 rounded-xl border-2 border-amber-500 bg-amber-50 px-3 text-sm font-black disabled:opacity-50 sm:gap-2 sm:px-4 sm:text-base"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button></div>}
       {model}
       {feedback&&<p role="status" className="mx-auto my-2 max-w-2xl rounded-xl bg-violet-50 p-2 font-bold">{feedback}</p>}
