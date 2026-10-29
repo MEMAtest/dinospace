@@ -47,6 +47,8 @@
 @media(max-width:680px){
   .fact-finder{padding:10px 10px 24px}
   .fact-finder-header{gap:8px;margin-bottom:12px}
+  .fact-finder.is-reading .fact-finder-kicker,.fact-finder.is-reading .fact-finder-intro{display:none}
+  .fact-finder.is-reading .fact-finder-header h1{font-size:1.6rem}
   .fact-finder-back{padding:0 10px}
   .fact-finder-browser{padding:12px;border-radius:20px}
   .fact-finder-categories{gap:6px}

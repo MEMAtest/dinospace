@@ -98,7 +98,7 @@ export default function FactFinder({ onBack, onLaunchGame, soundOn = true, onTog
     });
   };
 
-  return <main className="fact-finder">
+  return <main className={`fact-finder${visibleSelection ? ' is-reading' : ''}`}>
     <header className="fact-finder-header">
       {selectedId
         ? <button type="button" className="fact-finder-back" onClick={backToTopics} aria-label="Back to topics"><ArrowLeft aria-hidden="true" /> <span>Topics</span></button>
