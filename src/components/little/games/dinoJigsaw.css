@@ -44,3 +44,10 @@
  [data-little-game="dinojigsaw"]>header{gap:6px;padding:4px 8px!important}
  [data-little-game="dinojigsaw"]>header>button{width:48px;height:48px}
 }
+
+@media(max-width:560px){
+ .dino-jigsaw-task{grid-template-columns:1fr;gap:2px}
+ .dino-jigsaw-task strong{font-size:.95rem;line-height:1.2}
+ .dino-jigsaw-task .dino-jigsaw-round-meta{font-size:.72rem;line-height:1.2}
+ .dino-jigsaw-task .dino-jigsaw-instruction{font-size:.8rem;line-height:1.2}
+}

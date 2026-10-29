@@ -6,7 +6,7 @@ import { Dino } from '../DinoArt.jsx';
 import { useRoundHint } from '../useRoundHint.js';
 import { pointInRect, shuffled, shuffledOutOfOrder } from '../littleKit.js';
 import { DINO_NAMES, JIGSAW_SCENES, LITTLE_LINES } from '../../../data/littleGames.js';
-import { jigsawCompletionCredit, jigsawGuideMode, jigsawPlacementIsCorrect, jigsawReviewLine, jigsawTaskLine } from '../../../data/dinoJigsawProgression.js';
+import { jigsawAllowsAutomaticHint, jigsawCompletionCredit, jigsawGuideMode, jigsawPlacementIsCorrect, jigsawReviewLine, jigsawTaskLine } from '../../../data/dinoJigsawProgression.js';
 import jungleArt from '../../../assets/little/bg-dino.webp';
 import trexArt from '../../../assets/little/detective-trex.webp';
 import brontoArt from '../../../assets/little/detective-bronto.webp';
@@ -46,7 +46,8 @@ const JigsawRound = ({ scene, grid: [cols, rows], complete, mistake, speak, play
   const nextPiece = tray[0];
   const guideMode = jigsawGuideMode(level);
   const hintPiece = selected ?? nextPiece;
-  const autoHintVisible = !solved && hint.showHint && hintPiece != null;
+  const automaticHintAllowed = jigsawAllowsAutomaticHint(level);
+  const autoHintVisible = automaticHintAllowed && !solved && hint.showHint && hintPiece != null;
 
   useEffect(() => {
     speak?.(firstRound ? LITTLE_LINES.jigsawIntro : scene.prompt);
@@ -105,12 +106,12 @@ const JigsawRound = ({ scene, grid: [cols, rows], complete, mistake, speak, play
 
   const slotAt = (point) => slotRefs.current.findIndex((el) => el && pointInRect(point, el.getBoundingClientRect(), 6));
   const trayCols = pieces.length <= 2 ? 2 : pieces.length <= 6 ? 3 : 4;
-  const glowSlot = hint.strongHint && !solved ? hintPiece : null;
+  const glowSlot = automaticHintAllowed && hint.strongHint && !solved ? hintPiece : null;
 
   return (
     <div className={`dino-jigsaw-stage mx-auto flex w-full max-w-3xl flex-1 flex-col items-center gap-4 px-3 pb-6 lg:max-w-5xl lg:flex-row lg:items-start ${bigKid ? 'text-lg' : ''}`}>
       <div className={`dino-jigsaw-board-column relative w-full ${bigKid ? 'max-w-xl' : 'max-w-lg'} overflow-visible lg:flex-1`}>
-        <div className="dino-jigsaw-task" aria-live="polite"><strong>{jigsawTaskLine(scene)}</strong><span className="dino-jigsaw-round-meta">Round {round + 1}/{rounds} · {cols * rows} pieces</span><span className="dino-jigsaw-instruction">Choose a piece, then its matching space, or drag it.</span></div>
+        <div className="dino-jigsaw-task" aria-live="polite"><strong>{jigsawTaskLine(scene)}</strong><span className="dino-jigsaw-round-meta">Round {round + 1}/{rounds} · {cols * rows} pieces</span><span className="dino-jigsaw-instruction">Choose a piece, then its matching space.</span></div>
         <div className="dino-jigsaw-board-controls"><p className="dino-jigsaw-progress" aria-live="polite">{placed.length} of {cols * rows} in place</p>
         {guideMode === 'on-demand' && <button type="button" className="dino-jigsaw-clue-toggle" aria-expanded={showPictureClue} onClick={() => { const next = !showPictureClue; setShowPictureClue(next); if (next) usedPictureClue.current = true; }}>{showPictureClue ? 'Hide picture clue' : 'Show picture clue'}</button>}</div>
         <div className={`dino-jigsaw-board relative overflow-hidden rounded-[1.6rem] border-[9px] border-amber-700 bg-white/60 shadow-2xl ${solved ? 'ring-8 ring-amber-300' : ''}`} style={{ aspectRatio: '4 / 3' }}>

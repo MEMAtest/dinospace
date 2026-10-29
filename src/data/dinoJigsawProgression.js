@@ -9,8 +9,9 @@ export const jigsawPieceCount = (grid) => (
 );
 
 export const jigsawGuideMode = (level) => (level <= 0 ? 'full' : 'on-demand');
+export const jigsawAllowsAutomaticHint = (level) => level < 2;
 
-export const jigsawTaskLine = (scene) => `Build the ${DINO_NAMES[scene?.dino] || 'dinosaur'} picture.`;
+export const jigsawTaskLine = (scene) => `Build the ${DINO_NAMES[scene?.dino] || 'dinosaur'}.`;
 
 export const jigsawReviewLine = (scene) => `You matched each piece to its space by looking for picture parts that fit together. This is the ${DINO_NAMES[scene?.dino] || 'dinosaur'} picture.`;
 

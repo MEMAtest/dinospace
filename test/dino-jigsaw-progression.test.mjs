@@ -30,9 +30,9 @@ test('later levels use six distinct authored dinosaur scene targets and switch t
 
 test('task and held review name the picture without asserting unsupported dinosaur facts', () => {
   const pterodactyl = JIGSAW_SCENES.find(({ dino }) => dino === 'ptero');
-  assert.equal(jigsawTaskLine(pterodactyl), 'Build the Pterodactyl picture.');
+  assert.equal(jigsawTaskLine(pterodactyl), 'Build the Pterodactyl.');
   assert.equal(jigsawReviewLine(pterodactyl), 'You matched each piece to its space by looking for picture parts that fit together. This is the Pterodactyl picture.');
-  assert.equal(jigsawTaskLine(null), 'Build the dinosaur picture.');
+  assert.equal(jigsawTaskLine(null), 'Build the dinosaur.');
 });
 
 test('wrong placements remain retryable; hints are reflected in round-credit flags', () => {
@@ -47,4 +47,12 @@ test('wrong placements remain retryable; hints are reflected in round-credit fla
   assert.deepEqual(jigsawCompletionCredit({ starterGuideShown: true }), { firstAttempt: false, independent: false, hints: 1 });
   assert.deepEqual(jigsawCompletionCredit({ wrongAttempts: 1, usedAutoHint: true, starterGuideShown: true }), { firstAttempt: false, independent: false, hints: 2 });
   assert.deepEqual(jigsawCompletionCredit({ usedPictureClue: true, usedAutoHint: true }), { firstAttempt: false, independent: false, hints: 2 });
+});
+
+
+test('eight- and twelve-piece stages wait for requested help instead of automatically revealing placements', async () => {
+  const { jigsawAllowsAutomaticHint } = await import('../src/data/dinoJigsawProgression.js');
+  assert.equal(jigsawAllowsAutomaticHint(0), true);
+  assert.equal(jigsawAllowsAutomaticHint(1), true);
+  for (const level of [2,3,4]) assert.equal(jigsawAllowsAutomaticHint(level), false);
 });
