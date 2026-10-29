@@ -36,14 +36,14 @@
 @media(max-width:1023px){.dino-jigsaw-picture-clue{width:min(100%,210px)}.dino-jigsaw-feedback{width:100%;border-radius:16px}}
 @media(max-width:560px){
  .dino-jigsaw-stage{gap:4px!important;padding:0 4px 4px!important}
- .dino-jigsaw-board-column,.dino-jigsaw-tray{max-width:272px!important}
+ .dino-jigsaw-board-column,.dino-jigsaw-tray{max-width:264px!important}
  .dino-jigsaw-task{gap:2px 6px;margin-bottom:4px;padding:7px 8px;border-radius:12px;line-height:1.2}
  .dino-jigsaw-task strong{font-size:1rem}
  .dino-jigsaw-round-meta{font-size:.72rem}
  .dino-jigsaw-instruction{font-size:.8rem}
- .dino-jigsaw-board-controls{gap:6px;margin-bottom:4px}
- .dino-jigsaw-progress{padding:5px 8px;font-size:.84rem}
- .dino-jigsaw-clue-toggle{min-height:44px;margin:0;padding:6px 10px;font-size:.84rem;box-shadow:0 2px 0 #9a5724}
+ .dino-jigsaw-board-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px;margin-bottom:4px}
+ .dino-jigsaw-progress{padding:5px 6px;font-size:.76rem;line-height:1.2;white-space:nowrap}
+ .dino-jigsaw-clue-toggle{min-height:44px;margin:0;padding:6px 8px;font-size:.78rem;line-height:1.2;box-shadow:0 2px 0 #9a5724}
  .dino-jigsaw-board{border-width:7px!important}
  .dino-jigsaw-board button{min-width:44px;min-height:44px}
  .dino-jigsaw-tray{gap:6px!important;padding:8px!important;border-width:4px}
