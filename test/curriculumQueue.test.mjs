@@ -18,10 +18,57 @@ test('geography queues vary their first question across session seeds', () => {
   assert.ok(![...firstRoundIds].every((id) => id === 'continent-africa'));
 });
 
-test('nature queues also vary their first investigation across session seeds', () => {
+test('nature queues vary their first question across session seeds', () => {
   const rounds = getCurriculumModule('nature').rounds.starter;
   const firstRoundIds = new Set(Array.from({ length: 20 }, (_, seed) => rounds[createCurriculumQueue(rounds, 'nature', seed + 1)[0]].id));
   assert.ok(firstRoundIds.size > 1, 'nature should not always open on one preferred specimen');
+});
+
+test('Nature Lab queues include an unseen investigation across seeds when one is eligible', () => {
+  const rounds = getCurriculumModule('nature-lab').rounds.challenge;
+  const investigations = rounds.filter(({ type }) => type === 'investigation');
+  const recent = rounds.filter((round, index) => round.type !== 'investigation' && index % 4 === 0).map(({ id }) => id);
+  const selectedInvestigations = new Set();
+  for (let seed = 1; seed <= 40; seed += 1) {
+    const queue = createCurriculumQueue(rounds, 'nature-lab', seed, recent);
+    assert.equal(queue.length, 5);
+    assert.equal(new Set(queue).size, 5);
+    assert.ok(queue.every((index) => !recent.includes(rounds[index].id)));
+    const chosen = queue.map((index) => rounds[index]).find(({ type }) => type === 'investigation');
+    assert.ok(chosen, `seed ${seed} should include an unseen investigation`);
+    selectedInvestigations.add(chosen.id);
+  }
+  assert.ok(selectedInvestigations.size > 1, 'the investigation choice should vary by seed');
+  assert.equal(investigations.length, 3);
+});
+
+test('Nature Lab does not force a recent Growing investigation into a new run', () => {
+  const rounds = getCurriculumModule('nature-lab').rounds.growing;
+  const investigation = rounds.find(({ type }) => type === 'investigation');
+  assert.ok(investigation);
+  const recent = [investigation.id];
+  for (let seed = 1; seed <= 24; seed += 1) {
+    const queue = createCurriculumQueue(rounds, 'nature-lab', seed, recent);
+    assert.equal(queue.length, 5);
+    assert.equal(new Set(queue).size, 5);
+    assert.ok(queue.every((index) => rounds[index].id !== investigation.id), `seed ${seed} must not force a recent investigation`);
+  }
+});
+
+test('Nature Lab replay queues preserve eligible investigation variety and uniqueness', () => {
+  const rounds = getCurriculumModule('nature-lab').rounds.challenge;
+  const first = createCurriculumQueue(rounds, 'nature-lab', 18);
+  const recent = first.map((index) => rounds[index].id);
+  const eligibleInvestigations = rounds.filter(({ type, id }) => type === 'investigation' && !recent.includes(id));
+  assert.ok(eligibleInvestigations.length);
+  for (let seed = 1; seed <= 24; seed += 1) {
+    const queue = createCurriculumReplayQueue(rounds, 'nature-lab', seed, recent, first);
+    assert.equal(queue.length, 5);
+    assert.equal(new Set(queue).size, 5);
+    assert.ok(queue.every((index) => !recent.includes(rounds[index].id)));
+    assert.notDeepEqual(queue, first);
+    assert.ok(queue.some((index) => rounds[index].type === 'investigation'));
+  }
 });
 
 test('curriculum queues avoid recent rounds when enough unseen rounds can fill it', () => {

@@ -53,7 +53,19 @@ export const createCurriculumQueue = (rounds, moduleId, seed, recentIds = []) =>
     candidates.push(...revisits.slice(0, targetCount - candidates.length));
   }
   if (keepTeachingOrder) candidates.sort((left, right) => left - right);
-  return candidates.slice(0, targetCount);
+  const queue = candidates.slice(0, targetCount);
+  if (moduleId === 'nature-lab' && !queue.some((index) => rounds[index].type === 'investigation' && !recent.has(rounds[index].id))) {
+    const unseenInvestigations = rounds.map((round, index) => ({ round, index }))
+      .filter(({ round }) => round.type === 'investigation' && !recent.has(round.id));
+    if (unseenInvestigations.length) {
+      const replacementIndex = queue.findIndex((index) => rounds[index].type !== 'investigation');
+      if (replacementIndex >= 0) {
+        const chosen = unseenInvestigations[Math.floor(random() * unseenInvestigations.length)].index;
+        queue[replacementIndex] = chosen;
+      }
+    }
+  }
+  return queue;
 };
 
 export const createCurriculumReplayQueue = (rounds, moduleId, seed, recentIds = [], previousOrder = []) => {
