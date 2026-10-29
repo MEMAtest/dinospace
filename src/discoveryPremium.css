@@ -101,3 +101,13 @@
 /* Full chess and dinosaur puzzles share the compact header, not a second
    viewport-height frame beneath it. Their game CSS owns the board layout. */
 .discovery-game-surface[data-discovery-game="dinojigsaw"] .discovery-game-content > [data-little-game="dinojigsaw"] { min-height: calc(100dvh - 80px); }
+
+/* A wide lesson keeps its explanation alongside the board. */
+@media(min-width:900px){
+  main.cosmic-mission-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(20rem,.9fr);align-items:start;gap:1rem;max-width:64rem}
+  main.cosmic-mission-layout>*{margin-top:0}
+  main.cosmic-mission-layout>section:first-child{grid-column:1/-1}
+  main.cosmic-mission-layout>div.relative{grid-column:1;grid-row:2/span 2}
+  main.cosmic-mission-layout>[aria-label="Tactic explained"],main.cosmic-mission-layout>p[role="status"]{grid-column:2;grid-row:2}
+  main.cosmic-mission-layout>details{grid-column:2;grid-row:3}
+}

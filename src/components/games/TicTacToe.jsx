@@ -376,7 +376,7 @@ const TicTacToe = ({
   );
 
   const renderMission = () => (
-    <main className="mx-auto w-full max-w-3xl space-y-1.5 p-2 sm:space-y-4 sm:p-5">
+    <main className="cosmic-mission-layout mx-auto w-full max-w-3xl space-y-1.5 p-2 sm:space-y-4 sm:p-5">
       <section className={`rounded-3xl border border-cyan-100/25 bg-white/10 text-center ${missionSolved ? 'p-1.5 sm:p-4' : 'p-2 sm:p-4'}`}><p className="text-[10px] font-black uppercase tracking-wide text-cyan-100 sm:text-xs">Lesson {chapterIndex + 1} · Board {missionRunStep + 1} of {missionRunIds.length}</p><h1 className="text-lg font-black sm:mt-1 sm:text-2xl">{chapter.title}</h1><p className="mt-0.5 text-sm font-bold sm:mt-2 sm:text-lg">{missionSolved ? 'Your move worked. Look at the highlighted board.' : chapter.instruction}</p>
         {!missionSolved && <p className="mt-1 flex flex-wrap items-center justify-center gap-1 text-[11px] font-bold text-sky-100 sm:mt-3 sm:gap-2 sm:text-sm"><img src={MARK.X.src} alt="" className="h-5 w-5 object-contain sm:h-8 sm:w-8" />You are Dino<span className="px-1">·</span><img src={MARK.O.src} alt="" className="h-5 w-5 object-contain sm:h-8 sm:w-8" />Stop Rocket</p>}
         {!missionSolved && <div className="mt-2 flex flex-wrap justify-center gap-2"><button type="button" onClick={() => say(chapter.instruction)} className="min-h-12 rounded-xl bg-white/10 px-4 font-black"><Volume2 className="mr-2 inline" size={18} />Hear mission</button><button type="button" onClick={showHint} disabled={hintUsed} className="min-h-12 rounded-xl bg-amber-200 px-4 font-black text-amber-950 disabled:opacity-50"><Lightbulb className="mr-2 inline" size={18} />{hintUsed ? 'Hint used' : 'Show hint'}</button></div>}
