@@ -157,7 +157,7 @@ const LittleGameShell = ({
   const runsSinceSaveRef = useRef(0);
   const rewardedTransactionsRef = useRef(new Set());
   const [restoredDinoReward, setRestoredDinoReward] = useState(() => {
-    const entry = initialPairProgress?.ok && gameId === 'dino' ? initialPairProgress.gameRecord : null;
+    const entry = initialPairProgress?.ok && ['dino', 'dinojigsaw'].includes(gameId) ? initialPairProgress.gameRecord : null;
     return entry?.pairRewardPoints > 0 && entry.pairTransactionId
       ? { points: entry.pairRewardPoints, transactionId: entry.pairTransactionId }
       : null;
@@ -165,16 +165,18 @@ const LittleGameShell = ({
   const attemptedDinoRecoveryRef = useRef(false);
   const restoreDinoReward = useCallback(() => {
     if (!restoredDinoReward) return;
-    const claimed = onCelebrate?.(finishLine, restoredDinoReward.points, 0, 'dino', {
-      quiet: true, rewardToken: `dino:little:${restoredDinoReward.transactionId}`,
+    const claimed = onCelebrate?.(finishLine, restoredDinoReward.points, 0, gameId, {
+      quiet: true, rewardToken: `${gameId}:little:${restoredDinoReward.transactionId}`,
     });
     if (!claimed?.persisted) {
-      setPairSaveWarning('Your completed dinosaur search is safe. Its reward is waiting to be confirmed. Retry before starting another search.');
+      setPairSaveWarning(gameId === 'dinojigsaw'
+        ? 'Your completed puzzle is safe. Its reward is waiting to be confirmed. Retry before starting another puzzle.'
+        : 'Your completed dinosaur search is safe. Its reward is waiting to be confirmed. Retry before starting another search.');
       return;
     }
     setRestoredDinoReward(null);
     setPairSaveWarning('');
-  }, [finishLine, onCelebrate, restoredDinoReward]);
+  }, [finishLine, gameId, onCelebrate, restoredDinoReward]);
 
   useEffect(() => {
     if (!restoredDinoReward || attemptedDinoRecoveryRef.current) return;
@@ -233,14 +235,16 @@ const LittleGameShell = ({
 
   const showSavedResult = useCallback((pending, saved) => {
     if (rewardedTransactionsRef.current.has(pending.transactionId)) return;
-    if (gameId === 'dino' && saved.rewardPoints > 0) {
+    if (['dino', 'dinojigsaw'].includes(gameId) && saved.rewardPoints > 0) {
       const claimed = onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId, {
-        rewardToken: `dino:little:${pending.transactionId}`,
+        rewardToken: `${gameId}:little:${pending.transactionId}`,
       });
       if (!claimed?.persisted) {
         pendingResultRef.current = pending;
         setPendingResult(pending);
-        setPairSaveWarning('Your dinosaur result is saved, but its reward is not confirmed yet. Retry to finish safely.');
+        setPairSaveWarning(gameId === 'dinojigsaw'
+          ? 'Your puzzle result is saved, but its reward is not confirmed yet. Retry to finish safely.'
+          : 'Your dinosaur result is saved, but its reward is not confirmed yet. Retry to finish safely.');
         setPhase('save-error');
         return;
       }
@@ -256,7 +260,7 @@ const LittleGameShell = ({
     runsSinceSaveRef.current = 0;
     playSfx?.(saved.levelUp ? 'levelup-big' : 'complete');
     onGameEvent?.(gameId, 'level_completed');
-    if (saved.rewardPoints > 0 && gameId !== 'dino') onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId);
+    if (saved.rewardPoints > 0 && !['dino', 'dinojigsaw'].includes(gameId)) onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId);
     speak?.(finishLine);
     if (saved.levelUp) speechTimers.current.push(setTimeout(() => speak?.(LITTLE_LINES.levelUp), 2200));
     setPhase('done');
@@ -362,6 +366,7 @@ const LittleGameShell = ({
     <div
       className={`relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b ${background} bg-cover bg-center font-sans text-slate-800 select-none`}
       data-pair-compact={compactStart || compactDone ? 'true' : undefined}
+      data-little-game={gameId}
       style={backgroundArt && !backgroundArtPortrait ? { backgroundImage: `url(${backgroundArt})` } : undefined}
     >
       {backgroundArt && backgroundArtPortrait && (
@@ -385,7 +390,7 @@ const LittleGameShell = ({
       {phase === 'start' && (
         <main className={`relative z-10 flex flex-1 flex-col items-center ${compactStart ? 'justify-start gap-2 px-4 pb-3 pt-2' : 'justify-center gap-5 px-4 pb-8'} text-center`}>
           {pairSaveWarning && <p role="alert" className="max-w-xl rounded-2xl border-2 border-amber-500 bg-amber-50 px-4 py-3 font-bold text-amber-950">{pairSaveWarning}</p>}
-          {restoredDinoReward && <button type="button" onClick={restoreDinoReward} className="min-h-12 rounded-full border-4 border-white bg-lime-500 px-5 font-black text-slate-950">Retry saved dinosaur rewards</button>}
+          {restoredDinoReward && <button type="button" onClick={restoreDinoReward} className="min-h-12 rounded-full border-4 border-white bg-lime-500 px-5 font-black text-slate-950">{gameId === 'dinojigsaw' ? 'Retry saved puzzle rewards' : 'Retry saved dinosaur rewards'}</button>}
           <div className={`pair-compact-start-hero w-full animate-bounce-slow ${compactStart ? 'relative h-40 max-w-[18rem]' : 'max-w-md'}`}>{startArt}</div>
           <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} />
           <LevelDots level={level} total={levels.length} />

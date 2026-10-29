@@ -39,7 +39,7 @@ test('Pair 5 progress fails closed on storage getters, unreadable and malformed 
 });
 
 test('Opted-in Rescue and Dino results persist, grant fresh rewards once, and migrate old progress conservatively', () => {
-  for (const gameId of ['firerescue', 'ladder', 'dino']) {
+  for (const gameId of ['firerescue', 'ladder', 'dino', 'dinojigsaw']) {
     let blockedWrites = 0;
     const unreadable = { getItem() { throw new DOMException('blocked read', 'SecurityError'); }, setItem() { blockedWrites += 1; } };
     const readFailure = commitPairLittleResult({
@@ -401,4 +401,28 @@ test('Pair 5 keeps an earlier practice level selected and names the actual next 
   assert.equal(activePairLevelAfterResult(unlocked), 3);
   assert.equal(pairRunActionLabel(3, unlocked), 'Next level 4');
   assert.equal(pairRunActionLabel(2, unlocked), 'Play level 3');
+});
+
+
+test('Dino Jigsaw retains five-level legacy saves, sibling maps and unknown metadata', () => {
+  const key = pairLittleProgressKey('amari');
+  const sibling = { level: 4, plays: 19, best: 3, retained: 'old shadow state' };
+  const storage = mapStorage({
+    [key]: JSON.stringify({ parentNote: 'keep root metadata', shadowmatch: sibling, dinojigsaw: { level: 4, plays: 12, best: 3, familyNote: 'keep puzzle metadata' } }),
+    askia_little_progress: JSON.stringify({ dinojigsaw: { level: 1, plays: 2, best: 2 } }),
+  });
+  const otherChild = storage.getItem('askia_little_progress');
+  const result = commitPairLittleResult({ playerId:'amari', gameId:'dinojigsaw', bigKid:true, stars:3, expectedLevel:4, playedLevel:2, transactionId:'legacy-puzzle-practice', storage });
+  assert.equal(result.ok,true);
+  assert.equal(result.level,4);
+  assert.equal(result.rewardPoints,0);
+  const saved=JSON.parse(storage.getItem(key));
+  assert.equal(saved.parentNote,'keep root metadata');
+  assert.equal(saved.dinojigsaw.familyNote,'keep puzzle metadata');
+  assert.deepEqual(saved.shadowmatch,sibling);
+  assert.equal(storage.getItem('askia_little_progress'),otherChild);
+  assert.equal(saved.dinojigsaw.pairLegacyRewardThrough,4);
+  const repeated=commitPairLittleResult({ playerId:'amari', gameId:'dinojigsaw', bigKid:true, stars:3, expectedLevel:4, playedLevel:2, transactionId:'legacy-puzzle-practice', storage });
+  assert.equal(repeated.recovered,true);
+  assert.equal(repeated.plays,13);
 });

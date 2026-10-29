@@ -5,6 +5,7 @@ import { completeChessChapter, readChessProgress, recordChessRun } from '../../d
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { makeLearningEvent } from '../../data/literacy.js';
+import ChessGame from './ChessGame.jsx';
 
 export default function ChessExplorers({ onBack = () => {}, playSfx = () => {}, soundOn, onToggleSound, cancelNarration = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) {
   const [mode, setMode] = useState('menu');
@@ -28,7 +29,7 @@ export default function ChessExplorers({ onBack = () => {}, playSfx = () => {}, 
   const puzzle = run[index];
   const chapter = CHESS_CHAPTERS[chapterIndex];
   const phase = mode === 'finish' || saveFailed ? 'finish' : mode === 'menu' ? 'intro' : 'play';
-  useEffect(() => { onPhaseChange?.(phase); }, [phase, onPhaseChange]);
+  useEffect(() => { if (mode !== 'full-game') onPhaseChange?.(phase); }, [mode, phase, onPhaseChange]);
   useEffect(() => { setProgress(readChessProgress(playerId)); }, [playerId]);
   useEffect(() => { if (!soundOn) { audioGeneration.current += 1; if (audioRef.current) { audioRef.current.onended = null; audioRef.current.pause?.(); } audioRef.current = null; cancelNarration(); } }, [soundOn, cancelNarration]);
   useEffect(() => () => { audioGeneration.current += 1; if (audioRef.current) { audioRef.current.onended = null; audioRef.current.pause?.(); } audioRef.current = null; cancelNarration(); }, [cancelNarration]);
@@ -103,9 +104,12 @@ export default function ChessExplorers({ onBack = () => {}, playSfx = () => {}, 
   const header = (title, back = backMenu) => <header className="flex items-center justify-between gap-2 py-3"><button type="button" className="game-icon-button" onClick={back} aria-label="Back to chapters"><ArrowLeft /></button><h1 className="text-xl sm:text-2xl font-black text-amber-900 text-center">{title}</h1><SoundToggle soundOn={soundOn} onToggle={toggleSound} /></header>;
   const audioButton = (lines) => { const available = lines.every((line) => getOfflineVoiceClip(line, 'en-US')); const label = lines.length > 1 ? 'Replay recorded piece prompt and rule' : 'Replay recorded piece rule'; return <button type="button" className="min-h-12 rounded-full border-2 border-amber-400 bg-white px-4 py-2 font-bold text-amber-900" onClick={() => replay(lines)} disabled={!soundOn || !available} aria-label={!soundOn ? 'Narration muted' : available ? label : 'Recorded guidance unavailable'}>{!soundOn ? 'Narration muted' : available ? lines.length > 1 ? '🔊 Replay recorded prompt & rule' : '🔊 Replay recorded rule' : 'Recorded guidance unavailable'}</button>; };
 
+  if (mode === 'full-game') return <ChessGame playerId={playerId} onBack={() => { stopVoice(); setMode('menu'); }} onPhaseChange={onPhaseChange} onCelebrate={onCelebrate} playSfx={playSfx} />;
+
   if (mode === 'menu') return <main className={`${shell} items-center`}>
     <header className="w-full flex items-center justify-between py-3"><button className="game-icon-button" onClick={onBack} aria-label="Back to Thinking & Play"><ArrowLeft /></button><h1 className="text-2xl sm:text-3xl font-black text-amber-900">♟ Chess Explorers</h1><SoundToggle soundOn={soundOn} onToggle={toggleSound} /></header>
     <div className="w-full max-w-3xl text-center"><p className="text-lg font-bold text-amber-900">Explore how pieces move and make simple captures.</p><p className="mt-2 text-sm text-amber-950">Start with movement, then learn captures and help a king escape an attack.</p>
+      <button type="button" onClick={() => { stopVoice(); setMode('full-game'); }} className="mt-4 flex min-h-16 w-full items-center justify-center gap-3 rounded-3xl border-4 border-purple-800 bg-purple-700 px-5 py-4 text-xl font-black text-white shadow-lg"><span aria-hidden="true">♟</span> Play a full game vs computer <span aria-hidden="true">→</span></button>
       <div className="mt-5 grid gap-3 sm:grid-cols-3">{CHESS_CHAPTERS.map((item, i) => { const unlocked = i <= progress.unlockedChapterIndex; return <button key={item.id} disabled={!unlocked} onClick={() => begin(i)} className="rounded-3xl border-4 border-amber-200 bg-white p-5 text-left shadow-lg disabled:opacity-50"><span className="text-3xl">{progress.completedChapterIds.includes(item.id) ? '🏅' : ['♘', '♖', '🧩'][i]}</span><span className="mt-2 block text-lg font-black text-amber-900">{item.title}</span><span className="mt-1 block text-sm text-amber-800">{item.intro}</span><span className="mt-2 block font-bold">{progress.completedChapterIds.includes(item.id) ? 'Badge earned · Replay' : unlocked ? 'Start five puzzles' : 'Complete the previous chapter to unlock'}</span></button>; })}</div>
       <div className="mt-4 flex flex-wrap justify-center gap-3"><button onClick={() => { setMode('pieces'); setPracticePiece(CHESS_PIECES[0]); }} className="min-h-12 rounded-full bg-purple-700 px-5 py-3 font-black text-white">Meet the pieces</button><button onClick={() => { setPracticePiece(CHESS_PIECES[0]); setPracticeFrom([4,2]); setMode('practice'); }} className="min-h-12 rounded-full bg-purple-700 px-5 py-3 font-black text-white">Move It! practice</button></div>
     </div>

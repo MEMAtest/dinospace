@@ -76,7 +76,7 @@ const GAME_MENU_DEFINITIONS = [
   { id: 'oddoneout', icon: icon(Search, 'text-cyan-700', 'Find the odd one out', 'oddoneout'), title: 'Odd One Out', desc: 'Which one does not belong?', color: 'bg-gradient-to-br from-cyan-500 to-blue-600', category: 'Quick Think' , component: OddOneOut },
   { id: 'timeteller', icon: icon(Clock3, 'text-lime-700', 'Learning clock', 'timeteller'), title: 'Time Teller', desc: 'Read the clock!', color: 'bg-gradient-to-br from-lime-500 to-green-600', category: 'Maths' , component: TimeTeller },
   { id: 'numberline', icon: icon(Truck, 'text-emerald-700', 'Number line jumper', 'numberline'), title: 'Number Line Jump', desc: 'Hop to the answer!', color: 'bg-gradient-to-br from-emerald-600 to-teal-700', category: 'Maths' , component: NumberLineJump },
-  { id: 'chess', icon: icon(Crown, 'text-amber-700', 'Chess crown', 'chess'), title: 'Chess Explorers', desc: 'Learn chess pieces!', color: 'bg-gradient-to-br from-amber-600 to-yellow-800', category: 'Quick Think' , component: ChessExplorers },
+  { id: 'chess', icon: icon(Crown, 'text-amber-700', 'Chess crown', 'chess'), title: 'Chess Explorers', desc: 'Play against the computer', color: 'bg-gradient-to-br from-amber-600 to-yellow-800', category: 'Quick Think' , component: ChessExplorers },
 ];
 
 

@@ -62,7 +62,7 @@ export const readPairLittleProgress = (playerId, gameId, bigKid, storage = getPa
 );
 
 export const commitPairLittleResult = ({ playerId, gameId, bigKid, stars, transactionId, expectedLevel, playedLevel, storage = getPairLittleStorage() }) => {
-  if (!['rocketbuilder', 'fuelup', 'firerescue', 'ladder', 'dino'].includes(gameId)) return { ok: false, reason: 'game-not-in-pair' };
+  if (!['rocketbuilder', 'fuelup', 'firerescue', 'ladder', 'dino', 'dinojigsaw'].includes(gameId)) return { ok: false, reason: 'game-not-in-pair' };
   if (!Number.isInteger(stars) || stars < 1 || stars > 3 || typeof transactionId !== 'string' || !transactionId) {
     return { ok: false, reason: 'result-invalid' };
   }

@@ -15,19 +15,19 @@
 
 .discovery-game-content>.discovery-session-menu{background-image:linear-gradient(135deg,#e9f9fff5,#fafffff5)!important;background-color:#edf9ff!important}
 
-/* Reading and spelling keep the current task and next action together. */
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) { --literacy-chrome: 72px; }
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header { min-height: 56px; padding: 4px 10px; gap: 6px; flex-wrap: nowrap; }
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-brand { min-height: 44px; font-size: 16px; gap: 4px; }
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-brand small { display: none; }
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-logo-planet { width: 28px; height: 28px; }
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header nav { width: auto; order: 0; gap: 4px; }
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header nav button { width: 44px; min-height: 44px; padding: 5px; border-radius: 12px; }
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header nav button span { display: none; }
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-profile { padding: 4px 8px; font-size: 12px; }
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-profile img,
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-profile > span { display: none; }
-.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-game-content { padding: 8px 8px 12px; }
+/* Compact game chrome keeps the current task and next action together. */
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) { --literacy-chrome: 72px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-header { min-height: 56px; padding: 4px 10px; gap: 6px; flex-wrap: nowrap; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-header .discovery-brand { min-height: 44px; font-size: 16px; gap: 4px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-header .discovery-brand small { display: none; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-header .discovery-logo-planet { width: 28px; height: 28px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-header nav { width: auto; order: 0; gap: 4px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-header nav button { width: 44px; min-height: 44px; padding: 5px; border-radius: 12px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-header nav button span { display: none; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-header .discovery-profile { padding: 4px 8px; font-size: 12px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-header .discovery-profile img,
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-header .discovery-profile > span { display: none; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"]) > .discovery-game-content { padding: 8px 8px 12px; }
 .discovery-game-content > [data-compact-session="true"] { min-height: calc(100dvh - var(--literacy-chrome)); gap: 8px; padding: 12px; }
 [data-compact-session="true"] > .grid { gap: 10px; padding: 16px; }
 [data-compact-session="true"] .catalogue-welcome-art { height: 100px; }
@@ -97,3 +97,7 @@
 .discovery-game-surface[data-discovery-game="storybooks"] .storybook-shell { overflow: clip; }
 .discovery-game-surface[data-discovery-game="storybooks"] .storybook-library-alerts { position: sticky; top: 8px; z-index: 40; }
 .discovery-game-surface[data-discovery-game="storybooks"] .storybook-library-alerts:not(:empty) { filter: drop-shadow(0 5px 8px #091a4566); }
+
+/* Full chess and dinosaur puzzles share the compact header, not a second
+   viewport-height frame beneath it. Their game CSS owns the board layout. */
+.discovery-game-surface[data-discovery-game="dinojigsaw"] .discovery-game-content > [data-little-game="dinojigsaw"] { min-height: calc(100dvh - 80px); }

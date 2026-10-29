@@ -215,3 +215,36 @@ test('retained historical claims do not strand a new saved result at an arbitrar
   assert.equal(claim('amari', {}, 3, 'dino', storage, 'dino:next-result').points, 303);
   assert.equal(saved.rewardClaims['dino:retained-0'], 1);
 });
+
+
+test('full Chess and Dino Jigsaw claims retry committed writes without replay or sibling loss', () => {
+  for (const [game, amount] of [['chess', 1], ['dinojigsaw', 8]]) {
+    const backing = store();
+    const prior = claim('amari', {}, 6, 'words', backing, 'words:previous-proof');
+    backing.setItem('askia_rewards_v2', JSON.stringify({ version:2, points:19, gamesPlayed:{shadowmatch:2}, earnedStickerIds:['rocket'], familyTag:'untouched' }));
+    const sibling = backing.getItem('askia_rewards_v2');
+    const previous = JSON.parse(backing.getItem(rewardKey('amari')));
+    backing.setItem(rewardKey('amari'), JSON.stringify({ ...previous, parentNote: 'keep me' }));
+    let committed = false;
+    let failReadback = true;
+    const flaky = {
+      getItem(key) { if (key === rewardKey('amari') && committed && failReadback) { failReadback = false; throw Error('readback blocked'); } return backing.getItem(key); },
+      setItem(key, value) { backing.setItem(key, value); if (key === rewardKey('amari')) committed = true; },
+    };
+    const token = `${game}:stable-completion-1`;
+    const failed = claim('amari', prior, amount, game, flaky, token);
+    assert.equal(failed.persisted, false);
+    assert.equal(JSON.parse(backing.getItem(rewardKey('amari'))).rewardClaims[token], amount);
+    const recovered = claim('amari', readPlayerRewards('amari', backing), amount, game, backing, token);
+    assert.equal(recovered.persisted, true);
+    assert.equal(recovered.awardedPoints, 0);
+    assert.equal(recovered.points, 6 + amount);
+    assert.equal(recovered.gamesPlayed[game], 1);
+    assert.equal(recovered.gamesPlayed.words, 1);
+    assert.equal(recovered.rewardClaims['words:previous-proof'], 6);
+    assert.equal(JSON.parse(backing.getItem(rewardKey('amari'))).parentNote, 'keep me');
+    assert.equal(backing.getItem('askia_rewards_v2'), sibling);
+    assert.equal(claim('amari', recovered, amount, game, backing, token).awardedPoints, 0);
+    assert.equal(claim('amari', recovered, amount, game, backing, 'words:wrong-scope').persisted, false);
+  }
+});
