@@ -11,12 +11,13 @@ import { createStoryImage, createStoryNarration, createStoryOutline, createStory
 import { isUsableStoryBlob, storyAssetInventory, validateStoryMediaAssets, validateStoryMediaBlob } from '../../data/storybookAssets.js';
 import { getStoryAsset, getStoryAssetInventory, getStoryBookRecord, getStoryLibraryInventory, getChildProfilesInventory, saveChildProfile, deleteChildProfile, getStorySeriesInventory, saveStorySeries, saveStoryAsset, saveStoryBook, importStorybookRecords } from '../../data/storybookStorage.js';
 import { pagesForAgeBand } from '../../data/storybookValidation.js';
-import { commitStoryCompletion, commitStoryProgress, getBookProgress, readActiveChildId, readStoryProgress, readStoryProgressState, saveActiveChildId } from '../../data/storybookProfiles.js';
+import { commitStoryCompletion, commitStoryProgress, getBookProgress, readStoryProgress, readStoryProgressState, saveActiveChildId } from '../../data/storybookProfiles.js';
 import { decorateStoryBook, filterStoryBooks, STORYBOOK_SHELVES } from '../../data/storybookLibrary.js';
 import { createStorybookBackup, readStorybookBackup } from '../../data/storybookBackup.js';
 import { createComprehensionRandom, createComprehensionSeed, shuffledComprehension, STORYBOOK_WORD_HELP } from '../../data/storybookLearning.js';
 import { createStorybookHydrator } from '../../data/storybookHydration.js';
 import { storyCompletionReceiptBelongsToPlayer } from '../../data/storybookRewardScope.js';
+import { canWriteStoryForReader, getStoryReaderAccess, readActiveStoryReader, resolveVerifiedStoryReader } from '../../data/storybookReaderAccess.js';
 
 const completionKey = (slug) => `amari_storybook_complete_${slug}`;
 
@@ -170,7 +171,13 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   const [activeGenerationId, setActiveGenerationId] = useState(null);
   const [dailyLimitReached, setDailyLimitReached] = useState(false);
   const [profiles, setProfiles] = useState([]);
-  const [activeChildId, setActiveChildId] = useState(() => readActiveChildId());
+  const [activeReaderPreference] = useState(() => readActiveStoryReader());
+  const [activeChildId, setActiveChildId] = useState(() => activeReaderPreference.id || 'amari');
+  const [activePreferenceState, setActivePreferenceState] = useState(activeReaderPreference);
+  const [readerCheckBusy, setReaderCheckBusy] = useState(false);
+  const [readerCheckError, setReaderCheckError] = useState('');
+  const readerCheckBusyRef = useRef(readerCheckBusy);
+  readerCheckBusyRef.current = readerCheckBusy;
   const [initialProgressState] = useState(() => readStoryProgressState());
   const [progressByChild, setProgressByChild] = useState(() => initialProgressState.progress);
   const [progressStorageState, setProgressStorageState] = useState(() => initialProgressState.status);
@@ -208,6 +215,22 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   const readerLoadRef = useRef(0);
   const storySessionRef = useRef(null);
   const activeChildIdRef = useRef(activeChildId);
+  const activePreferenceRef = useRef(activePreferenceState);
+  activePreferenceRef.current = activePreferenceState;
+  const readerIdentityRef = useRef({ status: profileStorageState, profiles, activeChildId, preferenceOk: activePreferenceState.ok });
+  readerIdentityRef.current = { status: profileStorageState, profiles, activeChildId, preferenceOk: activePreferenceState.ok };
+  const readerAccess = getStoryReaderAccess(profileStorageState, profiles, activeChildId, activePreferenceState.ok);
+  const readerAccessMessage = readerAccess.reason === 'checking'
+    ? 'Checking saved reader identity. Included stories are available in read-only mode.'
+    : readerAccess.reason === 'active-reader-unreadable'
+      ? 'The saved reader selection could not be read. Stories are available to read, but reader-specific changes are paused until you retry or choose a verified saved reader.'
+      : readerAccess.reason === 'missing'
+        ? 'The saved reader was not found in the verified profile list. Choose a saved reader or retry the check; no reader-specific changes were saved.'
+        : 'Reader profiles could not be verified. Stories are available to read, but reader-specific changes are paused.';
+  const verifiedActiveReader = (childId) => {
+    const latest = readerIdentityRef.current;
+    return !readerCheckBusyRef.current && canWriteStoryForReader(latest.status, latest.profiles, childId, activeChildIdRef.current, latest.preferenceOk);
+  };
   const completedRunSeedRef = useRef(null);
   const [selectedSlug, setSelectedSlug] = useState(null);
   const [pageIndex, setPageIndex] = useState(-1);
@@ -223,6 +246,9 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   const persistChainRef = useRef(Promise.resolve());
 
   const activeChild = profiles.find((profile) => profile.id === activeChildId) || profiles[0] || { id: 'amari', displayName: 'Amari', ageBand: '5-6' };
+  const activeReaderProgress = useMemo(() => (readerAccess.verified ? progressByChild[activeChild.id] || {} : {}), [activeChild.id, progressByChild, readerAccess.verified]);
+  const activeBookProgress = (slug) => readerAccess.verified ? getBookProgress(progressByChild, activeChild.id, slug) : {};
+  const activeReaderCompleted = (slug) => readerAccess.verified && readCompletion(slug, activeChild.id);
   const decoratedLibrary = useMemo(() => library.map(decorateStoryBook), [library]);
   const availableSeries = useMemo(() => {
     // Bundled books also act as reusable starting points.  They provide a
@@ -242,8 +268,8 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   const filteredBooks = useMemo(() => filterStoryBooks(decoratedLibrary, {
     shelf, ageBand: ageFilter, seriesId: seriesFilter,
     childId: activeChild.id,
-    favourites: progressByChild[activeChild.id] || {},
-  }).filter((book) => !storySearch.trim() || `${book.title} ${book.subtitle} ${book.summary} ${book.seriesName || ''}`.toLocaleLowerCase().includes(storySearch.trim().toLocaleLowerCase())), [activeChild.id, ageFilter, decoratedLibrary, progressByChild, seriesFilter, shelf, storySearch]);
+    favourites: activeReaderProgress,
+  }).filter((book) => !storySearch.trim() || `${book.title} ${book.subtitle} ${book.summary} ${book.seriesName || ''}`.toLocaleLowerCase().includes(storySearch.trim().toLocaleLowerCase())), [activeChild.id, activeReaderProgress, ageFilter, decoratedLibrary, seriesFilter, shelf, storySearch]);
   const visibleBooks = useMemo(() => filteredBooks.slice(libraryPage * LIBRARY_PAGE_SIZE, (libraryPage + 1) * LIBRARY_PAGE_SIZE), [filteredBooks, libraryPage]);
 
   const selectedBook = useMemo(
@@ -286,9 +312,15 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
       setProfileStorageState(inventory.available ? 'available' : 'unavailable');
       if (!inventory.available) return;
       setProfiles(inventory.profiles);
-      const loadedActive = inventory.profiles.find((profile) => profile.id === activeChildIdRef.current) || inventory.profiles[0];
-      if (loadedActive && loadedActive.id !== activeChildIdRef.current) {
-        activeChildIdRef.current = loadedActive.id; setActiveChildId(loadedActive.id); saveActiveChildId(loadedActive.id);
+      const preference = activePreferenceRef.current;
+      if (!preference.ok) return;
+      const resolution = resolveVerifiedStoryReader(preference, inventory.profiles);
+      const loadedActive = resolution.profile;
+      if (resolution.ok && loadedActive && loadedActive.id !== activeChildIdRef.current) {
+        activeChildIdRef.current = loadedActive.id; setActiveChildId(loadedActive.id);
+        if (resolution.shouldPersist) saveActiveChildId(loadedActive.id);
+        const nextPreference = { ok: true, status: resolution.shouldPersist ? 'saved' : preference.status, id: loadedActive.id };
+        activePreferenceRef.current = nextPreference; setActivePreferenceState(nextPreference);
       }
     }, () => setProfileStorageState('unavailable'));
     loadIndependently(getStorySeriesInventory, (inventory) => {
@@ -349,6 +381,10 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   useEffect(() => () => stopAudio(), [stopAudio]);
 
   const persistProgress = useCallback((childId, slug, patch) => {
+    if (!verifiedActiveReader(childId)) {
+      setReaderCheckError('Reader identity could not be verified, so this change was not saved. Retry the reader check before saving progress.');
+      return false;
+    }
     const result = commitStoryProgress(childId, slug, patch);
     if (!result.ok) {
       const action = { childId, slug, patch };
@@ -365,6 +401,53 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
       setProgressSaveError('');
     }
     return true;
+  }, []);
+
+  const retryReaderCheck = useCallback(async () => {
+    readerCheckBusyRef.current = true;
+    setReaderCheckBusy(true);
+    setReaderCheckError('');
+    try {
+      const preference = readActiveStoryReader();
+      activePreferenceRef.current = preference;
+      setActivePreferenceState(preference);
+      readerIdentityRef.current = { ...readerIdentityRef.current, preferenceOk: preference.ok };
+      const inventory = await getChildProfilesInventory();
+      if (!inventory.available) {
+        readerIdentityRef.current = { ...readerIdentityRef.current, status: 'unavailable' };
+        setProfileStorageState('unavailable');
+        setReaderCheckError('Reader profiles are still unavailable. No fallback reader was selected or saved.');
+        return false;
+      }
+      setProfiles(inventory.profiles);
+      setProfileStorageState('available');
+      readerIdentityRef.current = { ...readerIdentityRef.current, status: 'available', profiles: inventory.profiles };
+      const resolution = resolveVerifiedStoryReader(preference, inventory.profiles);
+      if (!resolution.ok) {
+        setReaderCheckError('The saved reader selection could not be read. Choose one of the verified saved readers to continue.');
+        return false;
+      }
+      const verified = resolution.profile;
+      if (!verified) return false;
+      if (verified.id !== activeChildIdRef.current) {
+        activeChildIdRef.current = verified.id;
+        setActiveChildId(verified.id);
+      }
+      if (resolution.shouldPersist) saveActiveChildId(verified.id);
+      const nextPreference = { ok: true, status: resolution.shouldPersist ? 'saved' : preference.status, id: verified.id };
+      activePreferenceRef.current = nextPreference; setActivePreferenceState(nextPreference);
+      readerIdentityRef.current = { status: 'available', profiles: inventory.profiles, activeChildId: verified.id, preferenceOk: true };
+      setReaderCheckError('');
+      return true;
+    } catch {
+      readerIdentityRef.current = { ...readerIdentityRef.current, status: 'unavailable' };
+      setProfileStorageState('unavailable');
+      setReaderCheckError('Reader profiles could not be checked. No fallback reader was selected or saved.');
+      return false;
+    } finally {
+      readerCheckBusyRef.current = false;
+      setReaderCheckBusy(false);
+    }
   }, []);
 
   const claimCompletionReceipt = useCallback((receipt, slug, readerChildId) => {
@@ -412,6 +495,10 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
 
   const finishBook = useCallback(async () => {
     if (!selectedBook) return false;
+    if (!verifiedActiveReader(activeChild.id)) {
+      setReaderCheckError('Reader identity could not be verified, so this story was not marked finished. Retry the reader check to continue.');
+      return false;
+    }
     completionErrorSlugRef.current = selectedBook.slug;
     const result = commitStoryCompletion(activeChild.id, selectedBook.slug, undefined, { rewardPlayerId: playerId });
     if (!result.ok) {
@@ -493,8 +580,8 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
     setComprehensionChoice('');
     setComprehensionHadMistake(false);
     setComprehensionActive(false);
-    const saved = getBookProgress(progressByChild, activeChild.id, book.slug);
-    const resumeIndex = readCompletion(book.slug, activeChild.id) ? -1
+    const saved = activeBookProgress(book.slug);
+    const resumeIndex = activeReaderCompleted(book.slug) ? -1
       : Number.isInteger(saved.pageIndex) ? Math.max(-1, Math.min(book.pages.length - 1, saved.pageIndex)) : -1;
     completedRunSeedRef.current = null;
     onGameEvent?.('storybooks', 'start', { seed: quizSeed, round: Math.max(0, resumeIndex + 1), pageIndex: resumeIndex });
@@ -521,7 +608,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   };
 
   const startReading = async () => {
-    if (isCover && selectedBook && readCompletion(selectedBook.slug, activeChild.id)) {
+    if (isCover && selectedBook && activeReaderCompleted(selectedBook.slug)) {
       onGameEvent?.('storybooks', 'replay', { seed: comprehensionSeed, round: 0, pageIndex });
     }
     setStarted(true);
@@ -750,6 +837,10 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   }, [persistCustom]);
 
   const createCustomStory = useCallback(async (input) => {
+    if (!verifiedActiveReader(activeChildIdRef.current) || !input?.childId || input.childId !== activeChildIdRef.current) {
+      setCreatorError('Check the saved reader profile before creating a story. The selected child must match a verified saved profile.');
+      return;
+    }
     if (libraryStorageState !== 'available') {
       setCreatorError('Saved story storage is unavailable. Try again when the library can be read so your new draft can be preserved.');
       return;
@@ -769,9 +860,15 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
     try {
       const session = await createStorySession(controller.signal);
       storySessionRef.current = session;
+      if (!verifiedActiveReader(input.childId) || input.childId !== activeChildIdRef.current) {
+        throw new Error('The saved reader changed before story planning began. Check the reader profile and try again.');
+      }
       const selectedSeries = availableSeries.find((item) => item.id === input.seriesId) || null;
       setCreatorProgress({ stage: 'planning', completed: 0, total: 2 + plannedPageCount * 2, pageCount: plannedPageCount, currentPage: 0, startedAt });
       const outline = await createStoryOutline({ ...input, seriesContext: selectedSeries || undefined }, session, controller.signal);
+      if (!verifiedActiveReader(input.childId) || input.childId !== activeChildIdRef.current) {
+        throw new Error('The saved reader changed while the story was being planned. Check the reader profile and try again; no story was saved.');
+      }
       const record = makeCustomBook(outline, input, selectedSeries);
       const saved = await saveStoryBook(record);
       if (!saved) throw new Error('This device could not save the new story. Please check available storage, then try again.');
@@ -800,9 +897,18 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   }, [availableSeries, creatorBusy, customRecords.length, libraryStorageState, runCustomGeneration]);
 
   const resumeCustomStory = useCallback(async (book) => {
+    if (!verifiedActiveReader(activeChildIdRef.current) || (book.childId && book.childId !== activeChildIdRef.current)) {
+      setCreatorError('Check the saved reader profile for this story before resuming its generation.');
+      return;
+    }
     if (creatorBusy || generationAbortRef.current) return;
     const record = await getStoryBookRecord(book.id);
     if (!record) return;
+    const requestedReaderId = activeChildIdRef.current;
+    if (!verifiedActiveReader(requestedReaderId) || (record.childId && record.childId !== requestedReaderId)) {
+      setCreatorError('The saved reader changed before generation resumed. Check the reader profile and try again.');
+      return;
+    }
     setCreatorBusy(true);
     const controller = new AbortController();
     generationAbortRef.current = controller;
@@ -811,6 +917,9 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
     try {
       const session = await createStorySession(controller.signal);
       storySessionRef.current = session;
+      if (!verifiedActiveReader(requestedReaderId) || requestedReaderId !== activeChildIdRef.current) {
+        throw new Error('The saved reader changed before generation resumed. Check the reader profile and try again.');
+      }
       await runCustomGeneration(record, session, controller);
     } catch (error) {
       setCreatorError(error?.message || 'Story generation could not resume. Please try again.');
@@ -825,7 +934,14 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   const pauseGeneration = () => generationAbortRef.current?.abort();
 
   const generateSeriesReference = useCallback(async (draft) => {
+    const requestedReaderId = activeChildIdRef.current;
+    if (!verifiedActiveReader(requestedReaderId)) {
+      throw new Error('Check the saved reader profile before generating a character reference.');
+    }
     const session = await createStorySession();
+    if (!verifiedActiveReader(requestedReaderId) || requestedReaderId !== activeChildIdRef.current) {
+      throw new Error('The saved reader changed before the character reference was generated. Check the reader profile and try again.');
+    }
     storySessionRef.current = session;
     const prompt = `Create one polished child-friendly character reference portrait for a storybook series. Appearance: ${draft.appearance}. Personality: ${draft.personality || 'friendly and curious'}. Friends/world: ${draft.friendsWorld || 'a bright welcoming world'}. Style: ${draft.visualStyle}. Show the complete character on a clean simple background, consistent silhouette, no words, no logos, no watermark.`;
     const blob = await createStoryImage({ prompt }, session);
@@ -838,21 +954,39 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   }, []);
 
   const saveProfile = useCallback(async (profile) => {
+    if (profileStorageState !== 'available') throw new Error('Reader profile storage must be checked before editing saved profiles.');
     if (!await saveChildProfile(profile)) throw new Error('This device could not save the reader profile. Keep this form open and try again.');
     setProfiles((items) => [...items.filter((item) => item.id !== profile.id), profile]);
-  }, []);
+  }, [profileStorageState]);
 
   const removeProfile = useCallback(async (profile) => {
+    if (profileStorageState !== 'available') throw new Error('Reader profile storage must be checked before editing saved profiles.');
+    if (profile.id === activeChildId && !verifiedActiveReader(profile.id)) throw new Error('Verify or explicitly choose the active reader before removing that profile.');
     if (profiles.length <= 1) return;
     if (!await deleteChildProfile(profile)) throw new Error('This device could not remove the reader profile. It is still saved. Please try again.');
     setProfiles((items) => items.filter((item) => item.id !== profile.id));
     if (activeChildId === profile.id) {
       const next = profiles.find((item) => item.id !== profile.id);
-      if (next) { setActiveChildId(next.id); saveActiveChildId(next.id); }
+      if (next) {
+        activeChildIdRef.current = next.id;
+        const preference = { ok: true, status: 'saved', id: next.id };
+        activePreferenceRef.current = preference;
+        setActivePreferenceState(preference);
+        readerIdentityRef.current = { ...readerIdentityRef.current, activeChildId: next.id, preferenceOk: true };
+        setActiveChildId(next.id); saveActiveChildId(next.id);
+      }
     }
-  }, [activeChildId, profiles]);
+  }, [activeChildId, profileStorageState, profiles]);
 
-  const selectChild = useCallback((id) => { activeChildIdRef.current = id; setActiveChildId(id); saveActiveChildId(id); setAgeFilter('all'); setShowProfiles(false); }, []);
+  const selectChild = useCallback((id) => {
+    if (profileStorageState !== 'available' || readerCheckBusyRef.current || !profiles.some((profile) => profile.id === id)) return;
+    activeChildIdRef.current = id;
+    const preference = { ok: true, status: 'selected', id };
+    activePreferenceRef.current = preference;
+    setActivePreferenceState(preference);
+    readerIdentityRef.current = { ...readerIdentityRef.current, activeChildId: id, preferenceOk: true };
+    setActiveChildId(id); saveActiveChildId(id); setAgeFilter('all'); setShowProfiles(false); setReaderCheckError('');
+  }, [profileStorageState, profiles]);
 
   const exportStories = useCallback(async () => {
     setBackupBusy(true); setBackupMessage('');
@@ -910,9 +1044,9 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   }, [profiles, progressByChild, progressStorageState]);
 
   const toggleBookFavourite = useCallback((book) => {
-    const current = getBookProgress(progressByChild, activeChild.id, book.slug);
+    const current = readerAccess.verified ? getBookProgress(progressByChild, activeChild.id, book.slug) : {};
     persistProgress(activeChild.id, book.slug, { favourite: !current.favourite });
-  }, [activeChild.id, persistProgress, progressByChild]);
+  }, [activeChild.id, persistProgress, progressByChild, readerAccess.verified]);
 
   const startSeriesStory = useCallback((book) => {
     if (!book?.seriesId) return;
@@ -957,10 +1091,14 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
     const pendingReceipt = pendingCompletionReceiptRef.current;
     if (pendingReceipt?.receipt) { claimCompletionReceipt(pendingReceipt.receipt, pendingReceipt.slug, pendingReceipt.readerChildId); return; }
     const pending = pendingCompletionActionRef.current;
+    if (pending && !verifiedActiveReader(pending.childId)) {
+      setReaderCheckError('Select the same verified reader who finished this story before retrying its save.');
+      return;
+    }
     const book = pending && library.find((item) => item.slug === pending.slug);
     if (book) openBook(book);
   };
-  const readingActionLabel = (book) => getBookProgress(progressByChild, activeChild.id, book.slug).pageIndex >= 0 && !readCompletion(book.slug, activeChild.id) ? 'Continue story' : 'Read story';
+  const readingActionLabel = (book) => activeBookProgress(book.slug).pageIndex >= 0 && !activeReaderCompleted(book.slug) ? 'Continue story' : 'Read story';
 
   if (selectedBook && comprehensionActive) {
     const question = comprehension[comprehensionStep];
@@ -968,6 +1106,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
     return (
       <main className={`storybook-reader storybook-quiz min-h-screen w-full bg-gradient-to-br ${selectedBook.accent} px-4 py-6 text-white`}>
         <div className="mx-auto flex min-h-[80vh] max-w-3xl flex-col justify-center rounded-[2rem] border border-white/25 bg-slate-950/25 p-6 shadow-2xl sm:p-10">
+          {!readerAccess.verified && <div role="status" className="mb-4 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{readerCheckError || readerAccessMessage}<button type="button" onClick={retryReaderCheck} disabled={readerCheckBusy} className="min-h-11 rounded-lg bg-white px-3 font-black disabled:opacity-60">{readerCheckBusy ? 'Checking…' : 'Retry reader check'}</button></div>}
           <p className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">Story Detective · {comprehensionStep + 1} of {comprehension.length}</p>
           <div className="mt-3 flex items-center gap-3"><h1 className="text-3xl font-black sm:text-4xl">{question?.prompt}</h1><button type="button" onClick={() => hearComprehensionAudio(question.prompt, 'question')} className="storybook-icon-button shrink-0" aria-label="Hear question again"><Volume2 /></button></div>
           <div className="mt-6 grid gap-3">{question?.choices.map((choice) => <button key={choice} type="button" onClick={() => chooseComprehensionAnswer(choice)} disabled={answerIsCorrect} aria-pressed={comprehensionChoice === choice} className={`min-h-14 rounded-2xl border-2 px-5 py-4 text-left text-lg font-black disabled:cursor-default ${comprehensionChoice === choice ? (answerIsCorrect ? 'border-emerald-300 bg-emerald-300 text-slate-950' : 'border-amber-300 bg-amber-300 text-slate-950') : 'border-white/40 bg-white/10 hover:bg-white/20'}`}>{choice}</button>)}</div>
@@ -1002,14 +1141,15 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
             <div className="mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-gradient-to-br from-amber-300 to-orange-500 text-5xl shadow-lg">📚</div>
             <h2 className="mt-4 text-2xl font-black sm:text-4xl">Choose a story to explore</h2>
             <p className="mx-auto mt-2 max-w-2xl font-semibold text-blue-100">Every story has pictures, short pages and a voice to read along with. Saved stories are ready to enjoy offline.</p>
-            <button type="button" onClick={() => { if (creatorBusy) return; setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT); setCreatorError(''); setCreatorProgress(null); setShowCreator(true); }} className="mt-5 inline-flex min-h-12 items-center gap-2 rounded-2xl bg-amber-300 px-5 py-3 font-black text-slate-950 shadow-lg transition hover:-translate-y-0.5 disabled:opacity-50" disabled={creatorBusy || customRecords.length >= LIBRARY_LIMIT || libraryStorageState !== 'available'}>
+            <button type="button" onClick={() => { if (creatorBusy || !verifiedActiveReader(activeChildIdRef.current)) return; setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT); setCreatorError(''); setCreatorProgress(null); setShowCreator(true); }} className="mt-5 inline-flex min-h-12 items-center gap-2 rounded-2xl bg-amber-300 px-5 py-3 font-black text-slate-950 shadow-lg transition hover:-translate-y-0.5 disabled:opacity-50" disabled={creatorBusy || customRecords.length >= LIBRARY_LIMIT || libraryStorageState !== 'available' || !readerAccess.verified}>
               ✨ Create a new story
             </button>
             {customRecords.length >= LIBRARY_LIMIT && <p className="mt-2 text-xs font-bold text-amber-100">You can keep up to twenty saved storybooks on this device.</p>}
             {libraryStorageState === 'unavailable' && <p className="mt-2 text-sm font-bold text-amber-100">Story creation is paused until saved-story storage can be read, so a new draft can be kept safely.</p>}
           </section>}
+          {!readerAccess.verified && <div role="status" className="mt-2 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{readerCheckError || readerAccessMessage}<button type="button" onClick={retryReaderCheck} disabled={readerCheckBusy} className="min-h-11 rounded-lg bg-white px-3 font-black disabled:opacity-60">{readerCheckBusy ? 'Checking…' : 'Retry reader check'}</button></div>}
           <section className="mt-3 rounded-2xl border border-white/20 bg-white/10 p-3 sm:mt-4 sm:p-4" aria-label="Storybook filters">
-            <div className="flex flex-wrap items-center gap-2"><label className="flex min-h-12 flex-wrap items-center gap-2 text-xs font-black uppercase tracking-wide text-cyan-100"><span>Reading progress for</span><select value={activeChild.id} onChange={(event) => selectChild(event.target.value)} className="min-h-11 border-0 rounded-xl bg-white px-3 py-2 text-sm font-black text-slate-800">{profiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.displayName} · {profile.ageBand}</option>)}</select></label>{profileStorageState !== 'available' && <span role="status" className="text-xs font-bold text-amber-100">{profileStorageState === 'loading' ? 'Checking reader profiles…' : 'Reader profiles could not be read; this does not mean they were deleted.'}</span>}</div>
+            <div className="flex flex-wrap items-center gap-2"><label className="flex min-h-12 flex-wrap items-center gap-2 text-xs font-black uppercase tracking-wide text-cyan-100"><span>Reading progress for</span><select value={readerAccess.verified ? activeChild.id : ''} disabled={profileStorageState !== 'available' || readerCheckBusy} onChange={(event) => selectChild(event.target.value)} className="min-h-11 border-0 rounded-xl bg-white px-3 py-2 text-sm font-black text-slate-800 disabled:opacity-60">{!readerAccess.verified && <option value="" disabled>Choose a saved reader</option>}{profiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.displayName} · {profile.ageBand}</option>)}</select></label></div>
             {parentToolsOpen && <><div className="mt-3 flex flex-wrap items-center gap-2"><button type="button" onClick={() => setShowProfiles(true)} className="min-h-12 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Edit children</button><button type="button" onClick={() => setShowSeries(true)} className="min-h-12 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Characters &amp; series</button><button type="button" disabled={backupBusy || !customRecords.length || libraryStorageState !== 'available' || !progressStorageReadable} onClick={exportStories} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-3 py-2 text-xs font-black text-indigo-900 disabled:opacity-50"><Download size={16} /> Back up saved stories</button><button type="button" disabled={backupBusy} onClick={() => backupInputRef.current?.click()} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white disabled:opacity-50"><Upload size={16} /> Restore a story backup</button><input ref={backupInputRef} type="file" accept="application/json,.json" onChange={importStories} className="hidden" aria-label="Choose a story backup file" />{backupMessage && <p role="status" className="self-center text-xs font-bold text-amber-100">{backupMessage}</p>}</div><p className="mt-2 text-xs font-bold text-cyan-100/80">Stories on this device are shared. Each reader has their own place and favourites.</p>{profileStorageState === 'unavailable' && <p role="status" className="text-xs font-bold text-amber-100">Reader profiles could not be read. This does not mean they were deleted.</p>}{seriesStorageState === 'unavailable' && <p role="status" className="text-xs font-bold text-amber-100">Saved characters and series could not be read. This does not mean they were deleted.</p>}{!progressStorageReadable && <p role="status" className="text-xs font-bold text-amber-100">Reading progress could not be verified; backup is paused so saved positions and favourites are not omitted.</p>}</>}
             <details className="group mt-1">
               <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-2 text-sm font-black text-white outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300 [&::-webkit-details-marker]:hidden"><span>Find a story</span>{(shelf !== 'all' || ageFilter !== 'all' || seriesFilter !== 'all') && <span className="min-w-0 flex-1 truncate text-right text-xs font-bold text-cyan-100">Showing {shelf !== 'all' ? STORYBOOK_SHELVES.find((item) => item.id === shelf)?.label : 'all stories'}{ageFilter !== 'all' ? ` · Ages ${ageFilter.replace('-', '–')}` : ''}{seriesFilter !== 'all' ? ` · ${availableSeries.find((item) => item.id === seriesFilter)?.name || 'selected series'}` : ''}</span>}<span aria-hidden="true" className="text-lg transition-transform group-open:rotate-180">⌄</span></summary>
@@ -1031,10 +1171,10 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
                     <button type="button" onClick={() => openBook(book)} className={`relative flex aspect-square w-full items-center justify-center overflow-hidden bg-gradient-to-br ${book.accent} sm:aspect-[4/3]`} aria-label={`Open ${assetLabel(book)}`}>
                       {!imageErrors[`${book.slug}-cover`] && (book.custom ? coverMedia[book.id]?.image : book.cover) && <img src={book.custom ? coverMedia[book.id].image : book.cover} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" onError={() => onImageError(`${book.slug}-cover`)} />}
                       {(imageErrors[`${book.slug}-cover`] || !(book.custom ? coverMedia[book.id]?.image : book.cover)) && <span className="text-7xl" aria-hidden="true">{book.emoji}</span>}
-                      <div className="absolute left-1 top-1 hidden flex-col items-start gap-1 sm:left-3 sm:top-3 sm:flex sm:flex-row"><span className="rounded-full bg-slate-950/65 px-2 py-1 text-[10px] font-black text-white backdrop-blur sm:px-3 sm:text-xs">Ages {book.ageBand}</span><span className="rounded-full bg-indigo-700/80 px-2 py-1 text-[10px] font-black text-white backdrop-blur sm:px-3 sm:text-xs">{book.custom ? 'Shared on this device' : `Reading as ${activeChild.displayName}`}</span></div>
+                      <div className="absolute left-1 top-1 hidden flex-col items-start gap-1 sm:left-3 sm:top-3 sm:flex sm:flex-row"><span className="rounded-full bg-slate-950/65 px-2 py-1 text-[10px] font-black text-white backdrop-blur sm:px-3 sm:text-xs">Ages {book.ageBand}</span><span className="rounded-full bg-indigo-700/80 px-2 py-1 text-[10px] font-black text-white backdrop-blur sm:px-3 sm:text-xs">{book.custom ? 'Shared on this device' : readerAccess.verified ? `Reading as ${activeChild.displayName}` : 'Reader not verified'}</span></div>
                       <span aria-hidden="true" className="storybook-cover-read-label absolute bottom-3 right-3 hidden min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-black text-white shadow-lg sm:inline-flex">{readingActionLabel(book)} <ArrowRight size={17} /></span>
                     </button>
-                    <div className="min-w-0 p-3 sm:p-5"><div className="flex items-start justify-between gap-1.5"><div className="min-w-0"><h3 className="text-base font-black leading-tight sm:text-xl"><button type="button" onClick={() => openBook(book)} className="text-left">{book.title}</button></h3><p className="mt-1 line-clamp-1 text-xs font-bold text-slate-500 sm:mt-2 sm:text-sm">{book.subtitle}</p></div><button type="button" onClick={() => toggleBookFavourite(book)} className="min-h-11 min-w-11 shrink-0 rounded-xl px-1 text-2xl text-amber-500" aria-label={`${getBookProgress(progressByChild, activeChild.id, book.slug).favourite ? 'Remove' : 'Add'} favourite`} aria-pressed={Boolean(getBookProgress(progressByChild, activeChild.id, book.slug).favourite)}>{getBookProgress(progressByChild, activeChild.id, book.slug).favourite ? '★' : '☆'}</button></div>{book.custom && (!coverMedia[book.id] || coverMedia[book.id].status !== 'ready') && <div className="mt-2 rounded-lg bg-amber-50 p-2 text-xs font-bold text-amber-900" role="status">{!coverMedia[book.id] || coverMedia[book.id].status === 'loading' ? 'Loading saved cover…' : coverMedia[book.id].status === 'unavailable' ? 'Cover storage is unavailable; your story remains saved.' : 'Cover picture is missing; your story remains saved.'}{coverMedia[book.id]?.status !== 'loading' && <button type="button" className="ml-2 min-h-11 rounded-lg bg-white px-3 font-black" onClick={() => retryCover(book)}>Retry cover</button>}</div>}<div className="mt-1.5 flex flex-wrap gap-2 sm:mt-3"><span className="rounded-full bg-indigo-50 px-2 py-1 text-[10px] font-black text-indigo-700 sm:text-xs">{book.seriesName}</span>{readCompletion(book.slug, activeChild.id) && <span className="rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-black text-emerald-700 sm:text-xs">Completed</span>}</div><div className="mt-2 flex flex-wrap gap-2 sm:mt-4">{(() => { const actionLabel = readingActionLabel(book); return <button type="button" onClick={() => openBook(book)} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-3 py-2 text-sm font-black text-white shadow-md sm:px-4" aria-label={`${actionLabel}: ${book.title}`}>{actionLabel} <ArrowRight size={17} /></button>; })()}{parentToolsOpen && book.seriesId && <button type="button" onClick={() => startSeriesStory(book)} className="rounded-2xl border-2 border-indigo-200 px-3 py-2 text-xs font-black text-indigo-700">New story with {book.seriesName}</button>}</div></div>
+                    <div className="min-w-0 p-3 sm:p-5"><div className="flex items-start justify-between gap-1.5"><div className="min-w-0"><h3 className="text-base font-black leading-tight sm:text-xl"><button type="button" onClick={() => openBook(book)} className="text-left">{book.title}</button></h3><p className="mt-1 line-clamp-1 text-xs font-bold text-slate-500 sm:mt-2 sm:text-sm">{book.subtitle}</p></div><button type="button" onClick={() => toggleBookFavourite(book)} className="min-h-11 min-w-11 shrink-0 rounded-xl px-1 text-2xl text-amber-500" aria-label={`${activeBookProgress(book.slug).favourite ? 'Remove' : 'Add'} favourite`} aria-pressed={Boolean(activeBookProgress(book.slug).favourite)}>{activeBookProgress(book.slug).favourite ? '★' : '☆'}</button></div>{book.custom && (!coverMedia[book.id] || coverMedia[book.id].status !== 'ready') && <div className="mt-2 rounded-lg bg-amber-50 p-2 text-xs font-bold text-amber-900" role="status">{!coverMedia[book.id] || coverMedia[book.id].status === 'loading' ? 'Loading saved cover…' : coverMedia[book.id].status === 'unavailable' ? 'Cover storage is unavailable; your story remains saved.' : 'Cover picture is missing; your story remains saved.'}{coverMedia[book.id]?.status !== 'loading' && <button type="button" className="ml-2 min-h-11 rounded-lg bg-white px-3 font-black" onClick={() => retryCover(book)}>Retry cover</button>}</div>}<div className="mt-1.5 flex flex-wrap gap-2 sm:mt-3"><span className="rounded-full bg-indigo-50 px-2 py-1 text-[10px] font-black text-indigo-700 sm:text-xs">{book.seriesName}</span>{activeReaderCompleted(book.slug) && <span className="rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-black text-emerald-700 sm:text-xs">Completed</span>}</div><div className="mt-2 flex flex-wrap gap-2 sm:mt-4">{(() => { const actionLabel = readingActionLabel(book); return <button type="button" onClick={() => openBook(book)} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-3 py-2 text-sm font-black text-white shadow-md sm:px-4" aria-label={`${actionLabel}: ${book.title}`}>{actionLabel} <ArrowRight size={17} /></button>; })()}{parentToolsOpen && book.seriesId && <button type="button" onClick={() => startSeriesStory(book)} className="rounded-2xl border-2 border-indigo-200 px-3 py-2 text-xs font-black text-indigo-700">New story with {book.seriesName}</button>}</div></div>
                   </div>
                 )}
               </article>
@@ -1055,7 +1195,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   const IllustrationFrame = isCover ? 'button' : 'div';
   return (
     <main className={`storybook-reader min-h-screen w-full overflow-hidden bg-gradient-to-br ${selectedBook.accent} px-3 py-4 text-white sm:px-6 sm:py-6`}>
-      <div className="storybook-reader-frame mx-auto flex min-h-[calc(100vh-2rem)] max-w-7xl flex-col">
+      <div className="storybook-reader-frame mx-auto flex h-full min-h-0 max-w-7xl flex-col">
         {activeGenerationId === selectedBook.id && <div className="mb-3 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/25 bg-slate-950/30 px-4 py-3 text-sm font-bold"><span role="status">Making this draft · {creatorProgress?.imagesReady || 0} pictures and {creatorProgress?.audioReady || 0} recordings saved</span><button type="button" onClick={pauseGeneration} className="min-h-11 rounded-xl bg-amber-300 px-4 py-2 font-black text-slate-950">Pause and save</button></div>}
         <header className="flex items-center justify-between gap-3">
           <button type="button" onClick={closeBook} className="storybook-icon-button" aria-label="Back to storybooks"><ArrowLeft /></button>
@@ -1067,6 +1207,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
           <div className="h-3 flex-1 overflow-hidden rounded-full bg-white/20"><div className="h-full rounded-full bg-amber-300 transition-all duration-500" style={{ width: `${Math.max(8, progress)}%` }} /></div>
           <span className="text-sm font-black text-white/85">{screenNumber}/{totalScreens}</span>
         </div>
+        {!readerAccess.verified && <div role="status" className="mt-3 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{readerCheckError || readerAccessMessage}<button type="button" onClick={retryReaderCheck} disabled={readerCheckBusy} className="min-h-11 rounded-lg bg-white px-3 font-black disabled:opacity-60">{readerCheckBusy ? 'Checking…' : 'Retry reader check'}</button></div>}
         {progressSaveError && <div role="status" className="mt-3 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{progressSaveError}<button type="button" onClick={retryProgressSave} className="min-h-11 rounded-lg bg-white px-3 font-black">Retry saved progress</button></div>}
         {!progressStorageReadable && !progressSaveError && <div role="status" className="mt-3 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">Reading position could not be safely read or saved. You can keep reading; progress is not confirmed.<button type="button" onClick={() => reconcileStoryRewards()} className="min-h-11 rounded-lg bg-white px-3 font-black">Retry progress check</button></div>}
         {completionSaveError && completionErrorSlugRef.current === selectedBook.slug && <div role="status" className="mt-3 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{completionSaveError}{pageIndex >= pages.length - 1 && <button type="button" onClick={() => finishBook()} className="min-h-11 rounded-lg bg-white px-3 font-black">Retry finish</button>}</div>}
@@ -1074,7 +1215,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
           <IllustrationFrame type={isCover ? 'button' : undefined} onClick={isCover ? startReading : undefined} aria-label={isCover ? `Start reading ${selectedBook.title}` : undefined} className={`relative flex min-h-[45vh] items-center justify-center overflow-hidden rounded-[2rem] border-4 border-white/35 bg-white/10 p-2 shadow-2xl backdrop-blur-sm sm:p-4 ${isCover ? 'w-full cursor-pointer text-left transition active:scale-[.99]' : ''}`}>
             {currentImage && !imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`] && <img src={currentImage} alt={isCover ? `${selectedBook.title} cover` : `${selectedBook.title}, ${currentPage?.title || ''}`} className="h-full max-h-[64vh] w-full rounded-[1.5rem] object-cover" onError={() => onImageError(`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`)} />}
             {(!currentImage || imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`]) && <div className="grid h-full min-h-[40vh] w-full place-items-center rounded-[1.5rem] bg-slate-950/20 text-8xl" aria-label={selectedBook.custom && selectedBook.status !== 'ready' ? 'Picture still being made; read the story text below' : 'Illustration unavailable'}>{selectedBook.emoji}</div>}
-            <span className="absolute bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-slate-950/70 px-4 py-2 text-xs font-black text-white backdrop-blur">{isCover && <Play size={14} fill="currentColor" />}{isCover ? (readCompletion(selectedBook.slug, activeChild.id) ? 'Tap to Start Again' : 'Tap to Start Reading') : `Illustration ${pageIndex + 1} of ${pages.length}`}</span>
+            <span className="absolute bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-slate-950/70 px-4 py-2 text-xs font-black text-white backdrop-blur">{isCover && <Play size={14} fill="currentColor" />}{isCover ? (activeReaderCompleted(selectedBook.slug) ? 'Tap to Start Again' : 'Tap to Start Reading') : `Illustration ${pageIndex + 1} of ${pages.length}`}</span>
           </IllustrationFrame>
           <div role="region" aria-label="Story words and reading tools" tabIndex={0} className="storybook-reading-panel flex flex-col rounded-[2rem] border-2 border-white/25 bg-slate-950/25 p-5 shadow-2xl backdrop-blur-md sm:p-7">
             {selectedBook.custom && readerScreenMedia.status !== 'ready' && <div className="mb-3 rounded-xl bg-slate-950/45 p-3 text-sm font-bold" role="status">{readerScreenMedia.status === 'loading' || readerScreenMedia.status === 'idle' ? 'Loading this saved page’s picture and recording…' : readerScreenMedia.status === 'unavailable' ? 'Saved media storage is unavailable right now. Your story text is still here.' : 'A saved picture or recording is missing. Your story text is still here.'}{readerScreenMedia.status !== 'loading' && <button type="button" onClick={retryReaderMedia} className="ml-2 min-h-11 rounded-lg bg-white px-3 font-black text-indigo-950">Retry saved media</button>}</div>}
@@ -1084,7 +1225,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
                 <h2 className="storybook-cover-title mt-2 text-3xl font-black leading-tight sm:text-5xl">{selectedBook.title}</h2>
                 <p className="mt-3 text-base font-bold leading-relaxed text-white/85 sm:text-lg">{selectedBook.summary}</p>
                 {selectedBook.custom && selectedBook.status !== 'ready' && <p className="mt-4 rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-white/90">This is a readable draft. Pictures and recordings still being made will be labelled on each page.</p>}
-                <button type="button" onClick={startReading} className="storybook-start-reading mt-7 inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-amber-300 px-6 py-4 text-lg font-black text-slate-950 shadow-[0_6px_0_rgba(120,53,15,.4)] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none"><Play fill="currentColor" /> {readCompletion(selectedBook.slug, activeChild.id) ? 'Start Again' : 'Start Reading'}</button>
+                <button type="button" onClick={startReading} className="storybook-start-reading mt-7 inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-amber-300 px-6 py-4 text-lg font-black text-slate-950 shadow-[0_6px_0_rgba(120,53,15,.4)] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none"><Play fill="currentColor" /> {activeReaderCompleted(selectedBook.slug) ? 'Start Again' : 'Start Reading'}</button>
                 {started && currentAudio && <button type="button" onClick={togglePlayback} className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/30 px-4 py-3 font-black text-white hover:bg-white/10" aria-label={playing ? 'Pause narration' : 'Play narration'}>{playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />}{playing ? 'Pause introduction' : 'Resume introduction'}</button>}
                 <button type="button" onClick={() => setAutoRead((value) => !value)} className="mt-3 inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 px-4 py-3 text-sm font-black text-white/90 hover:bg-white/10" aria-pressed={autoRead}>{autoRead ? <Check size={17} /> : <span className="h-4 w-4 rounded border border-white/70" />} Auto-turn pages after narration</button>
               </>
