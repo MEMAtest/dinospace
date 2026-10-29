@@ -249,7 +249,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
       const before = readArithmeticProgressStrict('addition', playerId);
       if (!before.ok) {
         setProgressState(before);
-        setCompletionError(before.error || 'Saved chapter progress could not be checked. Retry before saving this result.');
+        setCompletionError('Saved progress needs checking. Retry this result.');
         setCompletionPending(false);
         completionBusyRef.current = false;
         return false;
@@ -262,7 +262,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     }
     const result = recordArithmeticRunCompletionStrict('addition', playerId, draft.chapterIndex, draft.rounds, draft.stars);
     if (!result.ok) {
-      setCompletionError('This six-question result is ready, but saved progress could not be confirmed. Retry to save this same result.');
+      setCompletionError('Result ready. Save failed. Retry this result.');
       setCompletionPending(false);
       completionBusyRef.current = false;
       return false;
@@ -275,7 +275,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     }
     const drained = await drainPendingRewards();
     if (!drained) {
-      setCompletionError('This result is saved, but its reward still needs confirmation. Retry this same saved result.');
+      setCompletionError('Result saved. Reward needs sync. Retry.');
       setCompletionPending(false);
       completionBusyRef.current = false;
       return false;
@@ -283,7 +283,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     const latest = readArithmeticProgressStrict('addition', playerId);
     if (!latest.ok || pendingArithmeticRewardReceipts(latest.progress).length) {
       if (!latest.ok) setProgressState(latest);
-      setCompletionError(latest.error || 'Confirm saved rewards before finishing this chapter.');
+      setCompletionError('Saved rewards need confirmation. Retry.');
       setCompletionPending(false);
       completionBusyRef.current = false;
       return false;
@@ -441,14 +441,14 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
       <main className="mx-auto mt-3 max-w-4xl rounded-3xl bg-white/90 p-3 text-center shadow-xl sm:mt-4 sm:p-6">
         <p className="mb-2 text-lg font-bold" aria-live="polite">{question?.prompt}</p>
         <p className="mb-2 text-xl font-black" aria-label={`Equation: ${equation}`}>{equation}</p>
-        <button className="mb-2 inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>
+        {!locked&&<button className="mb-2 inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>}
         {model}
         {question?.type !== 'bond' && !locked && <button onClick={()=>setModelJoined((joined)=>!joined)} className="my-2 min-h-12 rounded-xl border-2 border-teal-700 bg-teal-50 px-4 font-black">{modelJoined ? 'Split the groups apart' : 'Bring the groups together'}</button>}
         {!locked && <div className="my-3 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose the answer">{question?.options.map(option=><button key={option} disabled={locked} onClick={()=>attempt(option)} className="min-h-14 min-w-16 rounded-2xl bg-emerald-700 px-5 text-2xl font-black text-white shadow disabled:opacity-60" aria-label={`Answer ${option}`}>{option}</button>)}</div>}
         {feedback&&<p role="status" className="mx-auto mb-2 max-w-2xl rounded-xl bg-emerald-50 p-3 font-bold">{feedback}</p>}
         {locked&&<button onClick={()=>tell(speak, question.explanation, arithmeticNarrationSegments(question, 'explanation'))} className="mx-auto inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-emerald-700 bg-white px-4 font-black"><Volume2 size={20}/> Hear explanation again</button>}
         {!locked&&<button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button>}
-        {completionError&&<section role="alert" className="mx-auto mt-3 max-w-2xl rounded-2xl border-2 border-rose-600 bg-white p-3 font-bold"><p>{completionError}</p><button data-addition-result-retry onClick={()=>void finishChapter(pendingCompletionRef.current)} disabled={completionPending} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{completionPending?'Saving…':completionError.includes('reward') || completionError.includes('rewards') ? 'Retry reward confirmation' : 'Retry saving this result'}</button></section>}
+        {completionError&&<section role="alert" className="mx-auto mt-2 max-w-2xl rounded-2xl border-2 border-rose-600 bg-white p-2 text-sm font-bold"><p>{completionError}</p><button data-addition-result-retry onClick={()=>void finishChapter(pendingCompletionRef.current)} disabled={completionPending} className="mt-1 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{completionPending?'Saving…':completionError.includes('reward') || completionError.includes('rewards') ? 'Retry reward confirmation' : 'Retry saving this result'}</button></section>}
         {locked&&!completionError&&<button onClick={next} disabled={completionPending} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-700 px-5 text-lg font-black text-white disabled:opacity-60">{roundIndex===5?'Finish chapter':'Next question'}</button>}
       </main>
     </div>
