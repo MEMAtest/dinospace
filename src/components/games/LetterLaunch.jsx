@@ -479,11 +479,11 @@ const LetterLaunch = ({
   return <main className="letter-launch letter-launch-play" style={WORLD_BACKGROUND_STYLE} data-letter-chapter={chapter.id} data-letter-phase="play" data-run-seed={runSeed}>
     <header className="letter-launch-header">
       <button type="button" onClick={exitToMenu} aria-label="Choose a chapter" className="letter-launch-back"><ArrowLeft /></button>
-      <div className="text-center"><h1>Letter Launch</h1><p>{chapter.title} · {Math.min(roundCount + 1, targetCount)} of {targetCount}</p></div>
+      <div className="text-center"><h1>Letter Launch</h1><p>{chapter.title} · {Math.min(roundCount + (held ? 0 : 1), targetCount)} of {targetCount}</p></div>
       <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
     </header>
     <section className="letter-launch-task">
-      <PracticeProgress skill={PHASE_LABELS[chapterIndex]} completed={Math.min(roundCount, targetCount)} target={targetCount} accent="sky" />
+      <PracticeProgress skill={PHASE_LABELS[chapterIndex]} completed={Math.min(roundCount, targetCount)} target={targetCount} accent="sky" className="letter-launch-progress" />
       <div className="letter-launch-panel">
         <p className="letter-launch-kicker">{round.kind === 'build-word' ? 'Blend the sounds' : round.kind === 'case-match' ? 'Big and little letters' : chapterIndex === 0 ? 'Name and sound' : 'Find the first sound'}</p>
         <div className="letter-launch-clue" aria-label={round.kind === 'case-match' ? `Little letter ${round.target.letter.toLowerCase()}` : round.kind !== 'case-match' ? `Picture clue for ${round.target.word}` : 'Listen to the word'}>
@@ -527,7 +527,6 @@ const LetterLaunch = ({
       {held && !saveError && !chapterSaved && <button ref={nextButtonRef} type="button" onClick={nextMission} className="letter-launch-primary">Next mission</button>}
       {chapterSaved && <section className="letter-launch-review" aria-labelledby="letter-launch-finish-title">
         <h2 ref={finishHeadingRef} id="letter-launch-finish-title" tabIndex={-1}>{CHAPTERS[chapterIndex].badge} saved!</h2>
-        <p>{LETTER_LAUNCH_CHAPTER_BADGES[chapterIndex]?.description}</p>
         <button type="button" onClick={() => { setSessionPhase('review'); setRound(null); }} className="letter-launch-primary">Finish chapter</button>
       </section>}
       {isFinal && saving && <p role="status" className="letter-launch-save-status">Saving your chapter and badge…</p>}

@@ -68,3 +68,21 @@
   .letter-launch-choice{min-height:64px}
 }
 @media(prefers-reduced-motion:reduce){.letter-launch-choice{transition:none}.letter-launch-stage.is-launching .letter-launch-rocket{animation:none;transform:translate(82px,0) scale(.9)}.letter-launch-stage.is-launching .letter-launch-flame{animation:none;opacity:1;transform:translate(82px,0) scale(.6)}.letter-launch-stage.is-launching .letter-launch-sparks{animation:none;opacity:1;transform:translate(56px,0)}}
+
+@media(max-width:699px){
+  .letter-launch-header{min-height:52px;padding:.1rem .5rem}
+  .letter-launch-progress{display:none}
+  .letter-launch-task{gap:.25rem;padding-top:.1rem}
+  .letter-launch-panel{padding:.4rem .6rem}
+  .letter-launch-clue{min-height:48px;font-size:3rem;margin:.1rem auto}
+  .letter-launch-instruction{font-size:.86rem}
+  .letter-launch-stage{height:28px}
+  .letter-launch-rocket{width:30px;height:30px;bottom:2px}
+  .letter-launch-audio{font-size:.78rem;padding:.35rem .45rem;gap:.25rem}
+  .letter-launch-audio-row{gap:.35rem}
+  .letter-launch-choice{min-height:48px}
+  .letter-launch-options{gap:.4rem}
+  .letter-launch-alert,.letter-launch-review{padding:.5rem;margin-bottom:.25rem}
+  .letter-launch-alert p,.letter-launch-review p{font-size:.9rem;line-height:1.25;margin-bottom:.4rem}
+  .letter-launch-feedback{padding:.45rem .6rem;font-size:.9rem}
+}
