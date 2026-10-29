@@ -1,0 +1,356 @@
+{
+  "passed": false,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "entryIdentity": "/assets/arcade-yJB8jkQC.js",
+  "namespaced": true,
+  "rows": [
+    {
+      "kind": "normal-route",
+      "player": "amari",
+      "world": "Explore & Languages",
+      "entryIdentity": "/assets/arcade-yJB8jkQC.js"
+    },
+    {
+      "kind": "chapter",
+      "chapter": "colour-painter",
+      "rounds": [
+        {
+          "mode": "paint",
+          "target": "Rosa",
+          "translation": "pink",
+          "progressBefore": "Colour Painter · 1 of 5",
+          "answerRect": {
+            "x": 199,
+            "y": 433,
+            "width": 168,
+            "height": 64,
+            "top": 433,
+            "right": 367,
+            "bottom": 497,
+            "left": 199
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "park",
+          "target": "Schwarz",
+          "translation": "black",
+          "progressBefore": "Colour Painter · 2 of 5",
+          "answerRect": {
+            "x": 23,
+            "y": 433,
+            "width": 168,
+            "height": 64,
+            "top": 433,
+            "right": 191,
+            "bottom": 497,
+            "left": 23
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "paint",
+          "target": "Weiß",
+          "translation": "white",
+          "progressBefore": "Colour Painter · 3 of 5",
+          "answerRect": {
+            "x": 199,
+            "y": 505,
+            "width": 168,
+            "height": 64,
+            "top": 505,
+            "right": 367,
+            "bottom": 569,
+            "left": 199
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "park",
+          "target": "Rot",
+          "translation": "red",
+          "progressBefore": "Colour Painter · 4 of 5",
+          "answerRect": {
+            "x": 23,
+            "y": 433,
+            "width": 168,
+            "height": 64,
+            "top": 433,
+            "right": 191,
+            "bottom": 497,
+            "left": 23
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "paint",
+          "target": "Grün",
+          "translation": "green",
+          "progressBefore": "Colour Painter · 5 of 5",
+          "answerRect": {
+            "x": 199,
+            "y": 505,
+            "width": 168,
+            "height": 64,
+            "top": 505,
+            "right": 367,
+            "bottom": 569,
+            "left": 199
+          },
+          "heldSaveError": false
+        }
+      ],
+      "roundCount": 5,
+      "wasReplay": true,
+      "rewardEligible": false,
+      "legacyRewardCeiling": -1,
+      "receipt": {
+        "transactionId": "amari_0_15m62m2",
+        "attemptId": "amari_0_15m62m2",
+        "chapterId": "colour-painter",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "chapterButtonRect": {
+        "x": 37,
+        "y": 346,
+        "width": 316,
+        "height": 48,
+        "top": 346,
+        "right": 353,
+        "bottom": 394,
+        "left": 37
+      },
+      "finishRect": {
+        "x": 115.8125,
+        "y": 671,
+        "width": 158.375,
+        "height": 48,
+        "top": 671,
+        "right": 274.1875,
+        "bottom": 719,
+        "left": 115.8125
+      },
+      "retry": null
+    },
+    {
+      "kind": "completion-reload",
+      "chapter": "colour-painter",
+      "receipt": {
+        "transactionId": "amari_0_15m62m2",
+        "attemptId": "amari_0_15m62m2",
+        "chapterId": "colour-painter",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "cardRestored": true
+    },
+    {
+      "kind": "chapter",
+      "chapter": "vehicle-workshop",
+      "rounds": [
+        {
+          "mode": "vehicles",
+          "target": "Bus",
+          "translation": "bus",
+          "progressBefore": "Vehicle Workshop · 1 of 6",
+          "answerRect": {
+            "x": 199,
+            "y": 505,
+            "width": 168,
+            "height": 64,
+            "top": 505,
+            "right": 367,
+            "bottom": 569,
+            "left": 199
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "parts",
+          "target": "Lenkrad",
+          "translation": "steering wheel",
+          "progressBefore": "Vehicle Workshop · 2 of 6",
+          "answerRect": {
+            "x": 199,
+            "y": 505,
+            "width": 168,
+            "height": 72,
+            "top": 505,
+            "right": 367,
+            "bottom": 577,
+            "left": 199
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "vehicles",
+          "target": "Flugzeug",
+          "translation": "aeroplane",
+          "progressBefore": "Vehicle Workshop · 3 of 6",
+          "answerRect": {
+            "x": 23,
+            "y": 505,
+            "width": 168,
+            "height": 64,
+            "top": 505,
+            "right": 191,
+            "bottom": 569,
+            "left": 23
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "parts",
+          "target": "Reifen",
+          "translation": "tyre",
+          "progressBefore": "Vehicle Workshop · 4 of 6",
+          "answerRect": {
+            "x": 23,
+            "y": 513,
+            "width": 168,
+            "height": 64,
+            "top": 513,
+            "right": 191,
+            "bottom": 577,
+            "left": 23
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "vehicles",
+          "target": "Rakete",
+          "translation": "rocket",
+          "progressBefore": "Vehicle Workshop · 5 of 6",
+          "answerRect": {
+            "x": 199,
+            "y": 505,
+            "width": 168,
+            "height": 64,
+            "top": 505,
+            "right": 367,
+            "bottom": 569,
+            "left": 199
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "parts",
+          "target": "Rad",
+          "translation": "wheel",
+          "progressBefore": "Vehicle Workshop · 6 of 6",
+          "answerRect": {
+            "x": 199,
+            "y": 433,
+            "width": 168,
+            "height": 64,
+            "top": 433,
+            "right": 367,
+            "bottom": 497,
+            "left": 199
+          },
+          "heldSaveError": true,
+          "localFault": {
+            "key": "amari_german_chapter_progress_v1",
+            "mode": "stale-readback",
+            "beforeRaw": "{\"version\":1,\"unlockedChapterIndex\":1,\"completedChapterIds\":[\"colour-painter\"],\"chapterReceipts\":[{\"transactionId\":\"amari_0_15m62m2\",\"attemptId\":\"amari_0_15m62m2\",\"chapterId\":\"colour-painter\",\"rewardDelta\":1,\"parentClaimed\":true}]}",
+            "consumed": true,
+            "committedWrite": true
+          },
+          "faultRawUnchanged": false
+        }
+      ],
+      "roundCount": 6,
+      "wasReplay": false,
+      "rewardEligible": true,
+      "legacyRewardCeiling": -1,
+      "receipt": {
+        "transactionId": "amari_1_11yjxcp",
+        "attemptId": "amari_1_11yjxcp",
+        "chapterId": "vehicle-workshop",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "chapterButtonRect": {
+        "x": 37,
+        "y": 346,
+        "width": 316,
+        "height": 48,
+        "top": 346,
+        "right": 353,
+        "bottom": 394,
+        "left": 37
+      },
+      "retry": {
+        "retryRect": {
+          "x": 134.140625,
+          "y": 687,
+          "width": 121.71875,
+          "height": 48,
+          "top": 687,
+          "right": 255.859375,
+          "bottom": 735,
+          "left": 134.140625
+        },
+        "receipt": {
+          "transactionId": "amari_1_11yjxcp",
+          "attemptId": "amari_1_11yjxcp",
+          "chapterId": "vehicle-workshop",
+          "rewardDelta": 1,
+          "parentClaimed": true
+        }
+      }
+    }
+  ],
+  "chapterRows": 2,
+  "practiceModeCount": 0,
+  "routeIds": [],
+  "wrongRetryCount": 2,
+  "audio": [
+    {
+      "path": "/audio/de/rosa.mp3",
+      "played": true,
+      "advanced": true
+    }
+  ],
+  "cancellation": [],
+  "faults": [
+    {
+      "kind": "local-save-retry",
+      "chapterId": "vehicle-workshop",
+      "localMode": "stale-readback-recovered"
+    }
+  ],
+  "startupReconciliation": {
+    "pendingBeforeMount": 0,
+    "recovered": 0,
+    "retriedFromMenu": false
+  },
+  "originalSoundOn": false,
+  "soundPreferenceRestored": true,
+  "changedStorageKeys": [
+    "qa_rewards_20261024_amari_game_diagnostics_v1",
+    "qa_rewards_20261024_amari_games_played",
+    "qa_rewards_20261024_amari_german_chapter_progress_v1",
+    "qa_rewards_20261024_amari_german_recent_targets_v1",
+    "qa_rewards_20261024_amari_points",
+    "qa_rewards_20261024_amari_rewards_v2"
+  ],
+  "finalRender": null,
+  "failureScreenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/failure-german-native-390x740-1793270070212.jpg",
+  "diagnostics": {
+    "providerAttempts": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "error": "Error: Direction Driver omitted its six-word teaching introduction.\n    at completeDirectionChapter (evalmachine.<anonymous>:642:63)\n    at async evalmachine.<anonymous>:950:19\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)\n    at async connection.onmessage (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:76275:29)",
+  "expectedEntry": "/assets/arcade-yJB8jkQC.js",
+  "cliReturnCode": 0
+}

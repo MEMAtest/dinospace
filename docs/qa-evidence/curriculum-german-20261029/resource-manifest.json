@@ -1,0 +1,147 @@
+{
+  "startedAt": "2026-10-29T09:22:30.584683+00:00",
+  "checkout": "Existing canonical checkout reused",
+  "newWorktrees": 0,
+  "newBrowserProfiles": 0,
+  "newDependencies": 0,
+  "newPaidGenerationCalls": 0,
+  "profileStartKiB": 984132,
+  "profileGrowthBudgetMiB": 64,
+  "evidenceBudgetMiB": 8,
+  "diskFreeStart": "89GiB",
+  "qaSession": "amari-targeted-contained",
+  "policy": "No reset/new tabs/profiles/full-project copies; final renders and unique failures only.",
+  "retainedFailures": "Original product geometry and separate harness setup failures retained; no source acceptance inferred from a failed full run.",
+  "currentFrozenRuntime": "e322549af753147d471d646ac32de645d709c356",
+  "finishedAt": "2026-10-29T11:41:32.596668+00:00",
+  "profileEndKiB": 996368,
+  "profileGrowthKiB": 12236,
+  "evidenceBytesBeforeFinalSummary": 4281980,
+  "removedTaskTemporaryFiles": [
+    {
+      "path": "tmp/pair10-build.log",
+      "bytes": 14295,
+      "sha256": "a84a74b9537a3b14530aec36bb05f5b05409ef895aa0a7238fda706a3ae7d3f9"
+    },
+    {
+      "path": "tmp/pair10-full-tests.log",
+      "bytes": 63484,
+      "sha256": "af6d2f9f25d762ca863ab95d51cb1e4b7c81095240c8ab755038b7e516c852ec"
+    },
+    {
+      "path": "tmp/pair10-backend-api.json",
+      "bytes": 14440,
+      "sha256": "8641fa7b9fa79d3e2f08043bb64bee85e0c1e073bfabf2778172f2e56b388322"
+    },
+    {
+      "path": "tmp/pair10-backend-promoted.json",
+      "bytes": 14649,
+      "sha256": "29400019dba9e4f3a65c3f0b7bfd6927c2656e5d980d7a575c523fc6cab7ec9a"
+    },
+    {
+      "path": "tmp/pair10-netlify-before.json",
+      "bytes": 7246,
+      "sha256": "11a5c885656e88bcf955de03453d4e5525894bd35247e76b1a3ca5f6c67e764b"
+    },
+    {
+      "path": "tmp/pair10-netlify-after.json",
+      "bytes": 7246,
+      "sha256": "d3a885b15bbd6ae485303b1266b5af3675f1a12fb5cd62629ce663ba61e8bde5"
+    },
+    {
+      "path": "tmp/pair10-cutover-before.cjs",
+      "bytes": 5138,
+      "sha256": "7cc45f9583dad2a04ce9c871c1475fdf1c7a93ec13f127ba76cd1871aeb30e84"
+    },
+    {
+      "path": "tmp/pair10-cutover-after.cjs",
+      "bytes": 5137,
+      "sha256": "d6f7f0cfad472a8257edac4eed3e3e55eb75281b4ff7f8e0401e17b039e3c953"
+    },
+    {
+      "path": "tmp/pair10-build-revision1.log",
+      "bytes": 14295,
+      "sha256": "f0fc078e78da13f7b7c4f152dc2e605f8625dfaf6d36a3f8be64597d2be6004b"
+    },
+    {
+      "path": "tmp/pair10-build-revision2.log",
+      "bytes": 14295,
+      "sha256": "5fd6377ecaacb81ddf369aa64e8b17b74b58e1631912a3b2b84d782f5f5133fa"
+    },
+    {
+      "path": "tmp/pair10-build-revision3.log",
+      "bytes": 14295,
+      "sha256": "240a8a77847f21038ded0db41dab4594b0e32d68f993a9c286ec51c90f179cb9"
+    },
+    {
+      "path": "tmp/pair10-build-revision4.log",
+      "bytes": 14295,
+      "sha256": "a551bc77994b2dce809a3d24c818e6332f8c532f4056ea52ae1687189846231b"
+    },
+    {
+      "path": "tmp/pair10-build-revision5.log",
+      "bytes": 14295,
+      "sha256": "77fc5f9f6bddf667f6da440741357260b11348e78e8e0b6f4d1721daf3a5225f"
+    },
+    {
+      "path": "tmp/pair10-build-revision6.log",
+      "bytes": 14295,
+      "sha256": "754c8da11ff6a5da54c010ac4cf708c5a39b0fb35435b0985e170dc8db6c94aa"
+    },
+    {
+      "path": "tmp/pair10-build-revision7.log",
+      "bytes": 14295,
+      "sha256": "00afde0b45a93df744298a18619e579faa30efc4427c1d1b557500fb56f857bf"
+    },
+    {
+      "path": "tmp/pair10-full-tests-revision1.log",
+      "bytes": 63486,
+      "sha256": "c3f6beaae8dc2de199e0aa80dcaa01fd77d90d56a01537fdc2b66c5a37bfe358"
+    },
+    {
+      "path": "tmp/pair10-full-tests-revision2.log",
+      "bytes": 63407,
+      "sha256": "b87eb2c4bde683cef6db713ad47677653c07d5e34d7236a50fd4ff3be4ae003c"
+    },
+    {
+      "path": "tmp/pair10-full-tests-revision3.log",
+      "bytes": 63438,
+      "sha256": "f2144399a15c7bac590533b993540156a68f6ac3f8b458edc2a97c7e05ab6dba"
+    },
+    {
+      "path": "tmp/pair10-full-tests-revision4.log",
+      "bytes": 63737,
+      "sha256": "f1f6d3b82cadb51e4ccfe2fa6d2cb176d70f5b7fab15ae9d5fae22567a864065"
+    },
+    {
+      "path": "tmp/pair10-full-tests-revision5.log",
+      "bytes": 63732,
+      "sha256": "e19c94bd33d42e968fbde054b1c73a9ce271ccd2f357da43a811148b7d74a7c7"
+    },
+    {
+      "path": "tmp/pair10-full-tests-revision6.log",
+      "bytes": 63696,
+      "sha256": "f3c77f3fa50baff3c9d8b3584e5f601d5a49bff225c6cbae0a91f0c687b8595e"
+    },
+    {
+      "path": "tmp/pair10-full-tests-revision7.log",
+      "bytes": 63735,
+      "sha256": "b29fa38f6f8d1a6d73bacc4efb8b7b8784e4c590a4e7387f58df3bfe50450345"
+    },
+    {
+      "path": "docs/qa-evidence/curriculum-german-20261029/__pycache__/run-german-native.cpython-314.pyc",
+      "bytes": 9521,
+      "sha256": "81a1d60119c581824379c3436a3df6388a2335eac6b40f6d7f810d1136c44489"
+    },
+    {
+      "path": "docs/qa-evidence/curriculum-german-20261029/__pycache__/run-german-render-supplement.cpython-314.pyc",
+      "bytes": 7157,
+      "sha256": "cec980f4dc7ab1e6fe85f31598609e328fd71b9a39464d8ce5ac1306f2835d5f"
+    }
+  ],
+  "removedLogicalBytes": 693609,
+  "freeBytesBeforeCleanup": 94068899840,
+  "freeBytesAfterCleanup": 94068432896,
+  "retained": "One existing checkout, one persistent synthetic profile, one dist, exact final revision8 build/test logs and deployment receipts, accepted renders and original unique failure reports; unrelated evidence untouched.",
+  "evidenceBytes": 4352653
+}

@@ -1,0 +1,51 @@
+{
+  "runtimeSource": "e322549af753147d471d646ac32de645d709c356",
+  "canonicalRenders": [
+    {
+      "path": "production-curriculum-1440x844-arcade-mei6ziro-1793273553798.jpg",
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-mei6ziro.js",
+      "viewport": "1440x844",
+      "title": "curriculum",
+      "sha256": "15b86209dfb07d7f775cbfa63c26e4456e4d861c08c8fc86d39a47a7f900e181",
+      "bytes": 152551,
+      "separateFocusedRenderSupplement": false
+    },
+    {
+      "path": "production-curriculum-390x740-arcade-mei6ziro-1793273492294.jpg",
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-mei6ziro.js",
+      "viewport": "390x740",
+      "title": "curriculum",
+      "sha256": "258e6850bbb2fb6df158e073870309291a1818a2eaf64e7c01c3e6db1941d357",
+      "bytes": 46093,
+      "separateFocusedRenderSupplement": false
+    },
+    {
+      "path": "production-german-1440x844-arcade-mei6ziro-1793273409950.jpg",
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-mei6ziro.js",
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "title": "german",
+      "sha256": "31b569f957deaf783b1be54f347696ab3ab1e7afe8023e013da170f777ea877a",
+      "bytes": 111099,
+      "separateFocusedRenderSupplement": false
+    },
+    {
+      "path": "canonical-german-direction-390x740-20261029T113915-933107000.jpg",
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-mei6ziro.js",
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "title": "german",
+      "sha256": "42a253cadfaec4d98591ce27666cd04866a58378ba98ad0d8227c8676b9a8998",
+      "bytes": 46281,
+      "separateFocusedRenderSupplement": true
+    }
+  ]
+}

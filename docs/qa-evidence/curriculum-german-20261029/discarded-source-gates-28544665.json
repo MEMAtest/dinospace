@@ -1,0 +1,110 @@
+{
+  "at": "2026-10-29T10:21:48.592548+00:00",
+  "runtimeSource": "285446652f651dfdfad7df0c7f124d465b673890",
+  "entry": "/assets/arcade-yJB8jkQC.js",
+  "worker": "amari-discovery-v46",
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "tests": {
+    "command": "PWA_BUILD_DIR=dist npm test",
+    "passed": 644,
+    "failed": 0,
+    "skipped": 0
+  },
+  "lint": "Scoped changed runtime/data files passed",
+  "native": "Pending rerun after shared phone chrome repair; earlier failures preserved",
+  "production": "not deployed; accepted Pair9 remains public",
+  "files": [
+    {
+      "path": "public/sw.js",
+      "sha256": "98f8174f8cadfb46652572a39fb9a45336b76cf9a5d89e87084ffe64721636d6"
+    },
+    {
+      "path": "src/App.jsx",
+      "sha256": "995e651335011c7ecf8a898209762fc30b5530291a706f5f046e9027a7b0e690"
+    },
+    {
+      "path": "src/components/games/CurriculumQuest.css",
+      "sha256": "d7e1f400c9cbb6c1de1ef37704e61813b9e3fcbfd851fbd10bddba143bc8a681"
+    },
+    {
+      "path": "src/components/games/CurriculumQuest.jsx",
+      "sha256": "7e30971d361f95cf37a222cd5b7887eded45464304df086a4527a3965c3b4ec9"
+    },
+    {
+      "path": "src/components/games/GermanGarage.jsx",
+      "sha256": "ebb45a33524f128e65a7858fc1f54c41113c943922a77ae45a770ad66fa494d3"
+    },
+    {
+      "path": "src/data/curriculumBadges.js",
+      "sha256": "61e97715d1e419554cddfdf7cd5d44341289c5078aa7b33d3c8de8e807ebff1e"
+    },
+    {
+      "path": "src/data/curriculumProgress.js",
+      "sha256": "f4e999b08d009224a86be9838d4c3cec795068a54a0d9591d2ccc5e62d99081d"
+    },
+    {
+      "path": "src/data/curriculumSession.js",
+      "sha256": "6cb315564a004456bc20dbaf0259f082719404cbe085c6ae30958e51fba3a613"
+    },
+    {
+      "path": "src/data/gameSessions.js",
+      "sha256": "166eb613688366c38df12aa8a6d25d98ec361e46e5d3d54258341ea0c5e29528"
+    },
+    {
+      "path": "src/data/germanChapterProgress.js",
+      "sha256": "c98b66bf640ba6e9626abae8c8be8430a08271fb6b61a260ca8d7f8404bf203f"
+    },
+    {
+      "path": "src/data/germanLearning.js",
+      "sha256": "9b58554f5087ac8f4b5cbf49e85cedb07614288c4c7e4fcd667905fd11eb78a5"
+    },
+    {
+      "path": "src/data/germanRouteFlow.js",
+      "sha256": "0c2447e25c45ea3540fe69c2606226b11d747ec5da2703af944c812e4222bc07"
+    },
+    {
+      "path": "src/data/playerRewards.js",
+      "sha256": "913283c4b2d3f53a456ac17db1f4b029b56daeec1d52bbb62eb85cc13c4a9d55"
+    },
+    {
+      "path": "test/batch3ProgressionOwnership.test.mjs",
+      "sha256": "640d5b3de43b79750ce4a929b744bafb059b2b38cba7f6d8cc7863b91d9c0754"
+    },
+    {
+      "path": "test/curriculumBadges.test.mjs",
+      "sha256": "02fe56ac0a4256e8977fa3180bd7b4a40cc1cdc28a428c968b4c991993729bc3"
+    },
+    {
+      "path": "test/curriculumProgress.test.mjs",
+      "sha256": "a24aef2dac957e00cf034b5954b57a4d300ea8aade211979958b779fb0534c84"
+    },
+    {
+      "path": "test/curriculumSession.test.mjs",
+      "sha256": "2fad27e23b0352ac9674581b0d095f527f503f9383d81a26998fae493a6a12d5"
+    },
+    {
+      "path": "test/germanChapterProgress.test.mjs",
+      "sha256": "34907335e6e2dc15db0d9be3651c1336c05324ea3f33c36c1bd73b6b33db837f"
+    },
+    {
+      "path": "test/germanLearning.test.mjs",
+      "sha256": "3db88efa54fb5fa7c462f334c0c2b298c9388be2793aebd5de15d63c515a92cd"
+    },
+    {
+      "path": "test/germanRouteFlow.test.mjs",
+      "sha256": "5b2db5a4b14ec54b6296aaacc2768dcc83af06e0ae1e78d7705bb47b06d042e8"
+    },
+    {
+      "path": "test/offlineServiceWorker.test.mjs",
+      "sha256": "e9030ccf8b89c2cc1b3a8b1f27904d5695871206c629e5dddacb531e7f77b059"
+    },
+    {
+      "path": "test/playerRewards.test.mjs",
+      "sha256": "20bd2a5e59c19a1c2b4922e55632f15c981863a32a034eb7341a5778acd98842"
+    },
+    {
+      "path": "src/discoveryPremium.css",
+      "sha256": "b7a3adc1a7e3c342d029460c8da6d79fc0f371d7fc4a2154bd9629a29d85b670"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "passed": false,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "entryIdentity": "/assets/arcade-yJB8jkQC.js",
+  "namespaced": true,
+  "rows": [
+    {
+      "kind": "normal-route",
+      "player": "amari",
+      "world": "Explore & Languages",
+      "entryIdentity": "/assets/arcade-yJB8jkQC.js"
+    }
+  ],
+  "chapterRows": 0,
+  "practiceModeCount": 0,
+  "routeIds": [],
+  "wrongRetryCount": 0,
+  "audio": [],
+  "cancellation": [],
+  "faults": [],
+  "startupReconciliation": {
+    "pendingBeforeMount": 0,
+    "recovered": 0,
+    "retriedFromMenu": false
+  },
+  "changedStorageKeys": [
+    "qa_rewards_20261024_amari_game_diagnostics_v1",
+    "qa_rewards_20261024_amari_recent_games"
+  ],
+  "finalRender": null,
+  "failureScreenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/failure-german-native-390x740-1793269623821.jpg",
+  "diagnostics": {
+    "providerAttempts": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "error": "Error: Wrong paint answer is not uniquely visible\n    at measure (evalmachine.<anonymous>:160:74)\n    at async clickTask (evalmachine.<anonymous>:172:22)\n    at async solveWordRound (evalmachine.<anonymous>:438:7)\n    at async completeWordChapter (evalmachine.<anonymous>:535:19)\n    at async evalmachine.<anonymous>:883:19\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)",
+  "expectedEntry": "/assets/arcade-yJB8jkQC.js",
+  "cliReturnCode": 0
+}

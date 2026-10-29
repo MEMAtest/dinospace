@@ -1,0 +1,797 @@
+{
+  "passed": false,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "viewport": "1440x844",
+  "entryIdentity": "/assets/arcade-mei6ziro.js",
+  "namespace": true,
+  "rows": [
+    {
+      "kind": "normal-route",
+      "player": "amari",
+      "world": "Explore & Languages",
+      "initialModuleHeading": "🕰️ Time Detectives"
+    },
+    {
+      "kind": "curriculum-module-band",
+      "purpose": "required",
+      "module": "continents",
+      "band": "starter",
+      "questions": [
+        {
+          "round": "continent-asia",
+          "type": "continent",
+          "prompt": "Find Asia on the map.",
+          "fact": "Asia is the largest continent. Japan and India are in Asia.",
+          "priorProgress": "TRY Question 1 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 485.9375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 533.9375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": "amari_curriculum_history_transaction_v1_continents_starter"
+        },
+        {
+          "round": "continent-antarctica",
+          "type": "continent",
+          "prompt": "Find Antarctica on the map.",
+          "fact": "Antarctica is the cold continent at the bottom of the map. It has no countries.",
+          "priorProgress": "TRY Question 2 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 452.6875,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 500.6875
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "continent-australia",
+          "type": "continent",
+          "prompt": "Find Australia on the map.",
+          "fact": "Australia is the continent. Oceania is a wider region that includes Australia, New Zealand and Pacific islands.",
+          "priorProgress": "TRY Question 3 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 452.6875,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 500.6875
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "continent-americas",
+          "type": "continent",
+          "prompt": "Find North America on the map.",
+          "fact": "Canada and Mexico are in North America.",
+          "priorProgress": "TRY Question 4 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 439.9375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 487.9375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "map-key-harbour",
+          "type": "map-key",
+          "prompt": "Which map key would help a sailor find the harbour?",
+          "fact": "A map key explains symbols. An anchor can show a harbour.",
+          "priorProgress": "TRY Question 5 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Finish run",
+            "rect": {
+              "x": 1015.9375,
+              "y": 483.625,
+              "width": 132.0625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 531.625
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        }
+      ],
+      "questionCount": 5,
+      "freshQuestionCount": 5,
+      "eligibleBefore": false,
+      "receiptBefore": "confirmed",
+      "receiptAfter": "confirmed",
+      "badgePresent": true
+    },
+    {
+      "kind": "curriculum-module-band",
+      "purpose": "required",
+      "module": "continents",
+      "band": "growing",
+      "questions": [
+        {
+          "round": "map-east",
+          "type": "direction",
+          "prompt": "Which way is east on our map?",
+          "fact": "With north at the top, east is to the right.",
+          "priorProgress": "TRY Question 1 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 439.9375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 487.9375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "ocean-southern",
+          "type": "ocean",
+          "prompt": "Which ocean circles Antarctica?",
+          "fact": "The Southern Ocean circles Antarctica.",
+          "priorProgress": "TRY Question 2 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 439.9375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 487.9375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "ocean-pacific",
+          "type": "ocean",
+          "prompt": "Which ocean is the biggest?",
+          "fact": "The Pacific Ocean is the biggest ocean.",
+          "priorProgress": "TRY Question 3 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 439.9375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 487.9375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "continent-americas",
+          "type": "continent",
+          "prompt": "Find North America on the map.",
+          "fact": "Canada and Mexico are in North America.",
+          "priorProgress": "TRY Question 4 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 439.9375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 487.9375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "map-physical",
+          "type": "feature",
+          "prompt": "Which is a physical feature of a place?",
+          "fact": "A beach is a natural physical feature. A school and road are human-made features.",
+          "priorProgress": "TRY Question 5 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Finish run",
+            "rect": {
+              "x": 1015.9375,
+              "y": 452.6875,
+              "width": 132.0625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 500.6875
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        }
+      ],
+      "questionCount": 5,
+      "freshQuestionCount": 5,
+      "eligibleBefore": false,
+      "receiptBefore": "confirmed",
+      "receiptAfter": "confirmed",
+      "badgePresent": true
+    },
+    {
+      "kind": "curriculum-module-band",
+      "purpose": "required",
+      "module": "continents",
+      "band": "challenge",
+      "questions": [
+        {
+          "round": "map-globe",
+          "type": "feature",
+          "prompt": "Which tool is shaped more like the round Earth?",
+          "fact": "A globe is a round model of Earth. A flat map spreads places onto a page or screen.",
+          "priorProgress": "TRY Question 1 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 452.6875,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 500.6875
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "country-brazil",
+          "type": "country",
+          "prompt": "Brazil is in which continent?",
+          "fact": "Brazil is a country in South America.",
+          "priorProgress": "TRY Question 2 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 439.9375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 487.9375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "uk-sea-between",
+          "type": "uk-place",
+          "prompt": "Which sea lies between Great Britain and Ireland?",
+          "fact": "The Irish Sea lies between Great Britain and Ireland.",
+          "priorProgress": "TRY Question 3 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 483.625,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 531.625
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "uk-sea-west",
+          "type": "uk-place",
+          "prompt": "Which sea or ocean is west of the United Kingdom?",
+          "fact": "The Atlantic Ocean is west of the United Kingdom.",
+          "priorProgress": "TRY Question 4 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 483.625,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 531.625
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "uk-ni-capital",
+          "type": "uk-place",
+          "prompt": "What is the capital city of Northern Ireland?",
+          "fact": "Belfast is the capital city of Northern Ireland.",
+          "priorProgress": "TRY Question 5 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Finish run",
+            "rect": {
+              "x": 1015.9375,
+              "y": 439.9375,
+              "width": 132.0625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 487.9375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        }
+      ],
+      "questionCount": 5,
+      "freshQuestionCount": 5,
+      "eligibleBefore": false,
+      "receiptBefore": "confirmed",
+      "receiptAfter": "confirmed",
+      "badgePresent": true
+    },
+    {
+      "kind": "curriculum-module-band",
+      "purpose": "required",
+      "module": "time-detectives",
+      "band": "starter",
+      "questions": [
+        {
+          "round": "history-photos",
+          "type": "evidence",
+          "prompt": "A time detective wants to learn what an old seaside holiday looked like. Which clue is most useful?",
+          "fact": "An old photograph can show visible details, but it cannot tell us everything people thought or felt.",
+          "priorProgress": "TRY Question 1 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 540.0625,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 588.0625
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "history-light",
+          "type": "sequence",
+          "prompt": "Put these lights from oldest to newest.",
+          "fact": "People used fire before candles, and electric lightbulbs came later.",
+          "priorProgress": "TRY Question 2 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 439.9375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 487.9375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "history-castle",
+          "type": "evidence",
+          "prompt": "Which source could help us investigate a castle long ago?",
+          "fact": "An artefact is one object from the past. Historians compare it with other sources.",
+          "priorProgress": "TRY Question 3 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 496.375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 544.375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "history-source-limit",
+          "type": "evidence",
+          "prompt": "A photograph of an old house can show us what?",
+          "fact": "A photograph is useful evidence for what a place looked like, but it cannot show every thought.",
+          "priorProgress": "TRY Question 4 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 452.6875,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 500.6875
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "history-communication",
+          "type": "sequence",
+          "prompt": "Put these ways to send a message from oldest to newest.",
+          "fact": "A handwritten letter is older than a landline telephone, which is older than a smartphone message.",
+          "priorProgress": "TRY Question 5 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Finish run",
+            "rect": {
+              "x": 1015.9375,
+              "y": 496.375,
+              "width": 132.0625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 544.375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        }
+      ],
+      "questionCount": 5,
+      "freshQuestionCount": 5,
+      "eligibleBefore": false,
+      "receiptBefore": "confirmed",
+      "receiptAfter": "confirmed",
+      "badgePresent": true
+    },
+    {
+      "kind": "curriculum-module-band",
+      "purpose": "required",
+      "module": "time-detectives",
+      "band": "growing",
+      "questions": [
+        {
+          "round": "history-local-school",
+          "type": "evidence",
+          "prompt": "Which clues could help us find out how a local school changed?",
+          "fact": "Photographs and an interview give different clues. Memories and pictures can both leave things out.",
+          "priorProgress": "TRY Question 1 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 496.375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 544.375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "history-school-photos",
+          "type": "sequence",
+          "prompt": "Put these school photographs in time order using their dates.",
+          "fact": "Dates help us order sources. 1990 came before 2010, and 2010 came before 2025.",
+          "priorProgress": "TRY Question 2 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 496.375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 544.375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "history-personal-sequence",
+          "type": "sequence",
+          "prompt": "Put these parts of a person’s story from earliest to latest.",
+          "fact": "A personal timeline starts with being a baby, then a child, then an adult. People grow at different rates.",
+          "priorProgress": "TRY Question 3 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 496.375,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 544.375
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "history-source-limit",
+          "type": "evidence",
+          "prompt": "A photograph of an old house can show us what?",
+          "fact": "A photograph is useful evidence for what a place looked like, but it cannot show every thought.",
+          "priorProgress": "TRY Question 4 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Next question",
+            "rect": {
+              "x": 985.375,
+              "y": 452.6875,
+              "width": 162.625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 500.6875
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        },
+        {
+          "round": "history-photos",
+          "type": "evidence",
+          "prompt": "A time detective wants to learn what an old seaside holiday looked like. Which clue is most useful?",
+          "fact": "An old photograph can show visible details, but it cannot tell us everything people thought or felt.",
+          "priorProgress": "TRY Question 5 of 5",
+          "freshlyAnswered": true,
+          "actionRect": {
+            "name": "Finish run",
+            "rect": {
+              "x": 1015.9375,
+              "y": 540.0625,
+              "width": 132.0625,
+              "height": 48,
+              "right": 1148,
+              "bottom": 588.0625
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true
+          },
+          "retryTransaction": null
+        }
+      ],
+      "questionCount": 5,
+      "freshQuestionCount": 5,
+      "eligibleBefore": false,
+      "receiptBefore": "confirmed",
+      "receiptAfter": "confirmed",
+      "badgePresent": true
+    }
+  ],
+  "moduleBandRunCount": 5,
+  "modelSupplementRunCount": 0,
+  "questionCount": 25,
+  "freshQuestionCount": 25,
+  "requiredQuestionCount": 25,
+  "roundTypeCounts": {
+    "continent": 5,
+    "map-key": 1,
+    "direction": 1,
+    "ocean": 2,
+    "feature": 2,
+    "country": 1,
+    "uk-place": 3,
+    "evidence": 7,
+    "sequence": 5
+  },
+  "restoredRoundTypeCounts": {},
+  "wrongRetryCount": 27,
+  "reloadProofs": [
+    {
+      "kind": "held-fact",
+      "module": "continents",
+      "band": "starter",
+      "roundId": "continent-asia",
+      "prompt": "Find Asia on the map.",
+      "preserved": true
+    }
+  ],
+  "audioProofs": [
+    {
+      "path": "/audio/en/b6d3676c-matilda.mp3",
+      "played": true,
+      "playingEvent": true,
+      "advancedOrEnded": true,
+      "activeAtMute": true,
+      "mutedStopped": true,
+      "initiallyMuted": true,
+      "preferenceRestored": true
+    }
+  ],
+  "faultProofs": [],
+  "retryCoverage": {
+    "historyWriteRetry": "verified",
+    "receiptReadbackAndParentWriteRetry": "not-eligible-without-reset",
+    "badgeReadRetry": "not-run",
+    "parentStickersReadRetry": "not-run"
+  },
+  "changedStorageKeys": [
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+    "qa_rewards_20261024_amari_game_diagnostics_v1",
+    "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+    "qa_rewards_20261024_amari_learning_attempts_v1",
+    "qa_rewards_20261024_amari_skill_mastery_v1"
+  ],
+  "screenshotPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/failure-curriculum-native-1440x844-1793272590648.jpg",
+  "diagnostics": {
+    "providerAttempts": [],
+    "pageErrors": [],
+    "audioCancellationAbortErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": [],
+    "soundRestoreErrors": []
+  },
+  "finalRenderPath": null,
+  "error": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#quest-prompt') to be visible\u001b[22m\n\n    at runBand (evalmachine.<anonymous>:670:43)\n    at async evalmachine.<anonymous>:723:9\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+  "expectedEntry": "/assets/arcade-mei6ziro.js",
+  "cliReturnCode": 0
+}

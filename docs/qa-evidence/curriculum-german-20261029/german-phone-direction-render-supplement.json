@@ -1,0 +1,143 @@
+{
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "entryIdentity": "/assets/arcade-mei6ziro.js",
+  "viewport": "390x740",
+  "player": "Amari",
+  "world": "Explore & Languages",
+  "game": "German Garage",
+  "chapter": "Direction Driver",
+  "routeId": "forward-back",
+  "routePrompt": "ROUTE 1 OF 7 · HEAR TWO COMMANDS Forward ↑ · Back ↓ · Slow changes speed · Stop at the star Replay Pause Show words ⭐ ↑ ⬅️ Move left ➡️ Move right ⬆️ Move forward ⬇️ Move back 🐢 Slow 🛑 Stop Listen for two commands, then use the English movement buttons.",
+  "actionControls": [
+    {
+      "text": "Move left",
+      "rect": {
+        "x": 251,
+        "y": 269,
+        "width": 55,
+        "height": 45,
+        "top": 269,
+        "right": 306,
+        "bottom": 314,
+        "left": 251
+      },
+      "centerHit": true,
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "text": "Move right",
+      "rect": {
+        "x": 312,
+        "y": 269,
+        "width": 55,
+        "height": 45,
+        "top": 269,
+        "right": 367,
+        "bottom": 314,
+        "left": 312
+      },
+      "centerHit": true,
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "text": "Move forward",
+      "rect": {
+        "x": 251,
+        "y": 320,
+        "width": 55,
+        "height": 45,
+        "top": 320,
+        "right": 306,
+        "bottom": 365,
+        "left": 251
+      },
+      "centerHit": true,
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "text": "Move back",
+      "rect": {
+        "x": 312,
+        "y": 320,
+        "width": 55,
+        "height": 45,
+        "top": 320,
+        "right": 367,
+        "bottom": 365,
+        "left": 312
+      },
+      "centerHit": true,
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "text": "Slow",
+      "rect": {
+        "x": 251,
+        "y": 371,
+        "width": 55,
+        "height": 44,
+        "top": 371,
+        "right": 306,
+        "bottom": 415,
+        "left": 251
+      },
+      "centerHit": true,
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "text": "Stop",
+      "rect": {
+        "x": 312,
+        "y": 371,
+        "width": 55,
+        "height": 44,
+        "top": 371,
+        "right": 367,
+        "bottom": 415,
+        "left": 312
+      },
+      "centerHit": true,
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    }
+  ],
+  "screenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/canonical-german-direction-390x740-20261029T113915-933107000.jpg",
+  "soundOnBefore": false,
+  "soundOnDuring": false,
+  "soundUnchanged": true,
+  "noProgressOrRewardDelta": true,
+  "returnedToParent": true,
+  "errors": {
+    "providerAttempts": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "screenshotBytes": 46281,
+  "screenshotSha256": "42a253cadfaec4d98591ce27666cd04866a58378ba98ad0d8227c8676b9a8998",
+  "kind": "representative-render-supplement",
+  "runtimeCommit": "e322549af753147d471d646ac32de645d709c356",
+  "expectedEntry": "/assets/arcade-mei6ziro.js",
+  "screenshotPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/canonical-german-direction-390x740-20261029T113915-933107000.jpg",
+  "cliReturnCode": 0,
+  "notFullAcceptanceRun": true
+}

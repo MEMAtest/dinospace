@@ -1,0 +1,1777 @@
+{
+  "passed": true,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "entryIdentity": "/assets/arcade-CEMEbeb9.js",
+  "namespaced": true,
+  "child": "amari",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "chapter": "colour-painter",
+      "rounds": [
+        {
+          "mode": "paint",
+          "target": "Braun",
+          "translation": "brown",
+          "progressBefore": "Colour Painter · 1 of 5",
+          "answerRect": {
+            "x": 472,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 716,
+            "bottom": 543,
+            "left": 472
+          },
+          "paintVisual": {
+            "expectedHex": "#a16207",
+            "backgroundColor": "rgb(161, 98, 7)",
+            "mixBlendMode": "multiply",
+            "maskImage": "url(\"http://127.0.0.1:5180/assets/friendly-car-B5B45Yht.png\")",
+            "opacity": "0.72",
+            "carLoaded": true,
+            "carAlt": "Car painted Braun"
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "park",
+          "target": "Orange",
+          "translation": "orange",
+          "progressBefore": "Colour Painter · 2 of 5",
+          "answerRect": {
+            "x": 220,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 464,
+            "bottom": 543,
+            "left": 220
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "paint",
+          "target": "Lila",
+          "translation": "purple",
+          "progressBefore": "Colour Painter · 3 of 5",
+          "answerRect": {
+            "x": 724,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 968,
+            "bottom": 543,
+            "left": 724
+          },
+          "paintVisual": {
+            "expectedHex": "#a855f7",
+            "backgroundColor": "rgb(168, 85, 247)",
+            "mixBlendMode": "multiply",
+            "maskImage": "url(\"http://127.0.0.1:5180/assets/friendly-car-B5B45Yht.png\")",
+            "opacity": "0.72",
+            "carLoaded": true,
+            "carAlt": "Car painted Lila"
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "park",
+          "target": "Rosa",
+          "translation": "pink",
+          "progressBefore": "Colour Painter · 4 of 5",
+          "answerRect": {
+            "x": 724,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 968,
+            "bottom": 543,
+            "left": 724
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "paint",
+          "target": "Schwarz",
+          "translation": "black",
+          "progressBefore": "Colour Painter · 5 of 5",
+          "answerRect": {
+            "x": 472,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 716,
+            "bottom": 543,
+            "left": 472
+          },
+          "paintVisual": {
+            "expectedHex": "#111827",
+            "backgroundColor": "rgb(17, 24, 39)",
+            "mixBlendMode": "multiply",
+            "maskImage": "url(\"http://127.0.0.1:5180/assets/friendly-car-B5B45Yht.png\")",
+            "opacity": "0.72",
+            "carLoaded": true,
+            "carAlt": "Car painted Schwarz"
+          },
+          "heldSaveError": false
+        }
+      ],
+      "roundCount": 5,
+      "wasReplay": true,
+      "rewardEligible": false,
+      "legacyRewardCeiling": -1,
+      "receipt": {
+        "transactionId": "amari_0_15m62m2",
+        "attemptId": "amari_0_15m62m2",
+        "chapterId": "colour-painter",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "chapterButtonRect": {
+        "x": 222,
+        "y": 397,
+        "width": 305.328125,
+        "height": 48,
+        "top": 397,
+        "right": 527.328125,
+        "bottom": 445,
+        "left": 222
+      },
+      "finishRect": {
+        "x": 640.8125,
+        "y": 625,
+        "width": 158.375,
+        "height": 48,
+        "top": 625,
+        "right": 799.1875,
+        "bottom": 673,
+        "left": 640.8125
+      },
+      "retry": null
+    },
+    {
+      "kind": "chapter",
+      "chapter": "vehicle-workshop",
+      "rounds": [
+        {
+          "mode": "vehicles",
+          "target": "Flugzeug",
+          "translation": "aeroplane",
+          "progressBefore": "Vehicle Workshop · 1 of 6",
+          "answerRect": {
+            "x": 724,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 968,
+            "bottom": 543,
+            "left": 724
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "parts",
+          "target": "Reifen",
+          "translation": "tyre",
+          "progressBefore": "Vehicle Workshop · 2 of 6",
+          "answerRect": {
+            "x": 472,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 716,
+            "bottom": 543,
+            "left": 472
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "vehicles",
+          "target": "Rakete",
+          "translation": "rocket",
+          "progressBefore": "Vehicle Workshop · 3 of 6",
+          "answerRect": {
+            "x": 220,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 464,
+            "bottom": 543,
+            "left": 220
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "parts",
+          "target": "Rad",
+          "translation": "wheel",
+          "progressBefore": "Vehicle Workshop · 4 of 6",
+          "answerRect": {
+            "x": 976,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 1220,
+            "bottom": 543,
+            "left": 976
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "vehicles",
+          "target": "Zug",
+          "translation": "train",
+          "progressBefore": "Vehicle Workshop · 5 of 6",
+          "answerRect": {
+            "x": 976,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 1220,
+            "bottom": 543,
+            "left": 976
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "parts",
+          "target": "Licht",
+          "translation": "light",
+          "progressBefore": "Vehicle Workshop · 6 of 6",
+          "answerRect": {
+            "x": 724,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 968,
+            "bottom": 543,
+            "left": 724
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        }
+      ],
+      "roundCount": 6,
+      "wasReplay": true,
+      "rewardEligible": false,
+      "legacyRewardCeiling": -1,
+      "receipt": {
+        "transactionId": "amari_1_11yjxcp",
+        "attemptId": "amari_1_11yjxcp",
+        "chapterId": "vehicle-workshop",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "chapterButtonRect": {
+        "x": 567.328125,
+        "y": 397,
+        "width": 305.328125,
+        "height": 48,
+        "top": 397,
+        "right": 872.65625,
+        "bottom": 445,
+        "left": 567.328125
+      },
+      "finishRect": {
+        "x": 640.8125,
+        "y": 625,
+        "width": 158.375,
+        "height": 48,
+        "top": 625,
+        "right": 799.1875,
+        "bottom": 673,
+        "left": 640.8125
+      },
+      "retry": null
+    },
+    {
+      "kind": "chapter",
+      "chapter": "direction-driver",
+      "rounds": [
+        {
+          "routeId": "back-right",
+          "commands": [
+            "Zurück",
+            "Rechts"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Zurück",
+              "english": "back",
+              "action": "Move back",
+              "actionRect": {
+                "x": 726,
+                "y": 331,
+                "width": 94.65625,
+                "height": 48,
+                "top": 331,
+                "right": 820.65625,
+                "bottom": 379,
+                "left": 726
+              },
+              "wrongAttempt": {
+                "action": "Move left",
+                "feedback": "Nicht ganz · Not that one. The car stays here. Replay the current German command and try again.",
+                "stepPreserved": true,
+                "positionPreserved": true
+              },
+              "heldText": "Zurück means back. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": true
+            },
+            {
+              "expected": "Rechts",
+              "english": "right",
+              "action": "Move right",
+              "actionRect": {
+                "x": 828.65625,
+                "y": 275,
+                "width": 94.671875,
+                "height": 48,
+                "top": 275,
+                "right": 923.328125,
+                "bottom": 323,
+                "left": 828.65625
+              },
+              "wrongAttempt": {
+                "action": "Move left",
+                "feedback": "Nicht ganz · Not that one. The car stays here. Replay the current German command and try again.",
+                "stepPreserved": true,
+                "positionPreserved": true
+              },
+              "heldText": "You reached the destination and stopped the car. Zurück means back · Rechts means right. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "slow-straight",
+          "commands": [
+            "Langsam",
+            "Geradeaus"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Langsam",
+              "english": "slowly",
+              "action": "Slow",
+              "actionRect": {
+                "x": 828.65625,
+                "y": 331,
+                "width": 94.671875,
+                "height": 48,
+                "top": 331,
+                "right": 923.328125,
+                "bottom": 379,
+                "left": 828.65625
+              },
+              "wrongAttempt": null,
+              "heldText": "Langsam means slowly. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Geradeaus",
+              "english": "straight ahead",
+              "action": "Move forward",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 1025.984375,
+                "bottom": 323,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Langsam means slowly · Geradeaus means straight ahead. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "right-straight",
+          "commands": [
+            "Rechts",
+            "Geradeaus"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Rechts",
+              "english": "right",
+              "action": "Move right",
+              "actionRect": {
+                "x": 828.65625,
+                "y": 275,
+                "width": 94.671875,
+                "height": 48,
+                "top": 275,
+                "right": 923.328125,
+                "bottom": 323,
+                "left": 828.65625
+              },
+              "wrongAttempt": null,
+              "heldText": "Rechts means right. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Geradeaus",
+              "english": "straight ahead",
+              "action": "Move forward",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 1025.984375,
+                "bottom": 323,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Rechts means right · Geradeaus means straight ahead. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "straight-stop",
+          "commands": [
+            "Geradeaus",
+            "Halt"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Geradeaus",
+              "english": "straight ahead",
+              "action": "Move forward",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 1025.984375,
+                "bottom": 323,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "Geradeaus means straight ahead. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Halt",
+              "english": "stop",
+              "action": "Stop",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 331,
+                "width": 94.65625,
+                "height": 48,
+                "top": 331,
+                "right": 1025.984375,
+                "bottom": 379,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Geradeaus means straight ahead · Halt means stop. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "left-stop",
+          "commands": [
+            "Links",
+            "Halt"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Links",
+              "english": "left",
+              "action": "Move left",
+              "actionRect": {
+                "x": 726,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 820.65625,
+                "bottom": 323,
+                "left": 726
+              },
+              "wrongAttempt": null,
+              "heldText": "Links means left. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Halt",
+              "english": "stop",
+              "action": "Stop",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 331,
+                "width": 94.65625,
+                "height": 48,
+                "top": 331,
+                "right": 1025.984375,
+                "bottom": 379,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Links means left · Halt means stop. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "slow-left",
+          "commands": [
+            "Langsam",
+            "Links"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Langsam",
+              "english": "slowly",
+              "action": "Slow",
+              "actionRect": {
+                "x": 828.65625,
+                "y": 331,
+                "width": 94.671875,
+                "height": 48,
+                "top": 331,
+                "right": 923.328125,
+                "bottom": 379,
+                "left": 828.65625
+              },
+              "wrongAttempt": null,
+              "heldText": "Langsam means slowly. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Links",
+              "english": "left",
+              "action": "Move left",
+              "actionRect": {
+                "x": 726,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 820.65625,
+                "bottom": 323,
+                "left": 726
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Langsam means slowly · Links means left. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "forward-back",
+          "commands": [
+            "Geradeaus",
+            "Zurück"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Geradeaus",
+              "english": "straight ahead",
+              "action": "Move forward",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 1025.984375,
+                "bottom": 323,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "Geradeaus means straight ahead. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Zurück",
+              "english": "back",
+              "action": "Move back",
+              "actionRect": {
+                "x": 726,
+                "y": 331,
+                "width": 94.65625,
+                "height": 48,
+                "top": 331,
+                "right": 820.65625,
+                "bottom": 379,
+                "left": 726
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Geradeaus means straight ahead · Zurück means back. Chapter progress is saved. Finish returns to the garage; mid-round answers are not saved. Finish chapter",
+              "nextRect": null,
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        }
+      ],
+      "roundCount": 7,
+      "wasReplay": true,
+      "rewardEligible": false,
+      "legacyRewardCeiling": -1,
+      "receipt": {
+        "transactionId": "amari_2_ruxrqz",
+        "attemptId": "amari_2_ruxrqz",
+        "chapterId": "direction-driver",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "chapterButtonRect": {
+        "x": 912.65625,
+        "y": 397,
+        "width": 305.34375,
+        "height": 48,
+        "top": 397,
+        "right": 1218,
+        "bottom": 445,
+        "left": 912.65625
+      },
+      "finishRect": {
+        "x": 640.8125,
+        "y": 657,
+        "width": 158.375,
+        "height": 48,
+        "top": 657,
+        "right": 799.1875,
+        "bottom": 705,
+        "left": 640.8125
+      },
+      "parentRetry": null
+    }
+  ],
+  "rows": [
+    {
+      "kind": "normal-route",
+      "player": "amari",
+      "world": "Explore & Languages",
+      "entryIdentity": "/assets/arcade-CEMEbeb9.js"
+    },
+    {
+      "kind": "chapter",
+      "chapter": "colour-painter",
+      "rounds": [
+        {
+          "mode": "paint",
+          "target": "Braun",
+          "translation": "brown",
+          "progressBefore": "Colour Painter · 1 of 5",
+          "answerRect": {
+            "x": 472,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 716,
+            "bottom": 543,
+            "left": 472
+          },
+          "paintVisual": {
+            "expectedHex": "#a16207",
+            "backgroundColor": "rgb(161, 98, 7)",
+            "mixBlendMode": "multiply",
+            "maskImage": "url(\"http://127.0.0.1:5180/assets/friendly-car-B5B45Yht.png\")",
+            "opacity": "0.72",
+            "carLoaded": true,
+            "carAlt": "Car painted Braun"
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "park",
+          "target": "Orange",
+          "translation": "orange",
+          "progressBefore": "Colour Painter · 2 of 5",
+          "answerRect": {
+            "x": 220,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 464,
+            "bottom": 543,
+            "left": 220
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "paint",
+          "target": "Lila",
+          "translation": "purple",
+          "progressBefore": "Colour Painter · 3 of 5",
+          "answerRect": {
+            "x": 724,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 968,
+            "bottom": 543,
+            "left": 724
+          },
+          "paintVisual": {
+            "expectedHex": "#a855f7",
+            "backgroundColor": "rgb(168, 85, 247)",
+            "mixBlendMode": "multiply",
+            "maskImage": "url(\"http://127.0.0.1:5180/assets/friendly-car-B5B45Yht.png\")",
+            "opacity": "0.72",
+            "carLoaded": true,
+            "carAlt": "Car painted Lila"
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "park",
+          "target": "Rosa",
+          "translation": "pink",
+          "progressBefore": "Colour Painter · 4 of 5",
+          "answerRect": {
+            "x": 724,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 968,
+            "bottom": 543,
+            "left": 724
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "paint",
+          "target": "Schwarz",
+          "translation": "black",
+          "progressBefore": "Colour Painter · 5 of 5",
+          "answerRect": {
+            "x": 472,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 716,
+            "bottom": 543,
+            "left": 472
+          },
+          "paintVisual": {
+            "expectedHex": "#111827",
+            "backgroundColor": "rgb(17, 24, 39)",
+            "mixBlendMode": "multiply",
+            "maskImage": "url(\"http://127.0.0.1:5180/assets/friendly-car-B5B45Yht.png\")",
+            "opacity": "0.72",
+            "carLoaded": true,
+            "carAlt": "Car painted Schwarz"
+          },
+          "heldSaveError": false
+        }
+      ],
+      "roundCount": 5,
+      "wasReplay": true,
+      "rewardEligible": false,
+      "legacyRewardCeiling": -1,
+      "receipt": {
+        "transactionId": "amari_0_15m62m2",
+        "attemptId": "amari_0_15m62m2",
+        "chapterId": "colour-painter",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "chapterButtonRect": {
+        "x": 222,
+        "y": 397,
+        "width": 305.328125,
+        "height": 48,
+        "top": 397,
+        "right": 527.328125,
+        "bottom": 445,
+        "left": 222
+      },
+      "finishRect": {
+        "x": 640.8125,
+        "y": 625,
+        "width": 158.375,
+        "height": 48,
+        "top": 625,
+        "right": 799.1875,
+        "bottom": 673,
+        "left": 640.8125
+      },
+      "retry": null
+    },
+    {
+      "kind": "completion-reload",
+      "chapter": "colour-painter",
+      "receipt": {
+        "transactionId": "amari_0_15m62m2",
+        "attemptId": "amari_0_15m62m2",
+        "chapterId": "colour-painter",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "cardRestored": true
+    },
+    {
+      "kind": "chapter",
+      "chapter": "vehicle-workshop",
+      "rounds": [
+        {
+          "mode": "vehicles",
+          "target": "Flugzeug",
+          "translation": "aeroplane",
+          "progressBefore": "Vehicle Workshop · 1 of 6",
+          "answerRect": {
+            "x": 724,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 968,
+            "bottom": 543,
+            "left": 724
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "parts",
+          "target": "Reifen",
+          "translation": "tyre",
+          "progressBefore": "Vehicle Workshop · 2 of 6",
+          "answerRect": {
+            "x": 472,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 716,
+            "bottom": 543,
+            "left": 472
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "vehicles",
+          "target": "Rakete",
+          "translation": "rocket",
+          "progressBefore": "Vehicle Workshop · 3 of 6",
+          "answerRect": {
+            "x": 220,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 464,
+            "bottom": 543,
+            "left": 220
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "parts",
+          "target": "Rad",
+          "translation": "wheel",
+          "progressBefore": "Vehicle Workshop · 4 of 6",
+          "answerRect": {
+            "x": 976,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 1220,
+            "bottom": 543,
+            "left": 976
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "vehicles",
+          "target": "Zug",
+          "translation": "train",
+          "progressBefore": "Vehicle Workshop · 5 of 6",
+          "answerRect": {
+            "x": 976,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 1220,
+            "bottom": 543,
+            "left": 976
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        },
+        {
+          "mode": "parts",
+          "target": "Licht",
+          "translation": "light",
+          "progressBefore": "Vehicle Workshop · 6 of 6",
+          "answerRect": {
+            "x": 724,
+            "y": 479,
+            "width": 244,
+            "height": 64,
+            "top": 479,
+            "right": 968,
+            "bottom": 543,
+            "left": 724
+          },
+          "paintVisual": null,
+          "heldSaveError": false
+        }
+      ],
+      "roundCount": 6,
+      "wasReplay": true,
+      "rewardEligible": false,
+      "legacyRewardCeiling": -1,
+      "receipt": {
+        "transactionId": "amari_1_11yjxcp",
+        "attemptId": "amari_1_11yjxcp",
+        "chapterId": "vehicle-workshop",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "chapterButtonRect": {
+        "x": 567.328125,
+        "y": 397,
+        "width": 305.328125,
+        "height": 48,
+        "top": 397,
+        "right": 872.65625,
+        "bottom": 445,
+        "left": 567.328125
+      },
+      "finishRect": {
+        "x": 640.8125,
+        "y": 625,
+        "width": 158.375,
+        "height": 48,
+        "top": 625,
+        "right": 799.1875,
+        "bottom": 673,
+        "left": 640.8125
+      },
+      "retry": null
+    },
+    {
+      "kind": "chapter",
+      "chapter": "direction-driver",
+      "rounds": [
+        {
+          "routeId": "back-right",
+          "commands": [
+            "Zurück",
+            "Rechts"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Zurück",
+              "english": "back",
+              "action": "Move back",
+              "actionRect": {
+                "x": 726,
+                "y": 331,
+                "width": 94.65625,
+                "height": 48,
+                "top": 331,
+                "right": 820.65625,
+                "bottom": 379,
+                "left": 726
+              },
+              "wrongAttempt": {
+                "action": "Move left",
+                "feedback": "Nicht ganz · Not that one. The car stays here. Replay the current German command and try again.",
+                "stepPreserved": true,
+                "positionPreserved": true
+              },
+              "heldText": "Zurück means back. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": true
+            },
+            {
+              "expected": "Rechts",
+              "english": "right",
+              "action": "Move right",
+              "actionRect": {
+                "x": 828.65625,
+                "y": 275,
+                "width": 94.671875,
+                "height": 48,
+                "top": 275,
+                "right": 923.328125,
+                "bottom": 323,
+                "left": 828.65625
+              },
+              "wrongAttempt": {
+                "action": "Move left",
+                "feedback": "Nicht ganz · Not that one. The car stays here. Replay the current German command and try again.",
+                "stepPreserved": true,
+                "positionPreserved": true
+              },
+              "heldText": "You reached the destination and stopped the car. Zurück means back · Rechts means right. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "slow-straight",
+          "commands": [
+            "Langsam",
+            "Geradeaus"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Langsam",
+              "english": "slowly",
+              "action": "Slow",
+              "actionRect": {
+                "x": 828.65625,
+                "y": 331,
+                "width": 94.671875,
+                "height": 48,
+                "top": 331,
+                "right": 923.328125,
+                "bottom": 379,
+                "left": 828.65625
+              },
+              "wrongAttempt": null,
+              "heldText": "Langsam means slowly. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Geradeaus",
+              "english": "straight ahead",
+              "action": "Move forward",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 1025.984375,
+                "bottom": 323,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Langsam means slowly · Geradeaus means straight ahead. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "right-straight",
+          "commands": [
+            "Rechts",
+            "Geradeaus"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Rechts",
+              "english": "right",
+              "action": "Move right",
+              "actionRect": {
+                "x": 828.65625,
+                "y": 275,
+                "width": 94.671875,
+                "height": 48,
+                "top": 275,
+                "right": 923.328125,
+                "bottom": 323,
+                "left": 828.65625
+              },
+              "wrongAttempt": null,
+              "heldText": "Rechts means right. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Geradeaus",
+              "english": "straight ahead",
+              "action": "Move forward",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 1025.984375,
+                "bottom": 323,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Rechts means right · Geradeaus means straight ahead. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "straight-stop",
+          "commands": [
+            "Geradeaus",
+            "Halt"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Geradeaus",
+              "english": "straight ahead",
+              "action": "Move forward",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 1025.984375,
+                "bottom": 323,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "Geradeaus means straight ahead. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Halt",
+              "english": "stop",
+              "action": "Stop",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 331,
+                "width": 94.65625,
+                "height": 48,
+                "top": 331,
+                "right": 1025.984375,
+                "bottom": 379,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Geradeaus means straight ahead · Halt means stop. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "left-stop",
+          "commands": [
+            "Links",
+            "Halt"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Links",
+              "english": "left",
+              "action": "Move left",
+              "actionRect": {
+                "x": 726,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 820.65625,
+                "bottom": 323,
+                "left": 726
+              },
+              "wrongAttempt": null,
+              "heldText": "Links means left. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Halt",
+              "english": "stop",
+              "action": "Stop",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 331,
+                "width": 94.65625,
+                "height": 48,
+                "top": 331,
+                "right": 1025.984375,
+                "bottom": 379,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Links means left · Halt means stop. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "slow-left",
+          "commands": [
+            "Langsam",
+            "Links"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Langsam",
+              "english": "slowly",
+              "action": "Slow",
+              "actionRect": {
+                "x": 828.65625,
+                "y": 331,
+                "width": 94.671875,
+                "height": 48,
+                "top": 331,
+                "right": 923.328125,
+                "bottom": 379,
+                "left": 828.65625
+              },
+              "wrongAttempt": null,
+              "heldText": "Langsam means slowly. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Links",
+              "english": "left",
+              "action": "Move left",
+              "actionRect": {
+                "x": 726,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 820.65625,
+                "bottom": 323,
+                "left": 726
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Langsam means slowly · Links means left. Next route",
+              "nextRect": {
+                "x": 655.8125,
+                "y": 633,
+                "width": 128.359375,
+                "height": 48,
+                "top": 633,
+                "right": 784.171875,
+                "bottom": 681,
+                "left": 655.8125
+              },
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        },
+        {
+          "routeId": "forward-back",
+          "commands": [
+            "Geradeaus",
+            "Zurück"
+          ],
+          "assisted": true,
+          "steps": [
+            {
+              "expected": "Geradeaus",
+              "english": "straight ahead",
+              "action": "Move forward",
+              "actionRect": {
+                "x": 931.328125,
+                "y": 275,
+                "width": 94.65625,
+                "height": 48,
+                "top": 275,
+                "right": 1025.984375,
+                "bottom": 323,
+                "left": 931.328125
+              },
+              "wrongAttempt": null,
+              "heldText": "Geradeaus means straight ahead. Next command",
+              "nextRect": {
+                "x": 637.9375,
+                "y": 633,
+                "width": 164.109375,
+                "height": 48,
+                "top": 633,
+                "right": 802.046875,
+                "bottom": 681,
+                "left": 637.9375
+              },
+              "resultingStep": "1",
+              "keyboardAction": false
+            },
+            {
+              "expected": "Zurück",
+              "english": "back",
+              "action": "Move back",
+              "actionRect": {
+                "x": 726,
+                "y": 331,
+                "width": 94.65625,
+                "height": 48,
+                "top": 331,
+                "right": 820.65625,
+                "bottom": 379,
+                "left": 726
+              },
+              "wrongAttempt": null,
+              "heldText": "You reached the destination and stopped the car. Geradeaus means straight ahead · Zurück means back. Chapter progress is saved. Finish returns to the garage; mid-round answers are not saved. Finish chapter",
+              "nextRect": null,
+              "resultingStep": "2",
+              "keyboardAction": false
+            }
+          ]
+        }
+      ],
+      "roundCount": 7,
+      "wasReplay": true,
+      "rewardEligible": false,
+      "legacyRewardCeiling": -1,
+      "receipt": {
+        "transactionId": "amari_2_ruxrqz",
+        "attemptId": "amari_2_ruxrqz",
+        "chapterId": "direction-driver",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "chapterButtonRect": {
+        "x": 912.65625,
+        "y": 397,
+        "width": 305.34375,
+        "height": 48,
+        "top": 397,
+        "right": 1218,
+        "bottom": 445,
+        "left": 912.65625
+      },
+      "finishRect": {
+        "x": 640.8125,
+        "y": 657,
+        "width": 158.375,
+        "height": 48,
+        "top": 657,
+        "right": 799.1875,
+        "bottom": 705,
+        "left": 640.8125
+      },
+      "parentRetry": null
+    }
+  ],
+  "chapterRoundCounts": {
+    "colourPainter": 5,
+    "vehicleWorkshop": 6,
+    "directionDriver": 7
+  },
+  "totalChapterAnswers": 25,
+  "routes": [
+    "back-right",
+    "slow-straight",
+    "right-straight",
+    "straight-stop",
+    "left-stop",
+    "slow-left",
+    "forward-back"
+  ],
+  "practice": {
+    "modeCount": 11,
+    "progressUnchanged": true
+  },
+  "wrongRetryCount": 4,
+  "audio": [
+    {
+      "path": "/audio/de/braun.mp3",
+      "played": true,
+      "advanced": true
+    },
+    {
+      "path": "/audio/de/links.mp3",
+      "played": true,
+      "advanced": true
+    },
+    {
+      "path": "/audio/de/links.mp3",
+      "played": true,
+      "routeCommand": "Links",
+      "advanced": true
+    }
+  ],
+  "cancellation": [
+    {
+      "kind": "intro-audio-leave-cancel",
+      "path": "/audio/de/links.mp3",
+      "activeStopped": true
+    },
+    {
+      "kind": "route-audio-mute-cancel",
+      "firstPath": "/audio/de/links.mp3",
+      "activeStopped": true,
+      "laterClipStarts": 0
+    },
+    {
+      "kind": "route-audio-leave-cancel",
+      "firstPath": "/audio/de/links.mp3",
+      "activeStopped": true,
+      "laterClipStarts": 0
+    }
+  ],
+  "faults": [],
+  "startupReconciliation": {
+    "pendingBeforeMount": 0,
+    "recovered": 0,
+    "retriedFromMenu": false
+  },
+  "originalSoundOn": false,
+  "soundPreferenceRestored": true,
+  "storageBoundaries": {
+    "changed": [
+      "qa_rewards_20261024_amari_game_diagnostics_v1",
+      "qa_rewards_20261024_amari_german_recent_targets_v1"
+    ],
+    "unexpected": [],
+    "protectedLegacyGameLevelsUnchanged": true,
+    "askiaProfileUnchanged": true
+  },
+  "diagnosticsPreservation": {
+    "priorEventsRetained": 236,
+    "newGermanEvents": 64,
+    "eventKinds": [
+      "answer_attempt",
+      "answer_correct",
+      "chapter_start",
+      "practice_correct",
+      "practice_start",
+      "route_assistance",
+      "route_attempt",
+      "route_step"
+    ],
+    "noOtherGameEventsAdded": true
+  },
+  "recentGameNavigation": {
+    "priorGamesRetained": 3,
+    "exactExpectedCurrentList": true
+  },
+  "rewardPreservation": {
+    "priorClaimsRetained": 46,
+    "unrelatedGameCountsUnchanged": true,
+    "priorStickersRetained": true,
+    "addedTokens": []
+  },
+  "historyPreservation": {
+    "priorRecord": "valid",
+    "preservedUnknownFields": true
+  },
+  "oldGameLevelsPreserved": true,
+  "rewardPointsDelta": 0,
+  "newGermanClaims": [],
+  "finalRender": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/native-german-1440x844-arcade-CEMEbeb9-1793271598144.jpg",
+  "failureScreenshot": null,
+  "diagnostics": {
+    "providerAttempts": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "expectedEntry": "/assets/arcade-CEMEbeb9.js",
+  "cliReturnCode": 0
+}

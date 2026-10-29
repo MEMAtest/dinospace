@@ -1,0 +1,208 @@
+{
+  "passed": false,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "entryIdentity": "/assets/arcade-yJB8jkQC.js",
+  "namespaced": true,
+  "rows": [
+    {
+      "kind": "normal-route",
+      "player": "amari",
+      "world": "Explore & Languages",
+      "entryIdentity": "/assets/arcade-yJB8jkQC.js"
+    },
+    {
+      "kind": "chapter",
+      "chapter": "colour-painter",
+      "rounds": [
+        {
+          "mode": "paint",
+          "target": "Rosa",
+          "translation": "pink",
+          "progressBefore": "Colour Painter · 1 of 5",
+          "answerRect": {
+            "x": 199,
+            "y": 433,
+            "width": 168,
+            "height": 64,
+            "top": 433,
+            "right": 367,
+            "bottom": 497,
+            "left": 199
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "park",
+          "target": "Schwarz",
+          "translation": "black",
+          "progressBefore": "Colour Painter · 2 of 5",
+          "answerRect": {
+            "x": 23,
+            "y": 433,
+            "width": 168,
+            "height": 64,
+            "top": 433,
+            "right": 191,
+            "bottom": 497,
+            "left": 23
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "paint",
+          "target": "Weiß",
+          "translation": "white",
+          "progressBefore": "Colour Painter · 3 of 5",
+          "answerRect": {
+            "x": 199,
+            "y": 505,
+            "width": 168,
+            "height": 64,
+            "top": 505,
+            "right": 367,
+            "bottom": 569,
+            "left": 199
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "park",
+          "target": "Rot",
+          "translation": "red",
+          "progressBefore": "Colour Painter · 4 of 5",
+          "answerRect": {
+            "x": 23,
+            "y": 433,
+            "width": 168,
+            "height": 64,
+            "top": 433,
+            "right": 191,
+            "bottom": 497,
+            "left": 23
+          },
+          "heldSaveError": false
+        },
+        {
+          "mode": "paint",
+          "target": "Grün",
+          "translation": "green",
+          "progressBefore": "Colour Painter · 5 of 5",
+          "answerRect": {
+            "x": 199,
+            "y": 505,
+            "width": 168,
+            "height": 64,
+            "top": 505,
+            "right": 367,
+            "bottom": 569,
+            "left": 199
+          },
+          "heldSaveError": true,
+          "localFault": {
+            "key": "amari_german_chapter_progress_v1",
+            "mode": "throw-before-write",
+            "beforeRaw": null,
+            "consumed": true,
+            "committedWrite": false
+          },
+          "faultRawUnchanged": true
+        }
+      ],
+      "roundCount": 5,
+      "wasReplay": false,
+      "rewardEligible": true,
+      "legacyRewardCeiling": -1,
+      "receipt": {
+        "transactionId": "amari_0_15m62m2",
+        "attemptId": "amari_0_15m62m2",
+        "chapterId": "colour-painter",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      "chapterButtonRect": {
+        "x": 37,
+        "y": 346,
+        "width": 316,
+        "height": 48,
+        "top": 346,
+        "right": 353,
+        "bottom": 394,
+        "left": 37
+      },
+      "retry": {
+        "retryRect": {
+          "x": 134.140625,
+          "y": 679,
+          "width": 121.71875,
+          "height": 48,
+          "top": 679,
+          "right": 255.859375,
+          "bottom": 727,
+          "left": 134.140625
+        },
+        "menuRetry": false,
+        "receipt": {
+          "transactionId": "amari_0_15m62m2",
+          "attemptId": "amari_0_15m62m2",
+          "chapterId": "colour-painter",
+          "rewardDelta": 1,
+          "parentClaimed": true
+        }
+      }
+    }
+  ],
+  "chapterRows": 1,
+  "practiceModeCount": 0,
+  "routeIds": [],
+  "wrongRetryCount": 1,
+  "audio": [],
+  "cancellation": [],
+  "faults": [
+    {
+      "kind": "parent-write-held-retry",
+      "chapterId": "colour-painter",
+      "transactionId": "amari_0_15m62m2",
+      "retryRect": {
+        "x": 134.140625,
+        "y": 679,
+        "width": 121.71875,
+        "height": 48,
+        "top": 679,
+        "right": 255.859375,
+        "bottom": 727,
+        "left": 134.140625
+      },
+      "recoveredOnce": true
+    }
+  ],
+  "startupReconciliation": {
+    "pendingBeforeMount": 0,
+    "recovered": 0,
+    "retriedFromMenu": false
+  },
+  "changedStorageKeys": [
+    "qa_rewards_20261024_amari_game_diagnostics_v1",
+    "qa_rewards_20261024_amari_games_played",
+    "qa_rewards_20261024_amari_german_chapter_progress_v1",
+    "qa_rewards_20261024_amari_german_recent_targets_v1",
+    "qa_rewards_20261024_amari_points",
+    "qa_rewards_20261024_amari_rewards_v2"
+  ],
+  "finalRender": null,
+  "failureScreenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/failure-german-native-390x740-1793269751920.jpg",
+  "diagnostics": {
+    "providerAttempts": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "error": "page.waitForFunction: Timeout 6000ms exceeded.\n    at waitForLocalMedia (evalmachine.<anonymous>:380:16)\n    at evalmachine.<anonymous>:885:29\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+  "expectedEntry": "/assets/arcade-yJB8jkQC.js",
+  "cliReturnCode": 0
+}

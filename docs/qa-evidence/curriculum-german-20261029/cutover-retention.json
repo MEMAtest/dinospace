@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "at": "2026-10-29T11:28:41.367565+00:00",
+  "runtimeSource": "e322549af753147d471d646ac32de645d709c356",
+  "oldEntry": "/assets/arcade-Bj2sEAsW.js",
+  "newEntry": "/assets/arcade-mei6ziro.js",
+  "retainedLocalStorageHashes": 77,
+  "retainedStoryDatabase": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "currentNoticeAbsent": true,
+  "currentCache": "amari-discovery-v46",
+  "updateAction": "focus observer event then actual Refresh games click",
+  "scope": "One persistent synthetic QA profile; this proves update retention, not recovery of historical personal books.",
+  "netlify": {
+    "siteId": "c9dcd11b-4029-44c0-910d-d40a13339eb8",
+    "url": "https://dinospace.netlify.app",
+    "publishedDeploy": "6ae32d82b85419377c6ba593",
+    "state": "ready",
+    "stopBuilds": true
+  }
+}

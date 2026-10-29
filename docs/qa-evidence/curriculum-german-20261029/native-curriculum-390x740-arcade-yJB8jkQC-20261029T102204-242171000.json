@@ -1,0 +1,54 @@
+{
+  "passed": false,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "viewport": "390x740",
+  "entryIdentity": "/assets/arcade-yJB8jkQC.js",
+  "namespace": true,
+  "rows": [
+    {
+      "kind": "normal-route",
+      "player": "amari",
+      "world": "Explore & Languages",
+      "initialModuleHeading": "🌍 Continents & Oceans"
+    }
+  ],
+  "moduleBandRunCount": 0,
+  "modelSupplementRunCount": 0,
+  "questionCount": 0,
+  "roundTypeCounts": {
+    "map-key": 1
+  },
+  "wrongRetryCount": 1,
+  "reloadProofs": [
+    {
+      "kind": "held-fact",
+      "module": "continents",
+      "band": "starter",
+      "roundId": "map-key-harbour",
+      "prompt": "Which map key would help a sailor find the harbour?",
+      "preserved": true
+    }
+  ],
+  "audioProofs": [],
+  "faultProofs": [],
+  "changedStorageKeys": [
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+    "qa_rewards_20261024_amari_game_diagnostics_v1",
+    "qa_rewards_20261024_amari_learning_attempts_v1",
+    "qa_rewards_20261024_amari_skill_mastery_v1"
+  ],
+  "screenshotPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/failure-curriculum-native-390x740-1793269341307.jpg",
+  "diagnostics": {
+    "providerAttempts": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "finalRenderPath": null,
+  "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /^Hear fact:/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" aria-label=\"Hear fact: A map key explains symbols. An anchor can show a harbour.\" class=\"inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-3 py-2 text-xs font-black text-indigo-700 shadow-sm disabled:cursor-not-allowed disabled:opacity-50\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at clickTask (evalmachine.<anonymous>:198:19)\n    at async playRound (evalmachine.<anonymous>:468:9)\n    at async runBand (evalmachine.<anonymous>:546:19)\n    at async evalmachine.<anonymous>:592:9\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+  "expectedEntry": "/assets/arcade-yJB8jkQC.js",
+  "cliReturnCode": 0
+}

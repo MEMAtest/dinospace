@@ -1,0 +1,254 @@
+{
+  "passed": true,
+  "at": "2026-10-29T11:40:15.293793+00:00",
+  "runtimeSource": "e322549af753147d471d646ac32de645d709c356",
+  "publicUrl": "https://dinospace.netlify.app",
+  "entry": "/assets/arcade-mei6ziro.js",
+  "backend": "https://dinospace-qt8a8d5mc-memas-projects-23a0001d.vercel.app",
+  "deploymentId": "dpl_9RR6xdB7WafZgJKCwjf88zXnE6gq",
+  "netlifyGatewayDeploy": "6ae32d82b85419377c6ba593",
+  "worker": "amari-discovery-v46",
+  "cases": [
+    {
+      "title": "curriculum",
+      "viewport": "1440x844",
+      "report": "production-curriculum-1440x844-arcade-mei6ziro-20261029T113143-154717000.json",
+      "reportSha256": "5ca7e2d46d038482313f97dc92a58b73703047b0e17aed118bbb15533f0296f7",
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "audioCancellationAbortErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": [],
+        "soundRestoreErrors": []
+      },
+      "requiredBands": 9,
+      "requiredQuestions": 45,
+      "actualQuestions": 50,
+      "types": {
+        "continent": 8,
+        "map-key": 2,
+        "ocean": 2,
+        "feature": 3,
+        "uk-place": 3,
+        "country": 1,
+        "sequence": 6,
+        "evidence": 9,
+        "classify": 14,
+        "investigation": 1,
+        "route": 1
+      },
+      "wrongRetries": 50,
+      "retryCoverage": {
+        "historyWriteRetry": "verified",
+        "receiptReadbackAndParentWriteRetry": "not-eligible-without-reset",
+        "badgeReadRetry": "verified",
+        "parentStickersReadRetry": "verified"
+      },
+      "positiveFaults": [],
+      "rewardDelta": 0,
+      "newClaims": []
+    },
+    {
+      "title": "curriculum",
+      "viewport": "390x740",
+      "report": "production-curriculum-390x740-arcade-mei6ziro-20261029T113055-907259000.json",
+      "reportSha256": "9153000723084c3eabac03d9b6eba0e6d8abde8445b5abebfb732473f95d55db",
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "audioCancellationAbortErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": [],
+        "soundRestoreErrors": []
+      },
+      "requiredBands": 9,
+      "requiredQuestions": 45,
+      "actualQuestions": 50,
+      "types": {
+        "continent": 8,
+        "direction": 1,
+        "ocean": 2,
+        "uk-place": 3,
+        "country": 2,
+        "map-key": 1,
+        "feature": 2,
+        "evidence": 9,
+        "sequence": 6,
+        "classify": 13,
+        "investigation": 2,
+        "route": 1
+      },
+      "wrongRetries": 50,
+      "retryCoverage": {
+        "historyWriteRetry": "verified",
+        "receiptReadbackAndParentWriteRetry": "verified",
+        "badgeReadRetry": "verified",
+        "parentStickersReadRetry": "verified"
+      },
+      "positiveFaults": [
+        {
+          "kind": "receipt-readback-and-parent-write-retry",
+          "receipt": {
+            "key": "amari_curriculum_completion_receipts_v1",
+            "mode": "stale-readback",
+            "consumed": true,
+            "committedWrite": true,
+            "beforeRawSha256": null,
+            "attemptedValueSha256": "75ff29375002a9153f8ad09e0f98fcdcfbd534f517937d5083743fa84e5d5a01"
+          },
+          "parentFault": {
+            "key": "amari_rewards_v2",
+            "mode": "throw-before-write",
+            "consumed": true,
+            "committedWrite": false,
+            "beforeRawSha256": "0aca4cf35f2b765b07893133fd1a5746045798931a9c1c245d000021f7c4ea1c",
+            "attemptedValueSha256": "a47dd07b5b73144a9634dd4750021fa71a50bcba086fafcfd66d6a81a0bb8bb4"
+          },
+          "sameBand": "continents:starter",
+          "pendingRetained": true,
+          "rewardUnchangedUntilRetry": true,
+          "oneClaimAfterRetry": true
+        }
+      ],
+      "rewardDelta": 9,
+      "newClaims": [
+        "dino:curriculum:continents:starter",
+        "dino:curriculum:continents:growing",
+        "dino:curriculum:continents:challenge",
+        "dino:curriculum:time-detectives:starter",
+        "dino:curriculum:time-detectives:growing",
+        "dino:curriculum:time-detectives:challenge",
+        "dino:curriculum:nature-lab:starter",
+        "dino:curriculum:nature-lab:growing",
+        "dino:curriculum:nature-lab:challenge"
+      ]
+    },
+    {
+      "title": "german",
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "report": "production-german-1440x844-arcade-mei6ziro-20261029T113005-018266000.json",
+      "reportSha256": "f82970638fffc2bd115b6cbb3fb11a4af581c1886fee607f154db08de4cf234e",
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "chapterWordAnswers": 11,
+      "routes": 7,
+      "commandActions": 14,
+      "practiceModes": 11,
+      "wrongRetries": 4,
+      "positiveFaults": [],
+      "rewardDelta": 0,
+      "newClaims": [],
+      "soundPreferenceRestored": true,
+      "protectedRewards": {
+        "priorClaimsRetained": 37,
+        "unrelatedGameCountsUnchanged": true,
+        "priorStickersRetained": true,
+        "addedTokens": []
+      }
+    },
+    {
+      "title": "german",
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "report": "production-german-390x740-arcade-mei6ziro-20261029T112944-716784000.json",
+      "reportSha256": "f1d239a99726225f2e6f5910fb1a4c25af0cda966c489d7baa7a6792e54498bb",
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "chapterWordAnswers": 11,
+      "routes": 7,
+      "commandActions": 14,
+      "practiceModes": 11,
+      "wrongRetries": 4,
+      "positiveFaults": [
+        {
+          "kind": "parent-write-held-retry",
+          "chapterId": "colour-painter",
+          "transactionId": "amari_0_127o47w",
+          "retryRect": {
+            "x": 134.140625,
+            "y": 679,
+            "width": 121.71875,
+            "height": 48,
+            "top": 679,
+            "right": 255.859375,
+            "bottom": 727,
+            "left": 134.140625
+          },
+          "recoveredOnce": true
+        },
+        {
+          "kind": "local-save-retry",
+          "chapterId": "vehicle-workshop",
+          "localMode": "stale-readback-recovered"
+        },
+        {
+          "kind": "direction-parent-write-menu-retry",
+          "chapterId": "direction-driver",
+          "transactionId": "amari_2_homuc",
+          "heldFactsPreserved": true,
+          "retryRect": {
+            "x": 77.46875,
+            "y": 271,
+            "width": 235.0625,
+            "height": 48,
+            "top": 271,
+            "right": 312.53125,
+            "bottom": 319,
+            "left": 77.46875
+          },
+          "recoveredOnce": true
+        }
+      ],
+      "rewardDelta": 3,
+      "newClaims": [
+        [
+          "dino:german:amari_0_127o47w",
+          1
+        ],
+        [
+          "dino:german:amari_1_xpcr4k",
+          1
+        ],
+        [
+          "dino:german:amari_2_homuc",
+          1
+        ]
+      ],
+      "soundPreferenceRestored": true,
+      "protectedRewards": {
+        "priorClaimsRetained": 34,
+        "unrelatedGameCountsUnchanged": true,
+        "priorStickersRetained": true,
+        "addedTokens": [
+          "dino:german:amari_0_127o47w",
+          "dino:german:amari_1_xpcr4k",
+          "dino:german:amari_2_homuc"
+        ]
+      }
+    }
+  ],
+  "sourceTests": {
+    "passed": 647,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scope": "Targeted Pair10 functional acceptance. Normal Amari catalogue routes; no hidden Askia route, reset, provider call or historical family-book recovery. Editorial/listening scores are unchanged."
+}

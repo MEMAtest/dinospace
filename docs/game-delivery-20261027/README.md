@@ -6,7 +6,7 @@ The catalogue has34activities; the older quality ledger covers26. Reconcile actu
 
 ## Active pair
 
-**Storybook Studio + Spelling Studio**. The first seven pairs are live-verified. Audit durable personal-book storage/recovery and library navigation/performance, plus meaningful longer-word spelling progression and exact packaged audio. Investigate the existing narration history read-only; no new paid generation is authorized.
+**Letter Launch + Fact Finder (Pair11)**. Pairs1–10 are live-verified, including full Chess versus the computer, Curriculum Quest and German Garage. Current public runtime is `e322549af753147d471d646ac32de645d709c356` (worker46). Pair10 passed647 tests and all four native plus four canonical title/viewport journeys, positive save/readback/parent Retry, replay limits and update retention. Pair11 source audits are complete; implementation and its own live gate remain open. Afterward, run the retained-game integration regression. Historical eight to nine personal books remain unlocated; no new paid generation is authorized.
 
 ## Workflow
 
@@ -32,6 +32,6 @@ Resource budget: no new worktrees or dependencies planned. Keep each pair's new 
 10. Curriculum Quest + German Garage.
 11. Letter Launch + Fact Finder (the separately requested learning wiki feature).
 
-On 29 October the user requested a full playable chess game alongside the retained lessons. It is prioritized in the next batch after Pair 8; the remaining queued titles move forward without being dropped. Fact Finder remains a distinct new feature and must earn its own acceptance; prior game releases do not establish it.
+On 29 October the user requested a full playable chess game alongside the retained lessons. It was delivered and verified with Dino Jigsaw as Pair9; the remaining queued titles continue without being dropped. Fact Finder remains a distinct new feature and must earn its own acceptance; prior game releases do not establish it.
 
 Fourteen games already have recent source-bound functional delivery evidence; retain those implementations and run a final integration regression. This sequence audits or uplifts the original remaining20, the newly requested full Chess mode and the separate Fact Finder feature rather than treating every old unscored ledger row as unimplemented. Each pair remains open until its own concrete gates pass. `queue.json` is the current work queue.

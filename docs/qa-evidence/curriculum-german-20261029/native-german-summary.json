@@ -1,0 +1,128 @@
+{
+  "at": "2026-10-29T10:41:58.787545+00:00",
+  "passed": true,
+  "title": "German Garage",
+  "runtimeSource": "285446652f651dfdfad7df0c7f124d465b673890",
+  "scope": "Compiled native title-specific functional checks only; Curriculum and canonical production gates remain open.",
+  "reports": [
+    {
+      "report": "native-german-1440x844-arcade-yJB8jkQC-20261029T104024-085906000.json",
+      "sha256": "cdfc54d04e96f00800874f945e805adf55a2e99e90f9ae14e4e8d27ddb6d04a4",
+      "entry": "/assets/arcade-yJB8jkQC.js",
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "wordAnswers": 11,
+      "routes": 7,
+      "commandActions": 14,
+      "practiceModes": 11,
+      "wrongRetries": 4,
+      "rewardPointsDelta": 0,
+      "newClaims": [],
+      "soundPreferenceRestored": true,
+      "priorRewardsPreserved": {
+        "priorClaimsRetained": 37,
+        "unrelatedGameCountsUnchanged": true,
+        "priorStickersRetained": true,
+        "addedTokens": []
+      },
+      "oldGameLevelsPreserved": true,
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "render": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/native-german-1440x844-arcade-yJB8jkQC-1793270428973.jpg"
+    },
+    {
+      "report": "native-german-390x740-arcade-yJB8jkQC-20261029T103935-364716000.json",
+      "sha256": "1f1a61ee451e3ea778064b9db7255219b3110cf7fa67548145802c3d6dc8d31a",
+      "entry": "/assets/arcade-yJB8jkQC.js",
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "wordAnswers": 11,
+      "routes": 7,
+      "commandActions": 14,
+      "practiceModes": 11,
+      "wrongRetries": 4,
+      "rewardPointsDelta": 0,
+      "newClaims": [],
+      "soundPreferenceRestored": true,
+      "priorRewardsPreserved": {
+        "priorClaimsRetained": 37,
+        "unrelatedGameCountsUnchanged": true,
+        "priorStickersRetained": true,
+        "addedTokens": []
+      },
+      "oldGameLevelsPreserved": true,
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "render": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/native-german-390x740-arcade-yJB8jkQC-1793270379832.jpg"
+    }
+  ],
+  "earlierNaturallyEligibleFaultSubcases": [
+    {
+      "report": "native-german-390x740-arcade-yJB8jkQC-20261029T102902-905329000.json",
+      "reportOverallPassed": false,
+      "scope": "Only the recorded same-runtime fault subcase is evidence; later harness failure prevented full-run acceptance.",
+      "case": {
+        "kind": "parent-write-held-retry",
+        "chapterId": "colour-painter",
+        "transactionId": "amari_0_15m62m2",
+        "retryRect": {
+          "x": 134.140625,
+          "y": 679,
+          "width": 121.71875,
+          "height": 48,
+          "top": 679,
+          "right": 255.859375,
+          "bottom": 727,
+          "left": 134.140625
+        },
+        "recoveredOnce": true
+      }
+    },
+    {
+      "report": "native-german-390x740-arcade-yJB8jkQC-20261029T103425-332608000.json",
+      "reportOverallPassed": false,
+      "scope": "Only the recorded same-runtime fault subcase is evidence; later harness failure prevented full-run acceptance.",
+      "case": {
+        "kind": "local-save-retry",
+        "chapterId": "vehicle-workshop",
+        "localMode": "stale-readback-recovered"
+      }
+    },
+    {
+      "report": "native-german-390x740-arcade-yJB8jkQC-20261029T103544-407124000.json",
+      "reportOverallPassed": false,
+      "scope": "Only the recorded same-runtime fault subcase is evidence; later harness failure prevented full-run acceptance.",
+      "case": {
+        "kind": "direction-parent-write-menu-retry",
+        "chapterId": "direction-driver",
+        "transactionId": "amari_2_ruxrqz",
+        "heldFactsPreserved": true,
+        "retryRect": {
+          "x": 77.46875,
+          "y": 271,
+          "width": 235.0625,
+          "height": 48,
+          "top": 271,
+          "right": 312.53125,
+          "bottom": 319,
+          "left": 77.46875
+        },
+        "recoveredOnce": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "passed": true,
+  "at": "2026-10-29T11:23:45.505347+00:00",
+  "runtimeSource": "e322549af753147d471d646ac32de645d709c356",
+  "entry": "/assets/arcade-mei6ziro.js",
+  "scope": "Compiled native actual-control functional matrix only; canonical release verification pending. All final runs preserve existing earned records; no resets or synthetic eligibility created.",
+  "cases": [
+    {
+      "title": "curriculum",
+      "report": "native-curriculum-1440x844-arcade-mei6ziro-20261029T111927-351121000.json",
+      "sha256": "5ae6e9306ea3268f8b47511c61e0c3c22a8c6f2eedf13117e001bfa8997fd8f1",
+      "viewport": "1440x844",
+      "entry": "/assets/arcade-mei6ziro.js",
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "audioCancellationAbortErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": [],
+        "soundRestoreErrors": []
+      },
+      "render": "native-curriculum-1440x844-arcade-mei6ziro-1793272818282.jpg",
+      "renderSha256": "c0bf33ad44108b40e3cda974151f3b57258dfd2c9bc55fcfbd1d5e1fb4020b54",
+      "requiredBands": 9,
+      "requiredQuestions": 45,
+      "actualQuestions": 45,
+      "types": {
+        "continent": 7,
+        "direction": 1,
+        "route": 1,
+        "map-key": 1,
+        "feature": 1,
+        "uk-place": 1,
+        "ocean": 2,
+        "country": 1,
+        "sequence": 6,
+        "evidence": 9,
+        "classify": 14,
+        "investigation": 1
+      },
+      "retries": {
+        "historyWriteRetry": "verified",
+        "receiptReadbackAndParentWriteRetry": "not-eligible-without-reset",
+        "badgeReadRetry": "verified",
+        "parentStickersReadRetry": "verified"
+      },
+      "rewardDelta": 0,
+      "newClaims": []
+    },
+    {
+      "title": "curriculum",
+      "report": "native-curriculum-390x740-arcade-mei6ziro-20261029T112026-558942000.json",
+      "sha256": "7375fde21843903153113058ae58d147ef76124ddcecf7d7fd64cb8007f81a83",
+      "viewport": "390x740",
+      "entry": "/assets/arcade-mei6ziro.js",
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "audioCancellationAbortErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": [],
+        "soundRestoreErrors": []
+      },
+      "render": "native-curriculum-390x740-arcade-mei6ziro-1793272859922.jpg",
+      "renderSha256": "f5070aa23b524b116db196bda8fa375980bc1a247899cd7e986d3142e82720ca",
+      "requiredBands": 9,
+      "requiredQuestions": 45,
+      "actualQuestions": 55,
+      "types": {
+        "continent": 7,
+        "map-key": 1,
+        "ocean": 6,
+        "uk-place": 3,
+        "direction": 2,
+        "country": 2,
+        "feature": 3,
+        "evidence": 8,
+        "sequence": 7,
+        "classify": 14,
+        "investigation": 1,
+        "route": 1
+      },
+      "retries": {
+        "historyWriteRetry": "verified",
+        "receiptReadbackAndParentWriteRetry": "not-eligible-without-reset",
+        "badgeReadRetry": "verified",
+        "parentStickersReadRetry": "verified"
+      },
+      "rewardDelta": 0,
+      "newClaims": []
+    },
+    {
+      "title": "german",
+      "report": "native-german-1440x844-arcade-mei6ziro-20261029T112212-727292000.json",
+      "sha256": "4e07d85083ab884365747bc7f6af85a71edc0a77eb854dbd02441fe1a97d9783",
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "entry": "/assets/arcade-mei6ziro.js",
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "render": "native-german-1440x844-arcade-mei6ziro-1793272937394.jpg",
+      "renderSha256": "10c372a666fb2f9d2767f31f8f2af9f6b03f77fd13085aebad1c38cdf94f6f0c",
+      "wordAnswers": 11,
+      "routes": 7,
+      "commandActions": 14,
+      "practiceModes": 11,
+      "wrongRetries": 4,
+      "rewardDelta": 0,
+      "newClaims": [],
+      "soundPreferenceRestored": true
+    },
+    {
+      "title": "german",
+      "report": "native-german-390x740-arcade-mei6ziro-20261029T112155-917754000.json",
+      "sha256": "6ddc8628d0fa871f9520d316d3f53fe782d05ed620d7c7fc4ba5094a5e86f946",
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "entry": "/assets/arcade-mei6ziro.js",
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "render": "native-german-390x740-arcade-mei6ziro-1793272920412.jpg",
+      "renderSha256": "b9e7e19405f2169f0af2a76e867b14a10f66e592d7b50a60cf1d0550be193a31",
+      "wordAnswers": 11,
+      "routes": 7,
+      "commandActions": 14,
+      "practiceModes": 11,
+      "wrongRetries": 4,
+      "rewardDelta": 0,
+      "newClaims": [],
+      "soundPreferenceRestored": true
+    }
+  ],
+  "earlierPositiveRetryScope": "Earlier native reports on the same transaction code exercised local write/readback and parent Retry before receipts became earned. Those partial reports stopped later at independent gates, so their positive subcases remain separate evidence, not full passes."
+}

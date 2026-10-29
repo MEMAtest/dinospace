@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 9,
+  "activePair": 11,
   "pairs": [
     {
       "number": 1,
@@ -218,8 +218,17 @@
           "name": "German Garage"
         }
       ],
-      "status": "queued",
-      "evidence": null
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/curriculum-german-20261029/README.md",
+      "auditBase": "a9d9b8c390a705e8a339f6700cd60195d6046a33",
+      "scope": "Targeted Pair10 functional acceptance. Normal Amari catalogue routes; no hidden Askia route, reset, provider call or historical family-book recovery. Editorial/listening scores are unchanged.",
+      "candidateRuntime": "e322549af753147d471d646ac32de645d709c356",
+      "candidateEntry": "/assets/arcade-mei6ziro.js",
+      "sourceGates": "docs/qa-evidence/curriculum-german-20261029/source-gates.json",
+      "openGate": null,
+      "runtime": "e322549af753147d471d646ac32de645d709c356",
+      "verifiedAt": "2026-10-29T11:41:32.596668+00:00",
+      "production": "docs/qa-evidence/curriculum-german-20261029/production-summary.json"
     },
     {
       "number": 11,
@@ -234,7 +243,7 @@
           "scope": "Separately requested child-friendly curated search/explainer; new feature, not historical game acceptance"
         }
       ],
-      "status": "queued",
+      "status": "source_audit_complete",
       "evidence": null
     }
   ],

@@ -1,0 +1,74 @@
+{
+  "at": "2026-10-29T11:01:18.810084+00:00",
+  "passed": true,
+  "title": "German Garage",
+  "runtimeSource": "44129bf3118fe48ca697e54ceb8f59c6fb6c7a4d",
+  "scope": "Final-source compiled title-specific functional checks only. Curriculum and canonical gates remain open.",
+  "reports": [
+    {
+      "report": "native-german-1440x844-arcade-CEMEbeb9-20261029T105952-816357000.json",
+      "sha256": "5805722434ef8276c93b7526fb22cbecf11abd0502cf6d622c899f32d81557e0",
+      "entry": "/assets/arcade-CEMEbeb9.js",
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "chapterWordAnswers": 11,
+      "routes": 7,
+      "commandActions": 14,
+      "practiceModes": 11,
+      "wrongRetries": 4,
+      "rewardPointsDelta": 0,
+      "newClaims": [],
+      "soundPreferenceRestored": true,
+      "priorRewardsPreserved": {
+        "priorClaimsRetained": 46,
+        "unrelatedGameCountsUnchanged": true,
+        "priorStickersRetained": true,
+        "addedTokens": []
+      },
+      "oldGameLevelsPreserved": true,
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "render": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/native-german-1440x844-arcade-CEMEbeb9-1793271598144.jpg"
+    },
+    {
+      "report": "native-german-390x740-arcade-CEMEbeb9-20261029T105926-339830000.json",
+      "sha256": "30532d727f5e732c8389029ce89b19620dabab89ee34bef6d0bc02f34f2cb4ce",
+      "entry": "/assets/arcade-CEMEbeb9.js",
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "chapterWordAnswers": 11,
+      "routes": 7,
+      "commandActions": 14,
+      "practiceModes": 11,
+      "wrongRetries": 4,
+      "rewardPointsDelta": 0,
+      "newClaims": [],
+      "soundPreferenceRestored": true,
+      "priorRewardsPreserved": {
+        "priorClaimsRetained": 46,
+        "unrelatedGameCountsUnchanged": true,
+        "priorStickersRetained": true,
+        "addedTokens": []
+      },
+      "oldGameLevelsPreserved": true,
+      "diagnostics": {
+        "providerAttempts": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "render": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/native-german-390x740-arcade-CEMEbeb9-1793271570954.jpg"
+    }
+  ],
+  "positiveRetryEvidence": "native-german-summary.json retains separately scoped earlier285-source fault proofs. German transaction/component source files are unchanged; do not call those partial reports full passes."
+}

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "at": "2026-10-29T09:20:15.178427+00:00",
+  "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
+  "evidenceHead": "a9d9b8c390a705e8a339f6700cd60195d6046a33",
+  "checks": [
+    {
+      "path": "/",
+      "sha256": "9a15fc0bf4c7069cf24fabf7268bda9c52da61ea0ae78d03ad80cc94d01f0883",
+      "bytes": 1441,
+      "status": 200
+    },
+    {
+      "path": "/sw.js",
+      "sha256": "70d20075fed6507b0fb5d8c20cb7a114f8fb4d5185a24bd8b595671ee187e09f",
+      "bytes": 16306,
+      "status": 200
+    }
+  ]
+}

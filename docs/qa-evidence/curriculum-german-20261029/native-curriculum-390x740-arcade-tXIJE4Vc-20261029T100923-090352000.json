@@ -1,0 +1,44 @@
+{
+  "passed": false,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "viewport": "390x740",
+  "entryIdentity": "/assets/arcade-tXIJE4Vc.js",
+  "namespace": true,
+  "rows": [
+    {
+      "kind": "normal-route",
+      "player": "amari",
+      "world": "Explore & Languages",
+      "initialModuleHeading": "🌍 Continents & Oceans"
+    }
+  ],
+  "moduleBandRunCount": 0,
+  "modelSupplementRunCount": 0,
+  "questionCount": 0,
+  "roundTypeCounts": {},
+  "wrongRetryCount": 0,
+  "reloadProofs": [],
+  "audioProofs": [],
+  "faultProofs": [],
+  "changedStorageKeys": [
+    "qa_rewards_20261024_amari_curriculum_preferences_v1",
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+    "qa_rewards_20261024_amari_game_diagnostics_v1",
+    "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+    "qa_rewards_20261024_amari_recent_games"
+  ],
+  "screenshotPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/failure-curriculum-native-390x740-1793268566740.jpg",
+  "diagnostics": {
+    "providerAttempts": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "finalRenderPath": null,
+  "error": "Error: Choose visible answer A tree symbol is clipped, covered, or outside the viewport: {\"name\":\"Choose A tree symbol\",\"rect\":{\"x\":213,\"y\":731.6875,\"width\":129,\"height\":112,\"right\":342,\"bottom\":843.6875},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false}\n    at measure (evalmachine.<anonymous>:192:13)\n    at async clickTask (evalmachine.<anonymous>:197:22)\n    at async chooseLabel (evalmachine.<anonymous>:360:5)\n    at async performWrongOnce (evalmachine.<anonymous>:395:7)\n    at async playRound (evalmachine.<anonymous>:405:11)\n    at async runBand (evalmachine.<anonymous>:534:19)\n    at async evalmachine.<anonymous>:580:9\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)",
+  "expectedEntry": "/assets/arcade-tXIJE4Vc.js",
+  "cliReturnCode": 0
+}
