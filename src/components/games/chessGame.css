@@ -108,7 +108,7 @@
 .chess-control-card { display: grid; width: min(100%, 560px); gap: 0.3rem; border-radius: 0.75rem; background: #fffdf7; padding: 0.4rem; }
 .chess-live-message { min-height: 1.25rem; margin: 0; text-align: center; font-size: 0.82rem; font-weight: 750; line-height: 1.2; }
 .chess-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem; }
-.chess-actions .chess-full-button { min-height: 40px; padding: 0.3rem 0.5rem; font-size: 0.82rem; }
+.chess-actions .chess-full-button { min-height: 44px; padding: 0.3rem 0.5rem; font-size: 0.82rem; }
 .chess-move-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); max-height: 7rem; overflow: auto; gap: 0.25rem; margin: 0; padding: 0.3rem; list-style: none; font-variant-numeric: tabular-nums; font-size: 0.82rem; }
 .chess-save-error { border: 2px solid #b42318; border-radius: 0.7rem; padding: 0.45rem; text-align: center; }
 .chess-save-error p { margin: 0 0 0.3rem; font-weight: 800; }
