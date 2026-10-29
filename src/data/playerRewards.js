@@ -29,12 +29,14 @@ export const rewardClaimToken = (gameId, receiptId) => (
                         : gameId === 'subtraction' ? `dino:subtraction:${receiptId}`
                           : gameId === 'numberline' ? `dino:numberline:${receiptId}`
                             : gameId === 'timeteller' ? `dino:timeteller:${receiptId}`
-                              : gameId === 'phonics' ? `dino:phonics:${receiptId}` : `${gameId}:${receiptId}`
+                              : gameId === 'phonics' ? `dino:phonics:${receiptId}`
+                                : gameId === 'colormix' ? `dino:colormix:${receiptId}`
+                                  : gameId === 'shadowmatch' ? `dino:shadowmatch:${receiptId}` : `${gameId}:${receiptId}`
 );
 const normalizeClaimToken = (key) => {
   const alias = key.match(/^(chess|dinojigsaw):/i);
   if (alias) return rewardClaimToken(alias[1].toLowerCase(), key.slice(alias[0].length));
-  const reserved = key.match(/^dino:(chess|jigsaw|german|curriculum|letters|puzzle|spot|jet|math|counting|addition|subtraction|numberline|timeteller|phonics):/i);
+  const reserved = key.match(/^dino:(chess|jigsaw|german|curriculum|letters|puzzle|spot|jet|math|counting|addition|subtraction|numberline|timeteller|phonics|colormix|shadowmatch):/i);
   if (reserved) return `dino:${reserved[1].toLowerCase()}:${key.slice(reserved[0].length)}`;
   return key;
 };
@@ -52,7 +54,9 @@ const claimGame = (key) => key.startsWith('dino:chess:') ? 'chess'
                       : key.startsWith('dino:subtraction:') ? 'subtraction'
                         : key.startsWith('dino:numberline:') ? 'numberline'
                           : key.startsWith('dino:timeteller:') ? 'timeteller'
-                            : key.startsWith('dino:phonics:') ? 'phonics' : key.split(':')[0];
+                            : key.startsWith('dino:phonics:') ? 'phonics'
+                              : key.startsWith('dino:colormix:') ? 'colormix'
+                                : key.startsWith('dino:shadowmatch:') ? 'shadowmatch' : key.split(':')[0];
 const read = (storage, key, fallback) => {
   try { return JSON.parse(storage?.getItem(key) ?? 'null') ?? fallback; } catch { return fallback; }
 };
@@ -102,7 +106,7 @@ const commitClaimedReward = (playerId, current, amount, gameId, storage, rewardT
   const failed = (error) => ({ ...before, persisted: false, awardedPoints: 0, recovered: false, error });
   if (typeof rewardToken !== 'string') return failed('Reward claim is invalid.');
   rewardToken = normalizeClaimToken(rewardToken);
-  if (!['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap', 'letters', 'puzzle', 'spot', 'jet', 'math', 'counting', 'addition', 'subtraction', 'numberline', 'timeteller', 'phonics'].includes(gameId) || claimGame(rewardToken) !== gameId || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
+  if (!['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap', 'letters', 'puzzle', 'spot', 'jet', 'math', 'counting', 'addition', 'subtraction', 'numberline', 'timeteller', 'phonics', 'colormix', 'shadowmatch'].includes(gameId) || claimGame(rewardToken) !== gameId || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
   if (!storage || typeof storage.getItem !== 'function' || typeof storage.setItem !== 'function') return failed('Reward storage is unavailable.');
   let canonical, canonicalRaw;
   try {

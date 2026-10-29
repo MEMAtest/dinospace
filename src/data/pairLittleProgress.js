@@ -21,7 +21,7 @@ const readRawRecord = (playerId, gameId, bigKid, storage) => {
   if (!storage || typeof storage.getItem !== 'function') return { ok: false, reason: 'storage-unavailable', level: floor };
   try {
     const raw = storage.getItem(progressKey(playerId));
-    const record = raw == null ? {} : JSON.parse(raw);
+    const record = raw === null ? {} : JSON.parse(raw);
     if (!isPlainRecord(record)) return { ok: false, reason: 'record-invalid', level: floor };
     const entry = record[gameId];
     if (entry !== undefined && (!isPlainRecord(entry)
@@ -30,7 +30,7 @@ const readRawRecord = (playerId, gameId, bigKid, storage) => {
       || !Number.isInteger(entry.best) || entry.best < 0 || entry.best > 3)) {
       return { ok: false, reason: 'game-record-invalid', level: floor };
     }
-    const pairMetadata = ['pairBestByLevel', 'pairTransactionId', 'pairPreviousLevel', 'pairLevelUp', 'pairRewardPoints', 'pairLegacyRewardThrough'];
+    const pairMetadata = ['pairBestByLevel', 'pairTransactionId', 'pairPreviousLevel', 'pairLevelUp', 'pairRewardPoints', 'pairLegacyRewardThrough', 'pairRewardReceipts'];
     const hasPairMetadata = entry && pairMetadata.some((key) => Object.hasOwn(entry, key));
     if (hasPairMetadata && (!isPlainRecord(entry.pairBestByLevel)
       || Object.entries(entry.pairBestByLevel).some(([index, best]) => !/^\d+$/.test(index)
@@ -44,6 +44,26 @@ const readRawRecord = (playerId, gameId, bigKid, storage) => {
       || !Number.isInteger(entry.pairRewardPoints) || entry.pairRewardPoints < 0 || entry.pairRewardPoints > 8
       || (entry.pairLegacyRewardThrough !== undefined
         && (!Number.isInteger(entry.pairLegacyRewardThrough) || entry.pairLegacyRewardThrough < -1 || entry.pairLegacyRewardThrough > max)))) {
+      return { ok: false, reason: 'game-record-invalid', level: floor };
+    }
+    if (hasPairMetadata && entry.pairRewardReceipts !== undefined && (gameId !== 'shadowmatch' || !Array.isArray(entry.pairRewardReceipts)
+      || entry.pairRewardReceipts.some((receipt) => {
+        const match = isPlainRecord(receipt) && typeof receipt.id === 'string'
+          ? /^shadowmatch:level-(\d+):best-([1-3])$/.exec(receipt.id)
+          : null;
+        return !isPlainRecord(receipt) || !match
+          || !Number.isInteger(receipt.level) || receipt.level < 0 || receipt.level > max
+          || Number(match[1]) - 1 !== receipt.level || receipt.level > entry.level
+          || receipt.level <= (entry.pairLegacyRewardThrough ?? -1)
+          || (entry.pairBestByLevel?.[receipt.level] || 0) < Number(match[2])
+          || !Number.isInteger(receipt.points) || receipt.points < 2 || receipt.points > (Number(match[2]) * 2 + 2) || receipt.points % 2 !== 0
+          || typeof receipt.claimed !== 'boolean';
+      })
+      || new Set(entry.pairRewardReceipts.map((receipt) => receipt.id)).size !== entry.pairRewardReceipts.length
+      || Object.entries(entry.pairRewardReceipts.reduce((totals, receipt) => {
+        totals[receipt.level] = (totals[receipt.level] || 0) + receipt.points;
+        return totals;
+      }, {})).some(([index, points]) => points > 2 * (entry.pairBestByLevel[index] || 0) + 2))) {
       return { ok: false, reason: 'game-record-invalid', level: floor };
     }
     return {
@@ -62,7 +82,7 @@ export const readPairLittleProgress = (playerId, gameId, bigKid, storage = getPa
 );
 
 export const commitPairLittleResult = ({ playerId, gameId, bigKid, stars, transactionId, expectedLevel, playedLevel, storage = getPairLittleStorage() }) => {
-  if (!['rocketbuilder', 'fuelup', 'firerescue', 'ladder', 'dino', 'dinojigsaw'].includes(gameId)) return { ok: false, reason: 'game-not-in-pair' };
+  if (!['rocketbuilder', 'fuelup', 'firerescue', 'ladder', 'dino', 'dinojigsaw', 'shadowmatch'].includes(gameId)) return { ok: false, reason: 'game-not-in-pair' };
   if (!Number.isInteger(stars) || stars < 1 || stars > 3 || typeof transactionId !== 'string' || !transactionId) {
     return { ok: false, reason: 'result-invalid' };
   }
@@ -74,6 +94,7 @@ export const commitPairLittleResult = ({ playerId, gameId, bigKid, stars, transa
   // Recover the same pending result after a write succeeded but its readback
   // failed. The shell keeps the transaction id while showing Retry.
   if (oldEntry.pairTransactionId === transactionId) {
+    const recoveredReceipt = oldEntry.pairRewardReceipts?.find((receipt) => receipt.id === `${gameId}:level-${oldEntry.pairPlayedLevel + 1}:best-${oldEntry.pairBestByLevel?.[oldEntry.pairPlayedLevel]}`) || null;
     return {
       ok: true,
       recovered: true,
@@ -84,6 +105,7 @@ export const commitPairLittleResult = ({ playerId, gameId, bigKid, stars, transa
       best: oldEntry.best,
       rewardPoints: oldEntry.pairRewardPoints ?? 0,
       playedLevel: oldEntry.pairPlayedLevel,
+      rewardReceipt: recoveredReceipt,
     };
   }
   if (Number.isInteger(expectedLevel) && before.level < expectedLevel) {
@@ -106,6 +128,12 @@ export const commitPairLittleResult = ({ playerId, gameId, bigKid, stars, transa
   const previousBestAtLevel = Number.isInteger(levelBests[runLevel]) ? levelBests[runLevel] : 0;
   const rewardBaseline = runLevel <= legacyRewardThrough ? 3 : previousBestAtLevel;
   const rewardPoints = Math.max(0, (stars * 2 + 2) - (rewardBaseline ? rewardBaseline * 2 + 2 : 0));
+  const receiptId = `${gameId}:level-${runLevel + 1}:best-${stars}`;
+  const receipts = Array.isArray(oldEntry.pairRewardReceipts) ? oldEntry.pairRewardReceipts : [];
+  const rewardReceipt = gameId === 'shadowmatch' && rewardPoints > 0
+    ? (receipts.find((receipt) => receipt.id === receiptId) || { id: receiptId, level: runLevel, points: rewardPoints, claimed: false })
+    : null;
+  const nextReceipts = rewardReceipt && !receipts.some((receipt) => receipt.id === receiptId) ? [...receipts, rewardReceipt] : receipts;
   const entry = {
     ...oldEntry,
     level,
@@ -118,6 +146,7 @@ export const commitPairLittleResult = ({ playerId, gameId, bigKid, stars, transa
     pairLevelUp: level > previous,
     pairRewardPoints: rewardPoints,
     pairLegacyRewardThrough: legacyRewardThrough,
+    ...(gameId === 'shadowmatch' ? { pairRewardReceipts: nextReceipts } : {}),
   };
   const nextRecord = { ...before.record, [gameId]: entry };
   let encoded;
@@ -132,7 +161,32 @@ export const commitPairLittleResult = ({ playerId, gameId, bigKid, stars, transa
   if (!after.ok || JSON.stringify(after.record) !== encoded || after.gameRecord?.pairTransactionId !== transactionId) {
     return { ok: false, reason: 'readback-failed', level: previous };
   }
-  return { ok: true, recovered: false, previous, level, playedLevel: runLevel, levelUp: level > previous, plays: entry.plays, best: entry.best, rewardPoints };
+  return { ok: true, recovered: false, previous, level, playedLevel: runLevel, levelUp: level > previous, plays: entry.plays, best: entry.best, rewardPoints, rewardReceipt };
+};
+
+export const getPendingPairLittleRewardReceipts = (playerId, gameId, bigKid, storage = getPairLittleStorage()) => {
+  const loaded = readPairLittleProgress(playerId, gameId, bigKid, storage);
+  if (!loaded.ok) return { ...loaded, receipts: [] };
+  return { ...loaded, receipts: (loaded.gameRecord?.pairRewardReceipts || []).filter((receipt) => !receipt.claimed) };
+};
+
+export const markPairLittleRewardReceiptClaimed = (playerId, gameId, bigKid, receiptId, storage = getPairLittleStorage()) => {
+  if (gameId !== 'shadowmatch' || typeof receiptId !== 'string' || !receiptId) return { ok: false, reason: 'receipt-invalid' };
+  const before = readPairLittleProgress(playerId, gameId, bigKid, storage);
+  if (!before.ok) return before;
+  const entry = before.gameRecord;
+  const index = entry?.pairRewardReceipts?.findIndex((receipt) => receipt.id === receiptId) ?? -1;
+  if (index < 0) return { ok: false, reason: 'receipt-missing' };
+  const receipts = entry.pairRewardReceipts.map((receipt) => receipt.id === receiptId ? { ...receipt, claimed: true } : receipt);
+  const nextRecord = { ...before.record, [gameId]: { ...entry, pairRewardReceipts: receipts } };
+  let encoded;
+  try { encoded = JSON.stringify(nextRecord); storage.setItem(progressKey(playerId), encoded); }
+  catch { return { ok: false, reason: 'write-failed' }; }
+  const after = readPairLittleProgress(playerId, gameId, bigKid, storage);
+  if (!after.ok || JSON.stringify(after.record) !== encoded || !after.gameRecord?.pairRewardReceipts?.some((receipt) => receipt.id === receiptId && receipt.claimed)) {
+    return { ok: false, reason: 'readback-failed' };
+  }
+  return { ok: true, gameRecord: after.gameRecord, record: after.record };
 };
 
 export const pairLittleProgressKey = progressKey;

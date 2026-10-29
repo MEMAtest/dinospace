@@ -44,7 +44,7 @@ const ShadowRound = ({ target, kinds, count, mirror, similar, complete, mistake,
     sayCreature();
     return true;
   };
-  const next = () => complete({ praise: false, delay: 0, firstAttempt: hint.mistakes === 0 && !manualHint, independent: hint.mistakes === 0 && !manualHint, hints: manualHint || hint.strongHint ? 1 : 0, art: <Dino kind={target} className="mx-auto w-4/5" /> });
+  const next = () => complete({ praise: false, delay: 0, firstAttempt: hint.mistakes === 0 && !manualHint, independent: hint.mistakes === 0 && !manualHint, hints: manualHint || hint.strongHint ? 1 : 0, art: <Dino kind={target} className="mx-auto w-4/5" />, review: <div className="rounded-2xl bg-sky-50 p-3 text-left"><h3 className="font-black text-indigo-950">{SHADOW_DINO_NAMES[target]}</h3><p className="mt-1 text-sm font-bold text-indigo-950">{SHADOW_FACTS[target]}</p><button type="button" onClick={sayCreature} className="mt-2 min-h-12 rounded-full bg-white px-4 font-black text-sky-950">Hear the fact again</button></div> });
   const shadowAt = point => shadows.find(kind => pointInRect(point, shadowRefs.current[kind]?.getBoundingClientRect(), 0));
 
   return (
@@ -84,7 +84,7 @@ const ShadowRun = ({ config, previous, round, ...props }) => {
 
 const ShadowMatch = props => {
   const previousRef = useRef(null);
-  return <LittleGameShell {...props} gameId="shadowmatch" title="Shadow Match" intro={LITTLE_LINES.shadowIntro} background="from-violet-400 via-indigo-300 to-sky-200" startArt={<div className="flex items-center justify-center gap-2"><Dino kind="trike" className="w-1/2" /><Dino kind="trike" silhouette className="w-1/2 opacity-80" /></div>} renderUnlock={config => config.unlock === 'dino' ? <Dino kind={SHADOW_DINO_KINDS[config.kinds - 1]} className="h-full w-full" /> : null}>
+  return <LittleGameShell {...props} gameId="shadowmatch" title="Shadow Match" intro={LITTLE_LINES.shadowIntro} background="from-violet-400 via-indigo-300 to-sky-200" pairSafeProgress compactStart compactDone startArt={<div className="flex items-center justify-center gap-2"><Dino kind="trike" className="w-1/2" /><Dino kind="trike" silhouette className="w-1/2 opacity-80" /></div>} renderUnlock={config => config.unlock === 'dino' ? <Dino kind={SHADOW_DINO_KINDS[config.kinds - 1]} className="h-full w-full" /> : null}>
     {({ round, complete, mistake, playId, config }) => <ShadowRun key={`${playId}-${config.kinds}`} config={config} previous={previousRef.current} round={round} complete={complete} mistake={mistake} speak={props.speak} playSfx={props.playSfx} onTarget={kind => { previousRef.current = kind; }} />}
   </LittleGameShell>;
 };

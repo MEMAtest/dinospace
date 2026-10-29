@@ -5,7 +5,7 @@ import { STICKERS } from '../../data/index.js';
 import { LITTLE_LEVELS, LITTLE_LEVEL_GOALS, LITTLE_LINES, levelRounds, starsForMistakes } from '../../data/littleGames.js';
 import { getLittleLevel, recordLittleResult, startLevelFor } from '../../data/littleProgress.js';
 import {
-  activePairLevelAfterResult, commitPairLittleResult, getPairLittleStorage, pairRunActionLabel, readPairLittleProgress,
+  activePairLevelAfterResult, commitPairLittleResult, getPairLittleStorage, getPendingPairLittleRewardReceipts, markPairLittleRewardReceiptClaimed, pairRunActionLabel, readPairLittleProgress,
 } from '../../data/pairLittleProgress.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
 import { RewardSticker } from '../shared/StickerArt.jsx';
@@ -144,7 +144,7 @@ const LittleGameShell = ({
   const [startPoints, setStartPoints] = useState(points);
   const [finishArt, setFinishArt] = useState(null);
   const [roundComplete, setRoundComplete] = useState(null);
-  const [, setPendingResult] = useState(null);
+  const [pendingResult, setPendingResult] = useState(null);
   const advanceTimer = useRef(null);
   const speechTimers = useRef([]);
   const mistakesRef = useRef(0);
@@ -164,6 +164,10 @@ const LittleGameShell = ({
       : null;
   });
   const attemptedDinoRecoveryRef = useRef(false);
+  const shadowDrainBusyRef = useRef(false);
+  const shadowClaimBusyRef = useRef(false);
+  const shadowStartBusyRef = useRef(false);
+  const [shadowRewardPending, setShadowRewardPending] = useState(false);
   const restoreDinoReward = useCallback(() => {
     if (!restoredDinoReward) return;
     const claimed = onCelebrate?.(finishLine, restoredDinoReward.points, 0, gameId, {
@@ -178,6 +182,52 @@ const LittleGameShell = ({
     setRestoredDinoReward(null);
     setPairSaveWarning('');
   }, [finishLine, gameId, onCelebrate, restoredDinoReward]);
+
+  const claimShadowReceipt = useCallback(async (receipt) => {
+    let claimed;
+    try {
+      claimed = await Promise.resolve(onCelebrate?.(finishLine, receipt.points, 0, 'shadowmatch', {
+        quiet: true, rewardToken: rewardClaimToken('shadowmatch', receipt.id),
+      }));
+    } catch { claimed = null; }
+    if (claimed?.persisted !== true) {
+      setPairSaveWarning('Your Shadow Match result is saved. Its reward is waiting for confirmation; retry before continuing.');
+      return false;
+    }
+    const marked = markPairLittleRewardReceiptClaimed(playerId, 'shadowmatch', bigKid, receipt.id, getPairLittleStorage());
+    if (!marked.ok) {
+      setPairSaveWarning('Your Shadow Match reward was confirmed, but its saved marker still needs a retry.');
+      return false;
+    }
+    return true;
+  }, [bigKid, finishLine, onCelebrate, playerId]);
+
+  const drainShadowReceipts = useCallback(async () => {
+    if (!pairSafeProgress || gameId !== 'shadowmatch' || shadowDrainBusyRef.current) return false;
+    shadowDrainBusyRef.current = true;
+    setShadowRewardPending(true);
+    try {
+      const loaded = getPendingPairLittleRewardReceipts(playerId, gameId, bigKid, getPairLittleStorage());
+      if (!loaded.ok) {
+        setPairSaveWarning('Saved Shadow Match rewards could not be checked. Retry before playing another level.');
+        return false;
+      }
+      setLevel(loaded.level);
+      setHighestLevel(loaded.level);
+      for (const receipt of loaded.receipts) {
+        if (!await claimShadowReceipt(receipt)) return false;
+      }
+      setPairSaveWarning('');
+      return true;
+    } finally {
+      shadowDrainBusyRef.current = false;
+      setShadowRewardPending(false);
+    }
+  }, [bigKid, claimShadowReceipt, gameId, pairSafeProgress, playerId]);
+
+  useEffect(() => {
+    if (pairSafeProgress && gameId === 'shadowmatch') void drainShadowReceipts();
+  }, [drainShadowReceipts, gameId, pairSafeProgress]);
 
   useEffect(() => {
     if (!restoredDinoReward || attemptedDinoRecoveryRef.current) return;
@@ -209,7 +259,19 @@ const LittleGameShell = ({
     return undefined;
   }, [intro, phase, speak]);
 
-  const start = () => {
+  const start = async () => {
+    if (pairSafeProgress && gameId === 'shadowmatch') {
+      if (shadowStartBusyRef.current || shadowDrainBusyRef.current) return;
+      shadowStartBusyRef.current = true;
+      setShadowRewardPending(true);
+      const ready = await drainShadowReceipts();
+      shadowStartBusyRef.current = false;
+      setShadowRewardPending(false);
+      if (!ready) {
+        setPhase('start');
+        return;
+      }
+    }
     playSfx?.('launch');
     clearTimeout(advanceTimer.current);
     speechTimers.current.forEach(clearTimeout);
@@ -234,8 +296,19 @@ const LittleGameShell = ({
 
   const mistake = useCallback(() => { mistakesRef.current += 1; }, []);
 
-  const showSavedResult = useCallback((pending, saved) => {
+  const showSavedResult = useCallback(async (pending, saved) => {
     if (rewardedTransactionsRef.current.has(pending.transactionId)) return;
+    if (pairSafeProgress && gameId === 'shadowmatch' && saved.rewardReceipt && !saved.rewardReceipt.claimed) {
+      if (shadowClaimBusyRef.current) return;
+      shadowClaimBusyRef.current = true;
+      pendingResultRef.current = pending;
+      setPendingResult(pending);
+      setPairSaveWarning('Your Shadow Match result is saved. Confirm its reward to finish safely.');
+      setPhase('save-error');
+      const confirmed = await claimShadowReceipt(saved.rewardReceipt);
+      shadowClaimBusyRef.current = false;
+      if (!confirmed) return;
+    }
     if (['dino', 'dinojigsaw'].includes(gameId) && saved.rewardPoints > 0) {
       const claimed = onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId, {
         rewardToken: rewardClaimToken(gameId, `little:${pending.transactionId}`),
@@ -261,11 +334,11 @@ const LittleGameShell = ({
     runsSinceSaveRef.current = 0;
     playSfx?.(saved.levelUp ? 'levelup-big' : 'complete');
     onGameEvent?.(gameId, 'level_completed');
-    if (saved.rewardPoints > 0 && !['dino', 'dinojigsaw'].includes(gameId)) onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId);
+    if (saved.rewardPoints > 0 && !['dino', 'dinojigsaw', 'shadowmatch'].includes(gameId)) onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId);
     speak?.(finishLine);
     if (saved.levelUp) speechTimers.current.push(setTimeout(() => speak?.(LITTLE_LINES.levelUp), 2200));
     setPhase('done');
-  }, [finishLine, gameId, onCelebrate, onGameEvent, pairSafeProgress, playSfx, setLevel, speak]);
+  }, [claimShadowReceipt, finishLine, gameId, onCelebrate, onGameEvent, pairSafeProgress, playSfx, setLevel, speak]);
 
   const commitPendingResult = useCallback((pending) => {
     const saved = commitPairLittleResult({
@@ -290,7 +363,7 @@ const LittleGameShell = ({
     return true;
   }, [bigKid, gameId, playerId, showSavedResult]);
 
-  const finish = useCallback(() => {
+  const finish = useCallback((review = null) => {
     const stars = starsForMistakes(mistakesRef.current);
     if (pairSafeProgress) {
       const pending = pendingResultRef.current || {
@@ -299,6 +372,7 @@ const LittleGameShell = ({
         playedLevel: level,
         highestLevel,
         transactionId: transactionRef.current || `${gameId}-${playerId || 'child'}-${Date.now()}-finish`,
+        review,
       };
       commitPendingResult(pending);
       return;
@@ -322,7 +396,7 @@ const LittleGameShell = ({
     if (!roundComplete) return;
     setRoundComplete(null);
     if (round + 1 >= rounds) {
-      finish();
+      finish(roundComplete.review);
       return;
     }
     if (!pairSafeProgress) onCelebrate?.(null, 1, 0, gameId, { quiet: true });
@@ -343,7 +417,7 @@ const LittleGameShell = ({
     }
     advanceTimer.current = setTimeout(() => {
       if (round + 1 >= rounds) {
-        finish();
+        finish(review);
       } else {
         if (!pairSafeProgress) onCelebrate?.(null, 1, 0, gameId, { quiet: true });
         setRound((value) => value + 1);
@@ -392,6 +466,8 @@ const LittleGameShell = ({
       {phase === 'start' && (
         <main className={`relative z-10 flex flex-1 flex-col items-center ${compactStart ? 'justify-start gap-2 px-4 pb-3 pt-2' : 'justify-center gap-5 px-4 pb-8'} text-center`}>
           {pairSaveWarning && <p role="alert" className="max-w-xl rounded-2xl border-2 border-amber-500 bg-amber-50 px-4 py-3 font-bold text-amber-950">{pairSaveWarning}</p>}
+          {pairSafeProgress && gameId === 'shadowmatch' && shadowRewardPending && <p role="status" className="rounded-xl bg-white/90 px-4 py-2 font-bold text-slate-800">Checking saved dinosaur rewards…</p>}
+          {pairSafeProgress && gameId === 'shadowmatch' && pairSaveWarning && <button type="button" onClick={() => void drainShadowReceipts()} disabled={shadowRewardPending} className="min-h-12 rounded-full border-2 border-white bg-amber-100 px-5 font-black text-amber-950">{shadowRewardPending ? 'Checking rewards…' : 'Retry reward confirmation'}</button>}
           {restoredDinoReward && <button type="button" onClick={restoreDinoReward} className="min-h-12 rounded-full border-4 border-white bg-lime-500 px-5 font-black text-slate-950">{gameId === 'dinojigsaw' ? 'Retry saved puzzle rewards' : 'Retry saved dinosaur rewards'}</button>}
           <div className={`pair-compact-start-hero w-full animate-bounce-slow ${compactStart ? 'relative h-40 max-w-[18rem]' : 'max-w-md'}`}>{startArt}</div>
           <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} />
@@ -400,7 +476,7 @@ const LittleGameShell = ({
           <button
             type="button"
             onClick={start}
-            disabled={Boolean(restoredDinoReward)}
+            disabled={Boolean(restoredDinoReward) || (pairSafeProgress && gameId === 'shadowmatch' && (shadowRewardPending || Boolean(pairSaveWarning)))}
             aria-label={`Play ${title}`}
             className="pair-compact-start-play grid h-32 w-32 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_10px_0_#166534,0_20px_40px_rgba(22,101,52,.35)] transition hover:scale-105 active:translate-y-2 active:shadow-none sm:h-40 sm:w-40"
           >
@@ -441,11 +517,12 @@ const LittleGameShell = ({
       )}
 
       {phase === 'save-error' && (
-        <main className="relative z-40 mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-4 px-5 pb-10 text-center">
-          <div className="max-h-56 w-full">{finishArt || startArt}</div>
-          <h2 className="text-3xl font-black text-white drop-shadow-[0_3px_0_rgba(15,23,42,.35)]">Your result is ready, but it is not saved yet.</h2>
-          <p role="alert" className="rounded-2xl border-2 border-amber-500 bg-amber-50 px-4 py-3 font-bold text-amber-950">{pairSaveWarning || 'Your result could not be saved yet. It is still here; try saving again.'}</p>
-          <button type="button" onClick={retrySavingResult} className="min-h-16 rounded-full border-4 border-white bg-gradient-to-b from-lime-400 to-green-600 px-8 text-xl font-black text-white shadow-[0_6px_0_#166534]">Retry saving this result</button>
+        <main className={`relative z-40 mx-auto flex w-full max-w-xl flex-1 flex-col items-center text-center ${compactDone ? 'justify-start gap-2 px-3 pb-2 pt-1' : 'justify-center gap-4 px-5 pb-10'}`}>
+          <div className={`${compactDone ? 'max-h-20' : 'max-h-56'} w-full`}>{finishArt || startArt}</div>
+          {gameId === 'shadowmatch' && pendingResult?.review && <div className={`w-full rounded-2xl bg-white/95 text-left ${compactDone ? 'p-2 text-sm' : 'p-3'}`} role="group" aria-label="Saved dinosaur fact">{pendingResult.review}</div>}
+          <h2 className={`${compactDone ? 'text-2xl' : 'text-3xl'} font-black text-white drop-shadow-[0_3px_0_rgba(15,23,42,.35)]`}>{gameId === 'shadowmatch' && (pairSaveWarning.includes('result is saved') || pairSaveWarning.includes('reward was confirmed')) ? 'Your result is saved. Confirm to finish.' : 'Your result is ready, but it is not saved yet.'}</h2>
+          <p role="alert" className={`rounded-2xl border-2 border-amber-500 bg-amber-50 font-bold text-amber-950 ${compactDone ? 'px-3 py-2 text-sm' : 'px-4 py-3'}`}>{pairSaveWarning || 'Your result could not be saved yet. It is still here; try saving again.'}</p>
+          <button type="button" onClick={retrySavingResult} className={`rounded-full border-4 border-white bg-gradient-to-b from-lime-400 to-green-600 font-black text-white shadow-[0_6px_0_#166534] ${compactDone ? 'min-h-12 px-5 text-lg' : 'min-h-16 px-8 text-xl'}`}>{gameId === 'shadowmatch' && pairSaveWarning.toLowerCase().includes('reward') ? 'Retry reward confirmation' : 'Retry saving this result'}</button>
           <button type="button" onClick={onBack} className="min-h-12 rounded-full bg-white/80 px-6 font-black text-slate-900">Go home</button>
         </main>
       )}
