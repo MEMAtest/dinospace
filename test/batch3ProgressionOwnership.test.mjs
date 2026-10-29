@@ -21,7 +21,7 @@ test('Amari chapter games bypass the answer-count wrapper while Askia counting k
 });
 
 test('unmodified sessions retain their wrapper and existing board games keep their owner', () => {
-  for (const game of ['letters', 'german']) {
+  for (const game of ['letters']) {
     assert.equal(ownsGameProgression(game), false, game);
     assert.ok(GAME_SESSIONS[game]);
   }
@@ -51,5 +51,13 @@ test('Hangman owns its held four-mission save and replay flow', () => {
   assert.equal(ownsGameProgression('hangman', false), true);
   assert.equal(ownsGameProgression('hangman', true), true);
   assert.equal(ownsGameProgression('letters', false), false);
-  assert.equal(ownsGameProgression('german', false), false);
+  assert.equal(ownsGameProgression('german', false), true);
+});
+
+
+test('German owns its saved finite chapter flow instead of the old answer-count wrapper', () => {
+  assert.equal(ownsGameProgression('german', false),true);
+  assert.equal(ownsGameProgression('german', true),true);
+  assert.ok(GAME_SESSIONS.german);
+  assert.equal(ownsGameProgression('letters',false),false);
 });

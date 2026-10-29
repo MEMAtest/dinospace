@@ -5,7 +5,7 @@ import { CURRICULUM_LESSON_COPY, getCurriculumVoiceClip } from '../../data/curri
 import { getPraise } from '../../utils.js';
 import { getRecommendedDifficulty } from '../../data/learningProgress.js';
 import { createCurriculumQueue, createCurriculumReplayQueue, makeCurriculumSeed, shuffleCurriculumAnswers } from '../../data/curriculumQueue.js';
-import { loadCurriculumPreferences, loadCurriculumSession, saveCurriculumPreferences, saveCurriculumSession } from '../../data/curriculumSession.js';
+import { inspectCurriculumPreferences, inspectCurriculumSession, loadCurriculumPreferences, loadCurriculumSession, saveCurriculumPreferences, saveCurriculumSession } from '../../data/curriculumSession.js';
 import { SoundToggle } from '../shared/index.jsx';
 import geographyWorld from '../../assets/curriculum/geography-world.webp';
 import historyWorld from '../../assets/curriculum/history-world.webp';
@@ -15,7 +15,8 @@ import natureSpecimens from '../../assets/curriculum/nature-specimens.webp';
 import historyClues from '../../assets/curriculum/history-clues.webp';
 import robinArt from '../../assets/curriculum/robin.webp';
 import guideCharacters from '../../assets/curriculum/guides.webp';
-import { CURRICULUM_BADGES, loadCurriculumBadges, awardCurriculumBadge } from '../../data/curriculumBadges.js';
+import { CURRICULUM_BADGES, inspectCurriculumBadges } from '../../data/curriculumBadges.js';
+import { commitCurriculumHistory, finishCurriculumPath, inspectCurriculumHistory } from '../../data/curriculumProgress.js';
 import { CurriculumBadge, CurriculumBadgeCollection } from '../shared/CurriculumBadges.jsx';
 import './CurriculumQuest.css';
 
@@ -39,17 +40,6 @@ const ROUND_HELP = Object.freeze({
 const roundHelpFor = (round) => ROUND_HELP[round.type] || ROUND_HELP.default;
 
 const CurriculumHintContext = createContext(() => {});
-
-const queueHistoryKey = (playerId, moduleId, difficulty) => `${playerId || 'amari'}_curriculum_recent_v1_${moduleId}_${difficulty}`;
-const loadQueueHistory = (playerId, moduleId, difficulty) => {
-  try {
-    const history = JSON.parse(window.localStorage.getItem(queueHistoryKey(playerId, moduleId, difficulty)) || '[]');
-    return Array.isArray(history) ? history.filter((id) => typeof id === 'string').slice(-8) : [];
-  } catch { return []; }
-};
-const saveQueueHistory = (playerId, moduleId, difficulty, history) => {
-  try { window.localStorage.setItem(queueHistoryKey(playerId, moduleId, difficulty), JSON.stringify(history.slice(-8))); } catch { /* progress storage is optional */ }
-};
 
 const curriculumStorage = () => {
   try { return window.localStorage; } catch { return null; }
@@ -107,8 +97,26 @@ const PackagedAudioButton = ({ text, label = 'Hear', soundOn }) => {
   const logHint = useContext(CurriculumHintContext);
   const clip = getCurriculumVoiceClip(text);
   const audioRef = useRef(null);
+  const playbackGeneration = useRef(0);
   const [playing, setPlaying] = useState(false);
-  useEffect(() => () => { audioRef.current?.pause(); audioRef.current = null; }, []);
+  useEffect(() => {
+    if (soundOn) return;
+    playbackGeneration.current += 1;
+    const audio = audioRef.current;
+    audioRef.current = null;
+    if (audio) {
+      audio.onended = null;
+      audio.onerror = null;
+      audio.pause();
+      try { audio.currentTime = 0; } catch { /* the browser may not have loaded metadata */ }
+    }
+    Promise.resolve().then(() => setPlaying(false));
+  }, [soundOn]);
+  useEffect(() => () => {
+    playbackGeneration.current += 1;
+    audioRef.current?.pause();
+    audioRef.current = null;
+  }, []);
   if (!clip) return null;
   const play = () => {
     if (!soundOn) return;
@@ -121,16 +129,21 @@ const PackagedAudioButton = ({ text, label = 'Hear', soundOn }) => {
                 : label === 'Hear word' ? 'vocabulary'
                   : 'audio_help';
     logHint(hintType);
+    const generation = playbackGeneration.current + 1;
+    playbackGeneration.current = generation;
     audioRef.current?.pause();
     const audio = new Audio(clip);
     audio.preload = 'auto';
     audioRef.current = audio;
-    audio.onended = () => setPlaying(false);
-    audio.onerror = () => setPlaying(false);
+    audio.onended = () => { if (playbackGeneration.current === generation) setPlaying(false); };
+    audio.onerror = () => { if (playbackGeneration.current === generation) setPlaying(false); };
     setPlaying(true);
-    audio.play().catch(() => setPlaying(false));
+    audio.play().then(() => {
+      if (playbackGeneration.current !== generation || audioRef.current !== audio) audio.pause();
+    }).catch(() => { if (playbackGeneration.current === generation) setPlaying(false); });
   };
-  return <button type="button" onClick={play} disabled={!soundOn} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-3 py-2 text-xs font-black text-indigo-700 shadow-sm disabled:cursor-not-allowed disabled:opacity-50" aria-label={`${label}: ${text}`}><Headphones size={16} className={playing ? 'animate-pulse' : ''} />{playing ? 'Playing' : label}</button>;
+  const isPlaying = playing && soundOn;
+  return <button type="button" onClick={play} disabled={!soundOn} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-3 py-2 text-xs font-black text-indigo-700 shadow-sm disabled:cursor-not-allowed disabled:opacity-50" aria-label={`${label}: ${text}`}><Headphones size={16} className={isPlaying ? 'animate-pulse' : ''} />{isPlaying ? 'Playing' : label}</button>;
 };
 
 const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabels = false }) => {
@@ -277,14 +290,14 @@ const InvestigationRound = ({ round, prediction, onPredict, onConclude, disabled
 
 const LessonVisual = ({ module, round }) => {
   if (module.id === 'continents') {
-    return <div className="quest-lesson-visual quest-map-lesson"><CurriculumMap round={{ type: 'continent', answer: '' }} selected="" disabled showLabels /><div className="quest-ocean-guide"><span className="quest-guide-heading">🌊 Explore the oceans</span><div>{OCEANS.map((ocean) => <span key={ocean.id}>{ocean.name}</span>)}</div></div></div>;
+    return <div className="quest-lesson-visual quest-map-lesson"><p className="quest-model-instruction"><strong>Learn:</strong> explore the continent labels and ocean names. The map is simplified and not to scale.</p><CurriculumMap round={{ type: 'continent', answer: '' }} selected="" disabled showLabels /><div className="quest-ocean-guide"><span className="quest-guide-heading">🌊 Explore the oceans</span><div>{OCEANS.map((ocean) => <span key={ocean.id}>{ocean.name}</span>)}</div></div></div>;
   }
   if (module.id === 'time-detectives') {
     const clues = [{ id: 'letter', emoji: '✉️', label: 'Letter' }, { id: 'old-photo', emoji: '📷', label: 'Photograph' }, { id: 'telephone', emoji: '☎️', label: 'Telephone' }, { id: 'smartphone', emoji: '📱', label: 'Smartphone' }];
-    return <div className="quest-lesson-visual quest-timeline-lesson"><span className="quest-guide-character quest-detective-guide" style={{ backgroundImage: `url(${guideCharacters})` }} aria-hidden="true" /><div className="quest-scene-kicker">🔎 Clues from the past</div><div className="quest-timeline" aria-label="Historical clues in time order">{clues.map((clue, index) => <div key={clue.id} className="quest-timeline-item"><span className="quest-timeline-art"><ChoiceArt item={clue} /></span><strong>{clue.label}</strong><small>{index + 1}</small></div>)}</div><p>Explore how clues and objects change over time.</p></div>;
+    return <div className="quest-lesson-visual quest-timeline-lesson"><span className="quest-guide-character quest-detective-guide" style={{ backgroundImage: `url(${guideCharacters})` }} aria-hidden="true" /><div className="quest-scene-kicker">🔎 Clues from the past</div><p className="quest-model-instruction"><strong>Learn:</strong> look at how clues and objects change. In Try, put only the clues named in the question in order.</p><div className="quest-timeline" aria-label="Examples of clues from different times">{clues.map((clue) => <div key={clue.id} className="quest-timeline-item"><span className="quest-timeline-art"><ChoiceArt item={clue} /></span><strong>{clue.label}</strong></div>)}</div><p>Explore how clues and objects change over time.</p></div>;
   }
   const choices = round.options || [{ id: 'oak', emoji: '🌳', label: 'Oak tree' }, { id: 'robin', emoji: '🐦', label: 'Robin' }, { id: 'frog', emoji: '🐸', label: 'Frog' }, { id: 'cat', emoji: '🐈', label: 'Cat' }];
-  return <div className="quest-lesson-visual quest-nature-lesson"><span className="quest-guide-character quest-owl-guide" style={{ backgroundImage: `url(${guideCharacters})` }} aria-hidden="true" /><div className="quest-scene-kicker">🔬 Look closely</div><div className="quest-specimens">{choices.slice(0, 4).map((choice) => <div className="quest-specimen" key={choice.id}><ChoiceArt item={choice} /><strong>{choice.label}</strong></div>)}</div><p>Look for ways living things are alike or different.</p></div>;
+  return <div className="quest-lesson-visual quest-nature-lesson"><span className="quest-guide-character quest-owl-guide" style={{ backgroundImage: `url(${guideCharacters})` }} aria-hidden="true" /><div className="quest-scene-kicker">🔬 Look closely</div><p className="quest-model-instruction"><strong>Learn:</strong> study the examples. In Try, make a prediction or choose an answer from the observation.</p><div className="quest-specimens">{choices.slice(0, 4).map((choice) => <div className="quest-specimen" key={choice.id}><ChoiceArt item={choice} /><strong>{choice.label}</strong></div>)}</div><p>Look for ways living things are alike or different.</p></div>;
 };
 
 const ExplorerWords = ({ module, soundOn, onLaunchGame }) => <details className="quest-extra-learning">
@@ -298,7 +311,13 @@ const ExplorerWords = ({ module, soundOn, onLaunchGame }) => <details className=
 
 const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, playerId, initialModule }) => {
   const [moduleId, setModuleId] = useState(() => initialCurriculumModule(initialModule, playerId));
-  const [earnedBadges, setEarnedBadges] = useState(() => loadCurriculumBadges(playerId));
+  const badgeCache = useRef(new Map());
+  const [badgeView, setBadgeView] = useState(() => {
+    const result = inspectCurriculumBadges(playerId);
+    const readable = result.status === 'record' || result.status === 'empty';
+    return { playerId, badges: readable ? result.badges : [], status: readable ? 'ready' : result.status };
+  });
+  const [persistenceIssue, setPersistenceIssue] = useState(null);
   const difficultyGameId = `worldmap-${moduleId}`;
   // Keep one difficulty band for the whole module run. Learning evidence may
   // recommend a harder band after a few answers, but switching bands mid-run
@@ -323,6 +342,10 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   const [readySessionKey, setReadySessionKey] = useState('');
   const sessionOwner = useRef('');
   const skipFirstSessionWrite = useRef('');
+  const pendingSessionRef = useRef(null);
+  const currentBadgeView = badgeView.playerId === playerId
+    ? badgeView
+    : { playerId, badges: badgeCache.current.get(playerId) || [], status: badgeCache.current.has(playerId) ? 'checking' : 'loading' };
   const activeModule = getCurriculumModule(moduleId);
   const rounds = activeModule.rounds[difficulty] || activeModule.rounds.starter;
   const round = rounds[roundIndex % rounds.length];
@@ -344,13 +367,64 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   }, []);
 
   useEffect(() => {
+    const result = inspectCurriculumBadges(playerId);
+    if (result.status === 'record' || result.status === 'empty') {
+      badgeCache.current.set(playerId, result.badges);
+      setBadgeView({ playerId, badges: result.badges, status: 'ready' });
+    } else {
+      setBadgeView((current) => ({
+        playerId,
+        badges: current.playerId === playerId ? current.badges : badgeCache.current.get(playerId) || [],
+        status: result.status,
+      }));
+    }
+  }, [playerId]);
+
+  const retryBadgeRead = () => {
+    const result = inspectCurriculumBadges(playerId);
+    if (result.status === 'record' || result.status === 'empty') {
+      badgeCache.current.set(playerId, result.badges);
+      setBadgeView({ playerId, badges: result.badges, status: 'ready' });
+    } else {
+      setBadgeView((current) => ({
+        playerId,
+        badges: current.playerId === playerId ? current.badges : badgeCache.current.get(playerId) || [],
+        status: result.status,
+      }));
+    }
+  };
+
+  const sessionSnapshot = useCallback((patch = {}) => ({
+    difficulty, seed: queueSeed, order: roundOrder, cursor: roundCursor,
+    complete: queueComplete, lessonOpen, locked, selected, feedback, feedbackVoice,
+    mistakes, sequence: sequence.map((item) => item.id), routeStep, prediction,
+    ...patch,
+  }), [difficulty, queueSeed, roundOrder, roundCursor, queueComplete, lessonOpen, locked, selected, feedback, feedbackVoice, mistakes, sequence, routeStep, prediction]);
+  const persistSession = useCallback((snapshot) => saveCurriculumSession(curriculumStorage(), playerId, moduleId, rounds, snapshot), [playerId, moduleId, rounds]);
+  const holdSaveFailure = useCallback((type, snapshot, result) => {
+    pendingSessionRef.current = snapshot || null;
+    setPersistenceIssue({ type, snapshot, status: result?.status || 'unconfirmed' });
+    return false;
+  }, []);
+  const persistOrHold = useCallback((type, snapshot) => {
+    const result = persistSession(snapshot);
+    if (result.status !== 'saved') return holdSaveFailure(type, snapshot, result);
+    pendingSessionRef.current = null;
+    setPersistenceIssue((current) => current?.type === type || current?.type === 'session' ? null : current);
+    return true;
+  }, [persistSession, holdSaveFailure]);
+
+  useEffect(() => {
     const sessionKey = `${playerId || 'amari'}:${moduleId}:${difficulty}`;
     sessionOwner.current = sessionKey;
     skipFirstSessionWrite.current = sessionKey;
     const seed = makeCurriculumSeed();
-    recentRoundIds.current = loadQueueHistory(playerId, moduleId, difficulty);
-    const savedSession = loadCurriculumSession(curriculumStorage(), playerId, moduleId, rounds, difficulty);
+    const historyState = inspectCurriculumHistory(curriculumStorage(), playerId, moduleId, difficulty);
+    recentRoundIds.current = historyState.status === 'record' || historyState.status === 'empty' ? historyState.ids : [];
+    const sessionState = inspectCurriculumSession(curriculumStorage(), playerId, moduleId, rounds, difficulty);
+    const savedSession = sessionState.status === 'record' ? loadCurriculumSession(curriculumStorage(), playerId, moduleId, rounds, difficulty) : null;
     if (savedSession) {
+      setPersistenceIssue(historyState.status === 'record' || historyState.status === 'empty' ? null : { type: 'history-read', status: historyState.status });
       setSessionResumed(!savedSession.complete);
       const nextRoundIndex = savedSession.order[savedSession.cursor] ?? 0;
       const currentRound = rounds[nextRoundIndex];
@@ -378,16 +452,27 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
     setRoundCursor(0);
     setQueueComplete(false);
     resetRound(nextOrder[0] ?? 0, true);
-    setReadySessionKey(sessionKey);
-    saveCurriculumSession(curriculumStorage(), playerId, moduleId, {
+    const initialSnapshot = {
       difficulty, seed, order: nextOrder, cursor: 0, complete: false, lessonOpen: true,
       locked: false, selected: '', feedback: '', feedbackVoice: '', mistakes: 0,
       sequence: [], routeStep: 0, prediction: '',
-    });
-  }, [difficulty, moduleId, playerId, rounds, resetRound]);
+    };
+    if (sessionState.status === 'empty' && (historyState.status === 'record' || historyState.status === 'empty')) {
+      const saved = saveCurriculumSession(curriculumStorage(), playerId, moduleId, rounds, initialSnapshot);
+      if (saved.status === 'saved') setPersistenceIssue(null);
+      else holdSaveFailure('session', initialSnapshot, saved);
+    } else {
+      setPersistenceIssue({ type: sessionState.status === 'empty' ? 'history-read' : 'session-read', status: sessionState.status === 'empty' ? historyState.status : sessionState.status, snapshot: initialSnapshot });
+    }
+    setReadySessionKey(sessionKey);
+  }, [difficulty, moduleId, playerId, rounds, resetRound, holdSaveFailure]);
 
   useEffect(() => {
-    saveCurriculumPreferences(curriculumStorage(), playerId, moduleId, difficulty);
+    const preferenceState = inspectCurriculumPreferences(curriculumStorage(), playerId);
+    if (preferenceState.status === 'record' || preferenceState.status === 'empty') {
+      const saved = saveCurriculumPreferences(curriculumStorage(), playerId, moduleId, difficulty);
+      if (saved.status !== 'saved') setPersistenceIssue({ type: 'preferences', status: saved.status });
+    } else setPersistenceIssue({ type: 'preferences', status: preferenceState.status });
   }, [difficulty, moduleId, playerId]);
 
   useEffect(() => {
@@ -397,43 +482,46 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
       skipFirstSessionWrite.current = '';
       return;
     }
-    saveCurriculumSession(curriculumStorage(), playerId, moduleId, {
+    const snapshot = sessionSnapshot();
+    const saved = persistSession(snapshot);
+    if (saved.status === 'saved') {
+      setPersistenceIssue((current) => current?.type === 'session' ? null : current);
+      pendingSessionRef.current = null;
+    } else holdSaveFailure('session', snapshot, saved);
+  }, [difficulty, moduleId, playerId, queueSeed, roundOrder, roundCursor, queueComplete, lessonOpen, locked, selected, feedback, feedbackVoice, mistakes, sequence, routeStep, prediction, sessionSnapshot, persistSession, holdSaveFailure]);
+
+  const finishQueue = () => {
+    const result = finishCurriculumPath(curriculumStorage(), playerId, moduleId, difficulty, getPraise(), onCelebrate);
+    if (result.status !== 'saved') return holdSaveFailure(`completion-${result.status}`, sessionSnapshot(), { status: result.detail || 'unconfirmed' });
+    badgeCache.current.set(playerId, result.badges);
+    setBadgeView({ playerId, badges: result.badges, status: 'ready' });
+    setPersistenceIssue(null);
+    setSessionResumed(false);
+    setQueueComplete(true);
+    onGameEvent?.(difficultyGameId, 'level_complete', {
+      module: moduleId,
       difficulty,
       seed: queueSeed,
-      order: roundOrder,
-      cursor: roundCursor,
-      complete: queueComplete,
-      lessonOpen,
-      locked,
-      selected,
-      feedback,
-      feedbackVoice,
-      mistakes,
-      sequence: sequence.map((item) => item.id),
-      routeStep,
-      prediction,
+      round: roundCursor,
+      rounds: roundOrder.length,
     });
-  }, [difficulty, moduleId, playerId, queueSeed, roundOrder, roundCursor, queueComplete, lessonOpen, locked, selected, feedback, feedbackVoice, mistakes, sequence, routeStep, prediction]);
+    return true;
+  };
 
   const advance = () => {
     if (!locked) return;
-    setSessionResumed(false);
-    const history = [...recentRoundIds.current, round.id].slice(-8);
-    recentRoundIds.current = history;
-    saveQueueHistory(playerId, moduleId, difficulty, history);
+    if (!persistOrHold('session', sessionSnapshot())) return;
+    const transactionId = `curriculum:${moduleId}:${difficulty}:${queueSeed}:${roundCursor}:${round.id}`;
+    const historyResult = commitCurriculumHistory(curriculumStorage(), playerId, moduleId, difficulty, transactionId, round.id);
+    if (historyResult.status !== 'saved') return holdSaveFailure('history-advance', sessionSnapshot(), historyResult);
+    recentRoundIds.current = historyResult.history;
     let nextCursor = roundCursor + 1;
     if (nextCursor >= roundOrder.length) {
-      setEarnedBadges(awardCurriculumBadge(playerId, moduleId, difficulty));
-      setQueueComplete(true);
-      onGameEvent?.(difficultyGameId, 'level_complete', {
-        module: moduleId,
-        difficulty,
-        seed: queueSeed,
-        round: roundCursor,
-        rounds: roundOrder.length,
-      });
+      finishQueue();
       return;
     }
+    setPersistenceIssue(null);
+    setSessionResumed(false);
     const nextIndex = roundOrder[nextCursor] ?? 0;
     setRoundCursor(nextCursor);
     resetRound(nextIndex);
@@ -446,6 +534,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   };
 
   const replayQueue = () => {
+    if (persistenceIssue) return;
     const seed = makeCurriculumSeed();
     const nextOrder = createCurriculumReplayQueue(rounds, moduleId, seed, recentRoundIds.current, roundOrder);
     setSessionResumed(false);
@@ -458,6 +547,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   };
 
   const startQuestion = () => {
+    if (persistenceIssue) return;
     setSessionResumed(false);
     setLessonOpen(false);
     onGameEvent?.(difficultyGameId, 'start', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
@@ -476,14 +566,12 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   }, [difficulty, difficultyGameId, moduleId, onGameEvent, queueSeed, roundCursor]);
 
   const completeRound = (answerId, response) => {
-    if (locked) return;
+    if (locked || persistenceIssue) return;
     setLocked(true);
     setSelected(answerId);
     const item = answerItemsForRound(round).find((candidate) => candidate.id === answerId);
-    const praise = getPraise();
     setFeedback(round.explanation);
     playSfx('success');
-    onCelebrate(praise, round.type === 'sequence' ? 6 : 4, 150);
     onGameEvent?.(difficultyGameId, 'answer_correct', {
       skill: skillForRound(activeModule, round),
       item: round.id,
@@ -518,7 +606,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   };
 
   const handlePick = (answerId) => {
-    if (locked) return;
+    if (locked || persistenceIssue) return;
     if (round.type === 'sequence') {
       const expected = [...round.items].sort((a, b) => a.order - b.order)[sequence.length];
       if (answerId !== expected?.id) {
@@ -548,7 +636,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   };
 
   const handleRouteMove = (direction) => {
-    if (locked) return;
+    if (locked || persistenceIssue) return;
     const expected = round.path[routeStep];
     if (direction !== expected) {
       recordIncorrect(direction, expected);
@@ -567,6 +655,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   };
 
   const handlePrediction = (answerId) => {
+    if (persistenceIssue) return;
     setPrediction(answerId);
     setFeedback('');
     setFeedbackVoice('');
@@ -574,6 +663,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   };
 
   const handleInvestigationConclusion = (answerId) => {
+    if (persistenceIssue) return;
     if (answerId !== round.answer) {
       recordIncorrect(answerId, round.answer);
       setMistakes((current) => current + 1);
@@ -584,6 +674,48 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
       return;
     }
     completeRound(answerId, `prediction:${prediction}; conclusion:${answerId}`);
+  };
+
+  const retryPersistence = () => {
+    if (!persistenceIssue) return;
+    if (persistenceIssue.type === 'history-advance' || persistenceIssue.type.startsWith('completion-')) {
+      advance();
+      return;
+    }
+    if (persistenceIssue.type === 'preferences') {
+      const result = saveCurriculumPreferences(curriculumStorage(), playerId, moduleId, difficulty);
+      if (result.status === 'saved') setPersistenceIssue(null);
+      else setPersistenceIssue({ type: 'preferences', status: result.status });
+      return;
+    }
+    if (persistenceIssue.type === 'history-read') {
+      const result = inspectCurriculumHistory(curriculumStorage(), playerId, moduleId, difficulty);
+      if (result.status === 'record' || result.status === 'empty') {
+        recentRoundIds.current = result.ids;
+        const snapshot = pendingSessionRef.current || persistenceIssue.snapshot;
+        if (snapshot) {
+          const saved = persistSession(snapshot);
+          if (saved.status !== 'saved') return holdSaveFailure('session', snapshot, saved);
+          pendingSessionRef.current = null;
+        }
+        setPersistenceIssue(null);
+      } else setPersistenceIssue({ type: 'history-read', status: result.status });
+      return;
+    }
+    if (persistenceIssue.type === 'session-read') {
+      const result = inspectCurriculumSession(curriculumStorage(), playerId, moduleId, rounds, difficulty);
+      if (result.status === 'empty') {
+        const snapshot = pendingSessionRef.current || persistenceIssue.snapshot;
+        if (snapshot && persistOrHold('session', snapshot)) setPersistenceIssue(null);
+      } else setPersistenceIssue({ type: 'session-read', status: result.status });
+      return;
+    }
+    const snapshot = pendingSessionRef.current || persistenceIssue.snapshot || sessionSnapshot();
+    const result = persistSession(snapshot);
+    if (result.status === 'saved') {
+      pendingSessionRef.current = null;
+      setPersistenceIssue(null);
+    } else setPersistenceIssue({ ...persistenceIssue, status: result.status });
   };
 
   // Do not briefly render the default Africa/Start screen while a saved fact
@@ -609,6 +741,13 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
       </header>
 
       <main className="quest-main">
+        {persistenceIssue && <div className="quest-save-alert" role="alert">
+          <strong>{persistenceIssue.type === 'session-read' || persistenceIssue.type === 'history-read' || persistenceIssue.type === 'preferences'
+            ? 'Your saved learning data could not be read safely.'
+            : 'This step has not been safely saved yet.'}</strong>
+          <span>Keep this page open and retry before continuing.</span>
+          <button type="button" onClick={retryPersistence} className="quest-continue min-h-12">Retry save</button>
+        </div>}
         <details className="quest-stage-picker">
           <summary>Choose a topic or level</summary>
           <div className="quest-stage-picker-content">
@@ -627,12 +766,19 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
           </div>
         </details>
 
+        <ol className="quest-learning-steps" aria-label="Learning stages">
+          {['Learn', 'Try', 'Review'].map((label, index) => {
+            const activeIndex = lessonOpen ? 0 : locked || queueComplete ? 2 : 1;
+            return <li key={label} aria-current={index === activeIndex ? 'step' : undefined} className={index === activeIndex ? 'is-current' : index < activeIndex ? 'is-done' : ''}>{index + 1}. {label}</li>;
+          })}
+        </ol>
+
         {queueComplete ? (
           <section className="quest-paper text-center" aria-labelledby="quest-complete">
             <span className={`quest-year-badge ${ACCENT_BADGE_CLASSES[accent]}`}>{DIFFICULTY_LABELS[difficulty]} path complete</span>
             <h2 id="quest-complete" className="mt-4 text-3xl font-black text-slate-900">You finished this discovery run!</h2>
             <p className="mx-auto mt-2 max-w-xl text-lg font-bold text-slate-700">You explored {roundOrder.length} questions in {activeModule.title}. Choose a level to practise it again.</p>
-            <div className="mx-auto mt-5 max-w-xs"><CurriculumBadge badge={CURRICULUM_BADGES.find((badge) => badge.module === moduleId && badge.band === difficulty)} earned /><p className="mt-3 font-bold text-indigo-800">Your badge is saved in your sticker collection.</p></div>
+            <div className="mx-auto mt-5 max-w-xs"><CurriculumBadge badge={CURRICULUM_BADGES.find((badge) => badge.module === moduleId && badge.band === difficulty)} earned /><p className="mt-3 font-bold text-indigo-800">Your badge is safely saved in your sticker collection.</p></div>
             <div className="mt-5 flex flex-wrap justify-center gap-3" aria-label="Choose a curriculum level">
               {Object.keys(DIFFICULTY_LABELS).map((band) => <button key={band} type="button" onClick={() => { if (band === difficulty) replayQueue(); else setDifficulty(band); }} aria-pressed={band === difficulty} className={`min-h-12 rounded-full border-2 px-5 font-black ${band === difficulty ? 'border-indigo-700 bg-indigo-700 text-white' : 'border-indigo-200 bg-white text-indigo-800'}`}>{DIFFICULTY_LABELS[band]}</button>)}
             </div>
@@ -644,31 +790,38 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
             <div className="quest-learn-stage">
               <p className="quest-stage-label">Learn</p>
               <h2 id="quest-prompt">Explore {activeModule.title}</h2>
-              <div className="quest-learn-intro-row"><p className="quest-learn-intro">{sessionResumed ? 'Your saved round is ready to continue.' : 'Take a look around, then start your first round when you’re ready.'}</p><div className="quest-actions quest-learn-actions"><button type="button" onClick={startQuestion} className="quest-start"><Sparkles size={19} /> {sessionResumed ? 'Continue round' : 'Start round'} <ArrowRight size={18} /></button></div></div>
+              <div className="quest-learn-intro-row"><p className="quest-learn-intro">{sessionResumed ? 'Your saved round is ready to continue.' : 'Learn: explore the map labels, timeline clues or specimen models. Then try one question at a time.'}</p><div className="quest-actions quest-learn-actions"><button type="button" onClick={startQuestion} disabled={Boolean(persistenceIssue)} className="quest-start disabled:opacity-50"><Sparkles size={19} /> {sessionResumed ? 'Continue round' : 'Start round'} <ArrowRight size={18} /></button></div></div>
               <div className="quest-lesson-grid"><LessonVisual module={activeModule} round={round} /><ExplorerWords module={activeModule} soundOn={soundOn} onLaunchGame={onLaunchGame} /></div>
             </div>
           ) : (
             <div className="quest-play-stage">
               <div className="quest-round-progress" aria-label={`Question ${roundCursor + 1} of ${roundOrder.length || Math.min(5, rounds.length)}`}>
-                <div><span>{locked ? 'Fact' : 'Play'}</span><strong>Question {roundCursor + 1} of {roundOrder.length || Math.min(5, rounds.length)}</strong></div>
+                <div><span>{locked ? 'Review' : 'Try'}</span><strong>Question {roundCursor + 1} of {roundOrder.length || Math.min(5, rounds.length)}</strong></div>
                 <div className="quest-round-track" role="progressbar" aria-label="Discovery run progress" aria-valuemin="0" aria-valuemax={roundOrder.length || Math.min(5, rounds.length)} aria-valuenow={roundCursor + (locked ? 1 : 0)}><span style={{ width: `${((roundCursor + (locked ? 1 : 0)) / (roundOrder.length || Math.min(5, rounds.length))) * 100}%` }} /></div>
               </div>
               {sessionResumed && <p className="quest-resume-note" role="status">Saved round restored. Continue where you left off.</p>}
               <div className="quest-prompt-row"><h2 id="quest-prompt">{round.prompt}</h2>{!locked && <PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} />}</div>
               {!locked && <p className="quest-help"><Compass size={18} />{roundHelpFor(round)}</p>}
               {!locked && <>
-                {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={locked} showLabels={round.type === 'ocean'} />}
-                {choiceRound && <ChoiceRound round={{ ...choiceRound, options: shuffledOptions }} onPick={handlePick} disabled={locked} selected={selected} />}
-                {round.type === 'sequence' && <SequenceRound round={round} sequence={sequence} onPick={handlePick} disabled={locked} />}
-                {round.type === 'route' && <RouteRound round={round} step={routeStep} onMove={handleRouteMove} disabled={locked} />}
-                {round.type === 'investigation' && <InvestigationRound round={round} prediction={prediction} onPredict={handlePrediction} onConclude={handleInvestigationConclusion} disabled={locked} selected={selected} soundOn={soundOn} />}
+                {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={locked || Boolean(persistenceIssue)} showLabels={round.type === 'ocean'} />}
+                {choiceRound && <ChoiceRound round={{ ...choiceRound, options: shuffledOptions }} onPick={handlePick} disabled={locked || Boolean(persistenceIssue)} selected={selected} />}
+                {round.type === 'sequence' && <SequenceRound round={round} sequence={sequence} onPick={handlePick} disabled={locked || Boolean(persistenceIssue)} />}
+                {round.type === 'route' && <RouteRound round={round} step={routeStep} onMove={handleRouteMove} disabled={locked || Boolean(persistenceIssue)} />}
+                {round.type === 'investigation' && <InvestigationRound round={round} prediction={prediction} onPredict={handlePrediction} onConclude={handleInvestigationConclusion} disabled={locked || Boolean(persistenceIssue)} selected={selected} soundOn={soundOn} />}
               </>}
               <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : positiveRouteFeedback ? 'is-progress' : 'is-retry'}`}><p><span className="quest-fact-heading"><Sparkles size={23} />{locked ? 'Explorer fact' : positiveRouteFeedback ? 'Good move' : 'Try again'}</span><span className="quest-fact-copy">{feedback}</span></p>{locked ? <><PackagedAudioButton text={round.explanation} label="Hear fact" soundOn={soundOn} /><button type="button" onClick={advance} className="quest-continue">{roundCursor + 1 >= roundOrder.length ? 'Finish run' : 'Next question'} <ArrowRight size={16} /></button></> : <PackagedAudioButton text={feedbackVoice} label="Hear clue" soundOn={soundOn} />}</div>}</div>
             </div>
           )}
         </section>
         )}
-        <details className="quest-badge-disclosure"><summary>View saved badges</summary><CurriculumBadgeCollection playerId={playerId} module={moduleId} earned={earnedBadges} /></details>
+        <details className="quest-badge-disclosure"><summary>View saved badges</summary>
+          {currentBadgeView.status === 'ready'
+            ? <CurriculumBadgeCollection playerId={playerId} module={moduleId} earned={currentBadgeView.badges} />
+            : <div className="quest-badge-read-error" role="status">
+              <p>{currentBadgeView.badges.length ? 'Some saved badges may be shown from this visit, but the collection could not be checked.' : 'The saved badge collection could not be read, so it is not being shown as empty.'}</p>
+              <button type="button" onClick={retryBadgeRead} className="quest-continue min-h-12">Retry badge read</button>
+            </div>}
+        </details>
       </main>
     </div>
     </CurriculumHintContext.Provider>

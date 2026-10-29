@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildGermanModeRound, buildSeededGermanRound, loadGermanTargetHistory, saveGermanTargetHistory, germanHistoryMode, rememberGermanTarget, GERMAN_MODE_ITEMS, germanTranslation } from '../src/data/germanLearning.js';
+import { buildGermanModeRound, buildSeededGermanRound, loadGermanTargetHistory, readGermanTargetHistory, saveGermanTargetHistory, germanHistoryMode, rememberGermanTarget, GERMAN_MODE_ITEMS, germanTranslation } from '../src/data/germanLearning.js';
 
 test('every German Garage word has a clear English meaning', () => {
   Object.entries(GERMAN_MODE_ITEMS).forEach(([mode, items]) => {
@@ -51,7 +51,7 @@ test('German seeded questions are reproducible and vary targets and answer posit
 
 test('German completed history survives remounts, remains child-specific and excludes unavailable targets', () => {
   const values = new Map();
-  const storage = { getItem: (key) => values.get(key), setItem: (key, value) => values.set(key, value) };
+  const storage = { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
   const mode = 'directions';
   const names = GERMAN_MODE_ITEMS[mode].map((item) => item.name);
   saveGermanTargetHistory('qa-child-a', { [mode]: [...names.slice(0, 3), 'not-a-term'] }, storage);
@@ -64,13 +64,35 @@ test('German completed history survives remounts, remains child-specific and exc
   saveGermanTargetHistory('qa-child-a', { [mode]: names }, storage);
   assert.equal(loadGermanTargetHistory('qa-child-a', storage)[mode].length, names.length - 1);
   assert.deepEqual(loadGermanTargetHistory('qa-child-a', { getItem: () => '{invalid' }), {});
+  const corrupted = '{invalid';
+  values.set('qa-child-a_german_recent_targets_v1', corrupted);
+  assert.equal(readGermanTargetHistory('qa-child-a', storage).ok, false);
+  assert.equal(saveGermanTargetHistory('qa-child-a', history, storage), false);
+  assert.equal(values.get('qa-child-a_german_recent_targets_v1'), corrupted);
   assert.doesNotThrow(() => saveGermanTargetHistory('qa-child-a', history, { setItem: () => { throw Error('unavailable'); } }));
+});
+
+test('German recency preserves unknown valid metadata, existing bytes on malformed input, and sibling records', () => {
+  const values = new Map([
+    ['qa-child-a_german_recent_targets_v1', JSON.stringify({ directions: ['Links'], customNote: { origin: 'older client' } })],
+    ['qa-child-b_german_recent_targets_v1', '{sibling-bytes'],
+  ]);
+  const storage = { getItem: (key) => values.has(key) ? values.get(key) : null, setItem: (key, value) => values.set(key, value) };
+  const initial = readGermanTargetHistory('qa-child-a', storage);
+  assert.equal(initial.ok, true);
+  assert.deepEqual(initial.history.customNote, { origin: 'older client' });
+  const next = rememberGermanTarget(initial.history, 'directions', 'Rechts');
+  assert.equal(saveGermanTargetHistory('qa-child-a', next, storage), true);
+  const written = JSON.parse(values.get('qa-child-a_german_recent_targets_v1'));
+  assert.deepEqual(written.customNote, { origin: 'older client' });
+  assert.deepEqual(written.directions, ['Links', 'Rechts']);
+  assert.equal(values.get('qa-child-b_german_recent_targets_v1'), '{sibling-bytes');
 });
 
 
 test('alternating paint and parking avoid recent shared colours across reloads', () => {
   const values = new Map();
-  const storage = { getItem: (key) => values.get(key), setItem: (key, value) => values.set(key, value) };
+  const storage = { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
   for (let seed = 0; seed < 30; seed += 1) {
     let history = {};
     const seen = new Set();
@@ -86,4 +108,13 @@ test('alternating paint and parking avoid recent shared colours across reloads',
   }
   saveGermanTargetHistory('legacy-colour-child', { paint: ['Rot'], park: ['Blau'] }, storage);
   assert.deepEqual(loadGermanTargetHistory('legacy-colour-child', storage).colours, ['Rot', 'Blau']);
+});
+
+
+test('undefined word history reads do not authorize replacing a stored record', () => {
+  let writes=0;
+  const storage={getItem:()=>undefined,setItem:()=>{writes+=1;}};
+  assert.equal(readGermanTargetHistory('amari',storage).ok,false);
+  assert.equal(saveGermanTargetHistory('amari',{colours:['Rot']},storage),false);
+  assert.equal(writes,0);
 });

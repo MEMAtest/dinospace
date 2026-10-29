@@ -217,8 +217,8 @@ test('retained historical claims do not strand a new saved result at an arbitrar
 });
 
 
-test('full Chess and Dino Jigsaw claims retry committed writes without replay or sibling loss', () => {
-  for (const [game, amount] of [['chess', 1], ['dinojigsaw', 8]]) {
+test('opted-in game claims retry committed writes without replay or sibling loss', () => {
+  for (const [game, amount] of [['chess', 1], ['dinojigsaw', 8], ['german', 1], ['worldmap', 1]]) {
     const backing = store();
     const prior = claim('amari', {}, 6, 'words', backing, 'words:previous-proof');
     backing.setItem('askia_rewards_v2', JSON.stringify({ version:2, points:19, gamesPlayed:{shadowmatch:2}, earnedStickerIds:['rocket'], familyTag:'untouched' }));
@@ -298,4 +298,31 @@ test('unpublished native claim aliases normalize without paying or counting a se
   assert.deepEqual(result.rewardClaims, { 'dino:chess:qa-game':1, 'dino:jigsaw:little:qa-puzzle':8 });
   assert.equal(JSON.parse(storage.getItem(rewardKey('amari'))).parentNote, 'keep original metadata');
   assert.equal(storage.getItem(rewardKey('askia')), originalSibling);
+});
+
+
+test('German and Curriculum claims survive old-tab decoding and reject other game scopes', () => {
+  const storage = store();
+  const german = rewardClaimToken('german', 'chapter-route-proof');
+  const curriculum = rewardClaimToken('worldmap', 'continents:challenge');
+  const first = claim('amari', {}, 1, 'german', storage, german);
+  const second = claim('amari', first, 1, 'worldmap', storage, curriculum);
+  const oldDecoder = /^(dino|hangman|words|storybooks):[a-z0-9:_-]{1,160}$/i;
+  const oldWrite = { ...JSON.parse(storage.getItem(rewardKey('amari'))), points: 4, rewardClaims: Object.fromEntries(Object.entries(second.rewardClaims).filter(([key]) => oldDecoder.test(key))) };
+  assert.deepEqual(Object.keys(oldWrite.rewardClaims).sort(), [german,curriculum].sort());
+  storage.setItem(rewardKey('amari'), JSON.stringify(oldWrite));
+  const reopened = readPlayerRewards('amari', storage);
+  for (const [game,token,upper] of [['german',german,'DINO:GERMAN:chapter-route-proof'],['worldmap',curriculum,'DINO:CURRICULUM:continents:challenge']]) {
+    const retry = claim('amari', reopened, 1, game, storage, upper);
+    assert.equal(retry.persisted,true);
+    assert.equal(retry.awardedPoints,0);
+    assert.equal(retry.points,4);
+    assert.equal(retry.gamesPlayed[game],1);
+    assert.equal(claim('amari',retry,1,'dino',storage,token).persisted,false);
+    assert.equal(claim('amari',retry,1,game === 'german' ? 'worldmap' : 'german',storage,token).persisted,false);
+  }
+  const original=storage.getItem(rewardKey('amari'));
+  assert.equal(claim('amari',reopened,1,'german',storage,'german:raw-new-claim').persisted,false);
+  assert.equal(claim('amari',reopened,1,'worldmap',storage,'worldmap:raw-new-claim').persisted,false);
+  assert.equal(storage.getItem(rewardKey('amari')),original);
 });

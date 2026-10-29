@@ -80,21 +80,59 @@ export const rememberGermanTarget = (history, mode, name) => {
 };
 
 const historyKey = (playerId) => `${playerId || 'amari'}_german_recent_targets_v1`;
-export const loadGermanTargetHistory = (playerId, storage = globalThis.localStorage) => {
-  try {
-    const saved = JSON.parse(storage?.getItem(historyKey(playerId)) || '{}');
-    const result = Object.fromEntries(Object.entries(GERMAN_MODE_ITEMS).map(([mode, items]) => [
-      mode, Array.isArray(saved?.[mode])
-        ? saved[mode].filter((name) => items.some((item) => item.name === name)).slice(-(items.length - 1))
-        : [],
-    ]));
-    const colours = Array.isArray(saved?.colours) ? saved.colours : [...(result.paint || []), ...(result.park || [])];
-    result.colours = [...new Set(colours.filter((name) => GERMAN_MODE_ITEMS.paint.some((item) => item.name === name)))].slice(-(GERMAN_MODE_ITEMS.paint.length - 1));
-    delete result.paint;
-    delete result.park;
-    return result;
-  } catch { return {}; }
+const safeDefaultStorage = () => { try { return globalThis.localStorage || null; } catch { return null; } };
+const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
+const blankHistory = () => ({ ...Object.fromEntries(Object.keys(GERMAN_MODE_ITEMS).filter((mode) => !['paint', 'park'].includes(mode)).map((mode) => [mode, []])), colours: [] });
+
+function validateHistory(value) {
+  if (!isRecord(value)) return null;
+  const knownModes = [...Object.keys(GERMAN_MODE_ITEMS), 'colours'];
+  for (const mode of knownModes) {
+    if (value[mode] !== undefined && (!Array.isArray(value[mode]) || value[mode].some((word) => typeof word !== 'string'))) return null;
+  }
+  const result = { ...value };
+  for (const [mode, items] of Object.entries(GERMAN_MODE_ITEMS)) {
+    if (['paint', 'park'].includes(mode) && value[mode] === undefined) continue;
+    result[mode] = Array.isArray(value[mode])
+      ? [...new Set(value[mode].filter((word) => items.some((item) => item.name === word)))].slice(-(items.length - 1))
+      : [];
+  }
+  const legacyColours = [...(result.paint || []), ...(result.park || [])];
+  const savedColours = Array.isArray(value.colours) && value.colours.length ? value.colours : legacyColours;
+  result.colours = [...new Set(savedColours.filter((word) => GERMAN_MODE_ITEMS.paint.some((item) => item.name === word)))].slice(-(GERMAN_MODE_ITEMS.paint.length - 1));
+  return result;
+}
+
+export function readGermanTargetHistory(playerId, storage = safeDefaultStorage()) {
+  if (!storage || typeof storage.getItem !== 'function') return { ok: false, status: 'unavailable', history: blankHistory(), error: 'German word rotation could not be read.' };
+  let raw;
+  try { raw = storage.getItem(historyKey(playerId)); }
+  catch { return { ok: false, status: 'unavailable', history: blankHistory(), error: 'German word rotation could not be read.' }; }
+  if (raw === null) return { ok: true, status: 'fresh', history: blankHistory(), error: null };
+  if (typeof raw !== 'string' || !raw.length) return { ok: false, status: 'invalid', history: blankHistory(), error: 'German word rotation is invalid; this session can continue without saving rotation.' };
+  let parsed;
+  try { parsed = JSON.parse(raw); } catch { return { ok: false, status: 'invalid', history: blankHistory(), error: 'German word rotation is invalid; this session can continue without saving rotation.' }; }
+  const history = validateHistory(parsed);
+  return history
+    ? { ok: true, status: 'ready', history, error: null }
+    : { ok: false, status: 'invalid', history: blankHistory(), error: 'German word rotation is invalid; this session can continue without saving rotation.' };
+}
+
+export const loadGermanTargetHistory = (playerId, storage = safeDefaultStorage()) => {
+  const read = readGermanTargetHistory(playerId, storage);
+  return read.ok ? read.history : {};
 };
-export const saveGermanTargetHistory = (playerId, history, storage = globalThis.localStorage) => {
-  try { storage?.setItem(historyKey(playerId), JSON.stringify(history)); } catch { /* Storage is optional. */ }
+
+export const saveGermanTargetHistory = (playerId, history, storage = safeDefaultStorage()) => {
+  if (!storage || typeof storage.getItem !== 'function' || typeof storage.setItem !== 'function') return false;
+  const current = readGermanTargetHistory(playerId, storage);
+  if (!current.ok || !isRecord(history)) return false;
+  const merged = validateHistory({ ...current.history, ...history });
+  if (!merged) return false;
+  try {
+    const encoded = JSON.stringify(merged);
+    storage.setItem(historyKey(playerId), encoded);
+    if (storage.getItem(historyKey(playerId)) !== encoded) return false;
+    return Boolean(validateHistory(JSON.parse(encoded)));
+  } catch { return false; }
 };

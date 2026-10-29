@@ -2,84 +2,93 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { getCurriculumModule } from '../src/data/curriculumModules.js';
 import {
-  clearCurriculumSession,
-  loadCurriculumPreferences,
-  loadCurriculumSession,
-  saveCurriculumPreferences,
-  saveCurriculumSession,
+  clearCurriculumSession, curriculumPreferenceStorageKey, curriculumSessionStorageKey,
+  inspectCurriculumPreferences, inspectCurriculumSession, loadCurriculumPreferences,
+  loadCurriculumSession, saveCurriculumPreferences, saveCurriculumSession,
 } from '../src/data/curriculumSession.js';
 
 const memoryStorage = () => {
   const values = new Map();
   return {
+    values,
     getItem: (key) => values.get(key) ?? null,
     setItem: (key, value) => values.set(key, String(value)),
     removeItem: (key) => values.delete(key),
   };
 };
-
-test('Curriculum preferences keep the last module and per-module level', () => {
-  const storage = memoryStorage();
-  saveCurriculumPreferences(storage, 'child-1', 'time-detectives', 'growing');
-  saveCurriculumPreferences(storage, 'child-1', 'continents', 'challenge');
-  const preferences = loadCurriculumPreferences(storage, 'child-1');
-  assert.equal(preferences.moduleId, 'continents');
-  assert.deepEqual(preferences.difficulties, { 'time-detectives': 'growing', continents: 'challenge' });
+const session = (overrides = {}) => ({
+  difficulty: 'starter', seed: 921, order: [0, 1, 2, 3, 4], cursor: 0,
+  complete: false, lessonOpen: false, locked: false, selected: '',
+  feedback: 'A handwritten letter is older than a landline telephone.', feedbackVoice: '',
+  mistakes: 1, sequence: [], routeStep: 0, prediction: '', ...overrides,
 });
 
-test('an interrupted Curriculum round restores its exact question and held fact state', () => {
+test('Curriculum preferences keep per-module levels, player isolation, and unknown metadata', () => {
+  const storage = memoryStorage();
+  storage.setItem(curriculumPreferenceStorageKey('amari'), JSON.stringify({ version: 1, moduleId: 'time-detectives', difficulties: {}, futureField: { keep: true } }));
+  assert.equal(saveCurriculumPreferences(storage, 'amari', 'time-detectives', 'growing').status, 'saved');
+  assert.equal(saveCurriculumPreferences(storage, 'amari', 'continents', 'challenge').status, 'saved');
+  const raw = JSON.parse(storage.getItem(curriculumPreferenceStorageKey('amari')));
+  assert.deepEqual(raw.difficulties, { 'time-detectives': 'growing', continents: 'challenge' });
+  assert.deepEqual(raw.futureField, { keep: true });
+  assert.deepEqual(loadCurriculumPreferences(storage, 'amari'), { moduleId: 'continents', difficulties: { 'time-detectives': 'growing', continents: 'challenge' } });
+  assert.deepEqual(loadCurriculumPreferences(storage, 'askia'), { moduleId: '', difficulties: {} });
+});
+
+test('Unreadable preferences are distinguished and never overwritten with defaults', () => {
+  const storage = memoryStorage();
+  const key = curriculumPreferenceStorageKey('amari');
+  storage.setItem(key, '{broken');
+  assert.equal(inspectCurriculumPreferences(storage, 'amari').status, 'invalid');
+  assert.equal(saveCurriculumPreferences(storage, 'amari', 'continents', 'starter').status, 'invalid');
+  assert.equal(storage.getItem(key), '{broken');
+});
+
+test('Interrupted Curriculum round restores held fact and unknown session metadata', () => {
   const storage = memoryStorage();
   const rounds = getCurriculumModule('time-detectives').rounds.starter;
   const sequenceIndex = rounds.findIndex((round) => round.id === 'history-communication');
-  const session = {
-    difficulty: 'starter', seed: 921, order: [sequenceIndex, 0, 1, 3, 4], cursor: 0,
-    complete: false, lessonOpen: false, locked: true, selected: 'smartphone',
-    feedback: 'A handwritten letter is older than a landline telephone.',
-    feedbackVoice: '', mistakes: 1, sequence: ['letter', 'telephone', 'smartphone'],
-    routeStep: 0, prediction: '',
-  };
-  saveCurriculumSession(storage, 'child-1', 'time-detectives', session);
-  assert.deepEqual(loadCurriculumSession(storage, 'child-1', 'time-detectives', rounds, 'starter'), session);
-  assert.equal(loadCurriculumSession(storage, 'child-1', 'time-detectives', rounds, 'growing'), null);
+  const order = [sequenceIndex, ...rounds.map((_, index) => index).filter((index) => index !== sequenceIndex).slice(0, 4)];
+  const saved = session({ order, locked: true, selected: 'smartphone', sequence: ['letter', 'telephone', 'smartphone'] });
+  storage.setItem(curriculumSessionStorageKey('amari', 'time-detectives', 'starter'), JSON.stringify({ version: 1, moduleId: 'time-detectives', ...saved, futureField: 'keep' }));
+  const loaded = loadCurriculumSession(storage, 'amari', 'time-detectives', rounds, 'starter');
+  assert.deepEqual(loaded, { ...saved });
+  assert.equal(inspectCurriculumSession(storage, 'amari', 'time-detectives', rounds, 'starter').status, 'record');
+  const updated = saveCurriculumSession(storage, 'amari', 'time-detectives', rounds, { ...saved, feedback: 'New held feedback' });
+  assert.equal(updated.status, 'saved');
+  assert.equal(JSON.parse(storage.getItem(curriculumSessionStorageKey('amari', 'time-detectives', 'starter'))).futureField, 'keep');
+  assert.equal(loadCurriculumSession(storage, 'amari', 'time-detectives', rounds, 'growing'), null);
 });
 
-test('invalid or obsolete Curriculum sessions are rejected and can be cleared', () => {
+test('Malformed or obsolete sessions fail closed and cannot be overwritten', () => {
   const storage = memoryStorage();
   const rounds = getCurriculumModule('continents').rounds.starter;
-  saveCurriculumSession(storage, 'child-1', 'continents', {
-    difficulty: 'starter', seed: 3, order: [0, 0], cursor: 0, complete: false,
-    lessonOpen: true, locked: false, selected: '', feedback: '', feedbackVoice: '',
-    mistakes: 0, sequence: [], routeStep: 0, prediction: '',
-  });
-  assert.equal(loadCurriculumSession(storage, 'child-1', 'continents', rounds, 'starter'), null);
-  assert.equal(clearCurriculumSession(storage, 'child-1', 'continents'), true);
-  assert.equal(loadCurriculumSession(storage, 'child-1', 'continents', rounds, 'starter'), null);
+  const key = curriculumSessionStorageKey('amari', 'continents', 'starter');
+  storage.setItem(key, JSON.stringify({ ...session(), version: 1, moduleId: 'continents', order: [0, 0] }));
+  assert.equal(inspectCurriculumSession(storage, 'amari', 'continents', rounds, 'starter').status, 'invalid');
+  assert.equal(saveCurriculumSession(storage, 'amari', 'continents', rounds, session()).status, 'invalid');
+  assert.equal(storage.getItem(key), JSON.stringify({ ...session(), version: 1, moduleId: 'continents', order: [0, 0] }));
+  assert.equal(clearCurriculumSession(storage, 'amari', 'continents'), true);
+  assert.equal(inspectCurriculumSession(storage, 'amari', 'continents', rounds, 'starter').status, 'empty');
 });
 
-test('sessions remain available independently for each saved level', () => {
+test('Sessions stay separate by player/module/band and save confirms exact readback', () => {
   const storage = memoryStorage();
   const rounds = getCurriculumModule('continents').rounds;
-  const baseSession = {
-    seed: 3, order: [0, 1, 2, 3, 4], cursor: 1, complete: false,
-    lessonOpen: false, locked: false, selected: '', feedback: '', feedbackVoice: '',
-    mistakes: 0, sequence: [], routeStep: 0, prediction: '',
-  };
-  saveCurriculumSession(storage, 'child-1', 'continents', { ...baseSession, difficulty: 'starter' });
-  saveCurriculumSession(storage, 'child-1', 'continents', { ...baseSession, difficulty: 'growing', cursor: 2 });
-  assert.equal(loadCurriculumSession(storage, 'child-1', 'continents', rounds.starter, 'starter').cursor, 1);
-  assert.equal(loadCurriculumSession(storage, 'child-1', 'continents', rounds.growing, 'growing').cursor, 2);
-  clearCurriculumSession(storage, 'child-1', 'continents', 'starter');
-  assert.equal(loadCurriculumSession(storage, 'child-1', 'continents', rounds.starter, 'starter'), null);
-  assert.equal(loadCurriculumSession(storage, 'child-1', 'continents', rounds.growing, 'growing').cursor, 2);
+  assert.equal(saveCurriculumSession(storage, 'amari', 'continents', rounds.starter, session()).status, 'saved');
+  assert.equal(saveCurriculumSession(storage, 'amari', 'continents', rounds.growing, session({ difficulty: 'growing', cursor: 2, locked: false })).status, 'saved');
+  assert.equal(saveCurriculumSession(storage, 'askia', 'continents', rounds.starter, session({ seed: 55 })).status, 'saved');
+  assert.equal(loadCurriculumSession(storage, 'amari', 'continents', rounds.starter, 'starter').seed, 921);
+  assert.equal(loadCurriculumSession(storage, 'amari', 'continents', rounds.growing, 'growing').cursor, 2);
+  assert.equal(loadCurriculumSession(storage, 'askia', 'continents', rounds.starter, 'starter').seed, 55);
+  const mismatch = { getItem: () => null, setItem() {} };
+  assert.equal(saveCurriculumSession(mismatch, 'child', 'continents', rounds.starter, session()).status, 'unconfirmed');
 });
 
-test('storage failures degrade to empty preferences and unavailable writes', () => {
-  const brokenStorage = {
-    getItem() { throw new Error('storage blocked'); },
-    setItem() { throw new Error('storage blocked'); },
-    removeItem() { throw new Error('storage blocked'); },
-  };
-  assert.deepEqual(loadCurriculumPreferences(brokenStorage, 'child-1'), { moduleId: '', difficulties: {} });
-  assert.equal(saveCurriculumPreferences(brokenStorage, 'child-1', 'continents', 'starter'), false);
-  assert.equal(clearCurriculumSession(brokenStorage, 'child-1', 'continents'), false);
+test('Unavailable storage is explicit rather than treated as an empty writable profile', () => {
+  const brokenStorage = { getItem() { throw Error('blocked'); }, setItem() { throw Error('blocked'); }, removeItem() { throw Error('blocked'); } };
+  assert.equal(inspectCurriculumPreferences(brokenStorage, 'amari').status, 'unavailable');
+  assert.equal(saveCurriculumPreferences(brokenStorage, 'amari', 'continents', 'starter').status, 'unavailable');
+  assert.equal(inspectCurriculumSession(brokenStorage, 'amari', 'continents', getCurriculumModule('continents').rounds.starter, 'starter').status, 'unavailable');
+  assert.equal(clearCurriculumSession(brokenStorage, 'amari', 'continents'), false);
 });

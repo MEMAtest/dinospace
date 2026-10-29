@@ -150,3 +150,13 @@
 .curriculum-quest .quest-stage-label,.curriculum-quest .quest-round-progress>div:first-child span { color:var(--quest-action); }
 
 .quest-feedback-card.is-progress{background:#e7f5ff;border-color:#b5ddf6;color:#17567d}.is-progress .quest-fact-heading{color:#17567d}
+.quest-save-alert{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px 14px;max-width:1240px;margin:0 auto 12px;padding:13px 16px;border:2px solid #b45309;border-radius:18px;background:#fff7ed;color:#78350f;text-align:left}
+.quest-save-alert>strong{font-size:14px}.quest-save-alert>span{font-size:12px;font-weight:700}.quest-save-alert>button{grid-column:2;grid-row:1/3;min-width:120px;justify-content:center}
+.quest-model-instruction{margin:0 0 10px;padding:10px 13px;border-radius:14px;background:#fff;color:#304565;font-size:13px;font-weight:700;line-height:1.45;text-align:left}
+.quest-learning-steps{display:flex;justify-content:center;gap:8px;margin:0 auto 11px;padding:0;list-style:none;color:#65748b;font-size:11px;font-weight:900}
+.quest-learning-steps li{min-height:36px;display:flex;align-items:center;padding:0 13px;border:1px solid #dbe3ee;border-radius:999px;background:rgba(255,255,255,.88)}
+.quest-learning-steps li.is-current{border-color:var(--quest-action);background:var(--quest-action);color:#fff}
+.quest-learning-steps li.is-done{border-color:color-mix(in srgb,var(--quest-accent),white 55%);color:var(--quest-action)}
+.quest-badge-read-error{max-width:520px;margin:10px auto;padding:14px;border:1px solid #f5c78d;border-radius:16px;background:#fff7ed;color:#78350f;font-size:13px;font-weight:750}
+.quest-badge-read-error>button{margin:10px auto 0}
+@media(max-width:640px){.quest-save-alert{grid-template-columns:1fr}.quest-save-alert>button{grid-column:1;grid-row:auto;width:100%}}
