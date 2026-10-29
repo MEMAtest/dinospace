@@ -1,0 +1,161 @@
+{
+  "url": "http://127.0.0.1:5180/?qa_rescue_pair6=askia-ladder-390-1793228446577#/play/ladder",
+  "list": [
+    {
+      "tag": "IMG",
+      "classes": "object-contain h-full w-full",
+      "rect": {
+        "x": 249.1875,
+        "y": 492.9375,
+        "width": 80.296875,
+        "height": 80.296875
+      },
+      "css": {
+        "width": "80.2969px",
+        "height": "80.2969px",
+        "minHeight": "auto",
+        "maxHeight": "none",
+        "minWidth": "auto",
+        "maxWidth": "100%",
+        "display": "block",
+        "position": "static",
+        "boxSizing": "border-box",
+        "gridTemplateRows": "none",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "padding": "0px",
+        "overflow": "clip"
+      }
+    },
+    {
+      "tag": "SPAN",
+      "classes": "grid h-full w-full min-h-0 min-w-0 place-items-center p-1 ",
+      "rect": {
+        "x": 245.1875,
+        "y": 488.9375,
+        "width": 88.296875,
+        "height": 49.875
+      },
+      "css": {
+        "width": "88.2969px",
+        "height": "49.875px",
+        "minHeight": "0px",
+        "maxHeight": "none",
+        "minWidth": "0px",
+        "maxWidth": "none",
+        "display": "grid",
+        "position": "static",
+        "boxSizing": "border-box",
+        "gridTemplateRows": "80.2969px",
+        "gridTemplateColumns": "80.2969px",
+        "alignItems": "center",
+        "padding": "4px",
+        "overflow": "visible"
+      }
+    },
+    {
+      "tag": "SPAN",
+      "classes": "grid h-full min-h-0 min-w-0 flex-1 place-items-center overflow-hidden rounded-xl border-4 bg-sky-100 text-4xl shadow-inner sm:text-6xl border-slate-800",
+      "rect": {
+        "x": 241.1875,
+        "y": 484.9375,
+        "width": 96.296875,
+        "height": 57.875
+      },
+      "css": {
+        "width": "96.2969px",
+        "height": "57.875px",
+        "minHeight": "0px",
+        "maxHeight": "none",
+        "minWidth": "0px",
+        "maxWidth": "none",
+        "display": "grid",
+        "position": "static",
+        "boxSizing": "border-box",
+        "gridTemplateRows": "49.875px",
+        "gridTemplateColumns": "88.2969px",
+        "alignItems": "center",
+        "padding": "0px",
+        "overflow": "hidden"
+      }
+    },
+    {
+      "tag": "BUTTON",
+      "classes": "absolute left-[6%] right-[6%] flex items-center gap-2 disabled:cursor-default ",
+      "rect": {
+        "x": 201.1875,
+        "y": 484.9375,
+        "width": 136.296875,
+        "height": 57.875
+      },
+      "css": {
+        "width": "136.297px",
+        "height": "57.875px",
+        "minHeight": "0px",
+        "maxHeight": "none",
+        "minWidth": "0px",
+        "maxWidth": "none",
+        "display": "flex",
+        "position": "absolute",
+        "boxSizing": "border-box",
+        "gridTemplateRows": "none",
+        "gridTemplateColumns": "none",
+        "alignItems": "center",
+        "padding": "0px",
+        "overflow": "visible"
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "absolute rounded-t-xl border-4 border-slate-800 bg-orange-300",
+      "rect": {
+        "x": 187.90625,
+        "y": 184.265625,
+        "width": 162.859375,
+        "height": 369.78125
+      },
+      "css": {
+        "width": "162.859px",
+        "height": "369.781px",
+        "minHeight": "0px",
+        "maxHeight": "none",
+        "minWidth": "0px",
+        "maxWidth": "none",
+        "display": "block",
+        "position": "absolute",
+        "boxSizing": "border-box",
+        "gridTemplateRows": "none",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "padding": "0px",
+        "overflow": "visible"
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "relative mx-auto w-full overflow-hidden rounded-[2rem] border-[6px] border-white bg-gradient-to-b from-sky-300 to-sky-100 shadow-2xl",
+      "rect": {
+        "x": 12,
+        "y": 156,
+        "width": 366,
+        "height": 457.5
+      },
+      "css": {
+        "width": "366px",
+        "height": "457.5px",
+        "minHeight": "auto",
+        "maxHeight": "none",
+        "minWidth": "auto",
+        "maxWidth": "534.4px",
+        "display": "block",
+        "position": "relative",
+        "boxSizing": "border-box",
+        "gridTemplateRows": "none",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "padding": "0px",
+        "overflow": "hidden"
+      }
+    }
+  ]
+}

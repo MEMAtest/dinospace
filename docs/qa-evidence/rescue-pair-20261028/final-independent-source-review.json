@@ -1,0 +1,23 @@
+{
+  "reviewedAt": "2026-10-28",
+  "runtime": "511b084aa43ae4fa26ebeda6f46394e3dcd663c8",
+  "compiledEntry": "/assets/arcade-CW22T82m.js",
+  "serviceWorker": "amari-discovery-v41",
+  "reportedPwaTests": { "passed": 485, "skipped": 0, "independentlyRun": false },
+  "scope": [
+    "Fire Rescue and Ladder Rescue source against the Pair 6 contract",
+    "pair-safe progress read/write/readback, retry and reward path",
+    "compact start, review and completion styling scope"
+  ],
+  "reviewedFiles": [
+    { "path": "src/components/little/LittleGameShell.jsx", "sha256": "eec604fffb335e4e47d124fa8b5add5b465bca595df296eebacc163ada7346c7" },
+    { "path": "src/components/little/games/FireRescue.jsx", "sha256": "80b9239c0343369fcd15de0644b9ccb22a6ff3129385bafae15bee613596f3b8" },
+    { "path": "src/components/little/games/LadderRescue.jsx", "sha256": "47954b9c8fa7ec1fbdf530ded9239da244d72e146454fa89d32a5f4202367516" },
+    { "path": "src/components/little/games/rescueMissionLogic.js", "sha256": "d8baad619330caee918acec1225ca8deb746b922d66ffa6e4cf61db8b09f3f27" },
+    { "path": "src/data/pairLittleProgress.js", "sha256": "94769a1535224658ac73e03c2b7aa5d39c76adbca60de0016b554fad64fe066f" },
+    { "path": "src/discoveryPremium.css", "sha256": "e6ef13458f843d7d3fea21778226ae09f8ab60d034b1586033c56bfac7a01d73" }
+  ],
+  "findings": [],
+  "sourceReview": "No concrete source blocker found. Pair-safe results are committed and read back before completion/reward UI; retries reuse the pending transaction. Compact layout styles are opted into by the two rescue games and scoped beneath data-pair-compact.",
+  "acceptanceBoundary": "Source-only review. The compiled native matrix and live/public acceptance remain pending; this record does not assert either passed."
+}

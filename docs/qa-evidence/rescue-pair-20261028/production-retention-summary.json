@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-29T00:50:31.422508+00:00",
+  "passed": true,
+  "protectedKeyHashesUnchanged": 28,
+  "players": {
+    "askia": {
+      "earlierGameRowsUnchanged": 2,
+      "earlierStickerIdsRetained": 5,
+      "earnedStickerMirrorMatches": true,
+      "pointsBefore": 86,
+      "pointsAfter": 166,
+      "verifiedEarnedDelta": 80,
+      "completedLevelRuns": 20
+    },
+    "amari": {
+      "earlierGameRowsUnchanged": 2,
+      "earlierStickerIdsRetained": 8,
+      "earnedStickerMirrorMatches": true,
+      "pointsBefore": 210,
+      "pointsAfter": 258,
+      "verifiedEarnedDelta": 48,
+      "completedLevelRuns": 12
+    }
+  },
+  "entry": "/assets/arcade-DJc79J3o.js",
+  "workerCaches": [
+    "amari-discovery-media-v1",
+    "amari-discovery-v41"
+  ],
+  "notice": false,
+  "overflow": false,
+  "scope": "Synthetic canonical earned-record retention and prior-pair protection; no historical family-story recovery claim."
+}

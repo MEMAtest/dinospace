@@ -1,0 +1,66 @@
+{
+  "at": "2026-10-29T00:07:34.111Z",
+  "passed": true,
+  "origin": "https://dinospace-rgq4hct82-memas-projects-23a0001d.vercel.app",
+  "backend": "https://dinospace-rgq4hct82-memas-projects-23a0001d.vercel.app",
+  "runtime": "23ec0567962062e5b3345c2c33f59411a764fdda",
+  "htmlSha256": "f6050975b67a1d9c3cfc55d4406f1ba4f1aef8c8a1295aeada9b48b157204529",
+  "workerSha256": "80a2bfc5d3822b71b5326062ba89fa3de39537d1b3acc3512e10398336491737",
+  "cache": "v41",
+  "assets": [
+    {
+      "path": "/assets/arcade-B1DOCkSs.js",
+      "status": 200,
+      "sha256": "49964e1ead5343e9113063732a78a5d2ca844892436180aa3e3bfc1e730adb85"
+    },
+    {
+      "path": "/assets/DiscoveryHeader-Dk-lQDZ6.js",
+      "status": 200,
+      "sha256": "14ccbf0d05491bcba5fc15f9f220a1b86e0a14c819fd538a1266edc16485bc9a"
+    },
+    {
+      "path": "/assets/codeProgress-CSCEZ1t0.js",
+      "status": 200,
+      "sha256": "08c4e590e74e2ad5a54d35052c3591b7852ccf4a66ac8470c9c0e5f0ea2b7e3d"
+    },
+    {
+      "path": "/assets/writingProgress-BANozLWz.js",
+      "status": 200,
+      "sha256": "9987d91600a121640f33aab91fe7395942b2d6a44a1cced8286b32a769e031dc"
+    },
+    {
+      "path": "/assets/DiscoveryHeader-OKZpL8Ak.css",
+      "status": 200,
+      "sha256": "6c4e098804fa56126d4147008f234aec42bb12b65f9c5fd8a6559adcc58d39bd"
+    },
+    {
+      "path": "/assets/arcade-CfAlZPE7.css",
+      "status": 200,
+      "sha256": "f4e0f37e1e824f561461fa9076e4c1017619bce95ca02d21fc5adee33b3fe67f"
+    }
+  ],
+  "preflights": [
+    {
+      "path": "/api/voice",
+      "status": 204,
+      "allow": "https://dinospace.netlify.app"
+    },
+    {
+      "path": "/api/story/outline",
+      "status": 200,
+      "allow": "https://dinospace.netlify.app"
+    }
+  ],
+  "redirects": [
+    {
+      "path": "/",
+      "status": 307,
+      "location": "https://dinospace.netlify.app/"
+    },
+    {
+      "path": "/index.html",
+      "status": 307,
+      "location": "https://dinospace.netlify.app/"
+    }
+  ]
+}

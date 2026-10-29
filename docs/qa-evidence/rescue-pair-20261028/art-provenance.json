@@ -1,0 +1,148 @@
+{
+  "date": "2026-10-28",
+  "tool": "Built-in image_gen.imagegen; transparent background; included image credits, no CLI/API image generation",
+  "scope": "Five coherent animal sprites replace Ladder emoji fallbacks; one no-overhead-ladder truck supports the game's separately animated ladder. Fire's existing polished house/flame/truck retained.",
+  "originals": "Retained once at tool default generated_images paths. Runtime export only: WebP resize/compression, no semantic pixel editing.",
+  "items": [
+    {
+      "id": "kitten",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-9bec73e1-c0db-48f2-9e95-4d123c097cc5.png",
+      "prompt": "Create one production-ready transparent-background game sprite for a delightful preschool rescue learning game. A single cute baby kitten, full body sitting upright, facing straight toward the viewer, with clear triangular ears, small paws together in front, softly curled tail visible beside its body, happy friendly expression, enormous readable warm eyes. Orange ginger fur with cream muzzle and belly. High-end polished 3D toy illustration, rounded appealing forms, gentle tactile fur, bright soft studio lighting, very clean strong silhouette that stays recognisable at 60 pixels high. Child-safe, calm and cheerful, no distress, no fire, no rescue apparatus. Object fills about 85 percent of square canvas with comfortable transparent margin; full ears, tail and paws remain inside canvas. No ground plane, no cast shadow outside the subject, no background or scenery, no typography or icons, no collar or accessories. Square image; genuinely transparent alpha background. This will be one consistent five-animal set (kitten, puppy, bunny, chick and panda), all shown at the same camera angle and framing.",
+      "runtime": "public/art/rescue-animals-v2/animal-kitten.webp",
+      "reference": null,
+      "sourceSha256": "ea2576d70df3db5058217308611376315bfe0bcba08326ab2f451117632a8926",
+      "sourceBytes": 1528124,
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "4548dbbdab897769bcc13dc76480a9eb410ae2e583d076bafd6c6284566087f1",
+      "runtimeBytes": 35250,
+      "runtimeDimensions": [
+        384,
+        384
+      ],
+      "runtimeAlphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "id": "puppy",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-23914c28-ee8f-408f-9735-d60de0c9ce03.png",
+      "prompt": "Using the kitten reference only for the exact polished 3D toy style, front-facing camera, friendly facial expression, scale and transparent isolated presentation, make a NEW single baby PUPPY character sprite for the same preschool rescue learning game. Replace the cat entirely with a very clearly recognisable golden-brown puppy: large FLOPPY rounded ears, small rounded muzzle with black puppy nose, cream belly, four little paws, short fluffy tail at the side. Sitting upright, full body and ears and paws visible, facing directly toward the viewer, cheerful huge warm brown eyes and gentle open smile. Strong easily recognised dog silhouette at 60px height. No kitten features, no pointed cat ears, no whiskers. High-end soft detailed 3D toy rendering with clean luminous studio lighting. Subject fills about85 percent of square canvas with comfortable transparent margin. No ground, scenery, typography, collar, accessories or cast shadow outside the subject. Genuine transparent alpha background. Keep coherent with the reference as a single five-animal set.",
+      "runtime": "public/art/rescue-animals-v2/animal-puppy.webp",
+      "reference": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-9bec73e1-c0db-48f2-9e95-4d123c097cc5.png",
+      "sourceSha256": "a99b53aa04dc1ac4713d5706876fc6ff63217392f0604d3d56b5155ffcf51d9e",
+      "sourceBytes": 1776055,
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "62374d7d93c09d7be92891a9e149a9094657d63da14e79e05d328da34b75dfbf",
+      "runtimeBytes": 35604,
+      "runtimeDimensions": [
+        384,
+        384
+      ],
+      "runtimeAlphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "id": "bunny",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-1370fe57-0b04-46c9-9e48-725b8d8b48d4.png",
+      "prompt": "Using the supplied kitten only as a style and framing reference, create a NEW full-body baby BUNNY for the same coherent preschool rescue-game sprite set. A single soft cream-white rabbit sitting upright and facing straight toward the viewer, two very long upright rounded ears with pink inner ears, large warm brown eyes, tiny pink rabbit nose, soft closed happy smile, little forepaws together, big rounded hind paws and a small fluffy tail visible at one side. Clear distinct rabbit silhouette recognisable when 60px high; both ears and paws entirely within the canvas. Match the reference's premium polished 3D toy illustration, detailed soft fur, gentle luminous lighting, rounded friendly shapes and calm cheerful expression. Same near-front camera, subject fills about85percent of a square canvas with generous transparent margins. No scene, ground plane, text, symbols, collar, clothes, accessories or extraneous shadows. Transparent alpha background; only the bunny. It must look like a rabbit, not a cat or dog.",
+      "runtime": "public/art/rescue-animals-v2/animal-bunny.webp",
+      "reference": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-9bec73e1-c0db-48f2-9e95-4d123c097cc5.png",
+      "sourceSha256": "6ae0828ab7cf965e506c5b25aa6fcd1a01de681b78e7f5ea856a3ea7ea4ca198",
+      "sourceBytes": 1431077,
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "ee7826dc582c10e3e1208279c9da7e14ef979ffacbe960d667ce32b5e22893bf",
+      "runtimeBytes": 30610,
+      "runtimeDimensions": [
+        384,
+        384
+      ],
+      "runtimeAlphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "id": "chick",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-c139aaad-6029-4919-8372-1f1723bbb50f.png",
+      "prompt": "Create a single adorable baby CHICK sprite, in the same premium polished 3D toy illustration style as the supplied kitten reference, for a preschool rescue learning game. This is a NEW yellow baby chicken, not a mammal: round little bright butter-yellow body, soft downy feathers, tiny two feather wings at the sides, two short orange bird legs with little orange three-toed feet, small triangular orange beak, big warm brown eyes, a tiny three-feather tuft on top. Standing upright facing straight at the viewer, cheerful calm smile, fully visible head, wings and feet. Clear round chick silhouette identifiable at60px; no cat ears, no fur muzzle, no whiskers, no four paws. Same near-front camera, soft luminous studio light, appealing gentle rounded child-friendly forms and high quality material finish as the reference. Subject occupies about80percent of a square canvas, generous transparent padding around all edges. No ground plane, background, scenery, text, symbols or accessories. Genuine transparent alpha background with only the chick.",
+      "runtime": "public/art/rescue-animals-v2/animal-chick.webp",
+      "reference": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-9bec73e1-c0db-48f2-9e95-4d123c097cc5.png",
+      "sourceSha256": "9835e473cd1d8f50eda7c441991ef66e1fabd28006c4f87e3aca461fb0ccdff9",
+      "sourceBytes": 1143876,
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "b25ccced09511411e8472de9723fef88eef8e8ac379fa6a6c19fd133ec85bbb0",
+      "runtimeBytes": 28388,
+      "runtimeDimensions": [
+        384,
+        384
+      ],
+      "runtimeAlphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "id": "panda",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-62ee875c-a769-473e-8308-47ef18bcca90.png",
+      "prompt": "Using the kitten reference only for the same polished 3D toy illustration style, front camera and friendly framing, create a NEW single baby PANDA character sprite for this coherent preschool rescue learning game set. A clearly recognisable black-and-white giant panda cub, full body sitting upright straight toward the viewer. Round white head, two small round BLACK panda ears, large BLACK oval panda eye patches surrounding warm brown gentle eyes, small black nose, cheerful soft smile. White round tummy, BLACK arms and hind legs, large rounded paws. It must be a panda bear, not a white kitten: no pointed cat ears, no whiskers, no cat tail. Calm happy expression, big readable eyes, very appealing child-friendly proportions, soft detailed fur and rounded premium3D toy finish, gentle luminous studio light. All ears and paws completely visible. Strong black/white silhouette identifiable at60px. Subject fills about82percent of square canvas with comfortable transparent margins on every edge. No scenery, ground, props, text, clothes, accessories or detached cast shadows. Genuine transparent alpha background, panda only.",
+      "runtime": "public/art/rescue-animals-v2/animal-panda.webp",
+      "reference": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-9bec73e1-c0db-48f2-9e95-4d123c097cc5.png",
+      "sourceSha256": "2848430627a9b5d7a2bdd07a5f7c89b784949fb496a2536c67748c32cfe4ee4d",
+      "sourceBytes": 1834798,
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "runtimeSha256": "1ee89f76f9baf8aaf195c53ef7edb6b96aba0c5bc6ffbba9102cb692de23f540",
+      "runtimeBytes": 32006,
+      "runtimeDimensions": [
+        384,
+        384
+      ],
+      "runtimeAlphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "id": "truck",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-44178655-1e6a-4453-9572-bd5b60698724.png",
+      "prompt": "Derive a production transparent game sprite from this friendly red rescue fire truck reference. Keep the same premium polished 3D toy aesthetic, glossy red paint, white/silver panels, chunky black tyres, warm friendly character and small blue/yellow emergency roof lights. Change to a STRICT FLAT SIDE VIEW facing RIGHT, an orthographic side elevation so a separately animated ladder can attach to its roof. Absolutely REMOVE the large ladder and all overhead ladder supports: the top of the rear truck must be a simple unobstructed LOW FLAT RED ROOF platform. Show the full side body, rear equipment panels, front cab and bumper, three clearly visible side wheels aligned on one baseline. Keep the front modestly friendly, no large eyes covering the side panel. The fire truck alone fills about82percent of a wide landscape canvas, with comfortable transparent space around all edges. All tyres, bumper and roof lights visible, no cropping. No ground plane, cast ground shadow, buildings, flames, smoke, hoses spraying, people, animals, words, letters or extra objects. True transparent alpha background. Clear silhouette and appealing detail readable at140px wide. The game draws its own grey extending rescue ladder over this truck; no ladder of any kind may be baked into the sprite.",
+      "runtime": "public/art/rescue-animals-v2/ladder-truck.webp",
+      "reference": "src/assets/little/rescue-firetruck.webp",
+      "sourceSha256": "0111958879352332ed4c91f11613b952647bc9e7aa94894ab779a880cc181dc6",
+      "sourceBytes": 1691049,
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeSha256": "80d0f32dd90a9b2e272ad88a6638297b9982cabddbb0234b81ba10f1d7bf2b8f",
+      "runtimeBytes": 62116,
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "runtimeAlphaRange": [
+        0,
+        254
+      ]
+    }
+  ],
+  "totalRuntimeBytes": 223974,
+  "totalOriginalBytes": 9404979
+}

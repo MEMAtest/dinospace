@@ -1,0 +1,86 @@
+{
+  "at": "2026-10-29T00:06:05.984242+00:00",
+  "runtime": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980",
+  "entry": "/assets/arcade-DJc79J3o.js",
+  "worker": "amari-discovery-v41",
+  "tests": 485,
+  "passed": 485,
+  "skipped": 0,
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "testCommand": "PWA_BUILD_DIR=dist npm test",
+  "scopedLint": "passed",
+  "diffCheck": "passed",
+  "reviewed": [
+    "Fire keyboard/pointer shared hold, bounded50msRAFdelta, blur/visibility/pointercancel cleanup and held missed-aim teaching",
+    "Hint attribution separate from missed-aim-teaching latch; feedback clearofallfiretargets",
+    "Ladder immediate rescue lock, RAF/timer cleanup, delayedintropreemption onanyaction",
+    "Independentanimal/floorrotations coverall25pairings; targetsfrozenwhilewrongretry",
+    "Fixed size animal prompt/result/start wrappers without conflicting100%heightutilities",
+    "HeldmanualNextspecificlabels, exact packagedspeech usingcurrentmutestate; no newvoicejobs",
+    "Existing pair-safe persistence/replay/agefloors preserved; othergamesdefault unchanged",
+    "SixgeneratedlazyWebPs223974B; sourceoriginalsretainedonce, fallbackspreserved"
+  ],
+  "files": [
+    {
+      "path": "src/components/little/LittleGameShell.jsx",
+      "sha256": "e3b06d3de53d3ecfc26ab177a3bb7c9472d11cd1a85d0c6c5036df414e1b46d7"
+    },
+    {
+      "path": "src/components/little/games/FireRescue.jsx",
+      "sha256": "80b9239c0343369fcd15de0644b9ccb22a6ff3129385bafae15bee613596f3b8"
+    },
+    {
+      "path": "src/components/little/games/LadderRescue.jsx",
+      "sha256": "47954b9c8fa7ec1fbdf530ded9239da244d72e146454fa89d32a5f4202367516"
+    },
+    {
+      "path": "src/components/little/games/rescueMissionLogic.js",
+      "sha256": "d8baad619330caee918acec1225ca8deb746b922d66ffa6e4cf61db8b09f3f27"
+    },
+    {
+      "path": "test/rescueMissionLogic.test.mjs",
+      "sha256": "4e2ac1bf934dc704a1776f037275080480998d3b0ab0053ed9fbb71f7823493e"
+    },
+    {
+      "path": "public/sw.js",
+      "sha256": "4f2fafcfd4ba13f33dc3216b2ce961bcc03465871935bfc73fb3c3bbc124a35b"
+    },
+    {
+      "path": "src/data/pairLittleProgress.js",
+      "sha256": "94769a1535224658ac73e03c2b7aa5d39c76adbca60de0016b554fad64fe066f"
+    },
+    {
+      "path": "test/pairLittleProgress.test.mjs",
+      "sha256": "97c0c0e810489aa2bfe9161daa6dab274e0dbf17701f78f23a2e542a17284272"
+    },
+    {
+      "path": "src/discoveryPremium.css",
+      "sha256": "b0425db9a7e60df15fd2dcf4a5d6cb22470036bed25c6c0a08a3818226f47fc3"
+    }
+  ],
+  "nativeStatus": "B1fresh draft all3AmariFire levels passed at390x740; finalcaption-only delta awaits canonical all8 journeys",
+  "supersededCandidate": {
+    "runtime": "668e0bc0305226380b5be21faf6edc0faa4f8d63",
+    "entry": "/assets/arcade-CW22T82m.js",
+    "tests": 482
+  },
+  "nativeBlockerResolved": "Native Askia Fire completion found two-ID adapter allowlist refused new rescue IDs; now exactlyfour opted-in IDs are supported, with blocked read/write/readback, idempotentRetry/replay and migration behavior coverage. Earlier read-only review did not establish this integration.",
+  "additionalRepairs": [
+    "ActualEventTarget-tested pause binding adds freeze/resume andcleansup allhandlers; native visibility/freeze support must be reported honestly",
+    "Exact final count and completion line play as packaged sequence, avoiding450ms interruption of0.7895s numeral6clip",
+    "Regex-only tests replaced by actual used controller/segment-helper behavior tests",
+    "Definite window image boxes keep full portraits inside every floor; first grid-min sizing attempt failed and is retained as evidence",
+    "Opt-in compact rescue menus keep primary actions visible at390x740 with actual Discovery header",
+    "Fire max-width contains all authored targets inside shell; Ladder board chrome allowance preserves floor1 and truck atdesktop/mobile",
+    "Held wrong Ladder clue occupies empty upper-left sky and does not shift board or floors",
+    "Fresh draft normal earning both Levelup+Newsticker exposed32.66px action overflow at390x740; short-screen two-column rewards avoid stacking, decorative preview hidden while text/dots/action sizes remain",
+    "Compact result action captions have light backing and16px line-height, improving contrast on rescue artwork and reducing caption row height4px"
+  ],
+  "finalWindowFitRuntime": "91ea74a971e43dd30501489a7df7727a9a6e1886",
+  "finalWindowFitEntry": "/assets/arcade-CJ23FXQe.js",
+  "windowFitDelta": "final-window-box-build.json",
+  "visualReview": {
+    "art": "Five illustrated animal portraits and truck, exact lazy hashes in art-provenance.json",
+    "heldReview": "Root inspected Fire and Ladder390x740 held-review images; readable, no overlapping actions"
+  }
+}

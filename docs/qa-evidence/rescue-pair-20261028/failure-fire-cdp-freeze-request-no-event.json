@@ -1,0 +1,54 @@
+{
+  "passed": false,
+  "namespaced": true,
+  "entryIdentity": "/assets/arcade-CW22T82m.js",
+  "baseline": {
+    "progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+    "rewards": "{\"version\":2,\"points\":88,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\"]}",
+    "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+    "siblingRewards": "{\"version\":2,\"points\":189,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"]}"
+  },
+  "completedLevelRuns": [],
+  "levelRunCount": 0,
+  "rows": [
+    {
+      "kind": "baseline",
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+      "rewards": "{\"version\":2,\"points\":88,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\"]}",
+      "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+      "siblingRewards": "{\"version\":2,\"points\":189,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"]}",
+      "availableThrough": 1
+    },
+    {
+      "kind": "audio-and-leave-preflight",
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "leaveBranch": "Leave dialog \u2192 Back to home",
+      "exactPackagedClipObserved": true,
+      "mutePausedPlayback": true,
+      "uncommittedStorageUnchanged": true
+    }
+  ],
+  "errors": [
+    {
+      "message": "Fire 1 progress marker disappeared after renderer resume; {\"before\":17,\"frozenAt\":19,\"rafBeforeFreeze\":3,\"lifecycle\":{\"rafCount\":99,\"events\":[],\"visibility\":\"visible\"}}",
+      "stack": "Error: Fire 1 progress marker disappeared after renderer resume; {\"before\":17,\"frozenAt\":19,\"rafBeforeFreeze\":3,\"lifecycle\":{\"rafCount\":99,\"events\":[],\"visibility\":\"visible\"}}\n    at proveFireLifecycleFreeze (evalmachine.<anonymous>:181:25)\n    at async fireRound (evalmachine.<anonymous>:225:18)\n    at async runRescueFireLevel (evalmachine.<anonymous>:295:34)\n    at async evalmachine.<anonymous>:631:10\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)"
+    }
+  ],
+  "failures": [
+    {
+      "message": "Fire 1 progress marker disappeared after renderer resume; {\"before\":17,\"frozenAt\":19,\"rafBeforeFreeze\":3,\"lifecycle\":{\"rafCount\":99,\"events\":[],\"visibility\":\"visible\"}}",
+      "stack": "Error: Fire 1 progress marker disappeared after renderer resume; {\"before\":17,\"frozenAt\":19,\"rafBeforeFreeze\":3,\"lifecycle\":{\"rafCount\":99,\"events\":[],\"visibility\":\"visible\"}}\n    at proveFireLifecycleFreeze (evalmachine.<anonymous>:181:25)\n    at async fireRound (evalmachine.<anonymous>:225:18)\n    at async runRescueFireLevel (evalmachine.<anonymous>:295:34)\n    at async evalmachine.<anonymous>:631:10\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)",
+      "completedLevelRuns": 0,
+      "rows": 2
+    }
+  ],
+  "providerRequests": [],
+  "failedResources": [],
+  "pageErrors": [],
+  "consoleErrors": []
+}

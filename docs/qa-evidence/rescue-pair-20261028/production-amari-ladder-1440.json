@@ -1,0 +1,646 @@
+{
+  "passed": true,
+  "namespaced": true,
+  "entryIdentity": "/assets/arcade-DJc79J3o.js",
+  "baseline": {
+    "progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5dd46023-b18f-438b-910e-0d2bd729011b\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"91b6832d-5785-45eb-9d97-f16ec1abad6e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"f9172a88-adf4-498f-bf00-eeba08fcd962\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":3,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"00492065-9609-4a92-a48e-39984d3e6ad1\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1}}",
+    "rewards": "{\"version\":2,\"points\":258,\"gamesPlayed\":{\"counting\":1,\"timeteller\":3,\"numberline\":3,\"trace\":20,\"tictactoe\":10,\"shadowmatch\":2,\"phonics\":3,\"colormix\":18,\"oddoneout\":3,\"pattern\":3,\"astronaut\":4,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3,\"firerescue\":3,\"ladder\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\"]}",
+    "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"fd722888-a9b9-4968-942b-b1f963fd6b2e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3a5bb48f-1831-41eb-9700-6a46cd011e4a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"217f02c6-bdd0-4953-83a7-fc9190dfd532\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3c325bb4-fa50-4d99-8e9e-74c5e8a55ac3\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+    "siblingRewards": "{\"version\":2,\"points\":166,\"gamesPlayed\":{\"shadowmatch\":3,\"pattern\":3,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\"]}"
+  },
+  "completedLevelRuns": [
+    {
+      "game": "ladder",
+      "player": "amari",
+      "width": 1440,
+      "level": 3,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "level": 3,
+          "round": 1,
+          "prompt": "Hear again: Rescue the puppy!",
+          "targetFloor": 1,
+          "displayedFloors": 3,
+          "wrongAttempt": true,
+          "heldClue": "That is floor 2. Find the puppy, then try again.",
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the puppy from floor 1.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 3,
+          "round": 2,
+          "prompt": "Hear again: Rescue the animal on floor two!",
+          "targetFloor": 2,
+          "displayedFloors": 3,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the bunny from floor 2.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 98.984375,
+            "height": 64
+          }
+        },
+        {
+          "level": 3,
+          "round": 3,
+          "prompt": "Hear again: Rescue the chick!",
+          "targetFloor": 3,
+          "displayedFloors": 3,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the chick from floor 3.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 3,
+          "round": 4,
+          "prompt": "Hear again: Rescue the animal on floor one!",
+          "targetFloor": 1,
+          "displayedFloors": 3,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the panda from floor 1.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 94.53125,
+            "height": 64
+          }
+        },
+        {
+          "level": 3,
+          "round": 5,
+          "prompt": "Hear again: Rescue the kitten!",
+          "targetFloor": 2,
+          "displayedFloors": 3,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the kitten from floor 2.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        }
+      ],
+      "rescues": 5,
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 4,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "ladder",
+      "player": "amari",
+      "width": 1440,
+      "level": 4,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "level": 4,
+          "round": 1,
+          "prompt": "Hear again: Rescue the chick!",
+          "targetFloor": 1,
+          "displayedFloors": 4,
+          "wrongAttempt": true,
+          "heldClue": "That is floor 2. Find the chick, then try again.",
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the chick from floor 1.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 4,
+          "round": 2,
+          "prompt": "Hear again: Rescue the animal on floor two!",
+          "targetFloor": 2,
+          "displayedFloors": 4,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the panda from floor 2.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 98.984375,
+            "height": 64
+          }
+        },
+        {
+          "level": 4,
+          "round": 3,
+          "prompt": "Hear again: Rescue the kitten!",
+          "targetFloor": 3,
+          "displayedFloors": 4,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the kitten from floor 3.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 4,
+          "round": 4,
+          "prompt": "Hear again: Rescue the animal on floor four!",
+          "targetFloor": 4,
+          "displayedFloors": 4,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the puppy from floor 4.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 100.71875,
+            "height": 64
+          }
+        },
+        {
+          "level": 4,
+          "round": 5,
+          "prompt": "Hear again: Rescue the bunny!",
+          "targetFloor": 1,
+          "displayedFloors": 4,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the bunny from floor 1.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        }
+      ],
+      "rescues": 5,
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 5,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "ladder",
+      "player": "amari",
+      "width": 1440,
+      "level": 5,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "level": 5,
+          "round": 1,
+          "prompt": "Hear again: Rescue the kitten!",
+          "targetFloor": 1,
+          "displayedFloors": 5,
+          "wrongAttempt": true,
+          "heldClue": "That is floor 2. Find the kitten, then try again.",
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the kitten from floor 1.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 5,
+          "round": 2,
+          "prompt": "Hear again: Rescue the animal on floor two!",
+          "targetFloor": 2,
+          "displayedFloors": 5,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the puppy from floor 2.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 98.984375,
+            "height": 64
+          }
+        },
+        {
+          "level": 5,
+          "round": 3,
+          "prompt": "Hear again: Rescue the bunny!",
+          "targetFloor": 3,
+          "displayedFloors": 5,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the bunny from floor 3.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 5,
+          "round": 4,
+          "prompt": "Hear again: Rescue the animal on floor four!",
+          "targetFloor": 4,
+          "displayedFloors": 5,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the chick from floor 4.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 100.71875,
+            "height": 64
+          }
+        },
+        {
+          "level": 5,
+          "round": 5,
+          "prompt": "Hear again: Rescue the panda!",
+          "targetFloor": 5,
+          "displayedFloors": 5,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the panda from floor 5.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        }
+      ],
+      "rescues": 5,
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 6,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    }
+  ],
+  "levelRunCount": 3,
+  "rows": [
+    {
+      "kind": "baseline",
+      "game": "ladder",
+      "player": "amari",
+      "width": 1440,
+      "height": 844,
+      "progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5dd46023-b18f-438b-910e-0d2bd729011b\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"91b6832d-5785-45eb-9d97-f16ec1abad6e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"f9172a88-adf4-498f-bf00-eeba08fcd962\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":3,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"00492065-9609-4a92-a48e-39984d3e6ad1\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1}}",
+      "rewards": "{\"version\":2,\"points\":258,\"gamesPlayed\":{\"counting\":1,\"timeteller\":3,\"numberline\":3,\"trace\":20,\"tictactoe\":10,\"shadowmatch\":2,\"phonics\":3,\"colormix\":18,\"oddoneout\":3,\"pattern\":3,\"astronaut\":4,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3,\"firerescue\":3,\"ladder\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\"]}",
+      "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"fd722888-a9b9-4968-942b-b1f963fd6b2e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3a5bb48f-1831-41eb-9700-6a46cd011e4a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"217f02c6-bdd0-4953-83a7-fc9190dfd532\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3c325bb4-fa50-4d99-8e9e-74c5e8a55ac3\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+      "siblingRewards": "{\"version\":2,\"points\":166,\"gamesPlayed\":{\"shadowmatch\":3,\"pattern\":3,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\"]}",
+      "availableThrough": 5
+    },
+    {
+      "game": "ladder",
+      "player": "amari",
+      "width": 1440,
+      "level": 3,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "level": 3,
+          "round": 1,
+          "prompt": "Hear again: Rescue the puppy!",
+          "targetFloor": 1,
+          "displayedFloors": 3,
+          "wrongAttempt": true,
+          "heldClue": "That is floor 2. Find the puppy, then try again.",
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the puppy from floor 1.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 3,
+          "round": 2,
+          "prompt": "Hear again: Rescue the animal on floor two!",
+          "targetFloor": 2,
+          "displayedFloors": 3,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the bunny from floor 2.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 98.984375,
+            "height": 64
+          }
+        },
+        {
+          "level": 3,
+          "round": 3,
+          "prompt": "Hear again: Rescue the chick!",
+          "targetFloor": 3,
+          "displayedFloors": 3,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the chick from floor 3.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 3,
+          "round": 4,
+          "prompt": "Hear again: Rescue the animal on floor one!",
+          "targetFloor": 1,
+          "displayedFloors": 3,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the panda from floor 1.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 94.53125,
+            "height": 64
+          }
+        },
+        {
+          "level": 3,
+          "round": 5,
+          "prompt": "Hear again: Rescue the kitten!",
+          "targetFloor": 2,
+          "displayedFloors": 3,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the kitten from floor 2.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        }
+      ],
+      "rescues": 5,
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 4,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "ladder",
+      "player": "amari",
+      "width": 1440,
+      "level": 4,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "level": 4,
+          "round": 1,
+          "prompt": "Hear again: Rescue the chick!",
+          "targetFloor": 1,
+          "displayedFloors": 4,
+          "wrongAttempt": true,
+          "heldClue": "That is floor 2. Find the chick, then try again.",
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the chick from floor 1.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 4,
+          "round": 2,
+          "prompt": "Hear again: Rescue the animal on floor two!",
+          "targetFloor": 2,
+          "displayedFloors": 4,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the panda from floor 2.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 98.984375,
+            "height": 64
+          }
+        },
+        {
+          "level": 4,
+          "round": 3,
+          "prompt": "Hear again: Rescue the kitten!",
+          "targetFloor": 3,
+          "displayedFloors": 4,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the kitten from floor 3.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 4,
+          "round": 4,
+          "prompt": "Hear again: Rescue the animal on floor four!",
+          "targetFloor": 4,
+          "displayedFloors": 4,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the puppy from floor 4.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 100.71875,
+            "height": 64
+          }
+        },
+        {
+          "level": 4,
+          "round": 5,
+          "prompt": "Hear again: Rescue the bunny!",
+          "targetFloor": 1,
+          "displayedFloors": 4,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the bunny from floor 1.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        }
+      ],
+      "rescues": 5,
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 5,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "kind": "representative-render",
+      "game": "ladder",
+      "player": "amari",
+      "width": 1440,
+      "level": 5,
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/rescue-pair-20261028/production-amari-ladder-1440-L5-start.jpg"
+    },
+    {
+      "game": "ladder",
+      "player": "amari",
+      "width": 1440,
+      "level": 5,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "level": 5,
+          "round": 1,
+          "prompt": "Hear again: Rescue the kitten!",
+          "targetFloor": 1,
+          "displayedFloors": 5,
+          "wrongAttempt": true,
+          "heldClue": "That is floor 2. Find the kitten, then try again.",
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the kitten from floor 1.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 5,
+          "round": 2,
+          "prompt": "Hear again: Rescue the animal on floor two!",
+          "targetFloor": 2,
+          "displayedFloors": 5,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the puppy from floor 2.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 98.984375,
+            "height": 64
+          }
+        },
+        {
+          "level": 5,
+          "round": 3,
+          "prompt": "Hear again: Rescue the bunny!",
+          "targetFloor": 3,
+          "displayedFloors": 5,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the bunny from floor 3.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        },
+        {
+          "level": 5,
+          "round": 4,
+          "prompt": "Hear again: Rescue the animal on floor four!",
+          "targetFloor": 4,
+          "displayedFloors": 5,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the chick from floor 4.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 100.71875,
+            "height": 64
+          }
+        },
+        {
+          "level": 5,
+          "round": 5,
+          "prompt": "Hear again: Rescue the panda!",
+          "targetFloor": 5,
+          "displayedFloors": 5,
+          "wrongAttempt": false,
+          "heldClue": null,
+          "wrongFeedbackLayout": null,
+          "animationObserved": true,
+          "review": "You rescued the panda from floor 5.\n\nYou matched the clue to the right window.",
+          "promptBox": {
+            "width": 124,
+            "height": 64
+          }
+        }
+      ],
+      "rescues": 5,
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 6,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "kind": "reload-retention",
+      "level": 5,
+      "availableButtons": 3
+    },
+    {
+      "kind": "completed-parent-return",
+      "branch": "direct home navigation",
+      "parent": "Thinking & Play",
+      "url": "https://dinospace.netlify.app/?qa_rescue_pair6=amari-ladder-1440-1793234913367#/world/thinking"
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "providerRequests": [],
+  "failedResources": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "origin": "https://dinospace.netlify.app",
+  "player": "amari",
+  "game": "ladder",
+  "viewportWidth": 1440,
+  "viewportHeight": 844
+}

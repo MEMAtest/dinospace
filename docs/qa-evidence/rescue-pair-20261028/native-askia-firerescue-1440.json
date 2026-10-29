@@ -1,0 +1,1457 @@
+{
+  "passed": true,
+  "namespaced": true,
+  "entryIdentity": "/assets/arcade-CSnaMwhP.js",
+  "baseline": {
+    "progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":5,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"244958e2-7b2a-4b67-9204-3ad9578dd2ac\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":5,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"822e5aee-047a-4567-acb7-51d4b16b771f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1}}",
+    "rewards": "{\"version\":2,\"points\":168,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\"]}",
+    "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+    "siblingRewards": "{\"version\":2,\"points\":189,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"]}"
+  },
+  "completedLevelRuns": [
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 1,
+      "rounds": 3,
+      "roundDetails": [
+        {
+          "round": 1,
+          "expectedCount": 1,
+          "initialVisibleTargets": 1,
+          "reviewVisible": true,
+          "reviewText": "You put out all 1 fire.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "keyboard-space-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "expectedCount": 1,
+          "initialVisibleTargets": 1,
+          "reviewVisible": true,
+          "reviewText": "You put out all 1 fire.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "expectedCount": 2,
+          "initialVisibleTargets": 2,
+          "reviewVisible": true,
+          "reviewText": "You put out all 2 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nFinish game",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        }
+      ],
+      "targetsExtinguished": 4,
+      "inputActions": {
+        "keyboard": 1,
+        "pointer": 3,
+        "touchCancel": 0,
+        "lifecycle": []
+      },
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 6,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 2,
+      "rounds": 4,
+      "roundDetails": [
+        {
+          "round": 1,
+          "expectedCount": 1,
+          "initialVisibleTargets": 1,
+          "reviewVisible": true,
+          "reviewText": "You put out all 1 fire.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "keyboard-space-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "expectedCount": 2,
+          "initialVisibleTargets": 2,
+          "reviewVisible": true,
+          "reviewText": "You put out all 2 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "expectedCount": 2,
+          "initialVisibleTargets": 2,
+          "reviewVisible": true,
+          "reviewText": "You put out all 2 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nFinish game",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        }
+      ],
+      "targetsExtinguished": 8,
+      "inputActions": {
+        "keyboard": 1,
+        "pointer": 7,
+        "touchCancel": 0,
+        "lifecycle": []
+      },
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 7,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 3,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "round": 1,
+          "expectedCount": 2,
+          "initialVisibleTargets": 2,
+          "reviewVisible": true,
+          "reviewText": "You put out all 2 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "keyboard-space-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "expectedCount": 2,
+          "initialVisibleTargets": 2,
+          "reviewVisible": true,
+          "reviewText": "You put out all 2 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nFinish game",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        }
+      ],
+      "targetsExtinguished": 13,
+      "inputActions": {
+        "keyboard": 1,
+        "pointer": 12,
+        "touchCancel": 0,
+        "lifecycle": []
+      },
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 8,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 4,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "round": 1,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "keyboard-space-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "expectedCount": 4,
+          "initialVisibleTargets": 4,
+          "reviewVisible": true,
+          "reviewText": "You put out all 4 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "expectedCount": 4,
+          "initialVisibleTargets": 4,
+          "reviewVisible": true,
+          "reviewText": "You put out all 4 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "expectedCount": 5,
+          "initialVisibleTargets": 5,
+          "reviewVisible": true,
+          "reviewText": "You put out all 5 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nFinish game",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 5,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        }
+      ],
+      "targetsExtinguished": 19,
+      "inputActions": {
+        "keyboard": 1,
+        "pointer": 18,
+        "touchCancel": 0,
+        "lifecycle": []
+      },
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 9,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 5,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "round": 1,
+          "expectedCount": 4,
+          "initialVisibleTargets": 4,
+          "reviewVisible": true,
+          "reviewText": "You put out all 4 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "keyboard-space-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "expectedCount": 4,
+          "initialVisibleTargets": 4,
+          "reviewVisible": true,
+          "reviewText": "You put out all 4 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "expectedCount": 5,
+          "initialVisibleTargets": 5,
+          "reviewVisible": true,
+          "reviewText": "You put out all 5 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 5,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "expectedCount": 5,
+          "initialVisibleTargets": 5,
+          "reviewVisible": true,
+          "reviewText": "You put out all 5 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 5,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "expectedCount": 6,
+          "initialVisibleTargets": 6,
+          "reviewVisible": true,
+          "reviewText": "You put out all 6 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nFinish game",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 5,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 6,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        }
+      ],
+      "targetsExtinguished": 24,
+      "inputActions": {
+        "keyboard": 1,
+        "pointer": 23,
+        "touchCancel": 0,
+        "lifecycle": []
+      },
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 10,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    }
+  ],
+  "levelRunCount": 5,
+  "rows": [
+    {
+      "kind": "baseline",
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":5,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"244958e2-7b2a-4b67-9204-3ad9578dd2ac\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":5,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"822e5aee-047a-4567-acb7-51d4b16b771f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1}}",
+      "rewards": "{\"version\":2,\"points\":168,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\"]}",
+      "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+      "siblingRewards": "{\"version\":2,\"points\":189,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"]}",
+      "availableThrough": 5
+    },
+    {
+      "kind": "fire-count-audio-sequence",
+      "level": 1,
+      "round": 1,
+      "number": 1,
+      "numberClipStarted": true,
+      "numberClipEndedBeforeDone": true,
+      "doneClipStarted": true,
+      "doneClipEnded": false,
+      "events": [
+        {
+          "type": "play",
+          "src": "http://127.0.0.1:5180/audio/en/44a9aff3-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "playing",
+          "src": "http://127.0.0.1:5180/audio/en/44a9aff3-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "timeupdate",
+          "src": "http://127.0.0.1:5180/audio/en/44a9aff3-matilda.mp3",
+          "time": 0.243415
+        },
+        {
+          "type": "pause",
+          "src": "http://127.0.0.1:5180/audio/en/44a9aff3-matilda.mp3",
+          "time": 0.697958
+        },
+        {
+          "type": "ended",
+          "src": "http://127.0.0.1:5180/audio/en/44a9aff3-matilda.mp3",
+          "time": 0.697958
+        },
+        {
+          "type": "play",
+          "src": "http://127.0.0.1:5180/audio/en/86cd19bf-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "playing",
+          "src": "http://127.0.0.1:5180/audio/en/86cd19bf-matilda.mp3",
+          "time": 0
+        }
+      ]
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 1,
+      "rounds": 3,
+      "roundDetails": [
+        {
+          "round": 1,
+          "expectedCount": 1,
+          "initialVisibleTargets": 1,
+          "reviewVisible": true,
+          "reviewText": "You put out all 1 fire.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "keyboard-space-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "expectedCount": 1,
+          "initialVisibleTargets": 1,
+          "reviewVisible": true,
+          "reviewText": "You put out all 1 fire.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "expectedCount": 2,
+          "initialVisibleTargets": 2,
+          "reviewVisible": true,
+          "reviewText": "You put out all 2 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nFinish game",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        }
+      ],
+      "targetsExtinguished": 4,
+      "inputActions": {
+        "keyboard": 1,
+        "pointer": 3,
+        "touchCancel": 0,
+        "lifecycle": []
+      },
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 6,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 2,
+      "rounds": 4,
+      "roundDetails": [
+        {
+          "round": 1,
+          "expectedCount": 1,
+          "initialVisibleTargets": 1,
+          "reviewVisible": true,
+          "reviewText": "You put out all 1 fire.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "keyboard-space-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "expectedCount": 2,
+          "initialVisibleTargets": 2,
+          "reviewVisible": true,
+          "reviewText": "You put out all 2 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "expectedCount": 2,
+          "initialVisibleTargets": 2,
+          "reviewVisible": true,
+          "reviewText": "You put out all 2 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nFinish game",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        }
+      ],
+      "targetsExtinguished": 8,
+      "inputActions": {
+        "keyboard": 1,
+        "pointer": 7,
+        "touchCancel": 0,
+        "lifecycle": []
+      },
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 7,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 3,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "round": 1,
+          "expectedCount": 2,
+          "initialVisibleTargets": 2,
+          "reviewVisible": true,
+          "reviewText": "You put out all 2 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "keyboard-space-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "expectedCount": 2,
+          "initialVisibleTargets": 2,
+          "reviewVisible": true,
+          "reviewText": "You put out all 2 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nFinish game",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        }
+      ],
+      "targetsExtinguished": 13,
+      "inputActions": {
+        "keyboard": 1,
+        "pointer": 12,
+        "touchCancel": 0,
+        "lifecycle": []
+      },
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 8,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 4,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "round": 1,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "keyboard-space-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "expectedCount": 3,
+          "initialVisibleTargets": 3,
+          "reviewVisible": true,
+          "reviewText": "You put out all 3 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "expectedCount": 4,
+          "initialVisibleTargets": 4,
+          "reviewVisible": true,
+          "reviewText": "You put out all 4 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "expectedCount": 4,
+          "initialVisibleTargets": 4,
+          "reviewVisible": true,
+          "reviewText": "You put out all 4 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "expectedCount": 5,
+          "initialVisibleTargets": 5,
+          "reviewVisible": true,
+          "reviewText": "You put out all 5 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nFinish game",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 5,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        }
+      ],
+      "targetsExtinguished": 19,
+      "inputActions": {
+        "keyboard": 1,
+        "pointer": 18,
+        "touchCancel": 0,
+        "lifecycle": []
+      },
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 9,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "kind": "representative-render",
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 5,
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/rescue-pair-20261028/native-askia-firerescue-1440-L5-start.jpg"
+    },
+    {
+      "kind": "fire-count-audio-sequence",
+      "level": 5,
+      "round": 5,
+      "number": 6,
+      "numberClipStarted": true,
+      "numberClipEndedBeforeDone": true,
+      "doneClipStarted": true,
+      "doneClipEnded": false,
+      "events": [
+        {
+          "type": "play",
+          "src": "http://127.0.0.1:5180/audio/en/49a9b7d2-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "playing",
+          "src": "http://127.0.0.1:5180/audio/en/49a9b7d2-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "timeupdate",
+          "src": "http://127.0.0.1:5180/audio/en/49a9b7d2-matilda.mp3",
+          "time": 0.238996
+        },
+        {
+          "type": "pause",
+          "src": "http://127.0.0.1:5180/audio/en/49a9b7d2-matilda.mp3",
+          "time": 0.7895
+        },
+        {
+          "type": "ended",
+          "src": "http://127.0.0.1:5180/audio/en/49a9b7d2-matilda.mp3",
+          "time": 0.7895
+        },
+        {
+          "type": "play",
+          "src": "http://127.0.0.1:5180/audio/en/86cd19bf-matilda.mp3",
+          "time": 0
+        }
+      ]
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 1440,
+      "level": 5,
+      "rounds": 5,
+      "roundDetails": [
+        {
+          "round": 1,
+          "expectedCount": 4,
+          "initialVisibleTargets": 4,
+          "reviewVisible": true,
+          "reviewText": "You put out all 4 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "keyboard-space-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "expectedCount": 4,
+          "initialVisibleTargets": 4,
+          "reviewVisible": true,
+          "reviewText": "You put out all 4 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "expectedCount": 5,
+          "initialVisibleTargets": 5,
+          "reviewVisible": true,
+          "reviewText": "You put out all 5 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 5,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "expectedCount": 5,
+          "initialVisibleTargets": 5,
+          "reviewVisible": true,
+          "reviewText": "You put out all 5 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nNext round",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 5,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "expectedCount": 6,
+          "initialVisibleTargets": 6,
+          "reviewVisible": true,
+          "reviewText": "You put out all 6 fires.\n\nYou held the water on each flame until it went out.\n\nReady for the next rescue?\nFinish game",
+          "targetActions": [
+            {
+              "fire": 1,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 2,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 3,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 4,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 5,
+              "input": "mouse-hold",
+              "progressObserved": true
+            },
+            {
+              "fire": 6,
+              "input": "mouse-hold",
+              "progressObserved": true
+            }
+          ]
+        }
+      ],
+      "targetsExtinguished": 24,
+      "inputActions": {
+        "keyboard": 1,
+        "pointer": 23,
+        "touchCancel": 0,
+        "lifecycle": []
+      },
+      "stars": 3,
+      "rewardDelta": 0,
+      "expectedReward": 0,
+      "previousBest": 3,
+      "legacyCeiling": -1,
+      "plays": 10,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "kind": "reload-retention",
+      "level": 5,
+      "availableButtons": 5
+    },
+    {
+      "kind": "completed-parent-return",
+      "branch": "direct home navigation",
+      "parent": "Askia home",
+      "url": "http://127.0.0.1:5180/?qa_rescue_pair6=askia-firerescue-1440-1793228184028#/home"
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "providerRequests": [],
+  "failedResources": [],
+  "pageErrors": [],
+  "consoleErrors": []
+}

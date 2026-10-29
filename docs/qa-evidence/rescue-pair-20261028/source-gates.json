@@ -1,0 +1,82 @@
+{
+  "at": "2026-10-29T00:12:46.872788+00:00",
+  "runtime": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980",
+  "entry": "/assets/arcade-DJc79J3o.js",
+  "worker": "amari-discovery-v41",
+  "buildCommand": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "testCommand": "PWA_BUILD_DIR=dist npm test",
+  "testSummary": {
+    "tests": 485,
+    "passed": 485,
+    "failed": 0,
+    "skipped": 0
+  },
+  "gateReportedBy": "Root actual final compact-menu and contained-scene web build, 485 compiled PWA tests, scoped lint and diff tools",
+  "scopedLint": "pass",
+  "diffCheck": "pass",
+  "sha256": {
+    "html": "8c3add1c8aa007970b3359e535b210f3a481c3404dde1a0fb01af707765783da",
+    "entry": "533531237b5d5a1a05417fb4574a874093d4ccf860079f0e459285383941bbf4",
+    "worker": "ea74135911d084d692fd2fc647d3aea6375c19fd7ca676ec67080206723ad810"
+  },
+  "eagerBudget": {
+    "maxRequests": 163,
+    "maxBytes": 41943040,
+    "lazyRescueSpritesExcluded": true
+  },
+  "status": "485source/build passed; fresh combined-panel draft and final all8canonical journeys/retention passed",
+  "priorSourceCandidate": {
+    "runtime": "613191d2e0d88ce64544b487eb88939258a8ea0f",
+    "entry": "/assets/arcade-CSnaMwhP.js",
+    "sha256": {
+      "html": "efcb65360ee83e1c65aff729206d7c2a0152bc12cbc66a7280ee763365161625",
+      "entry": "4a934267d311c4421168487998d8d2a0f329e4b43d0edb4cc9bb3ed75071b513",
+      "worker": "9a6f5780243f540fac0d868388c83da04689e28935ccf50c3e8cc8d7b19ce312"
+    }
+  },
+  "visualDelta": "final-window-box-build.json",
+  "previousWindowFitCandidate": {
+    "runtime": "92bb9ff17c1978848dee13f1b6fa3ffa4d2a5d1d",
+    "entry": "/assets/arcade-Cpmc0lnT.js",
+    "sha256": {
+      "html": "eddb16bb1f6a4b3795a3985787819c2e14019eb9dc9c872f0c2326a359344d43",
+      "entry": "95d047e71abf2f34da1ac8cc8755b3115277b23d34860b79de216bd059169435",
+      "worker": "5fc1b26c358c151c2c8f96fc302e262b58406e1a6075d430ddeccfdc3c418a20"
+    }
+  },
+  "previousWindowBoxCandidate": {
+    "runtime": "91ea74a971e43dd30501489a7df7727a9a6e1886",
+    "entry": "/assets/arcade-CJ23FXQe.js",
+    "sha256": {
+      "html": "4ac6740a882f56b39fa400f2379a30fef89ce75ed72152c5bc110bff590eb695",
+      "entry": "ccb4844c16d190cdf3c4633196b189413fccfdde279a54890487b5a5557c80bc",
+      "worker": "0306bc3edbd1c5841e9693f528d4d8467e7506587d342e374800b0927de6da13"
+    }
+  },
+  "finalLayoutDelta": {
+    "runtime": "23ec0567962062e5b3345c2c33f59411a764fdda",
+    "optInOnly": true,
+    "shortPhone": "390x740",
+    "scenes": "Fire contained in Discovery shell; Ladder fixed board geometry through retry",
+    "primaryActions": "Start, held Next, save Retry and Done measured without scrolling",
+    "rewardPanels": "Two-column grid onshortscreens preserves written level goal and big actions; draft yX failure retained"
+  },
+  "previousCompiledMatrixCandidate": {
+    "runtime": "511b084aa43ae4fa26ebeda6f46394e3dcd663c8",
+    "entry": "/assets/arcade-yXJp7WKR.js",
+    "sha256": {
+      "html": "dc868f040508b622c952287f7ae66ba8217e11923c9012ede3dcebfd07bf814e",
+      "entry": "94332c6a7c12e297f5d07ebc070225f530340e57046e92875b05dfa4b0f0320d",
+      "worker": "d754671ec1d168625e25db88ed33bd4e823a33090a0be420643711026066dd52"
+    }
+  },
+  "freshRewardPanelPassedCandidate": {
+    "runtime": "23ec0567962062e5b3345c2c33f59411a764fdda",
+    "entry": "/assets/arcade-B1DOCkSs.js",
+    "sha256": {
+      "html": "f6050975b67a1d9c3cfc55d4406f1ba4f1aef8c8a1295aeada9b48b157204529",
+      "entry": "49964e1ead5343e9113063732a78a5d2ca844892436180aa3e3bfc1e730adb85",
+      "worker": "80a2bfc5d3822b71b5326062ba89fa3de39537d1b3acc3512e10398336491737"
+    }
+  }
+}

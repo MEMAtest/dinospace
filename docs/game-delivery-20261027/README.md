@@ -6,7 +6,7 @@ The catalogue has34activities; the older quality ledger covers26. Reconcile actu
 
 ## Active pair
 
-**Rocket Builder + Fuel Up**. The first four pairs are live-verified. Audit and uplift the actual building/fuel learning journeys, preserving good current art and controls; verify the whole pair live before advancing.
+**Dino Detective + Dino Hangman**. The first six pairs are live-verified. Audit the actual clue/word learning journeys, strengthen difficulty and variety, preserve useful dinosaur art and controls, and verify the whole pair live before advancing.
 
 ## Workflow
 

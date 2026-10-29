@@ -1,0 +1,304 @@
+{
+  "passed": true,
+  "namespaced": true,
+  "entryIdentity": "/assets/arcade-CSnaMwhP.js",
+  "baseline": {
+    "progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+    "rewards": "{\"version\":2,\"points\":88,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\"]}",
+    "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+    "siblingRewards": "{\"version\":2,\"points\":189,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"]}"
+  },
+  "completedLevelRuns": [
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "level": 1,
+      "rounds": 3,
+      "stars": 3,
+      "rewardDelta": 8,
+      "expectedReward": 8,
+      "previousBest": 0,
+      "legacyCeiling": -1,
+      "plays": 1,
+      "highestLevel": 2,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "level": 2,
+      "rounds": 4,
+      "stars": 3,
+      "rewardDelta": 8,
+      "expectedReward": 8,
+      "previousBest": 0,
+      "legacyCeiling": -1,
+      "plays": 2,
+      "highestLevel": 3,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "level": 3,
+      "rounds": 5,
+      "stars": 3,
+      "rewardDelta": 8,
+      "expectedReward": 8,
+      "previousBest": 0,
+      "legacyCeiling": -1,
+      "plays": 3,
+      "highestLevel": 4,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "level": 4,
+      "rounds": 5,
+      "stars": 3,
+      "rewardDelta": 8,
+      "expectedReward": 8,
+      "previousBest": 0,
+      "legacyCeiling": -1,
+      "plays": 4,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "level": 5,
+      "rounds": 5,
+      "stars": 3,
+      "rewardDelta": 8,
+      "expectedReward": 8,
+      "previousBest": 0,
+      "legacyCeiling": -1,
+      "plays": 5,
+      "highestLevel": 5,
+      "blockedSaveRetried": true
+    }
+  ],
+  "levelRunCount": 5,
+  "rows": [
+    {
+      "kind": "baseline",
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+      "rewards": "{\"version\":2,\"points\":88,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\"]}",
+      "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+      "siblingRewards": "{\"version\":2,\"points\":189,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"]}",
+      "availableThrough": 1
+    },
+    {
+      "kind": "audio-and-leave-preflight",
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "leaveBranch": "Leave dialog \u2192 Back to home",
+      "exactPackagedClipObserved": true,
+      "mutePausedPlayback": true,
+      "uncommittedStorageUnchanged": true
+    },
+    {
+      "kind": "fire-count-audio-sequence",
+      "level": 1,
+      "round": 1,
+      "number": 1,
+      "numberClipStarted": true,
+      "numberClipEndedBeforeDone": true,
+      "doneClipStarted": true,
+      "doneClipEnded": false,
+      "events": [
+        {
+          "type": "play",
+          "src": "http://127.0.0.1:5180/audio/en/44a9aff3-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "playing",
+          "src": "http://127.0.0.1:5180/audio/en/44a9aff3-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "timeupdate",
+          "src": "http://127.0.0.1:5180/audio/en/44a9aff3-matilda.mp3",
+          "time": 0.234434
+        },
+        {
+          "type": "pause",
+          "src": "http://127.0.0.1:5180/audio/en/44a9aff3-matilda.mp3",
+          "time": 0.697958
+        },
+        {
+          "type": "ended",
+          "src": "http://127.0.0.1:5180/audio/en/44a9aff3-matilda.mp3",
+          "time": 0.697958
+        },
+        {
+          "type": "play",
+          "src": "http://127.0.0.1:5180/audio/en/86cd19bf-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "playing",
+          "src": "http://127.0.0.1:5180/audio/en/86cd19bf-matilda.mp3",
+          "time": 0
+        }
+      ]
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "level": 1,
+      "rounds": 3,
+      "stars": 3,
+      "rewardDelta": 8,
+      "expectedReward": 8,
+      "previousBest": 0,
+      "legacyCeiling": -1,
+      "plays": 1,
+      "highestLevel": 2,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "level": 2,
+      "rounds": 4,
+      "stars": 3,
+      "rewardDelta": 8,
+      "expectedReward": 8,
+      "previousBest": 0,
+      "legacyCeiling": -1,
+      "plays": 2,
+      "highestLevel": 3,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "level": 3,
+      "rounds": 5,
+      "stars": 3,
+      "rewardDelta": 8,
+      "expectedReward": 8,
+      "previousBest": 0,
+      "legacyCeiling": -1,
+      "plays": 3,
+      "highestLevel": 4,
+      "blockedSaveRetried": false
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "level": 4,
+      "rounds": 5,
+      "stars": 3,
+      "rewardDelta": 8,
+      "expectedReward": 8,
+      "previousBest": 0,
+      "legacyCeiling": -1,
+      "plays": 4,
+      "highestLevel": 5,
+      "blockedSaveRetried": false
+    },
+    {
+      "kind": "fire-count-audio-sequence",
+      "level": 5,
+      "round": 5,
+      "number": 6,
+      "numberClipStarted": true,
+      "numberClipEndedBeforeDone": true,
+      "doneClipStarted": true,
+      "doneClipEnded": false,
+      "events": [
+        {
+          "type": "play",
+          "src": "http://127.0.0.1:5180/audio/en/49a9b7d2-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "playing",
+          "src": "http://127.0.0.1:5180/audio/en/49a9b7d2-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "timeupdate",
+          "src": "http://127.0.0.1:5180/audio/en/49a9b7d2-matilda.mp3",
+          "time": 0.242785
+        },
+        {
+          "type": "pause",
+          "src": "http://127.0.0.1:5180/audio/en/49a9b7d2-matilda.mp3",
+          "time": 0.7895
+        },
+        {
+          "type": "ended",
+          "src": "http://127.0.0.1:5180/audio/en/49a9b7d2-matilda.mp3",
+          "time": 0.7895
+        },
+        {
+          "type": "play",
+          "src": "http://127.0.0.1:5180/audio/en/86cd19bf-matilda.mp3",
+          "time": 0
+        },
+        {
+          "type": "playing",
+          "src": "http://127.0.0.1:5180/audio/en/86cd19bf-matilda.mp3",
+          "time": 0
+        }
+      ]
+    },
+    {
+      "kind": "save-failure-held",
+      "level": 5,
+      "progressUnchanged": true,
+      "rewardsUnchanged": true
+    },
+    {
+      "game": "firerescue",
+      "player": "askia",
+      "width": 390,
+      "level": 5,
+      "rounds": 5,
+      "stars": 3,
+      "rewardDelta": 8,
+      "expectedReward": 8,
+      "previousBest": 0,
+      "legacyCeiling": -1,
+      "plays": 5,
+      "highestLevel": 5,
+      "blockedSaveRetried": true
+    },
+    {
+      "kind": "reload-retention",
+      "level": 5,
+      "availableButtons": 5
+    },
+    {
+      "kind": "completed-parent-return",
+      "branch": "direct home navigation",
+      "parent": "Askia home",
+      "url": "http://127.0.0.1:5180/?qa_rescue_pair6=askia-firerescue-390-1793227812228#/home"
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "providerRequests": [],
+  "failedResources": [],
+  "pageErrors": [],
+  "consoleErrors": []
+}

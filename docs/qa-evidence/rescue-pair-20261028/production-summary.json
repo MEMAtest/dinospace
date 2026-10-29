@@ -1,0 +1,207 @@
+{
+  "at": "2026-10-29T00:50:00.309816+00:00",
+  "passed": true,
+  "runtime": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980",
+  "entry": "/assets/arcade-DJc79J3o.js",
+  "worker": "amari-discovery-v41",
+  "publicUrl": "https://dinospace.netlify.app",
+  "matrix": [
+    {
+      "report": "production-askia-firerescue-390.json",
+      "player": "askia",
+      "game": "firerescue",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "levelRuns": 5,
+      "rounds": 22,
+      "targetsExtinguished": 68,
+      "rescues": 0,
+      "rewardDeltas": [
+        8,
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "report": "production-askia-firerescue-1440.json",
+      "player": "askia",
+      "game": "firerescue",
+      "width": 1440,
+      "height": 844,
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "levelRuns": 5,
+      "rounds": 22,
+      "targetsExtinguished": 68,
+      "rescues": 0,
+      "rewardDeltas": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "report": "production-askia-ladder-390.json",
+      "player": "askia",
+      "game": "ladder",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "levelRuns": 5,
+      "rounds": 22,
+      "targetsExtinguished": 0,
+      "rescues": 22,
+      "rewardDeltas": [
+        8,
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "report": "production-askia-ladder-1440.json",
+      "player": "askia",
+      "game": "ladder",
+      "width": 1440,
+      "height": 844,
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "levelRuns": 5,
+      "rounds": 22,
+      "targetsExtinguished": 0,
+      "rescues": 22,
+      "rewardDeltas": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "report": "production-amari-firerescue-390.json",
+      "player": "amari",
+      "game": "firerescue",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        3,
+        4,
+        5
+      ],
+      "levelRuns": 3,
+      "rounds": 15,
+      "targetsExtinguished": 56,
+      "rescues": 0,
+      "rewardDeltas": [
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "report": "production-amari-firerescue-1440.json",
+      "player": "amari",
+      "game": "firerescue",
+      "width": 1440,
+      "height": 844,
+      "levels": [
+        3,
+        4,
+        5
+      ],
+      "levelRuns": 3,
+      "rounds": 15,
+      "targetsExtinguished": 56,
+      "rescues": 0,
+      "rewardDeltas": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "report": "production-amari-ladder-390.json",
+      "player": "amari",
+      "game": "ladder",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        3,
+        4,
+        5
+      ],
+      "levelRuns": 3,
+      "rounds": 15,
+      "targetsExtinguished": 0,
+      "rescues": 15,
+      "rewardDeltas": [
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "report": "production-amari-ladder-1440.json",
+      "player": "amari",
+      "game": "ladder",
+      "width": 1440,
+      "height": 844,
+      "levels": [
+        3,
+        4,
+        5
+      ],
+      "levelRuns": 3,
+      "rounds": 15,
+      "targetsExtinguished": 0,
+      "rescues": 15,
+      "rewardDeltas": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "totals": {
+    "journeys": 8,
+    "levelRuns": 32,
+    "fireRounds": 74,
+    "ladderRounds": 74,
+    "firesExtinguished": 248,
+    "rescues": 74,
+    "providerRequests": 0,
+    "pageErrors": 0,
+    "consoleErrors": 0,
+    "failedResources": 0
+  },
+  "scope": "Final-source functional production acceptance for this pair; no editorial/listening score or historical family-book recovery claim."
+}

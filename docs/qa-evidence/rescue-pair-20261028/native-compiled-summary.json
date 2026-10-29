@@ -1,0 +1,39 @@
+{
+  "candidate": {
+    "sourceCommit": "511b084aa43ae4fa26ebeda6f46394e3dcd663c8",
+    "entry": "/assets/arcade-yXJp7WKR.js",
+    "worker": 41,
+    "sourceGates": "source-gates.json"
+  },
+  "compiledMatrix": {
+    "status": "passed",
+    "finalEntryFullViewportJourneys": [
+      {"player":"askia","game":"ladder","viewports":[390,1440],"eligibleLevelsPerViewport":5,"reports":["native-askia-ladder-390.json","native-askia-ladder-1440.json"]},
+      {"player":"amari","game":"ladder","viewports":[390,1440],"eligibleLevelsPerViewport":3,"levels":"3–5","reports":["native-amari-ladder-390.json","native-amari-ladder-1440.json"]},
+      {"player":"amari","game":"firerescue","viewports":[390,1440],"eligibleLevelsPerViewport":3,"levels":"3–5","reports":["native-amari-firerescue-390.json","native-amari-firerescue-1440.json"]}
+    ],
+    "finalSourceFullViewportLevelRuns":22,
+    "focused390x740Proof": [
+      {"player":"amari","game":"ladder","level":5,"report":"native-amari-ladder-390x740.json","checks":["start/held Next/save Retry/done action visible without scroll","wrong-answer clue held","floor target rectangles and board unchanged through wrong retry","animal portrait contained in floor frame","reload and exact parent return"]},
+      {"player":"amari","game":"firerescue","level":5,"report":"native-amari-firerescue-390x740.json","checks":["start/held Next/save Retry/done action visible without scroll","scene contained in Discovery frame","packaged number 6 clip ends before completion clip","reload and exact parent return"]}
+    ],
+    "finalSourceFocusedShortHeightRuns":2,
+    "saveRetryReplayReloadIsolation": "Each final-source journey records completion only after commit, blocked-write Retry, replay with no duplicate reward, reload retention, sibling/game-row comparisons, and exact parent return.",
+    "providerRequests": 0,
+    "failedResources": 0,
+    "pageErrors": 0,
+    "consoleErrors": 0
+  },
+  "qualifiedEarlierEvidence": {
+    "reports": ["native-askia-firerescue-390.json","native-askia-firerescue-1440.json"],
+    "entry": "/assets/arcade-CSnaMwhP.js",
+    "levels": "1–5",
+    "qualification": "Historical compiled functional journeys before compact menu/scene-bound shell changes; useful for Fire mechanic evidence but not bound to final yX candidate."
+  },
+  "limitations": [
+    "A visible headless CDP renderer-freeze attempt did not yield actual freeze/resume or hidden-visibility events. Source cancellation helpers are behavior-tested; the native record does not claim genuine hidden-tab coverage.",
+    "Native checks verify packaged audio playback sequencing and cancellation controls, not human listening quality.",
+    "Production release and full public matrix are pending root's immutable/draft/canonical gates."
+  ],
+  "browserLease": {"owner":"remaining-games-batch6","released":true,"profileRetained":true,"dataReset":false}
+}

@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-29T00:47:27.326562+00:00",
+  "duplicates": [
+    {
+      "path": "native-askia-firerescue-1440-L5-start.jpg",
+      "retainedCanonical": "production-askia-firerescue-1440-L5-start.jpg",
+      "sha256": "4dbe1daa24cbe26509cb49c04e1a47b1a803b304651a1dac7b83d112844be4cd",
+      "replacedDuplicateBytes": 138651,
+      "kind": "relative link preserves historical evidence path"
+    },
+    {
+      "path": "native-amari-firerescue-390x740-save-retry.jpg",
+      "retainedCanonical": "production-amari-firerescue-390x740-save-retry.jpg",
+      "sha256": "2ceb8b494cafff144f598c1028c51a0be770d3b86e510c044839e08bd547b91b",
+      "replacedDuplicateBytes": 63924,
+      "kind": "relative link preserves historical evidence path"
+    },
+    {
+      "path": "draft-amari-firerescue-390x740-save-retry.jpg",
+      "retainedCanonical": "production-amari-firerescue-390x740-save-retry.jpg",
+      "sha256": "2ceb8b494cafff144f598c1028c51a0be770d3b86e510c044839e08bd547b91b",
+      "replacedDuplicateBytes": 63924,
+      "kind": "relative link preserves historical evidence path"
+    },
+    {
+      "path": "native-amari-firerescue-390x740-L5-start.jpg",
+      "retainedCanonical": "production-amari-firerescue-390x740-L5-start.jpg",
+      "sha256": "39aad5fe6fa2d854786afb8f16961d4bf173ea177f08eeb72901b49ed5330226",
+      "replacedDuplicateBytes": 57033,
+      "kind": "relative link preserves historical evidence path"
+    },
+    {
+      "path": "failure-amari-firerescue-390.jpg",
+      "retainedCanonical": "failure-amari-firerescue-390-fresh-done-action-offscreen.jpg",
+      "sha256": "f6e62506de7657c538ad5f6f9dc0f3726d89e2a6e643e3249b36a53a7ebaab24",
+      "replacedDuplicateBytes": 53660,
+      "kind": "relative link preserves historical evidence path"
+    }
+  ],
+  "removedTaskOwnedBytecode": [
+    {
+      "path": "__pycache__/run-public-qa.cpython-314.pyc",
+      "bytes": 4152
+    },
+    {
+      "path": "__pycache__/aggregate-public.cpython-314.pyc",
+      "bytes": 5474
+    },
+    {
+      "path": "__pycache__/run-native-matrix.cpython-314.pyc",
+      "bytes": 3967
+    }
+  ],
+  "reclaimedBytes": 390785,
+  "worktreesCreated": 0,
+  "dependencyInstalls": 0,
+  "profileCleared": false,
+  "originalGeneratedArtwork": "9,404,979bytes retained once in existing generated_images folder, provenance records exact paths/hashes",
+  "scope": "Only exact duplicates and generated task bytecode inside this pair evidence; unique failures/JSON, original assets, unrelated work and browser data retained.",
+  "finalRecordedAt": "2026-10-29T00:51:28.522064+00:00",
+  "finalEvidenceKiB": 4972,
+  "retainedProfileMiB": 751,
+  "freeGiBAtHandoff": 86,
+  "additionalWorktrees": 0,
+  "dependencyInstallBytes": 0,
+  "profileMaintenance": "Existing retained profile exceeds256MiB; preserved intentionally, no cache/data/lock clearing or new profile."
+}

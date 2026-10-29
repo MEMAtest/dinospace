@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-28T23:06:42.347186+00:00",
+  "runtime": "91ea74a971e43dd30501489a7df7727a9a6e1886",
+  "entry": "/assets/arcade-CJ23FXQe.js",
+  "worker": "amari-discovery-v41",
+  "buildCommand": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "testsCommand": "PWA_BUILD_DIR=dist npm test",
+  "testSummary": {
+    "tests": 485,
+    "passed": 485,
+    "skipped": 0,
+    "failed": 0
+  },
+  "rootTestLog": "tmp/pair6-final-window-box-tests.log",
+  "sha256": {
+    "html": "4ac6740a882f56b39fa400f2379a30fef89ce75ed72152c5bc110bff590eb695",
+    "entry": "ccb4844c16d190cdf3c4633196b189413fccfdde279a54890487b5a5557c80bc",
+    "worker": "0306bc3edbd1c5841e9693f528d4d8467e7506587d342e374800b0927de6da13"
+  },
+  "delta": "Only Ladder floor-window layout: replace intrinsic grid tracks with absolute inset image boxes inside the definite window frame. No Fire, controller, shell or persistence source change.",
+  "unchangedSource": [
+    {
+      "path": "src/components/little/games/FireRescue.jsx",
+      "sha256": "9c81f491bcf0ad602a9c2703dcd5db2fec81fa1724bc5ffa75609932791dab7a"
+    },
+    {
+      "path": "src/components/little/games/rescueMissionLogic.js",
+      "sha256": "d8baad619330caee918acec1225ca8deb746b922d66ffa6e4cf61db8b09f3f27"
+    },
+    {
+      "path": "src/components/little/LittleGameShell.jsx",
+      "sha256": "bf0795f99547b08cb1b200b11e5f64e85b27f776d70b11be28792152a06c96cb"
+    },
+    {
+      "path": "src/data/pairLittleProgress.js",
+      "sha256": "94769a1535224658ac73e03c2b7aa5d39c76adbca60de0016b554fad64fe066f"
+    }
+  ],
+  "visualProof": "window-fit-computed-before.json / window-fit-computed-after.json / window-fit-390.jpg",
+  "visualResult": "All five full object-contain images are80.2969\u00d741.875 within96.2969\u00d757.875 windowframes; profile records unchanged after normal unlocked Level5 start; exact Askia home return."
+}

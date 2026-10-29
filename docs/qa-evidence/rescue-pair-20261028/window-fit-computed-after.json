@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "namespaced": true,
+  "entry": "/assets/arcade-CJ23FXQe.js",
+  "floors": [
+    {
+      "label": "Floor 1, the panda",
+      "frame": {
+        "x": 241.1875,
+        "y": 484.9375,
+        "width": 96.296875,
+        "height": 57.875,
+        "right": 337.484375,
+        "bottom": 542.8125
+      },
+      "image": {
+        "x": 249.1875,
+        "y": 492.9375,
+        "width": 80.296875,
+        "height": 41.875,
+        "right": 329.484375,
+        "bottom": 534.8125
+      },
+      "objectFit": "contain",
+      "src": "http://127.0.0.1:5180/art/rescue-animals-v2/animal-panda.webp"
+    },
+    {
+      "label": "Floor 2, the kitten",
+      "frame": {
+        "x": 241.1875,
+        "y": 412.59375,
+        "width": 96.296875,
+        "height": 57.875,
+        "right": 337.484375,
+        "bottom": 470.46875
+      },
+      "image": {
+        "x": 249.1875,
+        "y": 420.59375,
+        "width": 80.296875,
+        "height": 41.875,
+        "right": 329.484375,
+        "bottom": 462.46875
+      },
+      "objectFit": "contain",
+      "src": "http://127.0.0.1:5180/art/rescue-animals-v2/animal-kitten.webp"
+    },
+    {
+      "label": "Floor 3, the puppy",
+      "frame": {
+        "x": 241.1875,
+        "y": 340.234375,
+        "width": 96.296875,
+        "height": 57.875,
+        "right": 337.484375,
+        "bottom": 398.109375
+      },
+      "image": {
+        "x": 249.1875,
+        "y": 348.234375,
+        "width": 80.296875,
+        "height": 41.875,
+        "right": 329.484375,
+        "bottom": 390.109375
+      },
+      "objectFit": "contain",
+      "src": "http://127.0.0.1:5180/art/rescue-animals-v2/animal-puppy.webp"
+    },
+    {
+      "label": "Floor 4, the bunny",
+      "frame": {
+        "x": 241.1875,
+        "y": 267.875,
+        "width": 96.296875,
+        "height": 57.875,
+        "right": 337.484375,
+        "bottom": 325.75
+      },
+      "image": {
+        "x": 249.1875,
+        "y": 275.875,
+        "width": 80.296875,
+        "height": 41.875,
+        "right": 329.484375,
+        "bottom": 317.75
+      },
+      "objectFit": "contain",
+      "src": "http://127.0.0.1:5180/art/rescue-animals-v2/animal-bunny.webp"
+    },
+    {
+      "label": "Floor 5, the chick",
+      "frame": {
+        "x": 241.1875,
+        "y": 195.515625,
+        "width": 96.296875,
+        "height": 57.875,
+        "right": 337.484375,
+        "bottom": 253.390625
+      },
+      "image": {
+        "x": 249.1875,
+        "y": 203.515625,
+        "width": 80.296875,
+        "height": 41.875,
+        "right": 329.484375,
+        "bottom": 245.390625
+      },
+      "objectFit": "contain",
+      "src": "http://127.0.0.1:5180/art/rescue-animals-v2/animal-chick.webp"
+    }
+  ],
+  "overflow": false,
+  "recordsUnchanged": true
+}

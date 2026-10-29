@@ -1,0 +1,54 @@
+{
+  "passed": false,
+  "namespaced": true,
+  "entryIdentity": "/assets/arcade-CJ23FXQe.js",
+  "baseline": {
+    "progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+    "rewards": "{\"version\":2,\"points\":189,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"]}",
+    "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"c99b6da6-342c-4ab6-93e0-67509face92a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":19,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"c81a1a3b-c0b8-4e34-bcee-22ef2dff262a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+    "siblingRewards": "{\"version\":2,\"points\":168,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\"]}"
+  },
+  "completedLevelRuns": [],
+  "levelRunCount": 0,
+  "rows": [
+    {
+      "kind": "baseline",
+      "game": "ladder",
+      "player": "amari",
+      "width": 390,
+      "progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+      "rewards": "{\"version\":2,\"points\":189,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"]}",
+      "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"c99b6da6-342c-4ab6-93e0-67509face92a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":19,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"c81a1a3b-c0b8-4e34-bcee-22ef2dff262a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+      "siblingRewards": "{\"version\":2,\"points\":168,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\"]}",
+      "availableThrough": 3
+    },
+    {
+      "kind": "audio-and-leave-preflight",
+      "game": "ladder",
+      "player": "amari",
+      "width": 390,
+      "leaveBranch": "Leave dialog \u2192 Back to world",
+      "exactPackagedClipObserved": true,
+      "mutePausedPlayback": true,
+      "uncommittedStorageUnchanged": true
+    }
+  ],
+  "errors": [
+    {
+      "message": "Ladder start button is outside the viewport: {\"rect\":{\"x\":131,\"y\":826,\"width\":128,\"height\":128,\"right\":259,\"bottom\":954},\"viewport\":{\"width\":390,\"height\":844}}",
+      "stack": "Error: Ladder start button is outside the viewport: {\"rect\":{\"x\":131,\"y\":826,\"width\":128,\"height\":128,\"right\":259,\"bottom\":954},\"viewport\":{\"width\":390,\"height\":844}}\n    at must (evalmachine.<anonymous>:359:27)\n    at box (evalmachine.<anonymous>:369:5)\n    at async runRescueLadderLevel (evalmachine.<anonymous>:404:3)\n    at async evalmachine.<anonymous>:703:10\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)"
+    }
+  ],
+  "failures": [
+    {
+      "message": "Ladder start button is outside the viewport: {\"rect\":{\"x\":131,\"y\":826,\"width\":128,\"height\":128,\"right\":259,\"bottom\":954},\"viewport\":{\"width\":390,\"height\":844}}",
+      "stack": "Error: Ladder start button is outside the viewport: {\"rect\":{\"x\":131,\"y\":826,\"width\":128,\"height\":128,\"right\":259,\"bottom\":954},\"viewport\":{\"width\":390,\"height\":844}}\n    at must (evalmachine.<anonymous>:359:27)\n    at box (evalmachine.<anonymous>:369:5)\n    at async runRescueLadderLevel (evalmachine.<anonymous>:404:3)\n    at async evalmachine.<anonymous>:703:10\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)",
+      "completedLevelRuns": 0,
+      "rows": 2
+    }
+  ],
+  "providerRequests": [],
+  "failedResources": [],
+  "pageErrors": [],
+  "consoleErrors": []
+}

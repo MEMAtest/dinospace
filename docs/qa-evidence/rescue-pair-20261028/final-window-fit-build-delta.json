@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-28T22:59:57.359663+00:00",
+  "runtime": "92bb9ff17c1978848dee13f1b6fa3ffa4d2a5d1d",
+  "entry": "/assets/arcade-Cpmc0lnT.js",
+  "worker": "amari-discovery-v41",
+  "deltaFrom613191d2": "Two Ladder floor-image layout lines only; bound fixed images inside min-size-reset window grids and remove idle rotation. Fire/controller/persistence/shell source hashes unchanged.",
+  "unchangedFiles": [
+    {
+      "path": "src/components/little/games/FireRescue.jsx",
+      "sha256": "9c81f491bcf0ad602a9c2703dcd5db2fec81fa1724bc5ffa75609932791dab7a"
+    },
+    {
+      "path": "src/components/little/games/rescueMissionLogic.js",
+      "sha256": "d8baad619330caee918acec1225ca8deb746b922d66ffa6e4cf61db8b09f3f27"
+    },
+    {
+      "path": "src/components/little/LittleGameShell.jsx",
+      "sha256": "bf0795f99547b08cb1b200b11e5f64e85b27f776d70b11be28792152a06c96cb"
+    },
+    {
+      "path": "src/data/pairLittleProgress.js",
+      "sha256": "94769a1535224658ac73e03c2b7aa5d39c76adbca60de0016b554fad64fe066f"
+    }
+  ],
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "testCommand": "PWA_BUILD_DIR=dist npm test",
+  "tests": 485,
+  "passed": 485,
+  "skipped": 0,
+  "scopedLint": "pass",
+  "diffCheck": "pass",
+  "sha256": {
+    "html": "eddb16bb1f6a4b3795a3985787819c2e14019eb9dc9c872f0c2326a359344d43",
+    "entry": "95d047e71abf2f34da1ac8cc8755b3115277b23d34860b79de216bd059169435",
+    "worker": "5fc1b26c358c151c2c8f96fc302e262b58406e1a6075d430ddeccfdc3c418a20"
+  }
+}
