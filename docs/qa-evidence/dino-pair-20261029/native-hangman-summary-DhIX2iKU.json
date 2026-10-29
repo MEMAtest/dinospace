@@ -1,0 +1,108 @@
+{
+  "candidateCommit": "97849b93b354036a300a93ea5e55c269c96511bf",
+  "servedEntry": "http://127.0.0.1:5180/assets/arcade-DhIX2iKU.js",
+  "viewports": {
+    "390x740": {
+      "cleanReplayPassed": true,
+      "allFourTargets": [
+        {
+          "level": 1,
+          "target": 3,
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 2,
+          "target": 3,
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 3,
+          "target": 6,
+          "uniqueVisibleWordCount": 6
+        },
+        {
+          "level": 4,
+          "target": 4,
+          "uniqueVisibleWordCount": 4
+        }
+      ],
+      "freshPositiveRewardFaultRun": {
+        "allFourLevelsReached": true,
+        "writeFailureAndRetry": true,
+        "parentRewardFailureAndRecovery": true,
+        "harnessEndedOnDiagnosticsAssertion": true
+      },
+      "finalInstrumentedReplay": {
+        "passed": false,
+        "completedLevels": [
+          1,
+          2,
+          3
+        ],
+        "fullKeyboard": {
+          "kind": "full-keyboard-geometry",
+          "level": 4,
+          "count": 26,
+          "uniqueKeys": 26,
+          "minWidth": 44,
+          "minHeight": 44,
+          "grid": {
+            "x": 28,
+            "y": 537,
+            "width": 334,
+            "height": 212,
+            "bottom": 749
+          },
+          "rowCount": 4,
+          "maxKeyBottom": 749,
+          "viewport": {
+            "width": 390,
+            "height": 740,
+            "documentWidth": 390
+          }
+        },
+        "blockedBy": "locator.click: Timeout 30000ms exceeded."
+      }
+    },
+    "1440x844": {
+      "status": "not run; stopped on actual mobile app blocker"
+    }
+  },
+  "actualBlocker": {
+    "overlaySelector": "[title=\"Match 3 letters\"]",
+    "overlayRect": {
+      "x": 242,
+      "y": 650,
+      "width": 136,
+      "height": 78,
+      "bottom": 728
+    },
+    "blockedKey": {
+      "letter": "T",
+      "rect": {
+        "x": 221,
+        "y": 696,
+        "width": 44,
+        "height": 44,
+        "bottom": 740
+      }
+    },
+    "elementFromPoint": "overlay inner panel intercepts key click",
+    "horizontalOverflow": false
+  },
+  "evidence": {
+    "mobileRun": "docs/qa-evidence/dino-pair-20261029/native-hangman-amari-390-DhIX2iKU.json",
+    "freshRewardRun": "docs/qa-evidence/dino-pair-20261029/native-hangman-amari-390-DhIX2iKU-diagnostic-window-failure.json",
+    "cleanReplay": "docs/qa-evidence/dino-pair-20261029/native-hangman-amari-390-DhIX2iKU-pass-before-final-key-capture.json",
+    "blockedScreenshot": "docs/qa-evidence/dino-pair-20261029/hangman-native-keyboard-overlay-blocker-390-DhIX2iKU.jpg",
+    "activeScreenshot": "docs/qa-evidence/dino-pair-20261029/hangman-native-active-390-DhIX2iKU.jpg"
+  },
+  "browserHelper": {
+    "session": "amari-targeted-contained",
+    "owner": "pair7-hangman-native",
+    "released": true,
+    "headlessSessionLeftRunning": true
+  },
+  "pageErrors": [],
+  "providerApiRequests": []
+}

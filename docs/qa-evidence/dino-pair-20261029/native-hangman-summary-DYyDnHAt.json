@@ -1,0 +1,744 @@
+{
+  "candidateCommit": "c2043b79699752727a33b458473557378b382242",
+  "worker": 43,
+  "origin": "http://127.0.0.1:5180",
+  "entry": "assets/arcade-DYyDnHAt.js",
+  "preflight": {
+    "passed": true,
+    "stage": "level2-preflight",
+    "player": "amari",
+    "origin": "http://127.0.0.1:5180",
+    "width": 390,
+    "height": 740,
+    "entryIdentity": "http://127.0.0.1:5180/assets/arcade-DYyDnHAt.js",
+    "rows": [
+      {
+        "kind": "replay-baseline",
+        "previousBest": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "plannedScores": [
+          2,
+          6,
+          6,
+          6
+        ],
+        "plannedDeltas": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "legacyRewardCeiling": null,
+        "faultPlan": {
+          "localFailureLevel": null,
+          "parentRewardFailureLevel": null,
+          "skipped": "No positive improvement delta remains in the saved bests."
+        }
+      },
+      {
+        "kind": "control-geometry",
+        "label": "level-map-1",
+        "x": 40,
+        "y": 841,
+        "width": 310,
+        "height": 134,
+        "bottom": 975,
+        "visible": false,
+        "fullyInViewport": false,
+        "centerHit": false,
+        "minHeight": 134
+      },
+      {
+        "kind": "control-geometry",
+        "label": "level-map-2",
+        "x": 40,
+        "y": 987,
+        "width": 310,
+        "height": 162,
+        "bottom": 1149,
+        "visible": false,
+        "fullyInViewport": false,
+        "centerHit": false,
+        "minHeight": 162
+      },
+      {
+        "kind": "control-geometry",
+        "label": "level-map-3",
+        "x": 40,
+        "y": 1161,
+        "width": 310,
+        "height": 134,
+        "bottom": 1295,
+        "visible": false,
+        "fullyInViewport": false,
+        "centerHit": false,
+        "minHeight": 134
+      },
+      {
+        "kind": "control-geometry",
+        "label": "level-map-4",
+        "x": 40,
+        "y": 1307,
+        "width": 310,
+        "height": 162,
+        "bottom": 1469,
+        "visible": false,
+        "fullyInViewport": false,
+        "centerHit": false,
+        "minHeight": 162
+      },
+      {
+        "kind": "control-geometry",
+        "label": "selected-level-start",
+        "x": 53,
+        "y": 620,
+        "width": 242,
+        "height": 56,
+        "bottom": 676,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 56
+      },
+      {
+        "kind": "initial-map",
+        "player": "amari",
+        "width": 390,
+        "height": 740,
+        "levels": [
+          {
+            "name": "First words",
+            "target": 3
+          },
+          {
+            "name": "Four-letter rescue",
+            "target": 3
+          },
+          {
+            "name": "Five-letter rescue",
+            "target": 6
+          },
+          {
+            "name": "Long-word rescue",
+            "target": 4
+          }
+        ],
+        "protectedKeys": 8
+      },
+      {
+        "kind": "control-geometry",
+        "label": "level2-map-selection",
+        "x": 40,
+        "y": 289,
+        "width": 310,
+        "height": 162,
+        "bottom": 451,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 162
+      },
+      {
+        "kind": "control-geometry",
+        "label": "level2-selected-Start",
+        "x": 53,
+        "y": 620,
+        "width": 242,
+        "height": 56,
+        "bottom": 676,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 56
+      },
+      {
+        "kind": "level2-start-preflight",
+        "selectedLevel": 2,
+        "start": {
+          "x": 53,
+          "y": 620,
+          "width": 242,
+          "height": 56,
+          "bottom": 676,
+          "visible": true,
+          "fullyInViewport": true,
+          "centerHit": true,
+          "minHeight": 56
+        },
+        "enteredCorrectMission": true,
+        "answerStateUntouched": true
+      }
+    ],
+    "errors": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "resourceFailures": [],
+    "requestFailures": [],
+    "apiRequests": []
+  },
+  "viewports": {
+    "390x740": {
+      "passed": true,
+      "origin": "http://127.0.0.1:5180",
+      "entryIdentity": "http://127.0.0.1:5180/assets/arcade-DYyDnHAt.js",
+      "completedLevels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        {
+          "level": 1,
+          "target": 3,
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 2,
+          "target": 3,
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 3,
+          "target": 6,
+          "uniqueVisibleWordCount": 6
+        },
+        {
+          "level": 4,
+          "target": 4,
+          "uniqueVisibleWordCount": 4
+        }
+      ],
+      "rewardDeltas": [
+        {
+          "level": 1,
+          "delta": 0
+        },
+        {
+          "level": 2,
+          "delta": 0
+        },
+        {
+          "level": 3,
+          "delta": 0
+        },
+        {
+          "level": 4,
+          "delta": 0
+        }
+      ],
+      "keyboard": {
+        "kind": "full-keyboard-geometry",
+        "level": 4,
+        "count": 26,
+        "uniqueKeys": 26,
+        "minWidth": 44,
+        "minHeight": 44,
+        "allKeysFullyInViewport": true,
+        "allKeyCentersHitTestToButtons": true,
+        "dailyMissionHudCount": 0,
+        "clue": {
+          "top": 302,
+          "bottom": 366,
+          "visible": true
+        },
+        "word": {
+          "top": 383,
+          "bottom": 427,
+          "visible": true
+        },
+        "grid": {
+          "x": 28,
+          "y": 500,
+          "width": 334,
+          "height": 212,
+          "bottom": 712
+        },
+        "rowCount": 4,
+        "maxKeyBottom": 712,
+        "viewport": {
+          "width": 390,
+          "height": 740,
+          "documentWidth": 390,
+          "scrollY": 0
+        }
+      },
+      "keyboardClicks": {
+        "kind": "keyboard-click-reachability",
+        "level": 4,
+        "expected": 26,
+        "tested": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "passed": true
+      },
+      "savedResultNavigation": [
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 1,
+          "result": {
+            "x": 8,
+            "y": 147,
+            "width": 374,
+            "height": 580,
+            "bottom": 727,
+            "fullyInViewport": true,
+            "documentHeight": 757,
+            "viewportHeight": 740
+          },
+          "levelMap": {
+            "x": 65,
+            "y": 584,
+            "width": 119,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 191,
+            "y": 584,
+            "width": 134,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 2,
+          "result": {
+            "x": 8,
+            "y": 147,
+            "width": 374,
+            "height": 580,
+            "bottom": 727,
+            "fullyInViewport": true,
+            "documentHeight": 757,
+            "viewportHeight": 740
+          },
+          "levelMap": {
+            "x": 65,
+            "y": 584,
+            "width": 119,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 191,
+            "y": 584,
+            "width": 134,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 3,
+          "result": {
+            "x": 8,
+            "y": 147,
+            "width": 374,
+            "height": 580,
+            "bottom": 727,
+            "fullyInViewport": true,
+            "documentHeight": 757,
+            "viewportHeight": 740
+          },
+          "levelMap": {
+            "x": 65,
+            "y": 584,
+            "width": 119,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 191,
+            "y": 584,
+            "width": 134,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 4,
+          "result": {
+            "x": 8,
+            "y": 147,
+            "width": 374,
+            "height": 580,
+            "bottom": 727,
+            "fullyInViewport": true,
+            "documentHeight": 757,
+            "viewportHeight": 740
+          },
+          "levelMap": {
+            "x": 61,
+            "y": 584,
+            "width": 119,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 188,
+            "y": 584,
+            "width": 141,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        }
+      ],
+      "errors": {
+        "errors": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "resourceFailures": [],
+        "requestFailures": [],
+        "brokenImages": [],
+        "apiRequests": []
+      },
+      "screenshot": "docs/qa-evidence/dino-pair-20261029/hangman-native-active-390-DYyDnHAt.jpg"
+    },
+    "1440x844": {
+      "passed": true,
+      "origin": "http://127.0.0.1:5180",
+      "entryIdentity": "http://127.0.0.1:5180/assets/arcade-DYyDnHAt.js",
+      "completedLevels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        {
+          "level": 1,
+          "target": 3,
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 2,
+          "target": 3,
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 3,
+          "target": 6,
+          "uniqueVisibleWordCount": 6
+        },
+        {
+          "level": 4,
+          "target": 4,
+          "uniqueVisibleWordCount": 4
+        }
+      ],
+      "rewardDeltas": [
+        {
+          "level": 1,
+          "delta": 0
+        },
+        {
+          "level": 2,
+          "delta": 0
+        },
+        {
+          "level": 3,
+          "delta": 0
+        },
+        {
+          "level": 4,
+          "delta": 0
+        }
+      ],
+      "keyboard": {
+        "kind": "full-keyboard-geometry",
+        "level": 4,
+        "count": 26,
+        "uniqueKeys": 26,
+        "minWidth": 56,
+        "minHeight": 56,
+        "allKeysFullyInViewport": true,
+        "allKeyCentersHitTestToButtons": true,
+        "dailyMissionHudCount": 0,
+        "clue": {
+          "top": 286,
+          "bottom": 334,
+          "visible": true
+        },
+        "word": {
+          "top": 375,
+          "bottom": 455,
+          "visible": true
+        },
+        "grid": {
+          "x": 189,
+          "y": 564,
+          "width": 569,
+          "height": 216,
+          "bottom": 780
+        },
+        "rowCount": 3,
+        "maxKeyBottom": 780,
+        "viewport": {
+          "width": 1440,
+          "height": 844,
+          "documentWidth": 1440,
+          "scrollY": 0
+        }
+      },
+      "keyboardClicks": {
+        "kind": "keyboard-click-reachability",
+        "level": 4,
+        "expected": 26,
+        "tested": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "passed": true
+      },
+      "savedResultNavigation": [
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 1,
+          "result": {
+            "x": 36,
+            "y": 114,
+            "width": 1368,
+            "height": 699,
+            "bottom": 813,
+            "fullyInViewport": true,
+            "documentHeight": 858,
+            "viewportHeight": 844
+          },
+          "levelMap": {
+            "x": 588,
+            "y": 491,
+            "width": 119,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 718,
+            "y": 491,
+            "width": 134,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 2,
+          "result": {
+            "x": 36,
+            "y": 114,
+            "width": 1368,
+            "height": 699,
+            "bottom": 813,
+            "fullyInViewport": true,
+            "documentHeight": 858,
+            "viewportHeight": 844
+          },
+          "levelMap": {
+            "x": 588,
+            "y": 491,
+            "width": 119,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 718,
+            "y": 491,
+            "width": 134,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 3,
+          "result": {
+            "x": 36,
+            "y": 114,
+            "width": 1368,
+            "height": 699,
+            "bottom": 813,
+            "fullyInViewport": true,
+            "documentHeight": 858,
+            "viewportHeight": 844
+          },
+          "levelMap": {
+            "x": 588,
+            "y": 491,
+            "width": 119,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 718,
+            "y": 491,
+            "width": 134,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 4,
+          "result": {
+            "x": 36,
+            "y": 114,
+            "width": 1368,
+            "height": 699,
+            "bottom": 813,
+            "fullyInViewport": true,
+            "documentHeight": 858,
+            "viewportHeight": 844
+          },
+          "levelMap": {
+            "x": 584,
+            "y": 491,
+            "width": 119,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 715,
+            "y": 491,
+            "width": 141,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        }
+      ],
+      "errors": {
+        "errors": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "resourceFailures": [],
+        "requestFailures": [],
+        "brokenImages": [],
+        "apiRequests": []
+      },
+      "screenshot": "docs/qa-evidence/dino-pair-20261029/hangman-native-active-1440-DYyDnHAt.jpg"
+    }
+  },
+  "priorCleanRewardRetry": {
+    "report": "native-hangman-clean-retry-amari-390-SSL5PagW.json",
+    "storageAudit": "native-hangman-clean-retry-storage-audit-amari-390-SSL5PagW.json",
+    "note": "Completed on pre-scroll-fix candidate; source patch changed only phase/selection scroll restoration. Audit confirms new transaction delta4 and matching parent claim4."
+  }
+}

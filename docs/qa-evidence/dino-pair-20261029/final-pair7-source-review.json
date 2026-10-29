@@ -1,0 +1,54 @@
+{
+  "reviewedAt": "2026-10-29",
+  "sourceCommit": "2c8209eba409ea03d1435fa7637d4a1c9b5693d7",
+  "scope": "Final independent source review of Main Dino Detective and Hangman progress/reward receipt integration. App and shared reward helper were inspected only as integration touchpoints. No browser/build/runtime acceptance is implied.",
+  "files": [
+    { "path": "src/components/games/DinoDetective.jsx", "sha256": "3727ac7174e63d0cb61a80867d6aa53f3a3e2712ca1827afd154a6bbd7cb865c" },
+    { "path": "src/data/dinoDetectiveProgress.js", "sha256": "5e1ace8872b3868f44e2e1198a3d1c89b3d81745bb0bcbf067447cf203363074" },
+    { "path": "src/components/games/Hangman.jsx", "sha256": "e3532d9b3a12ac5fe57a309e29f1f857227a10816dee6d7de39ea9e423f14aed" },
+    { "path": "src/data/hangmanProgress.js", "sha256": "a56c84acf9e9abac3d3a70155264eb4761738694f9fb26afd20cafa6388eaafd" },
+    { "path": "src/data/hangmanLevels.js", "sha256": "b59f8acd3b0be6251626ff396fbdb7932c613552639993f247154541f4e3ec84" },
+    { "path": "test/dinoDetectiveProgress.test.mjs", "sha256": "2b1e9e3c91896af9856adca0c594dc1ae0139bd33c252157a68419a7e65eaf66" },
+    { "path": "test/hangman.test.mjs", "sha256": "06349313b6faa0722476b18824cdb212198e5bb21c225798cf3119e1a2cbe3e8" },
+    { "path": "src/App.jsx", "sha256": "ba51ade2196150c5083ef8a12ce1b8f710ef1ceab7ab6fdc4456d0a927029fe7" },
+    { "path": "src/data/playerRewards.js", "sha256": "97e2bb47820246df8a531b7bb003e6946b1b617cc7046dbf0dac173f0584e184" },
+    { "path": "test/playerRewards.test.mjs", "sha256": "62c7b560d958c7a78679c480a0df1574163514bc1705330c3ef65b221eb7de14" }
+  ],
+  "blockers": [
+    {
+      "id": "dino-pending-parent-reward-receipt-can-be-evicted-before-recovery",
+      "severity": "release-blocker",
+      "locations": [
+        { "path": "src/data/dinoDetectiveProgress.js", "lines": "46,70-77,197" },
+        { "path": "src/components/games/DinoDetective.jsx", "lines": "109-115,117-120,240-246" }
+      ],
+      "finding": "Dino stores and validates only the latest eight completion receipts, while its 12 worlds can each produce up to three positive star-improvement receipts (up to 36). When the parent reward claim fails, the durable receipt is the recovery source across Back/reopen, but the map still permits starting unlocked worlds while a pending reward exists. More than eight subsequent positive completions can evict an unresolved receipt; then reopening cannot reconcile it and its parent reward is permanently lost. Retain all bounded possible positive receipts (or a separate unresolved-claim ledger) and gate continued runs while a claim remains unresolved."
+    }
+  ],
+  "reviewedIntegration": "Main Dino uses stable transaction tokens for parent reward claims, retries the held result, and reconciles durable positive receipts on map entry. Hangman commits/readbacks its level before claiming, retries the same attempt token, reconciles positive receipts on mount/map entry, enforces strict known-field validation, preserves unknown canonical metadata and raw legacy state, and its 20 transaction window exceeds the maximum 12 positive best-improvement receipts (three score tiers across four levels). Shared reward-token processing remains idempotent and App returns its persistence result to both callers.",
+  "acceptanceBoundary": "Independent source review only. No tests, browser, build, deployment, or native acceptance were performed by this reviewer.",
+  "reviewDeltas": [
+    {
+      "reviewedAt": "2026-10-29",
+      "scope": "Recheck of Dino reward-receipt retention, exact read-only legacy collection compatibility, and Hangman skip/distinct-rescue/pool corrections only.",
+      "files": [
+        { "path": "src/data/dinoDetectiveProgress.js", "sha256": "b7ca36f6a716d9584b2e3ed33d65c28ff2fb1cc3827ec4d5e3eb7ce8065dbb31" },
+        { "path": "src/data/littleDinoDetective.js", "sha256": "bf6f260b5fb01ad2668d5212e64b874e9979825067c6a3a20e627b78a7850a48" },
+        { "path": "src/components/games/DinoDetective.jsx", "sha256": "bb56b2c109635e26207ad08a081a41b2841dbe0a348ef243c23887e18d7babf3" },
+        { "path": "src/components/games/Hangman.jsx", "sha256": "f0e79064729acd77df64e32b7c4d7efbaae2f8bf33aefc0db395f0d7c0f86dbf" },
+        { "path": "src/data/hangmanProgress.js", "sha256": "a56c84acf9e9abac3d3a70155264eb4761738694f9fb26afd20cafa6388eaafd" },
+        { "path": "src/data/hangmanLevels.js", "sha256": "9964cb4ab79dad250306382524b0296f1ea95425648ab884af081ead3304266a" },
+        { "path": "test/dinoDetectiveProgress.test.mjs", "sha256": "841b85c19a39996838bc443c060c2c70d5ec9e1145201b1284c246a7e1c269b1" },
+        { "path": "test/dinoDetectiveBatch3.test.mjs", "sha256": "d8a4cac86d4a7593b45db0c9022d01a0866171088dcafd8c37f5384589b7632a" },
+        { "path": "test/hangman.test.mjs", "sha256": "25734e6c1b2cafe8eadd9bd69b4abd488a7719c8cfb8ff786af64f0be4e87c5b" }
+      ],
+      "resolvedFinding": "dino-pending-parent-reward-receipt-can-be-evicted-before-recovery",
+      "resolution": "Resolved in the reviewed source: all positive receipts are retained up to 12 worlds × 3 possible best-star improvements; only the latest eight zero-delta receipts are pruned. The focused stress regression fills all 36 positive slots, adds zero-delta replays, and verifies the first positive receipt remains reconcilable.",
+      "compatibilityBoundary": "The collection getter fallback is limited to the exact three-key version-1 partial record with an ordered known completed prefix and exactly matching stickers. It returns read-only shelf state; transactional reads and commits remain strict and the test asserts malformed compatibility bytes are preserved with zero writes.",
+      "hangmanReview": "The queue contains only explicit taught-grapheme spellings and validated regular-cluster records; the themed map excludes untaught irregular forms. Per-run rescued IDs prevent duplicate solves from increasing the target count, and nextHangmanWordIndex skips rescued entries while wrapping to remaining unrescued words. The compact mobile utility row uses 48px minimum-height controls with full aria-labels.",
+      "outstandingBlockers": [],
+      "sourceReview": "The prior Dino receipt-retention blocker is resolved; no concrete blocker was found in the three requested deltas.",
+      "acceptanceBoundary": "Focused source-only delta review; tests were not run by this reviewer. Root's compiled/native/public gates remain separate."
+    }
+  ]
+}

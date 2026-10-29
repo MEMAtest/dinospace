@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 7,
+  "activePair": 8,
   "pairs": [
     {
       "number": 1,
@@ -145,8 +145,16 @@
           "name": "Dino Hangman"
         }
       ],
-      "status": "audit_in_progress",
-      "evidence": null
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/dino-pair-20261029/README.md",
+      "auditBase": "2c8209eb",
+      "scope": "Amari12worlds/Askia5Detectivelevels and Hangman4grapheme-gated word-length missions; source/compiled/live proof pending",
+      "candidateRuntime": "c2043b79699752727a33b458473557378b382242",
+      "openGate": null,
+      "runtime": "c2043b79699752727a33b458473557378b382242",
+      "verifiedAt": "2026-10-29T03:45:13.908133+00:00",
+      "sourceGates": "docs/qa-evidence/dino-pair-20261029/source-gates.json",
+      "production": "docs/qa-evidence/dino-pair-20261029/production-summary.json"
     },
     {
       "number": 8,
@@ -160,7 +168,7 @@
           "name": "Spelling Studio"
         }
       ],
-      "status": "queued",
+      "status": "source_audit_in_progress",
       "evidence": null,
       "recoveryInvestigationWhenActive": "Before declaring historical personal stories irrecoverable, inspect whether the configured narration provider retains read-only generation history with page text/audio for the relevant app voice/time window. Prior Vercel request logs do not prove save/recovery. Do not run this until Pair8 is active; do not create paid jobs, print credentials/unrelated account content, import synthetic QA books, or infer recovered full books from API200. Filter/exclude known QA generation and fixed teaching clips; preserve original evidence and distinguish recovered text/audio from original illustration/library recovery."
     },

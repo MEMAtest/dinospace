@@ -1,0 +1,29 @@
+{
+  "reviewedAt": "2026-10-29",
+  "sourceCommit": "2c8209eba409ea03d1435fa7637d4a1c9b5693d7",
+  "scope": "Dino Detective Amari and Askia source, pair progress helper, authored run/clue data, and focused tests. Hangman not reviewed.",
+  "files": [
+    { "path": "src/components/games/DinoDetective.jsx", "sha256": "3631051aef12e93a2ab1da83ee1b117a3a55e633b7fea54d71f9cbebfce9d0d5" },
+    { "path": "src/components/little/games/LittleDinoDetective.jsx", "sha256": "37369373493a9468263202a2e0d1912364c06fba26583ec4486a2d111e0b731a" },
+    { "path": "src/data/dinoDetectiveProgress.js", "sha256": "f5ffab0108c27edd0f5133ca2682cf81ae24e0df9669b60536b751a93f705693" },
+    { "path": "src/data/dinoDetectiveBatch3.js", "sha256": "1490dfbfabdd172a369df47ac5b4baa67c842cd9ec4b8f29fa3109fa66973d83" },
+    { "path": "src/data/littleDinoDetective.js", "sha256": "bf6f260b5fb01ad2668d5212e64b874e9979825067c6a3a20e627b78a7850a48" },
+    { "path": "src/data/littleGames.js", "sha256": "6a7feac22b7cf9c1bcd28dbd7451cd6da0f37210addad5b709d5336205ef196c" },
+    { "path": "test/dinoDetectiveProgress.test.mjs", "sha256": "1f6addeac1a9a2c0fee4c7f9e6f53e0f20fd7d8f03b343fd30978b6d9229e422" },
+    { "path": "test/dinoDetectiveBatch3.test.mjs", "sha256": "8ef9d47ee4b88d580700d61d3e48a86880f06cd03099f9e9a0984f8dde730195" },
+    { "path": "test/littleDinoDetective.test.mjs", "sha256": "edad340a5b4b12fa8eaf713df0e4210b79cca9e540ea21dbf275b86f4169c544" }
+  ],
+  "blockers": [
+    {
+      "id": "amari-reward-lost-after-transient-readback-failure",
+      "severity": "release-blocker",
+      "locations": [
+        { "path": "src/data/dinoDetectiveProgress.js", "lines": "93-103,139-157" },
+        { "path": "src/components/games/DinoDetective.jsx", "lines": "159-179,241" }
+      ],
+      "finding": "If setItem commits the completed world but the immediate readback transiently fails, the UI correctly holds the facts for Retry. Retry rereads the now-committed record, so commitDinoDetectiveCompletion reports newlyCompleted=false and awardedStars=0. The component then completes without issuing the first attempt's star reward; it has no retained transaction/result recovery to award that delta exactly once. Current tests simulate a no-op write/readback mismatch, not a write that persists followed by a failing readback."
+    }
+  ],
+  "sourceReview": "One concrete blocker found. Other reviewed progress validation, malformed-byte preservation, child-key isolation, sequential world gating, stable five-position runs, and Askia required-footprint versus optional-clearer-trail attribution showed no concrete blocker.",
+  "acceptanceBoundary": "Independent source review only; this does not establish compiled native or live/public acceptance. No browser or tests were run."
+}

@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-29T03:46:20.221020+00:00",
+  "passed": true,
+  "cutoverProtectedKeys": 38,
+  "otherSavedKeyHashesUnchanged": 29,
+  "priorAskiaLittleRowsUnchanged": 4,
+  "players": {
+    "askia": {
+      "pointsBefore": 166,
+      "pointsAfter": 206,
+      "verifiedNewClaimDelta": 40,
+      "priorClaimsRetained": 0,
+      "priorStickersRetained": 7
+    },
+    "amari": {
+      "pointsBefore": 258,
+      "pointsAfter": 306,
+      "verifiedNewClaimDelta": 48,
+      "priorClaimsRetained": 0,
+      "priorStickersRetained": 9
+    }
+  },
+  "entry": "/assets/arcade-DYyDnHAt.js",
+  "workerCaches": [
+    "amari-discovery-media-v1",
+    "amari-discovery-v43"
+  ],
+  "scope": "Canonical synthetic persistence only; not historical family-book recovery."
+}

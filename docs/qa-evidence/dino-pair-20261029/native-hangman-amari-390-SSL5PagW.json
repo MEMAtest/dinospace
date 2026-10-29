@@ -1,0 +1,506 @@
+{
+  "passed": false,
+  "stage": "full",
+  "player": "amari",
+  "origin": "http://127.0.0.1:5180",
+  "width": 390,
+  "height": 740,
+  "entryIdentity": "http://127.0.0.1:5180/assets/arcade-SSL5PagW.js",
+  "rows": [
+    {
+      "kind": "replay-baseline",
+      "previousBest": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "plannedScores": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "plannedDeltas": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "legacyRewardCeiling": null,
+      "faultPlan": {
+        "localFailureLevel": null,
+        "parentRewardFailureLevel": null,
+        "skipped": "No positive improvement delta remains in the saved bests."
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-1",
+      "x": 40,
+      "y": 841,
+      "width": 310,
+      "height": 134,
+      "bottom": 975,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-2",
+      "x": 40,
+      "y": 987,
+      "width": 310,
+      "height": 162,
+      "bottom": 1149,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 162
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-3",
+      "x": 40,
+      "y": 1161,
+      "width": 310,
+      "height": 134,
+      "bottom": 1295,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-4",
+      "x": 40,
+      "y": 1307,
+      "width": 310,
+      "height": 162,
+      "bottom": 1469,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 162
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected-level-start",
+      "x": 53,
+      "y": 620,
+      "width": 242,
+      "height": 56,
+      "bottom": 676,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "initial-map",
+      "player": "amari",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        {
+          "name": "First words",
+          "target": 3
+        },
+        {
+          "name": "Four-letter rescue",
+          "target": 3
+        },
+        {
+          "name": "Five-letter rescue",
+          "target": 6
+        },
+        {
+          "name": "Long-word rescue",
+          "target": 4
+        }
+      ],
+      "protectedKeys": 8
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 82,
+      "width": 188,
+      "height": 56,
+      "bottom": 138,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 243,
+        "width": 310,
+        "height": 134,
+        "bottom": 377,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Hear the word",
+      "x": 278,
+      "y": 283,
+      "width": 84,
+      "height": 48,
+      "bottom": 331,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "audio-mute-cancel",
+      "exactClipObserved": true,
+      "pausedAfterMute": true
+    },
+    {
+      "kind": "audio-next-cancel",
+      "pausedAfterNext": true
+    },
+    {
+      "kind": "audio-packaged-availability",
+      "exactVisibleClipAvailable": true,
+      "scannedSkippedWords": 0
+    },
+    {
+      "kind": "audio-leave-cancel",
+      "pausedAfterLeave": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 82,
+      "width": 188,
+      "height": 56,
+      "bottom": 138,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 243,
+        "width": 310,
+        "height": 134,
+        "bottom": 377,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "Food can come in a metal can.",
+      "length": 3,
+      "category": "-IN",
+      "emoji": "🥫",
+      "geometry": {
+        "x": 28,
+        "y": 275,
+        "width": 242,
+        "height": 64,
+        "bottom": 339,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "same-word Retry",
+      "x": 222,
+      "y": 481,
+      "width": 58,
+      "height": 48,
+      "bottom": 529,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "held-loss-board",
+      "x": 37,
+      "y": 356,
+      "width": 316,
+      "height": 44,
+      "bottom": 400,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 44
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "Food can come in a metal can.",
+      "length": 3,
+      "category": "-IN",
+      "emoji": "🥫",
+      "geometry": {
+        "x": 28,
+        "y": 275,
+        "width": 242,
+        "height": 64,
+        "bottom": 339,
+        "visible": true
+      }
+    },
+    {
+      "kind": "wrong-answer-retry",
+      "clueLength": 3,
+      "heldAnswerVisibleBeforeRetry": true,
+      "sameClueAfterRetry": true,
+      "heldBoardGeometry": {
+        "x": 37,
+        "y": 356,
+        "width": 316,
+        "height": 44,
+        "bottom": 400,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 44
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-next-word-1",
+      "x": 243,
+      "y": 481,
+      "width": 73,
+      "height": 48,
+      "bottom": 529,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A short daytime sleep.",
+      "length": 3,
+      "category": "-AP",
+      "emoji": "😴",
+      "geometry": {
+        "x": 28,
+        "y": 277,
+        "width": 242,
+        "height": 44,
+        "bottom": 321,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "one-letter hint",
+      "x": 85,
+      "y": 401,
+      "width": 70,
+      "height": 48,
+      "bottom": 449,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-next-word-2",
+      "x": 247,
+      "y": 477,
+      "width": 73,
+      "height": 48,
+      "bottom": 525,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "An adult person.",
+      "length": 3,
+      "category": "-AN",
+      "emoji": "🧔",
+      "geometry": {
+        "x": 28,
+        "y": 277,
+        "width": 242,
+        "height": 44,
+        "bottom": 321,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 1,
+      "target": 3,
+      "rescued": [
+        1,
+        2,
+        3
+      ],
+      "uniqueVisibleWordCount": 3
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 1,
+      "priorBest": 6,
+      "plannedScore": 2,
+      "expectedDelta": 0,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-held-finish",
+      "x": 245,
+      "y": 445,
+      "width": 70,
+      "height": 48,
+      "bottom": 493,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "An adult person.",
+      "length": 3,
+      "category": "-AN",
+      "emoji": "🧔",
+      "geometry": {
+        "x": 28,
+        "y": 277,
+        "width": 242,
+        "height": 44,
+        "bottom": 321,
+        "visible": true
+      }
+    },
+    {
+      "kind": "held-level-result",
+      "level": 1,
+      "target": 3,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "documentHeight": 757,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-saved-result-Level-map",
+      "x": 65,
+      "y": 584,
+      "width": 119,
+      "height": 48,
+      "bottom": 632,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-saved-result-Next",
+      "x": 191,
+      "y": 584,
+      "width": 134,
+      "height": 48,
+      "bottom": 632,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "saved-result-navigation-geometry",
+      "level": 1,
+      "result": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "documentHeight": 757,
+        "viewportHeight": 740
+      },
+      "levelMap": {
+        "x": 65,
+        "y": 584,
+        "width": 119,
+        "height": 48,
+        "bottom": 632,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      },
+      "next": {
+        "x": 191,
+        "y": 584,
+        "width": 134,
+        "height": 48,
+        "bottom": 632,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-start",
+      "x": 53,
+      "y": -18,
+      "width": 242,
+      "height": 56,
+      "bottom": 38,
+      "visible": true,
+      "fullyInViewport": false,
+      "centerHit": true,
+      "minHeight": 56
+    }
+  ],
+  "errors": [
+    {
+      "message": "level-2-start is not fully inside the viewport or its center is obscured: {\"x\":53,\"y\":-18,\"width\":242,\"height\":56,\"bottom\":38,\"visible\":true,\"fullyInViewport\":false,\"centerHit\":true,\"minHeight\":56}",
+      "stack": "Error: level-2-start is not fully inside the viewport or its center is obscured: {\"x\":53,\"y\":-18,\"width\":242,\"height\":56,\"bottom\":38,\"visible\":true,\"fullyInViewport\":false,\"centerHit\":true,\"minHeight\":56}\n    at assertPrimary (evalmachine.<anonymous>:81:61)\n    at async startLevel (evalmachine.<anonymous>:296:5)\n    at async playLevel (evalmachine.<anonymous>:494:16)\n    at async evalmachine.<anonymous>:648:5\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)",
+      "rows": 35
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "resourceFailures": [],
+  "requestFailures": [],
+  "brokenImages": [],
+  "apiRequests": []
+}

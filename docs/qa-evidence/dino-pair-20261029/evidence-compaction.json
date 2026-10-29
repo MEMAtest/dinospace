@@ -1,0 +1,188 @@
+{
+  "at": "2026-10-29T03:09:17.767127+00:00",
+  "scope": "Task-owned duplicate QA text compaction only; no browser storage, original projects, source, or acceptance assertions changed",
+  "records": [
+    {
+      "file": "pre-release-storage.json",
+      "originalBytes": 941984,
+      "originalFileSha256": "1623391144584840296ea7f8a2041ec8a6f323defd1f7c083bda2760d14813a5",
+      "compactedBytes": 10278,
+      "protectedKeyHashesRetained": 38
+    },
+    {
+      "file": "cutover-storage.json",
+      "originalBytes": 942057,
+      "originalFileSha256": "7bed6bfcb5cef3712017c0e80b8ac0734771fdc7fdd065c3ffe3d96e2288df4d",
+      "compactedBytes": 10351,
+      "protectedKeyHashesRetained": 38
+    }
+  ],
+  "reclaimedBytes": 1863412,
+  "losslessMachineJsonCompaction": {
+    "at": "2026-10-29T03:22:02.523350+00:00",
+    "records": [
+      {
+        "file": "native-amari-1440-arcade-C6C2d_B8-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-ct-final.json",
+        "beforeBytes": 469308,
+        "afterBytes": 282948,
+        "beforeSha256": "1c3c6fb0fb17138b0daaf5975b54fa195839d44e0b8bd58c9a10f65b76a51bcc",
+        "afterSha256": "b19298aece91d3200dde26b4dec46860d9cd33b575768c22c7b86862fee6ef3f",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "native-amari-1440-arcade-CQIOM1Sm-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-retry-claim-scope.json",
+        "beforeBytes": 456716,
+        "afterBytes": 270356,
+        "beforeSha256": "6b500d3abf761e832baaf4ba23b2b4fb8975a29caf77db25adbc4fe6eaed6a23",
+        "afterSha256": "55fb36e16c3df0c09f7ee1a849a0387316f74e2ccda52018db34eb36bfb82a79",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "native-amari-390x740-arcade-C6C2d_B8-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-ct-final.json",
+        "beforeBytes": 462701,
+        "afterBytes": 276341,
+        "beforeSha256": "067f1178a0fb3e93a6e3012b0f19acf0eefb99c9c9c873b36a63307af28fde99",
+        "afterSha256": "b764cae90a1856282a5f1dc667fbbdfbc5c163e97fcefb08e3fefc333fe9cb58",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "native-amari-390x740-arcade-CQIOM1Sm-runs-1_2_3_4_5_6_7_8_9_10_11_0.json",
+        "beforeBytes": 437073,
+        "afterBytes": 250154,
+        "beforeSha256": "eb8983f0a35af989ccac5b1fc8596172822e9bc81087f27cdc49bf338a39a721",
+        "afterSha256": "f65c8eaa91c807977b88a0e5f180281d215fefafd98768af21b98ccbb21f4c04",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "native-askia-1440-arcade-C6C2d_B8-runs-0_1_2_3_4-attempt-ct-final.json",
+        "beforeBytes": 58976,
+        "afterBytes": 44242,
+        "beforeSha256": "045229ec811c122d5689ced6731900a35e42bde94d76bc013f634ce5bd687cdb",
+        "afterSha256": "8daa25c7e40356c390960f1cf06683414df2a12178c317831d3b63587b396913",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "native-askia-390x740-arcade-C6C2d_B8-runs-0_1_2_3_4-attempt-ct-final.json",
+        "beforeBytes": 58918,
+        "afterBytes": 44184,
+        "beforeSha256": "8bbcd10c5d76ab3d7c1bba447e9a64d3fca4ddf26f8291dc7dda286d545ec5af",
+        "afterSha256": "0303f92fa2f37250afe72840e8ea915b67920417a140371b7ca8bedcd6437249",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "native-askia-390x740-arcade-Ct2TuDQy-runs-0_1_2_3_4-attempt-ct2-final-retry.json",
+        "beforeBytes": 58253,
+        "afterBytes": 43519,
+        "beforeSha256": "25bd1dd46745c4886a2d7254ff1d6155946756b7bfb531230e7ccd100ac391f1",
+        "afterSha256": "94a0c8154590cda77e1b739d0ed373916a7192de692d8356d52c88bcf2bc1341",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "production-amari-1440-arcade-C6C2d_B8-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-public-final.json",
+        "beforeBytes": 454070,
+        "afterBytes": 267752,
+        "beforeSha256": "438881a47bae42df0647d623b66ae49ed44082ed5dbab2a52783dfc998a7b64b",
+        "afterSha256": "15d60dcf0694fc8b6c85cdef4ed67da980997b298b1804924ffc129cf79270fd",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "production-amari-390x740-arcade-C6C2d_B8-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-public-final.json",
+        "beforeBytes": 433451,
+        "afterBytes": 246611,
+        "beforeSha256": "7eef06522cae2c03a1cd5f009d9e69bce097d2747489d70a8d77f56e6d6ce863",
+        "afterSha256": "a0bd5b5ef5c27d7d4f841378a2667440712fb591c0ea20bef2a5aa3719db97e2",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "production-askia-1440-arcade-C6C2d_B8-runs-0_1_2_3_4-attempt-public-final.json",
+        "beforeBytes": 58480,
+        "afterBytes": 43788,
+        "beforeSha256": "a8a1a990fb2af691d05bce81d6d4b1e06d3766a25ef3becac92a1c0644d9bf74",
+        "afterSha256": "a2ef84fed4263566e93975a927caa386d264b4361f9b1f8b69343a55890f6a82",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "production-askia-390x740-arcade-C6C2d_B8-runs-0_1_2_3_4-attempt-public-final.json",
+        "beforeBytes": 56021,
+        "afterBytes": 41244,
+        "beforeSha256": "0c44cd599cc70b8c8832f5e0cb146ad9caabc4b478d78376370f95f26626f3e8",
+        "afterSha256": "a84a97f82eb0f73da26bcc85fb1ed2c6a93274393c9736019a59877c60f4d2d1",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "native-amari-1440-arcade-DYyDnHAt-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-worker43-final.json",
+        "beforeBytes": 474005,
+        "afterBytes": 287645,
+        "beforeSha256": "1c654df0807de2e8c6791866671ce789f4e66520d614d22e0ae3bb2ee091c819",
+        "afterSha256": "72396d33f4eaf56911f0a7a77ea7f223ea19c5d940a5663df08363733dd62fde",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "native-amari-390x740-arcade-DYyDnHAt-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-worker43-final.json",
+        "beforeBytes": 467330,
+        "afterBytes": 280970,
+        "beforeSha256": "c725ab5868bf7293432908a878207290247911b8a0be1ced0aa6ea11680ff122",
+        "afterSha256": "af8d27be14e73f448fe68b24cab133f6f185f05fa1519b997b4bd932baa5301d",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "native-askia-1440-arcade-DYyDnHAt-runs-0_1_2_3_4-attempt-worker43-final.json",
+        "beforeBytes": 59101,
+        "afterBytes": 44367,
+        "beforeSha256": "49da429e768ac2d12c0ee6f844cc0ee1d978b0027ababf079529b85bce0e9de9",
+        "afterSha256": "b938980401885bcdf6173066fb699a67fed766582b72bc11450c877ac548f7db",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "native-askia-390x740-arcade-DYyDnHAt-runs-0_1_2_3_4-attempt-worker43-final.json",
+        "beforeBytes": 59029,
+        "afterBytes": 44295,
+        "beforeSha256": "67e7cbed63ac1b48ff9aca0b4c8716ccb5bb0fc3636cb486f3a7a86cebd0390b",
+        "afterSha256": "14b285c1da578264fdfbae9391323b698e28e17801e69acf6aedf3e578eed10e",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "production-amari-1440-arcade-DYyDnHAt-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-worker43-final.json",
+        "beforeBytes": 468982,
+        "afterBytes": 282664,
+        "beforeSha256": "0a07c8603c88e1d850a2b0d45c267faf1b65a5bfcc5b6472d33464bbb2aabe18",
+        "afterSha256": "66134c5ef5b4fa39b7bd5aedfe55b3cd0ecf298f9a8946e26a8a5bd962f290c3",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "production-amari-390x740-arcade-DYyDnHAt-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-worker43-final.json",
+        "beforeBytes": 461882,
+        "afterBytes": 275564,
+        "beforeSha256": "e233796cea7e351859826cfb4520153e4119922281473d0c55848411614ba312",
+        "afterSha256": "13d123291b56b052035a5112d014060b24c0a1d951822fa30e532975c3156c28",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "production-askia-1440-arcade-DYyDnHAt-runs-0_1_2_3_4-attempt-worker43-final.json",
+        "beforeBytes": 59136,
+        "afterBytes": 44444,
+        "beforeSha256": "20b2af7066d32018b95ef11a4a761ee23aefc615827cd595bfe3d0c7d1cf0bca",
+        "afterSha256": "f3ae3fd3ec80a447e5dec74c0b1aa89b38c932b437cb6b838d0be3c4389439ef",
+        "structuredValuesUnchanged": true
+      },
+      {
+        "file": "production-askia-390x740-arcade-DYyDnHAt-runs-0_1_2_3_4-attempt-worker43-final.json",
+        "beforeBytes": 59091,
+        "afterBytes": 44399,
+        "beforeSha256": "4b522faa12ae5023c403a50e8717fa1ad020b2a5ba93556d16eb1fa500b74733",
+        "afterSha256": "a15cc50b723d470442ef005af01d3879d0756570ba4a714547d5259220207981",
+        "structuredValuesUnchanged": true
+      }
+    ],
+    "reclaimedBytes": 1997036,
+    "recovery": "Whitespace only: json.dumps(json.load(file), indent=2). Every structured value, raw storage string, geometry and assertion remains unchanged."
+  },
+  "artifactBudget": {
+    "owner": "root",
+    "initialMiB": 8,
+    "revisedMiB": 12,
+    "reason": "One additional public worker43 patch is required after the live Retry geometry audit. Retain unique failures and source-bound accepted records while verifying the final6native/6canonical journeys. No traces/videos, project copies, browser profiles or corpora are added.",
+    "estimatedAdditionalMiB": 4,
+    "retirementCondition": "Retain compact final acceptance and unique failure evidence; task-owned temporary bytecode may be removed after final verification."
+  }
+}

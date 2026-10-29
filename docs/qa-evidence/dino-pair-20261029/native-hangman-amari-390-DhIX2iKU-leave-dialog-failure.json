@@ -1,0 +1,176 @@
+{
+  "passed": false,
+  "stage": "full",
+  "player": "amari",
+  "width": 390,
+  "height": 740,
+  "entryIdentity": "http://127.0.0.1:5180/assets/arcade-DhIX2iKU.js",
+  "rows": [
+    {
+      "kind": "replay-baseline",
+      "previousBest": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "plannedScores": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "plannedDeltas": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "legacyRewardCeiling": null,
+      "faultPlan": {
+        "localFailureLevel": 1,
+        "parentRewardFailureLevel": 2,
+        "skipped": null
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-1",
+      "x": 40,
+      "y": 721,
+      "width": 310,
+      "height": 134,
+      "bottom": 855,
+      "visible": true,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-2",
+      "x": 40,
+      "y": 867,
+      "width": 310,
+      "height": 134,
+      "bottom": 1001,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-3",
+      "x": 40,
+      "y": 1013,
+      "width": 310,
+      "height": 134,
+      "bottom": 1147,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-4",
+      "x": 40,
+      "y": 1159,
+      "width": 310,
+      "height": 134,
+      "bottom": 1293,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected-level-start",
+      "x": 53,
+      "y": 560,
+      "width": 188,
+      "height": 56,
+      "bottom": 616,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "initial-map",
+      "player": "amari",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        {
+          "name": "First words",
+          "target": 3
+        },
+        {
+          "name": "Four-letter rescue",
+          "target": 3
+        },
+        {
+          "name": "Five-letter rescue",
+          "target": 6
+        },
+        {
+          "name": "Long-word rescue",
+          "target": 4
+        }
+      ],
+      "protectedKeys": 8
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 560,
+      "width": 188,
+      "height": 56,
+      "bottom": 616,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 721,
+        "width": 310,
+        "height": 134,
+        "bottom": 855,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Hear the word",
+      "x": 278,
+      "y": 291,
+      "width": 84,
+      "height": 48,
+      "bottom": 339,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "audio-mute-cancel",
+      "exactClipObserved": true,
+      "pausedAfterMute": true
+    },
+    {
+      "kind": "audio-next-cancel",
+      "pausedAfterNext": true
+    },
+    {
+      "kind": "audio-packaged-availability",
+      "exactVisibleClipAvailable": true,
+      "scannedSkippedWords": 0
+    }
+  ],
+  "errors": [
+    {
+      "message": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('heading', { name: 'Read & Write', exact: true }) to be visible\u001b[22m\n",
+      "stack": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('heading', { name: 'Read & Write', exact: true }) to be visible\u001b[22m\n\n    at playLevel (evalmachine.<anonymous>:416:84)\n    at async evalmachine.<anonymous>:509:5\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+      "rows": 13
+    }
+  ],
+  "pageErrors": [],
+  "apiRequests": []
+}

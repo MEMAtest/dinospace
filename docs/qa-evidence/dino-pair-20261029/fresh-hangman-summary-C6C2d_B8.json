@@ -1,0 +1,195 @@
+{
+  "candidateCommit": "93d28b7108c625d9082ca6cc2815767d0f0d83f4",
+  "worker": 42,
+  "origin": "http://localhost:5180",
+  "entry": "assets/arcade-C6C2d_B8.js",
+  "preflight": {
+    "canonicalHangmanProgressPresent": false,
+    "legacyGameLevelsPresent": false,
+    "legacyHangmanRecordPresent": false,
+    "rewardRecordPresent": false,
+    "storedProgressKeys": [
+      "qa_rewards_20261024_amari_voice_mode_v4"
+    ]
+  },
+  "run": {
+    "passed": true,
+    "origin": "http://localhost:5180",
+    "width": 390,
+    "height": 740,
+    "entryIdentity": "http://localhost:5180/assets/arcade-C6C2d_B8.js",
+    "completedLevels": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "targets": [
+      {
+        "level": 1,
+        "target": 3,
+        "uniqueVisibleWordCount": 3
+      },
+      {
+        "level": 2,
+        "target": 3,
+        "uniqueVisibleWordCount": 3
+      },
+      {
+        "level": 3,
+        "target": 6,
+        "uniqueVisibleWordCount": 6
+      },
+      {
+        "level": 4,
+        "target": 4,
+        "uniqueVisibleWordCount": 4
+      }
+    ],
+    "keyboard": {
+      "kind": "full-keyboard-geometry",
+      "level": 4,
+      "count": 26,
+      "uniqueKeys": 26,
+      "minWidth": 44,
+      "minHeight": 44,
+      "allKeysFullyInViewport": true,
+      "allKeyCentersHitTestToButtons": true,
+      "dailyMissionHudCount": 0,
+      "clue": {
+        "top": 302,
+        "bottom": 366,
+        "visible": true
+      },
+      "word": {
+        "top": 383,
+        "bottom": 427,
+        "visible": true
+      },
+      "grid": {
+        "x": 28,
+        "y": 500,
+        "width": 334,
+        "height": 212,
+        "bottom": 712
+      },
+      "rowCount": 4,
+      "maxKeyBottom": 712,
+      "viewport": {
+        "width": 390,
+        "height": 740,
+        "documentWidth": 390,
+        "scrollY": 0
+      }
+    },
+    "keyboardClicks": {
+      "expected": 26,
+      "testedCount": 26,
+      "passed": true
+    },
+    "errors": [],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "resourceFailures": [],
+    "requestFailures": [],
+    "brokenImages": [],
+    "apiRequests": [],
+    "activeScreenshot": "docs/qa-evidence/dino-pair-20261029/hangman-fresh-active-390-C6C2d_B8.jpg",
+    "finishScreenshot": "docs/qa-evidence/dino-pair-20261029/hangman-fresh-finish-390-C6C2d_B8.jpg",
+    "positiveDeltas": [
+      {
+        "kind": "level-replay-reward-delta",
+        "level": 1,
+        "priorBest": 0,
+        "plannedScore": 2,
+        "expectedDelta": 2,
+        "injectedLocalFailure": true,
+        "injectedParentRewardFailure": false
+      },
+      {
+        "kind": "level-replay-reward-delta",
+        "level": 2,
+        "priorBest": 0,
+        "plannedScore": 6,
+        "expectedDelta": 6,
+        "injectedLocalFailure": false,
+        "injectedParentRewardFailure": true
+      },
+      {
+        "kind": "level-replay-reward-delta",
+        "level": 3,
+        "priorBest": 0,
+        "plannedScore": 6,
+        "expectedDelta": 6,
+        "injectedLocalFailure": false,
+        "injectedParentRewardFailure": false
+      },
+      {
+        "kind": "level-replay-reward-delta",
+        "level": 4,
+        "priorBest": 0,
+        "plannedScore": 6,
+        "expectedDelta": 6,
+        "injectedLocalFailure": false,
+        "injectedParentRewardFailure": false
+      }
+    ],
+    "failureAndRecovery": [
+      {
+        "kind": "progress-write-failure-held",
+        "level": 1,
+        "resultHeld": true,
+        "writeFaults": 1
+      },
+      {
+        "kind": "progress-readback-failure-held",
+        "level": 1,
+        "transactionRetainedForRetry": true
+      },
+      {
+        "kind": "parent-reward-failure-held",
+        "level": 2,
+        "resultHeld": true,
+        "writeFaults": 1
+      },
+      {
+        "kind": "parent-reward-recovery",
+        "level": 2,
+        "stableToken": "hangman:four-letter-rescue-68239172",
+        "claim": 6,
+        "pointsAfterRecovery": 8,
+        "gamesPlayedAfterRecovery": 2,
+        "replayAddedZero": true
+      },
+      {
+        "kind": "stable-reward-reentry",
+        "stableToken": "hangman:long-word-rescue-1563419320",
+        "pointsAfterFirstRecovery": 20,
+        "playsAfterFirstRecovery": 4,
+        "duplicateReentryAddedZero": true
+      }
+    ]
+  },
+  "originStorageAfterRun": {
+    "usageBytes": 30334861,
+    "quotaBytes": 10767753101,
+    "cacheNames": [
+      "amari-discovery-v42",
+      "amari-discovery-media-v1"
+    ],
+    "knownCacheContentLengthBytes": 26108854,
+    "limitBytes": 41943040
+  },
+  "diskAndProfile": {
+    "freeDiskBefore": "89GiB",
+    "freeDiskAfter": "89GiB",
+    "browserProfileBefore": "805M",
+    "browserProfileAfter": "806M"
+  },
+  "browserHelper": {
+    "session": "amari-targeted-contained",
+    "owner": "pair7-hangman-native",
+    "released": true,
+    "headlessSessionLeftRunning": true
+  }
+}

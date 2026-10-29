@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-29T02:04:09.474Z",
+  "url": "http://127.0.0.1:5180/?qa_pair7_geometry=1#/play/dino",
+  "entry": "/assets/arcade-DLNu42HO.js",
+  "namespace": true,
+  "notice": "A new game update is ready\n\nSave your work first, then refresh to see the latest games and pictures.\n\nRefresh games\nLater",
+  "buttons": [
+    {
+      "text": "Refresh games",
+      "label": null
+    }
+  ],
+  "worker": {
+    "active": "activated",
+    "caches": [
+      "amari-discovery-media-v1",
+      "amari-discovery-v42"
+    ]
+  },
+  "rootCause": "Geometry harness reused identical path/query and changed only the hash; page.goto performed an in-document SPA navigation. Not proof of stale HTTP/service-worker delivery. Unique query forces the next candidate document navigation without clearing data."
+}

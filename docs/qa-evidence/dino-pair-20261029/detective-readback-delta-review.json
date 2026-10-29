@@ -1,0 +1,27 @@
+{
+  "reviewedAt": "2026-10-29",
+  "sourceCommit": "2c8209eba409ea03d1435fa7637d4a1c9b5693d7",
+  "scope": "Focused recheck of the previously reported Amari completion readback-failure reward recovery only.",
+  "priorReviewPreserved": {
+    "path": "docs/qa-evidence/dino-pair-20261029/detective-independent-review.json",
+    "sha256": "6f758feb878e22eff18f61bf58fdf2cf9f1f2debeace807fe21416d725c66be2"
+  },
+  "files": [
+    { "path": "src/data/dinoDetectiveProgress.js", "sha256": "f5ffab0108c27edd0f5133ca2682cf81ae24e0df9669b60536b751a93f705693" },
+    { "path": "src/components/games/DinoDetective.jsx", "sha256": "8ef3262639c0c721a9d314b62042623ad2d7f41a20fafd17654805c423ee4c15" },
+    { "path": "test/dinoDetectiveProgress.test.mjs", "sha256": "4d8893646d2dc822ab4e78ed2f439f7be7d9617d46242fe2f173a734d0f4e75d" }
+  ],
+  "resolvedBehavior": "The same transaction ID is retained across an in-component Retry. The persisted completion receipt returns the original star/sticker delta after a transient readback failure, and rejects reuse with different completion facts. The focused regression simulates a committed write followed by a throwing readback.",
+  "blockers": [
+    {
+      "id": "readback-failure-reward-can-be-abandoned-by-back-navigation",
+      "severity": "release-blocker",
+      "locations": [
+        { "path": "src/components/games/DinoDetective.jsx", "lines": "168-181,186-190,194" }
+      ],
+      "finding": "The direct Retry path is repaired, but the Back button remains enabled after readback failure. In that state storage already contains the completion receipt while onCelebrate (the external star award) has not run. Back unmounts the component and loses its in-memory transaction ID; returning and replaying the completed world uses a new ID, gets awardedStars=0, and cannot recover the unissued external award. Keep the pending receipt recoverable across navigation or prevent leaving until Retry resolves it."
+    }
+  ],
+  "sourceReview": "The originally reported immediate Retry reward-loss path is resolved. One adjacent escape path in the same failed-readback recovery scenario remains.",
+  "acceptanceBoundary": "Focused independent source review only. No browser or tests were run; this does not establish Pair 7 or live acceptance."
+}

@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-29T02:57:14.023604+00:00",
+  "passed": true,
+  "stage": "native",
+  "runtime": "93d28b7108c625d9082ca6cc2815767d0f0d83f4",
+  "entry": "/assets/arcade-C6C2d_B8.js",
+  "journeys": [
+    {
+      "game": "dino",
+      "player": "amari",
+      "width": 390,
+      "height": 740,
+      "missionRuns": 12,
+      "primaryResponses": 60,
+      "report": "native-amari-390x740-arcade-C6C2d_B8-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-ct-final.json"
+    },
+    {
+      "game": "dino",
+      "player": "amari",
+      "width": 1440,
+      "height": 844,
+      "missionRuns": 12,
+      "primaryResponses": 60,
+      "report": "native-amari-1440-arcade-C6C2d_B8-runs-0_1_2_3_4_5_6_7_8_9_10_11-attempt-ct-final.json"
+    },
+    {
+      "game": "dino",
+      "player": "askia",
+      "width": 390,
+      "height": 740,
+      "missionRuns": 5,
+      "primaryResponses": 29,
+      "report": "native-askia-390x740-arcade-C6C2d_B8-runs-0_1_2_3_4-attempt-ct-final.json"
+    },
+    {
+      "game": "dino",
+      "player": "askia",
+      "width": 1440,
+      "height": 844,
+      "missionRuns": 5,
+      "primaryResponses": 29,
+      "report": "native-askia-1440-arcade-C6C2d_B8-runs-0_1_2_3_4-attempt-ct-final.json"
+    },
+    {
+      "game": "hangman",
+      "player": "amari",
+      "width": 390,
+      "height": 740,
+      "missionRuns": 4,
+      "primaryResponses": 16,
+      "report": "native-hangman-amari-390-C6C2d_B8.json"
+    },
+    {
+      "game": "hangman",
+      "player": "amari",
+      "width": 1440,
+      "height": 844,
+      "missionRuns": 4,
+      "primaryResponses": 16,
+      "report": "native-hangman-amari-1440-C6C2d_B8.json"
+    }
+  ],
+  "journeyCount": 6,
+  "missionRuns": 42,
+  "primaryResponses": 210,
+  "scope": "Six eligible child/game/viewport journeys. Wrong retries, diagnostics and replays are additional checks, not extra primary responses. No new editorial or listening score."
+}

@@ -1,0 +1,648 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "namespaced": true,
+  "entryIdentity": "/assets/arcade-Ct2TuDQy.js",
+  "route": "askia",
+  "player": "askia",
+  "width": 390,
+  "height": 740,
+  "baseline": {
+    "game": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"c99b6da6-342c-4ab6-93e0-67509face92a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":39,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3de42fcd-65ce-457e-829e-ef0435487e41\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dino\":{\"level\":1,\"plays\":1,\"best\":3,\"pairBestByLevel\":{\"0\":3},\"pairTransactionId\":\"91fc474e-92ac-4d3c-b2de-b564785597e1\",\"pairPreviousLevel\":0,\"pairPlayedLevel\":0,\"pairLevelUp\":true,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1}}",
+    "ownLittle": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"c99b6da6-342c-4ab6-93e0-67509face92a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":39,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3de42fcd-65ce-457e-829e-ef0435487e41\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dino\":{\"level\":1,\"plays\":1,\"best\":3,\"pairBestByLevel\":{\"0\":3},\"pairTransactionId\":\"91fc474e-92ac-4d3c-b2de-b564785597e1\",\"pairPreviousLevel\":0,\"pairPlayedLevel\":0,\"pairLevelUp\":true,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1}}",
+    "rewards": "{\"version\":2,\"points\":176,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5,\"dino\":1},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"],\"rewardClaims\":{\"dino:little:91fc474e-92ac-4d3c-b2de-b564785597e1\":8}}",
+    "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":25,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"675ba999-e28f-4efc-875b-c4bb13f7590e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":15,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"44fe69ce-1e44-47ad-a978-eae7a35f5786\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+    "siblingRewards": "{\"version\":2,\"points\":281,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3,\"ladder\":3,\"firerescue\":3,\"hangman\":4,\"dino\":12},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\",\"crown\"],\"rewardClaims\":{\"hangman:first-words-263186679\":2,\"hangman:four-letter-rescue-479170815\":6,\"hangman:five-letter-rescue-778843497\":6,\"hangman:long-word-rescue-2118663940\":6,\"dino:e3ee4326-ecf0-4a23-8978-edea989a9a66\":2,\"dino:55d8ed8c-26f4-4401-96b0-7722f01116d7\":2,\"dino:9abfd8f2-20df-431a-bc29-60c4f224eb74\":2,\"dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e\":2,\"dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69\":2,\"dino:67b3915e-0907-45a7-b377-5b0a7deaf32c\":2,\"dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002\":2,\"dino:2b17d237-c205-4da8-be4c-e1002930beb9\":2,\"dino:66425a33-97b7-4e9c-a72a-9077585472ae\":2,\"dino:65ff0aec-a712-4326-8d70-9427a12494e8\":2,\"dino:37ef2047-c60f-4f90-82b2-3c0009d36840\":2,\"dino:7d50c719-10cc-476a-b186-5352199b1640\":2}}"
+  },
+  "completedLevelRuns": [
+    {
+      "route": "askia",
+      "player": "askia",
+      "width": 390,
+      "level": 1,
+      "roundDetails": [
+        {
+          "round": 1,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the right leaves",
+          "species": "Brachiosaurus",
+          "spotCount": 2,
+          "wrongRetry": true,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 2,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the left leaves",
+          "species": "Stegosaurus",
+          "spotCount": 2,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 3,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the right leaves",
+          "species": "T-rex",
+          "spotCount": 2,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 4,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the left leaves",
+          "species": "Ankylosaurus",
+          "spotCount": 2,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 5,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the right leaves",
+          "species": "Pterodactyl",
+          "spotCount": 2,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        }
+      ],
+      "roundCount": 5,
+      "stars": 3,
+      "previousBest": 3,
+      "legacyRewardThrough": -1,
+      "rewardBaseline": 3,
+      "expectedPoints": 0,
+      "reward": {
+        "token": "dino:little:086b560b-2505-45d2-9122-3bba04f476e5",
+        "points": 0,
+        "claim": null,
+        "delta": 0
+      },
+      "transactionId": "086b560b-2505-45d2-9122-3bba04f476e5",
+      "failureCase": "readback"
+    },
+    {
+      "route": "askia",
+      "player": "askia",
+      "width": 390,
+      "level": 2,
+      "roundDetails": [
+        {
+          "round": 1,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the left leaves",
+          "species": "Stegosaurus",
+          "spotCount": 3,
+          "wrongRetry": true,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 2,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the right leaves",
+          "species": "T-rex",
+          "spotCount": 3,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 3,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the left leaves",
+          "species": "Ankylosaurus",
+          "spotCount": 3,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 4,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the middle leaves",
+          "species": "Pterodactyl",
+          "spotCount": 3,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 5,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the right leaves",
+          "species": "Triceratops",
+          "spotCount": 3,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        }
+      ],
+      "roundCount": 5,
+      "stars": 3,
+      "previousBest": 0,
+      "legacyRewardThrough": -1,
+      "rewardBaseline": 0,
+      "expectedPoints": 8,
+      "reward": {
+        "token": "dino:little:0bc2a2a7-ab41-4cfa-8bf5-4ff4bfa54d93",
+        "points": 8,
+        "claim": 8,
+        "delta": 8
+      },
+      "transactionId": "0bc2a2a7-ab41-4cfa-8bf5-4ff4bfa54d93",
+      "failureCase": "write+reward recovered"
+    }
+  ],
+  "levelRunCount": 2,
+  "rows": [
+    {
+      "kind": "baseline",
+      "player": "askia",
+      "route": "askia",
+      "width": 390,
+      "height": 740,
+      "snapshot": {
+        "game": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"c99b6da6-342c-4ab6-93e0-67509face92a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":39,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3de42fcd-65ce-457e-829e-ef0435487e41\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dino\":{\"level\":1,\"plays\":1,\"best\":3,\"pairBestByLevel\":{\"0\":3},\"pairTransactionId\":\"91fc474e-92ac-4d3c-b2de-b564785597e1\",\"pairPreviousLevel\":0,\"pairPlayedLevel\":0,\"pairLevelUp\":true,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1}}",
+        "ownLittle": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"c99b6da6-342c-4ab6-93e0-67509face92a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":39,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3de42fcd-65ce-457e-829e-ef0435487e41\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dino\":{\"level\":1,\"plays\":1,\"best\":3,\"pairBestByLevel\":{\"0\":3},\"pairTransactionId\":\"91fc474e-92ac-4d3c-b2de-b564785597e1\",\"pairPreviousLevel\":0,\"pairPlayedLevel\":0,\"pairLevelUp\":true,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1}}",
+        "rewards": "{\"version\":2,\"points\":176,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5,\"dino\":1},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"],\"rewardClaims\":{\"dino:little:91fc474e-92ac-4d3c-b2de-b564785597e1\":8}}",
+        "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":25,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"675ba999-e28f-4efc-875b-c4bb13f7590e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":15,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"44fe69ce-1e44-47ad-a978-eae7a35f5786\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+        "siblingRewards": "{\"version\":2,\"points\":281,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3,\"ladder\":3,\"firerescue\":3,\"hangman\":4,\"dino\":12},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\",\"crown\"],\"rewardClaims\":{\"hangman:first-words-263186679\":2,\"hangman:four-letter-rescue-479170815\":6,\"hangman:five-letter-rescue-778843497\":6,\"hangman:long-word-rescue-2118663940\":6,\"dino:e3ee4326-ecf0-4a23-8978-edea989a9a66\":2,\"dino:55d8ed8c-26f4-4401-96b0-7722f01116d7\":2,\"dino:9abfd8f2-20df-431a-bc29-60c4f224eb74\":2,\"dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e\":2,\"dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69\":2,\"dino:67b3915e-0907-45a7-b377-5b0a7deaf32c\":2,\"dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002\":2,\"dino:2b17d237-c205-4da8-be4c-e1002930beb9\":2,\"dino:66425a33-97b7-4e9c-a72a-9077585472ae\":2,\"dino:65ff0aec-a712-4326-8d70-9427a12494e8\":2,\"dino:37ef2047-c60f-4f90-82b2-3c0009d36840\":2,\"dino:7d50c719-10cc-476a-b186-5352199b1640\":2}}"
+      }
+    },
+    {
+      "kind": "journey-baseline",
+      "snapshot": {
+        "game": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"c99b6da6-342c-4ab6-93e0-67509face92a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":39,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3de42fcd-65ce-457e-829e-ef0435487e41\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dino\":{\"level\":1,\"plays\":1,\"best\":3,\"pairBestByLevel\":{\"0\":3},\"pairTransactionId\":\"91fc474e-92ac-4d3c-b2de-b564785597e1\",\"pairPreviousLevel\":0,\"pairPlayedLevel\":0,\"pairLevelUp\":true,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1}}",
+        "ownLittle": "{\"rocketbuilder\":{\"level\":4,\"plays\":30,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5221d4e2-5968-4893-a58c-e67a39be3c6f\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":23,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"571d44e9-cefa-4c16-a460-18e0ac96afab\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"c99b6da6-342c-4ab6-93e0-67509face92a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":39,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3de42fcd-65ce-457e-829e-ef0435487e41\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dino\":{\"level\":1,\"plays\":1,\"best\":3,\"pairBestByLevel\":{\"0\":3},\"pairTransactionId\":\"91fc474e-92ac-4d3c-b2de-b564785597e1\",\"pairPreviousLevel\":0,\"pairPlayedLevel\":0,\"pairLevelUp\":true,\"pairRewardPoints\":8,\"pairLegacyRewardThrough\":-1}}",
+        "rewards": "{\"version\":2,\"points\":176,\"gamesPlayed\":{\"pattern\":3,\"memory\":4,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5,\"dino\":1},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\"],\"rewardClaims\":{\"dino:little:91fc474e-92ac-4d3c-b2de-b564785597e1\":8}}",
+        "siblingProgress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"a24e9fc7-375e-4af2-93bd-a1315fa87bb4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"9ba24c84-eda1-4be4-8d9d-5f2cc0765395\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":25,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"675ba999-e28f-4efc-875b-c4bb13f7590e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":15,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"44fe69ce-1e44-47ad-a978-eae7a35f5786\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1}}",
+        "siblingRewards": "{\"version\":2,\"points\":281,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":3,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3,\"ladder\":3,\"firerescue\":3,\"hangman\":4,\"dino\":12},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\",\"crown\"],\"rewardClaims\":{\"hangman:first-words-263186679\":2,\"hangman:four-letter-rescue-479170815\":6,\"hangman:five-letter-rescue-778843497\":6,\"hangman:long-word-rescue-2118663940\":6,\"dino:e3ee4326-ecf0-4a23-8978-edea989a9a66\":2,\"dino:55d8ed8c-26f4-4401-96b0-7722f01116d7\":2,\"dino:9abfd8f2-20df-431a-bc29-60c4f224eb74\":2,\"dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e\":2,\"dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69\":2,\"dino:67b3915e-0907-45a7-b377-5b0a7deaf32c\":2,\"dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002\":2,\"dino:2b17d237-c205-4da8-be4c-e1002930beb9\":2,\"dino:66425a33-97b7-4e9c-a72a-9077585472ae\":2,\"dino:65ff0aec-a712-4326-8d70-9427a12494e8\":2,\"dino:37ef2047-c60f-4f90-82b2-3c0009d36840\":2,\"dino:7d50c719-10cc-476a-b186-5352199b1640\":2}}"
+      }
+    },
+    {
+      "kind": "askia-start-play-preflight-visible-before-autoscroll",
+      "label": "Play Dino Detective",
+      "rect": {
+        "x": 147,
+        "y": 480,
+        "right": 243,
+        "bottom": 576,
+        "width": 96,
+        "height": 96
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "audio-mute-preflight",
+      "source": "http://127.0.0.1:5180/audio/en/42182b71-matilda.mp3",
+      "packaged": true,
+      "mutePauseOrEndObserved": true
+    },
+    {
+      "kind": "leave-before-finish",
+      "parent": {
+        "branch": "confirmation",
+        "parent": "Askia home",
+        "url": "http://127.0.0.1:5180/?qa_dino_pair7=askia-askia-390-1793241994922#/home",
+        "leaveAudio": {
+          "source": "http://127.0.0.1:5180/audio/en/42182b71-matilda.mp3",
+          "terminalEvent": "pause",
+          "terminalTime": 0
+        }
+      },
+      "unchanged": true
+    },
+    {
+      "kind": "askia-level-start-visible-before-autoscroll",
+      "label": "Play Dino Detective",
+      "rect": {
+        "x": 147,
+        "y": 480,
+        "right": 243,
+        "bottom": 576,
+        "width": 96,
+        "height": 96
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-next-round-visible-before-autoscroll",
+      "label": "Next round",
+      "rect": {
+        "x": 104.640625,
+        "y": 518,
+        "right": 285.34375,
+        "bottom": 582,
+        "width": 180.703125,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "representative-askia-held",
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/dino-pair-20261029/native-askia-390x740-arcade-Ct2TuDQy.js-runs-0_1_2_3_4-attempt-ct2-final-askia-held-facts.jpg",
+      "level": 1,
+      "round": 1
+    },
+    {
+      "kind": "askia-next-round-visible-before-autoscroll",
+      "label": "Next round",
+      "rect": {
+        "x": 104.640625,
+        "y": 518,
+        "right": 285.34375,
+        "bottom": 582,
+        "width": 180.703125,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-next-round-visible-before-autoscroll",
+      "label": "Next round",
+      "rect": {
+        "x": 104.640625,
+        "y": 518,
+        "right": 285.34375,
+        "bottom": 582,
+        "width": 180.703125,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-next-round-visible-before-autoscroll",
+      "label": "Next round",
+      "rect": {
+        "x": 104.640625,
+        "y": 518,
+        "right": 285.34375,
+        "bottom": 582,
+        "width": 180.703125,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-finish-game-visible-before-autoscroll",
+      "label": "Finish game",
+      "rect": {
+        "x": 99.984375,
+        "y": 518,
+        "right": 290,
+        "bottom": 582,
+        "width": 190.015625,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-save-retry-visible-before-autoscroll",
+      "label": "Retry saving this result",
+      "rect": {
+        "x": 45.4375,
+        "y": 538,
+        "right": 344.5625,
+        "bottom": 602,
+        "width": 299.125,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "route": "askia",
+      "player": "askia",
+      "width": 390,
+      "level": 1,
+      "roundDetails": [
+        {
+          "round": 1,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the right leaves",
+          "species": "Brachiosaurus",
+          "spotCount": 2,
+          "wrongRetry": true,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 2,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the left leaves",
+          "species": "Stegosaurus",
+          "spotCount": 2,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 3,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the right leaves",
+          "species": "T-rex",
+          "spotCount": 2,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 4,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the left leaves",
+          "species": "Ankylosaurus",
+          "spotCount": 2,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 5,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the right leaves",
+          "species": "Pterodactyl",
+          "spotCount": 2,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        }
+      ],
+      "roundCount": 5,
+      "stars": 3,
+      "previousBest": 3,
+      "legacyRewardThrough": -1,
+      "rewardBaseline": 3,
+      "expectedPoints": 0,
+      "reward": {
+        "token": "dino:little:086b560b-2505-45d2-9122-3bba04f476e5",
+        "points": 0,
+        "claim": null,
+        "delta": 0
+      },
+      "transactionId": "086b560b-2505-45d2-9122-3bba04f476e5",
+      "failureCase": "readback"
+    },
+    {
+      "kind": "askia-level-start-visible-before-autoscroll",
+      "label": "Play level 2",
+      "rect": {
+        "x": 66.703125,
+        "y": 405.59375,
+        "right": 146.703125,
+        "bottom": 485.59375,
+        "width": 80,
+        "height": 80
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-next-round-visible-before-autoscroll",
+      "label": "Next round",
+      "rect": {
+        "x": 104.640625,
+        "y": 518,
+        "right": 285.34375,
+        "bottom": 582,
+        "width": 180.703125,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-next-round-visible-before-autoscroll",
+      "label": "Next round",
+      "rect": {
+        "x": 104.640625,
+        "y": 518,
+        "right": 285.34375,
+        "bottom": 582,
+        "width": 180.703125,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-next-round-visible-before-autoscroll",
+      "label": "Next round",
+      "rect": {
+        "x": 104.640625,
+        "y": 518,
+        "right": 285.34375,
+        "bottom": 582,
+        "width": 180.703125,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-next-round-visible-before-autoscroll",
+      "label": "Next round",
+      "rect": {
+        "x": 104.640625,
+        "y": 518,
+        "right": 285.34375,
+        "bottom": 582,
+        "width": 180.703125,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-finish-game-visible-before-autoscroll",
+      "label": "Finish game",
+      "rect": {
+        "x": 99.984375,
+        "y": 518,
+        "right": 290,
+        "bottom": 582,
+        "width": 190.015625,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "kind": "askia-blocked-save-retry-visible-before-autoscroll",
+      "label": "Retry saving this result",
+      "rect": {
+        "x": 45.4375,
+        "y": 538,
+        "right": 344.5625,
+        "bottom": 602,
+        "width": 299.125,
+        "height": 64
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "route": "askia",
+      "player": "askia",
+      "width": 390,
+      "level": 2,
+      "roundDetails": [
+        {
+          "round": 1,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the left leaves",
+          "species": "Stegosaurus",
+          "spotCount": 3,
+          "wrongRetry": true,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 2,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the right leaves",
+          "species": "T-rex",
+          "spotCount": 3,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 3,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the left leaves",
+          "species": "Ankylosaurus",
+          "spotCount": 3,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 4,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the middle leaves",
+          "species": "Pterodactyl",
+          "spotCount": 3,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        },
+        {
+          "round": 5,
+          "source": "rendered footprint trail",
+          "targetLabel": "Look behind the right leaves",
+          "species": "Triceratops",
+          "spotCount": 3,
+          "wrongRetry": false,
+          "optionalClearerTrail": false,
+          "heldBeforeAdvance": true
+        }
+      ],
+      "roundCount": 5,
+      "stars": 3,
+      "previousBest": 0,
+      "legacyRewardThrough": -1,
+      "rewardBaseline": 0,
+      "expectedPoints": 8,
+      "reward": {
+        "token": "dino:little:0bc2a2a7-ab41-4cfa-8bf5-4ff4bfa54d93",
+        "points": 8,
+        "claim": 8,
+        "delta": 8
+      },
+      "transactionId": "0bc2a2a7-ab41-4cfa-8bf5-4ff4bfa54d93",
+      "failureCase": "write+reward recovered"
+    },
+    {
+      "kind": "askia-level-start-visible-before-autoscroll",
+      "label": "Play Dino Detective",
+      "rect": {
+        "x": 147,
+        "y": 480,
+        "right": 243,
+        "bottom": 576,
+        "width": 96,
+        "height": 96
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    }
+  ],
+  "recovery": {
+    "askiaWriteRewardBackReopen": {
+      "parent": {
+        "branch": "confirmation",
+        "parent": "Askia home",
+        "url": "http://127.0.0.1:5180/?qa_dino_pair7=askia-askia-390-1793241994922#/home",
+        "leaveAudio": null
+      },
+      "points": 8,
+      "verified": true
+    }
+  },
+  "providerRequests": [],
+  "failedResources": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failures": [
+    {
+      "message": "Askia wrong choice changed the visible trail target: {\"before\":{\"tip\":{\"x\":0.5,\"y\":0.652491554054054},\"nearest\":\"Look behind the middle leaves\",\"glowing\":[],\"buttons\":[{\"label\":\"Look behind the middle leaves\",\"x\":0.5,\"y\":0.589991554054054,\"glow\":false},{\"label\":\"Look behind the right leaves\",\"x\":0.7899839743589744,\"y\":0.569995777027027,\"glow\":false},{\"label\":\"Look behind the left leaves\",\"x\":0.20997596153846154,\"y\":0.569995777027027,\"glow\":false}],\"footprints\":[{\"x\":0.5,\"y\":0.777491554054054},{\"x\":0.5,\"y\":0.714991554054054},{\"x\":0.5,\"y\":0.652491554054054}],\"scene\":{\"width\":390,\"height\":740}},\"after\":{\"tip\":{\"x\":0.5,\"y\":0.652491554054054},\"nearest\":\"Look behind the middle leaves\",\"glowing\":[],\"buttons\":[{\"label\":\"Look behind the left leaves\",\"x\":0.20997596153846154,\"y\":0.569995777027027,\"glow\":false},{\"label\":\"Look behind the middle leaves\",\"x\":0.5,\"y\":0.589991554054054,\"glow\":false},{\"label\":\"Look behind the right leaves\",\"x\":0.7899839743589744,\"y\":0.569995777027027,\"glow\":false}],\"footprints\":[{\"x\":0.5,\"y\":0.777491554054054},{\"x\":0.5,\"y\":0.714991554054054},{\"x\":0.5,\"y\":0.652491554054054}],\"scene\":{\"width\":390,\"height\":740}}}",
+      "stack": "Error: Askia wrong choice changed the visible trail target: {\"before\":{\"tip\":{\"x\":0.5,\"y\":0.652491554054054},\"nearest\":\"Look behind the middle leaves\",\"glowing\":[],\"buttons\":[{\"label\":\"Look behind the middle leaves\",\"x\":0.5,\"y\":0.589991554054054,\"glow\":false},{\"label\":\"Look behind the right leaves\",\"x\":0.7899839743589744,\"y\":0.569995777027027,\"glow\":false},{\"label\":\"Look behind the left leaves\",\"x\":0.20997596153846154,\"y\":0.569995777027027,\"glow\":false}],\"footprints\":[{\"x\":0.5,\"y\":0.777491554054054},{\"x\":0.5,\"y\":0.714991554054054},{\"x\":0.5,\"y\":0.652491554054054}],\"scene\":{\"width\":390,\"height\":740}},\"after\":{\"tip\":{\"x\":0.5,\"y\":0.652491554054054},\"nearest\":\"Look behind the middle leaves\",\"glowing\":[],\"buttons\":[{\"label\":\"Look behind the left leaves\",\"x\":0.20997596153846154,\"y\":0.569995777027027,\"glow\":false},{\"label\":\"Look behind the middle leaves\",\"x\":0.5,\"y\":0.589991554054054,\"glow\":false},{\"label\":\"Look behind the right leaves\",\"x\":0.7899839743589744,\"y\":0.569995777027027,\"glow\":false}],\"footprints\":[{\"x\":0.5,\"y\":0.777491554054054},{\"x\":0.5,\"y\":0.714991554054054},{\"x\":0.5,\"y\":0.652491554054054}],\"scene\":{\"width\":390,\"height\":740}}}\n    at runAskia (evalmachine.<anonymous>:74:2062)\n    at async evalmachine.<anonymous>:110:760\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)\n    at async connection.onmessage (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:76275:29)",
+      "completedLevelRuns": 2,
+      "rows": 23
+    }
+  ],
+  "errors": [
+    {
+      "message": "Askia wrong choice changed the visible trail target: {\"before\":{\"tip\":{\"x\":0.5,\"y\":0.652491554054054},\"nearest\":\"Look behind the middle leaves\",\"glowing\":[],\"buttons\":[{\"label\":\"Look behind the middle leaves\",\"x\":0.5,\"y\":0.589991554054054,\"glow\":false},{\"label\":\"Look behind the right leaves\",\"x\":0.7899839743589744,\"y\":0.569995777027027,\"glow\":false},{\"label\":\"Look behind the left leaves\",\"x\":0.20997596153846154,\"y\":0.569995777027027,\"glow\":false}],\"footprints\":[{\"x\":0.5,\"y\":0.777491554054054},{\"x\":0.5,\"y\":0.714991554054054},{\"x\":0.5,\"y\":0.652491554054054}],\"scene\":{\"width\":390,\"height\":740}},\"after\":{\"tip\":{\"x\":0.5,\"y\":0.652491554054054},\"nearest\":\"Look behind the middle leaves\",\"glowing\":[],\"buttons\":[{\"label\":\"Look behind the left leaves\",\"x\":0.20997596153846154,\"y\":0.569995777027027,\"glow\":false},{\"label\":\"Look behind the middle leaves\",\"x\":0.5,\"y\":0.589991554054054,\"glow\":false},{\"label\":\"Look behind the right leaves\",\"x\":0.7899839743589744,\"y\":0.569995777027027,\"glow\":false}],\"footprints\":[{\"x\":0.5,\"y\":0.777491554054054},{\"x\":0.5,\"y\":0.714991554054054},{\"x\":0.5,\"y\":0.652491554054054}],\"scene\":{\"width\":390,\"height\":740}}}",
+      "stack": "Error: Askia wrong choice changed the visible trail target: {\"before\":{\"tip\":{\"x\":0.5,\"y\":0.652491554054054},\"nearest\":\"Look behind the middle leaves\",\"glowing\":[],\"buttons\":[{\"label\":\"Look behind the middle leaves\",\"x\":0.5,\"y\":0.589991554054054,\"glow\":false},{\"label\":\"Look behind the right leaves\",\"x\":0.7899839743589744,\"y\":0.569995777027027,\"glow\":false},{\"label\":\"Look behind the left leaves\",\"x\":0.20997596153846154,\"y\":0.569995777027027,\"glow\":false}],\"footprints\":[{\"x\":0.5,\"y\":0.777491554054054},{\"x\":0.5,\"y\":0.714991554054054},{\"x\":0.5,\"y\":0.652491554054054}],\"scene\":{\"width\":390,\"height\":740}},\"after\":{\"tip\":{\"x\":0.5,\"y\":0.652491554054054},\"nearest\":\"Look behind the middle leaves\",\"glowing\":[],\"buttons\":[{\"label\":\"Look behind the left leaves\",\"x\":0.20997596153846154,\"y\":0.569995777027027,\"glow\":false},{\"label\":\"Look behind the middle leaves\",\"x\":0.5,\"y\":0.589991554054054,\"glow\":false},{\"label\":\"Look behind the right leaves\",\"x\":0.7899839743589744,\"y\":0.569995777027027,\"glow\":false}],\"footprints\":[{\"x\":0.5,\"y\":0.777491554054054},{\"x\":0.5,\"y\":0.714991554054054},{\"x\":0.5,\"y\":0.652491554054054}],\"scene\":{\"width\":390,\"height\":740}}}\n    at runAskia (evalmachine.<anonymous>:74:2062)\n    at async evalmachine.<anonymous>:110:760\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)\n    at async connection.onmessage (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:76275:29)"
+    }
+  ],
+  "stage": "native",
+  "cliReturnCode": 0
+}

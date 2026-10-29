@@ -1,0 +1,917 @@
+{
+  "passed": false,
+  "stage": "full",
+  "player": "amari",
+  "width": 390,
+  "height": 740,
+  "entryIdentity": "http://127.0.0.1:5180/assets/arcade-DhIX2iKU.js",
+  "rows": [
+    {
+      "kind": "replay-baseline",
+      "previousBest": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "plannedScores": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "plannedDeltas": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "legacyRewardCeiling": null,
+      "faultPlan": {
+        "localFailureLevel": null,
+        "parentRewardFailureLevel": null,
+        "skipped": "No positive improvement delta remains in the saved bests."
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-1",
+      "x": 40,
+      "y": 841,
+      "width": 310,
+      "height": 134,
+      "bottom": 975,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-2",
+      "x": 40,
+      "y": 987,
+      "width": 310,
+      "height": 162,
+      "bottom": 1149,
+      "visible": false,
+      "minHeight": 162
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-3",
+      "x": 40,
+      "y": 1161,
+      "width": 310,
+      "height": 134,
+      "bottom": 1295,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-4",
+      "x": 40,
+      "y": 1307,
+      "width": 310,
+      "height": 162,
+      "bottom": 1469,
+      "visible": false,
+      "minHeight": 162
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected-level-start",
+      "x": 53,
+      "y": 620,
+      "width": 243,
+      "height": 56,
+      "bottom": 676,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "initial-map",
+      "player": "amari",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        {
+          "name": "First words",
+          "target": 3
+        },
+        {
+          "name": "Four-letter rescue",
+          "target": 3
+        },
+        {
+          "name": "Five-letter rescue",
+          "target": 6
+        },
+        {
+          "name": "Long-word rescue",
+          "target": 4
+        }
+      ],
+      "protectedKeys": 8
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 82,
+      "width": 188,
+      "height": 56,
+      "bottom": 138,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 243,
+        "width": 310,
+        "height": 134,
+        "bottom": 377,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Hear the word",
+      "x": 278,
+      "y": 302,
+      "width": 84,
+      "height": 48,
+      "bottom": 350,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "audio-mute-cancel",
+      "exactClipObserved": true,
+      "pausedAfterMute": true
+    },
+    {
+      "kind": "audio-next-cancel",
+      "pausedAfterNext": true
+    },
+    {
+      "kind": "audio-packaged-availability",
+      "exactVisibleClipAvailable": true,
+      "scannedSkippedWords": 0
+    },
+    {
+      "kind": "audio-leave-cancel",
+      "pausedAfterLeave": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 82,
+      "width": 188,
+      "height": 56,
+      "bottom": 138,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 243,
+        "width": 310,
+        "height": 134,
+        "bottom": 377,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A face may show this feeling after losing a toy.",
+      "length": 3,
+      "category": "-AD",
+      "emoji": "🙁",
+      "geometry": {
+        "x": 28,
+        "y": 283,
+        "width": 242,
+        "height": 64,
+        "bottom": 347,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "same-word Retry",
+      "x": 222,
+      "y": 489,
+      "width": 58,
+      "height": 48,
+      "bottom": 537,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "held-loss-board",
+      "x": 37,
+      "y": 364,
+      "width": 316,
+      "height": 44,
+      "bottom": 408,
+      "visible": true,
+      "minHeight": 44
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A face may show this feeling after losing a toy.",
+      "length": 3,
+      "category": "-AD",
+      "emoji": "🙁",
+      "geometry": {
+        "x": 28,
+        "y": 283,
+        "width": 242,
+        "height": 64,
+        "bottom": 347,
+        "visible": true
+      }
+    },
+    {
+      "kind": "wrong-answer-retry",
+      "clueLength": 3,
+      "heldAnswerVisibleBeforeRetry": true,
+      "sameClueAfterRetry": true,
+      "heldBoardGeometry": {
+        "x": 37,
+        "y": 364,
+        "width": 316,
+        "height": 44,
+        "bottom": 408,
+        "visible": true,
+        "minHeight": 44
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-next-word-1",
+      "x": 243,
+      "y": 489,
+      "width": 73,
+      "height": 48,
+      "bottom": 537,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A tiny sharp fastener can hold papers together.",
+      "length": 3,
+      "category": "-IN",
+      "emoji": "📌",
+      "geometry": {
+        "x": 28,
+        "y": 283,
+        "width": 242,
+        "height": 64,
+        "bottom": 347,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "one-letter hint",
+      "x": 85,
+      "y": 425,
+      "width": 70,
+      "height": 48,
+      "bottom": 473,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-next-word-2",
+      "x": 247,
+      "y": 521,
+      "width": 73,
+      "height": 48,
+      "bottom": 569,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "Another word for a child.",
+      "length": 3,
+      "category": "-ID",
+      "emoji": "🧒",
+      "geometry": {
+        "x": 28,
+        "y": 285,
+        "width": 242,
+        "height": 44,
+        "bottom": 329,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 1,
+      "target": 3,
+      "rescued": [
+        1,
+        2,
+        3
+      ],
+      "uniqueVisibleWordCount": 3
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 1,
+      "priorBest": 2,
+      "plannedScore": 2,
+      "expectedDelta": 0,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-held-finish",
+      "x": 245,
+      "y": 453,
+      "width": 70,
+      "height": 48,
+      "bottom": 501,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "Another word for a child.",
+      "length": 3,
+      "category": "-ID",
+      "emoji": "🧒",
+      "geometry": {
+        "x": 28,
+        "y": 285,
+        "width": 242,
+        "height": 44,
+        "bottom": 329,
+        "visible": true
+      }
+    },
+    {
+      "kind": "held-level-result",
+      "level": 1,
+      "target": 3,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 663,
+        "documentHeight": 840,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-start",
+      "x": 53,
+      "y": -18,
+      "width": 242,
+      "height": 56,
+      "bottom": 38,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 2,
+      "name": "Four-letter rescue",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 349,
+        "width": 310,
+        "height": 162,
+        "bottom": 511,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A hard lump of stone.",
+      "length": 4,
+      "category": "LONGER WORDS",
+      "emoji": "🪨",
+      "geometry": {
+        "x": 28,
+        "y": 325,
+        "width": 242,
+        "height": 44,
+        "bottom": 369,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-next-word-1",
+      "x": 243,
+      "y": 493,
+      "width": 73,
+      "height": 48,
+      "bottom": 541,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "Raise something up.",
+      "length": 4,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "🏋️",
+      "geometry": {
+        "x": 28,
+        "y": 324,
+        "width": 182,
+        "height": 44,
+        "bottom": 368,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-next-word-2",
+      "x": 243,
+      "y": 491,
+      "width": 73,
+      "height": 48,
+      "bottom": 539,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A small hopping animal that lives near ponds.",
+      "length": 4,
+      "category": "LONGER WORDS",
+      "emoji": "🐸",
+      "geometry": {
+        "x": 28,
+        "y": 323,
+        "width": 242,
+        "height": 64,
+        "bottom": 387,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 2,
+      "target": 3,
+      "rescued": [
+        1,
+        2,
+        3
+      ],
+      "uniqueVisibleWordCount": 3
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 2,
+      "priorBest": 6,
+      "plannedScore": 6,
+      "expectedDelta": 0,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-held-finish",
+      "x": 245,
+      "y": 529,
+      "width": 70,
+      "height": 48,
+      "bottom": 577,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A small hopping animal that lives near ponds.",
+      "length": 4,
+      "category": "LONGER WORDS",
+      "emoji": "🐸",
+      "geometry": {
+        "x": 28,
+        "y": 323,
+        "width": 242,
+        "height": 64,
+        "bottom": 387,
+        "visible": true
+      }
+    },
+    {
+      "kind": "held-level-result",
+      "level": 2,
+      "target": 3,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 663,
+        "documentHeight": 840,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-start",
+      "x": 53,
+      "y": -238,
+      "width": 238,
+      "height": 56,
+      "bottom": -182,
+      "visible": false,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 3,
+      "name": "Five-letter rescue",
+      "target": 6,
+      "geometry": {
+        "x": 40,
+        "y": 303,
+        "width": 310,
+        "height": 134,
+        "bottom": 437,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A small block used to build a wall.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🧱",
+      "geometry": {
+        "x": 28,
+        "y": 323,
+        "width": 242,
+        "height": 64,
+        "bottom": 387,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-1",
+      "x": 243,
+      "y": 529,
+      "width": 73,
+      "height": 48,
+      "bottom": 577,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A see-through material used for windows.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🥛",
+      "geometry": {
+        "x": 28,
+        "y": 323,
+        "width": 242,
+        "height": 64,
+        "bottom": 387,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-2",
+      "x": 243,
+      "y": 529,
+      "width": 73,
+      "height": 48,
+      "bottom": 577,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A living thing with roots and leaves.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🪴",
+      "geometry": {
+        "x": 28,
+        "y": 323,
+        "width": 242,
+        "height": 64,
+        "bottom": 387,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-3",
+      "x": 243,
+      "y": 529,
+      "width": 73,
+      "height": 48,
+      "bottom": 577,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "The body parts at the ends of your arms.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "👐",
+      "geometry": {
+        "x": 28,
+        "y": 323,
+        "width": 242,
+        "height": 64,
+        "bottom": 387,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-4",
+      "x": 243,
+      "y": 529,
+      "width": 73,
+      "height": 48,
+      "bottom": 577,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "One of the colourful parts around a flower’s centre.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🌸",
+      "geometry": {
+        "x": 28,
+        "y": 323,
+        "width": 242,
+        "height": 64,
+        "bottom": 387,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-5",
+      "x": 243,
+      "y": 529,
+      "width": 73,
+      "height": 48,
+      "bottom": 577,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A strong material used to make many spoons.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🥄",
+      "geometry": {
+        "x": 28,
+        "y": 323,
+        "width": 242,
+        "height": 64,
+        "bottom": 387,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 3,
+      "target": 6,
+      "rescued": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "uniqueVisibleWordCount": 6
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 3,
+      "priorBest": 6,
+      "plannedScore": 6,
+      "expectedDelta": 0,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-held-finish",
+      "x": 245,
+      "y": 529,
+      "width": 70,
+      "height": 48,
+      "bottom": 577,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A strong material used to make many spoons.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🥄",
+      "geometry": {
+        "x": 28,
+        "y": 323,
+        "width": 242,
+        "height": 64,
+        "bottom": 387,
+        "visible": true
+      }
+    },
+    {
+      "kind": "held-level-result",
+      "level": 3,
+      "target": 6,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 663,
+        "documentHeight": 840,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-start",
+      "x": 53,
+      "y": -398,
+      "width": 243,
+      "height": 56,
+      "bottom": -342,
+      "visible": false,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 4,
+      "name": "Long-word rescue",
+      "target": 4,
+      "geometry": {
+        "x": 40,
+        "y": 289,
+        "width": 310,
+        "height": 162,
+        "bottom": 451,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "full-keyboard-geometry",
+      "level": 4,
+      "count": 26,
+      "uniqueKeys": 26,
+      "minWidth": 44,
+      "minHeight": 44,
+      "grid": {
+        "x": 28,
+        "y": 537,
+        "width": 334,
+        "height": 212,
+        "bottom": 749
+      },
+      "rowCount": 4,
+      "maxKeyBottom": 749,
+      "viewport": {
+        "width": 390,
+        "height": 740,
+        "documentWidth": 390
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "The warm season after spring.",
+      "length": 6,
+      "category": "LONGER WORDS",
+      "emoji": "☀️",
+      "geometry": {
+        "x": 28,
+        "y": 339,
+        "width": 242,
+        "height": 64,
+        "bottom": 403,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-next-word-1",
+      "x": 243,
+      "y": 536,
+      "width": 73,
+      "height": 48,
+      "bottom": 584,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A wax stick with a wick that gives light.",
+      "length": 6,
+      "category": "LONGER WORDS",
+      "emoji": "🕯️",
+      "geometry": {
+        "x": 28,
+        "y": 330,
+        "width": 242,
+        "height": 64,
+        "bottom": 394,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-next-word-2",
+      "x": 243,
+      "y": 528,
+      "width": 73,
+      "height": 48,
+      "bottom": 576,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A material used for many bottles and toys.",
+      "length": 7,
+      "category": "LONGER WORDS",
+      "emoji": "🧴",
+      "geometry": {
+        "x": 28,
+        "y": 322,
+        "width": 242,
+        "height": 64,
+        "bottom": 386,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-next-word-3",
+      "x": 243,
+      "y": 528,
+      "width": 73,
+      "height": 48,
+      "bottom": 576,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A furry animal with long ears that hops.",
+      "length": 6,
+      "category": "LONGER WORDS",
+      "emoji": "🐇",
+      "geometry": {
+        "x": 28,
+        "y": 322,
+        "width": 242,
+        "height": 64,
+        "bottom": 386,
+        "visible": true
+      }
+    }
+  ],
+  "errors": [
+    {
+      "message": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-hangman-phase=\"play\"]').getByRole('group', { name: 'Helpful letter choices' }).getByRole('button', { name: /^T(?:,|$)/ })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" aria-label=\"T\" class=\"grid min-h-11 min-w-11 place-items-center rounded-lg border px-0 text-base font-black transition sm:min-h-14 sm:min-w-14 sm:rounded-xl sm:px-1 sm:text-xl border-white/15 bg-white/10 text-white hover:border-fuchsia-300/70 hover:bg-white/15 disabled:cursor-default\">T</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"rounded-2xl border px-2.5 py-2 shadow-2xl backdrop-blur-xl border-white/40 bg-white/90 text-slate-700\">…</div> from <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    14 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div class=\"rounded-2xl border px-2.5 py-2 shadow-2xl backdrop-blur-xl border-white/40 bg-white/90 text-slate-700\">…</div> from <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div class=\"rounded-2xl border px-2.5 py-2 shadow-2xl backdrop-blur-xl border-white/40 bg-white/90 text-slate-700\">…</div> from <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n",
+      "stack": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-hangman-phase=\"play\"]').getByRole('group', { name: 'Helpful letter choices' }).getByRole('button', { name: /^T(?:,|$)/ })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" aria-label=\"T\" class=\"grid min-h-11 min-w-11 place-items-center rounded-lg border px-0 text-base font-black transition sm:min-h-14 sm:min-w-14 sm:rounded-xl sm:px-1 sm:text-xl border-white/15 bg-white/10 text-white hover:border-fuchsia-300/70 hover:bg-white/15 disabled:cursor-default\">T</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div class=\"rounded-2xl border px-2.5 py-2 shadow-2xl backdrop-blur-xl border-white/40 bg-white/90 text-slate-700\">…</div> from <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    14 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div class=\"rounded-2xl border px-2.5 py-2 shadow-2xl backdrop-blur-xl border-white/40 bg-white/90 text-slate-700\">…</div> from <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <div class=\"rounded-2xl border px-2.5 py-2 shadow-2xl backdrop-blur-xl border-white/40 bg-white/90 text-slate-700\">…</div> from <div title=\"Match 3 letters\" class=\"fixed bottom-3 right-3 z-40 min-w-[8.5rem] pointer-events-auto transition-all \">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n    at clickLetter (evalmachine.<anonymous>:183:18)\n    at async enterAnswerThroughControls (evalmachine.<anonymous>:196:85)\n    at async playLevel (evalmachine.<anonymous>:464:14)\n    at async evalmachine.<anonymous>:549:5\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+      "rows": 71
+    }
+  ],
+  "pageErrors": [],
+  "apiRequests": []
+}

@@ -1,0 +1,291 @@
+{
+  "candidateCommit": "83aeda00ce8e6b286a35dfe9ee62f33b96cc09db",
+  "worker": 42,
+  "origin": "http://127.0.0.1:5180",
+  "servedEntry": "assets/arcade-DVChNJa_.js",
+  "viewports": {
+    "390x740": {
+      "passed": true,
+      "origin": "http://127.0.0.1:5180",
+      "entryIdentity": "http://127.0.0.1:5180/assets/arcade-DVChNJa_.js",
+      "completedLevels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        {
+          "level": 1,
+          "target": 3,
+          "rescued": [
+            1,
+            2,
+            3
+          ],
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 2,
+          "target": 3,
+          "rescued": [
+            1,
+            2,
+            3
+          ],
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 3,
+          "target": 6,
+          "rescued": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "uniqueVisibleWordCount": 6
+        },
+        {
+          "level": 4,
+          "target": 4,
+          "rescued": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "uniqueVisibleWordCount": 4
+        }
+      ],
+      "keyboard": {
+        "kind": "full-keyboard-geometry",
+        "level": 4,
+        "count": 26,
+        "uniqueKeys": 26,
+        "minWidth": 44,
+        "minHeight": 44,
+        "allKeysFullyInViewport": true,
+        "allKeyCentersHitTestToButtons": true,
+        "dailyMissionHudCount": 0,
+        "clue": {
+          "top": 302,
+          "bottom": 366,
+          "visible": true
+        },
+        "word": {
+          "top": 383,
+          "bottom": 427,
+          "visible": true
+        },
+        "grid": {
+          "x": 28,
+          "y": 500,
+          "width": 334,
+          "height": 212,
+          "bottom": 712
+        },
+        "rowCount": 4,
+        "maxKeyBottom": 712,
+        "viewport": {
+          "width": 390,
+          "height": 740,
+          "documentWidth": 390,
+          "scrollY": 0
+        }
+      },
+      "keyboardClickReachability": {
+        "kind": "keyboard-click-reachability",
+        "level": 4,
+        "expected": 26,
+        "tested": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "passed": true
+      },
+      "errors": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "resourceFailures": [],
+      "requestFailures": [],
+      "brokenImages": [],
+      "apiRequests": [],
+      "activeScreenshot": "docs/qa-evidence/dino-pair-20261029/hangman-native-active-390-DVChNJa_.jpg",
+      "finishScreenshot": "docs/qa-evidence/dino-pair-20261029/hangman-native-finish-390-DVChNJa_.jpg"
+    },
+    "1440x844": {
+      "passed": true,
+      "origin": "http://127.0.0.1:5180",
+      "entryIdentity": "http://127.0.0.1:5180/assets/arcade-DVChNJa_.js",
+      "completedLevels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        {
+          "level": 1,
+          "target": 3,
+          "rescued": [
+            1,
+            2,
+            3
+          ],
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 2,
+          "target": 3,
+          "rescued": [
+            1,
+            2,
+            3
+          ],
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 3,
+          "target": 6,
+          "rescued": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "uniqueVisibleWordCount": 6
+        },
+        {
+          "level": 4,
+          "target": 4,
+          "rescued": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "uniqueVisibleWordCount": 4
+        }
+      ],
+      "keyboard": {
+        "kind": "full-keyboard-geometry",
+        "level": 4,
+        "count": 26,
+        "uniqueKeys": 26,
+        "minWidth": 56,
+        "minHeight": 56,
+        "allKeysFullyInViewport": true,
+        "allKeyCentersHitTestToButtons": true,
+        "dailyMissionHudCount": 0,
+        "clue": {
+          "top": 286,
+          "bottom": 334,
+          "visible": true
+        },
+        "word": {
+          "top": 375,
+          "bottom": 455,
+          "visible": true
+        },
+        "grid": {
+          "x": 189,
+          "y": 564,
+          "width": 569,
+          "height": 216,
+          "bottom": 780
+        },
+        "rowCount": 3,
+        "maxKeyBottom": 780,
+        "viewport": {
+          "width": 1440,
+          "height": 844,
+          "documentWidth": 1440,
+          "scrollY": 0
+        }
+      },
+      "keyboardClickReachability": {
+        "kind": "keyboard-click-reachability",
+        "level": 4,
+        "expected": 26,
+        "tested": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "passed": true
+      },
+      "errors": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "resourceFailures": [],
+      "requestFailures": [],
+      "brokenImages": [],
+      "apiRequests": [],
+      "activeScreenshot": "docs/qa-evidence/dino-pair-20261029/hangman-native-active-1440-DVChNJa_.jpg",
+      "finishScreenshot": "docs/qa-evidence/dino-pair-20261029/hangman-native-finish-1440-DVChNJa_.jpg"
+    }
+  },
+  "positiveRewardFailureRecoveryEvidence": {
+    "candidate": "97849b93b354036a300a93ea5e55c269c96511bf",
+    "file": "docs/qa-evidence/dino-pair-20261029/native-hangman-amari-390-DhIX2iKU-diagnostic-window-failure.json",
+    "scope": "Earlier candidate; all four routes completed and local write/readback Retry plus parent reward failure/stable-token recovery passed before a harness-only diagnostics-window assertion."
+  },
+  "browserHelper": {
+    "session": "amari-targeted-contained",
+    "owner": "pair7-hangman-native",
+    "released": true,
+    "headlessSessionLeftRunning": true
+  }
+}

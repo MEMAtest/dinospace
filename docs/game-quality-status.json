@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T00:50:57.562064+00:00",
+  "updatedAt": "2026-10-29T03:45:13.908133+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1187,7 +1187,7 @@
     "functionalAcceptance": true
   },
   "deliveryQueue": "docs/game-delivery-20261027/queue.json",
-  "activeDeliveryPair": 7,
+  "activeDeliveryPair": 8,
   "latestCodeWritingUplift": {
     "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
     "publicUrl": "https://dinospace.netlify.app",
@@ -1243,5 +1243,57 @@
     "editorialScoresChanged": false,
     "paidCalls": 0,
     "functionalAcceptance": true
+  },
+  "activeDeliveryRelease": {
+    "pair": 7,
+    "runtime": "c2043b79699752727a33b458473557378b382242",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-m6m5qd3z8-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_CsK1oBbZoJW5Dn5WSVvChwSVzzsG",
+    "netlifyGatewayDeploy": "6ae2bf3d0e9ac4fec2a96773",
+    "serviceWorkerCache": "amari-discovery-v43",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/dino-pair-20261029/README.md",
+    "scope": "Intentional public candidate; compiled6journeys passed. Canonical6journeys still required. No editorial scores changed.",
+    "sourceTests": {
+      "passed": 518,
+      "skipped": 0
+    },
+    "editorialScoresChanged": false,
+    "paidCalls": 0,
+    "functionalAcceptance": {
+      "nativeJourneys": 6,
+      "canonicalJourneys": 6,
+      "runsPerMatrix": 42,
+      "primaryResponsesPerMatrix": 210,
+      "positiveRetryVerified": true,
+      "earlierProgressAndStickersRetained": true
+    }
+  },
+  "latestDinoHangmanUplift": {
+    "pair": 7,
+    "runtime": "c2043b79699752727a33b458473557378b382242",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-m6m5qd3z8-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_CsK1oBbZoJW5Dn5WSVvChwSVzzsG",
+    "netlifyGatewayDeploy": "6ae2bf3d0e9ac4fec2a96773",
+    "serviceWorkerCache": "amari-discovery-v43",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/dino-pair-20261029/README.md",
+    "scope": "Intentional public candidate; compiled6journeys passed. Canonical6journeys still required. No editorial scores changed.",
+    "sourceTests": {
+      "passed": 518,
+      "skipped": 0
+    },
+    "editorialScoresChanged": false,
+    "paidCalls": 0,
+    "functionalAcceptance": {
+      "nativeJourneys": 6,
+      "canonicalJourneys": 6,
+      "runsPerMatrix": 42,
+      "primaryResponsesPerMatrix": 210,
+      "positiveRetryVerified": true,
+      "earlierProgressAndStickersRetained": true
+    }
   }
 }

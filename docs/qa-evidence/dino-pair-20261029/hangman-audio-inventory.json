@@ -1,0 +1,86 @@
+{
+  "scope": "Default taught-grapheme pool; exact optional Hear clip only, allwords have readable meaning cues. No paid recordings/jobs added.",
+  "levels": [
+    {
+      "level": 1,
+      "eligible": 24,
+      "exactPackagedWordClips": [
+        "SAT",
+        "PAT",
+        "PIN",
+        "TIN",
+        "MAP",
+        "TAP",
+        "DOG",
+        "LOG",
+        "CAT",
+        "KID",
+        "HEN",
+        "RED",
+        "SAD",
+        "MAD",
+        "MAT",
+        "PAN",
+        "TAN",
+        "MAN",
+        "NAP",
+        "GAP",
+        "TAG",
+        "RAG",
+        "DIP",
+        "SIP"
+      ],
+      "textClueOnly": []
+    },
+    {
+      "level": 2,
+      "eligible": 18,
+      "exactPackagedWordClips": [
+        "ROCK",
+        "FROG",
+        "STEM"
+      ],
+      "textClueOnly": [
+        "DRUM",
+        "NEST",
+        "MILK",
+        "HELP",
+        "SAND",
+        "DESK",
+        "TENT",
+        "MASK",
+        "HAND",
+        "FAST",
+        "LIFT",
+        "LEFT",
+        "SOFT",
+        "CAMP",
+        "BENT"
+      ]
+    },
+    {
+      "level": 3,
+      "eligible": 6,
+      "exactPackagedWordClips": [
+        "BRICK",
+        "GLASS",
+        "HANDS",
+        "PLANT",
+        "METAL",
+        "PETAL"
+      ],
+      "textClueOnly": []
+    },
+    {
+      "level": 4,
+      "eligible": 4,
+      "exactPackagedWordClips": [
+        "RABBIT",
+        "SUMMER",
+        "CANDLE",
+        "PLASTIC"
+      ],
+      "textClueOnly": []
+    }
+  ]
+}

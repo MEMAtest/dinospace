@@ -1,0 +1,447 @@
+{
+  "passed": true,
+  "stage": "clean-reward-retry",
+  "player": "amari",
+  "origin": "http://127.0.0.1:5180",
+  "width": 390,
+  "height": 740,
+  "entryIdentity": "http://127.0.0.1:5180/assets/arcade-SSL5PagW.js",
+  "completedLevels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "targets": [
+    3,
+    3,
+    6,
+    4
+  ],
+  "transactionCount": 5,
+  "rows": [
+    {
+      "kind": "replay-baseline",
+      "previousBest": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "plannedScores": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "plannedDeltas": [
+        4,
+        0,
+        0,
+        0
+      ],
+      "legacyRewardCeiling": null,
+      "faultPlan": {
+        "localFailureLevel": null,
+        "parentRewardFailureLevel": 1,
+        "skipped": "No positive improvement delta remains in the saved bests."
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-1",
+      "x": 40,
+      "y": 841,
+      "width": 310,
+      "height": 134,
+      "bottom": 975,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-2",
+      "x": 40,
+      "y": 987,
+      "width": 310,
+      "height": 162,
+      "bottom": 1149,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 162
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-3",
+      "x": 40,
+      "y": 1161,
+      "width": 310,
+      "height": 134,
+      "bottom": 1295,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-4",
+      "x": 40,
+      "y": 1307,
+      "width": 310,
+      "height": 162,
+      "bottom": 1469,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 162
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected-level-start",
+      "x": 53,
+      "y": 620,
+      "width": 243,
+      "height": 56,
+      "bottom": 676,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "initial-map",
+      "player": "amari",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        {
+          "name": "First words",
+          "target": 3
+        },
+        {
+          "name": "Four-letter rescue",
+          "target": 3
+        },
+        {
+          "name": "Five-letter rescue",
+          "target": 6
+        },
+        {
+          "name": "Long-word rescue",
+          "target": 4
+        }
+      ],
+      "protectedKeys": 8
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 82,
+      "width": 188,
+      "height": 56,
+      "bottom": 138,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 243,
+        "width": 310,
+        "height": 134,
+        "bottom": 377,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A frayed cloth used for wiping.",
+      "length": 3,
+      "category": "-AG",
+      "emoji": "🧽",
+      "geometry": {
+        "x": 28,
+        "y": 275,
+        "width": 242,
+        "height": 64,
+        "bottom": 339,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-next-word-1",
+      "x": 243,
+      "y": 481,
+      "width": 73,
+      "height": 48,
+      "bottom": 529,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "Give a puppy a gentle tap with your hand.",
+      "length": 3,
+      "category": "-AT",
+      "emoji": "🫳",
+      "geometry": {
+        "x": 28,
+        "y": 275,
+        "width": 242,
+        "height": 64,
+        "bottom": 339,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-next-word-2",
+      "x": 243,
+      "y": 481,
+      "width": 73,
+      "height": 48,
+      "bottom": 529,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A tiny sharp fastener can hold papers together.",
+      "length": 3,
+      "category": "-IN",
+      "emoji": "📌",
+      "geometry": {
+        "x": 28,
+        "y": 275,
+        "width": 242,
+        "height": 64,
+        "bottom": 339,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 1,
+      "target": 3,
+      "rescued": [
+        1,
+        2,
+        3
+      ],
+      "uniqueVisibleWordCount": 3
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 1,
+      "priorBest": 2,
+      "plannedScore": 6,
+      "expectedDelta": 4,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-held-finish",
+      "x": 245,
+      "y": 481,
+      "width": 70,
+      "height": 48,
+      "bottom": 529,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A tiny sharp fastener can hold papers together.",
+      "length": 3,
+      "category": "-IN",
+      "emoji": "📌",
+      "geometry": {
+        "x": 28,
+        "y": 275,
+        "width": 242,
+        "height": 64,
+        "bottom": 339,
+        "visible": true
+      }
+    },
+    {
+      "kind": "parent-reward-failure-held",
+      "level": 1,
+      "resultHeld": true,
+      "writeFaults": 1
+    },
+    {
+      "kind": "control-geometry",
+      "label": "parent-reward-Retry",
+      "x": 247,
+      "y": 481,
+      "width": 66,
+      "height": 48,
+      "bottom": 529,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "parent-reward-Level-map-row-peer",
+      "x": 153,
+      "y": 481,
+      "width": 88,
+      "height": 48,
+      "bottom": 529,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "parent-reward-retry-primary-row",
+      "level": 1,
+      "retry": {
+        "x": 247,
+        "y": 481,
+        "width": 66,
+        "height": 48,
+        "bottom": 529,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      },
+      "levelMap": {
+        "x": 153,
+        "y": 481,
+        "width": 88,
+        "height": 48,
+        "bottom": 529,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      },
+      "sameRow": true
+    },
+    {
+      "kind": "parent-reward-retry-recovery",
+      "level": 1,
+      "retryCount": 1,
+      "stableToken": "hangman:first-words-263186679",
+      "transactionDelta": 2,
+      "parentPointDelta": 4,
+      "savedCompletionBeforeReward": true
+    },
+    {
+      "kind": "clean-reward-retry-result",
+      "level": 1,
+      "priorBest": 2,
+      "newBest": 6,
+      "durableRewardDelta": 4,
+      "parentPointDelta": 4,
+      "retryCount": 1
+    },
+    {
+      "kind": "control-geometry",
+      "label": "clean-retry-saved-result-Level-map",
+      "x": 65,
+      "y": 584,
+      "width": 119,
+      "height": 48,
+      "bottom": 632,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "clean-retry-saved-result-Next",
+      "x": 191,
+      "y": 584,
+      "width": 134,
+      "height": 48,
+      "bottom": 632,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "saved-result-navigation-geometry",
+      "level": 1,
+      "result": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "viewportHeight": 740
+      },
+      "levelMap": {
+        "x": 65,
+        "y": 584,
+        "width": 119,
+        "height": 48,
+        "bottom": 632,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      },
+      "next": {
+        "x": 191,
+        "y": 584,
+        "width": 134,
+        "height": 48,
+        "bottom": 632,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      }
+    },
+    {
+      "kind": "protected-storage",
+      "legacyUnchanged": true,
+      "siblingAndChessKeysUnchanged": true,
+      "changedKeys": []
+    },
+    {
+      "kind": "resource-integrity",
+      "brokenImages": [],
+      "failedRequests": [],
+      "failedResponses": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "apiRequests": []
+    }
+  ],
+  "errors": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "resourceFailures": [],
+  "requestFailures": [],
+  "brokenImages": [],
+  "apiRequests": []
+}

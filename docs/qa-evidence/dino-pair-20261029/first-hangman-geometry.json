@@ -1,0 +1,152 @@
+{
+  "at": "2026-10-29T01:28:30.183Z",
+  "scope": "First compiled layout probe only; zero words completed",
+  "entry": "/assets/arcade-B__1zLPu.js",
+  "namespaced": true,
+  "start": {
+    "label": "Start First words \u2192",
+    "rect": {
+      "x": 48,
+      "y": 1195,
+      "right": 244.375,
+      "bottom": 1251,
+      "width": 196.375,
+      "height": 56
+    },
+    "scrollY": 0,
+    "viewport": {
+      "width": 390,
+      "height": 740
+    }
+  },
+  "startFits": false,
+  "active": {
+    "scrollY": 769,
+    "viewport": {
+      "width": 390,
+      "height": 740
+    },
+    "text": [
+      "LEVEL 1 OF 4 \u00b7 3 LETTERS",
+      "3 LETTERS \u00b7 -IN",
+      "6 shields left",
+      "RESCUED THIS LEVEL",
+      "0/3 \u2b50",
+      "Food can come in a metal can.",
+      "Choose a letter \u2014 wrong guesses use one shield",
+      "DINO SHIELD BAY",
+      "Use the meaning clue or a recorded word when available. Each wrong letter uses one shield. A star reveals one letter, but it lowers the first-try score."
+    ],
+    "letters": [
+      {
+        "letter": "G",
+        "x": 44,
+        "y": 4,
+        "right": 87.65625,
+        "bottom": 52,
+        "width": 43.65625,
+        "height": 48
+      },
+      {
+        "letter": "Z",
+        "x": 95.65625,
+        "y": 4,
+        "right": 139.328125,
+        "bottom": 52,
+        "width": 43.671875,
+        "height": 48
+      },
+      {
+        "letter": "B",
+        "x": 147.328125,
+        "y": 4,
+        "right": 191,
+        "bottom": 52,
+        "width": 43.671875,
+        "height": 48
+      },
+      {
+        "letter": "A",
+        "x": 199,
+        "y": 4,
+        "right": 242.65625,
+        "bottom": 52,
+        "width": 43.65625,
+        "height": 48
+      },
+      {
+        "letter": "I",
+        "x": 250.65625,
+        "y": 4,
+        "right": 294.328125,
+        "bottom": 52,
+        "width": 43.671875,
+        "height": 48
+      },
+      {
+        "letter": "F",
+        "x": 302.328125,
+        "y": 4,
+        "right": 346,
+        "bottom": 52,
+        "width": 43.671875,
+        "height": 48
+      },
+      {
+        "letter": "V",
+        "x": 44,
+        "y": 60,
+        "right": 87.65625,
+        "bottom": 108,
+        "width": 43.65625,
+        "height": 48
+      },
+      {
+        "letter": "C",
+        "x": 95.65625,
+        "y": 60,
+        "right": 139.328125,
+        "bottom": 108,
+        "width": 43.671875,
+        "height": 48
+      },
+      {
+        "letter": "T",
+        "x": 147.328125,
+        "y": 60,
+        "right": 191,
+        "bottom": 108,
+        "width": 43.671875,
+        "height": 48
+      },
+      {
+        "letter": "D",
+        "x": 199,
+        "y": 60,
+        "right": 242.65625,
+        "bottom": 108,
+        "width": 43.65625,
+        "height": 48
+      },
+      {
+        "letter": "H",
+        "x": 250.65625,
+        "y": 60,
+        "right": 294.328125,
+        "bottom": 108,
+        "width": 43.671875,
+        "height": 48
+      },
+      {
+        "letter": "N",
+        "x": 302.328125,
+        "y": 60,
+        "right": 346,
+        "bottom": 108,
+        "width": 43.671875,
+        "height": 48
+      }
+    ]
+  },
+  "allLetterButtonsFit": true
+}

@@ -1,0 +1,154 @@
+{
+  "passed": false,
+  "stage": "level2-preflight",
+  "player": "amari",
+  "origin": "http://127.0.0.1:5180",
+  "width": 390,
+  "height": 740,
+  "entryIdentity": "http://127.0.0.1:5180/assets/arcade-DYyDnHAt.js",
+  "rows": [
+    {
+      "kind": "replay-baseline",
+      "previousBest": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "plannedScores": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "plannedDeltas": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "legacyRewardCeiling": null,
+      "faultPlan": {
+        "localFailureLevel": null,
+        "parentRewardFailureLevel": null,
+        "skipped": "No positive improvement delta remains in the saved bests."
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-1",
+      "x": 40,
+      "y": 841,
+      "width": 310,
+      "height": 134,
+      "bottom": 975,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-2",
+      "x": 40,
+      "y": 987,
+      "width": 310,
+      "height": 162,
+      "bottom": 1149,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 162
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-3",
+      "x": 40,
+      "y": 1161,
+      "width": 310,
+      "height": 134,
+      "bottom": 1295,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-4",
+      "x": 40,
+      "y": 1307,
+      "width": 310,
+      "height": 162,
+      "bottom": 1469,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 162
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected-level-start",
+      "x": 53,
+      "y": 620,
+      "width": 242,
+      "height": 56,
+      "bottom": 676,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "initial-map",
+      "player": "amari",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        {
+          "name": "First words",
+          "target": 3
+        },
+        {
+          "name": "Four-letter rescue",
+          "target": 3
+        },
+        {
+          "name": "Five-letter rescue",
+          "target": 6
+        },
+        {
+          "name": "Long-word rescue",
+          "target": 4
+        }
+      ],
+      "protectedKeys": 8
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level2-map-selection",
+      "x": 40,
+      "y": 987,
+      "width": 310,
+      "height": 162,
+      "bottom": 1149,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 162
+    }
+  ],
+  "errors": [
+    {
+      "message": "level2-map-selection is not fully inside the viewport or its center is obscured: {\"x\":40,\"y\":987,\"width\":310,\"height\":162,\"bottom\":1149,\"visible\":false,\"fullyInViewport\":false,\"centerHit\":false,\"minHeight\":162}",
+      "stack": "Error: level2-map-selection is not fully inside the viewport or its center is obscured: {\"x\":40,\"y\":987,\"width\":310,\"height\":162,\"bottom\":1149,\"visible\":false,\"fullyInViewport\":false,\"centerHit\":false,\"minHeight\":162}\n    at assertPrimary (evalmachine.<anonymous>:81:61)\n    at async evalmachine.<anonymous>:618:7\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)\n    at async connection.onmessage (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:76275:29)",
+      "rows": 8
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "resourceFailures": [],
+  "requestFailures": [],
+  "brokenImages": [],
+  "apiRequests": []
+}

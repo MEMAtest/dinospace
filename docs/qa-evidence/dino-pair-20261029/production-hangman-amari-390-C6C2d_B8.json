@@ -1,0 +1,1108 @@
+{
+  "passed": true,
+  "stage": "full",
+  "player": "amari",
+  "origin": "https://dinospace.netlify.app",
+  "width": 390,
+  "height": 740,
+  "entryIdentity": "https://dinospace.netlify.app/assets/arcade-C6C2d_B8.js",
+  "completedLevels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "targets": [
+    3,
+    3,
+    6,
+    4
+  ],
+  "transactionCount": 4,
+  "assistedEvidence": true,
+  "legacyBytesPreserved": true,
+  "protectedKeysUnchanged": true,
+  "rows": [
+    {
+      "kind": "replay-baseline",
+      "previousBest": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "plannedScores": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "plannedDeltas": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "legacyRewardCeiling": null,
+      "faultPlan": {
+        "localFailureLevel": 1,
+        "parentRewardFailureLevel": 2,
+        "skipped": null
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-1",
+      "x": 40,
+      "y": 721,
+      "width": 310,
+      "height": 134,
+      "bottom": 855,
+      "visible": true,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-2",
+      "x": 40,
+      "y": 867,
+      "width": 310,
+      "height": 134,
+      "bottom": 1001,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-3",
+      "x": 40,
+      "y": 1013,
+      "width": 310,
+      "height": 134,
+      "bottom": 1147,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-4",
+      "x": 40,
+      "y": 1159,
+      "width": 310,
+      "height": 134,
+      "bottom": 1293,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected-level-start",
+      "x": 53,
+      "y": 560,
+      "width": 188,
+      "height": 56,
+      "bottom": 616,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "initial-map",
+      "player": "amari",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        {
+          "name": "First words",
+          "target": 3
+        },
+        {
+          "name": "Four-letter rescue",
+          "target": 3
+        },
+        {
+          "name": "Five-letter rescue",
+          "target": 6
+        },
+        {
+          "name": "Long-word rescue",
+          "target": 4
+        }
+      ],
+      "protectedKeys": 7
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 560,
+      "width": 188,
+      "height": 56,
+      "bottom": 616,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 721,
+        "width": 310,
+        "height": 134,
+        "bottom": 855,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Hear the word",
+      "x": 278,
+      "y": 283,
+      "width": 84,
+      "height": 48,
+      "bottom": 331,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "audio-mute-cancel",
+      "exactClipObserved": true,
+      "pausedAfterMute": true
+    },
+    {
+      "kind": "audio-next-cancel",
+      "pausedAfterNext": true
+    },
+    {
+      "kind": "audio-packaged-availability",
+      "exactVisibleClipAvailable": true,
+      "scannedSkippedWords": 0
+    },
+    {
+      "kind": "audio-leave-cancel",
+      "pausedAfterLeave": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 560,
+      "width": 188,
+      "height": 56,
+      "bottom": 616,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 721,
+        "width": 310,
+        "height": 134,
+        "bottom": 855,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A light brown shade.",
+      "length": 3,
+      "category": "-AN",
+      "emoji": "🟤",
+      "geometry": {
+        "x": 28,
+        "y": 277,
+        "width": 242,
+        "height": 44,
+        "bottom": 321,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "same-word Retry",
+      "x": 222,
+      "y": 445,
+      "width": 58,
+      "height": 48,
+      "bottom": 493,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "held-loss-board",
+      "x": 37,
+      "y": 340,
+      "width": 316,
+      "height": 44,
+      "bottom": 384,
+      "visible": true,
+      "minHeight": 44
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A light brown shade.",
+      "length": 3,
+      "category": "-AN",
+      "emoji": "🟤",
+      "geometry": {
+        "x": 28,
+        "y": 277,
+        "width": 242,
+        "height": 44,
+        "bottom": 321,
+        "visible": true
+      }
+    },
+    {
+      "kind": "wrong-answer-retry",
+      "clueLength": 3,
+      "heldAnswerVisibleBeforeRetry": true,
+      "sameClueAfterRetry": true,
+      "heldBoardGeometry": {
+        "x": 37,
+        "y": 340,
+        "width": 316,
+        "height": 44,
+        "bottom": 384,
+        "visible": true,
+        "minHeight": 44
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-next-word-1",
+      "x": 243,
+      "y": 445,
+      "width": 73,
+      "height": 48,
+      "bottom": 493,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A grown-up chicken lays eggs.",
+      "length": 3,
+      "category": "-EN",
+      "emoji": "🐔",
+      "geometry": {
+        "x": 28,
+        "y": 275,
+        "width": 242,
+        "height": 64,
+        "bottom": 339,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "one-letter hint",
+      "x": 85,
+      "y": 417,
+      "width": 70,
+      "height": 48,
+      "bottom": 465,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-next-word-2",
+      "x": 247,
+      "y": 513,
+      "width": 73,
+      "height": 48,
+      "bottom": 561,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A furry pet may purr and meow.",
+      "length": 3,
+      "category": "-AT",
+      "emoji": "🐈",
+      "geometry": {
+        "x": 28,
+        "y": 275,
+        "width": 242,
+        "height": 64,
+        "bottom": 339,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 1,
+      "target": 3,
+      "rescued": [
+        1,
+        2,
+        3
+      ],
+      "uniqueVisibleWordCount": 3
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 1,
+      "priorBest": 0,
+      "plannedScore": 2,
+      "expectedDelta": 2,
+      "injectedLocalFailure": true,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-held-finish",
+      "x": 245,
+      "y": 481,
+      "width": 70,
+      "height": 48,
+      "bottom": 529,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A furry pet may purr and meow.",
+      "length": 3,
+      "category": "-AT",
+      "emoji": "🐈",
+      "geometry": {
+        "x": 28,
+        "y": 275,
+        "width": 242,
+        "height": 64,
+        "bottom": 339,
+        "visible": true
+      }
+    },
+    {
+      "kind": "progress-write-failure-held",
+      "level": 1,
+      "resultHeld": true,
+      "writeFaults": 1
+    },
+    {
+      "kind": "control-geometry",
+      "label": "progress-save-Retry",
+      "x": 41,
+      "y": 658,
+      "width": 74,
+      "height": 48,
+      "bottom": 706,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "progress-readback-failure-held",
+      "level": 1,
+      "transactionRetainedForRetry": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "progress-readback-Retry",
+      "x": 41,
+      "y": 658,
+      "width": 74,
+      "height": 48,
+      "bottom": 706,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "held-level-result",
+      "level": 1,
+      "target": 3,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 663,
+        "documentHeight": 840,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-start",
+      "x": 53,
+      "y": -4,
+      "width": 242,
+      "height": 56,
+      "bottom": 52,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 2,
+      "name": "Four-letter rescue",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 363,
+        "width": 310,
+        "height": 134,
+        "bottom": 497,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "Raise something up.",
+      "length": 4,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "🏋️",
+      "geometry": {
+        "x": 28,
+        "y": 287,
+        "width": 182,
+        "height": 44,
+        "bottom": 331,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-next-word-1",
+      "x": 243,
+      "y": 454,
+      "width": 73,
+      "height": 48,
+      "bottom": 502,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "Not straight; curved or folded.",
+      "length": 4,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "↪️",
+      "geometry": {
+        "x": 28,
+        "y": 286,
+        "width": 182,
+        "height": 64,
+        "bottom": 350,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-next-word-2",
+      "x": 243,
+      "y": 492,
+      "width": 73,
+      "height": 48,
+      "bottom": 540,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A musical instrument you hit with sticks.",
+      "length": 4,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "🥁",
+      "geometry": {
+        "x": 28,
+        "y": 286,
+        "width": 182,
+        "height": 86,
+        "bottom": 372,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 2,
+      "target": 3,
+      "rescued": [
+        1,
+        2,
+        3
+      ],
+      "uniqueVisibleWordCount": 3
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 2,
+      "priorBest": 0,
+      "plannedScore": 6,
+      "expectedDelta": 6,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-held-finish",
+      "x": 245,
+      "y": 514,
+      "width": 70,
+      "height": 48,
+      "bottom": 562,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A musical instrument you hit with sticks.",
+      "length": 4,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "🥁",
+      "geometry": {
+        "x": 28,
+        "y": 286,
+        "width": 182,
+        "height": 86,
+        "bottom": 372,
+        "visible": true
+      }
+    },
+    {
+      "kind": "parent-reward-failure-held",
+      "level": 2,
+      "resultHeld": true,
+      "writeFaults": 1
+    },
+    {
+      "kind": "control-geometry",
+      "label": "parent-reward-Retry",
+      "x": 41,
+      "y": 715,
+      "width": 74,
+      "height": 48,
+      "bottom": 763,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "parent-reward-recovery",
+      "level": 2,
+      "stableToken": "hangman:four-letter-rescue-1015050138",
+      "claim": 6,
+      "pointsAfterRecovery": 290,
+      "gamesPlayedAfterRecovery": 2,
+      "replayAddedZero": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-start",
+      "x": 53,
+      "y": 620,
+      "width": 238,
+      "height": 56,
+      "bottom": 676,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 3,
+      "name": "Five-letter rescue",
+      "target": 6,
+      "geometry": {
+        "x": 40,
+        "y": 1161,
+        "width": 310,
+        "height": 134,
+        "bottom": 1295,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A see-through material used for windows.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🥛",
+      "geometry": {
+        "x": 28,
+        "y": 286,
+        "width": 242,
+        "height": 64,
+        "bottom": 350,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-1",
+      "x": 243,
+      "y": 492,
+      "width": 73,
+      "height": 48,
+      "bottom": 540,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A small block used to build a wall.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🧱",
+      "geometry": {
+        "x": 28,
+        "y": 286,
+        "width": 242,
+        "height": 64,
+        "bottom": 350,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-2",
+      "x": 243,
+      "y": 492,
+      "width": 73,
+      "height": 48,
+      "bottom": 540,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "One of the colourful parts around a flower’s centre.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🌸",
+      "geometry": {
+        "x": 28,
+        "y": 286,
+        "width": 242,
+        "height": 64,
+        "bottom": 350,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-3",
+      "x": 243,
+      "y": 492,
+      "width": 73,
+      "height": 48,
+      "bottom": 540,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A strong material used to make many spoons.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🥄",
+      "geometry": {
+        "x": 28,
+        "y": 286,
+        "width": 242,
+        "height": 64,
+        "bottom": 350,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-4",
+      "x": 243,
+      "y": 492,
+      "width": 73,
+      "height": 48,
+      "bottom": 540,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "The body parts at the ends of your arms.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "👐",
+      "geometry": {
+        "x": 28,
+        "y": 286,
+        "width": 242,
+        "height": 64,
+        "bottom": 350,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-5",
+      "x": 243,
+      "y": 492,
+      "width": 73,
+      "height": 48,
+      "bottom": 540,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A living thing with roots and leaves.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🪴",
+      "geometry": {
+        "x": 28,
+        "y": 286,
+        "width": 242,
+        "height": 64,
+        "bottom": 350,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 3,
+      "target": 6,
+      "rescued": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "uniqueVisibleWordCount": 6
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 3,
+      "priorBest": 0,
+      "plannedScore": 6,
+      "expectedDelta": 6,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-held-finish",
+      "x": 245,
+      "y": 492,
+      "width": 70,
+      "height": 48,
+      "bottom": 540,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A living thing with roots and leaves.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🪴",
+      "geometry": {
+        "x": 28,
+        "y": 286,
+        "width": 242,
+        "height": 64,
+        "bottom": 350,
+        "visible": true
+      }
+    },
+    {
+      "kind": "held-level-result",
+      "level": 3,
+      "target": 6,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 663,
+        "documentHeight": 840,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-start",
+      "x": 53,
+      "y": -384,
+      "width": 243,
+      "height": 56,
+      "bottom": -328,
+      "visible": false,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 4,
+      "name": "Long-word rescue",
+      "target": 4,
+      "geometry": {
+        "x": 40,
+        "y": 303,
+        "width": 310,
+        "height": 134,
+        "bottom": 437,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "full-keyboard-geometry",
+      "level": 4,
+      "count": 26,
+      "uniqueKeys": 26,
+      "minWidth": 44,
+      "minHeight": 44,
+      "allKeysFullyInViewport": true,
+      "allKeyCentersHitTestToButtons": true,
+      "dailyMissionHudCount": 0,
+      "clue": {
+        "top": 302,
+        "bottom": 366,
+        "visible": true
+      },
+      "word": {
+        "top": 383,
+        "bottom": 427,
+        "visible": true
+      },
+      "grid": {
+        "x": 28,
+        "y": 500,
+        "width": 334,
+        "height": 212,
+        "bottom": 712
+      },
+      "rowCount": 4,
+      "maxKeyBottom": 712,
+      "viewport": {
+        "width": 390,
+        "height": 740,
+        "documentWidth": 390,
+        "scrollY": 0
+      }
+    },
+    {
+      "kind": "keyboard-click-reachability",
+      "level": 4,
+      "expected": 26,
+      "tested": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z"
+      ],
+      "passed": true
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A furry animal with long ears that hops.",
+      "length": 6,
+      "category": "LONGER WORDS",
+      "emoji": "🐇",
+      "geometry": {
+        "x": 28,
+        "y": 302,
+        "width": 242,
+        "height": 64,
+        "bottom": 366,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-next-word-1",
+      "x": 243,
+      "y": 508,
+      "width": 73,
+      "height": 48,
+      "bottom": 556,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A wax stick with a wick that gives light.",
+      "length": 6,
+      "category": "LONGER WORDS",
+      "emoji": "🕯️",
+      "geometry": {
+        "x": 28,
+        "y": 302,
+        "width": 242,
+        "height": 64,
+        "bottom": 366,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-next-word-2",
+      "x": 243,
+      "y": 508,
+      "width": 73,
+      "height": 48,
+      "bottom": 556,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A material used for many bottles and toys.",
+      "length": 7,
+      "category": "LONGER WORDS",
+      "emoji": "🧴",
+      "geometry": {
+        "x": 28,
+        "y": 302,
+        "width": 242,
+        "height": 64,
+        "bottom": 366,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-next-word-3",
+      "x": 243,
+      "y": 508,
+      "width": 73,
+      "height": 48,
+      "bottom": 556,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "The warm season after spring.",
+      "length": 6,
+      "category": "LONGER WORDS",
+      "emoji": "☀️",
+      "geometry": {
+        "x": 28,
+        "y": 302,
+        "width": 242,
+        "height": 64,
+        "bottom": 366,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 4,
+      "target": 4,
+      "rescued": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "uniqueVisibleWordCount": 4
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 4,
+      "priorBest": 0,
+      "plannedScore": 6,
+      "expectedDelta": 6,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-held-finish",
+      "x": 245,
+      "y": 508,
+      "width": 70,
+      "height": 48,
+      "bottom": 556,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "The warm season after spring.",
+      "length": 6,
+      "category": "LONGER WORDS",
+      "emoji": "☀️",
+      "geometry": {
+        "x": 28,
+        "y": 302,
+        "width": 242,
+        "height": 64,
+        "bottom": 366,
+        "visible": true
+      }
+    },
+    {
+      "kind": "held-level-result",
+      "level": 4,
+      "target": 4,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 663,
+        "documentHeight": 840,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "stable-reward-reentry",
+      "stableToken": "hangman:long-word-rescue-4077150665",
+      "pointsAfterFirstRecovery": 302,
+      "playsAfterFirstRecovery": 4,
+      "duplicateReentryAddedZero": true
+    },
+    {
+      "kind": "protected-storage",
+      "legacyUnchanged": true,
+      "siblingAndChessKeysUnchanged": true,
+      "changedKeys": []
+    },
+    {
+      "kind": "resource-integrity",
+      "brokenImages": [],
+      "failedRequests": [],
+      "failedResponses": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "apiRequests": []
+    }
+  ],
+  "errors": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "resourceFailures": [],
+  "requestFailures": [],
+  "brokenImages": [],
+  "apiRequests": []
+}

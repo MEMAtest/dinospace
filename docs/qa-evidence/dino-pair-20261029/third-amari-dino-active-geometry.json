@@ -1,0 +1,101 @@
+{
+  "at": "2026-10-29T01:51:00.581Z",
+  "scope": "Active controls geometry only; zero finds completed",
+  "entry": "/assets/arcade-DLNu42HO.js",
+  "namespaced": true,
+  "covers": [
+    {
+      "label": "Search behind left fern, spot 1 of 5",
+      "x": 76.390625,
+      "y": 470.8125,
+      "right": 132.390625,
+      "bottom": 526.8125,
+      "width": 56,
+      "height": 56
+    },
+    {
+      "label": "Search behind middle stones, spot 2 of 5",
+      "x": 167,
+      "y": 470.8125,
+      "right": 223,
+      "bottom": 526.8125,
+      "width": 56,
+      "height": 56
+    },
+    {
+      "label": "Search behind right water reeds, spot 3 of 5",
+      "x": 257.59375,
+      "y": 470.8125,
+      "right": 313.59375,
+      "bottom": 526.8125,
+      "width": 56,
+      "height": 56
+    },
+    {
+      "label": "Search behind lower left clearing, spot 4 of 5",
+      "x": 121.6875,
+      "y": 594.828125,
+      "right": 177.6875,
+      "bottom": 650.828125,
+      "width": 56,
+      "height": 56
+    },
+    {
+      "label": "Search behind lower right rocks, spot 5 of 5",
+      "x": 212.296875,
+      "y": 594.828125,
+      "right": 268.296875,
+      "bottom": 650.828125,
+      "width": 56,
+      "height": 56
+    }
+  ],
+  "controls": [
+    {
+      "label": "Hear instructions",
+      "x": 43,
+      "y": 748,
+      "right": 159.109375,
+      "bottom": 796,
+      "width": 116.109375,
+      "height": 48,
+      "scrollY": 0,
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "label": "Read clue",
+      "x": 167.109375,
+      "y": 748,
+      "right": 256.234375,
+      "bottom": 796,
+      "width": 89.125,
+      "height": 48,
+      "scrollY": 0,
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    {
+      "label": "Show a clue",
+      "x": 264.234375,
+      "y": 748,
+      "right": 356.25,
+      "bottom": 796,
+      "width": 92.015625,
+      "height": 48,
+      "scrollY": 0,
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    }
+  ],
+  "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/dino-pair-20261029/third-amari-dino-active-390.jpg",
+  "controlsFit": false,
+  "errors": [],
+  "requests": []
+}

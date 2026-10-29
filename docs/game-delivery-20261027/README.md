@@ -6,7 +6,7 @@ The catalogue has34activities; the older quality ledger covers26. Reconcile actu
 
 ## Active pair
 
-**Dino Detective + Dino Hangman**. The first six pairs are live-verified. Audit the actual clue/word learning journeys, strengthen difficulty and variety, preserve useful dinosaur art and controls, and verify the whole pair live before advancing.
+**Storybook Studio + Spelling Studio**. The first seven pairs are live-verified. Audit durable personal-book storage/recovery and library navigation/performance, plus meaningful longer-word spelling progression and exact packaged audio. Investigate the existing narration history read-only; no new paid generation is authorized.
 
 ## Workflow
 

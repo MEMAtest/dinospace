@@ -1,0 +1,152 @@
+{
+  "at": "2026-10-29T01:40:00.791Z",
+  "scope": "First compiled layout probe only; zero words completed",
+  "entry": "/assets/arcade-DxJ1pJy9.js",
+  "namespaced": true,
+  "start": {
+    "label": "Start First words \u2192",
+    "rect": {
+      "x": 53,
+      "y": 560,
+      "right": 241.375,
+      "bottom": 616,
+      "width": 188.375,
+      "height": 56
+    },
+    "scrollY": 0,
+    "viewport": {
+      "width": 390,
+      "height": 740
+    }
+  },
+  "startFits": true,
+  "active": {
+    "scrollY": 0,
+    "viewport": {
+      "width": 390,
+      "height": 740
+    },
+    "text": [
+      "LEVEL 1 OF 4 \u00b7 3 LETTERS",
+      "3 LETTERS \u00b7 -IP",
+      "6 shields left",
+      "0/3 \u2b50",
+      "\ud83d\udee1\ufe0f 6/6",
+      "Take a small drink from a cup.",
+      "Choose a letter \u2014 wrong guesses use one shield",
+      "Dino shield bay",
+      "Use the meaning clue or a recorded word when available. Each wrong letter uses one shield. A star reveals one letter, but it lowers the first-try score."
+    ],
+    "letters": [
+      {
+        "letter": "S",
+        "x": 28,
+        "y": 559,
+        "right": 72.28125,
+        "bottom": 603,
+        "width": 44.28125,
+        "height": 44
+      },
+      {
+        "letter": "C",
+        "x": 76.28125,
+        "y": 559,
+        "right": 120.5625,
+        "bottom": 603,
+        "width": 44.28125,
+        "height": 44
+      },
+      {
+        "letter": "P",
+        "x": 124.5625,
+        "y": 559,
+        "right": 168.84375,
+        "bottom": 603,
+        "width": 44.28125,
+        "height": 44
+      },
+      {
+        "letter": "U",
+        "x": 172.84375,
+        "y": 559,
+        "right": 217.140625,
+        "bottom": 603,
+        "width": 44.296875,
+        "height": 44
+      },
+      {
+        "letter": "T",
+        "x": 221.140625,
+        "y": 559,
+        "right": 265.421875,
+        "bottom": 603,
+        "width": 44.28125,
+        "height": 44
+      },
+      {
+        "letter": "Q",
+        "x": 269.421875,
+        "y": 559,
+        "right": 313.703125,
+        "bottom": 603,
+        "width": 44.28125,
+        "height": 44
+      },
+      {
+        "letter": "R",
+        "x": 317.703125,
+        "y": 559,
+        "right": 361.984375,
+        "bottom": 603,
+        "width": 44.28125,
+        "height": 44
+      },
+      {
+        "letter": "I",
+        "x": 28,
+        "y": 607,
+        "right": 72.28125,
+        "bottom": 651,
+        "width": 44.28125,
+        "height": 44
+      },
+      {
+        "letter": "A",
+        "x": 76.28125,
+        "y": 607,
+        "right": 120.5625,
+        "bottom": 651,
+        "width": 44.28125,
+        "height": 44
+      },
+      {
+        "letter": "Y",
+        "x": 124.5625,
+        "y": 607,
+        "right": 168.84375,
+        "bottom": 651,
+        "width": 44.28125,
+        "height": 44
+      },
+      {
+        "letter": "F",
+        "x": 172.84375,
+        "y": 607,
+        "right": 217.140625,
+        "bottom": 651,
+        "width": 44.296875,
+        "height": 44
+      },
+      {
+        "letter": "D",
+        "x": 221.140625,
+        "y": 607,
+        "right": 265.421875,
+        "bottom": 651,
+        "width": 44.28125,
+        "height": 44
+      }
+    ]
+  },
+  "allLetterButtonsFit": true
+}

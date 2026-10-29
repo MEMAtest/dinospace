@@ -1,0 +1,709 @@
+{
+  "candidateCommit": "c2043b79699752727a33b458473557378b382242",
+  "worker": 43,
+  "origin": "https://dinospace.netlify.app",
+  "entry": "assets/arcade-DYyDnHAt.js",
+  "scopedCleanRewardRetry": {
+    "passed": true,
+    "origin": "https://dinospace.netlify.app",
+    "entryIdentity": "https://dinospace.netlify.app/assets/arcade-DYyDnHAt.js",
+    "record": [
+      {
+        "kind": "replay-baseline",
+        "previousBest": [
+          2,
+          6,
+          6,
+          6
+        ],
+        "plannedScores": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "plannedDeltas": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "legacyRewardCeiling": null,
+        "faultPlan": {
+          "localFailureLevel": null,
+          "parentRewardFailureLevel": 1,
+          "skipped": null
+        }
+      }
+    ],
+    "rewardDelta": [
+      {
+        "kind": "level-replay-reward-delta",
+        "level": 1,
+        "priorBest": 2,
+        "plannedScore": 6,
+        "expectedDelta": 4,
+        "injectedLocalFailure": false,
+        "injectedParentRewardFailure": true
+      }
+    ],
+    "heldRetry": [
+      {
+        "kind": "parent-reward-failure-held",
+        "level": 1,
+        "resultHeld": true,
+        "writeFaults": 1
+      }
+    ],
+    "retryGeometry": [
+      {
+        "kind": "parent-reward-retry-primary-row",
+        "level": 1,
+        "retry": {
+          "x": 247,
+          "y": 503,
+          "width": 66,
+          "height": 48,
+          "bottom": 551,
+          "visible": true,
+          "fullyInViewport": true,
+          "centerHit": true,
+          "minHeight": 48
+        },
+        "levelMap": {
+          "x": 153,
+          "y": 503,
+          "width": 88,
+          "height": 48,
+          "bottom": 551,
+          "visible": true,
+          "fullyInViewport": true,
+          "centerHit": true,
+          "minHeight": 48
+        },
+        "sameRow": true
+      }
+    ],
+    "retryRecovery": [
+      {
+        "kind": "parent-reward-retry-recovery",
+        "level": 1,
+        "retryCount": 1,
+        "stableToken": "hangman:first-words-2939227976",
+        "transactionDelta": 4,
+        "claimAmount": 4,
+        "parentPointDelta": 4,
+        "savedCompletionBeforeReward": true
+      }
+    ],
+    "savedNavigation": [
+      {
+        "kind": "saved-result-navigation-geometry",
+        "level": 1,
+        "result": {
+          "x": 8,
+          "y": 147,
+          "width": 374,
+          "height": 580,
+          "bottom": 727,
+          "fullyInViewport": true,
+          "viewportHeight": 740
+        },
+        "levelMap": {
+          "x": 65,
+          "y": 584,
+          "width": 119,
+          "height": 48,
+          "bottom": 632,
+          "visible": true,
+          "fullyInViewport": true,
+          "centerHit": true,
+          "minHeight": 48
+        },
+        "next": {
+          "x": 191,
+          "y": 584,
+          "width": 134,
+          "height": 48,
+          "bottom": 632,
+          "visible": true,
+          "fullyInViewport": true,
+          "centerHit": true,
+          "minHeight": 48
+        }
+      }
+    ],
+    "errors": {
+      "errors": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "resourceFailures": [],
+      "requestFailures": [],
+      "brokenImages": [],
+      "apiRequests": []
+    },
+    "report": "docs/qa-evidence/dino-pair-20261029/production-clean-reward-retry-amari-390-DYyDnHAt.json"
+  },
+  "viewports": {
+    "390x740": {
+      "passed": true,
+      "entryIdentity": "https://dinospace.netlify.app/assets/arcade-DYyDnHAt.js",
+      "completedLevels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        {
+          "level": 1,
+          "target": 3,
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 2,
+          "target": 3,
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 3,
+          "target": 6,
+          "uniqueVisibleWordCount": 6
+        },
+        {
+          "level": 4,
+          "target": 4,
+          "uniqueVisibleWordCount": 4
+        }
+      ],
+      "rewardDeltas": [
+        {
+          "level": 1,
+          "delta": 0
+        },
+        {
+          "level": 2,
+          "delta": 0
+        },
+        {
+          "level": 3,
+          "delta": 0
+        },
+        {
+          "level": 4,
+          "delta": 0
+        }
+      ],
+      "keyboard": {
+        "kind": "full-keyboard-geometry",
+        "level": 4,
+        "count": 26,
+        "uniqueKeys": 26,
+        "minWidth": 44,
+        "minHeight": 44,
+        "allKeysFullyInViewport": true,
+        "allKeyCentersHitTestToButtons": true,
+        "dailyMissionHudCount": 0,
+        "clue": {
+          "top": 302,
+          "bottom": 366,
+          "visible": true
+        },
+        "word": {
+          "top": 383,
+          "bottom": 427,
+          "visible": true
+        },
+        "grid": {
+          "x": 28,
+          "y": 500,
+          "width": 334,
+          "height": 212,
+          "bottom": 712
+        },
+        "rowCount": 4,
+        "maxKeyBottom": 712,
+        "viewport": {
+          "width": 390,
+          "height": 740,
+          "documentWidth": 390,
+          "scrollY": 0
+        }
+      },
+      "keyboardClicks": {
+        "kind": "keyboard-click-reachability",
+        "level": 4,
+        "expected": 26,
+        "tested": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "passed": true
+      },
+      "savedNavigation": [
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 1,
+          "result": {
+            "x": 8,
+            "y": 147,
+            "width": 374,
+            "height": 580,
+            "bottom": 727,
+            "fullyInViewport": true,
+            "documentHeight": 757,
+            "viewportHeight": 740
+          },
+          "levelMap": {
+            "x": 65,
+            "y": 584,
+            "width": 119,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 191,
+            "y": 584,
+            "width": 134,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 2,
+          "result": {
+            "x": 8,
+            "y": 147,
+            "width": 374,
+            "height": 580,
+            "bottom": 727,
+            "fullyInViewport": true,
+            "documentHeight": 757,
+            "viewportHeight": 740
+          },
+          "levelMap": {
+            "x": 65,
+            "y": 584,
+            "width": 119,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 191,
+            "y": 584,
+            "width": 134,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 3,
+          "result": {
+            "x": 8,
+            "y": 147,
+            "width": 374,
+            "height": 580,
+            "bottom": 727,
+            "fullyInViewport": true,
+            "documentHeight": 757,
+            "viewportHeight": 740
+          },
+          "levelMap": {
+            "x": 65,
+            "y": 584,
+            "width": 119,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 191,
+            "y": 584,
+            "width": 134,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 4,
+          "result": {
+            "x": 8,
+            "y": 147,
+            "width": 374,
+            "height": 580,
+            "bottom": 727,
+            "fullyInViewport": true,
+            "documentHeight": 757,
+            "viewportHeight": 740
+          },
+          "levelMap": {
+            "x": 61,
+            "y": 584,
+            "width": 119,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 188,
+            "y": 584,
+            "width": 141,
+            "height": 48,
+            "bottom": 632,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        }
+      ],
+      "errors": {
+        "errors": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "resourceFailures": [],
+        "requestFailures": [],
+        "brokenImages": [],
+        "apiRequests": []
+      },
+      "activeScreenshot": "docs/qa-evidence/dino-pair-20261029/hangman-production-active-390-DYyDnHAt.jpg",
+      "report": "docs/qa-evidence/dino-pair-20261029/production-hangman-amari-390-DYyDnHAt.json"
+    },
+    "1440x844": {
+      "passed": true,
+      "entryIdentity": "https://dinospace.netlify.app/assets/arcade-DYyDnHAt.js",
+      "completedLevels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "targets": [
+        {
+          "level": 1,
+          "target": 3,
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 2,
+          "target": 3,
+          "uniqueVisibleWordCount": 3
+        },
+        {
+          "level": 3,
+          "target": 6,
+          "uniqueVisibleWordCount": 6
+        },
+        {
+          "level": 4,
+          "target": 4,
+          "uniqueVisibleWordCount": 4
+        }
+      ],
+      "rewardDeltas": [
+        {
+          "level": 1,
+          "delta": 0
+        },
+        {
+          "level": 2,
+          "delta": 0
+        },
+        {
+          "level": 3,
+          "delta": 0
+        },
+        {
+          "level": 4,
+          "delta": 0
+        }
+      ],
+      "keyboard": {
+        "kind": "full-keyboard-geometry",
+        "level": 4,
+        "count": 26,
+        "uniqueKeys": 26,
+        "minWidth": 56,
+        "minHeight": 56,
+        "allKeysFullyInViewport": true,
+        "allKeyCentersHitTestToButtons": true,
+        "dailyMissionHudCount": 0,
+        "clue": {
+          "top": 286,
+          "bottom": 334,
+          "visible": true
+        },
+        "word": {
+          "top": 375,
+          "bottom": 455,
+          "visible": true
+        },
+        "grid": {
+          "x": 189,
+          "y": 564,
+          "width": 569,
+          "height": 216,
+          "bottom": 780
+        },
+        "rowCount": 3,
+        "maxKeyBottom": 780,
+        "viewport": {
+          "width": 1440,
+          "height": 844,
+          "documentWidth": 1440,
+          "scrollY": 0
+        }
+      },
+      "keyboardClicks": {
+        "kind": "keyboard-click-reachability",
+        "level": 4,
+        "expected": 26,
+        "tested": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "passed": true
+      },
+      "savedNavigation": [
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 1,
+          "result": {
+            "x": 36,
+            "y": 114,
+            "width": 1368,
+            "height": 699,
+            "bottom": 813,
+            "fullyInViewport": true,
+            "documentHeight": 858,
+            "viewportHeight": 844
+          },
+          "levelMap": {
+            "x": 588,
+            "y": 491,
+            "width": 119,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 718,
+            "y": 491,
+            "width": 134,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 2,
+          "result": {
+            "x": 36,
+            "y": 114,
+            "width": 1368,
+            "height": 699,
+            "bottom": 813,
+            "fullyInViewport": true,
+            "documentHeight": 858,
+            "viewportHeight": 844
+          },
+          "levelMap": {
+            "x": 588,
+            "y": 491,
+            "width": 119,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 718,
+            "y": 491,
+            "width": 134,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 3,
+          "result": {
+            "x": 36,
+            "y": 114,
+            "width": 1368,
+            "height": 699,
+            "bottom": 813,
+            "fullyInViewport": true,
+            "documentHeight": 858,
+            "viewportHeight": 844
+          },
+          "levelMap": {
+            "x": 588,
+            "y": 491,
+            "width": 119,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 718,
+            "y": 491,
+            "width": 134,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        },
+        {
+          "kind": "saved-result-navigation-geometry",
+          "level": 4,
+          "result": {
+            "x": 36,
+            "y": 114,
+            "width": 1368,
+            "height": 699,
+            "bottom": 813,
+            "fullyInViewport": true,
+            "documentHeight": 858,
+            "viewportHeight": 844
+          },
+          "levelMap": {
+            "x": 584,
+            "y": 491,
+            "width": 119,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          },
+          "next": {
+            "x": 715,
+            "y": 491,
+            "width": 141,
+            "height": 48,
+            "bottom": 539,
+            "visible": true,
+            "fullyInViewport": true,
+            "centerHit": true,
+            "minHeight": 48
+          }
+        }
+      ],
+      "errors": {
+        "errors": [],
+        "pageErrors": [],
+        "consoleErrors": [],
+        "resourceFailures": [],
+        "requestFailures": [],
+        "brokenImages": [],
+        "apiRequests": []
+      },
+      "activeScreenshot": "docs/qa-evidence/dino-pair-20261029/hangman-production-active-1440-DYyDnHAt.jpg",
+      "report": "docs/qa-evidence/dino-pair-20261029/production-hangman-amari-1440-DYyDnHAt.json"
+    }
+  },
+  "browserHelper": {
+    "session": "amari-targeted-contained",
+    "owner": "pair7-hangman-public-final",
+    "released": false,
+    "headlessSessionLeftRunning": true
+  }
+}

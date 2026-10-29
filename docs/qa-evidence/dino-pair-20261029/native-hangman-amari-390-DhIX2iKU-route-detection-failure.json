@@ -1,0 +1,180 @@
+{
+  "passed": false,
+  "stage": "full",
+  "player": "amari",
+  "width": 390,
+  "height": 740,
+  "entryIdentity": "http://127.0.0.1:5180/assets/arcade-DhIX2iKU.js",
+  "rows": [
+    {
+      "kind": "replay-baseline",
+      "previousBest": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "plannedScores": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "plannedDeltas": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "legacyRewardCeiling": null,
+      "faultPlan": {
+        "localFailureLevel": 1,
+        "parentRewardFailureLevel": 2,
+        "skipped": null
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-1",
+      "x": 40,
+      "y": 721,
+      "width": 310,
+      "height": 134,
+      "bottom": 855,
+      "visible": true,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-2",
+      "x": 40,
+      "y": 867,
+      "width": 310,
+      "height": 134,
+      "bottom": 1001,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-3",
+      "x": 40,
+      "y": 1013,
+      "width": 310,
+      "height": 134,
+      "bottom": 1147,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-4",
+      "x": 40,
+      "y": 1159,
+      "width": 310,
+      "height": 134,
+      "bottom": 1293,
+      "visible": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected-level-start",
+      "x": 53,
+      "y": 560,
+      "width": 188,
+      "height": 56,
+      "bottom": 616,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "initial-map",
+      "player": "amari",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        {
+          "name": "First words",
+          "target": 3
+        },
+        {
+          "name": "Four-letter rescue",
+          "target": 3
+        },
+        {
+          "name": "Five-letter rescue",
+          "target": 6
+        },
+        {
+          "name": "Long-word rescue",
+          "target": 4
+        }
+      ],
+      "protectedKeys": 8
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 560,
+      "width": 188,
+      "height": 56,
+      "bottom": 616,
+      "visible": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 721,
+        "width": 310,
+        "height": 134,
+        "bottom": 855,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Hear the word",
+      "x": 278,
+      "y": 291,
+      "width": 84,
+      "height": 48,
+      "bottom": 339,
+      "visible": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "audio-mute-cancel",
+      "exactClipObserved": true,
+      "pausedAfterMute": true
+    },
+    {
+      "kind": "audio-next-cancel",
+      "pausedAfterNext": true
+    },
+    {
+      "kind": "audio-packaged-availability",
+      "exactVisibleClipAvailable": true,
+      "scannedSkippedWords": 0
+    },
+    {
+      "kind": "audio-leave-cancel",
+      "pausedAfterLeave": true
+    }
+  ],
+  "errors": [
+    {
+      "message": "Level 1 menu entry is missing",
+      "stack": "Error: Level 1 menu entry is missing\n    at startLevel (evalmachine.<anonymous>:260:42)\n    at async playLevel (evalmachine.<anonymous>:411:20)\n    at async evalmachine.<anonymous>:492:5\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)",
+      "rows": 14
+    }
+  ],
+  "pageErrors": [],
+  "apiRequests": []
+}

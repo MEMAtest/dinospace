@@ -1,0 +1,39 @@
+{
+  "reviewedAt": "2026-10-29",
+  "sourceCommit": "2c8209eba409ea03d1435fa7637d4a1c9b5693d7",
+  "scope": "Root reward-claim changes only: shared claim helper, App callback semantics, LittleGameShell saved-result retry/recovery, and focused reward tests. Main Dino and Hangman integrations, browser QA, build, and live acceptance were not reviewed.",
+  "files": [
+    { "path": "src/data/playerRewards.js", "sha256": "a2e6240031359e91d1910dfa21636bdafb5deec009629bc0912039405083c42d" },
+    { "path": "src/App.jsx", "sha256": "ba51ade2196150c5083ef8a12ce1b8f710ef1ceab7ab6fdc4456d0a927029fe7" },
+    { "path": "src/components/little/LittleGameShell.jsx", "sha256": "64d372a488cb6ccf233d19ea3e1c1b888cce973d8636566da5f2609dad95bf5d" },
+    { "path": "test/playerRewards.test.mjs", "sha256": "0be3c6604d7b12620691622395add702b2fb7ee936fbfeb5d33ea21e68d3a432" }
+  ],
+  "blockers": [
+    {
+      "id": "reward-claim-ledger-permanently-exhausts-at-256",
+      "severity": "release-blocker",
+      "locations": [
+        { "path": "src/data/playerRewards.js", "lines": "90-103" },
+        { "path": "src/components/little/LittleGameShell.jsx", "lines": "231-243,309-310,433-440" }
+      ],
+      "finding": "The authoritative claim map is capped at 256 entries and never compacts or rotates. Once full, every new Dino/Hangman claim fails permanently; LittleGameShell has already saved the result before trying the claim, but enters save-error and its Retry calls the same helper, which will always return 'Reward claim storage is full.' Subsequent dino mounts recover the stored token, which also cannot complete if the ledger is full. This permanently strands further rewards after 256 claimed runs for that child. Add a safe retention/compaction strategy or another bounded idempotency scheme before release."
+    }
+  ],
+  "sourceReview": "The same-record write/readback and duplicate-token paths are consistent for an available claim slot. App returns claim results to callers and suppresses duplicate-token celebration; LittleGameShell persists/reuses a stable token and offers Retry/reopen recovery. One unbounded-lifetime behavior blocker remains at the fixed 256-claim cap.",
+  "acceptanceBoundary": "Independent source review only. The reported focused tests were not run by this reviewer; no browser, build, deploy, or live acceptance is implied.",
+  "reviewDeltas": [
+    {
+      "reviewedAt": "2026-10-29",
+      "scope": "Recheck of the 256-entry claim-cap finding only.",
+      "files": [
+        { "path": "src/data/playerRewards.js", "sha256": "97e2bb47820246df8a531b7bb003e6946b1b617cc7046dbf0dac173f0584e184" },
+        { "path": "test/playerRewards.test.mjs", "sha256": "62c7b560d958c7a78679c480a0df1574163514bc1705330c3ef65b221eb7de14" }
+      ],
+      "resolvedFinding": "reward-claim-ledger-permanently-exhausts-at-256",
+      "resolution": "Resolved in the reviewed source: the arbitrary cap and claim-map length check are removed, claims are retained without pruning, and the 300-existing-claims regression asserts that a new claim and its duplicate retry succeed while preserving historical claims.",
+      "outstandingBlockers": [],
+      "sourceReview": "The specific capacity-stranding blocker is resolved. No broader source redesign was reviewed.",
+      "acceptanceBoundary": "Source-only delta review. The test was not run by this reviewer; actual compile/native/public acceptance remains separate and pending."
+    }
+  ]
+}

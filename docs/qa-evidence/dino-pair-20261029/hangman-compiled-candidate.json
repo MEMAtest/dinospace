@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-29T01:55:10.058606+00:00",
+  "entry": "/assets/arcade-DLNu42HO.js",
+  "entrySha256": "2d5d50f102946d85a0fbc8adfe9645da03c361964860424aa45c1e05417bc5c8",
+  "worker": "amari-discovery-v42",
+  "sourceBase": "2c8209eb",
+  "uncommittedCandidate": true,
+  "scope": "Hangman and shared reward candidate for compiled rehearsal. Detective UI is under a separate geometry repair; full pair final-source/public acceptance pending.",
+  "focusSourceHashes": {
+    "src/App.jsx": "ba51ade2196150c5083ef8a12ce1b8f710ef1ceab7ab6fdc4456d0a927029fe7",
+    "src/data/playerRewards.js": "97e2bb47820246df8a531b7bb003e6946b1b617cc7046dbf0dac173f0584e184",
+    "src/data/gameSessions.js": "a3fc3e6ff3bbeed538126bcc4a299d91ce72fe7f64cba568609b9cdc4606bf7c",
+    "src/components/games/Hangman.jsx": "f0e79064729acd77df64e32b7c4d7efbaae2f8bf33aefc0db395f0d7c0f86dbf",
+    "src/data/hangmanLevels.js": "9964cb4ab79dad250306382524b0296f1ea95425648ab884af081ead3304266a",
+    "src/data/hangmanProgress.js": "a56c84acf9e9abac3d3a70155264eb4761738694f9fb26afd20cafa6388eaafd"
+  },
+  "testRun": {
+    "tests": 518,
+    "passed": 518,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browserReset": false
+}

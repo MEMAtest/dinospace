@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-29T01:25:29.938Z",
+  "scope": "First compiled layout probe only; no full acceptance",
+  "entry": "/assets/arcade-B__1zLPu.js",
+  "namespaced": true,
+  "rows": [
+    {
+      "kind": "visible-trail-answer",
+      "trail": "M 50 96 Q 69.5 86 65 76",
+      "cover": {
+        "x": 65,
+        "y": 76,
+        "label": "Search behind lower right rocks, spot 5 of 5"
+      }
+    },
+    {
+      "kind": "held-next-geometry",
+      "label": "Next find",
+      "rect": {
+        "x": 61,
+        "y": 1031,
+        "right": 329,
+        "bottom": 1079,
+        "width": 268,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "scrollY": 0,
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/dino-pair-20261029/first-amari-dino-found-390.jpg"
+    }
+  ],
+  "heldNextFits": false,
+  "errors": [],
+  "requests": []
+}

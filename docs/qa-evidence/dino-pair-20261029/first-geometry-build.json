@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-29T01:31:33.761406+00:00",
+  "scope": "Exploratory compiled phone geometry only; no functional/live acceptance",
+  "sourceBase": "2c8209eb",
+  "workingTreeBuild": true,
+  "sourceHashes": "Not frozen for acceptance; later source repairs are separately rebuilt. No claim these files match current working source.",
+  "entry": "/assets/arcade-B__1zLPu.js",
+  "entrySha256": "f76a3d8d400bbbac96a7da78667102186c2557c932773a09a54b1ce93a5a2eec",
+  "htmlSha256": "2ec5d914e648e7aab6519bb3668c6cfc6abc5c9e02c9e0b52d4ec918737ab88e",
+  "workerSha256": "2ef1bed474f3b42e067f02e726b3bfd40994eb9a957d1ac013084011ac47f648",
+  "worker": "amari-discovery-v42",
+  "buildCommand": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "firstFindNextBottom": 1079,
+  "hangmanStartBottom": 1251,
+  "hangmanPlayRetainedScrollY": 769,
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "earnedCompletions": 0,
+  "stateReset": false,
+  "providerCalls": 0
+}

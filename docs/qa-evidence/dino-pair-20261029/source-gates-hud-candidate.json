@@ -1,0 +1,59 @@
+{
+  "at": "2026-10-29T02:22:54.370265+00:00",
+  "runtime": "83aeda00ce8e6b286a35dfe9ee62f33b96cc09db",
+  "entry": "/assets/arcade-DVChNJa_.js",
+  "worker": "amari-discovery-v42",
+  "buildCommand": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "testCommand": "PWA_BUILD_DIR=dist npm test",
+  "tests": 518,
+  "passed": 518,
+  "failed": 0,
+  "skipped": 0,
+  "scopedLint": "passed",
+  "diffCheck": "passed",
+  "sha256": {
+    "html": "8dedcb55e83bee3e3555a100546792eb6e0d8028db71d22551e26c05a6c76f74",
+    "entry": "b20bec2ab62743d49b0fe18d317bb32d19f6578da438e9f55b74e44cfc1e4fe6",
+    "worker": "2d21b236eae5c5a9962ee5f614aefea7f75e98859bab44cf40190d82b3ff8055"
+  },
+  "sourceHashes": {
+    "public/sw.js": "bf7fd688a4af833e0fac5fdbca991c7b2767262fbebf0863382a2266cdfc46b2",
+    "src/App.jsx": "8f0b2bcde0e456f7234680e0de6675d5f0d0883499382ece704412689e52e90d",
+    "src/components/games/DinoDetective.jsx": "8b209c3e1660c39156dfed472e7f14c530f190b1fa9eb12e071f08952f201c3d",
+    "src/components/games/Hangman.jsx": "6ed49032400d1788a47b6bc12b4980ede249596ff8fd0cbd4f7773c1f8cb3164",
+    "src/components/little/LittleGameShell.jsx": "b179c63dc6392d6c442066a58abb1b998c2aa8433d059a202df480b6e7b79c8a",
+    "src/components/little/games/LittleDinoDetective.jsx": "37369373493a9468263202a2e0d1912364c06fba26583ec4486a2d111e0b731a",
+    "src/data/dinoDetectiveBatch3.js": "8869691884c2f00171f586bdadbca3bb240ffb67356c312d22240dab76cdab76",
+    "src/data/dinoDetectiveProgress.js": "b7ca36f6a716d9584b2e3ed33d65c28ff2fb1cc3827ec4d5e3eb7ce8065dbb31",
+    "src/data/gameSessions.js": "a3fc3e6ff3bbeed538126bcc4a299d91ce72fe7f64cba568609b9cdc4606bf7c",
+    "src/data/hangmanLevels.js": "9964cb4ab79dad250306382524b0296f1ea95425648ab884af081ead3304266a",
+    "src/data/hangmanProgress.js": "a56c84acf9e9abac3d3a70155264eb4761738694f9fb26afd20cafa6388eaafd",
+    "src/data/littleDinoDetective.js": "bf6f260b5fb01ad2668d5212e64b874e9979825067c6a3a20e627b78a7850a48",
+    "src/data/pairLittleProgress.js": "363ca8fbe8a1208d367f9611563558655275d933b01c6cfd9bc2309283a4723e",
+    "src/data/playerRewards.js": "97e2bb47820246df8a531b7bb003e6946b1b617cc7046dbf0dac173f0584e184",
+    "test/batch3ProgressionOwnership.test.mjs": "d62cedfe9830dba57abf1436be5431677ff1892f9615232703892c4e13034e86",
+    "test/dinoDetectiveBatch3.test.mjs": "d8a4cac86d4a7593b45db0c9022d01a0866171088dcafd8c37f5384589b7632a",
+    "test/dinoDetectiveProgress.test.mjs": "841b85c19a39996838bc443c060c2c70d5ec9e1145201b1284c246a7e1c269b1",
+    "test/hangman.test.mjs": "25734e6c1b2cafe8eadd9bd69b4abd488a7719c8cfb8ff786af64f0be4e87c5b",
+    "test/littleDinoDetective.test.mjs": "edad340a5b4b12fa8eaf713df0e4210b79cca9e540ea21dbf275b86f4169c544",
+    "test/offlineServiceWorker.test.mjs": "70f9c1b8e1342fa1a73ae529bf03f96d4997393895d1b731632eaa64f10adb96",
+    "test/pairLittleProgress.test.mjs": "d82067ca56c3be80f0353ba69358160dbd8dd947b650d0c9d5fa79644865e5db",
+    "test/playerRewards.test.mjs": "62c7b560d958c7a78679c480a0df1574163514bc1705330c3ef65b221eb7de14"
+  },
+  "eagerBudget": {
+    "maxRequests": 163,
+    "maxBytes": 41943040
+  },
+  "status": "Source/build passed; compiled full journeys and canonical release acceptance pending",
+  "plannedPrimaryPerStage": {
+    "journeys": 6,
+    "missionRuns": 42,
+    "detectiveFinds": 178,
+    "hangmanRescues": 32,
+    "responses": 210
+  },
+  "scope": "Functional candidate only; no editorial/listening score or historical family-story recovery claim.",
+  "nativeStatus": "rerun pending on HUD repair; historical mobile blocker retained",
+  "publicStatus": "pending",
+  "repair": "Disable floating mission tracker for Hangman; compact mobile header keeps26lettergrid clear"
+}

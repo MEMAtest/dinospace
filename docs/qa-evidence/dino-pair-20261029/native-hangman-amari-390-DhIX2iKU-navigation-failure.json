@@ -1,0 +1,18 @@
+{
+  "passed": false,
+  "stage": "full",
+  "player": "amari",
+  "width": 390,
+  "height": 740,
+  "entryIdentity": "http://127.0.0.1:5180/assets/arcade-DhIX2iKU.js",
+  "rows": [],
+  "errors": [
+    {
+      "message": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('heading', { name: 'Read & Write', exact: true }) to be visible\u001b[22m\n",
+      "stack": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('heading', { name: 'Read & Write', exact: true }) to be visible\u001b[22m\n\n    at openHangmanFromWorld (evalmachine.<anonymous>:247:76)\n    at async evalmachine.<anonymous>:446:5\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+      "rows": 0
+    }
+  ],
+  "pageErrors": [],
+  "apiRequests": []
+}
