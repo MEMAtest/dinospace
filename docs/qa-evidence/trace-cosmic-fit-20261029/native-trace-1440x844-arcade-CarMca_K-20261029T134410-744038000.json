@@ -1,0 +1,573 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "game": "trace",
+  "expectedRuntime": "9f53b2dc2e1d956802829e82bf81acad13dfa8d3",
+  "entryIdentity": "/assets/arcade-CarMca_K.js",
+  "initialSound": true,
+  "rows": [
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 0,
+      "letter": "S",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 659.234375,
+          "width": 856,
+          "height": 384.234375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 15902,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "S\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/435f52be-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/435f52be-matilda.mp3",
+            "currentTime": 0.060283,
+            "duration": 2.321995,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 6943.199999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 6955.899999976158
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 6958.100000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 1,
+      "letter": "U",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 659.234375,
+          "width": 856,
+          "height": 384.234375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 14097,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "U\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 2,
+      "letter": "F",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 659.234375,
+          "width": 856,
+          "height": 384.234375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 11762,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "F\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 3,
+      "letter": "K",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 659.234375,
+          "width": 856,
+          "height": 384.234375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 15090,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "K\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 4,
+      "letter": "L",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 659.234375,
+          "width": 856,
+          "height": 384.234375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 9539,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "L\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 5,
+      "letter": "O",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 659.234375,
+          "width": 856,
+          "height": 384.234375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 17004,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "O\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 6,
+      "letter": "R",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 659.234375,
+          "width": 856,
+          "height": 384.234375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 17938,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "R\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 7,
+      "letter": "E",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 659.234375,
+          "width": 856,
+          "height": 384.234375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 15731,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "E\n\nYou followed the letter. Great tracing!\n\nHear explanationFinish chapter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Finish chapter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    }
+  ],
+  "diagnostics": {
+    "runtimeErrors": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "requestErrors": [],
+      "responseErrors": []
+    },
+    "providerAttempts": [],
+    "changedKeys": [],
+    "unexpectedKeys": []
+  },
+  "failure": {
+    "message": "Play the visible B stroke demonstration is not wholly inside the viewport: {\"text\":\"Watch this stroke\",\"rect\":{\"x\":290,\"y\":813.234375,\"width\":860,\"height\":48,\"right\":1150,\"bottom\":861.234375},\"viewport\":{\"width\":1440,\"height\":844},\"centerHit\":true,\"pointerEvents\":\"auto\"}",
+    "stack": "Error: Play the visible B stroke demonstration is not wholly inside the viewport: {\"text\":\"Watch this stroke\",\"rect\":{\"x\":290,\"y\":813.234375,\"width\":860,\"height\":48,\"right\":1150,\"bottom\":861.234375},\"viewport\":{\"width\":1440,\"height\":844},\"centerHit\":true,\"pointerEvents\":\"auto\"}\n    at measureControl (eval at localRequire (evalmachine.<anonymous>:13:5), <anonymous>:147:13)\n    at async Object.clickControl (eval at localRequire (evalmachine.<anonymous>:13:5), <anonymous>:156:22)\n    at async traceOneRound (evalmachine.<anonymous>:220:7)\n    at async runTrace (evalmachine.<anonymous>:339:24)\n    at async evalmachine.<anonymous>:547:33\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)"
+  },
+  "render": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/trace-cosmic-fit-20261029/failure-trace-1440x844-1793281482798.jpg",
+  "finalSound": true,
+  "soundRestored": true,
+  "stage": "native",
+  "entry": "/assets/arcade-CarMca_K.js",
+  "sourceHead": "9f53b2dc2e1d956802829e82bf81acad13dfa8d3",
+  "sourceHashes": {
+    "src/App.jsx": "4c120fd6f043224d757a90b41908fc7c61a6989471157c6638b3bd5610644d33",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/letterTraceLearning.js": "f6afca5a7e8ff698459876c773ed8d25e4d5f390a213bbe242dafa4e4b7831d8",
+    "src/data/cosmicTactics.js": "7e9e0787b62b203ff44aa15f9313ee9bb9524454e6ce767fecfc43769a826288",
+    "src/components/games/AmariLetterTrace.jsx": "4c6cbe35c48d1b24bb100b125b59a4817e9e391f4dd5b426dc7e7b03ee32297e",
+    "src/components/games/AmariLetterTrace.css": "e43825c5e437a07299467ea2615819ccaba12db37f71caee180c6a60c9148b11",
+    "src/components/games/TicTacToe.jsx": "1d500e79ba59f3bfbbb3778c023504ff9b1e5f573195f67230714018044f4818",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/home/ExplorerHome.jsx": "207db9681a08390c813595debcdf993261e69dff278a21932f2284d5f4b7a638",
+    "src/discoveryPremium.css": "f44198fe04462909c7bf0edc73c54f912b3e11a73d085a7a0fd8c26d2ad9d94c",
+    "src/components/home/discoveryVisuals.css": "637f299d61c12f3b6a567fe896c21bd5256e566b80a603275a25dd66a76cac5f",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/game-delivery-20261027/retained-visual-exercises.cjs": "61410b0bf58513d3e2f7bef34220f99915b5901c2b7753caf75cdd2a0b21d91a"
+  },
+  "driverSHA256": "18c98f75e63a8a1928ace50c9a5055ae496d976c64b133077d950fcfd1a7daa3",
+  "cliReturnCode": 0
+}

@@ -1,0 +1,67 @@
+{
+  "startedAt": "2026-10-29T13:25:30.676347+00:00",
+  "newWorktrees": 0,
+  "newDependencyInstalls": 0,
+  "newBrowserProfiles": 0,
+  "evidenceBudgetBytes": 8388608,
+  "initialProfileKiB": 999480,
+  "profileGrowthBudgetBytes": 67108864,
+  "sourceAssets": "One responsive CSS file only; no new bitmap, narration or provider job.",
+  "cleanup": [
+    {
+      "path": "tmp/trace-cosmic-fit-build-r1.log",
+      "bytes": 14592,
+      "reason": "Task-owned duplicate successful build/test or generated callback/retention log; final canonical checks/raw JSON retained"
+    },
+    {
+      "path": "tmp/trace-cosmic-fit-tests-r1.log",
+      "bytes": 66320,
+      "reason": "Task-owned duplicate successful build/test or generated callback/retention log; final canonical checks/raw JSON retained"
+    },
+    {
+      "path": "tmp/trace-cosmic-fit-build-r2.log",
+      "bytes": 14591,
+      "reason": "Task-owned duplicate successful build/test or generated callback/retention log; final canonical checks/raw JSON retained"
+    },
+    {
+      "path": "tmp/trace-cosmic-fit-tests-r2.log",
+      "bytes": 66309,
+      "reason": "Task-owned duplicate successful build/test or generated callback/retention log; final canonical checks/raw JSON retained"
+    },
+    {
+      "path": "tmp/trace-cosmic-fit-build-r3.log",
+      "bytes": 14592,
+      "reason": "Task-owned duplicate successful build/test or generated callback/retention log; final canonical checks/raw JSON retained"
+    },
+    {
+      "path": "tmp/trace-cosmic-fit-tests-r3.log",
+      "bytes": 66323,
+      "reason": "Task-owned duplicate successful build/test or generated callback/retention log; final canonical checks/raw JSON retained"
+    },
+    {
+      "path": "tmp/trace-cosmic-cutover-before.cjs",
+      "bytes": 5138,
+      "reason": "Task-owned duplicate successful build/test or generated callback/retention log; final canonical checks/raw JSON retained"
+    },
+    {
+      "path": "tmp/trace-cosmic-cutover-after.cjs",
+      "bytes": 5137,
+      "reason": "Task-owned duplicate successful build/test or generated callback/retention log; final canonical checks/raw JSON retained"
+    },
+    {
+      "path": "tmp/cutover-before.log",
+      "bytes": 20262,
+      "reason": "Task-owned duplicate successful build/test or generated callback/retention log; final canonical checks/raw JSON retained"
+    },
+    {
+      "path": "tmp/cutover-after.log",
+      "bytes": 20190,
+      "reason": "Task-owned duplicate successful build/test or generated callback/retention log; final canonical checks/raw JSON retained"
+    }
+  ],
+  "checkedAt": "2026-10-29T13:56:22.930640+00:00",
+  "currentProfileKiB": 1005292,
+  "removedLogicalBytes": 293454,
+  "retainedEvidenceBytes": 1732496,
+  "retained": "Canonical final logs, all unique failure evidence, matrix reports and retained original profile; no worktree/dependency/profile created."
+}

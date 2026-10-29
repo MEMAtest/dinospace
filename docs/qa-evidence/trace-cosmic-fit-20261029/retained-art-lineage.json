@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "at": "2026-10-29T13:52:43.217426+00:00",
+  "currentRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "previousRuntime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+  "unchangedPaths": [
+    "public/art",
+    "public/audio",
+    "public/storybooks"
+  ],
+  "verification": "Git source equality; retained exact media/art inventories and served hashes reused. Current gameplay additionally requires actual packaged playback and decoded rendered art. No repeated corpus download.",
+  "references": [
+    {
+      "path": "docs/qa-evidence/letters-factfinder-20261029/production-critical-art.json",
+      "sha256": "e31008fafd21942ad38fd8d734cd246aa830ff80b740f0e5e63f2798a7007b67"
+    },
+    {
+      "path": "docs/qa-evidence/letters-factfinder-20261029/production-pair-assets.json",
+      "sha256": "1b35996a3d86dafd2e7f3837c8d5758233cd59b0bacbd87931d3de54fe76d3e6"
+    },
+    {
+      "path": "docs/qa-evidence/trace-tactics-20261025/README.md",
+      "sha256": "da77b407d32162299a8076f4b93cd3bab130e0e1b3afb1f7845ea3dd77cd4a6d"
+    }
+  ]
+}

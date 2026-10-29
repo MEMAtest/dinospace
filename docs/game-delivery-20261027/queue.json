@@ -250,18 +250,41 @@
       "verifiedAt": "2026-10-29T13:07:26.066455+00:00",
       "production": "docs/qa-evidence/letters-factfinder-20261029/production-summary.json",
       "openGate": null
+    },
+    {
+      "number": 12,
+      "games": [
+        {
+          "id": "trace",
+          "name": "Letter Trace"
+        },
+        {
+          "id": "tictactoe",
+          "name": "Cosmic Tic-Tac-Toe"
+        }
+      ],
+      "status": "live_verified",
+      "role": "Final integration viewport repair",
+      "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+      "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+      "sourceGates": "docs/qa-evidence/trace-cosmic-fit-20261029/source-gates.json",
+      "verifiedAt": "2026-10-29T13:56:04.265390+00:00"
     }
   ],
   "retainedReleasedScopes": [
     {
       "id": "trace",
       "name": "Letter Trace",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "current release full layout integration passed at both viewports",
+      "integrationEvidence": "docs/qa-evidence/trace-cosmic-fit-20261029/production-summary.json",
+      "integrationRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3"
     },
     {
       "id": "tictactoe",
       "name": "Cosmic Tic-Tac-Toe",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "current release full layout integration passed at both viewports",
+      "integrationEvidence": "docs/qa-evidence/trace-cosmic-fit-20261029/production-summary.json",
+      "integrationRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3"
     },
     {
       "id": "puzzle",

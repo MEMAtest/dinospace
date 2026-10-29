@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-29T13:07:26.066455+00:00",
+  "updatedAt": "2026-10-29T13:56:04.265390+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+  "canonicalRelease": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1076,15 +1076,15 @@
   "publicUrl": "https://dinospace.netlify.app",
   "singlePublicSiteRelease": {
     "publicUrl": "https://dinospace.netlify.app",
-    "runtimeCommit": "c5e58259170045e51415b12c360efa05e60c7a4f",
-    "runtimeDeployment": "dpl_DND4didmjepBuX68w2hFikz2qyk9",
-    "runtimeUrl": "https://dinospace-ow24yqndj-memas-projects-23a0001d.vercel.app",
-    "netlifyDeploy": "6ae2e8f735f8990b8d2719cb",
-    "cache": "v44",
-    "evidence": "docs/qa-evidence/books-spelling-20261029/README.md",
+    "runtimeCommit": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+    "runtimeDeployment": "dpl_7XSPy9H4Q4rroUdW8ZDXMf8WXc1H",
+    "runtimeUrl": "https://dinospace-d52yebake-memas-projects-23a0001d.vercel.app",
+    "netlifyDeploy": "6ae34f3b63620612434d1bdf",
+    "cache": "v48",
+    "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
     "oldPublicAlias": "Redirect-only root/index app entry; legacy API/static routes retained for installed clients",
-    "nativeCheck": "Full included reader/quiz and six-stage Spelling at390/1440; positive same-token retries, recovery and synthetic backup media retention passed",
-    "scope": "Targeted functional acceptance for Storybook Studio and Spelling Studio. Historical phone abort retained as unclassified, with exact-source clean targeted recovery on both viewports. No editorial/listening score or historical personal-book recovery."
+    "nativeCheck": "Complete Trace/Cosmic native+canonical matrices at390x740/1440x844; cutover retention passed",
+    "scope": "Targeted complete Trace/Cosmic phone/desktop layout repair, retaining earlier functional evidence. Final12 retained lanes and catalogue smoke still pending."
   },
   "personalStoryRecovery": {
     "userConfirmedExpectedPersonalStories": [
@@ -1245,45 +1245,32 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": 11,
-    "runtime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+    "pair": 12,
+    "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-17oigcsh2-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_HK3DAj3XjdTAWY7EMgNCQT9q4bP9",
-    "netlifyGatewayDeploy": "6ae34171bd571caf57006197",
-    "serviceWorkerCache": "amari-discovery-v47",
+    "backendUrl": "https://dinospace-d52yebake-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_7XSPy9H4Q4rroUdW8ZDXMf8WXc1H",
+    "netlifyGatewayDeploy": "6ae34f3b63620612434d1bdf",
+    "serviceWorkerCache": "amari-discovery-v48",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md",
-    "production": "docs/qa-evidence/letters-factfinder-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/letters-factfinder-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+    "production": "docs/qa-evidence/trace-cosmic-fit-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/trace-cosmic-fit-20261029/source-gates.json",
     "sourceTests": {
-      "command": "PWA_BUILD_DIR=dist npm test",
       "passed": 674,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T13:07:26.066455+00:00",
+    "verifiedAt": "2026-10-29T13:56:04.265390+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Letter Launch and separate curated Fact Finder verified at390/1440, strict native save retry and canonical replay/badge retention. All games still require final retained integration smoke. Personal stories remain unlocated.",
+    "scope": "Targeted complete Trace/Cosmic phone/desktop layout repair, retaining earlier functional evidence. Final12 retained lanes and catalogue smoke still pending.",
     "functionalAcceptance": {
       "nativeJourneys": 4,
       "canonicalJourneys": 4,
-      "letterRoundsPerViewport": [
-        6,
-        6,
-        7,
-        8
-      ],
-      "curatedTopics": 34,
-      "nativeSaveRetryStages": [
-        "local",
-        "badge",
-        "parent"
-      ],
-      "canonicalReplayRewardsZero": true,
-      "parentBadgeReadRetry": true,
-      "protectedCutoverKeys": 107,
+      "traceVisibleTasksPerViewport": 32,
+      "cosmicBoardsPerViewport": 9,
+      "protectedCutoverKeys": 113,
       "protectedQaBookAssets": 14
     }
   },
@@ -1315,50 +1302,37 @@
   },
   "activeDeliveryCandidate": {
     "status": "retained_integration_pending",
-    "baseRuntime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+    "baseRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
     "evidence": "docs/game-delivery-20261027/final-integration-protocol.md",
     "paidCalls": 0
   },
   "lastVerifiedDeliveryRelease": {
-    "pair": 11,
-    "runtime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+    "pair": 12,
+    "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-17oigcsh2-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_HK3DAj3XjdTAWY7EMgNCQT9q4bP9",
-    "netlifyGatewayDeploy": "6ae34171bd571caf57006197",
-    "serviceWorkerCache": "amari-discovery-v47",
+    "backendUrl": "https://dinospace-d52yebake-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_7XSPy9H4Q4rroUdW8ZDXMf8WXc1H",
+    "netlifyGatewayDeploy": "6ae34f3b63620612434d1bdf",
+    "serviceWorkerCache": "amari-discovery-v48",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md",
-    "production": "docs/qa-evidence/letters-factfinder-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/letters-factfinder-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+    "production": "docs/qa-evidence/trace-cosmic-fit-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/trace-cosmic-fit-20261029/source-gates.json",
     "sourceTests": {
-      "command": "PWA_BUILD_DIR=dist npm test",
       "passed": 674,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T13:07:26.066455+00:00",
+    "verifiedAt": "2026-10-29T13:56:04.265390+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Letter Launch and separate curated Fact Finder verified at390/1440, strict native save retry and canonical replay/badge retention. All games still require final retained integration smoke. Personal stories remain unlocated.",
+    "scope": "Targeted complete Trace/Cosmic phone/desktop layout repair, retaining earlier functional evidence. Final12 retained lanes and catalogue smoke still pending.",
     "functionalAcceptance": {
       "nativeJourneys": 4,
       "canonicalJourneys": 4,
-      "letterRoundsPerViewport": [
-        6,
-        6,
-        7,
-        8
-      ],
-      "curatedTopics": 34,
-      "nativeSaveRetryStages": [
-        "local",
-        "badge",
-        "parent"
-      ],
-      "canonicalReplayRewardsZero": true,
-      "parentBadgeReadRetry": true,
-      "protectedCutoverKeys": 107,
+      "traceVisibleTasksPerViewport": 32,
+      "cosmicBoardsPerViewport": 9,
+      "protectedCutoverKeys": 113,
       "protectedQaBookAssets": 14
     }
   },
@@ -1486,6 +1460,36 @@
         "protectedCutoverStorageKeys": 77,
         "protectedQaStoryAssets": 14
       }
+    },
+    {
+      "pair": 12,
+      "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+      "publicUrl": "https://dinospace.netlify.app",
+      "backendUrl": "https://dinospace-d52yebake-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_7XSPy9H4Q4rroUdW8ZDXMf8WXc1H",
+      "netlifyGatewayDeploy": "6ae34f3b63620612434d1bdf",
+      "serviceWorkerCache": "amari-discovery-v48",
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+      "production": "docs/qa-evidence/trace-cosmic-fit-20261029/production-summary.json",
+      "sourceGates": "docs/qa-evidence/trace-cosmic-fit-20261029/source-gates.json",
+      "sourceTests": {
+        "passed": 674,
+        "failed": 0,
+        "skipped": 0
+      },
+      "verifiedAt": "2026-10-29T13:56:04.265390+00:00",
+      "paidCalls": 0,
+      "editorialScoresChanged": false,
+      "scope": "Targeted complete Trace/Cosmic phone/desktop layout repair, retaining earlier functional evidence. Final12 retained lanes and catalogue smoke still pending.",
+      "functionalAcceptance": {
+        "nativeJourneys": 4,
+        "canonicalJourneys": 4,
+        "traceVisibleTasksPerViewport": 32,
+        "cosmicBoardsPerViewport": 9,
+        "protectedCutoverKeys": 113,
+        "protectedQaBookAssets": 14
+      }
     }
   ],
   "latestChessJigsawUplift": {
@@ -1558,6 +1562,36 @@
       "canonicalReplayRewardsZero": true,
       "parentBadgeReadRetry": true,
       "protectedCutoverKeys": 107,
+      "protectedQaBookAssets": 14
+    }
+  },
+  "latestTraceCosmicLayoutRepair": {
+    "pair": 12,
+    "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-d52yebake-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_7XSPy9H4Q4rroUdW8ZDXMf8WXc1H",
+    "netlifyGatewayDeploy": "6ae34f3b63620612434d1bdf",
+    "serviceWorkerCache": "amari-discovery-v48",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+    "production": "docs/qa-evidence/trace-cosmic-fit-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/trace-cosmic-fit-20261029/source-gates.json",
+    "sourceTests": {
+      "passed": 674,
+      "failed": 0,
+      "skipped": 0
+    },
+    "verifiedAt": "2026-10-29T13:56:04.265390+00:00",
+    "paidCalls": 0,
+    "editorialScoresChanged": false,
+    "scope": "Targeted complete Trace/Cosmic phone/desktop layout repair, retaining earlier functional evidence. Final12 retained lanes and catalogue smoke still pending.",
+    "functionalAcceptance": {
+      "nativeJourneys": 4,
+      "canonicalJourneys": 4,
+      "traceVisibleTasksPerViewport": 32,
+      "cosmicBoardsPerViewport": 9,
+      "protectedCutoverKeys": 113,
       "protectedQaBookAssets": 14
     }
   }

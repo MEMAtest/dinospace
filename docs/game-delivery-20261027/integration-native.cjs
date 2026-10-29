@@ -11,6 +11,7 @@ module.exports = function createIntegrationNative(page, {
   minimumTargetSize = 44,
   packagedAudioPaths = ['/audio/'],
   isPackagedAudioUrl = null,
+  allowedCommonStorageKeys = [],
 } = {}) {
   if (!page || typeof page.goto !== 'function' || typeof page.evaluate !== 'function') {
     throw new TypeError('Pass the already-leased Playwright page');
@@ -178,7 +179,10 @@ module.exports = function createIntegrationNative(page, {
   function compareStorage(before, after, { allowedKeys = [], allowedPrefixes = [] } = {}) {
     const keys = new Set([...Object.keys(before), ...Object.keys(after)]);
     const changed = [...keys].filter(key => before[key]?.sha256 !== after[key]?.sha256 || before[key]?.bytes !== after[key]?.bytes).sort();
-    const allowed = key => allowedKeys.includes(key) || allowedPrefixes.some(prefix => key.startsWith(prefix));
+    const allowed = physicalKey => {
+      const key = physicalKey.replace(/^qa_rewards_20261024_/, '');
+      return allowedKeys.includes(key) || allowedCommonStorageKeys.includes(key) || allowedPrefixes.some(prefix => key.startsWith(prefix));
+    };
     return { changed, unexpected: changed.filter(key => !allowed(key)), unchanged: [...keys].filter(key => !changed.includes(key)).sort() };
   }
 
@@ -214,8 +218,29 @@ module.exports = function createIntegrationNative(page, {
     }));
   }
 
+  async function observePackagedPlayback(locator, label = 'packaged audio') {
+    const startedAt = await page.evaluate(() => performance.now());
+    await clickControl(locator, { label });
+    const deadline = Date.now() + 6000;
+    let evidence = [];
+    while (Date.now() < deadline) {
+      const rows = await audioEvents();
+      evidence = rows.filter(row => row.packaged
+        && row.events.some(e => e.at >= startedAt && e.type === 'playing')
+        && (row.currentTime > 0 || row.events.some(e => e.at >= startedAt && e.time > 0 && ['timeupdate', 'ended'].includes(e.type))));
+      if (evidence.length) return { checked: true, packaged: true, events: evidence };
+      await page.waitForTimeout(100);
+    }
+    throw new Error(label + ' did not play and advance within the bounded window');
+  }
+
   async function clickLeave(locator, { label = 'leave control', heading, url, timeout = 10000 } = {}) {
     const result = await clickControl(locator, { label, heading, url, timeout });
+    const dialog = page.getByRole('dialog', {name:'Leave the game?'});
+    if (await dialog.count() && await dialog.isVisible()) {
+      const back = dialog.getByRole('button', {name:/^Back to (world|home)$/});
+      await clickControl(back, {label:'Confirm ordinary parent return'});
+    }
     const deadline = Date.now() + 5000;
     let media = await audioEvents();
     while (media.some(row => !row.paused && !row.ended) && Date.now() < deadline) {
@@ -260,6 +285,7 @@ module.exports = function createIntegrationNative(page, {
     compareStorage,
     assertStorageChanges,
     audioEvents,
+    observePackagedPlayback,
     assertNoProviderAttempts,
     assertNoRuntimeErrors,
     dispose,

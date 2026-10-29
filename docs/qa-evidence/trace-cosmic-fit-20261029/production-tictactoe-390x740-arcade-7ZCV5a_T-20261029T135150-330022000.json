@@ -1,0 +1,1273 @@
+{
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "game": "tictactoe",
+  "expectedRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "entryIdentity": "/assets/arcade-7ZCV5a_T.js",
+  "initialSound": true,
+  "solvedBoards": 9,
+  "rows": [
+    {
+      "chapter": "Make a line",
+      "round": 0,
+      "visibleBoard": [
+        null,
+        null,
+        null,
+        "X",
+        "O",
+        null,
+        "X",
+        "O",
+        null
+      ],
+      "visibleTargets": [
+        0
+      ],
+      "chosenTarget": 0,
+      "targetLabel": "Row 1, column 1, square 1, empty, hint",
+      "boardGeometry": {
+        "text": "Cosmic three by three board",
+        "rect": {
+          "x": 58.5,
+          "y": 338,
+          "width": 273,
+          "height": 273,
+          "right": 331.5,
+          "bottom": 611
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "targetGeometry": {
+        "text": "Row 1, column 1, square 1, empty, hint",
+        "rect": {
+          "x": 74.5,
+          "y": 354,
+          "width": 75,
+          "height": 75,
+          "right": 149.5,
+          "bottom": 429
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "hintUsed": true,
+      "retryText": "Try another empty square. Your board stays the same.",
+      "heldText": "Three Dino marks now make a line.\n\nFollow the bright line through all three Dino marks.\n\nHear explanationNext tactic board →",
+      "pathCount": 1,
+      "audioGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 33,
+          "y": 559.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 607.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next tactic board →",
+      "nextGeometry": {
+        "text": "Next tactic board →",
+        "rect": {
+          "x": 33,
+          "y": 615.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 663.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "https://dinospace.netlify.app/audio/en/e7e450d7-matilda.mp3",
+            "origin": "https://dinospace.netlify.app",
+            "pathname": "/audio/en/e7e450d7-matilda.mp3",
+            "currentTime": 0.182452,
+            "duration": 1.996916,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 983.5999999642372
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1032
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1034.5999999642372
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "imageStatus": {
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "document": {
+          "width": 390,
+          "height": 759
+        },
+        "horizontalOverflow": false,
+        "visibleImageCount": 6,
+        "brokenImages": []
+      }
+    },
+    {
+      "chapter": "Make a line",
+      "round": 1,
+      "visibleBoard": [
+        "X",
+        "X",
+        null,
+        "O",
+        "O",
+        null,
+        null,
+        null,
+        null
+      ],
+      "visibleTargets": [
+        2
+      ],
+      "chosenTarget": 2,
+      "targetLabel": "Row 1, column 3, square 3, empty",
+      "boardGeometry": {
+        "text": "Cosmic three by three board",
+        "rect": {
+          "x": 58.5,
+          "y": 338,
+          "width": 273,
+          "height": 273,
+          "right": 331.5,
+          "bottom": 611
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "targetGeometry": {
+        "text": "Row 1, column 3, square 3, empty",
+        "rect": {
+          "x": 240.5,
+          "y": 354,
+          "width": 75,
+          "height": 75,
+          "right": 315.5,
+          "bottom": 429
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "hintUsed": false,
+      "retryText": "Try another empty square. Your board stays the same.",
+      "heldText": "Three Dino marks now make a line.\n\nFollow the bright line through all three Dino marks.\n\nHear explanationNext tactic board →",
+      "pathCount": 1,
+      "audioGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 33,
+          "y": 559.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 607.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next tactic board →",
+      "nextGeometry": {
+        "text": "Next tactic board →",
+        "rect": {
+          "x": 33,
+          "y": 615.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 663.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "imageStatus": {
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "document": {
+          "width": 390,
+          "height": 759
+        },
+        "horizontalOverflow": false,
+        "visibleImageCount": 6,
+        "brokenImages": []
+      }
+    },
+    {
+      "chapter": "Make a line",
+      "round": 2,
+      "visibleBoard": [
+        "X",
+        "O",
+        null,
+        "X",
+        "O",
+        null,
+        null,
+        null,
+        null
+      ],
+      "visibleTargets": [
+        6
+      ],
+      "chosenTarget": 6,
+      "targetLabel": "Row 3, column 1, square 7, empty",
+      "boardGeometry": {
+        "text": "Cosmic three by three board",
+        "rect": {
+          "x": 58.5,
+          "y": 338,
+          "width": 273,
+          "height": 273,
+          "right": 331.5,
+          "bottom": 611
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "targetGeometry": {
+        "text": "Row 3, column 1, square 7, empty",
+        "rect": {
+          "x": 74.5,
+          "y": 520,
+          "width": 75,
+          "height": 75,
+          "right": 149.5,
+          "bottom": 595
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "hintUsed": false,
+      "retryText": "Try another empty square. Your board stays the same.",
+      "heldText": "Three Dino marks now make a line.\n\nFollow the bright line through all three Dino marks.\n\nHear explanationFinish chapter →",
+      "pathCount": 1,
+      "audioGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 33,
+          "y": 559.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 607.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Finish chapter →",
+      "nextGeometry": {
+        "text": "Finish chapter →",
+        "rect": {
+          "x": 33,
+          "y": 615.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 663.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "imageStatus": {
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "document": {
+          "width": 390,
+          "height": 759
+        },
+        "horizontalOverflow": false,
+        "visibleImageCount": 6,
+        "brokenImages": []
+      }
+    },
+    {
+      "chapter": "Block the Rocket",
+      "round": 0,
+      "visibleBoard": [
+        null,
+        "O",
+        "O",
+        "X",
+        "X",
+        null,
+        null,
+        null,
+        null
+      ],
+      "visibleTargets": [
+        0
+      ],
+      "chosenTarget": 0,
+      "targetLabel": "Row 1, column 1, square 1, empty, hint",
+      "boardGeometry": {
+        "text": "Cosmic three by three board",
+        "rect": {
+          "x": 58.5,
+          "y": 338,
+          "width": 273,
+          "height": 273,
+          "right": 331.5,
+          "bottom": 611
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "targetGeometry": {
+        "text": "Row 1, column 1, square 1, empty, hint",
+        "rect": {
+          "x": 74.5,
+          "y": 354,
+          "width": 75,
+          "height": 75,
+          "right": 149.5,
+          "bottom": 429
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "hintUsed": true,
+      "retryText": "Try another empty square. Your board stays the same.",
+      "heldText": "Your Dino mark fills the square Rocket needed to complete the line.\n\nThe dashed path shows the line you stopped.\n\nHear explanationNext tactic board →",
+      "pathCount": 1,
+      "audioGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 33,
+          "y": 583.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 631.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next tactic board →",
+      "nextGeometry": {
+        "text": "Next tactic board →",
+        "rect": {
+          "x": 33,
+          "y": 639.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 687.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "https://dinospace.netlify.app/audio/en/fff67abc-matilda.mp3",
+            "origin": "https://dinospace.netlify.app",
+            "pathname": "/audio/en/fff67abc-matilda.mp3",
+            "currentTime": 0.053613,
+            "duration": 3.343673,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 2163.800000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 2185.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 2188.699999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "imageStatus": {
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "document": {
+          "width": 390,
+          "height": 783
+        },
+        "horizontalOverflow": false,
+        "visibleImageCount": 6,
+        "brokenImages": []
+      }
+    },
+    {
+      "chapter": "Block the Rocket",
+      "round": 1,
+      "visibleBoard": [
+        null,
+        "X",
+        null,
+        "O",
+        "X",
+        null,
+        "O",
+        null,
+        null
+      ],
+      "visibleTargets": [
+        0
+      ],
+      "chosenTarget": 0,
+      "targetLabel": "Row 1, column 1, square 1, empty",
+      "boardGeometry": {
+        "text": "Cosmic three by three board",
+        "rect": {
+          "x": 58.5,
+          "y": 338,
+          "width": 273,
+          "height": 273,
+          "right": 331.5,
+          "bottom": 611
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "targetGeometry": {
+        "text": "Row 1, column 1, square 1, empty",
+        "rect": {
+          "x": 74.5,
+          "y": 354,
+          "width": 75,
+          "height": 75,
+          "right": 149.5,
+          "bottom": 429
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "hintUsed": false,
+      "retryText": "Try another empty square. Your board stays the same.",
+      "heldText": "Your Dino mark fills the square Rocket needed to complete the line.\n\nThe dashed path shows the line you stopped.\n\nHear explanationNext tactic board →",
+      "pathCount": 1,
+      "audioGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 33,
+          "y": 583.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 631.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next tactic board →",
+      "nextGeometry": {
+        "text": "Next tactic board →",
+        "rect": {
+          "x": 33,
+          "y": 639.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 687.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "imageStatus": {
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "document": {
+          "width": 390,
+          "height": 783
+        },
+        "horizontalOverflow": false,
+        "visibleImageCount": 6,
+        "brokenImages": []
+      }
+    },
+    {
+      "chapter": "Block the Rocket",
+      "round": 2,
+      "visibleBoard": [
+        "O",
+        "O",
+        null,
+        null,
+        "X",
+        "X",
+        null,
+        null,
+        null
+      ],
+      "visibleTargets": [
+        2
+      ],
+      "chosenTarget": 2,
+      "targetLabel": "Row 1, column 3, square 3, empty",
+      "boardGeometry": {
+        "text": "Cosmic three by three board",
+        "rect": {
+          "x": 58.5,
+          "y": 338,
+          "width": 273,
+          "height": 273,
+          "right": 331.5,
+          "bottom": 611
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "targetGeometry": {
+        "text": "Row 1, column 3, square 3, empty",
+        "rect": {
+          "x": 240.5,
+          "y": 354,
+          "width": 75,
+          "height": 75,
+          "right": 315.5,
+          "bottom": 429
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "hintUsed": false,
+      "retryText": "Try another empty square. Your board stays the same.",
+      "heldText": "Your Dino mark fills the square Rocket needed to complete the line.\n\nThe dashed path shows the line you stopped.\n\nHear explanationFinish chapter →",
+      "pathCount": 1,
+      "audioGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 33,
+          "y": 583.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 631.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Finish chapter →",
+      "nextGeometry": {
+        "text": "Finish chapter →",
+        "rect": {
+          "x": 33,
+          "y": 639.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 687.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "imageStatus": {
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "document": {
+          "width": 390,
+          "height": 783
+        },
+        "horizontalOverflow": false,
+        "visibleImageCount": 6,
+        "brokenImages": []
+      }
+    },
+    {
+      "chapter": "Find a fork",
+      "round": 0,
+      "visibleBoard": [
+        "X",
+        null,
+        null,
+        "O",
+        null,
+        null,
+        "X",
+        "O",
+        null
+      ],
+      "visibleTargets": [
+        2,
+        4
+      ],
+      "chosenTarget": 4,
+      "targetLabel": "Row 2, column 2, square 5, empty, hint",
+      "boardGeometry": {
+        "text": "Cosmic three by three board",
+        "rect": {
+          "x": 58.5,
+          "y": 338,
+          "width": 273,
+          "height": 273,
+          "right": 331.5,
+          "bottom": 611
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "targetGeometry": {
+        "text": "Row 2, column 2, square 5, empty, hint",
+        "rect": {
+          "x": 157.5,
+          "y": 437,
+          "width": 75,
+          "height": 75,
+          "right": 232.5,
+          "bottom": 512
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "hintUsed": true,
+      "retryText": "Try another empty square. Your board stays the same.",
+      "heldText": "That mark opens two different winning squares for your next turn.\n\nFollow both coloured paths. Rocket can block only one on its next move.\n\nHear explanationNext tactic board →",
+      "pathCount": 2,
+      "audioGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 33,
+          "y": 599.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 647.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next tactic board →",
+      "nextGeometry": {
+        "text": "Next tactic board →",
+        "rect": {
+          "x": 33,
+          "y": 655.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 703.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "https://dinospace.netlify.app/audio/en/7f63350c-matilda.mp3",
+            "origin": "https://dinospace.netlify.app",
+            "pathname": "/audio/en/7f63350c-matilda.mp3",
+            "currentTime": 0.034719,
+            "duration": 3.250794,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 2998.599999964237
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3046.399999976158
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3049
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "imageStatus": {
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "document": {
+          "width": 390,
+          "height": 799
+        },
+        "horizontalOverflow": false,
+        "visibleImageCount": 6,
+        "brokenImages": []
+      }
+    },
+    {
+      "chapter": "Find a fork",
+      "round": 1,
+      "visibleBoard": [
+        "X",
+        "O",
+        "X",
+        "O",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "visibleTargets": [
+        4,
+        8
+      ],
+      "chosenTarget": 4,
+      "targetLabel": "Row 2, column 2, square 5, empty",
+      "boardGeometry": {
+        "text": "Cosmic three by three board",
+        "rect": {
+          "x": 58.5,
+          "y": 338,
+          "width": 273,
+          "height": 273,
+          "right": 331.5,
+          "bottom": 611
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "targetGeometry": {
+        "text": "Row 2, column 2, square 5, empty",
+        "rect": {
+          "x": 157.5,
+          "y": 437,
+          "width": 75,
+          "height": 75,
+          "right": 232.5,
+          "bottom": 512
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "hintUsed": false,
+      "retryText": "Try another empty square. Your board stays the same.",
+      "heldText": "That mark opens two different winning squares for your next turn.\n\nFollow both coloured paths. Rocket can block only one on its next move.\n\nHear explanationNext tactic board →",
+      "pathCount": 2,
+      "audioGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 33,
+          "y": 599.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 647.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next tactic board →",
+      "nextGeometry": {
+        "text": "Next tactic board →",
+        "rect": {
+          "x": 33,
+          "y": 655.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 703.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "imageStatus": {
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "document": {
+          "width": 390,
+          "height": 799
+        },
+        "horizontalOverflow": false,
+        "visibleImageCount": 6,
+        "brokenImages": []
+      }
+    },
+    {
+      "chapter": "Find a fork",
+      "round": 2,
+      "visibleBoard": [
+        "X",
+        "O",
+        null,
+        "O",
+        null,
+        null,
+        "X",
+        null,
+        null
+      ],
+      "visibleTargets": [
+        4,
+        8
+      ],
+      "chosenTarget": 4,
+      "targetLabel": "Row 2, column 2, square 5, empty",
+      "boardGeometry": {
+        "text": "Cosmic three by three board",
+        "rect": {
+          "x": 58.5,
+          "y": 338,
+          "width": 273,
+          "height": 273,
+          "right": 331.5,
+          "bottom": 611
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "targetGeometry": {
+        "text": "Row 2, column 2, square 5, empty",
+        "rect": {
+          "x": 157.5,
+          "y": 437,
+          "width": 75,
+          "height": 75,
+          "right": 232.5,
+          "bottom": 512
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "hintUsed": false,
+      "retryText": "Try another empty square. Your board stays the same.",
+      "heldText": "That mark opens two different winning squares for your next turn.\n\nFollow both coloured paths. Rocket can block only one on its next move.\n\nHear explanationFinish chapter →",
+      "pathCount": 2,
+      "audioGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 33,
+          "y": 599.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 647.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Finish chapter →",
+      "nextGeometry": {
+        "text": "Finish chapter →",
+        "rect": {
+          "x": 33,
+          "y": 655.5,
+          "width": 324,
+          "height": 48,
+          "right": 357,
+          "bottom": 703.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "imageStatus": {
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "document": {
+          "width": 390,
+          "height": 799
+        },
+        "horizontalOverflow": false,
+        "visibleImageCount": 6,
+        "brokenImages": []
+      }
+    }
+  ],
+  "freePlay": {
+    "kind": "cosmic-freeplay",
+    "initial": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "afterHumanAndBot": [
+      "X",
+      null,
+      null,
+      null,
+      null,
+      "O",
+      null,
+      null,
+      null
+    ],
+    "boardGeometry": {
+      "x": 58.5,
+      "y": 461,
+      "width": 273,
+      "height": 273,
+      "right": 331.5,
+      "bottom": 734
+    }
+  },
+  "initialTacticsBytes": 130,
+  "finalTacticsBytes": 130,
+  "incompleteFreePlayUnscored": true,
+  "storage": {
+    "changed": [
+      "qa_rewards_20261024_amari_game_diagnostics_v1",
+      "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1"
+    ],
+    "unexpected": [],
+    "unchanged": [
+      "amari-sound-on",
+      "qa_rewards_20261024_amari_addition_progress_v1",
+      "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+      "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+      "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+      "qa_rewards_20261024_amari_challenge_done",
+      "qa_rewards_20261024_amari_challenge_progress",
+      "qa_rewards_20261024_amari_chapter_badges_v1",
+      "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+      "qa_rewards_20261024_amari_chess_game_v1",
+      "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+      "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+      "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+      "qa_rewards_20261024_amari_cosmic_tactics_v1",
+      "qa_rewards_20261024_amari_curriculum_badges_v1",
+      "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+      "qa_rewards_20261024_amari_curriculum_preferences_v1",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+      "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+      "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+      "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+      "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+      "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+      "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+      "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+      "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+      "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+      "qa_rewards_20261024_amari_discovery_active_player",
+      "qa_rewards_20261024_amari_discovery_passport_v1",
+      "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+      "qa_rewards_20261024_amari_favourite_games",
+      "qa_rewards_20261024_amari_game_levels_v1",
+      "qa_rewards_20261024_amari_games_played",
+      "qa_rewards_20261024_amari_german_chapter_progress_v1",
+      "qa_rewards_20261024_amari_german_recent_targets_v1",
+      "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+      "qa_rewards_20261024_amari_lastplay",
+      "qa_rewards_20261024_amari_learning_attempts_v1",
+      "qa_rewards_20261024_amari_learning_migration_v1",
+      "qa_rewards_20261024_amari_letter_launch_progress_v1",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+      "qa_rewards_20261024_amari_letter_trace_progress_v1",
+      "qa_rewards_20261024_amari_little_progress",
+      "qa_rewards_20261024_amari_memory_best",
+      "qa_rewards_20261024_amari_memory_completion_v1",
+      "qa_rewards_20261024_amari_memory_passport_v1",
+      "qa_rewards_20261024_amari_memory_resume_v1",
+      "qa_rewards_20261024_amari_numberline_progress_v1",
+      "qa_rewards_20261024_amari_oddoneout_progress_v1",
+      "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+      "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+      "qa_rewards_20261024_amari_points",
+      "qa_rewards_20261024_amari_recent_games",
+      "qa_rewards_20261024_amari_rewards_v2",
+      "qa_rewards_20261024_amari_skill_mastery_v1",
+      "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+      "qa_rewards_20261024_amari_spelling_progress_v1",
+      "qa_rewards_20261024_amari_spelling_recent_v1",
+      "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+      "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+      "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+      "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+      "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+      "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+      "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+      "qa_rewards_20261024_amari_storybook_progress_v1",
+      "qa_rewards_20261024_amari_streak",
+      "qa_rewards_20261024_amari_subtraction_progress_v1",
+      "qa_rewards_20261024_amari_timeteller_progress_v1",
+      "qa_rewards_20261024_amari_voice_mode_v4",
+      "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+      "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+      "qa_rewards_20261024_amari_writing_samples_v1",
+      "qa_rewards_20261024_askia_challenge_done",
+      "qa_rewards_20261024_askia_challenge_progress",
+      "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+      "qa_rewards_20261024_askia_favourite_games",
+      "qa_rewards_20261024_askia_games_played",
+      "qa_rewards_20261024_askia_lastplay",
+      "qa_rewards_20261024_askia_little_progress",
+      "qa_rewards_20261024_askia_points",
+      "qa_rewards_20261024_askia_recent_games",
+      "qa_rewards_20261024_askia_rewards_v2",
+      "qa_rewards_20261024_askia_streak",
+      "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+      "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+    ]
+  },
+  "finalRender": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/trace-cosmic-fit-20261029/production-final-cosmic-390x740.jpg",
+  "returnedTo": "https://dinospace.netlify.app/?trace-cosmic-fit=1793281911332#/world/thinking",
+  "diagnostics": {
+    "runtimeErrors": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "requestErrors": [],
+      "responseErrors": []
+    },
+    "providerAttempts": [],
+    "changedKeys": [
+      "qa_rewards_20261024_amari_game_diagnostics_v1",
+      "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1"
+    ],
+    "unexpectedKeys": []
+  },
+  "finalSound": true,
+  "soundRestored": true,
+  "stage": "production",
+  "entry": "/assets/arcade-7ZCV5a_T.js",
+  "sourceHead": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "sourceHashes": {
+    "src/App.jsx": "4c120fd6f043224d757a90b41908fc7c61a6989471157c6638b3bd5610644d33",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/letterTraceLearning.js": "f6afca5a7e8ff698459876c773ed8d25e4d5f390a213bbe242dafa4e4b7831d8",
+    "src/data/cosmicTactics.js": "7e9e0787b62b203ff44aa15f9313ee9bb9524454e6ce767fecfc43769a826288",
+    "src/components/games/AmariLetterTrace.jsx": "4c6cbe35c48d1b24bb100b125b59a4817e9e391f4dd5b426dc7e7b03ee32297e",
+    "src/components/games/AmariLetterTrace.css": "128892ae93e84ec0f5bf229dd09e12e8bdc238bd95a9a21652d868efc424881d",
+    "src/components/games/TicTacToe.jsx": "1d500e79ba59f3bfbbb3778c023504ff9b1e5f573195f67230714018044f4818",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/home/ExplorerHome.jsx": "207db9681a08390c813595debcdf993261e69dff278a21932f2284d5f4b7a638",
+    "src/discoveryPremium.css": "f44198fe04462909c7bf0edc73c54f912b3e11a73d085a7a0fd8c26d2ad9d94c",
+    "src/components/home/discoveryVisuals.css": "637f299d61c12f3b6a567fe896c21bd5256e566b80a603275a25dd66a76cac5f",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/game-delivery-20261027/retained-visual-exercises.cjs": "61410b0bf58513d3e2f7bef34220f99915b5901c2b7753caf75cdd2a0b21d91a"
+  },
+  "driverSHA256": "cc6653c58132e07f81abb798640b32e8289554c0a3a263ca374145160b3f073e",
+  "cliReturnCode": 0
+}

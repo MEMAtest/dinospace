@@ -4,5 +4,13 @@
   "reviewedRequestBudget": 167,
   "reason": "One new AmariLetterTrace.css chunk for responsive intro/active/held layout; existing JS and shared CSS assets are replaced. No new images, voice files or media prefetch.",
   "independentByteCeiling": 41943040,
-  "actualBuildAudit": "Pending frozen candidate build and PWA asset-budget test."
+  "actualBuildAudit": {
+    "at": "2026-10-29T13:46:33.648704+00:00",
+    "compiledRequests": 167,
+    "compiledBytes": 29751354,
+    "testsPassed": 674,
+    "testsFailed": 0,
+    "testsSkipped": 0,
+    "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3"
+  }
 }

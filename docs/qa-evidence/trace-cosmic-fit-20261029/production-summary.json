@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "stage": "production",
+  "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "entry": "/assets/arcade-7ZCV5a_T.js",
+  "at": "2026-10-29T13:55:08.439789+00:00",
+  "cases": [
+    {
+      "game": "trace",
+      "width": 390,
+      "height": 740,
+      "report": "production-trace-390x740-arcade-7ZCV5a_T-20261029T135205-362279000.json",
+      "sha256": "9616adcd5cf63e4a82a0a399a2fa01679fec0e66f9492e1be50ef214fba4b05b",
+      "actualRows": 32,
+      "providerAttempts": [],
+      "soundRestored": true
+    },
+    {
+      "game": "trace",
+      "width": 1440,
+      "height": 844,
+      "report": "production-trace-1440x844-arcade-7ZCV5a_T-20261029T135332-594406000.json",
+      "sha256": "6bf5bfb0c820346793c61e7ac6b075133c82e8f7f202081c27b5247732b3e1a9",
+      "actualRows": 32,
+      "providerAttempts": [],
+      "soundRestored": true
+    },
+    {
+      "game": "tictactoe",
+      "width": 390,
+      "height": 740,
+      "report": "production-tictactoe-390x740-arcade-7ZCV5a_T-20261029T135150-330022000.json",
+      "sha256": "969aea4a530396f6ea2c17251f089b048991a6fb8e77d052f204ac7bb78a875e",
+      "actualRows": 9,
+      "providerAttempts": [],
+      "soundRestored": true
+    },
+    {
+      "game": "tictactoe",
+      "width": 1440,
+      "height": 844,
+      "report": "production-tictactoe-1440x844-arcade-7ZCV5a_T-20261029T135156-583813000.json",
+      "sha256": "950334682a11e2f0557db8bcce68dec14ebf35910778eae77b27860dda0ec57e",
+      "actualRows": 9,
+      "providerAttempts": [],
+      "soundRestored": true
+    }
+  ],
+  "scope": "Exact-entry complete Trace/Cosmic layout regression at both viewports, preserving earlier source-bound functional acceptance. Synthetic existing records, no reset/provider job/editorial score/historical family recovery.",
+  "worker": "amari-discovery-v48",
+  "publicUrl": "https://dinospace.netlify.app",
+  "backendDeployment": "dpl_7XSPy9H4Q4rroUdW8ZDXMf8WXc1H",
+  "netlifyGatewayDeploy": "6ae34f3b63620612434d1bdf",
+  "tests": {
+    "passed": 674,
+    "failed": 0,
+    "skipped": 0
+  },
+  "newPaidCalls": 0,
+  "personalBooksRecovered": 0,
+  "evidence": {
+    "native-summary.json": "480250c936d9426083ec6637c8536b43de171f106c79a9c6520a8c0cccb50915",
+    "production-core.json": "6c77c3d6b76415e4b3b2dcf19b450f924a911f92552be8fdd3e54c6335003f12",
+    "retained-art-lineage.json": "8ab66e5f22bfdf43f86d143189f629377ef55dbe308cb3ca08e73e90c2923ef1",
+    "cutover-retention.json": "54620817a02c450ffb71b3a6b1f0249483cc87bc7c48d8ac3fc15d4923c21c0b",
+    "published-identity.json": "878b46bc3cd2fc52bfabeea0d1830118dc5c88e58dc1ba5292d40fc9e32bee1e",
+    "worker-budget-review.json": "104ddfb75971bdf34401212d903c23051e59f856bd03cba40434d5adcd9dab28"
+  }
+}

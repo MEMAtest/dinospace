@@ -1,0 +1,2272 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "game": "trace",
+  "expectedRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "entryIdentity": "/assets/arcade-7ZCV5a_T.js",
+  "initialSound": true,
+  "responses": 24,
+  "rows": [
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 0,
+      "letter": "B",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 14582,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "B\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/435f52be-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/435f52be-matilda.mp3",
+            "currentTime": 0.051366,
+            "duration": 2.321995,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 7045.599999964237
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 7061.599999964237
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 7063.599999964237
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 1,
+      "letter": "M",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 14208,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "M\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 2,
+      "letter": "A",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 10036,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "A\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 3,
+      "letter": "T",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 7494,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "T\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 4,
+      "letter": "N",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 13330,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "N\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 5,
+      "letter": "D",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 12238,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "D\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 6,
+      "letter": "H",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 11882,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "H\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 0,
+      "round": 7,
+      "letter": "I",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 10328,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "I\n\nYou followed the letter. Great tracing!\n\nHear explanationFinish chapter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Finish chapter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 1,
+      "round": 0,
+      "letter": "B",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 319,
+          "right": 1148,
+          "bottom": 601.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 14582,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "B\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/435f52be-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/435f52be-matilda.mp3",
+            "currentTime": 0.077106,
+            "duration": 2.321995,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 32643.899999976158
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 32659.30000001192
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 32661.399999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 1,
+      "round": 1,
+      "letter": "o",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 319,
+          "right": 1148,
+          "bottom": 601.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 7028,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "o\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 1,
+      "round": 2,
+      "letter": "U",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 319,
+          "right": 1148,
+          "bottom": 601.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 10260,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "U\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 1,
+      "round": 3,
+      "letter": "i",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 319,
+          "right": 1148,
+          "bottom": 601.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 3411,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "i\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 1,
+      "round": 4,
+      "letter": "F",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 319,
+          "right": 1148,
+          "bottom": 601.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 8604,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "F\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 1,
+      "round": 5,
+      "letter": "c",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 319,
+          "right": 1148,
+          "bottom": 601.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 6291,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "c\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 1,
+      "round": 6,
+      "letter": "H",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 319,
+          "right": 1148,
+          "bottom": 601.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 11882,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "H\n\nYou followed the letter. Great tracing!\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 1,
+      "round": 7,
+      "letter": "g",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 319,
+          "right": 1148,
+          "bottom": 601.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 10610,
+        "centerHit": true
+      },
+      "selectedWord": null,
+      "wrongWord": null,
+      "heldText": "g\n\nYou followed the letter. Great tracing!\n\nHear explanationFinish chapter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 356.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 404.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Finish chapter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 416.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 472.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 2,
+      "round": 0,
+      "letter": "k",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 9485,
+        "centerHit": true
+      },
+      "selectedWord": "KID",
+      "wrongWord": "HEN",
+      "heldText": "k\n\nKID\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/6d8b847b-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/6d8b847b-matilda.mp3",
+            "currentTime": 0.062364,
+            "duration": 4.597551,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 51911.59999996424
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 51926.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 51929.39999997616
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 2,
+      "round": 1,
+      "letter": "h",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 8855,
+        "centerHit": true
+      },
+      "selectedWord": "HEN",
+      "wrongWord": null,
+      "heldText": "h\n\nHEN\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 2,
+      "round": 2,
+      "letter": "c",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 6291,
+        "centerHit": true
+      },
+      "selectedWord": "CAT",
+      "wrongWord": null,
+      "heldText": "c\n\nCAT\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 2,
+      "round": 3,
+      "letter": "l",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 4178,
+        "centerHit": true
+      },
+      "selectedWord": "LOG",
+      "wrongWord": null,
+      "heldText": "l\n\nLOG\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 2,
+      "round": 4,
+      "letter": "t",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 6632,
+        "centerHit": true
+      },
+      "selectedWord": "TAP",
+      "wrongWord": null,
+      "heldText": "t\n\nTAP\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 2,
+      "round": 5,
+      "letter": "r",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 4210,
+        "centerHit": true
+      },
+      "selectedWord": "RED",
+      "wrongWord": null,
+      "heldText": "r\n\nRED\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 2,
+      "round": 6,
+      "letter": "m",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 11078,
+        "centerHit": true
+      },
+      "selectedWord": "MAP",
+      "wrongWord": null,
+      "heldText": "m\n\nMAP\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-pre-finish-replay",
+      "level": 2,
+      "round": 0,
+      "letter": "c",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 6291,
+        "centerHit": true
+      },
+      "selectedWord": "CAT",
+      "wrongWord": "DOG",
+      "heldText": "c\n\nCAT\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/6d8b847b-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/6d8b847b-matilda.mp3",
+            "currentTime": 0.054398,
+            "duration": 4.597551,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3905.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3923
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-pre-finish-replay",
+      "level": 2,
+      "round": 1,
+      "letter": "t",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 6632,
+        "centerHit": true
+      },
+      "selectedWord": "TAP",
+      "wrongWord": null,
+      "heldText": "t\n\nTAP\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-pre-finish-replay",
+      "level": 2,
+      "round": 2,
+      "letter": "l",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 4178,
+        "centerHit": true
+      },
+      "selectedWord": "LOG",
+      "wrongWord": null,
+      "heldText": "l\n\nLOG\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-pre-finish-replay",
+      "level": 2,
+      "round": 3,
+      "letter": "h",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 8855,
+        "centerHit": true
+      },
+      "selectedWord": "HEN",
+      "wrongWord": null,
+      "heldText": "h\n\nHEN\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-pre-finish-replay",
+      "level": 2,
+      "round": 4,
+      "letter": "s",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 7685,
+        "centerHit": true
+      },
+      "selectedWord": "SAT",
+      "wrongWord": null,
+      "heldText": "s\n\nSAT\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-pre-finish-replay",
+      "level": 2,
+      "round": 5,
+      "letter": "d",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 8655,
+        "centerHit": true
+      },
+      "selectedWord": "DOG",
+      "wrongWord": null,
+      "heldText": "d\n\nDOG\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-pre-finish-replay",
+      "level": 2,
+      "round": 6,
+      "letter": "p",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 9256,
+        "centerHit": true
+      },
+      "selectedWord": "PIN",
+      "wrongWord": null,
+      "heldText": "p\n\nPIN\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationNext letter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Next letter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-pre-finish-replay",
+      "level": 2,
+      "round": 7,
+      "letter": "a",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 8186,
+        "centerHit": true
+      },
+      "selectedWord": "ANT",
+      "wrongWord": null,
+      "heldText": "a\n\nANT\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationFinish chapter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Finish chapter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278
+    },
+    {
+      "kind": "trace-round",
+      "level": 2,
+      "round": 7,
+      "letter": "p",
+      "canvasGeometry": {
+        "rect": {
+          "x": 292,
+          "y": 275,
+          "right": 1148,
+          "bottom": 557.953125,
+          "width": 856,
+          "height": 282.953125
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "blueGuidePixels": 9256,
+        "centerHit": true
+      },
+      "selectedWord": "PIN",
+      "wrongWord": null,
+      "heldText": "p\n\nPIN\n\nThat is the word. You traced the letter and matched its first sound.\n\nHear explanationFinish chapter →",
+      "hearGeometry": {
+        "text": "Hear explanation",
+        "rect": {
+          "x": 305.59375,
+          "y": 400.59375,
+          "width": 828.8125,
+          "height": 48,
+          "right": 1134.40625,
+          "bottom": 448.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextGeometry": {
+        "text": "Finish chapter →",
+        "rect": {
+          "x": 305.59375,
+          "y": 460.59375,
+          "width": 828.8125,
+          "height": 56,
+          "right": 1134.40625,
+          "bottom": 516.59375
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "audio": null,
+      "savedRawBytes": 278,
+      "reloadBeforeFinish": {
+        "saved": true,
+        "progressBytesUnchanged": true,
+        "introRestored": true
+      },
+      "replayedLetters": [
+        "c",
+        "t",
+        "l",
+        "h",
+        "s",
+        "d",
+        "p",
+        "a"
+      ]
+    }
+  ],
+  "baselineRawBytes": 278,
+  "storage": {
+    "changed": [
+      "qa_rewards_20261024_amari_game_diagnostics_v1",
+      "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+      "qa_rewards_20261024_amari_learning_attempts_v1",
+      "qa_rewards_20261024_amari_letter_trace_progress_v1",
+      "qa_rewards_20261024_amari_skill_mastery_v1"
+    ],
+    "unexpected": [],
+    "unchanged": [
+      "amari-sound-on",
+      "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+      "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+      "qa_rewards_20261024_amari_challenge_done",
+      "qa_rewards_20261024_amari_challenge_progress",
+      "qa_rewards_20261024_amari_chapter_badges_v1",
+      "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+      "qa_rewards_20261024_amari_chess_game_v1",
+      "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+      "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+      "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+      "qa_rewards_20261024_amari_cosmic_tactics_v1",
+      "qa_rewards_20261024_amari_curriculum_badges_v1",
+      "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+      "qa_rewards_20261024_amari_curriculum_preferences_v1",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+      "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+      "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+      "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+      "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+      "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+      "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+      "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+      "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+      "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+      "qa_rewards_20261024_amari_discovery_active_player",
+      "qa_rewards_20261024_amari_discovery_passport_v1",
+      "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+      "qa_rewards_20261024_amari_favourite_games",
+      "qa_rewards_20261024_amari_game_levels_v1",
+      "qa_rewards_20261024_amari_games_played",
+      "qa_rewards_20261024_amari_german_chapter_progress_v1",
+      "qa_rewards_20261024_amari_german_recent_targets_v1",
+      "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+      "qa_rewards_20261024_amari_lastplay",
+      "qa_rewards_20261024_amari_learning_migration_v1",
+      "qa_rewards_20261024_amari_letter_launch_progress_v1",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+      "qa_rewards_20261024_amari_little_progress",
+      "qa_rewards_20261024_amari_memory_best",
+      "qa_rewards_20261024_amari_memory_completion_v1",
+      "qa_rewards_20261024_amari_memory_passport_v1",
+      "qa_rewards_20261024_amari_memory_resume_v1",
+      "qa_rewards_20261024_amari_oddoneout_progress_v1",
+      "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+      "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+      "qa_rewards_20261024_amari_points",
+      "qa_rewards_20261024_amari_recent_games",
+      "qa_rewards_20261024_amari_rewards_v2",
+      "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+      "qa_rewards_20261024_amari_spelling_progress_v1",
+      "qa_rewards_20261024_amari_spelling_recent_v1",
+      "qa_rewards_20261024_amari_storybook_active_child_v1",
+      "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+      "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+      "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+      "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+      "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+      "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+      "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+      "qa_rewards_20261024_amari_storybook_profiles_v1",
+      "qa_rewards_20261024_amari_storybook_progress_v1",
+      "qa_rewards_20261024_amari_streak",
+      "qa_rewards_20261024_amari_voice_mode_v4",
+      "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+      "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+      "qa_rewards_20261024_amari_writing_samples_v1",
+      "qa_rewards_20261024_askia_challenge_done",
+      "qa_rewards_20261024_askia_challenge_progress",
+      "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+      "qa_rewards_20261024_askia_favourite_games",
+      "qa_rewards_20261024_askia_game_levels_v1",
+      "qa_rewards_20261024_askia_games_played",
+      "qa_rewards_20261024_askia_lastplay",
+      "qa_rewards_20261024_askia_little_progress",
+      "qa_rewards_20261024_askia_points",
+      "qa_rewards_20261024_askia_recent_games",
+      "qa_rewards_20261024_askia_rewards_v2",
+      "qa_rewards_20261024_askia_streak",
+      "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+      "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+    ]
+  },
+  "finalRender": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/trace-cosmic-fit-20261029/final-trace-1440x844.jpg",
+  "returnedTo": "http://127.0.0.1:5180/?trace-cosmic-fit=1793281562271#/world/read-write",
+  "diagnostics": {
+    "runtimeErrors": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "requestErrors": [],
+      "responseErrors": []
+    },
+    "providerAttempts": [],
+    "changedKeys": [
+      "qa_rewards_20261024_amari_game_diagnostics_v1",
+      "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+      "qa_rewards_20261024_amari_learning_attempts_v1",
+      "qa_rewards_20261024_amari_letter_trace_progress_v1",
+      "qa_rewards_20261024_amari_skill_mastery_v1"
+    ],
+    "unexpectedKeys": []
+  },
+  "finalSound": true,
+  "soundRestored": true,
+  "stage": "native",
+  "entry": "/assets/arcade-7ZCV5a_T.js",
+  "sourceHead": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "sourceHashes": {
+    "src/App.jsx": "4c120fd6f043224d757a90b41908fc7c61a6989471157c6638b3bd5610644d33",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/letterTraceLearning.js": "f6afca5a7e8ff698459876c773ed8d25e4d5f390a213bbe242dafa4e4b7831d8",
+    "src/data/cosmicTactics.js": "7e9e0787b62b203ff44aa15f9313ee9bb9524454e6ce767fecfc43769a826288",
+    "src/components/games/AmariLetterTrace.jsx": "4c6cbe35c48d1b24bb100b125b59a4817e9e391f4dd5b426dc7e7b03ee32297e",
+    "src/components/games/AmariLetterTrace.css": "128892ae93e84ec0f5bf229dd09e12e8bdc238bd95a9a21652d868efc424881d",
+    "src/components/games/TicTacToe.jsx": "1d500e79ba59f3bfbbb3778c023504ff9b1e5f573195f67230714018044f4818",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/home/ExplorerHome.jsx": "207db9681a08390c813595debcdf993261e69dff278a21932f2284d5f4b7a638",
+    "src/discoveryPremium.css": "f44198fe04462909c7bf0edc73c54f912b3e11a73d085a7a0fd8c26d2ad9d94c",
+    "src/components/home/discoveryVisuals.css": "637f299d61c12f3b6a567fe896c21bd5256e566b80a603275a25dd66a76cac5f",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/game-delivery-20261027/retained-visual-exercises.cjs": "61410b0bf58513d3e2f7bef34220f99915b5901c2b7753caf75cdd2a0b21d91a"
+  },
+  "driverSHA256": "18c98f75e63a8a1928ace50c9a5055ae496d976c64b133077d950fcfd1a7daa3",
+  "cliReturnCode": 0
+}

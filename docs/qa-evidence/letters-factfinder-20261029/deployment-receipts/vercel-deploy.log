@@ -1,0 +1,252 @@
+Vercel CLI 63.1.2
+Deploying dinospace
+Uploading [--------------------] (0.0B/343.9KB)
+Uploading [=====---------------] (95.4KB/343.9KB)
+Uploading [==========----------] (176.3KB/343.9KB)
+Uploading [===============-----] (268.3KB/343.9KB)
+Uploading [====================] (343.9KB/343.9KB)
+  Inspect         https://vercel.com/memas-projects-23a0001d/dinospace/HK3DAj3XjdTAWY7EMgNCQT9q4bP9
+▲ Production      https://dinospace-17oigcsh2-memas-projects-23a0001d.vercel.app
+Building…
+Building…
+Running build in Washington, D.C., USA (East) – iad1
+Build machine configuration: 4 cores, 8 GB (Standard Build Machine)
+Retrieving list of deployment files...
+Downloading 11986 deployment files...
+Restored build cache from previous deployment (9RR6xdB7WafZgJKCwjf88zXnE6gq)
+Running "vercel build"
+Vercel CLI 65.4.0
+Installing dependencies...
+npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+up to date in 706ms
+91 packages are looking for funding
+run `npm fund` for details
+npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn install-scripts   esbuild@0.27.2 (postinstall: node install.js)
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+Running "npm run build"
+npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+> galaxy-garage-academy@1.0.0 build
+> vite build
+vite v7.3.1 building client environment for production...
+transforming...
+Browserslist: browsers data (caniuse-lite) is 9 months old. Please run:
+npx update-browserslist-db@latest
+Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ 2121 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/rehearsal/index.html                                              0.62 kB │ gzip:   0.37 kB
+dist/index.html                                                        1.44 kB │ gzip:   0.58 kB
+dist/assets/food-cheese-v1-card-BR0OxYvC.webp                         16.63 kB
+dist/assets/party-balloon-v1-card-MKctpWSH.webp                       17.97 kB
+dist/assets/wrapped-sweet-v1-card-BCCqF-l1.webp                       20.00 kB
+dist/assets/star-v1-card-jzpkYvBd.webp                                21.24 kB
+dist/assets/banana-v1-card-CgkfGi1b.webp                              21.87 kB
+dist/assets/crescent-moon-v1-card-DakeN4UZ.webp                       22.55 kB
+dist/assets/new-moon-v1-card-C5oytdic.webp                            23.42 kB
+dist/assets/garden-caterpillar-v1-card-XLHV-Sp8.webp                  24.98 kB
+dist/assets/shark-v1-card-XIn6E67F.webp                               25.01 kB
+dist/assets/fossil-dig-pick-v1-card-HvBtVLaL.webp                     25.51 kB
+dist/assets/garden-earthworm-v1-card-CfFoi7bm.webp                    25.74 kB
+dist/assets/dinosaur-egg-v1-K5We_q_K.webp                             25.84 kB
+dist/assets/pond-fish-v1-card-BYAE9YP7.webp                           26.18 kB
+dist/assets/mushroom-v1-card-6wTcbps1.webp                            26.29 kB
+dist/assets/party-cake-v1-card-CO4d89cT.webp                          26.36 kB
+dist/assets/food-carrot-v1-card-6d4Ukk7P.webp                         26.69 kB
+dist/assets/mountain-v1-card-Drqj0UDs.webp                            27.15 kB
+dist/assets/ocean-fish-v1-card-CyI04_Yc.webp                          27.24 kB
+dist/assets/drink-v1-card-BBnsTrrc.webp                               28.18 kB
+dist/assets/sun-face-v1-card-wzdf6fvr.webp                            29.55 kB
+dist/assets/flying-saucer-v1-card-C6luXdB0.webp                       29.71 kB
+dist/assets/garden-ladybird-v1-card-7_2PAs34.webp                     29.90 kB
+dist/assets/passenger-train-v1-card-DNZb03oY.webp                     30.13 kB
+dist/assets/alien-v1-card-CuM5_mh9.webp                               30.14 kB
+dist/assets/party-face-v1-card-C50AnVua.webp                          30.57 kB
+dist/assets/ringed-planet-v1-card-D0tycCSp.webp                       30.59 kB
+dist/assets/food-corn-v1-card-nvYIFSbv.webp                           30.69 kB
+dist/assets/speedboat-v1-card-CagVNCP2.webp                           31.06 kB
+dist/assets/glowing-star-v1-card-CZxxZmXN.webp                        31.41 kB
+dist/assets/volcano-v1-BFxolvTk.webp                                  32.10 kB
+dist/assets/isolated-monkey-v1-card-IlBechiJ.webp                     32.57 kB
+dist/assets/seedling-v1-card-ZBCh6oF9.webp                            32.57 kB
+dist/assets/cupcake-v1-card-aGYX69F4.webp                             32.58 kB
+dist/assets/shooting-star-v1-card-CDRx7qIk.webp                       33.38 kB
+dist/assets/turtle-v1-card-BnUqJ5vT.webp                              33.40 kB
+dist/assets/racing-car-v1-card-DM6E6n_y.webp                          33.51 kB
+dist/assets/aeroplane-v1-card-DeWn50PE.webp                           33.70 kB
+dist/assets/satellite-v1-card-DSk5cseM.webp                           34.29 kB
+dist/assets/whale-v1-card-BRu9nzHo.webp                               34.59 kB
+dist/assets/dolphin-v1-card-NM9OSLvy.webp                             34.77 kB
+dist/assets/apple-v1-card-BD02LGg1.webp                               34.80 kB
+dist/assets/leaf-sprig-v1-card-B0y3aOaJ.webp                          34.84 kB
+dist/assets/tulip-v1-card-DtYEAub1.webp                               35.03 kB
+dist/assets/lolly-v1-card-zD3R71Yr.webp                               35.33 kB
+dist/assets/telescope-v1-card-og7gVJkJ.webp                           35.71 kB
+dist/assets/sun-v1-card-i6pxkNiO.webp                                 36.18 kB
+dist/assets/grapes-v1-card-DCoNiqmx.webp                              36.62 kB
+dist/assets/fossil-bone-v1-card-BUMeRZq_.webp                         37.32 kB
+dist/assets/helicopter-v1-card-C_TDJUCM.webp                          37.92 kB
+dist/assets/water-lily-v1-card-DbLYxK0O.webp                          38.00 kB
+dist/assets/bus-v1-card-D2nBAiP5.webp                                 38.27 kB
+dist/assets/duck-v1-card-DhrJ_HIL.webp                                39.03 kB
+dist/assets/party-popper-v1-card-B9cQaGjQ.webp                        39.32 kB
+dist/assets/dinosaur-tooth-v1-card-Drg14Xva.webp                      40.01 kB
+dist/assets/doughnut-v1-card-ChblbG2e.webp                            40.10 kB
+dist/assets/garden-ant-v1-card-DaUpvewp.webp                          40.30 kB
+dist/assets/chessAi.worker-DD9YTbH5.js                                40.64 kB
+dist/assets/astronaut-amari-v1-card-DUS_392h.webp                     40.65 kB
+dist/assets/squid-v1-card-Bo5TmChg.webp                               41.37 kB
+dist/assets/comet-v1-card-BIDENn6w.webp                               41.69 kB
+dist/assets/garden-spider-v1-card-BMWkBzG7.webp                       44.32 kB
+dist/assets/full-moon-v1-card-BNPcp_Ar.webp                           45.00 kB
+dist/assets/jellyfish-v1-card-CTkr0Z9M.webp                           46.79 kB
+dist/assets/isolated-frog-v1-card-89MVsj26.webp                       47.38 kB
+dist/assets/strawberry-v1-card-ogD4ZXXQ.webp                          47.60 kB
+dist/assets/garden-snail-v1-card-CeiAS19L.webp                        47.84 kB
+dist/assets/garden-bee-v1-card-1yYhz_wO.webp                          49.15 kB
+dist/assets/food-biscuit-v1-card-Cm91L4EQ.webp                        50.48 kB
+dist/assets/garden-butterfly-v1-card-9Y3B8fXF.webp                    51.95 kB
+dist/assets/scooter-v1-card-BaFkDk96.webp                             53.30 kB
+dist/assets/fox-v1-DuiqcITQ.webp                                      53.63 kB
+dist/assets/chips-v1-card-D6PHqvmn.webp                               54.55 kB
+dist/assets/watermelon-v1-card-D24Dsdg_.webp                          54.96 kB
+dist/assets/body-BawHkq4O.webp                                        55.05 kB
+dist/assets/tractor-v1-card-DH552bj6.webp                             55.29 kB
+dist/assets/pizza-v1-card-BZrP566V.webp                               55.37 kB
+dist/assets/dog-v1-ChZwSYQE.webp                                      57.01 kB
+dist/assets/tree-v1-card-CAXHki_D.webp                                57.80 kB
+dist/assets/steam-train-v1-card-DyyqHl0x.webp                         58.64 kB
+dist/assets/title-trex-BqmwhQpe.png                                   59.28 kB
+dist/assets/crab-v1-card-B7c7Dujp.webp                                59.33 kB
+dist/assets/bicycle-v1-card-DBjH_Pdn.webp                             60.99 kB
+dist/assets/dinosaur-nest-v1-card-ChEJNs5k.webp                       63.57 kB
+dist/assets/shapes-DrmRE4jM.webp                                      63.94 kB
+dist/assets/moon-rock-v1-card-BGXR3Tx2.webp                           67.52 kB
+dist/assets/foods-BVVcqlHm.webp                                       68.52 kB
+dist/assets/numbers-BdlzaUgD.webp                                     71.78 kB
+dist/assets/earth-v1-card-CzkvnsjU.webp                               72.70 kB
+dist/assets/garage-WPCnaFvh.webp                                      75.01 kB
+dist/assets/greetings-C8xVisw4.webp                                   77.73 kB
+dist/assets/galaxy-v1-card-C-J_IjBY.webp                              78.96 kB
+dist/assets/animals-DK_E9PyW.webp                                     83.85 kB
+dist/assets/fossil-rock-v1-card-DKsVUfPs.webp                         83.95 kB
+dist/assets/vehicles-CP9CNLzZ.webp                                    84.17 kB
+dist/assets/title-trike-CN4sx7TF.png                                  97.01 kB
+dist/assets/fuel-rocket-C-kzj_uU.webp                                104.26 kB
+dist/assets/spelling-studio-BJFyq3Z4.webp                            104.73 kB
+dist/assets/rescue-flame-D58aTqgB.webp                               104.76 kB
+dist/assets/detective-bronto-DE0_3OFI.webp                           111.86 kB
+dist/assets/fuel-can-bG4-uy-5.webp                                   122.15 kB
+dist/assets/geography-world-Iq2wULHl.webp                            126.63 kB
+dist/assets/detective-trex-C6vbBK-A.webp                             130.36 kB
+dist/assets/pattern-parade-Dnq7n0ru.webp                             130.37 kB
+dist/assets/detective-stego-Dl69iVLb.webp                            138.04 kB
+dist/assets/time-observatory-BK3ZKZ4R.webp                           144.22 kB
+dist/assets/bg-fuelup-Cgvw5K-0.webp                                  145.12 kB
+dist/assets/askia-detective-CPOpmaoU.webp                            152.72 kB
+dist/assets/detective-trike-CrguLdmy.webp                            157.14 kB
+dist/assets/continent-map-Byxkyp1W.svg                               161.46 kB │ gzip:  45.51 kB
+dist/assets/fire-house-Byz950kD.webp                                 166.18 kB
+dist/assets/detective-ankylo-BG-VzdVP.webp                           168.70 kB
+dist/assets/rescue-firetruck-BlvwvPhV.webp                           181.30 kB
+dist/assets/history-clues-CvoRkM6w.webp                              181.67 kB
+dist/assets/superhero-city-DPTOkgpV.webp                             194.20 kB
+dist/assets/sound-safari-CRJmreSh.webp                               202.13 kB
+dist/assets/history-world-CCqb-QTZ.webp                              206.95 kB
+dist/assets/robin-DEL_wsI-.webp                                      209.42 kB
+dist/assets/nature-world-BS2Jz_Ma.webp                               212.54 kB
+dist/assets/askia-memory-treehouse-Cw_L04Vp.webp                     229.79 kB
+dist/assets/guides-PFBoQ5gz.webp                                     237.08 kB
+dist/assets/bg-dino-portrait-DGfbO86R.webp                           239.68 kB
+dist/assets/nature-specimens-COeDdiwv.webp                           285.10 kB
+dist/assets/dino-park-CfXqz-J3.jpg                                   285.22 kB
+dist/assets/treehouse-robots-3d-s6y8m7qr.webp                        288.12 kB
+dist/assets/bg-dino-DtQjoH27.webp                                    289.53 kB
+dist/assets/river-valley-pair-b-v1-BvZSBbF5.webp                     353.17 kB
+dist/assets/dino-moon-3d-f1vVSf2r.webp                               401.56 kB
+dist/assets/robin-tree-3d-C6X3IbOn.webp                              407.55 kB
+dist/assets/world-explorer-map-3d-BiOIYdoV.webp                      411.94 kB
+dist/assets/sound-safari-animals-3d-DxBjyDMU.webp                    414.99 kB
+dist/assets/dino-river-3d-DS1Pw89d.webp                              415.71 kB
+dist/assets/nature-lab-leaves-3d-DDByeZD_.webp                       424.10 kB
+dist/assets/pattern-parade-landscape-v1-DYMpV3b1.webp                437.57 kB
+dist/assets/time-observatory-landscape-v1-DPQ_LihJ.webp              444.53 kB
+dist/assets/history-artifacts-b-v1-DDMoz3YU.webp                     456.30 kB
+dist/assets/world-physical-b-v1-DAEPy57E.webp                        483.15 kB
+dist/assets/nature-lab-leaves-3d-variant-b-CXJZfOks.webp             484.29 kB
+dist/assets/history-artifacts-a-v1-C8Vpi_9u.webp                     493.68 kB
+dist/assets/robin-physical-b-v1-BTnMGf7t.webp                        501.26 kB
+dist/assets/amari-astronaut-robot-Dj0NBZLZ.png                       961.97 kB
+dist/assets/friendly-car-B5B45Yht.png                              1,435.02 kB
+dist/assets/more-dino-character-stickers-transparent-D96ZzMuU.png  1,480.25 kB
+dist/assets/empty-garage-Dh7_uG_S.png                              1,713.32 kB
+dist/assets/reward-stickers-y1PduhfE.png                           2,202.92 kB
+dist/assets/dino-character-stickers-ZEH8lmaY.png                   2,236.07 kB
+dist/assets/FactFinder-CMdB9O1r.css                                    7.60 kB │ gzip:   2.23 kB
+dist/assets/WritingDesk-DvsjQRAV.css                                  11.85 kB │ gzip:   2.77 kB
+dist/assets/CodeCadets-Cx46oMjb.css                                   14.59 kB │ gzip:   3.55 kB
+dist/assets/DiscoveryHeader-4bvy34gA.css                              20.01 kB │ gzip:   3.98 kB
+dist/assets/studio-xEQ5Yb0W.css                                       29.66 kB │ gzip:   6.37 kB
+dist/assets/arcade-CaIfVlTh.css                                      285.62 kB │ gzip:  47.51 kB
+dist/assets/DigitalSkillGame-Cld1aVpS.js                               0.60 kB │ gzip:   0.31 kB
+dist/assets/web-BnVV_3mn.js                                            0.95 kB │ gzip:   0.46 kB
+dist/assets/wordExport-Crf1u-Hj.js                                     1.38 kB │ gzip:   0.79 kB
+dist/assets/rehearsal-DLtfDacB.js                                      3.34 kB │ gzip:   1.42 kB
+dist/assets/writingProgress-BANozLWz.js                                9.45 kB │ gzip:   3.38 kB
+dist/assets/CodeCadets-D7Lv8aaG.js                                    20.17 kB │ gzip:   6.94 kB
+dist/assets/AmariCountTheStars-BK885z1I.js                            20.18 kB │ gzip:   6.38 kB
+dist/assets/AmariLetterTrace-CeUr8aHx.js                              20.81 kB │ gzip:   7.05 kB
+dist/assets/FactFinder-f9E3j0P0.js                                    21.52 kB │ gzip:   6.92 kB
+dist/assets/DiscoveryHeader-CTdSf_ww.js                              197.97 kB │ gzip:  62.89 kB
+dist/assets/WritingDesk-CMR7MwoL.js                                  441.87 kB │ gzip: 139.39 kB
+dist/assets/index-DhSNUvAW.js                                        489.86 kB │ gzip: 145.08 kB
+dist/assets/codeProgress-Cat9eZ1P.js                                 496.17 kB │ gzip:  83.26 kB
+dist/assets/SolarSystem-U0yGJNfs.js                                  664.53 kB │ gzip: 171.59 kB
+dist/assets/arcade-BrQh-tMA.js                                     1,366.19 kB │ gzip: 405.92 kB
+✓ built in 10.39s
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+Build Completed in /vercel/output [17s]
+Deploying outputs...
+[2K[1A[2K[G▲ Production      https://dinospace-17oigcsh2-memas-projects-23a0001d.vercel.app
+Completing…
+▲ Aliased         https://dinospace-memas-projects-23a0001d.vercel.app
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_HK3DAj3XjdTAWY7EMgNCQT9q4bP9",
+    "url": "https://dinospace-17oigcsh2-memas-projects-23a0001d.vercel.app",
+    "productionUrl": "https://dinospace-memas-projects-23a0001d.vercel.app",
+    "inspectorUrl": "https://vercel.com/memas-projects-23a0001d/dinospace/HK3DAj3XjdTAWY7EMgNCQT9q4bP9",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_HK3DAj3XjdTAWY7EMgNCQT9q4bP9",
+    "buildMachine": {
+      "cores": 4,
+      "memory": 8192,
+      "machine": "standard",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "deploymentProtection": []
+  },
+  "message": "Deployment dinospace-17oigcsh2-memas-projects-23a0001d.vercel.app ready. Production URL: https://dinospace-memas-projects-23a0001d.vercel.app",
+  "next": [
+    {
+      "command": "vercel curl https://dinospace-memas-projects-23a0001d.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect dinospace-17oigcsh2-memas-projects-23a0001d.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

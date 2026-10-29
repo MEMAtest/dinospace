@@ -2,11 +2,11 @@
 
 The user authorized completing the entire remaining catalogue in **batches of two**, continuing through successive pairs. No repeated proceed/approval request is needed for normal implementation, existing-art reuse, testing or publication. Monitoring remains deleted. Separately billed generation still requires a concrete bounded approval; previous fixed jobs are not a blanket allowance.
 
-The catalogue has34activities; the older quality ledger covers26. Reconcile actual source-bound releases with the newer catalogue and preserve historical evidence. Do not mark completed gameplay as unimplemented just because a historical score was never assigned. Equally, deployment or a healthy route is not gameplay acceptance. Every new pair gets a teaching/imagery audit, explicit acceptance, complete local and canonical Chromium exercise at390/1440, current runtime/worker/asset proof, durable feedback/retry/audio, per-child progress and reward reload checks, and reasoned game verdicts before advancing.
+The catalogue now has35activities; the older quality ledger covers26. Reconcile actual source-bound releases with the newer catalogue and preserve historical evidence. Do not mark completed gameplay as unimplemented just because a historical score was never assigned. Equally, deployment or a healthy route is not gameplay acceptance. Every new pair gets a teaching/imagery audit, explicit acceptance, complete local and canonical Chromium exercise at390/1440, current runtime/worker/asset proof, durable feedback/retry/audio, per-child progress and reward reload checks, and reasoned game verdicts before advancing.
 
-## Active pair
+## Active work
 
-**Letter Launch + Fact Finder (Pair11)**. Pairs1–10 are live-verified, including full Chess versus the computer, Curriculum Quest and German Garage. Current public runtime is `e322549af753147d471d646ac32de645d709c356` (worker46). Pair10 passed647 tests and all four native plus four canonical title/viewport journeys, positive save/readback/parent Retry, replay limits and update retention. Pair11 source audits are complete; implementation and its own live gate remain open. Afterward, run the retained-game integration regression. Historical eight to nine personal books remain unlocated; no new paid generation is authorized.
+Pairs1–12 are live-verified, including full Chess against the computer, Letter Launch, the new Fact Finder and the final Trace/Cosmic viewport repair. Current runtime is `bbfffd40be1ae23b7c0760152219bd0fe53138e3`, worker48. Trace and Cosmic each passed their complete chapter layout journeys locally and on canonical Netlify at390x740/1440x844; update retention preserved113 keys and all14 QA story media blobs. The remaining12 retained gameplay samples and35-Amari/10-Askia catalogue route checks are still pending. Historical eight to nine personal books remain unlocated. No new paid generation is authorized.
 
 ## Workflow
 
@@ -32,6 +32,6 @@ Resource budget: no new worktrees or dependencies planned. Keep each pair's new 
 10. Curriculum Quest + German Garage.
 11. Letter Launch + Fact Finder (the separately requested learning wiki feature).
 
-On 29 October the user requested a full playable chess game alongside the retained lessons. It was delivered and verified with Dino Jigsaw as Pair9; the remaining queued titles continue without being dropped. Fact Finder remains a distinct new feature and must earn its own acceptance; prior game releases do not establish it.
+On 29 October the user requested a full playable chess game alongside the retained lessons. It was delivered and verified with Dino Jigsaw as Pair9; the remaining queued titles continue without being dropped. Fact Finder earned its own separate Pair11 acceptance; catalogue route checks are not its content proof.
 
 Fourteen games already have recent source-bound functional delivery evidence; retain those implementations and run a final integration regression. This sequence audits or uplifts the original remaining20, the newly requested full Chess mode and the separate Fact Finder feature rather than treating every old unscored ledger row as unimplemented. Each pair remains open until its own concrete gates pass. `queue.json` is the current work queue.

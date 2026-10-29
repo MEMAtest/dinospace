@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "stage": "native",
+  "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "entry": "/assets/arcade-7ZCV5a_T.js",
+  "at": "2026-10-29T13:49:01.541225+00:00",
+  "cases": [
+    {
+      "game": "trace",
+      "width": 390,
+      "height": 740,
+      "report": "native-trace-390x740-arcade-7ZCV5a_T-20261029T134729-120321000.json",
+      "sha256": "c436d1334e90a5c1fb420c2f4c43e2352ffd522bf8280827c6eb6faff48226f9",
+      "actualRows": 32,
+      "providerAttempts": [],
+      "soundRestored": true
+    },
+    {
+      "game": "trace",
+      "width": 1440,
+      "height": 844,
+      "report": "native-trace-1440x844-arcade-7ZCV5a_T-20261029T134601-546543000.json",
+      "sha256": "2287bda5a7f3e9085cb1fecaccb4a26aa8d578ebe6e12dfd65a7381893a80554",
+      "actualRows": 32,
+      "providerAttempts": [],
+      "soundRestored": true
+    },
+    {
+      "game": "tictactoe",
+      "width": 390,
+      "height": 740,
+      "report": "native-tictactoe-390x740-arcade-7ZCV5a_T-20261029T134855-679688000.json",
+      "sha256": "31bb4b55df5aec9187b710ead0973d6fc1e17b2bdc00b140c0f1b1b6318ed7cd",
+      "actualRows": 9,
+      "providerAttempts": [],
+      "soundRestored": true
+    },
+    {
+      "game": "tictactoe",
+      "width": 1440,
+      "height": 844,
+      "report": "native-tictactoe-1440x844-arcade-7ZCV5a_T-20261029T134847-961283000.json",
+      "sha256": "1ce9675021a362a0cddb8d5337ed656faca7998ff558e745c142f5099090f8d4",
+      "actualRows": 9,
+      "providerAttempts": [],
+      "soundRestored": true
+    }
+  ],
+  "scope": "Exact-entry complete Trace/Cosmic layout regression at both viewports, preserving earlier source-bound functional acceptance. Synthetic existing records, no reset/provider job/editorial score/historical family recovery."
+}

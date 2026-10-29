@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-29T13:46:33.647818+00:00",
+  "runtimeSource": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "entry": "/assets/arcade-7ZCV5a_T.js",
+  "worker": "amari-discovery-v48",
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "tests": {
+    "command": "PWA_BUILD_DIR=dist npm test",
+    "passed": 674,
+    "failed": 0,
+    "skipped": 0
+  },
+  "lint": "Scoped changed source passed",
+  "sourceHashes": {
+    "src/components/games/AmariLetterTrace.jsx": "4c6cbe35c48d1b24bb100b125b59a4817e9e391f4dd5b426dc7e7b03ee32297e",
+    "src/components/games/AmariLetterTrace.css": "128892ae93e84ec0f5bf229dd09e12e8bdc238bd95a9a21652d868efc424881d",
+    "src/components/games/TicTacToe.jsx": "1d500e79ba59f3bfbbb3778c023504ff9b1e5f573195f67230714018044f4818",
+    "src/discoveryPremium.css": "f44198fe04462909c7bf0edc73c54f912b3e11a73d085a7a0fd8c26d2ad9d94c",
+    "public/sw.js": "28d41e53a9c991da4d86155e458eb23f9197c0d5a0238171372d84fb9d04f210",
+    "test/offlineServiceWorker.test.mjs": "5128c690369eddcca76afc53a047fbc16d0fd56a2ff4d8442bf15af031b21a03"
+  },
+  "native": "Four exact-entry full Trace/Cosmic layout journeys passed; native-summary.json",
+  "production": "Four canonical exact-entry full Trace/Cosmic layout journeys passed; production-summary.json"
+}

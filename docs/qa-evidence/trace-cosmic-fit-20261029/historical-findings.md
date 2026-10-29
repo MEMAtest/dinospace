@@ -1,0 +1,11 @@
+# Findings retained during final integration
+
+The canonical v47 Letter Trace intro placed Start at y918-974 on a390x740 viewport. The Trace/Cosmic repair pair was opened to correct viewport fit without changing earned progress or gameplay rules. The first desktop candidate placed Cosmic explanation playback at y847-895 below the844px viewport. The d2ba9a3e candidate puts the board and explanation side by side on desktop. Both bounded candidate samples passed after that fix; full acceptance remains separately gated.
+
+The first full native Trace390 run recorded23 completed letter tasks, then its pre-Finish reload branch waited for Home before React restored the correct Trace intro. The retained screenshot shows the expected intro. This is a harness mount-timing assumption, not evidence of a lost game record or a product acceptance pass. The failed report and screenshot are retained.
+
+The second Trace390 run completed32 visible letter tasks including the pre-Finish reload/replay, then a harness-only parent assertion expected a home world card on the actual world catalogue page. The correct parent route and its catalogue were rendered; the assertion now uses the world heading and normal game card. The failed run remains failed. Cosmic's early driver stops were case-sensitive parsing of CSS-uppercase Board text and a uniqueness signature that dropped empty squares; both were corrected without changing the product. The first accepted Cosmic390 matrix completed nine distinct authored boards and one human/bot free-play turn.
+
+The first full desktop board check on d2ba9a3e found the unsolved448px board ended at y861,17px below844. Candidate9f53b2dc bounds the desktop board by remaining viewport height. Both full Cosmic chapter matrices now pass on its exact compiled entry; this is a real layout repair rather than a softened measurement.
+
+The subsequent complete desktop Trace matrix reached chapter2 then measured its stroke-demo button at y813-861. Candidatebbfffd40 reduces only the desktop canvas height to keep the guide, Check and demo visible together. Phone dimensions are unchanged. This is retained as a real product layout finding; acceptance must refer to the subsequent exact entry.

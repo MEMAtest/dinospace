@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "at": "2026-10-29T13:10:26.986295+00:00",
+  "runtimeSource": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+  "evidenceCommit": "570ea523cbc9491a12d334b5b9848595a4b202dc",
+  "rows": [
+    {
+      "path": "/index.html",
+      "sha256": "6c3cc8ab6f1f2444a2bbb2f7d522a972257a8f31628f3f064697d7eba6e7d738",
+      "bytes": 1441
+    },
+    {
+      "path": "/sw.js",
+      "sha256": "7bb0e81d229d10627869a8e8a2777691a73554c72b3bc1dd3c43dd0d60265752",
+      "bytes": 16373
+    }
+  ],
+  "scope": "Post-push public HTML/worker still match accepted frozen dist; documentation commit does not change runtime."
+}
