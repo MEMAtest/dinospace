@@ -53,14 +53,14 @@ const ShadowRound = ({ target, kinds, count, mirror, similar, complete, mistake,
       {!matched ? <>
         <p className="text-center font-black leading-tight text-indigo-950">Match the shape. {SHADOW_FEATURES[target]}</p>
         <div ref={dinoRef}>
-          <DragItem label={`${SHADOW_DINO_NAMES[target]} — drag to its shadow`} data={{ kind: target }} onPickUp={hint.touch} onTap={sayCreature} onDrop={point => { const kind = shadowAt(point); return kind ? choose(kind) : false; }} className="w-40 max-w-[60vw] rounded-[1.5rem] bg-white/60 p-2 shadow-xl sm:w-64 sm:rounded-[2rem] sm:p-3">
+          <DragItem label={`${SHADOW_DINO_NAMES[target]} — drag to its shadow`} data={{ kind: target }} onPickUp={hint.touch} onTap={sayCreature} onDrop={point => { const kind = shadowAt(point); return kind ? choose(kind) : false; }} className="w-40 max-w-[60vw] rounded-[1.5rem] bg-white/60 p-2 shadow-xl sm:w-48 sm:rounded-[2rem] sm:p-3">
             <Dino kind={target} className="pointer-events-none w-full" />
           </DragItem>
         </div>
         <p className="text-center font-black leading-tight text-indigo-950">{SHADOW_DINO_NAMES[target]}{target === 'ptero' ? ' · flying reptile' : ''}</p>
         <p className="min-h-6 text-center text-sm font-bold leading-tight text-indigo-950 sm:leading-normal" role="status">{wrong ? 'Not this one yet. Compare the head and tail, then try again.' : 'Tap the matching shadow, or drag the creature to it.'}</p>
-        <div className={`grid w-full gap-2 sm:gap-5 ${count >= 5 ? 'grid-cols-3' : count === 4 ? 'grid-cols-2 sm:grid-cols-4' : count === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
-          {shadows.map((kind, index) => <button key={kind} type="button" ref={el => { shadowRefs.current[kind] = el; }} data-kind={kind} onClick={() => choose(kind)} aria-label={`Shadow option ${index + 1}`} className={`grid h-24 min-h-12 min-w-12 place-items-center rounded-[1.1rem] border-4 bg-white/40 p-1 shadow-lg transition focus-visible:outline focus-visible:outline-4 focus-visible:outline-indigo-800 sm:aspect-[5/4] sm:h-auto sm:rounded-[1.3rem] ${wrong === kind ? 'animate-shake bg-rose-200/70' : hint.strongHint && kind === target ? 'animate-cell-pulse border-amber-300 bg-amber-100/80' : 'border-white/80'}`}>
+        <div className={`grid w-full gap-2 ${count >= 5 ? 'grid-cols-3' : count === 4 ? 'grid-cols-2 sm:grid-cols-4' : count === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+          {shadows.map((kind, index) => <button key={kind} type="button" ref={el => { shadowRefs.current[kind] = el; }} data-kind={kind} onClick={() => choose(kind)} aria-label={`Shadow option ${index + 1}`} className={`grid h-24 min-h-12 min-w-12 place-items-center rounded-[1.1rem] border-4 bg-white/40 p-1 shadow-lg transition focus-visible:outline focus-visible:outline-4 focus-visible:outline-indigo-800 sm:h-28 sm:rounded-[1.3rem] ${wrong === kind ? 'animate-shake bg-rose-200/70' : hint.strongHint && kind === target ? 'animate-cell-pulse border-amber-300 bg-amber-100/80' : 'border-white/80'}`}>
             <Dino kind={kind} silhouette flip={mirror} className="pointer-events-none max-h-full w-full" />
           </button>)}
         </div>
