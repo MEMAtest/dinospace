@@ -388,7 +388,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
               <p>{progressState.error === 'read' ? 'Saved progress could not be checked yet.' : 'This chapter could not be saved yet.'}</p>
               <button type="button" onClick={progressState.error === 'read' ? retryProgressRead : retryStartSave}>{progressState.error === 'read' ? 'Retry saved progress' : 'Retry saving to start'}</button>
             </div>}
-            {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <div className="puzzle-save-notice" role="status" aria-live="polite"><p>{rewardClaimError ? 'A chapter reward confirmation is still pending.' : 'Checking the saved chapter reward…'}</p>{rewardClaimError && <button type="button" onClick={retryPendingReward}>Retry reward confirmation</button>}</div>}
+            {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <div className="puzzle-save-notice" role="status" aria-live="polite"><p>{rewardClaimError ? 'Your stars could not be saved yet.' : 'Saving your stars…'}</p>{rewardClaimError && <button type="button" onClick={retryPendingReward}>Retry saving stars</button>}</div>}
             <button type="button" disabled={!progressState.ready || Boolean(pendingStart) || !canAdvanceSavedScene} onClick={() => startChapter()} className="puzzle-start-button inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-7 py-3 text-lg font-black text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50"><Eye /> {completedInChapter ? 'Replay chapter' : 'Start chapter'}</button>
           </section>
           <details ref={chapterPickerRef} className="puzzle-chapter-picker rounded-2xl border-2 border-amber-200 bg-white/85">
@@ -482,7 +482,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                       <p>The picture is complete, but its progress has not been saved yet.</p>
                       <button type="button" onClick={confirmSceneSave}>Retry saving this picture</button>
                     </div>}
-                    {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <div className="puzzle-save-notice" role="status" aria-live="polite"><p>{rewardClaimError ? 'A chapter reward confirmation is still pending.' : 'Checking the saved chapter reward…'}</p>{rewardClaimError && <button type="button" onClick={retryPendingReward}>Retry reward confirmation</button>}</div>}
+                    {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <div className="puzzle-save-notice" role="status" aria-live="polite"><p>{rewardClaimError ? 'Your stars could not be saved yet.' : 'Saving your stars…'}</p>{rewardClaimError && <button type="button" onClick={retryPendingReward}>Retry saving stars</button>}</div>}
                     <button type="button" onClick={() => speakPackagedBatch2Line(speak, puzzlePopNarration.completed(scene))} className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={19} /> Hear fact again</button>
                     <div className="mt-4 flex flex-wrap justify-center gap-3">
                       {sceneIndex + 1 < queue.length && <button type="button" disabled={!canAdvanceSavedScene} onClick={advanceScene} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Next picture <ArrowRight size={19} /></button>}
