@@ -35,7 +35,7 @@ const CounterModel = ({ question, locked, animationCount, showHint, clueShown, g
       <div className="rounded-2xl border-2 border-amber-200 bg-white p-2.5 shadow-md sm:rounded-3xl sm:border-4 sm:p-4">
         <p className="mb-2 text-center text-xs font-black uppercase tracking-widest text-amber-700 sm:mb-3 sm:text-sm">Count each picture once</p>
         <div role="group" aria-label={accessibleLabels.group} className="mx-auto grid max-w-[22rem] grid-cols-5 justify-items-center gap-1.5 sm:gap-2">
-          {Array.from({ length: model.count }, (_, index) => <span key={index} role="img" aria-label={accessibleLabels.picture} className={`grid h-10 w-10 place-items-center rounded-xl sm:h-12 sm:w-12 sm:rounded-2xl ${locked && animationCount > index ? 'bg-emerald-100' : 'bg-amber-50'} text-2xl sm:text-3xl shadow-sm`}>{model.emoji}</span>)}
+          {Array.from({ length: model.count }, (_, index) => <span key={index} role="img" aria-label={accessibleLabels.picture} className={`grid h-11 w-11 place-items-center rounded-xl sm:h-12 sm:w-12 sm:rounded-2xl ${locked && animationCount > index ? 'bg-emerald-100' : 'bg-amber-50'} text-2xl sm:text-3xl shadow-sm`}>{model.emoji}</span>)}
         </div>
         {locked && <p className="mt-3 text-center text-lg font-black text-emerald-700" aria-live="polite">{monsterCountResultText(model.count)}</p>}
       </div>
