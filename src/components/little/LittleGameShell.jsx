@@ -7,6 +7,7 @@ import { getLittleLevel, recordLittleResult, startLevelFor } from '../../data/li
 import {
   activePairLevelAfterResult, commitPairLittleResult, getPairLittleStorage, pairRunActionLabel, readPairLittleProgress,
 } from '../../data/pairLittleProgress.js';
+import { rewardClaimToken } from '../../data/playerRewards.js';
 import { RewardSticker } from '../shared/StickerArt.jsx';
 import { artUrl } from './littleArt.js';
 
@@ -166,7 +167,7 @@ const LittleGameShell = ({
   const restoreDinoReward = useCallback(() => {
     if (!restoredDinoReward) return;
     const claimed = onCelebrate?.(finishLine, restoredDinoReward.points, 0, gameId, {
-      quiet: true, rewardToken: `${gameId}:little:${restoredDinoReward.transactionId}`,
+      quiet: true, rewardToken: rewardClaimToken(gameId, `little:${restoredDinoReward.transactionId}`),
     });
     if (!claimed?.persisted) {
       setPairSaveWarning(gameId === 'dinojigsaw'
@@ -237,7 +238,7 @@ const LittleGameShell = ({
     if (rewardedTransactionsRef.current.has(pending.transactionId)) return;
     if (['dino', 'dinojigsaw'].includes(gameId) && saved.rewardPoints > 0) {
       const claimed = onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId, {
-        rewardToken: `${gameId}:little:${pending.transactionId}`,
+        rewardToken: rewardClaimToken(gameId, `little:${pending.transactionId}`),
       });
       if (!claimed?.persisted) {
         pendingResultRef.current = pending;

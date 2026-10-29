@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { commitPlayerReward, readPlayerRewards, rewardKey } from '../src/data/playerRewards.js';
+import { commitPlayerReward, readPlayerRewards, rewardClaimToken, rewardKey } from '../src/data/playerRewards.js';
 
 const store = () => { const data = new Map(); return { getItem: (key) => data.get(key) ?? null, setItem: (key, value) => data.set(key, value) }; };
 
@@ -231,7 +231,7 @@ test('full Chess and Dino Jigsaw claims retry committed writes without replay or
       getItem(key) { if (key === rewardKey('amari') && committed && failReadback) { failReadback = false; throw Error('readback blocked'); } return backing.getItem(key); },
       setItem(key, value) { backing.setItem(key, value); if (key === rewardKey('amari')) committed = true; },
     };
-    const token = `${game}:stable-completion-1`;
+    const token = rewardClaimToken(game, 'stable-completion-1');
     const failed = claim('amari', prior, amount, game, flaky, token);
     assert.equal(failed.persisted, false);
     assert.equal(JSON.parse(backing.getItem(rewardKey('amari'))).rewardClaims[token], amount);
@@ -247,4 +247,52 @@ test('full Chess and Dino Jigsaw claims retry committed writes without replay or
     assert.equal(claim('amari', recovered, amount, game, backing, token).awardedPoints, 0);
     assert.equal(claim('amari', recovered, amount, game, backing, 'words:wrong-scope').persisted, false);
   }
+});
+
+test('new game claims survive the previous public decoder and an older open-tab reward write', () => {
+  const storage = store();
+  const chessToken = rewardClaimToken('chess', 'compat-game');
+  const jigsawToken = rewardClaimToken('dinojigsaw', 'little:compat-puzzle');
+  const chess = claim('amari', {}, 1, 'chess', storage, chessToken);
+  const jigsaw = claim('amari', chess, 8, 'dinojigsaw', storage, jigsawToken);
+  // Fixed compatibility contract from the retained c5 public decoder, rather
+  // than this module's wider validator. An older ordinary reward write keeps
+  // only these claim namespaces while advancing its own points/game count.
+  const previousDecoder = /^(dino|hangman|words|storybooks):[a-z0-9:_-]{1,160}$/i;
+  const olderWrite = {
+    ...JSON.parse(storage.getItem(rewardKey('amari'))),
+    points: jigsaw.points + 2,
+    gamesPlayed: { ...jigsaw.gamesPlayed, addition: 1 },
+    rewardClaims: Object.fromEntries(Object.entries(jigsaw.rewardClaims).filter(([key]) => previousDecoder.test(key))),
+  };
+  assert.deepEqual(Object.keys(olderWrite.rewardClaims).sort(), [chessToken, jigsawToken].sort());
+  storage.setItem(rewardKey('amari'), JSON.stringify(olderWrite));
+  const reopened = readPlayerRewards('amari', storage);
+  const retryChess = claim('amari', reopened, 1, 'chess', storage, chessToken);
+  assert.equal(retryChess.awardedPoints, 0);
+  assert.equal(retryChess.points, 11);
+  assert.equal(retryChess.gamesPlayed.chess, 1);
+  assert.equal(retryChess.gamesPlayed.dinojigsaw, 1);
+  assert.equal(retryChess.gamesPlayed.addition, 1);
+  assert.equal(claim('amari', retryChess, 8, 'dinojigsaw', storage, jigsawToken).awardedPoints, 0);
+  assert.equal(claim('amari', retryChess, 1, 'dino', storage, chessToken).persisted, false);
+  assert.equal(claim('amari', retryChess, 8, 'chess', storage, jigsawToken).persisted, false);
+});
+
+test('unpublished native claim aliases normalize without paying or counting a second completion', () => {
+  const storage = store();
+  storage.setItem(rewardKey('amari'), JSON.stringify({
+    version: 2, points: 9, gamesPlayed: { chess: 1, dinojigsaw: 1 }, earnedStickerIds: [],
+    rewardClaims: { 'chess:qa-game': 1, 'dinojigsaw:little:qa-puzzle': 8 }, parentNote: 'keep original metadata',
+  }));
+  const originalSibling = JSON.stringify({ version:2, points:10, gamesPlayed:{words:1}, earnedStickerIds:[] });
+  storage.setItem(rewardKey('askia'), originalSibling);
+  const result = claim('amari', {}, 1, 'chess', storage, rewardClaimToken('chess', 'qa-game'));
+  assert.equal(result.persisted, true);
+  assert.equal(result.awardedPoints, 0);
+  assert.equal(result.points, 9);
+  assert.deepEqual(result.gamesPlayed, { chess:1, dinojigsaw:1 });
+  assert.deepEqual(result.rewardClaims, { 'dino:chess:qa-game':1, 'dino:jigsaw:little:qa-puzzle':8 });
+  assert.equal(JSON.parse(storage.getItem(rewardKey('amari'))).parentNote, 'keep original metadata');
+  assert.equal(storage.getItem(rewardKey('askia')), originalSibling);
 });

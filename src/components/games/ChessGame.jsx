@@ -8,6 +8,7 @@ import {
   completeChessGameMatch, markChessGameRewardClaimed, pendingChessGameRewards,
   readChessGameProgress, saveChessGameMatch,
 } from '../../data/chessGameProgress.js';
+import { rewardClaimToken } from '../../data/playerRewards.js';
 import './chessGame.css';
 
 const DIFFICULTY_LABELS = { beginner: 'Beginner', growing: 'Growing', challenge: 'Challenge' };
@@ -138,7 +139,7 @@ export default function ChessGame({
       try {
         claim = onCelebrate(
           quiet ? 'Chess game reward recovered.' : 'Chess game complete!',
-          4, 0, 'chess', { quiet, rewardToken: `chess:${receipt.id}` },
+          4, 0, 'chess', { quiet, rewardToken: rewardClaimToken('chess', receipt.id) },
         );
       } catch { return false; }
       if (!claim || claim.persisted !== true) return false;

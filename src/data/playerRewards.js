@@ -10,6 +10,21 @@ const defaultStorage = () => { try { return globalThis.localStorage || null; } c
 const plainRecord = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 const validClaim = (key, amount) => typeof key === 'string' && /^(dino|hangman|words|storybooks|chess|dinojigsaw):[a-z0-9:_-]{1,160}$/i.test(key)
   && Number.isInteger(amount) && amount > 0 && amount <= 12;
+// The previous public release preserves the dino namespace on ordinary writes.
+// Keep these new game receipts inside reserved subnamespaces so an older open
+// tab cannot discard them. Game counts and rewards remain attributed to the
+// actual game. The short-lived unshipped token formats normalize on commit.
+export const rewardClaimToken = (gameId, receiptId) => (
+  gameId === 'chess' ? `dino:chess:${receiptId}`
+    : gameId === 'dinojigsaw' ? `dino:jigsaw:${receiptId}` : `${gameId}:${receiptId}`
+);
+const normalizeClaimToken = (key) => {
+  if (key.startsWith('chess:')) return rewardClaimToken('chess', key.slice('chess:'.length));
+  if (key.startsWith('dinojigsaw:')) return rewardClaimToken('dinojigsaw', key.slice('dinojigsaw:'.length));
+  return key;
+};
+const claimGame = (key) => key.startsWith('dino:chess:') ? 'chess'
+  : key.startsWith('dino:jigsaw:') ? 'dinojigsaw' : key.split(':')[0];
 const read = (storage, key, fallback) => {
   try { return JSON.parse(storage?.getItem(key) ?? 'null') ?? fallback; } catch { return fallback; }
 };
@@ -25,7 +40,10 @@ export const mergeRewards = (...values) => {
   const ids = values.flatMap((value) => Array.isArray(value?.earnedStickerIds) ? value.earnedStickerIds : []);
   const rewardClaims = {};
   for (const value of values) for (const [key, amount] of Object.entries(record(value?.rewardClaims))) {
-    if (validClaim(key, amount)) rewardClaims[key] = Math.max(rewardClaims[key] || 0, amount);
+    if (validClaim(key, amount)) {
+      const compatibleKey = normalizeClaimToken(key);
+      rewardClaims[compatibleKey] = Math.max(rewardClaims[compatibleKey] || 0, amount);
+    }
   }
   return {
     version: 2, points, gamesPlayed,
@@ -54,7 +72,9 @@ const writeMirrors = (playerId, next, storage) => {
 const commitClaimedReward = (playerId, current, amount, gameId, storage, rewardToken) => {
   const before = mergeRewards(readPlayerRewards(playerId, storage), current);
   const failed = (error) => ({ ...before, persisted: false, awardedPoints: 0, recovered: false, error });
-  if (!['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw'].includes(gameId) || !String(rewardToken).startsWith(`${gameId}:`) || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
+  if (typeof rewardToken !== 'string') return failed('Reward claim is invalid.');
+  rewardToken = normalizeClaimToken(rewardToken);
+  if (!['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw'].includes(gameId) || claimGame(rewardToken) !== gameId || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
   if (!storage || typeof storage.getItem !== 'function' || typeof storage.setItem !== 'function') return failed('Reward storage is unavailable.');
   let canonical, canonicalRaw;
   try {
