@@ -218,7 +218,7 @@ test('retained historical claims do not strand a new saved result at an arbitrar
 
 
 test('opted-in game claims retry committed writes without replay or sibling loss', () => {
-  for (const [game, amount] of [['chess', 1], ['dinojigsaw', 8], ['german', 1], ['worldmap', 1], ['letters', 1], ['puzzle', 2], ['spot', 2], ['jet', 5], ['math', 3], ['counting', 3], ['addition', 3], ['subtraction', 3], ['numberline', 3]]) {
+  for (const [game, amount] of [['chess', 1], ['dinojigsaw', 8], ['german', 1], ['worldmap', 1], ['letters', 1], ['puzzle', 2], ['spot', 2], ['jet', 5], ['math', 3], ['counting', 3], ['addition', 3], ['subtraction', 3], ['numberline', 3], ['timeteller', 3], ['phonics', 2]]) {
     const backing = store();
     const prior = claim('amari', {}, 6, 'words', backing, 'words:previous-proof');
     backing.setItem('askia_rewards_v2', JSON.stringify({ version:2, points:19, gamesPlayed:{shadowmatch:2}, earnedStickerIds:['rocket'], familyTag:'untouched' }));
@@ -353,7 +353,7 @@ test('Letter Launch claims survive the retained decoder, recover once and stay s
 test('Catalogue claims survive old tabs and reject replay or cross-game payment', () => {
   const storage = store();
   let current = {};
-  for (const game of ['puzzle', 'spot', 'jet', 'math', 'counting', 'addition', 'subtraction', 'numberline']) {
+  for (const game of ['puzzle', 'spot', 'jet', 'math', 'counting', 'addition', 'subtraction', 'numberline', 'timeteller', 'phonics']) {
     const token = rewardClaimToken(game, 'starter:complete');
     assert.equal(token, `dino:${game}:starter:complete`);
     current = claim('amari', current, 2, game, storage, token);
@@ -369,5 +369,5 @@ test('Catalogue claims survive old tabs and reject replay or cross-game payment'
     assert.equal(claim('amari', retry, 2, game === 'spot' ? 'puzzle' : 'spot', storage, token).persisted, false);
     assert.equal(claim('amari', retry, 2, game, storage, `${game}:unshipped`).persisted, false);
   }
-  assert.equal(readPlayerRewards('amari', storage).points, 16);
+  assert.equal(readPlayerRewards('amari', storage).points, 20);
 });

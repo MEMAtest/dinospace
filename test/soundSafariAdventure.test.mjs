@@ -115,7 +115,7 @@ test('failed storage writes do not return an earned or persisted chapter', () =>
 test('malformed saved awards and unknown recent IDs are dropped on read', () => {
   const storage = storageFor();
   storage.setItem('child_sound_safari_adventure_v1', JSON.stringify({ version: 1, unlockedChapter: 2, earnedChapterIds: ['segment'], completedChapterIds: ['segment'], recentRoundIds: ['unknown'] }));
-  assert.deepEqual(getSoundSafariProgress('child', storage), { version: 1, unlockedChapter: 0, completedChapterIds: [], earnedChapterIds: [], recentRoundIds: [] });
+  assert.deepEqual(getSoundSafariProgress('child', storage), { version: 1, unlockedChapter: 0, completedChapterIds: [], earnedChapterIds: [], recentRoundIds: [], rewardReceipts: {} });
   storage.setItem('child_sound_safari_adventure_v1', JSON.stringify({ version: 1, unlockedChapter: 2, earnedChapterIds: ['listen'], completedChapterIds: [], recentRoundIds: [] }));
   assert.equal(getSoundSafariProgress('child', storage).unlockedChapter, 0);
 });

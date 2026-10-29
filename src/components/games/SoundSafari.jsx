@@ -3,11 +3,16 @@ import { ArrowLeft, Volume2, Lightbulb, RotateCcw, Check, ChevronRight } from 'l
 import { SoundToggle } from '../shared/index.jsx';
 import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
+import { rewardClaimToken } from '../../data/playerRewards.js';
 import {
   buildRoundOptions, buildSegmentChoices, buildSoundSafariRun, getSoundSafariAttemptQuality,
   SOUND_SAFARI_BLEND_PROMPT, SOUND_SAFARI_CHAPTERS, SOUND_SAFARI_PHONEME_AUDIO, SOUND_SAFARI_PHONEME_KEYS,
 } from '../../data/soundSafariAdventure.js';
-import { getSoundSafariProgress, recordSoundSafariChapterCompletion } from '../../data/soundSafariProgress.js';
+import {
+  getPendingSoundSafariRewardReceiptsStrict, getSoundSafariProgressStrict,
+  markSoundSafariRewardReceiptClaimedStrict, pendingSoundSafariRewardReceipts,
+  recordSoundSafariChapterCompletionStrict,
+} from '../../data/soundSafariProgress.js';
 import safariScene from '../../assets/game-scenes/sound-safari.webp';
 import './amariScenes.css';
 
@@ -50,7 +55,9 @@ function SvgWordPicture({ item }) {
 }
 
 const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, cancelNarration = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, onReviewComplete, sessionTarget = 0, playerId = 'amari', phonemeAudio = SOUND_SAFARI_PHONEME_AUDIO }) => {
-  const [progress, setProgress] = useState(() => getSoundSafariProgress(playerId));
+  const [progressState, setProgressState] = useState(() => getSoundSafariProgressStrict(playerId));
+  const progress = progressState.progress || { version: 1, unlockedChapter: 0, completedChapterIds: [], earnedChapterIds: [], recentRoundIds: [], rewardReceipts: {} };
+  const [activeRun, setActiveRun] = useState(null);
   const [chapterIndex, setChapterIndex] = useState(null);
   const [runNumber, setRunNumber] = useState(1);
   const [roundIndex, setRoundIndex] = useState(0);
@@ -63,20 +70,89 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
   const [showReplay, setShowReplay] = useState(false);
   const [feedback, setFeedback] = useState(null);
   const [chapterResult, setChapterResult] = useState(null);
-  const [chapterCompletion, setChapterCompletion] = useState(null);
+  const [completionError, setCompletionError] = useState('');
+  const [completionPending, setCompletionPending] = useState(false);
+  const [rewardDrainError, setRewardDrainError] = useState('');
+  const [rewardDrainPending, setRewardDrainPending] = useState(false);
+  const [startPending, setStartPending] = useState(false);
+  const [startError, setStartError] = useState('');
+  const startBusyRef = useRef(false);
+  const pendingCompletionRef = useRef(null);
+  const completionBusyRef = useRef(false);
+  const drainBusyRef = useRef(false);
+  const drainRequestRef = useRef(0);
+  const lifecycleRef = useRef(0);
+  const onCelebrateRef = useRef(onCelebrate);
+  const cancelNarrationRef = useRef(cancelNarration);
   const phonemeAudioRef = useRef(null);
-  const awardedChapterRef = useRef(new Set());
   const answeredRoundRef = useRef(new Set());
   const heardRoundRef = useRef(new Set());
 
   const taughtGraphemes = useMemo(() => [...getTaughtGraphemes()], []);
   const supportedKeys = useMemo(() => SOUND_SAFARI_PHONEME_KEYS.filter((sound) => Boolean(phonemeAudio?.[sound])), [phonemeAudio]);
   const run = useMemo(() => buildSoundSafariRun({ taughtGraphemes, supportedKeys, recentIds: progress.recentRoundIds, seed: runNumber }), [taughtGraphemes, supportedKeys, progress.recentRoundIds, runNumber]);
-  const chapter = chapterIndex === null ? null : run.chapters[chapterIndex];
+  const currentRun = activeRun || run;
+  const chapter = chapterIndex === null ? null : currentRun.chapters[chapterIndex];
   const round = chapter?.rounds[roundIndex] ?? null;
   const options = useMemo(() => round && chapter?.id !== 'segment' ? buildRoundOptions(round, chapter, runNumber * 79 + roundIndex, taughtGraphemes, supportedKeys) : [], [round, chapter, runNumber, roundIndex, taughtGraphemes, supportedKeys]);
   const segmentChoices = useMemo(() => round && chapter?.id === 'segment' ? buildSegmentChoices(round.word, runNumber * 89 + roundIndex, taughtGraphemes, supportedKeys) : [], [round, chapter, runNumber, roundIndex, taughtGraphemes, supportedKeys]);
   const promptClipText = chapter?.id === 'blend' ? SOUND_SAFARI_BLEND_PROMPT : chapter?.id === 'segment' ? round?.word.word : '';
+
+  onCelebrateRef.current = onCelebrate;
+  cancelNarrationRef.current = cancelNarration;
+  const claimReceipt = useCallback(async (receipt, generation = lifecycleRef.current) => {
+    let parentResult;
+    try {
+      parentResult = await Promise.resolve(onCelebrateRef.current(
+        'Chapter complete!', receipt.rewardDelta * 4, 0, 'phonics',
+        { quiet: true, rewardToken: rewardClaimToken('phonics', receipt.id) },
+      ));
+    } catch { return { ok: false, error: 'The chapter reward could not be confirmed. Retry to check it again.' }; }
+    if (generation !== lifecycleRef.current) return { ok: false, cancelled: true };
+    if (parentResult?.persisted !== true) return { ok: false, error: 'The chapter reward could not be confirmed. Retry to check it again.' };
+    const marked = markSoundSafariRewardReceiptClaimedStrict(playerId, receipt.id);
+    if (!marked.ok) return { ok: false, error: 'The chapter reward is saved but still needs confirmation. Retry to check it again.' };
+    setProgressState({ ok: true, status: 'record', progress: marked.progress });
+    return { ok: true, progress: marked.progress };
+  }, [playerId]);
+  const drainPendingRewards = useCallback(async () => {
+    if (drainBusyRef.current) return false;
+    drainBusyRef.current = true;
+    const requestId = ++drainRequestRef.current;
+    setRewardDrainPending(true);
+    setRewardDrainError('');
+    const generation = lifecycleRef.current;
+    try {
+      const loaded = getPendingSoundSafariRewardReceiptsStrict(playerId);
+      if (!loaded.ok) {
+        setProgressState(loaded);
+        setRewardDrainError('Saved chapter rewards could not be checked. Retry to keep chapters safely locked.');
+        return false;
+      }
+      setProgressState(loaded);
+      for (const receipt of loaded.receipts) {
+        const claimed = await claimReceipt(receipt, generation);
+        if (!claimed.ok) {
+          if (!claimed.cancelled) setRewardDrainError(claimed.error);
+          return false;
+        }
+      }
+      const confirmed = getSoundSafariProgressStrict(playerId);
+      if (!confirmed.ok) {
+        setProgressState(confirmed);
+        setRewardDrainError('Saved chapter progress could not be checked. Retry before continuing.');
+        return false;
+      }
+      setProgressState(confirmed);
+      setRewardDrainError('');
+      return true;
+    } finally {
+      if (requestId === drainRequestRef.current) {
+        drainBusyRef.current = false;
+        if (generation === lifecycleRef.current) setRewardDrainPending(false);
+      }
+    }
+  }, [claimReceipt, playerId]);
 
   const stopPhonemeAudio = useCallback(() => {
     phonemeAudioRef.current?.pause();
@@ -86,6 +162,28 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
   useEffect(() => () => { cancelNarration(); stopPhonemeAudio(); }, [cancelNarration, stopPhonemeAudio]);
   useEffect(() => { if (!soundOn) { cancelNarration(); stopPhonemeAudio(); } }, [soundOn, cancelNarration, stopPhonemeAudio]);
+  useEffect(() => {
+    lifecycleRef.current += 1;
+    const generation = lifecycleRef.current;
+    cancelNarrationRef.current();
+    stopPhonemeAudio();
+    setChapterIndex(null); setChapterResult(null); setFeedback(null); setCompletionError('');
+    setActiveRun(null); setStartError(''); setStartPending(false); startBusyRef.current = false;
+    setRoundIndex(0); setBlendStep(0); setSelectedSounds([]); setWrong(false); setUsedClue(false); setClueText(''); setVisualPractice(false); setShowReplay(false);
+    setCompletionPending(false); setRewardDrainPending(false);
+    pendingCompletionRef.current = null;
+    answeredRoundRef.current.clear(); heardRoundRef.current.clear();
+    setCompletionError(''); setRewardDrainError(''); setProgressState(getSoundSafariProgressStrict(playerId));
+    const loaded = getPendingSoundSafariRewardReceiptsStrict(playerId);
+    if (loaded.ok && pendingSoundSafariRewardReceipts(loaded.progress).length) void drainPendingRewards();
+    return () => {
+      if (lifecycleRef.current === generation) {
+        lifecycleRef.current += 1;
+        drainRequestRef.current += 1;
+        drainBusyRef.current = false;
+      }
+    };
+  }, [drainPendingRewards, playerId, stopPhonemeAudio]);
 
   const playPhoneme = (sound) => {
     const source = phonemeAudio?.[sound];
@@ -149,23 +247,65 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     } else sayPackaged(speak, promptClipText);
   };
 
-  const startChapter = (index) => {
-    if (index > progress.unlockedChapter || !run.ready) return;
-    setRunNumber((number) => number + 1);
-    setChapterIndex(index);
-    setRoundIndex(0);
-    setBlendStep(0);
-    setFeedback(null);
-    setChapterResult(null);
-    setChapterCompletion(null);
-    setSelectedSounds([]);
-    setUsedClue(false);
-    setClueText('');
-    setWrong(false);
-    setVisualPractice(false);
-    answeredRoundRef.current.clear();
-    heardRoundRef.current.clear();
-    playSfx('click');
+  const startChapter = async (index) => {
+    if (startBusyRef.current || rewardDrainError || rewardDrainPending) return;
+    startBusyRef.current = true;
+    setStartPending(true);
+    setStartError('');
+    try {
+      const initial = getPendingSoundSafariRewardReceiptsStrict(playerId);
+      if (!initial.ok) {
+        setProgressState(initial);
+        setStartError('Saved chapter progress could not be checked. Retry before starting.');
+        return;
+      }
+      if (initial.receipts.length && !(await drainPendingRewards())) {
+        setStartError('A chapter reward must be confirmed before starting the next mission. Retry reward confirmation.');
+        return;
+      }
+      const fresh = getPendingSoundSafariRewardReceiptsStrict(playerId);
+      if (!fresh.ok) {
+        setProgressState(fresh);
+        setStartError('Saved chapter progress could not be checked. Retry before starting.');
+        return;
+      }
+      setProgressState(fresh);
+      if (fresh.receipts.length) {
+        setStartError('A chapter reward must be confirmed before starting the next mission. Retry reward confirmation.');
+        return;
+      }
+      if (index > fresh.progress.unlockedChapter) {
+        setStartError('Finish the previous chapter first.');
+        return;
+      }
+      const nextRunNumber = runNumber + 1;
+      const snapshot = buildSoundSafariRun({ taughtGraphemes, supportedKeys, recentIds: fresh.progress.recentRoundIds, seed: nextRunNumber });
+      if (!snapshot.ready) {
+        setStartError('The required taught sounds and packaged clips are not ready yet.');
+        return;
+      }
+      setRunNumber(nextRunNumber);
+      setActiveRun(snapshot);
+      setChapterIndex(index);
+      setRoundIndex(0);
+      setBlendStep(0);
+      setFeedback(null);
+      setChapterResult(null);
+      setCompletionError('');
+      pendingCompletionRef.current = null;
+      setSelectedSounds([]);
+      setUsedClue(false);
+      setClueText('');
+      setWrong(false);
+      setVisualPractice(false);
+      answeredRoundRef.current.clear();
+      heardRoundRef.current.clear();
+      playSfx('click');
+      onGameEvent?.('phonics', 'start', { level: index, seed: nextRunNumber, difficulty: SOUND_SAFARI_CHAPTERS[index].id });
+    } finally {
+      startBusyRef.current = false;
+      setStartPending(false);
+    }
   };
   const moveNext = () => {
     cancelNarration();
@@ -182,27 +322,53 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
       setShowReplay(false);
       return;
     }
-    const result = chapterCompletion;
-    if (result?.persisted) setProgress(result.progress);
-    setChapterResult({ chapter, roundIds: chapter.rounds.map((item) => item.id), newlyEarned: Boolean(result?.persisted && result?.newlyEarned), persisted: Boolean(result?.persisted) });
-    setChapterIndex(null);
-    setFeedback(null);
+    const draft = pendingCompletionRef.current;
+    if (draft) void finishChapter(draft);
   };
-  const retryChapterSave = () => {
-    if (!chapterResult || chapterResult.persisted) return;
-    const result = recordSoundSafariChapterCompletion(playerId, chapterResult.chapter.id, chapterResult.roundIds);
-    if (!result?.persisted) {
-      setChapterResult((current) => ({ ...current, newlyEarned: false, persisted: false }));
-      return;
-    }
-    setProgress(result.progress);
-    setChapterCompletion(result);
-    setChapterResult((current) => ({ ...current, newlyEarned: result.newlyEarned, persisted: true }));
-    if (result.newlyEarned && !awardedChapterRef.current.has(chapterResult.chapter.id)) {
-      awardedChapterRef.current.add(chapterResult.chapter.id);
-      onCelebrate('Chapter complete!', 8, 0);
-    }
+  const finishChapter = async (draft = pendingCompletionRef.current) => {
+    if (!draft || completionBusyRef.current) return;
+    completionBusyRef.current = true;
+    setCompletionPending(true);
+    setCompletionError('');
+    try {
+      const saved = recordSoundSafariChapterCompletionStrict(playerId, draft.chapter.id, draft.roundIds);
+      if (!saved.ok) {
+        draft.newlyCompleted ||= Boolean(saved.eligibleReward);
+        draft.receiptId = saved.receipt?.id || draft.receiptId;
+        setCompletionError(saved.error || 'Your chapter could not be saved. Retry this same chapter.');
+        return;
+      }
+      setProgressState({ ok: true, status: 'record', progress: saved.progress });
+      draft.newlyCompleted ||= Boolean(saved.newlyCompleted);
+      draft.receiptId = saved.receipt?.id || draft.receiptId;
+      if (saved.receipt) {
+        const claimed = await claimReceipt(saved.receipt);
+        if (claimed.cancelled) return;
+        if (!claimed.ok) {
+          setCompletionError(claimed.error || 'The chapter reward is waiting for confirmation. Retry.');
+          return;
+        }
+      }
+      const final = getSoundSafariProgressStrict(playerId);
+      if (!final.ok) {
+        setCompletionError('Your saved chapter could not be confirmed. Retry this same chapter.');
+        return;
+      }
+      setProgressState(final);
+      const persistedReceipt = draft.receiptId ? final.progress.rewardReceipts[draft.receiptId] : null;
+      if (persistedReceipt && !persistedReceipt.claimed) {
+        setCompletionError('The chapter reward is waiting for confirmation. Retry.');
+        return;
+      }
+      setChapterResult({ chapter: draft.chapter, roundIds: draft.roundIds, newlyEarned: Boolean(draft.newlyCompleted), persisted: true });
+      setChapterIndex(null);
+      setActiveRun(null);
+      setFeedback(null);
+      pendingCompletionRef.current = null;
+    } finally { completionBusyRef.current = false; setCompletionPending(false); }
   };
+  const retryChapterSave = () => { if (pendingCompletionRef.current) void finishChapter(pendingCompletionRef.current); };
+  const retryProgressRead = () => { void drainPendingRewards(); };
   const correctChoice = (option) => chapter?.id === 'listen' ? option.id === round.pictureWord.id : option.id === round.word.id;
   const answer = (option) => {
     if (feedback || answeredRoundRef.current.has(round.id)) return;
@@ -221,14 +387,9 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
         : `${round.word.word.toLowerCase()} has ${round.word.phonemes.length} sounds: ${round.word.phonemes.join(', ')}.`;
     setFeedback({ kind: 'correct', text: explanation });
     playSfx('success');
-    if (roundIndex === 5) {
-      const result = recordSoundSafariChapterCompletion(playerId, chapter.id, chapter.rounds.map((item) => item.id));
-      setChapterCompletion(result);
-      if (result?.persisted && result.newlyEarned && !awardedChapterRef.current.has(chapter.id)) {
-        awardedChapterRef.current.add(chapter.id);
-        onCelebrate('Chapter complete!', 8, 0);
-      }
-    }
+    if (roundIndex === 5) pendingCompletionRef.current = {
+      chapter, roundIds: chapter.rounds.map((item) => item.id), newlyCompleted: false,
+    };
     const quality = getSoundSafariAttemptQuality({ firstAttempt: !wrong, usedClue, soundOn, visualPractice, audioReady: masteryAudioReady && hasHeardTarget() });
     onGameEvent?.('phonics', 'answer_correct', { skill: chapter.skill, item: round.id, response: option.id, expected: chapter.id === 'listen' ? round.target.sound : round.word.id, correct: true, firstAttempt: !wrong, independent: quality.independent, assisted: quality.assisted, deferFinish: sessionTarget > 0 && roundIndex + 1 >= sessionTarget });
     onGameEvent?.('phonics', 'learning_attempt', makeLearningEvent({ skill: chapter.skill, item: round.id, response: option.id, correct: true, firstTry: quality.independent, hints: usedClue ? 1 : 0, extra: { assisted: quality.assisted } }));
@@ -277,23 +438,25 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
       <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
     </header>
     <main className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-4 py-5 sm:px-8">
-      {chapterIndex === null && !chapterResult && <section className={`${panel} mx-auto w-full max-w-2xl p-5 sm:p-7`}>
+      {chapterIndex === null && !chapterResult && <section className={`${panel} mx-auto w-full max-w-2xl p-4 sm:p-7`}>
         <h1 className="text-xl font-black text-emerald-950 sm:text-2xl">Choose a sound mission</h1>
         <p className="mt-1 text-sm text-slate-600">Each mission has six short challenges. New missions open as you finish them.</p>
+        {!progressState.ok && <div role="alert" className="mt-3 rounded-xl border border-rose-300 bg-rose-50 p-3 text-sm font-bold text-rose-950"><p>Saved chapter progress could not be checked, so missions stay locked.</p><button type="button" onClick={retryProgressRead} disabled={rewardDrainPending} className={`${button} mt-2 border-rose-700 bg-white text-rose-950`}>{rewardDrainPending ? 'Checking saved progress…' : 'Retry saved progress'}</button></div>}
+        {progressState.ok && (rewardDrainError || pendingSoundSafariRewardReceipts(progress.rewardReceipts ? progress : null).length > 0) && <div role="alert" className="mt-3 rounded-xl border border-amber-300 bg-amber-50 p-3 text-sm font-bold text-amber-950"><p>{rewardDrainError || 'A chapter reward still needs confirmation before continuing.'}</p><button type="button" onClick={retryProgressRead} disabled={rewardDrainPending} className={`${button} mt-2 border-amber-700 bg-white text-amber-950`}>{rewardDrainPending ? 'Checking chapter rewards…' : 'Retry reward confirmation'}</button></div>}
+        {startError && <p role="alert" className="mt-3 rounded-xl border border-rose-300 bg-rose-50 p-3 text-sm font-bold text-rose-950">{startError}</p>}
         {!run.ready && <p className="mt-4 rounded-2xl bg-amber-50 p-4 text-amber-900" role="status">Sound clips and taught sounds must be ready before this safari can open.</p>}
-        <div className="mt-5 grid gap-3 sm:grid-cols-3">{SOUND_SAFARI_CHAPTERS.map((item, index) => {
-          const locked = index > progress.unlockedChapter || !run.ready;
-          return <button key={item.id} type="button" disabled={locked} onClick={() => startChapter(index)} className={`${button} text-left ${locked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-emerald-300 bg-emerald-50 text-emerald-900 hover:bg-emerald-100'}`}>
-            <span className="block text-xs font-black uppercase tracking-wide">Chapter {index + 1} {progress.completedChapterIds.includes(item.id) ? '✓' : ''}</span><span className="mt-1 block">{item.title}</span>
+        <div className="mt-4 grid gap-2 sm:mt-5 sm:grid-cols-3 sm:gap-3">{SOUND_SAFARI_CHAPTERS.map((item, index) => {
+          const locked = !progressState.ok || startPending || rewardDrainPending || Boolean(rewardDrainError) || index > progress.unlockedChapter || !run.ready;
+          return <button key={item.id} type="button" disabled={locked} onClick={() => void startChapter(index)} className={`${button} text-left ${locked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-emerald-300 bg-emerald-50 text-emerald-900 hover:bg-emerald-100'}`}>
+            <span className="block text-xs font-black uppercase tracking-wide">Chapter {index + 1} {progress.completedChapterIds.includes(item.id) ? '✓' : ''}</span><span className="mt-1 block">{startPending ? 'Checking saved progress…' : item.title}</span>
           </button>;
         })}</div>
       </section>}
       {chapterResult && <section className={`${panel} mx-auto w-full max-w-xl p-6 text-center`}>
         <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-700"><Check size={32} /></div>
-        <h1 className="text-2xl font-black text-emerald-950">{chapterResult.persisted ? 'Chapter complete!' : 'Challenges finished'}</h1>
-        <p className="mt-2 text-slate-700">You finished “{chapterResult.chapter.title}”. {chapterResult.persisted ? (chapterResult.newlyEarned ? 'A chapter sticker is ready in your collection.' : 'You have already earned this chapter sticker.') : 'Your progress has not been saved yet.'}</p>
-        {!chapterResult.persisted && <><p className="mt-3 rounded-xl bg-amber-50 p-3 text-sm text-amber-950" role="alert">Check that this browser allows site storage and has space, then try saving again.</p><button type="button" className={`${button} mt-4 border-amber-300 bg-white text-amber-950`} onClick={retryChapterSave}>Try saving progress again</button></>}
-        <button type="button" className={`${button} mt-6 border-emerald-700 bg-emerald-700 px-8 text-white`} onClick={() => { setChapterResult(null); if (sessionTarget > 0 && chapterResult.persisted) onReviewComplete?.(); }}>{chapterResult.persisted ? 'Choose next chapter' : 'Return to chapters'} <ChevronRight className="ml-2 inline" size={18} /></button>
+        <h1 className="text-2xl font-black text-emerald-950">Chapter complete!</h1>
+        <p className="mt-2 text-slate-700">You finished “{chapterResult.chapter.title}”. {chapterResult.newlyEarned ? 'Your chapter reward is saved.' : 'This chapter was already completed, so replay added no reward.'}</p>
+        <button type="button" className={`${button} mt-6 border-emerald-700 bg-emerald-700 px-8 text-white`} onClick={() => { setChapterResult(null); if (sessionTarget > 0) onReviewComplete?.(); }}>Choose next chapter <ChevronRight className="ml-2 inline" size={18} /></button>
       </section>}
       {round && chapter && <section data-safari-round={round.id} aria-label="Sound mission" className={`${panel} mx-auto w-full max-w-3xl p-4 sm:p-7`}>
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -305,7 +468,7 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
         {feedback?.kind !== 'correct' && <><div className="mt-4 flex flex-wrap items-center justify-center gap-2 rounded-2xl bg-slate-50 p-4 text-center">
           {chapter.id === 'listen' && <><p className="w-full text-lg font-bold text-slate-800">Which picture begins with this sound?</p><button type="button" disabled={!phonemeAudio?.[round.target.sound] || !soundOn} onClick={() => playPhoneme(round.target.sound)} className={`${button} border-emerald-200 bg-white text-emerald-800`}>Hear /{round.target.sound}/</button></>}
           {chapter.id === 'blend' && <><p className="w-full text-lg font-bold text-slate-800">Tap each sound from left to right. Then choose the matching picture.</p><div className="flex flex-wrap justify-center gap-2">{round.word.phonemes.map((sound, index) => <button type="button" disabled={Boolean(feedback) || index > blendStep} onClick={() => chooseBlendTile(index, sound)} aria-label={`Hear sound ${index + 1}`} aria-pressed={index < blendStep} className={`${button} min-h-14 min-w-14 border-emerald-300 bg-white px-4 text-xl text-emerald-800 ${index === blendStep ? 'ring-2 ring-emerald-400' : ''}`} key={`${sound}-${index}`}>{index + 1}</button>)}</div></>}
-          {chapter.id === 'segment' && <><p className="w-full text-lg font-bold text-slate-800">Listen to the picture word. Tap its sounds from first to last.</p><SvgWordPicture item={round.word} /><div className="flex min-h-14 items-center gap-2" aria-live="polite">{selectedSounds.map((id) => { const sound = segmentChoices.find((item) => item.id === id)?.sound; return <span className="rounded-xl bg-emerald-100 px-4 py-2 text-xl font-black text-emerald-800" key={id}>{sound}</span>; })}</div></>}
+          {chapter.id === 'segment' && <><p className="w-full text-lg font-bold text-slate-800">Listen to the picture word. Tap its sounds from first to last.</p><figure className="w-full" aria-label={`Picture clue for ${round.word.word.toLowerCase()}`}><SvgWordPicture item={round.word} /><figcaption className="text-sm font-bold text-slate-700">{round.word.word.toLowerCase()}</figcaption></figure><div className="flex min-h-14 items-center gap-2" aria-live="polite">{selectedSounds.map((id) => { const sound = segmentChoices.find((item) => item.id === id)?.sound; return <span className="rounded-xl bg-emerald-100 px-4 py-2 text-xl font-black text-emerald-800" key={id}>{sound}</span>; })}</div></>}
           {promptClipText && <button type="button" disabled={!getOfflineVoiceClip(promptClipText)} onClick={playWordPrompt} className={`${button} mt-1 border-blue-200 bg-white text-blue-800`}><Volume2 size={19} className="mr-2 inline" />Hear {chapter.id === 'blend' ? 'instructions' : 'the word again'}</button>}
         </div>
         {chapter.id === 'segment' ? <>
@@ -316,12 +479,13 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
         {feedback && <div className={`mt-4 rounded-2xl p-4 ${feedback.kind === 'correct' ? 'bg-emerald-50 text-emerald-950' : 'bg-amber-50 text-amber-950'}`} aria-live="polite">
           {feedback.kind === 'correct' && <div className="mx-auto mb-3 flex max-w-48 justify-center rounded-2xl bg-white p-3"><SvgWordPicture item={chapter.id === 'listen' ? round.pictureWord : round.word} /></div>}
           <p className="font-bold">{feedback.text}</p>{feedback.kind === 'correct' && <p className="mt-2 text-sm">Picture word: <strong>{chapter.id === 'listen' ? round.pictureWord.word : round.word.word}</strong></p>}
-          {feedback.kind === 'correct' ? <div className="mt-3 flex flex-wrap gap-2"><button type="button" onClick={() => setShowReplay((shown) => !shown)} aria-expanded={showReplay} className={`${button} border-emerald-200 bg-white text-emerald-900`}><RotateCcw size={17} className="mr-2 inline" />Read explanation again</button><button type="button" disabled={!explanationAudioReady} onClick={playExplanation} className={`${button} border-emerald-200 bg-white text-emerald-900`}><Volume2 size={17} className="mr-2 inline" />Hear sounds and word</button><button type="button" onClick={moveNext} className={`${button} border-emerald-700 bg-emerald-700 text-white`}>{roundIndex === 5 ? 'Finish chapter' : 'Next challenge'} <ChevronRight className="ml-2 inline" size={18} /></button></div> : <button type="button" onClick={() => { setFeedback(null); setSelectedSounds([]); setBlendStep(0); setWrong(true); }} className={`${button} mt-3 border-amber-300 bg-white text-amber-900`}>Try this challenge again</button>}
+          {feedback.kind === 'correct' && completionError && roundIndex === 5 && <div className="mt-3 rounded-xl border-2 border-rose-300 bg-white p-3 text-sm" role="alert"><p>{completionError}</p><button type="button" onClick={retryChapterSave} disabled={completionPending} className={`${button} mt-2 border-rose-700 bg-rose-700 text-white`}>{completionPending ? 'Saving chapter…' : completionError.includes('reward') || completionError.includes('rewards') ? 'Retry reward confirmation' : 'Retry saving this chapter'}</button></div>}
+          {feedback.kind === 'correct' ? <div className="mt-3 flex flex-wrap gap-2"><button type="button" onClick={() => setShowReplay((shown) => !shown)} aria-expanded={showReplay} className={`${button} border-emerald-200 bg-white text-emerald-900`}><RotateCcw size={17} className="mr-2 inline" />Read explanation again</button><button type="button" disabled={!explanationAudioReady} onClick={playExplanation} className={`${button} border-emerald-200 bg-white text-emerald-900`}><Volume2 size={17} className="mr-2 inline" />Hear sounds and word</button><button type="button" disabled={completionPending || Boolean(completionError && roundIndex === 5)} onClick={moveNext} className={`${button} border-emerald-700 bg-emerald-700 text-white`}>{roundIndex === 5 ? 'Finish chapter' : 'Next challenge'} <ChevronRight className="ml-2 inline" size={18} /></button></div> : <button type="button" onClick={() => { setFeedback(null); setSelectedSounds([]); setBlendStep(0); setWrong(true); }} className={`${button} mt-3 border-amber-300 bg-white text-amber-900`}>Try this challenge again</button>}
           {showReplay && feedback.kind === 'correct' && <p className="mt-3 rounded-xl border border-emerald-200 bg-white p-3" role="status">{feedback.text}</p>}
         </div>}
         {!feedback && <><button type="button" disabled={usedClue} onClick={useClue} className={`${button} mt-4 border-amber-200 bg-amber-50 text-amber-900`}><Lightbulb size={18} className="mr-2 inline" />{usedClue ? 'Clue used' : 'Use one clue'}</button>{clueText && <p className="mt-2 rounded-xl bg-amber-50 p-3 text-center font-bold text-amber-950" role="status">{clueText}</p>}</>}
       </section>}
-      {chapterIndex !== null && <button type="button" onClick={() => { cancelNarration(); stopPhonemeAudio(); if (chapterCompletion?.progress) setProgress(chapterCompletion.progress); setChapterIndex(null); setFeedback(null); }} className="mx-auto mt-4 min-h-12 rounded-xl px-4 text-sm font-bold text-white underline underline-offset-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-white">Back to chapters</button>}
+      {chapterIndex !== null && <button type="button" disabled={Boolean(completionError) || completionPending} onClick={() => { cancelNarration(); stopPhonemeAudio(); setActiveRun(null); setChapterIndex(null); setFeedback(null); }} className="mx-auto mt-4 min-h-12 rounded-xl px-4 text-sm font-bold text-white underline underline-offset-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-white disabled:opacity-50">Back to chapters</button>}
     </main>
   </div>;
 };
