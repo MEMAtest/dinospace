@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-29T03:45:13.908133+00:00",
+  "updatedAt": "2026-10-29T09:17:33.399389+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "canonicalRelease": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1187,7 +1187,7 @@
     "functionalAcceptance": true
   },
   "deliveryQueue": "docs/game-delivery-20261027/queue.json",
-  "activeDeliveryPair": 8,
+  "activeDeliveryPair": 9,
   "latestCodeWritingUplift": {
     "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
     "publicUrl": "https://dinospace.netlify.app",
@@ -1245,33 +1245,33 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": 8,
-    "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+    "pair": 9,
+    "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-ow24yqndj-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_DND4didmjepBuX68w2hFikz2qyk9",
-    "netlifyGatewayDeploy": "6ae2e8f735f8990b8d2719cb",
-    "serviceWorkerCache": "amari-discovery-v44",
+    "backendUrl": "https://dinospace-aq1k8ln19-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_2jebyooi9u6LzHmC3KCsv9W1D2CB",
+    "netlifyGatewayDeploy": "6ae30bd15236dd6d24d144c7",
+    "serviceWorkerCache": "amari-discovery-v45",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/books-spelling-20261029/README.md",
+    "evidence": "docs/qa-evidence/chess-jigsaw-20261029/README.md",
     "sourceTests": {
-      "passed": 577,
+      "passed": 613,
       "skipped": 0
     },
     "editorialScoresChanged": false,
     "paidCalls": 0,
-    "scope": "Targeted functional acceptance for Storybook Studio and Spelling Studio. Historical phone abort retained as unclassified, with exact-source clean targeted recovery on both viewports. No editorial/listening score or historical personal-book recovery.",
-    "production": "docs/qa-evidence/books-spelling-20261029/production-summary.json",
-    "verifiedAt": "2026-10-29T07:07:16.903177+00:00",
+    "verifiedAt": "2026-10-29T09:17:33.399389+00:00",
+    "production": "docs/qa-evidence/chess-jigsaw-20261029/production-summary.json",
+    "scope": "Targeted full Chess/Jigsaw functional acceptance. No whole-catalogue editorial score, human audio quality score, physical-device certification or personal-book recovery.",
     "functionalAcceptance": {
-      "storybookPagesPerViewport": 70,
-      "storybookQuestionsPerViewport": 21,
-      "spellingResponsesPerViewport": 31,
-      "replayResponsesPerViewport": 5,
-      "protectionPassed": true,
+      "nativeCases": 18,
+      "canonicalCases": 18,
+      "jigsawPuzzlesPerMatrix": 64,
+      "chessOpeningsPerViewport": 6,
       "positiveRetryVerified": true,
-      "approvedQaBackupAssets": 14,
-      "personalBooksRecovered": 0
+      "earlierProgressAndStickersRetained": true,
+      "protectedCutoverStorageKeys": 76,
+      "protectedQaStoryAssets": 14
     }
   },
   "latestDinoHangmanUplift": {
@@ -1301,45 +1301,40 @@
     }
   },
   "activeDeliveryCandidate": {
-    "pair": 8,
-    "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
-    "status": "native_acceptance_in_progress",
-    "evidence": "docs/qa-evidence/books-spelling-20261029/acceptance.md",
-    "newPaidGenerationRequests": 0,
-    "sourceTests": {
-      "passed": 577,
-      "skipped": 0
-    },
-    "moduleEntry": "/assets/arcade-EBto46V3.js"
+    "pair": 9,
+    "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
+    "status": "live_verified",
+    "moduleEntry": "/assets/arcade-Bj2sEAsW.js",
+    "evidence": "docs/qa-evidence/chess-jigsaw-20261029/native-summary.json"
   },
   "lastVerifiedDeliveryRelease": {
-    "pair": 8,
-    "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+    "pair": 9,
+    "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-ow24yqndj-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_DND4didmjepBuX68w2hFikz2qyk9",
-    "netlifyGatewayDeploy": "6ae2e8f735f8990b8d2719cb",
-    "serviceWorkerCache": "amari-discovery-v44",
+    "backendUrl": "https://dinospace-aq1k8ln19-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_2jebyooi9u6LzHmC3KCsv9W1D2CB",
+    "netlifyGatewayDeploy": "6ae30bd15236dd6d24d144c7",
+    "serviceWorkerCache": "amari-discovery-v45",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/books-spelling-20261029/README.md",
+    "evidence": "docs/qa-evidence/chess-jigsaw-20261029/README.md",
     "sourceTests": {
-      "passed": 577,
+      "passed": 613,
       "skipped": 0
     },
     "editorialScoresChanged": false,
     "paidCalls": 0,
-    "scope": "Targeted functional acceptance for Storybook Studio and Spelling Studio. Historical phone abort retained as unclassified, with exact-source clean targeted recovery on both viewports. No editorial/listening score or historical personal-book recovery.",
-    "production": "docs/qa-evidence/books-spelling-20261029/production-summary.json",
-    "verifiedAt": "2026-10-29T07:07:16.903177+00:00",
+    "verifiedAt": "2026-10-29T09:17:33.399389+00:00",
+    "production": "docs/qa-evidence/chess-jigsaw-20261029/production-summary.json",
+    "scope": "Targeted full Chess/Jigsaw functional acceptance. No whole-catalogue editorial score, human audio quality score, physical-device certification or personal-book recovery.",
     "functionalAcceptance": {
-      "storybookPagesPerViewport": 70,
-      "storybookQuestionsPerViewport": 21,
-      "spellingResponsesPerViewport": 31,
-      "replayResponsesPerViewport": 5,
-      "protectionPassed": true,
+      "nativeCases": 18,
+      "canonicalCases": 18,
+      "jigsawPuzzlesPerMatrix": 64,
+      "chessOpeningsPerViewport": 6,
       "positiveRetryVerified": true,
-      "approvedQaBackupAssets": 14,
-      "personalBooksRecovered": 0
+      "earlierProgressAndStickersRetained": true,
+      "protectedCutoverStorageKeys": 76,
+      "protectedQaStoryAssets": 14
     }
   },
   "deliveryReleaseHistory": [
@@ -1368,6 +1363,66 @@
         "positiveRetryVerified": true,
         "earlierProgressAndStickersRetained": true
       }
+    },
+    {
+      "pair": 8,
+      "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+      "publicUrl": "https://dinospace.netlify.app",
+      "backendUrl": "https://dinospace-ow24yqndj-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_DND4didmjepBuX68w2hFikz2qyk9",
+      "netlifyGatewayDeploy": "6ae2e8f735f8990b8d2719cb",
+      "serviceWorkerCache": "amari-discovery-v44",
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/books-spelling-20261029/README.md",
+      "sourceTests": {
+        "passed": 577,
+        "skipped": 0
+      },
+      "editorialScoresChanged": false,
+      "paidCalls": 0,
+      "scope": "Targeted functional acceptance for Storybook Studio and Spelling Studio. Historical phone abort retained as unclassified, with exact-source clean targeted recovery on both viewports. No editorial/listening score or historical personal-book recovery.",
+      "production": "docs/qa-evidence/books-spelling-20261029/production-summary.json",
+      "verifiedAt": "2026-10-29T07:07:16.903177+00:00",
+      "functionalAcceptance": {
+        "storybookPagesPerViewport": 70,
+        "storybookQuestionsPerViewport": 21,
+        "spellingResponsesPerViewport": 31,
+        "replayResponsesPerViewport": 5,
+        "protectionPassed": true,
+        "positiveRetryVerified": true,
+        "approvedQaBackupAssets": 14,
+        "personalBooksRecovered": 0
+      }
     }
-  ]
+  ],
+  "latestChessJigsawUplift": {
+    "pair": 9,
+    "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-aq1k8ln19-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_2jebyooi9u6LzHmC3KCsv9W1D2CB",
+    "netlifyGatewayDeploy": "6ae30bd15236dd6d24d144c7",
+    "serviceWorkerCache": "amari-discovery-v45",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/chess-jigsaw-20261029/README.md",
+    "sourceTests": {
+      "passed": 613,
+      "skipped": 0
+    },
+    "editorialScoresChanged": false,
+    "paidCalls": 0,
+    "verifiedAt": "2026-10-29T09:17:33.399389+00:00",
+    "production": "docs/qa-evidence/chess-jigsaw-20261029/production-summary.json",
+    "scope": "Targeted full Chess/Jigsaw functional acceptance. No whole-catalogue editorial score, human audio quality score, physical-device certification or personal-book recovery.",
+    "functionalAcceptance": {
+      "nativeCases": 18,
+      "canonicalCases": 18,
+      "jigsawPuzzlesPerMatrix": 64,
+      "chessOpeningsPerViewport": 6,
+      "positiveRetryVerified": true,
+      "earlierProgressAndStickersRetained": true,
+      "protectedCutoverStorageKeys": 76,
+      "protectedQaStoryAssets": 14
+    }
+  }
 }

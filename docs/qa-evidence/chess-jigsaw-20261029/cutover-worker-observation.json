@@ -1,0 +1,25 @@
+{
+  "url": "https://dinospace.netlify.app/?qa_pair9_cutover=1793264407407#/home",
+  "ready": "complete",
+  "entry": "/assets/arcade-Bj2sEAsW.js",
+  "caches": [
+    "amari-discovery-media-v1",
+    "amari-discovery-v45"
+  ],
+  "controller": {
+    "url": "https://dinospace.netlify.app/sw.js",
+    "state": "activated"
+  },
+  "registrations": [
+    {
+      "scope": "https://dinospace.netlify.app/",
+      "active": {
+        "url": "https://dinospace.netlify.app/sw.js",
+        "state": "activated"
+      },
+      "installing": null,
+      "waiting": null
+    }
+  ],
+  "swResources": []
+}

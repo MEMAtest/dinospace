@@ -1,0 +1,197 @@
+{
+  "at": "2026-10-29T08:49:34.542662+00:00",
+  "runtimeSource": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
+  "entry": "/assets/arcade-Bj2sEAsW.js",
+  "worker": "amari-discovery-v45",
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "tests": {
+    "command": "PWA_BUILD_DIR=dist npm test",
+    "passed": 613,
+    "failed": 0,
+    "skipped": 0
+  },
+  "lint": "Scoped runtime files passed",
+  "files": [
+    {
+      "path": "package-lock.json",
+      "sha256": "71565a4db8b7021eb8cc7cb3ac890b6316ccd40fc380e309eb7bab0589708231"
+    },
+    {
+      "path": "package.json",
+      "sha256": "1c975be7f0f75b91b87d7122547a1ad276833b524ad1fd7cde96d8ad186d97c2"
+    },
+    {
+      "path": "public/sw.js",
+      "sha256": "49d59869e64c4481fac52e8bd143f033f1bdd177b6421cf2a9bc1d1003dc5e59"
+    },
+    {
+      "path": "src/App.jsx",
+      "sha256": "80fed95d7b19599060c04c21ae5d7f7b63e11ac849253ff734ad8122d527ec56"
+    },
+    {
+      "path": "src/components/games/ChessExplorers.jsx",
+      "sha256": "e941737e8a3012deb04e75231a8ff93f5c3b5aa53a583c269101fc5e0cb84c08"
+    },
+    {
+      "path": "src/components/games/ChessGame.jsx",
+      "sha256": "f2a201721e2479b5e157976b22c3308bbcf04bafb28d4f612c204cad8f066845"
+    },
+    {
+      "path": "src/components/games/chessGame.css",
+      "sha256": "bd779519fb9f0deb1a6a6142eeb256cb3521c45a656f04a740836d216b46197f"
+    },
+    {
+      "path": "src/components/little/LittleGameShell.jsx",
+      "sha256": "3060ded765d68a19ddc5d4c35c0229f90f37011d03eda5f2423d93866722f50b"
+    },
+    {
+      "path": "src/components/little/games/DinoJigsaw.jsx",
+      "sha256": "64a1f0be0151fbac4e03edc96d920af1ef607dbadbb894c2127af20b7933eee0"
+    },
+    {
+      "path": "src/components/little/games/dinoJigsaw.css",
+      "sha256": "e71c31f18fc6cc2a833bab19cb0fc562b782c6a3fd9236917ce3cd7d49e16949"
+    },
+    {
+      "path": "src/data/chessGameAi.js",
+      "sha256": "e3b91d3b4920f201683bb873f4722eb5f2cfa4817a28acbb13fc69549d920ff3"
+    },
+    {
+      "path": "src/data/chessGameProgress.js",
+      "sha256": "df816a4ee7847603c73b3a8d7c3ae4bf56ef01b6cfbe92b0edcef6d43f2f8c6b"
+    },
+    {
+      "path": "src/data/chessGameRules.js",
+      "sha256": "7f33f621ccd75a2e3f3f3455e8d1a24f6bd4af7c2e312e520394e12686ad255d"
+    },
+    {
+      "path": "src/data/dinoJigsawProgression.js",
+      "sha256": "46ac4bbd3b11526992aa63b30a54ba9e9b72653fdfbad02a217d8db77e079460"
+    },
+    {
+      "path": "src/data/pairLittleProgress.js",
+      "sha256": "9296ce985e7805c796923f1dad1b189fe23ae1925a8b801c2bade8b91a837188"
+    },
+    {
+      "path": "src/data/playerRewards.js",
+      "sha256": "01f7d213eadcde3ef3dc9c58a0215c21b4d31de6457a4ec02fbb986ba2ba947c"
+    },
+    {
+      "path": "src/discoveryPremium.css",
+      "sha256": "6d4fa6ff51ba6eee0d6ed5f6f7db0a7dadfa4ea1166f2c912988613741ab42ef"
+    },
+    {
+      "path": "src/gameCatalog.jsx",
+      "sha256": "1a8dbf5e29974c9b2e6884e1bc751bf9860950ae612aa0407c29bdf94c43d824"
+    },
+    {
+      "path": "src/workers/chessAi.worker.js",
+      "sha256": "ad0efe6a477afe807671057ff40675f9126e556f2592afb38746298b0ea5114f"
+    },
+    {
+      "path": "test/chessGameAdditionalRules.test.mjs",
+      "sha256": "05fbd6f8c002d476622ef142557f4792919370abd07a63f8c602157b6c58669d"
+    },
+    {
+      "path": "test/chessGameAi.test.mjs",
+      "sha256": "d2f9d94dafc19800939b532fac2cd47d8073d37471ce1501a6f0d0aa68d82c58"
+    },
+    {
+      "path": "test/chessGameProgress.test.mjs",
+      "sha256": "5bf33dfd6cde2e8d853a0a481d14435fe234a1b9d87da1412785cd4aa80f0c02"
+    },
+    {
+      "path": "test/chessGameRules.test.mjs",
+      "sha256": "745121297bd4593567a0cbd8028282a1394c2da6b4e2e453db5e2549a5f86889"
+    },
+    {
+      "path": "test/dino-jigsaw-progression.test.mjs",
+      "sha256": "6438b6025e486cea1b0929a5a960663d4f4cfd587d6a890c52a1631248f1ca00"
+    },
+    {
+      "path": "test/offlineServiceWorker.test.mjs",
+      "sha256": "3e1fdc2ea3b3a8299e8853e9638446b79770945d12ff842f2190971f78807075"
+    },
+    {
+      "path": "test/pairLittleProgress.test.mjs",
+      "sha256": "76cfcf2bd83b970124b246567c77f1b8c7e05de7eba1a5d0b239cace5e8916c1"
+    },
+    {
+      "path": "test/playerRewards.test.mjs",
+      "sha256": "a488492b33f790e24bdbaf7fd36327c742d0e99260b32bb3e320d4604dc5bf47"
+    },
+    {
+      "path": "src/data/chessRewardRecovery.js",
+      "sha256": "95c8d6a7e1470bff653ab3ca50ea12092127d5cc986ebcb9a7669b4bc7143168"
+    },
+    {
+      "path": "public/licenses/chess-js.txt",
+      "sha256": "0b3a3c2b4432a26bb18f9d06f5bba4de015bcc980306b7db28b06025495e2186"
+    }
+  ],
+  "native": "All18finalcompiledcasespassed: Chess2viewportsandJigsaw16level/player/viewports. See native-summary.json.",
+  "production": "All18canonicalcasespassed, includingnaturalpositiveChess/JigsawparentRetries and protectedrecordretention;production-summary.json",
+  "independentWorkerBudget": "worker-budget-review.json",
+  "priorCompiledChecks": [
+    {
+      "runtimeSource": "85a0f9c26af842559580fb593ad37b410f1cfc8b",
+      "entry": "/assets/arcade-CELJo9Al.js",
+      "tests": {
+        "command": "PWA_BUILD_DIR=dist npm test",
+        "passed": 609,
+        "failed": 0,
+        "skipped": 0
+      },
+      "scope": "Phone layout/opening checks and prior611-compatible change predecessor retained. Not final nativepair acceptance."
+    },
+    {
+      "runtimeSource": "907dcff28772a6644c298d8857663b581f0bee89",
+      "entry": "/assets/arcade-D0cbmbqu.js",
+      "tests": {
+        "command": "PWA_BUILD_DIR=dist npm test",
+        "passed": 611,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "runtimeSource": "56fbaf91",
+      "entry": "/assets/arcade-CBhPJHWN.js",
+      "tests": {
+        "command": "PWA_BUILD_DIR=dist npm test",
+        "passed": 613,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "runtimeSource": "920cd205519983570a30c8cad2716d949d88f600",
+      "entry": "/assets/arcade-CtJCXeke.js",
+      "tests": {
+        "command": "PWA_BUILD_DIR=dist npm test",
+        "passed": 613,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "runtimeSource": "b9675e68f871d7d1c1a1146c6f0d4a29d85e4408",
+      "entry": "/assets/arcade-toHCUoOq.js",
+      "tests": {
+        "command": "PWA_BUILD_DIR=dist npm test",
+        "passed": 613,
+        "failed": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "independentReview": {
+    "blockersFixed": [
+      "Resuming after edited setup must restore savedside/difficulty",
+      "Progress updates mustnot cancel pending receipt drain",
+      "Old pending receipt mustnot markunfinished matchcomplete",
+      "Preview mustnot cover unlocked puzzlelevelcontrols"
+    ],
+    "finalDelta": "No concrete blocker; source-onlyreview. Nativegeometryrecovery stillrequired."
+  }
+}

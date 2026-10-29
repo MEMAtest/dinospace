@@ -1,0 +1,777 @@
+{
+  "passed": true,
+  "before": {
+    "entry": "/assets/arcade-D1yGJZpr.js",
+    "board": [
+      {
+        "label": "Chess board. White at bottom",
+        "x": 19,
+        "y": 165.984375,
+        "width": 352,
+        "height": 352,
+        "right": 371,
+        "bottom": 517.984375,
+        "hit": true
+      }
+    ],
+    "cells": [
+      {
+        "label": "a8, Black rook",
+        "x": 19,
+        "y": 165.984375,
+        "width": 44,
+        "height": 44,
+        "right": 63,
+        "bottom": 209.984375,
+        "hit": true
+      },
+      {
+        "label": "b8, Black knight",
+        "x": 63,
+        "y": 165.984375,
+        "width": 44,
+        "height": 44,
+        "right": 107,
+        "bottom": 209.984375,
+        "hit": true
+      },
+      {
+        "label": "c8, Black bishop",
+        "x": 107,
+        "y": 165.984375,
+        "width": 44,
+        "height": 44,
+        "right": 151,
+        "bottom": 209.984375,
+        "hit": true
+      },
+      {
+        "label": "d8, Black queen",
+        "x": 151,
+        "y": 165.984375,
+        "width": 44,
+        "height": 44,
+        "right": 195,
+        "bottom": 209.984375,
+        "hit": true
+      },
+      {
+        "label": "e8, Black king",
+        "x": 195,
+        "y": 165.984375,
+        "width": 44,
+        "height": 44,
+        "right": 239,
+        "bottom": 209.984375,
+        "hit": true
+      },
+      {
+        "label": "f8, Black bishop",
+        "x": 239,
+        "y": 165.984375,
+        "width": 44,
+        "height": 44,
+        "right": 283,
+        "bottom": 209.984375,
+        "hit": true
+      },
+      {
+        "label": "g8, Black knight",
+        "x": 283,
+        "y": 165.984375,
+        "width": 44,
+        "height": 44,
+        "right": 327,
+        "bottom": 209.984375,
+        "hit": true
+      },
+      {
+        "label": "h8, Black rook",
+        "x": 327,
+        "y": 165.984375,
+        "width": 44,
+        "height": 44,
+        "right": 371,
+        "bottom": 209.984375,
+        "hit": true
+      },
+      {
+        "label": "a7, Black pawn",
+        "x": 19,
+        "y": 209.984375,
+        "width": 44,
+        "height": 44,
+        "right": 63,
+        "bottom": 253.984375,
+        "hit": true
+      },
+      {
+        "label": "b7, Black pawn",
+        "x": 63,
+        "y": 209.984375,
+        "width": 44,
+        "height": 44,
+        "right": 107,
+        "bottom": 253.984375,
+        "hit": true
+      },
+      {
+        "label": "c7, Black pawn",
+        "x": 107,
+        "y": 209.984375,
+        "width": 44,
+        "height": 44,
+        "right": 151,
+        "bottom": 253.984375,
+        "hit": true
+      },
+      {
+        "label": "d7, Black pawn",
+        "x": 151,
+        "y": 209.984375,
+        "width": 44,
+        "height": 44,
+        "right": 195,
+        "bottom": 253.984375,
+        "hit": true
+      },
+      {
+        "label": "e7, Black pawn",
+        "x": 195,
+        "y": 209.984375,
+        "width": 44,
+        "height": 44,
+        "right": 239,
+        "bottom": 253.984375,
+        "hit": true
+      },
+      {
+        "label": "f7, Black pawn",
+        "x": 239,
+        "y": 209.984375,
+        "width": 44,
+        "height": 44,
+        "right": 283,
+        "bottom": 253.984375,
+        "hit": true
+      },
+      {
+        "label": "g7, Black pawn",
+        "x": 283,
+        "y": 209.984375,
+        "width": 44,
+        "height": 44,
+        "right": 327,
+        "bottom": 253.984375,
+        "hit": true
+      },
+      {
+        "label": "h7, Black pawn",
+        "x": 327,
+        "y": 209.984375,
+        "width": 44,
+        "height": 44,
+        "right": 371,
+        "bottom": 253.984375,
+        "hit": true
+      },
+      {
+        "label": "a6, empty square",
+        "x": 19,
+        "y": 253.984375,
+        "width": 44,
+        "height": 44,
+        "right": 63,
+        "bottom": 297.984375,
+        "hit": true
+      },
+      {
+        "label": "b6, empty square",
+        "x": 63,
+        "y": 253.984375,
+        "width": 44,
+        "height": 44,
+        "right": 107,
+        "bottom": 297.984375,
+        "hit": true
+      },
+      {
+        "label": "c6, empty square",
+        "x": 107,
+        "y": 253.984375,
+        "width": 44,
+        "height": 44,
+        "right": 151,
+        "bottom": 297.984375,
+        "hit": true
+      },
+      {
+        "label": "d6, empty square",
+        "x": 151,
+        "y": 253.984375,
+        "width": 44,
+        "height": 44,
+        "right": 195,
+        "bottom": 297.984375,
+        "hit": true
+      },
+      {
+        "label": "e6, empty square",
+        "x": 195,
+        "y": 253.984375,
+        "width": 44,
+        "height": 44,
+        "right": 239,
+        "bottom": 297.984375,
+        "hit": true
+      },
+      {
+        "label": "f6, empty square",
+        "x": 239,
+        "y": 253.984375,
+        "width": 44,
+        "height": 44,
+        "right": 283,
+        "bottom": 297.984375,
+        "hit": true
+      },
+      {
+        "label": "g6, empty square",
+        "x": 283,
+        "y": 253.984375,
+        "width": 44,
+        "height": 44,
+        "right": 327,
+        "bottom": 297.984375,
+        "hit": true
+      },
+      {
+        "label": "h6, empty square",
+        "x": 327,
+        "y": 253.984375,
+        "width": 44,
+        "height": 44,
+        "right": 371,
+        "bottom": 297.984375,
+        "hit": true
+      },
+      {
+        "label": "a5, empty square",
+        "x": 19,
+        "y": 297.984375,
+        "width": 44,
+        "height": 44,
+        "right": 63,
+        "bottom": 341.984375,
+        "hit": true
+      },
+      {
+        "label": "b5, empty square",
+        "x": 63,
+        "y": 297.984375,
+        "width": 44,
+        "height": 44,
+        "right": 107,
+        "bottom": 341.984375,
+        "hit": true
+      },
+      {
+        "label": "c5, empty square",
+        "x": 107,
+        "y": 297.984375,
+        "width": 44,
+        "height": 44,
+        "right": 151,
+        "bottom": 341.984375,
+        "hit": true
+      },
+      {
+        "label": "d5, empty square",
+        "x": 151,
+        "y": 297.984375,
+        "width": 44,
+        "height": 44,
+        "right": 195,
+        "bottom": 341.984375,
+        "hit": true
+      },
+      {
+        "label": "e5, empty square",
+        "x": 195,
+        "y": 297.984375,
+        "width": 44,
+        "height": 44,
+        "right": 239,
+        "bottom": 341.984375,
+        "hit": true
+      },
+      {
+        "label": "f5, empty square",
+        "x": 239,
+        "y": 297.984375,
+        "width": 44,
+        "height": 44,
+        "right": 283,
+        "bottom": 341.984375,
+        "hit": true
+      },
+      {
+        "label": "g5, empty square",
+        "x": 283,
+        "y": 297.984375,
+        "width": 44,
+        "height": 44,
+        "right": 327,
+        "bottom": 341.984375,
+        "hit": true
+      },
+      {
+        "label": "h5, empty square",
+        "x": 327,
+        "y": 297.984375,
+        "width": 44,
+        "height": 44,
+        "right": 371,
+        "bottom": 341.984375,
+        "hit": true
+      },
+      {
+        "label": "a4, empty square",
+        "x": 19,
+        "y": 341.984375,
+        "width": 44,
+        "height": 44,
+        "right": 63,
+        "bottom": 385.984375,
+        "hit": true
+      },
+      {
+        "label": "b4, empty square",
+        "x": 63,
+        "y": 341.984375,
+        "width": 44,
+        "height": 44,
+        "right": 107,
+        "bottom": 385.984375,
+        "hit": true
+      },
+      {
+        "label": "c4, empty square",
+        "x": 107,
+        "y": 341.984375,
+        "width": 44,
+        "height": 44,
+        "right": 151,
+        "bottom": 385.984375,
+        "hit": true
+      },
+      {
+        "label": "d4, empty square",
+        "x": 151,
+        "y": 341.984375,
+        "width": 44,
+        "height": 44,
+        "right": 195,
+        "bottom": 385.984375,
+        "hit": true
+      },
+      {
+        "label": "e4, empty square",
+        "x": 195,
+        "y": 341.984375,
+        "width": 44,
+        "height": 44,
+        "right": 239,
+        "bottom": 385.984375,
+        "hit": true
+      },
+      {
+        "label": "f4, empty square",
+        "x": 239,
+        "y": 341.984375,
+        "width": 44,
+        "height": 44,
+        "right": 283,
+        "bottom": 385.984375,
+        "hit": true
+      },
+      {
+        "label": "g4, empty square",
+        "x": 283,
+        "y": 341.984375,
+        "width": 44,
+        "height": 44,
+        "right": 327,
+        "bottom": 385.984375,
+        "hit": true
+      },
+      {
+        "label": "h4, empty square",
+        "x": 327,
+        "y": 341.984375,
+        "width": 44,
+        "height": 44,
+        "right": 371,
+        "bottom": 385.984375,
+        "hit": true
+      },
+      {
+        "label": "a3, empty square",
+        "x": 19,
+        "y": 385.984375,
+        "width": 44,
+        "height": 44,
+        "right": 63,
+        "bottom": 429.984375,
+        "hit": true
+      },
+      {
+        "label": "b3, empty square",
+        "x": 63,
+        "y": 385.984375,
+        "width": 44,
+        "height": 44,
+        "right": 107,
+        "bottom": 429.984375,
+        "hit": true
+      },
+      {
+        "label": "c3, empty square",
+        "x": 107,
+        "y": 385.984375,
+        "width": 44,
+        "height": 44,
+        "right": 151,
+        "bottom": 429.984375,
+        "hit": true
+      },
+      {
+        "label": "d3, empty square",
+        "x": 151,
+        "y": 385.984375,
+        "width": 44,
+        "height": 44,
+        "right": 195,
+        "bottom": 429.984375,
+        "hit": true
+      },
+      {
+        "label": "e3, empty square",
+        "x": 195,
+        "y": 385.984375,
+        "width": 44,
+        "height": 44,
+        "right": 239,
+        "bottom": 429.984375,
+        "hit": true
+      },
+      {
+        "label": "f3, empty square",
+        "x": 239,
+        "y": 385.984375,
+        "width": 44,
+        "height": 44,
+        "right": 283,
+        "bottom": 429.984375,
+        "hit": true
+      },
+      {
+        "label": "g3, empty square",
+        "x": 283,
+        "y": 385.984375,
+        "width": 44,
+        "height": 44,
+        "right": 327,
+        "bottom": 429.984375,
+        "hit": true
+      },
+      {
+        "label": "h3, empty square",
+        "x": 327,
+        "y": 385.984375,
+        "width": 44,
+        "height": 44,
+        "right": 371,
+        "bottom": 429.984375,
+        "hit": true
+      },
+      {
+        "label": "a2, White pawn",
+        "x": 19,
+        "y": 429.984375,
+        "width": 44,
+        "height": 44,
+        "right": 63,
+        "bottom": 473.984375,
+        "hit": true
+      },
+      {
+        "label": "b2, White pawn",
+        "x": 63,
+        "y": 429.984375,
+        "width": 44,
+        "height": 44,
+        "right": 107,
+        "bottom": 473.984375,
+        "hit": true
+      },
+      {
+        "label": "c2, White pawn",
+        "x": 107,
+        "y": 429.984375,
+        "width": 44,
+        "height": 44,
+        "right": 151,
+        "bottom": 473.984375,
+        "hit": true
+      },
+      {
+        "label": "d2, White pawn",
+        "x": 151,
+        "y": 429.984375,
+        "width": 44,
+        "height": 44,
+        "right": 195,
+        "bottom": 473.984375,
+        "hit": true
+      },
+      {
+        "label": "e2, White pawn",
+        "x": 195,
+        "y": 429.984375,
+        "width": 44,
+        "height": 44,
+        "right": 239,
+        "bottom": 473.984375,
+        "hit": true
+      },
+      {
+        "label": "f2, White pawn",
+        "x": 239,
+        "y": 429.984375,
+        "width": 44,
+        "height": 44,
+        "right": 283,
+        "bottom": 473.984375,
+        "hit": true
+      },
+      {
+        "label": "g2, White pawn",
+        "x": 283,
+        "y": 429.984375,
+        "width": 44,
+        "height": 44,
+        "right": 327,
+        "bottom": 473.984375,
+        "hit": true
+      },
+      {
+        "label": "h2, White pawn",
+        "x": 327,
+        "y": 429.984375,
+        "width": 44,
+        "height": 44,
+        "right": 371,
+        "bottom": 473.984375,
+        "hit": true
+      },
+      {
+        "label": "a1, White rook",
+        "x": 19,
+        "y": 473.984375,
+        "width": 44,
+        "height": 44,
+        "right": 63,
+        "bottom": 517.984375,
+        "hit": true
+      },
+      {
+        "label": "b1, White knight",
+        "x": 63,
+        "y": 473.984375,
+        "width": 44,
+        "height": 44,
+        "right": 107,
+        "bottom": 517.984375,
+        "hit": true
+      },
+      {
+        "label": "c1, White bishop",
+        "x": 107,
+        "y": 473.984375,
+        "width": 44,
+        "height": 44,
+        "right": 151,
+        "bottom": 517.984375,
+        "hit": true
+      },
+      {
+        "label": "d1, White queen",
+        "x": 151,
+        "y": 473.984375,
+        "width": 44,
+        "height": 44,
+        "right": 195,
+        "bottom": 517.984375,
+        "hit": true
+      },
+      {
+        "label": "e1, White king",
+        "x": 195,
+        "y": 473.984375,
+        "width": 44,
+        "height": 44,
+        "right": 239,
+        "bottom": 517.984375,
+        "hit": true
+      },
+      {
+        "label": "f1, White bishop",
+        "x": 239,
+        "y": 473.984375,
+        "width": 44,
+        "height": 44,
+        "right": 283,
+        "bottom": 517.984375,
+        "hit": true
+      },
+      {
+        "label": "g1, White knight",
+        "x": 283,
+        "y": 473.984375,
+        "width": 44,
+        "height": 44,
+        "right": 327,
+        "bottom": 517.984375,
+        "hit": true
+      },
+      {
+        "label": "h1, White rook",
+        "x": 327,
+        "y": 473.984375,
+        "width": 44,
+        "height": 44,
+        "right": 371,
+        "bottom": 517.984375,
+        "hit": true
+      }
+    ],
+    "actions": [
+      {
+        "label": "Undo turn",
+        "x": 40.953125,
+        "y": 566.265625,
+        "width": 106.140625,
+        "height": 44,
+        "right": 147.09375,
+        "bottom": 610.265625,
+        "hit": true
+      },
+      {
+        "label": "Moves",
+        "x": 151.890625,
+        "y": 566.265625,
+        "width": 83.125,
+        "height": 44,
+        "right": 235.015625,
+        "bottom": 610.265625,
+        "hit": true
+      },
+      {
+        "label": "New game",
+        "x": 239.8125,
+        "y": 566.265625,
+        "width": 109.21875,
+        "height": 44,
+        "right": 349.03125,
+        "bottom": 610.265625,
+        "hit": true
+      }
+    ],
+    "status": [
+      {
+        "label": "White to move\nYou are White \u00b7 Computer is Black",
+        "x": 14.390625,
+        "y": 120.390625,
+        "width": 361.21875,
+        "height": 40,
+        "right": 375.609375,
+        "bottom": 160.390625,
+        "hit": true
+      }
+    ]
+  },
+  "after": {
+    "cells": [
+      "a8, Black rook",
+      "b8, Black knight",
+      "c8, Black bishop",
+      "d8, Black queen",
+      "e8, Black king",
+      "f8, Black bishop",
+      "g8, Black knight",
+      "h8, Black rook",
+      "a7, empty square, last move",
+      "b7, Black pawn",
+      "c7, Black pawn",
+      "d7, Black pawn",
+      "e7, Black pawn",
+      "f7, Black pawn",
+      "g7, Black pawn",
+      "h7, Black pawn",
+      "a6, empty square",
+      "b6, empty square",
+      "c6, empty square",
+      "d6, empty square",
+      "e6, empty square",
+      "f6, empty square",
+      "g6, empty square",
+      "h6, empty square",
+      "a5, Black pawn, last move",
+      "b5, empty square",
+      "c5, empty square",
+      "d5, empty square",
+      "e5, empty square",
+      "f5, empty square",
+      "g5, empty square",
+      "h5, empty square",
+      "a4, empty square",
+      "b4, empty square",
+      "c4, empty square",
+      "d4, empty square",
+      "e4, White pawn",
+      "f4, empty square",
+      "g4, empty square",
+      "h4, empty square",
+      "a3, empty square",
+      "b3, empty square",
+      "c3, empty square",
+      "d3, empty square",
+      "e3, empty square",
+      "f3, empty square",
+      "g3, empty square",
+      "h3, empty square",
+      "a2, White pawn",
+      "b2, White pawn",
+      "c2, White pawn",
+      "d2, White pawn",
+      "e2, empty square",
+      "f2, White pawn",
+      "g2, White pawn",
+      "h2, White pawn",
+      "a1, White rook",
+      "b1, White knight",
+      "c1, White bishop",
+      "d1, White queen",
+      "e1, White king",
+      "f1, White bishop",
+      "g1, White knight",
+      "h1, White rook"
+    ],
+    "status": "White to moveYou are White \u00b7 Computer is Black",
+    "overflow": false,
+    "scrollY": 0
+  },
+  "invalid": [],
+  "scope": "Actual e2-e4 and computer reply from standard start; no completion reward"
+}

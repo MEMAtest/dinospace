@@ -1,0 +1,26 @@
+{
+  "entry": "/assets/arcade-Bj2sEAsW.js",
+  "canonicalRenders": [
+    {
+      "path": "native-jigsaw-amari-L5-390x740-1793265061042.jpg",
+      "sha256": "748cd255ee34a697636b6403f3bf2497d66d4cf92bb04f98291e5a5098a13858",
+      "origin": "https://dinospace.netlify.app"
+    },
+    {
+      "path": "native-jigsaw-amari-L5-1440x844-1793265149584.jpg",
+      "sha256": "84d253068114e5dc5c83be017154d3bf0f3c53a04f561f02beb7f0a90b84e292",
+      "origin": "https://dinospace.netlify.app"
+    },
+    {
+      "path": "production-chess-Bj2sEAsW-390x740.jpg",
+      "sha256": "52133be9e2b6b5d4c7c1853579656e4ad759b050688bfcd48d996c950beb2d3f",
+      "origin": "https://dinospace.netlify.app"
+    },
+    {
+      "path": "production-chess-Bj2sEAsW-1440x844.jpg",
+      "sha256": "c1138627d81f2ccd43bfb451326c916e08c667ac2ffd9fc299b663cb8fd2b783",
+      "origin": "https://dinospace.netlify.app"
+    }
+  ],
+  "note": "Canonical Jigsaw image filenames retain the legacy native helper prefix because the original production JSON reports reference them. Origin is bound by those reports; no copies or renamed/missing evidence."
+}

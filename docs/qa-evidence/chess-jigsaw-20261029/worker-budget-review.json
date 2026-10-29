@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-29T07:33:36.597963+00:00",
+  "previousReviewedRequestBudget": 163,
+  "newReviewedRequestBudget": 164,
+  "reason": "One new dedicated offline Chess computer Web Worker module. The same full-rules engine also serves normal UI legality. No extra eager audio/storymedia or corpus copies.",
+  "newWorker": [
+    {
+      "path": "/assets/chessAi.worker-DD9YTbH5.js",
+      "bytes": 40638
+    }
+  ],
+  "compiledAssetCount": 164,
+  "compiledBytes": 29643970,
+  "independentByteCeiling": 41943040,
+  "underByteCeiling": true,
+  "libraryDependency": "chess.js1.4.0 exactpin;784KiB installed once in canonicalprivate node_modules",
+  "sourceEvidence": "6fb38575",
+  "currentFrozenBuild": {
+    "source": "907dcff28772a6644c298d8857663b581f0bee89",
+    "entry": "/assets/arcade-D0cbmbqu.js",
+    "compiledAssetCount": 164,
+    "compiledBytes": 29645637
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-29T08:06:12.275591+00:00",
+  "runtimeSource": "907dcff28772a6644c298d8857663b581f0bee89",
+  "entry": "/assets/arcade-D0cbmbqu.js",
+  "previousPublicSource": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "previousDecoderPrefixes": [
+    "dino",
+    "hangman",
+    "words",
+    "storybooks"
+  ],
+  "problemConfirmedInMemory": "A raw chess:compat-proof claim was absent after the previous public prefix filter. No browser/family data was modified by the probe.",
+  "resolution": "Use dino:chess:<matchId> and dino:jigsaw:little:<transactionId> storage scopes; actual game counters stay chess/dinojigsaw. Normalize unshipped native aliases at commit, validate reservedscope case before game attribution, preserve amount/id/sibling/metadata.",
+  "tests": [
+    "previous public decoder roundtrip with unrelated addition reward retains both new claim receipts and zero-delta retries",
+    "native unpublished alias normalization without second reward/count",
+    "mixed-case reserved scope rejected for game dino and deduplicated for actualChess"
+  ],
+  "newSchemaOrStorageKey": false,
+  "providerCalls": 0
+}

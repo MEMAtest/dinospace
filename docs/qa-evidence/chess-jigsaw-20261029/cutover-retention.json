@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "beforeEntry": "/assets/arcade-EBto46V3.js",
+  "afterEntry": "/assets/arcade-Bj2sEAsW.js",
+  "protectedLocalStorageKeys": 76,
+  "indexedDb": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "updateTrigger": "focus observer event then actual Refresh games click",
+  "initialRefreshCaches": [
+    "amari-discovery-media-v1",
+    "amari-discovery-v44"
+  ],
+  "settledWorkerCaches": [
+    "amari-discovery-media-v1",
+    "amari-discovery-v45"
+  ],
+  "worker": [
+    {
+      "scope": "https://dinospace.netlify.app/",
+      "active": {
+        "url": "https://dinospace.netlify.app/sw.js",
+        "state": "activated"
+      },
+      "installing": null,
+      "waiting": null
+    }
+  ],
+  "notice": false,
+  "errors": [],
+  "consoleErrors": [],
+  "responseFailures": [],
+  "requestFailures": [],
+  "providerAttempts": [],
+  "note": "Initial post-refresh snapshot preceded asynchronous worker activation; later read-only observation confirms v45 activated and protected hashes remain identical. This was not a stale HTML release or gameplay failure.",
+  "personalBookRecovery": false
+}

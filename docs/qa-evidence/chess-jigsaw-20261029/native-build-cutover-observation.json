@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-29T07:50:39.878137+00:00",
+  "historicalConsoleEntry": "Native loopback /index.html returned404 while dist was rebuilt in place with the old test tab open. No production publication occurred.",
+  "currentEntry": {
+    "status": 200,
+    "bytes": 1441,
+    "url": "http://127.0.0.1:5180/index.html"
+  },
+  "scope": "Transient local build cutover observation, not current frozen-candidate or public-site failure. Full native matrices must independently record zero new errors.",
+  "originalConsoleLog": ".playwright-cli/console-2026-10-29T05-19-37-101Z.log line2",
+  "publicSiteChanged": false
+}

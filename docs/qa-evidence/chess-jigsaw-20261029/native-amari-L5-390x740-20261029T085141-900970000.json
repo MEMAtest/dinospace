@@ -1,0 +1,521 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "level": 5,
+  "width": 390,
+  "height": 740,
+  "entry": "/assets/arcade-Bj2sEAsW.js",
+  "namespaced": true,
+  "rows": [
+    {
+      "level": 5,
+      "rounds": [
+        {
+          "round": 1,
+          "pieces": 12,
+          "clueShown": true,
+          "expandedHelp": {
+            "x": 147,
+            "y": 459.734375,
+            "width": 96,
+            "height": 105
+          },
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 63,
+              "y": 261.734375,
+              "right": 327,
+              "bottom": 459.734375,
+              "width": 264,
+              "height": 198
+            },
+            "tray": {
+              "x": 63,
+              "y": 463.734375,
+              "right": 327,
+              "bottom": 666.234375,
+              "width": 264,
+              "height": 202.5
+            },
+            "task": {
+              "x": 63,
+              "y": 125,
+              "right": 327,
+              "bottom": 209.734375,
+              "width": 264,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 15,
+              "y": 670.234375,
+              "right": 375,
+              "bottom": 718.234375,
+              "width": 360,
+              "height": 48
+            }
+          },
+          "representativeScreenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/chess-jigsaw-20261029/native-jigsaw-amari-L5-390x740-1793263903697.jpg",
+          "wrongRetryChecked": true,
+          "heldReview": true,
+          "touchEvidence": {
+            "performed": true,
+            "classification": "emulated touch via CDP; not physical-device certification",
+            "cancelDidNotCredit": true,
+            "realTouchPlacedOne": true,
+            "pointerEvents": [
+              {
+                "type": "pointerdown",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointercancel",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointerdown",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointerup",
+                "pointerType": "touch",
+                "target": "0"
+              }
+            ]
+          },
+          "images": 4,
+          "primary": "Next round"
+        },
+        {
+          "round": 2,
+          "pieces": 12,
+          "clueShown": true,
+          "expandedHelp": {
+            "x": 147,
+            "y": 459.734375,
+            "width": 96,
+            "height": 105
+          },
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 63,
+              "y": 261.734375,
+              "right": 327,
+              "bottom": 459.734375,
+              "width": 264,
+              "height": 198
+            },
+            "tray": {
+              "x": 63,
+              "y": 463.734375,
+              "right": 327,
+              "bottom": 666.234375,
+              "width": 264,
+              "height": 202.5
+            },
+            "task": {
+              "x": 63,
+              "y": 125,
+              "right": 327,
+              "bottom": 209.734375,
+              "width": 264,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 15,
+              "y": 670.234375,
+              "right": 375,
+              "bottom": 718.234375,
+              "width": 360,
+              "height": 48
+            }
+          },
+          "representativeScreenshot": null,
+          "wrongRetryChecked": false,
+          "heldReview": true,
+          "touchEvidence": null,
+          "images": 3,
+          "primary": "Next round"
+        },
+        {
+          "round": 3,
+          "pieces": 12,
+          "clueShown": true,
+          "expandedHelp": {
+            "x": 147,
+            "y": 459.734375,
+            "width": 96,
+            "height": 105
+          },
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 63,
+              "y": 261.734375,
+              "right": 327,
+              "bottom": 459.734375,
+              "width": 264,
+              "height": 198
+            },
+            "tray": {
+              "x": 63,
+              "y": 463.734375,
+              "right": 327,
+              "bottom": 666.234375,
+              "width": 264,
+              "height": 202.5
+            },
+            "task": {
+              "x": 63,
+              "y": 125,
+              "right": 327,
+              "bottom": 209.734375,
+              "width": 264,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 15,
+              "y": 670.234375,
+              "right": 375,
+              "bottom": 718.234375,
+              "width": 360,
+              "height": 48
+            }
+          },
+          "representativeScreenshot": null,
+          "wrongRetryChecked": false,
+          "heldReview": true,
+          "touchEvidence": null,
+          "images": 4,
+          "primary": "Next round"
+        },
+        {
+          "round": 4,
+          "pieces": 12,
+          "clueShown": true,
+          "expandedHelp": {
+            "x": 147,
+            "y": 459.734375,
+            "width": 96,
+            "height": 105
+          },
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 63,
+              "y": 261.734375,
+              "right": 327,
+              "bottom": 459.734375,
+              "width": 264,
+              "height": 198
+            },
+            "tray": {
+              "x": 63,
+              "y": 463.734375,
+              "right": 327,
+              "bottom": 666.234375,
+              "width": 264,
+              "height": 202.5
+            },
+            "task": {
+              "x": 63,
+              "y": 125,
+              "right": 327,
+              "bottom": 209.734375,
+              "width": 264,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 15,
+              "y": 670.234375,
+              "right": 375,
+              "bottom": 718.234375,
+              "width": 360,
+              "height": 48
+            }
+          },
+          "representativeScreenshot": null,
+          "wrongRetryChecked": false,
+          "heldReview": true,
+          "touchEvidence": null,
+          "images": 4,
+          "primary": "Finish game"
+        }
+      ],
+      "protection": {
+        "targetCommit": {
+          "transactionId": "f223d8d8-ba1d-4e85-b99e-3714a2c53bc1",
+          "playedLevel": 4,
+          "plays": 7,
+          "level": 4,
+          "best": 3,
+          "previousLevel": 4,
+          "levelUp": false,
+          "levelBests": {
+            "2": 3,
+            "3": 3,
+            "4": 3
+          },
+          "legacyRewardThrough": -1,
+          "rewardPoints": 0
+        },
+        "rewardDelta": {
+          "points": 0,
+          "plays": 0,
+          "expectedPoints": 0
+        },
+        "hashes": {
+          "before": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "d58008ca52a29cb2bdff671f2de394f81ab4a0add54df8fa90715d86b4240007",
+            "qa_rewards_20261024_amari_games_played": "7b450ccf5e0c4de5ad95a5df92ddac6a751416cb18ecd35a8d1471c6ba763219",
+            "qa_rewards_20261024_amari_little_progress": "c9512069513ddb92418bde9bfec9093c916eda016225bb78ab6f5849ad8c7c81",
+            "qa_rewards_20261024_amari_points": "204bbed5f49d68bc68331818c6d65460805541da2a046c9066d2995b90fabd3d",
+            "qa_rewards_20261024_amari_rewards_v2": "ef3cbdac48f9d7bf9dbb5f7ddfc523c461c7a1d458d38bba0a8b00fc8fe2fc0e",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+            "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+            "qa_rewards_20261024_askia_little_progress": "c6c58e4112f7672c496946535af0d0c31ddd9725721bcb5efd98102aaf91c76f",
+            "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+            "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+          },
+          "after": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "d58008ca52a29cb2bdff671f2de394f81ab4a0add54df8fa90715d86b4240007",
+            "qa_rewards_20261024_amari_games_played": "7b450ccf5e0c4de5ad95a5df92ddac6a751416cb18ecd35a8d1471c6ba763219",
+            "qa_rewards_20261024_amari_little_progress": "e5e4ff850bf528157c585702f99f44a41c4d203247356d9bf212ee692143f6d3",
+            "qa_rewards_20261024_amari_points": "204bbed5f49d68bc68331818c6d65460805541da2a046c9066d2995b90fabd3d",
+            "qa_rewards_20261024_amari_rewards_v2": "ef3cbdac48f9d7bf9dbb5f7ddfc523c461c7a1d458d38bba0a8b00fc8fe2fc0e",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+            "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+            "qa_rewards_20261024_askia_little_progress": "c6c58e4112f7672c496946535af0d0c31ddd9725721bcb5efd98102aaf91c76f",
+            "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+            "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+          }
+        }
+      },
+      "namespace": true,
+      "audioEvidence": {
+        "source": "http://127.0.0.1:5180/audio/en/51c80120-matilda.mp3",
+        "cancelledByMute": true
+      },
+      "faultFacts": {
+        "status": "not-requested"
+      },
+      "replayFacts": {
+        "status": "verified",
+        "returnedToParent": true,
+        "parentView": {
+          "url": "http://127.0.0.1:5180/?qa_pair9_jigsaw=amari-5-390-1793263902738#/world/creative",
+          "headings": [
+            "Creative Lab",
+            "Code Cadets",
+            "My Writing Desk",
+            "Rocket Builder",
+            "Dino Jigsaw",
+            "Sky Shapes",
+            "Colour Mixing Lab",
+            "Puzzle Pop"
+          ]
+        },
+        "reopenedAndReloaded": true,
+        "sameLevelAvailable": true,
+        "sameLevelReplayed": true,
+        "zeroRewardDelta": true,
+        "transactionId": "745f0da7-b066-4971-9fd8-5b693bd64181",
+        "commit": {
+          "plays": 8,
+          "playedLevel": 4,
+          "rewardPoints": 0
+        },
+        "hashes": {
+          "before": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "d58008ca52a29cb2bdff671f2de394f81ab4a0add54df8fa90715d86b4240007",
+            "qa_rewards_20261024_amari_games_played": "7b450ccf5e0c4de5ad95a5df92ddac6a751416cb18ecd35a8d1471c6ba763219",
+            "qa_rewards_20261024_amari_little_progress": "e5e4ff850bf528157c585702f99f44a41c4d203247356d9bf212ee692143f6d3",
+            "qa_rewards_20261024_amari_points": "204bbed5f49d68bc68331818c6d65460805541da2a046c9066d2995b90fabd3d",
+            "qa_rewards_20261024_amari_rewards_v2": "ef3cbdac48f9d7bf9dbb5f7ddfc523c461c7a1d458d38bba0a8b00fc8fe2fc0e",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+            "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+            "qa_rewards_20261024_askia_little_progress": "c6c58e4112f7672c496946535af0d0c31ddd9725721bcb5efd98102aaf91c76f",
+            "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+            "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+          },
+          "after": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "d58008ca52a29cb2bdff671f2de394f81ab4a0add54df8fa90715d86b4240007",
+            "qa_rewards_20261024_amari_games_played": "7b450ccf5e0c4de5ad95a5df92ddac6a751416cb18ecd35a8d1471c6ba763219",
+            "qa_rewards_20261024_amari_little_progress": "52ecd257df419f8fe5214fa855885d072b5ec903895a90696cad9097b71278ab",
+            "qa_rewards_20261024_amari_points": "204bbed5f49d68bc68331818c6d65460805541da2a046c9066d2995b90fabd3d",
+            "qa_rewards_20261024_amari_rewards_v2": "ef3cbdac48f9d7bf9dbb5f7ddfc523c461c7a1d458d38bba0a8b00fc8fe2fc0e",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+            "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+            "qa_rewards_20261024_askia_little_progress": "c6c58e4112f7672c496946535af0d0c31ddd9725721bcb5efd98102aaf91c76f",
+            "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+            "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+          }
+        }
+      }
+    }
+  ],
+  "provider": [],
+  "failed": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "errors": [],
+  "faultFacts": {
+    "status": "not-requested"
+  },
+  "replayFacts": {
+    "status": "verified",
+    "returnedToParent": true,
+    "parentView": {
+      "url": "http://127.0.0.1:5180/?qa_pair9_jigsaw=amari-5-390-1793263902738#/world/creative",
+      "headings": [
+        "Creative Lab",
+        "Code Cadets",
+        "My Writing Desk",
+        "Rocket Builder",
+        "Dino Jigsaw",
+        "Sky Shapes",
+        "Colour Mixing Lab",
+        "Puzzle Pop"
+      ]
+    },
+    "reopenedAndReloaded": true,
+    "sameLevelAvailable": true,
+    "sameLevelReplayed": true,
+    "zeroRewardDelta": true,
+    "transactionId": "745f0da7-b066-4971-9fd8-5b693bd64181",
+    "commit": {
+      "plays": 8,
+      "playedLevel": 4,
+      "rewardPoints": 0
+    },
+    "hashes": {
+      "before": {
+        "qa_rewards_20261024_amari_earned_sticker_ids_v1": "d58008ca52a29cb2bdff671f2de394f81ab4a0add54df8fa90715d86b4240007",
+        "qa_rewards_20261024_amari_games_played": "7b450ccf5e0c4de5ad95a5df92ddac6a751416cb18ecd35a8d1471c6ba763219",
+        "qa_rewards_20261024_amari_little_progress": "e5e4ff850bf528157c585702f99f44a41c4d203247356d9bf212ee692143f6d3",
+        "qa_rewards_20261024_amari_points": "204bbed5f49d68bc68331818c6d65460805541da2a046c9066d2995b90fabd3d",
+        "qa_rewards_20261024_amari_rewards_v2": "ef3cbdac48f9d7bf9dbb5f7ddfc523c461c7a1d458d38bba0a8b00fc8fe2fc0e",
+        "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+        "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+        "qa_rewards_20261024_askia_little_progress": "c6c58e4112f7672c496946535af0d0c31ddd9725721bcb5efd98102aaf91c76f",
+        "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+        "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+      },
+      "after": {
+        "qa_rewards_20261024_amari_earned_sticker_ids_v1": "d58008ca52a29cb2bdff671f2de394f81ab4a0add54df8fa90715d86b4240007",
+        "qa_rewards_20261024_amari_games_played": "7b450ccf5e0c4de5ad95a5df92ddac6a751416cb18ecd35a8d1471c6ba763219",
+        "qa_rewards_20261024_amari_little_progress": "52ecd257df419f8fe5214fa855885d072b5ec903895a90696cad9097b71278ab",
+        "qa_rewards_20261024_amari_points": "204bbed5f49d68bc68331818c6d65460805541da2a046c9066d2995b90fabd3d",
+        "qa_rewards_20261024_amari_rewards_v2": "ef3cbdac48f9d7bf9dbb5f7ddfc523c461c7a1d458d38bba0a8b00fc8fe2fc0e",
+        "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+        "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+        "qa_rewards_20261024_askia_little_progress": "c6c58e4112f7672c496946535af0d0c31ddd9725721bcb5efd98102aaf91c76f",
+        "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+        "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+      }
+    }
+  },
+  "stage": "native",
+  "cliReturnCode": 0
+}

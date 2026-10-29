@@ -1,0 +1,662 @@
+{
+  "passed": true,
+  "entry": "/assets/arcade-CBhPJHWN.js",
+  "board": {
+    "x": 220,
+    "y": 189.59375,
+    "width": 560,
+    "height": 560,
+    "right": 780,
+    "bottom": 749.59375
+  },
+  "gridRows": "70px 70px 70px 70px 70px 70px 70px 70px",
+  "gridColumns": "70px 70px 70px 70px 70px 70px 70px 70px",
+  "cells": [
+    {
+      "square": "a8, Black rook",
+      "x": 220,
+      "y": 189.59375,
+      "width": 70,
+      "height": 70,
+      "right": 290,
+      "bottom": 259.59375,
+      "hit": true
+    },
+    {
+      "square": "b8, Black knight",
+      "x": 290,
+      "y": 189.59375,
+      "width": 70,
+      "height": 70,
+      "right": 360,
+      "bottom": 259.59375,
+      "hit": true
+    },
+    {
+      "square": "c8, Black bishop",
+      "x": 360,
+      "y": 189.59375,
+      "width": 70,
+      "height": 70,
+      "right": 430,
+      "bottom": 259.59375,
+      "hit": true
+    },
+    {
+      "square": "d8, Black queen",
+      "x": 430,
+      "y": 189.59375,
+      "width": 70,
+      "height": 70,
+      "right": 500,
+      "bottom": 259.59375,
+      "hit": true
+    },
+    {
+      "square": "e8, Black king",
+      "x": 500,
+      "y": 189.59375,
+      "width": 70,
+      "height": 70,
+      "right": 570,
+      "bottom": 259.59375,
+      "hit": true
+    },
+    {
+      "square": "f8, Black bishop",
+      "x": 570,
+      "y": 189.59375,
+      "width": 70,
+      "height": 70,
+      "right": 640,
+      "bottom": 259.59375,
+      "hit": true
+    },
+    {
+      "square": "g8, Black knight",
+      "x": 640,
+      "y": 189.59375,
+      "width": 70,
+      "height": 70,
+      "right": 710,
+      "bottom": 259.59375,
+      "hit": true
+    },
+    {
+      "square": "h8, Black rook",
+      "x": 710,
+      "y": 189.59375,
+      "width": 70,
+      "height": 70,
+      "right": 780,
+      "bottom": 259.59375,
+      "hit": true
+    },
+    {
+      "square": "a7, Black pawn",
+      "x": 220,
+      "y": 259.59375,
+      "width": 70,
+      "height": 70,
+      "right": 290,
+      "bottom": 329.59375,
+      "hit": true
+    },
+    {
+      "square": "b7, Black pawn",
+      "x": 290,
+      "y": 259.59375,
+      "width": 70,
+      "height": 70,
+      "right": 360,
+      "bottom": 329.59375,
+      "hit": true
+    },
+    {
+      "square": "c7, Black pawn",
+      "x": 360,
+      "y": 259.59375,
+      "width": 70,
+      "height": 70,
+      "right": 430,
+      "bottom": 329.59375,
+      "hit": true
+    },
+    {
+      "square": "d7, Black pawn",
+      "x": 430,
+      "y": 259.59375,
+      "width": 70,
+      "height": 70,
+      "right": 500,
+      "bottom": 329.59375,
+      "hit": true
+    },
+    {
+      "square": "e7, Black pawn",
+      "x": 500,
+      "y": 259.59375,
+      "width": 70,
+      "height": 70,
+      "right": 570,
+      "bottom": 329.59375,
+      "hit": true
+    },
+    {
+      "square": "f7, Black pawn",
+      "x": 570,
+      "y": 259.59375,
+      "width": 70,
+      "height": 70,
+      "right": 640,
+      "bottom": 329.59375,
+      "hit": true
+    },
+    {
+      "square": "g7, Black pawn",
+      "x": 640,
+      "y": 259.59375,
+      "width": 70,
+      "height": 70,
+      "right": 710,
+      "bottom": 329.59375,
+      "hit": true
+    },
+    {
+      "square": "h7, Black pawn",
+      "x": 710,
+      "y": 259.59375,
+      "width": 70,
+      "height": 70,
+      "right": 780,
+      "bottom": 329.59375,
+      "hit": true
+    },
+    {
+      "square": "a6, empty square",
+      "x": 220,
+      "y": 329.59375,
+      "width": 70,
+      "height": 70,
+      "right": 290,
+      "bottom": 399.59375,
+      "hit": true
+    },
+    {
+      "square": "b6, empty square",
+      "x": 290,
+      "y": 329.59375,
+      "width": 70,
+      "height": 70,
+      "right": 360,
+      "bottom": 399.59375,
+      "hit": true
+    },
+    {
+      "square": "c6, empty square",
+      "x": 360,
+      "y": 329.59375,
+      "width": 70,
+      "height": 70,
+      "right": 430,
+      "bottom": 399.59375,
+      "hit": true
+    },
+    {
+      "square": "d6, empty square",
+      "x": 430,
+      "y": 329.59375,
+      "width": 70,
+      "height": 70,
+      "right": 500,
+      "bottom": 399.59375,
+      "hit": true
+    },
+    {
+      "square": "e6, empty square",
+      "x": 500,
+      "y": 329.59375,
+      "width": 70,
+      "height": 70,
+      "right": 570,
+      "bottom": 399.59375,
+      "hit": true
+    },
+    {
+      "square": "f6, empty square",
+      "x": 570,
+      "y": 329.59375,
+      "width": 70,
+      "height": 70,
+      "right": 640,
+      "bottom": 399.59375,
+      "hit": true
+    },
+    {
+      "square": "g6, empty square",
+      "x": 640,
+      "y": 329.59375,
+      "width": 70,
+      "height": 70,
+      "right": 710,
+      "bottom": 399.59375,
+      "hit": true
+    },
+    {
+      "square": "h6, empty square",
+      "x": 710,
+      "y": 329.59375,
+      "width": 70,
+      "height": 70,
+      "right": 780,
+      "bottom": 399.59375,
+      "hit": true
+    },
+    {
+      "square": "a5, empty square",
+      "x": 220,
+      "y": 399.59375,
+      "width": 70,
+      "height": 70,
+      "right": 290,
+      "bottom": 469.59375,
+      "hit": true
+    },
+    {
+      "square": "b5, empty square",
+      "x": 290,
+      "y": 399.59375,
+      "width": 70,
+      "height": 70,
+      "right": 360,
+      "bottom": 469.59375,
+      "hit": true
+    },
+    {
+      "square": "c5, empty square",
+      "x": 360,
+      "y": 399.59375,
+      "width": 70,
+      "height": 70,
+      "right": 430,
+      "bottom": 469.59375,
+      "hit": true
+    },
+    {
+      "square": "d5, empty square",
+      "x": 430,
+      "y": 399.59375,
+      "width": 70,
+      "height": 70,
+      "right": 500,
+      "bottom": 469.59375,
+      "hit": true
+    },
+    {
+      "square": "e5, empty square",
+      "x": 500,
+      "y": 399.59375,
+      "width": 70,
+      "height": 70,
+      "right": 570,
+      "bottom": 469.59375,
+      "hit": true
+    },
+    {
+      "square": "f5, empty square",
+      "x": 570,
+      "y": 399.59375,
+      "width": 70,
+      "height": 70,
+      "right": 640,
+      "bottom": 469.59375,
+      "hit": true
+    },
+    {
+      "square": "g5, empty square",
+      "x": 640,
+      "y": 399.59375,
+      "width": 70,
+      "height": 70,
+      "right": 710,
+      "bottom": 469.59375,
+      "hit": true
+    },
+    {
+      "square": "h5, empty square",
+      "x": 710,
+      "y": 399.59375,
+      "width": 70,
+      "height": 70,
+      "right": 780,
+      "bottom": 469.59375,
+      "hit": true
+    },
+    {
+      "square": "a4, empty square",
+      "x": 220,
+      "y": 469.59375,
+      "width": 70,
+      "height": 70,
+      "right": 290,
+      "bottom": 539.59375,
+      "hit": true
+    },
+    {
+      "square": "b4, empty square",
+      "x": 290,
+      "y": 469.59375,
+      "width": 70,
+      "height": 70,
+      "right": 360,
+      "bottom": 539.59375,
+      "hit": true
+    },
+    {
+      "square": "c4, empty square",
+      "x": 360,
+      "y": 469.59375,
+      "width": 70,
+      "height": 70,
+      "right": 430,
+      "bottom": 539.59375,
+      "hit": true
+    },
+    {
+      "square": "d4, empty square",
+      "x": 430,
+      "y": 469.59375,
+      "width": 70,
+      "height": 70,
+      "right": 500,
+      "bottom": 539.59375,
+      "hit": true
+    },
+    {
+      "square": "e4, empty square",
+      "x": 500,
+      "y": 469.59375,
+      "width": 70,
+      "height": 70,
+      "right": 570,
+      "bottom": 539.59375,
+      "hit": true
+    },
+    {
+      "square": "f4, empty square",
+      "x": 570,
+      "y": 469.59375,
+      "width": 70,
+      "height": 70,
+      "right": 640,
+      "bottom": 539.59375,
+      "hit": true
+    },
+    {
+      "square": "g4, empty square",
+      "x": 640,
+      "y": 469.59375,
+      "width": 70,
+      "height": 70,
+      "right": 710,
+      "bottom": 539.59375,
+      "hit": true
+    },
+    {
+      "square": "h4, empty square",
+      "x": 710,
+      "y": 469.59375,
+      "width": 70,
+      "height": 70,
+      "right": 780,
+      "bottom": 539.59375,
+      "hit": true
+    },
+    {
+      "square": "a3, empty square",
+      "x": 220,
+      "y": 539.59375,
+      "width": 70,
+      "height": 70,
+      "right": 290,
+      "bottom": 609.59375,
+      "hit": true
+    },
+    {
+      "square": "b3, empty square",
+      "x": 290,
+      "y": 539.59375,
+      "width": 70,
+      "height": 70,
+      "right": 360,
+      "bottom": 609.59375,
+      "hit": true
+    },
+    {
+      "square": "c3, empty square",
+      "x": 360,
+      "y": 539.59375,
+      "width": 70,
+      "height": 70,
+      "right": 430,
+      "bottom": 609.59375,
+      "hit": true
+    },
+    {
+      "square": "d3, empty square",
+      "x": 430,
+      "y": 539.59375,
+      "width": 70,
+      "height": 70,
+      "right": 500,
+      "bottom": 609.59375,
+      "hit": true
+    },
+    {
+      "square": "e3, empty square",
+      "x": 500,
+      "y": 539.59375,
+      "width": 70,
+      "height": 70,
+      "right": 570,
+      "bottom": 609.59375,
+      "hit": true
+    },
+    {
+      "square": "f3, empty square",
+      "x": 570,
+      "y": 539.59375,
+      "width": 70,
+      "height": 70,
+      "right": 640,
+      "bottom": 609.59375,
+      "hit": true
+    },
+    {
+      "square": "g3, empty square",
+      "x": 640,
+      "y": 539.59375,
+      "width": 70,
+      "height": 70,
+      "right": 710,
+      "bottom": 609.59375,
+      "hit": true
+    },
+    {
+      "square": "h3, empty square",
+      "x": 710,
+      "y": 539.59375,
+      "width": 70,
+      "height": 70,
+      "right": 780,
+      "bottom": 609.59375,
+      "hit": true
+    },
+    {
+      "square": "a2, White pawn",
+      "x": 220,
+      "y": 609.59375,
+      "width": 70,
+      "height": 70,
+      "right": 290,
+      "bottom": 679.59375,
+      "hit": true
+    },
+    {
+      "square": "b2, White pawn",
+      "x": 290,
+      "y": 609.59375,
+      "width": 70,
+      "height": 70,
+      "right": 360,
+      "bottom": 679.59375,
+      "hit": true
+    },
+    {
+      "square": "c2, White pawn",
+      "x": 360,
+      "y": 609.59375,
+      "width": 70,
+      "height": 70,
+      "right": 430,
+      "bottom": 679.59375,
+      "hit": true
+    },
+    {
+      "square": "d2, White pawn",
+      "x": 430,
+      "y": 609.59375,
+      "width": 70,
+      "height": 70,
+      "right": 500,
+      "bottom": 679.59375,
+      "hit": true
+    },
+    {
+      "square": "e2, White pawn",
+      "x": 500,
+      "y": 609.59375,
+      "width": 70,
+      "height": 70,
+      "right": 570,
+      "bottom": 679.59375,
+      "hit": true
+    },
+    {
+      "square": "f2, White pawn",
+      "x": 570,
+      "y": 609.59375,
+      "width": 70,
+      "height": 70,
+      "right": 640,
+      "bottom": 679.59375,
+      "hit": true
+    },
+    {
+      "square": "g2, White pawn",
+      "x": 640,
+      "y": 609.59375,
+      "width": 70,
+      "height": 70,
+      "right": 710,
+      "bottom": 679.59375,
+      "hit": true
+    },
+    {
+      "square": "h2, White pawn",
+      "x": 710,
+      "y": 609.59375,
+      "width": 70,
+      "height": 70,
+      "right": 780,
+      "bottom": 679.59375,
+      "hit": true
+    },
+    {
+      "square": "a1, White rook",
+      "x": 220,
+      "y": 679.59375,
+      "width": 70,
+      "height": 70,
+      "right": 290,
+      "bottom": 749.59375,
+      "hit": true
+    },
+    {
+      "square": "b1, White knight",
+      "x": 290,
+      "y": 679.59375,
+      "width": 70,
+      "height": 70,
+      "right": 360,
+      "bottom": 749.59375,
+      "hit": true
+    },
+    {
+      "square": "c1, White bishop",
+      "x": 360,
+      "y": 679.59375,
+      "width": 70,
+      "height": 70,
+      "right": 430,
+      "bottom": 749.59375,
+      "hit": true
+    },
+    {
+      "square": "d1, White queen",
+      "x": 430,
+      "y": 679.59375,
+      "width": 70,
+      "height": 70,
+      "right": 500,
+      "bottom": 749.59375,
+      "hit": true
+    },
+    {
+      "square": "e1, White king",
+      "x": 500,
+      "y": 679.59375,
+      "width": 70,
+      "height": 70,
+      "right": 570,
+      "bottom": 749.59375,
+      "hit": true
+    },
+    {
+      "square": "f1, White bishop",
+      "x": 570,
+      "y": 679.59375,
+      "width": 70,
+      "height": 70,
+      "right": 640,
+      "bottom": 749.59375,
+      "hit": true
+    },
+    {
+      "square": "g1, White knight",
+      "x": 640,
+      "y": 679.59375,
+      "width": 70,
+      "height": 70,
+      "right": 710,
+      "bottom": 749.59375,
+      "hit": true
+    },
+    {
+      "square": "h1, White rook",
+      "x": 710,
+      "y": 679.59375,
+      "width": 70,
+      "height": 70,
+      "right": 780,
+      "bottom": 749.59375,
+      "hit": true
+    }
+  ],
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "scrollY": 0,
+  "invalid": []
+}

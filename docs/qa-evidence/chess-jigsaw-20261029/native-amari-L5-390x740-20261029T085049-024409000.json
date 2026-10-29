@@ -1,0 +1,28 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "level": 5,
+  "width": 390,
+  "height": 740,
+  "entry": "/assets/arcade-Bj2sEAsW.js",
+  "rows": [],
+  "provider": [],
+  "failed": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "faultFacts": {
+    "status": "not-requested"
+  },
+  "replayFacts": {
+    "status": "not-requested"
+  },
+  "errors": [
+    {
+      "message": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.catalogue-game-card').filter({ hasText: 'Dino Jigsaw' }) to be visible\u001b[22m\n",
+      "stack": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.catalogue-game-card').filter({ hasText: 'Dino Jigsaw' }) to be visible\u001b[22m\n\n    at openGame (evalmachine.<anonymous>:163:610)\n    at async evalmachine.<anonymous>:164:44\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13"
+    }
+  ],
+  "stage": "native",
+  "cliReturnCode": 0
+}

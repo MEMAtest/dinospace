@@ -1,0 +1,239 @@
+{
+  "passed": true,
+  "before": {
+    "start": [
+      {
+        "label": "Play Dino Jigsaw",
+        "x": 147,
+        "y": 521,
+        "width": 96,
+        "height": 96,
+        "right": 243,
+        "bottom": 617,
+        "hit": true
+      }
+    ],
+    "scrollY": 0
+  },
+  "boxes": [
+    {
+      "label": "Build the Pterodactyl.\nRound 1/4 \u00b7 8 pieces\nChoose a piece, then its matching space.",
+      "x": 59,
+      "y": 125,
+      "width": 272,
+      "height": 84.734375,
+      "right": 331,
+      "bottom": 209.734375,
+      "hit": true
+    },
+    {
+      "label": "Show picture clue",
+      "x": 183.328125,
+      "y": 213.734375,
+      "width": 147.671875,
+      "height": 44,
+      "right": 331,
+      "bottom": 257.734375,
+      "hit": true
+    },
+    {
+      "label": "",
+      "x": 59,
+      "y": 261.734375,
+      "width": 272,
+      "height": 204,
+      "right": 331,
+      "bottom": 465.734375,
+      "hit": true
+    },
+    {
+      "label": "Empty picture space, row 1, column 1",
+      "x": 66,
+      "y": 268.734375,
+      "width": 64.5,
+      "height": 95,
+      "right": 130.5,
+      "bottom": 363.734375,
+      "hit": true
+    },
+    {
+      "label": "Empty picture space, row 1, column 2",
+      "x": 130.5,
+      "y": 268.734375,
+      "width": 64.5,
+      "height": 95,
+      "right": 195,
+      "bottom": 363.734375,
+      "hit": true
+    },
+    {
+      "label": "Empty picture space, row 1, column 3",
+      "x": 195,
+      "y": 268.734375,
+      "width": 64.5,
+      "height": 95,
+      "right": 259.5,
+      "bottom": 363.734375,
+      "hit": true
+    },
+    {
+      "label": "Empty picture space, row 1, column 4",
+      "x": 259.5,
+      "y": 268.734375,
+      "width": 64.5,
+      "height": 95,
+      "right": 324,
+      "bottom": 363.734375,
+      "hit": true
+    },
+    {
+      "label": "Empty picture space, row 2, column 1",
+      "x": 66,
+      "y": 363.734375,
+      "width": 64.5,
+      "height": 95,
+      "right": 130.5,
+      "bottom": 458.734375,
+      "hit": true
+    },
+    {
+      "label": "Empty picture space, row 2, column 2",
+      "x": 130.5,
+      "y": 363.734375,
+      "width": 64.5,
+      "height": 95,
+      "right": 195,
+      "bottom": 458.734375,
+      "hit": true
+    },
+    {
+      "label": "Empty picture space, row 2, column 3",
+      "x": 195,
+      "y": 363.734375,
+      "width": 64.5,
+      "height": 95,
+      "right": 259.5,
+      "bottom": 458.734375,
+      "hit": true
+    },
+    {
+      "label": "Empty picture space, row 2, column 4",
+      "x": 259.5,
+      "y": 363.734375,
+      "width": 64.5,
+      "height": 95,
+      "right": 324,
+      "bottom": 458.734375,
+      "hit": true
+    },
+    {
+      "label": "8 picture pieces; 8 left",
+      "x": 59,
+      "y": 469.734375,
+      "width": 272,
+      "height": 202.5,
+      "right": 331,
+      "bottom": 672.234375,
+      "hit": true
+    },
+    {
+      "label": "Loose picture piece 1 of 8 in tray",
+      "x": 71,
+      "y": 481.734375,
+      "width": 57.5,
+      "height": 86.25,
+      "right": 128.5,
+      "bottom": 567.984375,
+      "hit": true
+    },
+    {
+      "label": "Loose picture piece 2 of 8 in tray",
+      "x": 134.5,
+      "y": 481.734375,
+      "width": 57.5,
+      "height": 86.25,
+      "right": 192,
+      "bottom": 567.984375,
+      "hit": true
+    },
+    {
+      "label": "Loose picture piece 3 of 8 in tray",
+      "x": 198,
+      "y": 481.734375,
+      "width": 57.5,
+      "height": 86.25,
+      "right": 255.5,
+      "bottom": 567.984375,
+      "hit": true
+    },
+    {
+      "label": "Loose picture piece 4 of 8 in tray",
+      "x": 261.5,
+      "y": 481.734375,
+      "width": 57.5,
+      "height": 86.25,
+      "right": 319,
+      "bottom": 567.984375,
+      "hit": true
+    },
+    {
+      "label": "Loose picture piece 5 of 8 in tray",
+      "x": 71,
+      "y": 573.984375,
+      "width": 57.5,
+      "height": 86.25,
+      "right": 128.5,
+      "bottom": 660.234375,
+      "hit": true
+    },
+    {
+      "label": "Loose picture piece 6 of 8 in tray",
+      "x": 134.5,
+      "y": 573.984375,
+      "width": 57.5,
+      "height": 86.25,
+      "right": 192,
+      "bottom": 660.234375,
+      "hit": true
+    },
+    {
+      "label": "Loose picture piece 7 of 8 in tray",
+      "x": 198,
+      "y": 573.984375,
+      "width": 57.5,
+      "height": 86.25,
+      "right": 255.5,
+      "bottom": 660.234375,
+      "hit": true
+    },
+    {
+      "label": "Loose picture piece 8 of 8 in tray",
+      "x": 261.5,
+      "y": 573.984375,
+      "width": 57.5,
+      "height": 86.25,
+      "right": 319,
+      "bottom": 660.234375,
+      "hit": true
+    },
+    {
+      "label": "Choose a picture piece to begin.",
+      "x": 15,
+      "y": 676.234375,
+      "width": 360,
+      "height": 48,
+      "right": 375,
+      "bottom": 724.234375,
+      "hit": true
+    }
+  ],
+  "outside": [],
+  "documentState": {
+    "width": 390,
+    "height": 740,
+    "scrollWidth": 390,
+    "scrollHeight": 743,
+    "scrollY": 0
+  },
+  "entry": "/assets/arcade-D1yGJZpr.js"
+}

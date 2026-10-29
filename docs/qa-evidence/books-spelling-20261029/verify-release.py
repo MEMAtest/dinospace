@@ -217,9 +217,9 @@ def core_stage(args, origin: str, backend: str) -> dict:
     asset_rows = parallel_map(assets, verify_asset)
     require_rows(asset_rows, "assets", {"htmlSha256": html_digest, "html": html_rows, "assets": asset_rows})
     local_worker = worker.read_bytes()
-    marker = b"amari-discovery-v44"
+    marker = f"amari-discovery-v{args.worker_version}".encode()
     if marker not in local_worker:
-        raise RuntimeError("Local service worker does not contain expected v44 cache marker")
+        raise RuntimeError(f"Local service worker does not contain expected v{args.worker_version} cache marker")
     worker_digest = sha256(local_worker)
     worker_rows = {}
     for label, base in (("origin", origin), ("backend", backend)):
@@ -228,19 +228,19 @@ def core_stage(args, origin: str, backend: str) -> dict:
         except Exception as error:
             worker_rows[label] = {"error": str(error)}
     partial = {"htmlSha256": html_digest, "html": html_rows, "assets": asset_rows,
-               "worker": {"version": 44, "sha256": worker_digest, **worker_rows}}
+               "worker": {"version": args.worker_version, "sha256": worker_digest, **worker_rows}}
     if any(row.get("error") for row in worker_rows.values()):
         raise StageFailure("Service worker check failed", partial)
     try:
         alias_rows = verify_old_alias(args.old_alias, origin)
     except StageFailure as error:
         error.partial = {"htmlSha256": html_digest, "html": html_rows, "assets": asset_rows,
-                         "worker": {"version": 44, "sha256": worker_digest, **worker_rows}, **error.partial}
+                         "worker": {"version": args.worker_version, "sha256": worker_digest, **worker_rows}, **error.partial}
         raise
     return {
         "stage": "core", "runtimeSha": actual_sha, "origin": origin, "backend": backend,
         "html": {"sha256": html_digest, "origin": "200 text/html exact bytes", "backend": "200 text/html exact bytes"},
-        "assets": asset_rows, "worker": {"version": 44, "sha256": worker_digest, "origin": worker_rows["origin"], "backend": worker_rows["backend"]},
+        "assets": asset_rows, "worker": {"version": args.worker_version, "sha256": worker_digest, "origin": worker_rows["origin"], "backend": worker_rows["backend"]},
         "oldAlias": alias_rows,
     }
 
@@ -329,8 +329,11 @@ def main() -> int:
     parser.add_argument("--output", required=True, help="Unique small JSON output path")
     parser.add_argument("--stage", required=True, choices=("core", "art", "media"))
     parser.add_argument("--old-alias", default=DEFAULT_OLD_ALIAS, help="Legacy public Vercel alias to check without following redirects")
+    parser.add_argument("--worker-version", type=int, default=44, help="Expected service worker cache version; defaults to the historical Pair8 v44")
     parser.add_argument("--dist", default=str(DEFAULT_DIST), help="Existing local dist directory")
     args = parser.parse_args()
+    if Path(args.output).exists():
+        parser.error("Refusing to replace prior release evidence")
 
     origin = clean_origin(args.origin)
     backend = clean_origin(args.backend)

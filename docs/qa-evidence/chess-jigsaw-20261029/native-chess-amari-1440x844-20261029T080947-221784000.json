@@ -1,0 +1,154 @@
+{
+  "passed": false,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "viewport": "1440x844",
+  "entryIdentity": "/assets/arcade-D0cbmbqu.js",
+  "namespace": true,
+  "completedOpeningCases": [],
+  "openingCaseCount": 0,
+  "rows": [
+    {
+      "kind": "control-geometry",
+      "label": "Age 6+\nAmari\nBig explorer missions",
+      "rect": {
+        "x": 272,
+        "y": 267.9375,
+        "right": 710,
+        "bottom": 810.9375,
+        "width": 438,
+        "height": 543
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "normal-player-selection",
+      "player": "amari",
+      "ageLabel": "Age 6+"
+    },
+    {
+      "kind": "baseline",
+      "entryIdentity": "/assets/arcade-D0cbmbqu.js",
+      "viewport": "1440x844",
+      "chessRecordPresent": true,
+      "rewardedDifficulties": [
+        "beginner"
+      ],
+      "priorReceiptCount": 1,
+      "rewardPoints": 329,
+      "existingChessClaims": 31,
+      "protectedOtherGameCounts": {
+        "astronaut": 3,
+        "codecadets": 3,
+        "colormix": 18,
+        "dino": 12,
+        "firerescue": 3,
+        "fuelup": 3,
+        "hangman": 5,
+        "ladder": 3,
+        "memory": 10,
+        "oddoneout": 3,
+        "pattern": 3,
+        "phonics": 3,
+        "rocketbuilder": 3,
+        "solar": 18,
+        "storybooks": 7,
+        "tictactoe": 12,
+        "trace": 21,
+        "words": 6,
+        "writingdesk": 3
+      },
+      "protectedOtherGameClaims": {
+        "dino:2b17d237-c205-4da8-be4c-e1002930beb9": 2,
+        "dino:37ef2047-c60f-4f90-82b2-3c0009d36840": 2,
+        "dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69": 2,
+        "dino:55d8ed8c-26f4-4401-96b0-7722f01116d7": 2,
+        "dino:65ff0aec-a712-4326-8d70-9427a12494e8": 2,
+        "dino:66425a33-97b7-4e9c-a72a-9077585472ae": 2,
+        "dino:67b3915e-0907-45a7-b377-5b0a7deaf32c": 2,
+        "dino:7d50c719-10cc-476a-b186-5352199b1640": 2,
+        "dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002": 2,
+        "dino:9abfd8f2-20df-431a-bc29-60c4f224eb74": 2,
+        "dino:e3ee4326-ecf0-4a23-8978-edea989a9a66": 2,
+        "dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e": 2,
+        "hangman:first-words-263186679": 2,
+        "hangman:first-words-4170493800": 4,
+        "hangman:five-letter-rescue-778843497": 6,
+        "hangman:four-letter-rescue-479170815": 6,
+        "hangman:long-word-rescue-2118663940": 6,
+        "storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3": 1,
+        "storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e": 1,
+        "storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c": 1,
+        "storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640": 1,
+        "storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b": 1,
+        "storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9": 1,
+        "storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709": 1,
+        "words:14fc64e4-9840-4127-9cef-24bd71250557": 6,
+        "words:1b7f23d6-222f-47a7-accf-0e1ef0938b0e": 6,
+        "words:2a03774e-87a3-469a-b620-67111c25775a": 6,
+        "words:6692a9a7-b18b-4086-9dcf-bc853d253675": 6,
+        "words:9e438403-ca0e-49d4-928c-ccf5d19d5424": 6,
+        "words:b73674ad-596f-48ea-9415-0f387fc5fb7e": 6
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Thinking & Play\n8 games\n\u2192",
+      "rect": {
+        "x": 1116.796875,
+        "y": 426,
+        "right": 1359.984375,
+        "bottom": 684,
+        "width": 243.1875,
+        "height": 258
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "\u2713 Played 4\nQUICK THINK\nChess Explorers\n\nPlay against the computer",
+      "rect": {
+        "x": 404,
+        "y": 516,
+        "right": 712,
+        "bottom": 846,
+        "width": 308,
+        "height": 330
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    }
+  ],
+  "failures": [
+    {
+      "message": "Chess Explorers catalogue card is undersized, offscreen or center-covered: {\"label\":\"\u2713 Played 4\\nQUICK THINK\\nChess Explorers\\n\\nPlay against the computer\",\"rect\":{\"x\":404,\"y\":516,\"right\":712,\"bottom\":846,\"width\":308,\"height\":330},\"viewport\":{\"width\":1440,\"height\":844},\"centerHit\":true}",
+      "stack": "Error: Chess Explorers catalogue card is undersized, offscreen or center-covered: {\"label\":\"\u2713 Played 4\\nQUICK THINK\\nChess Explorers\\n\\nPlay against the computer\",\"rect\":{\"x\":404,\"y\":516,\"right\":712,\"bottom\":846,\"width\":308,\"height\":330},\"viewport\":{\"width\":1440,\"height\":844},\"centerHit\":true}\n    at measure (evalmachine.<anonymous>:86:13)\n    at async clickMeasured (evalmachine.<anonymous>:196:84)\n    at async enterChessMenu (evalmachine.<anonymous>:278:5)\n    at async evalmachine.<anonymous>:483:5\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)"
+    }
+  ],
+  "screenshotPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/chess-jigsaw-20261029/failure-chess-native-1440x844-1793261388915.jpg",
+  "coverageLimitations": [],
+  "providerAttempts": [],
+  "responseFailures": [],
+  "requestFailures": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "cliReturnCode": 0,
+  "legalHistoryValidation": {
+    "passed": true,
+    "openingsChecked": 0,
+    "scholarMateChecked": false,
+    "errors": []
+  }
+}

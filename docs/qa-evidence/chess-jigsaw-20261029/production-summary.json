@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "at": "2026-10-29T09:17:33.399389+00:00",
+  "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
+  "entry": "/assets/arcade-Bj2sEAsW.js",
+  "worker": "amari-discovery-v45",
+  "publicUrl": "https://dinospace.netlify.app",
+  "backendDeployment": "dpl_2jebyooi9u6LzHmC3KCsv9W1D2CB",
+  "netlifyGatewayDeploy": "6ae30bd15236dd6d24d144c7",
+  "scope": "Targeted full Chess/Jigsaw functional acceptance. No whole-catalogue editorial score, human audio quality score, physical-device certification or personal-book recovery.",
+  "native": {
+    "path": "native-summary.json",
+    "sha256": "9bc2b076fd934b381337f598154d8e098c8b3bf98b285f1c4cffa55236cdd9cb"
+  },
+  "canonical": {
+    "path": "production-matrix-summary.json",
+    "sha256": "26a3e382dbd484c66bfd20834f5a317f501bc8caa9f3950820c699983fe3168f"
+  },
+  "core": {
+    "path": "production-http.json",
+    "sha256": "befa39e8727fe9b69a19740e4075940c19a0ea82fb4059c34d89d24d679f4ab5"
+  },
+  "art": {
+    "path": "production-art.json",
+    "sha256": "6fe463a4b52e2904c6276e6c07e5370154dab3df2437b0e9396cd339db26b5e3"
+  },
+  "newAssets": {
+    "path": "production-pair-assets.json",
+    "sha256": "5420eb2397d3eec9df3ce2813861d3782097cee27add831d366d8c58216d25d7"
+  },
+  "identity": {
+    "path": "immutable-identity.json",
+    "sha256": "14db63c6dcddabee4ffe23224b7f7660a56934b2b555071bb23311eccd9d404c"
+  },
+  "gateway": {
+    "path": "production-gateway-identity.json",
+    "sha256": "9ffcbecc0bcd53c4e795c02f7d4b37d6382031898cd2a7d1cb6ceb2bf063c754"
+  },
+  "cutover": {
+    "path": "cutover-retention.json",
+    "sha256": "1829bf353dea4bae367a38f52337d1367e60af0b505f946f2fa6b225d7c88353"
+  },
+  "renders": {
+    "path": "render-manifest.json",
+    "sha256": "8dd19496ec720fa1476ae9eb03f6d7e93acdc560920dc6afac39789110002f8f"
+  },
+  "tests": {
+    "passed": 613,
+    "failed": 0,
+    "skipped": 0
+  },
+  "chess": {
+    "viewports": [
+      390,
+      1440
+    ],
+    "openingCasesPerViewport": 6,
+    "fullNaturalCheckmateAndZeroFarmReplay": true,
+    "savedSideResumeMismatchChecked": true,
+    "naturalPositiveParentRetry": true,
+    "rareRules": "Independent rules-engine fixtures, not all naturally played UI paths."
+  },
+  "jigsaw": {
+    "cases": 16,
+    "puzzles": 64,
+    "players": [
+      "askia",
+      "amari"
+    ],
+    "pieceProgression": [
+      2,
+      4,
+      8,
+      12
+    ],
+    "allFourFaultModes": "Progress write/readback and parent write/readback through real held Retry, naturally eligible; canonical proof.",
+    "touch": "One CDP-emulated cancel/place sample; not physical-device proof.",
+    "reloadReplay": "Normal parent controls and reload followed by same-level replay; zero reward delta."
+  },
+  "newPaidGenerationCalls": 0,
+  "personalBooksRecovered": 0
+}

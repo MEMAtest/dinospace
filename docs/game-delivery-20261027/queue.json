@@ -194,8 +194,17 @@
           "name": "Dino Jigsaw"
         }
       ],
-      "status": "queued",
-      "evidence": null
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/chess-jigsaw-20261029/README.md",
+      "auditBase": "1beac766",
+      "scope": "Targeted full Chess/Jigsaw functional acceptance. No whole-catalogue editorial score, human audio quality score, physical-device certification or personal-book recovery.",
+      "candidateRuntime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
+      "sourceGates": "docs/qa-evidence/chess-jigsaw-20261029/source-gates.json",
+      "openGate": null,
+      "candidateEntry": "/assets/arcade-Bj2sEAsW.js",
+      "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
+      "verifiedAt": "2026-10-29T09:17:33.399389+00:00",
+      "production": "docs/qa-evidence/chess-jigsaw-20261029/production-summary.json"
     },
     {
       "number": 10,

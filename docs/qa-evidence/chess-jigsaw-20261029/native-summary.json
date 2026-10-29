@@ -1,0 +1,521 @@
+{
+  "passed": true,
+  "scope": "Targeted functional pair acceptance; no catalogue quality score or historical personal recovery.",
+  "stage": "native",
+  "entry": "/assets/arcade-Bj2sEAsW.js",
+  "chessViewports": 2,
+  "jigsawCases": 16,
+  "jigsawPuzzles": 64,
+  "cases": [
+    {
+      "game": "chess",
+      "player": "amari",
+      "level": null,
+      "width": 390,
+      "report": "native-chess-amari-390x740-20261029T085845-904148000.json",
+      "sha256": "37f432a5b782313cfe43c6747048c89ebfb152713f93df925fb22d765e8a8c14",
+      "openings": 6,
+      "legalHistoryValidation": {
+        "passed": true,
+        "openingsChecked": 6,
+        "scholarMateChecked": true,
+        "errors": []
+      }
+    },
+    {
+      "game": "chess",
+      "player": "amari",
+      "level": null,
+      "width": 1440,
+      "report": "native-chess-amari-1440x844-20261029T085900-427976000.json",
+      "sha256": "48a2876e827eae34a7ca77d4e6a5672b6767d94d76a1434b98a40a97ba30782b",
+      "openings": 6,
+      "legalHistoryValidation": {
+        "passed": true,
+        "openingsChecked": 6,
+        "scholarMateChecked": true,
+        "errors": []
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "askia",
+      "level": 1,
+      "width": 390,
+      "report": "native-askia-L1-390x740-20261029T085402-153111000.json",
+      "sha256": "51b4f96545f0ebe8376cfffd1780917c7c5f78e8d244e0042153f03b9a962f8c",
+      "pieces": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "fault": {
+        "status": "retried",
+        "mode": "progress-write",
+        "phase": "progress-write",
+        "attemptedTransactionId": "65c81889-cc77-4a29-bb5c-2cc70e4dc66c",
+        "attemptedRewardToken": null,
+        "attemptedRewardPoints": 0,
+        "progressChangedBeforeRetry": false,
+        "rewardChangedBeforeRetry": false,
+        "sameTransaction": true,
+        "heldRetryControl": true,
+        "rewardPointsAfterRetry": 0
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "askia",
+      "level": 1,
+      "width": 1440,
+      "report": "native-askia-L1-1440x844-20261029T085424-735731000.json",
+      "sha256": "0a2fb93485a76bf034e9f1dcda13d33c762dacc8982141ba30587f74cee3d8da",
+      "pieces": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "askia",
+      "level": 2,
+      "width": 390,
+      "report": "native-askia-L2-390x740-20261029T085436-422153000.json",
+      "sha256": "d358bce6d3c7d3b640dfb0bf69a9ba50c173ad641c397333b483187b25d71f07",
+      "pieces": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "fault": {
+        "status": "retried",
+        "mode": "progress-readback",
+        "phase": "progress-readback",
+        "attemptedTransactionId": "14015a55-224d-4079-92f9-7114e6bc2240",
+        "attemptedRewardToken": null,
+        "attemptedRewardPoints": 0,
+        "progressChangedBeforeRetry": true,
+        "rewardChangedBeforeRetry": false,
+        "sameTransaction": true,
+        "heldRetryControl": true,
+        "rewardPointsAfterRetry": 0
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "askia",
+      "level": 2,
+      "width": 1440,
+      "report": "native-askia-L2-1440x844-20261029T085447-015489000.json",
+      "sha256": "f3ea0af0a1b691675cc0a9854e337d9d494fa38694f3f47701a736139df361f6",
+      "pieces": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "askia",
+      "level": 3,
+      "width": 390,
+      "report": "native-askia-L3-390x740-20261029T085502-283983000.json",
+      "sha256": "fa8638c49b1d1e4be8ce1711ba76f8c904eac490b04399eff3ebe9028a7b3d3a",
+      "pieces": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "askia",
+      "level": 3,
+      "width": 1440,
+      "report": "native-askia-L3-1440x844-20261029T085517-944167000.json",
+      "sha256": "baf267faf6bee2c238304fd7ecf7079cc95ef7be1994d8a266ff74cf62df9959",
+      "pieces": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "askia",
+      "level": 4,
+      "width": 390,
+      "report": "native-askia-L4-390x740-20261029T085541-480369000.json",
+      "sha256": "4829679ddfa947741f90203b290061c404499a9b397379b1b5e827a017606781",
+      "pieces": [
+        8,
+        8,
+        12,
+        12
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "askia",
+      "level": 4,
+      "width": 1440,
+      "report": "native-askia-L4-1440x844-20261029T085559-169243000.json",
+      "sha256": "3cedaec91cc6773125c3e6ed154392d703d70f6c1b0651dbc80d4625b983b00a",
+      "pieces": [
+        8,
+        8,
+        12,
+        12
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "askia",
+      "level": 5,
+      "width": 390,
+      "report": "native-askia-L5-390x740-20261029T085627-967710000.json",
+      "sha256": "47c0eeb083893a70eec24812480973aa9b3c8fd1c75163729334a4e739c9d5fe",
+      "pieces": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "askia",
+      "level": 5,
+      "width": 1440,
+      "report": "native-askia-L5-1440x844-20261029T085645-665915000.json",
+      "sha256": "58c703687b6d10378fecff75f7e8ec2106e027967071017d8591dfb5d2d54b3f",
+      "pieces": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "amari",
+      "level": 3,
+      "width": 390,
+      "report": "native-amari-L3-390x740-20261029T085252-131713000.json",
+      "sha256": "8bf35c9db3d7bc2fb46aa398222bdc6bac60ce28efe9c058340bad0f4c4ec36d",
+      "pieces": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "amari",
+      "level": 3,
+      "width": 1440,
+      "report": "native-amari-L3-1440x844-20261029T085306-991973000.json",
+      "sha256": "9023d5ce1cc588335d2701805d3dac51984900ccd0e81cb5a026f2fb0b0e0505",
+      "pieces": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "amari",
+      "level": 4,
+      "width": 390,
+      "report": "native-amari-L4-390x740-20261029T084854-952261000.json",
+      "sha256": "f4d69f6c270795d22ca68607158983283eda6049592b3de501027036f6f08a19",
+      "pieces": [
+        8,
+        8,
+        12,
+        12
+      ],
+      "fault": {
+        "status": "retried",
+        "mode": "reward-readback",
+        "phase": "reward-readback",
+        "attemptedTransactionId": "38a608b1-3b9b-4924-8ee5-9747cb8d0e32",
+        "attemptedRewardToken": "dino:jigsaw:little:38a608b1-3b9b-4924-8ee5-9747cb8d0e32",
+        "attemptedRewardPoints": 8,
+        "progressChangedBeforeRetry": true,
+        "rewardChangedBeforeRetry": true,
+        "sameTransaction": true,
+        "heldRetryControl": true,
+        "rewardPointsAfterRetry": 8
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 8,
+        "plays": 1,
+        "expectedPoints": 8
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "amari",
+      "level": 4,
+      "width": 1440,
+      "report": "native-amari-L4-1440x844-20261029T085332-010063000.json",
+      "sha256": "436aa23984fb4c2fd2e2eff55c3b746810c94c41a536371e3ece2f1331b61d0e",
+      "pieces": [
+        8,
+        8,
+        12,
+        12
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "amari",
+      "level": 5,
+      "width": 390,
+      "report": "native-amari-L5-390x740-20261029T085141-900970000.json",
+      "sha256": "506e150486cc0f01312f2b884391ad418b3ce3a5fa77c36f4f25b71828402a59",
+      "pieces": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "verified",
+        "returnedToParent": true,
+        "parentView": {
+          "url": "http://127.0.0.1:5180/?qa_pair9_jigsaw=amari-5-390-1793263902738#/world/creative",
+          "headings": [
+            "Creative Lab",
+            "Code Cadets",
+            "My Writing Desk",
+            "Rocket Builder",
+            "Dino Jigsaw",
+            "Sky Shapes",
+            "Colour Mixing Lab",
+            "Puzzle Pop"
+          ]
+        },
+        "reopenedAndReloaded": true,
+        "sameLevelAvailable": true,
+        "sameLevelReplayed": true,
+        "zeroRewardDelta": true,
+        "transactionId": "745f0da7-b066-4971-9fd8-5b693bd64181",
+        "commit": {
+          "plays": 8,
+          "playedLevel": 4,
+          "rewardPoints": 0
+        },
+        "hashes": {
+          "before": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "d58008ca52a29cb2bdff671f2de394f81ab4a0add54df8fa90715d86b4240007",
+            "qa_rewards_20261024_amari_games_played": "7b450ccf5e0c4de5ad95a5df92ddac6a751416cb18ecd35a8d1471c6ba763219",
+            "qa_rewards_20261024_amari_little_progress": "e5e4ff850bf528157c585702f99f44a41c4d203247356d9bf212ee692143f6d3",
+            "qa_rewards_20261024_amari_points": "204bbed5f49d68bc68331818c6d65460805541da2a046c9066d2995b90fabd3d",
+            "qa_rewards_20261024_amari_rewards_v2": "ef3cbdac48f9d7bf9dbb5f7ddfc523c461c7a1d458d38bba0a8b00fc8fe2fc0e",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+            "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+            "qa_rewards_20261024_askia_little_progress": "c6c58e4112f7672c496946535af0d0c31ddd9725721bcb5efd98102aaf91c76f",
+            "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+            "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+          },
+          "after": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "d58008ca52a29cb2bdff671f2de394f81ab4a0add54df8fa90715d86b4240007",
+            "qa_rewards_20261024_amari_games_played": "7b450ccf5e0c4de5ad95a5df92ddac6a751416cb18ecd35a8d1471c6ba763219",
+            "qa_rewards_20261024_amari_little_progress": "52ecd257df419f8fe5214fa855885d072b5ec903895a90696cad9097b71278ab",
+            "qa_rewards_20261024_amari_points": "204bbed5f49d68bc68331818c6d65460805541da2a046c9066d2995b90fabd3d",
+            "qa_rewards_20261024_amari_rewards_v2": "ef3cbdac48f9d7bf9dbb5f7ddfc523c461c7a1d458d38bba0a8b00fc8fe2fc0e",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+            "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+            "qa_rewards_20261024_askia_little_progress": "c6c58e4112f7672c496946535af0d0c31ddd9725721bcb5efd98102aaf91c76f",
+            "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+            "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+          }
+        }
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    },
+    {
+      "game": "dinojigsaw",
+      "player": "amari",
+      "level": 5,
+      "width": 1440,
+      "report": "native-amari-L5-1440x844-20261029T085219-963579000.json",
+      "sha256": "c9758e723c6c56ed9ad270d05c48bb06f81af85744f41a5a12df11ba5b9ae063",
+      "pieces": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "fault": {
+        "status": "not-requested"
+      },
+      "replay": {
+        "status": "not-requested"
+      },
+      "reward": {
+        "points": 0,
+        "plays": 0,
+        "expectedPoints": 0
+      }
+    }
+  ]
+}

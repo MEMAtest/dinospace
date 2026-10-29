@@ -1,0 +1,9 @@
+# Chess Explorers source audit
+
+**Baseline:** The current Chess Explorers component teaches simplified piece movement using 15 authored 6×6 puzzles across three chapters, a piece guide, and non-rewarded movement practice. Its movement adapter intentionally does not model a full alternating chess match. The existing lesson save/reward path is in `src/data/chessProgress.js`; the full game uses a separate per-child record so lesson history and rewards stay independent.
+
+**Missing from the product:** no selectable full 8×8 match against a computer, no turn ownership, no persisted full move history/resume, and no complete rules path for castling, en passant, promotion, check, mate or draw. Existing catalogue artwork illustrates Chess as a game tile; it does not provide board-piece sprites. The repository previously had no chess-rules dependency; root pinned `chess.js@1.4.0` for this feature.
+
+**Implementation decisions:** retain all existing lessons. Add a prominent full-game entry inside Chess Explorers. Adapt chess.js through a pure rules module, replay every saved move from the standard position and verify regenerated FEN/status. Keep computer search in a module worker with both node and wall-clock limits, plus a legal fallback. Save each single-ply advance against an exact expected snapshot; use explicit confirmed-start and undo intents so a stale writer cannot replace or rewind a newer match. Keep local completion and parent reward-token confirmation retryable under one stable match receipt. Do not add audio strings or provider calls; the board and turn guidance are written and visual.
+
+**Open acceptance gates:** focused source tests do not establish board fit, keyboard/touch interaction, worker responsiveness/cancellation, browser reload behavior, or parent reward persistence. Root owns compiled and canonical QA for those gates.

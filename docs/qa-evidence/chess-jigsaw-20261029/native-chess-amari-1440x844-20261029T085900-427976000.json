@@ -1,0 +1,2807 @@
+{
+  "passed": true,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "viewport": "1440x844",
+  "entryIdentity": "/assets/arcade-Bj2sEAsW.js",
+  "namespace": true,
+  "completedOpeningCases": [
+    {
+      "difficulty": "beginner",
+      "humanColor": "white",
+      "plies": 2,
+      "fen": "rnbqkbnr/1ppppppp/8/p7/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "history": [
+        {
+          "from": "e2",
+          "to": "e4"
+        },
+        {
+          "from": "a7",
+          "to": "a5"
+        }
+      ],
+      "visibleMoves": [
+        "1. e2\u2013e4",
+        "1\u2026 a7\u2013a5"
+      ]
+    },
+    {
+      "difficulty": "beginner",
+      "humanColor": "black",
+      "plies": 3,
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/8/P1N5/1PPPPPPP/R1BQKBNR b KQkq - 0 2",
+      "history": [
+        {
+          "from": "b1",
+          "to": "c3"
+        },
+        {
+          "from": "e7",
+          "to": "e5"
+        },
+        {
+          "from": "a2",
+          "to": "a3"
+        }
+      ],
+      "visibleMoves": [
+        "1. b1\u2013c3",
+        "1\u2026 e7\u2013e5",
+        "2. a2\u2013a3"
+      ]
+    },
+    {
+      "difficulty": "growing",
+      "humanColor": "white",
+      "plies": 2,
+      "fen": "rnbqkbnr/1ppppppp/8/p7/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "history": [
+        {
+          "from": "e2",
+          "to": "e4"
+        },
+        {
+          "from": "a7",
+          "to": "a5"
+        }
+      ],
+      "visibleMoves": [
+        "1. e2\u2013e4",
+        "1\u2026 a7\u2013a5"
+      ]
+    },
+    {
+      "difficulty": "growing",
+      "humanColor": "black",
+      "plies": 3,
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/P1P5/8/1P1PPPPP/RNBQKBNR b KQkq - 0 2",
+      "history": [
+        {
+          "from": "a2",
+          "to": "a4"
+        },
+        {
+          "from": "e7",
+          "to": "e5"
+        },
+        {
+          "from": "c2",
+          "to": "c4"
+        }
+      ],
+      "visibleMoves": [
+        "1. a2\u2013a4",
+        "1\u2026 e7\u2013e5",
+        "2. c2\u2013c4"
+      ]
+    },
+    {
+      "difficulty": "challenge",
+      "humanColor": "white",
+      "plies": 2,
+      "fen": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2",
+      "history": [
+        {
+          "from": "e2",
+          "to": "e4"
+        },
+        {
+          "from": "g8",
+          "to": "f6"
+        }
+      ],
+      "visibleMoves": [
+        "1. e2\u2013e4",
+        "1\u2026 g8\u2013f6"
+      ]
+    },
+    {
+      "difficulty": "challenge",
+      "humanColor": "black",
+      "plies": 2,
+      "interruptedDuringComputerTurn": true,
+      "finalSavedFen": "rnbqkbnr/pppp1ppp/8/4p3/P7/8/1PPPPPPP/RNBQKBNR w KQkq - 0 2",
+      "history": [
+        {
+          "from": "a2",
+          "to": "a4"
+        },
+        {
+          "from": "e7",
+          "to": "e5"
+        }
+      ]
+    }
+  ],
+  "openingCaseCount": 6,
+  "scholarMateHumanMoves": 4,
+  "scholarMateComputerMoves": 3,
+  "checkmate": true,
+  "scholarMateFen": "1nbqkbnr/rppppQpp/8/8/p1B1P3/8/PPPP1PPP/RNB1K1NR b KQk - 0 4",
+  "scholarMateHistory": [
+    {
+      "from": "e2",
+      "to": "e4"
+    },
+    {
+      "from": "a7",
+      "to": "a5"
+    },
+    {
+      "from": "d1",
+      "to": "h5"
+    },
+    {
+      "from": "a8",
+      "to": "a7"
+    },
+    {
+      "from": "f1",
+      "to": "c4"
+    },
+    {
+      "from": "a5",
+      "to": "a4"
+    },
+    {
+      "from": "h5",
+      "to": "f7"
+    }
+  ],
+  "parentRetryObserved": false,
+  "coverageLimitations": [],
+  "rows": [
+    {
+      "kind": "control-geometry",
+      "label": "Age 6+\nAmari\nBig explorer missions",
+      "rect": {
+        "x": 272,
+        "y": 150.9375,
+        "right": 710,
+        "bottom": 693.9375,
+        "width": 438,
+        "height": 543
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "normal-player-selection",
+      "player": "amari",
+      "ageLabel": "Age 6+"
+    },
+    {
+      "kind": "baseline",
+      "entryIdentity": "/assets/arcade-Bj2sEAsW.js",
+      "viewport": "1440x844",
+      "chessRecordPresent": true,
+      "rewardedDifficulties": [
+        "beginner"
+      ],
+      "priorReceiptCount": 1,
+      "rewardPoints": 353,
+      "existingChessClaims": 34,
+      "protectedOtherGameCounts": {
+        "astronaut": 3,
+        "codecadets": 3,
+        "colormix": 18,
+        "dino": 12,
+        "dinojigsaw": 3,
+        "firerescue": 3,
+        "fuelup": 3,
+        "hangman": 5,
+        "ladder": 3,
+        "memory": 10,
+        "oddoneout": 3,
+        "pattern": 3,
+        "phonics": 3,
+        "rocketbuilder": 3,
+        "solar": 18,
+        "storybooks": 7,
+        "tictactoe": 12,
+        "trace": 21,
+        "words": 6,
+        "writingdesk": 3
+      },
+      "protectedOtherGameClaims": {
+        "dino:2b17d237-c205-4da8-be4c-e1002930beb9": 2,
+        "dino:37ef2047-c60f-4f90-82b2-3c0009d36840": 2,
+        "dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69": 2,
+        "dino:55d8ed8c-26f4-4401-96b0-7722f01116d7": 2,
+        "dino:65ff0aec-a712-4326-8d70-9427a12494e8": 2,
+        "dino:66425a33-97b7-4e9c-a72a-9077585472ae": 2,
+        "dino:67b3915e-0907-45a7-b377-5b0a7deaf32c": 2,
+        "dino:7d50c719-10cc-476a-b186-5352199b1640": 2,
+        "dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002": 2,
+        "dino:9abfd8f2-20df-431a-bc29-60c4f224eb74": 2,
+        "dino:e3ee4326-ecf0-4a23-8978-edea989a9a66": 2,
+        "dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e": 2,
+        "dino:jigsaw:little:38a608b1-3b9b-4924-8ee5-9747cb8d0e32": 8,
+        "dino:jigsaw:little:49823e6d-a0ec-4be7-aa09-318b22e7904a": 8,
+        "dino:jigsaw:little:ee38a11d-8a2a-4822-a155-c1595ba03984": 8,
+        "hangman:first-words-263186679": 2,
+        "hangman:first-words-4170493800": 4,
+        "hangman:five-letter-rescue-778843497": 6,
+        "hangman:four-letter-rescue-479170815": 6,
+        "hangman:long-word-rescue-2118663940": 6,
+        "storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3": 1,
+        "storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e": 1,
+        "storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c": 1,
+        "storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640": 1,
+        "storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b": 1,
+        "storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9": 1,
+        "storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709": 1,
+        "words:14fc64e4-9840-4127-9cef-24bd71250557": 6,
+        "words:1b7f23d6-222f-47a7-accf-0e1ef0938b0e": 6,
+        "words:2a03774e-87a3-469a-b620-67111c25775a": 6,
+        "words:6692a9a7-b18b-4086-9dcf-bc853d253675": 6,
+        "words:9e438403-ca0e-49d4-928c-ccf5d19d5424": 6,
+        "words:b73674ad-596f-48ea-9415-0f387fc5fb7e": 6
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Thinking & Play\n8 games\n\u2192",
+      "rect": {
+        "x": 1116.796875,
+        "y": 293,
+        "right": 1359.984375,
+        "bottom": 551,
+        "width": 243.1875,
+        "height": 258
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "\u2713 Played 4\nQUICK THINK\nChess Explorers\n\nPlay against the computer",
+      "rect": {
+        "x": 404,
+        "y": 490,
+        "right": 712,
+        "bottom": 820,
+        "width": 308,
+        "height": 330
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "\u265f\nPlay a full game vs computer\n\u2192",
+      "rect": {
+        "x": 336,
+        "y": 208,
+        "right": 1104,
+        "bottom": 276,
+        "width": 768,
+        "height": 68
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 1050.8125,
+        "y": 323.953125,
+        "right": 1160.03125,
+        "bottom": 367.953125,
+        "width": 109.21875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Keep saved game",
+      "rect": {
+        "x": 563.015625,
+        "y": 443.9921875,
+        "right": 724.359375,
+        "bottom": 487.9921875,
+        "width": 161.34375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Beginner",
+      "rect": {
+        "x": 569.078125,
+        "y": 346.609375,
+        "right": 664.84375,
+        "bottom": 390.609375,
+        "width": 95.765625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Play White",
+      "rect": {
+        "x": 611.234375,
+        "y": 433.203125,
+        "right": 717.1875,
+        "bottom": 477.203125,
+        "width": 105.953125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 394,
+        "y": 492.59375,
+        "right": 1046,
+        "bottom": 536.59375,
+        "width": 652,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Start new game",
+      "rect": {
+        "x": 730.75,
+        "y": 443.9921875,
+        "right": 876.984375,
+        "bottom": 487.9921875,
+        "width": 146.234375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "new-game board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e2, White pawn",
+      "rect": {
+        "x": 500,
+        "y": 609.59375,
+        "right": 570,
+        "bottom": 679.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e5, empty square",
+      "rect": {
+        "x": 500,
+        "y": 399.59375,
+        "right": 570,
+        "bottom": 469.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "illegal-move-retry",
+      "from": "e2",
+      "attempted": "e5",
+      "feedback": "That move is not legal. The board stays ready for another try.",
+      "boardUnchanged": true,
+      "progressUnchanged": true,
+      "rewardUnchanged": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e2, White pawn",
+      "rect": {
+        "x": 500,
+        "y": 609.59375,
+        "right": 570,
+        "bottom": 679.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e4, empty square, legal move",
+      "rect": {
+        "x": 500,
+        "y": 469.59375,
+        "right": 570,
+        "bottom": 539.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "opening case beginner/white ply 1",
+      "fenPlacement": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "visible-position",
+      "label": "computer reply beginner/white ply 2",
+      "fenPlacement": "rnbqkbnr/1ppppppp/8/p7/4P3/8/PPPP1PPP/RNBQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Moves",
+      "rect": {
+        "x": 962.890625,
+        "y": 220.78125,
+        "right": 1046.015625,
+        "bottom": 264.78125,
+        "width": 83.125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Moves",
+      "rect": {
+        "x": 962.890625,
+        "y": 220.78125,
+        "right": 1046.015625,
+        "bottom": 264.78125,
+        "width": 83.125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-move-list",
+      "label": "beginner/white",
+      "items": [
+        "1. e2\u2013e4",
+        "1\u2026 a7\u2013a5"
+      ]
+    },
+    {
+      "kind": "control-geometry",
+      "label": "\u265f\nPlay a full game vs computer\n\u2192",
+      "rect": {
+        "x": 336,
+        "y": 208,
+        "right": 1104,
+        "bottom": 276,
+        "width": 768,
+        "height": 68
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Challenge",
+      "rect": {
+        "x": 768.15625,
+        "y": 346.609375,
+        "right": 870.90625,
+        "bottom": 390.609375,
+        "width": 102.75,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Play Black",
+      "rect": {
+        "x": 723.578125,
+        "y": 433.203125,
+        "right": 828.765625,
+        "bottom": 477.203125,
+        "width": 105.1875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Resume saved game",
+      "rect": {
+        "x": 628.03125,
+        "y": 257.015625,
+        "right": 811.953125,
+        "bottom": 301.015625,
+        "width": 183.921875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "saved White game: resumed board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "visible-position",
+      "label": "saved White game: saved board restored",
+      "fenPlacement": "rnbqkbnr/1ppppppp/8/p7/4P3/8/PPPP1PPP/RNBQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "resume-restores-saved-settings",
+      "label": "saved White game",
+      "matchId": "715777bc08c34f16a23c0887957e60c6",
+      "savedColor": "white",
+      "chosenColor": "black",
+      "resumedColor": "white",
+      "savedDifficulty": "beginner",
+      "chosenDifficulty": "challenge",
+      "resumedDifficulty": "beginner",
+      "savedPlyCount": 2,
+      "boardMatchesSavedPosition": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "resumed opening position",
+      "fenPlacement": "rnbqkbnr/1ppppppp/8/p7/4P3/8/PPPP1PPP/RNBQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "reload-resume",
+      "difficulty": "beginner",
+      "humanColor": "white",
+      "moves": 2,
+      "restoredVisibleBoard": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 1050.8125,
+        "y": 220.78125,
+        "right": 1160.03125,
+        "bottom": 264.78125,
+        "width": 109.21875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Keep saved game",
+      "rect": {
+        "x": 563.015625,
+        "y": 443.9921875,
+        "right": 724.359375,
+        "bottom": 487.9921875,
+        "width": 161.34375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Resume saved game",
+      "rect": {
+        "x": 628.03125,
+        "y": 257.015625,
+        "right": 811.953125,
+        "bottom": 301.015625,
+        "width": 183.921875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "board preserved after canceling New Game",
+      "fenPlacement": "rnbqkbnr/1ppppppp/8/p7/4P3/8/PPPP1PPP/RNBQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Undo turn",
+      "rect": {
+        "x": 851.953125,
+        "y": 220.78125,
+        "right": 958.09375,
+        "bottom": 264.78125,
+        "width": 106.140625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "undo restored the starting position",
+      "fenPlacement": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "undo-white",
+      "restoredPlyCount": 0,
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 1050.8125,
+        "y": 220.78125,
+        "right": 1160.03125,
+        "bottom": 264.78125,
+        "width": 109.21875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Keep saved game",
+      "rect": {
+        "x": 563.015625,
+        "y": 443.9921875,
+        "right": 724.359375,
+        "bottom": 487.9921875,
+        "width": 161.34375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Beginner",
+      "rect": {
+        "x": 569.078125,
+        "y": 346.609375,
+        "right": 664.84375,
+        "bottom": 390.609375,
+        "width": 95.765625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Play Black",
+      "rect": {
+        "x": 723.578125,
+        "y": 433.203125,
+        "right": 828.765625,
+        "bottom": 477.203125,
+        "width": 105.1875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 394,
+        "y": 492.59375,
+        "right": 1046,
+        "bottom": 536.59375,
+        "width": 652,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Start new game",
+      "rect": {
+        "x": 730.75,
+        "y": 443.9921875,
+        "right": 876.984375,
+        "bottom": 487.9921875,
+        "width": 146.234375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "new-game board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "visible-position",
+      "label": "computer reply beginner/black ply 1",
+      "fenPlacement": "rnbqkbnr/pppppppp/8/8/8/2N5/PPPPPPPP/R1BQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e7, Black pawn",
+      "rect": {
+        "x": 430,
+        "y": 609.59375,
+        "right": 500,
+        "bottom": 679.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e5, empty square, legal move",
+      "rect": {
+        "x": 430,
+        "y": 469.59375,
+        "right": 500,
+        "bottom": 539.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "opening case beginner/black ply 2",
+      "fenPlacement": "rnbqkbnr/pppp1ppp/8/4p3/8/2N5/PPPPPPPP/R1BQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "visible-position",
+      "label": "computer reply beginner/black ply 3",
+      "fenPlacement": "rnbqkbnr/pppp1ppp/8/4p3/8/P1N5/1PPPPPPP/R1BQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Moves",
+      "rect": {
+        "x": 962.890625,
+        "y": 220.78125,
+        "right": 1046.015625,
+        "bottom": 264.78125,
+        "width": 83.125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Moves",
+      "rect": {
+        "x": 962.890625,
+        "y": 220.78125,
+        "right": 1046.015625,
+        "bottom": 264.78125,
+        "width": 83.125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-move-list",
+      "label": "beginner/black",
+      "items": [
+        "1. b1\u2013c3",
+        "1\u2026 e7\u2013e5",
+        "2. a2\u2013a3"
+      ]
+    },
+    {
+      "kind": "control-geometry",
+      "label": "\u265f\nPlay a full game vs computer\n\u2192",
+      "rect": {
+        "x": 336,
+        "y": 208,
+        "right": 1104,
+        "bottom": 276,
+        "width": 768,
+        "height": 68
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Challenge",
+      "rect": {
+        "x": 768.15625,
+        "y": 346.609375,
+        "right": 870.90625,
+        "bottom": 390.609375,
+        "width": 102.75,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Play White",
+      "rect": {
+        "x": 611.234375,
+        "y": 433.203125,
+        "right": 717.1875,
+        "bottom": 477.203125,
+        "width": 105.953125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Resume saved game",
+      "rect": {
+        "x": 628.03125,
+        "y": 257.015625,
+        "right": 811.953125,
+        "bottom": 301.015625,
+        "width": 183.921875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "saved Black game: resumed board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "visible-position",
+      "label": "saved Black game: saved board restored",
+      "fenPlacement": "rnbqkbnr/pppp1ppp/8/4p3/8/P1N5/1PPPPPPP/R1BQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "resume-restores-saved-settings",
+      "label": "saved Black game",
+      "matchId": "09b07f1f48824bc69f2d1ae18d8b06a8",
+      "savedColor": "black",
+      "chosenColor": "white",
+      "resumedColor": "black",
+      "savedDifficulty": "beginner",
+      "chosenDifficulty": "challenge",
+      "resumedDifficulty": "beginner",
+      "savedPlyCount": 3,
+      "boardMatchesSavedPosition": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Undo turn",
+      "rect": {
+        "x": 851.953125,
+        "y": 220.78125,
+        "right": 958.09375,
+        "bottom": 264.78125,
+        "width": 106.140625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "Black undo retained the computer opening",
+      "fenPlacement": "rnbqkbnr/pppppppp/8/8/8/2N5/PPPPPPPP/R1BQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "undo-black",
+      "restoredPlyCount": 1,
+      "fen": "rnbqkbnr/pppppppp/8/8/8/2N5/PPPPPPPP/R1BQKBNR b KQkq - 1 1"
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 1050.8125,
+        "y": 220.78125,
+        "right": 1160.03125,
+        "bottom": 264.78125,
+        "width": 109.21875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Keep saved game",
+      "rect": {
+        "x": 563.015625,
+        "y": 443.9921875,
+        "right": 724.359375,
+        "bottom": 487.9921875,
+        "width": 161.34375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Growing",
+      "rect": {
+        "x": 671.234375,
+        "y": 346.609375,
+        "right": 761.765625,
+        "bottom": 390.609375,
+        "width": 90.53125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Play White",
+      "rect": {
+        "x": 611.234375,
+        "y": 433.203125,
+        "right": 717.1875,
+        "bottom": 477.203125,
+        "width": 105.953125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 394,
+        "y": 492.59375,
+        "right": 1046,
+        "bottom": 536.59375,
+        "width": 652,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Start new game",
+      "rect": {
+        "x": 730.75,
+        "y": 443.9921875,
+        "right": 876.984375,
+        "bottom": 487.9921875,
+        "width": 146.234375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "new-game board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e2, White pawn",
+      "rect": {
+        "x": 500,
+        "y": 609.59375,
+        "right": 570,
+        "bottom": 679.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e4, empty square, legal move",
+      "rect": {
+        "x": 500,
+        "y": 469.59375,
+        "right": 570,
+        "bottom": 539.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-board-saved-state",
+      "label": "opening case growing/white ply 1",
+      "plies": 1,
+      "fenPlacement": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR",
+      "mismatchCount": 0
+    },
+    {
+      "kind": "visible-board-saved-state",
+      "label": "computer reply growing/white ply 2",
+      "plies": 2,
+      "fenPlacement": "rnbqkbnr/1ppppppp/8/p7/4P3/8/PPPP1PPP/RNBQKBNR",
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Moves",
+      "rect": {
+        "x": 962.890625,
+        "y": 220.78125,
+        "right": 1046.015625,
+        "bottom": 264.78125,
+        "width": 83.125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Moves",
+      "rect": {
+        "x": 962.890625,
+        "y": 220.78125,
+        "right": 1046.015625,
+        "bottom": 264.78125,
+        "width": 83.125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-move-list",
+      "label": "growing/white",
+      "items": [
+        "1. e2\u2013e4",
+        "1\u2026 a7\u2013a5"
+      ]
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 1050.8125,
+        "y": 220.78125,
+        "right": 1160.03125,
+        "bottom": 264.78125,
+        "width": 109.21875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Keep saved game",
+      "rect": {
+        "x": 563.015625,
+        "y": 443.9921875,
+        "right": 724.359375,
+        "bottom": 487.9921875,
+        "width": 161.34375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Growing",
+      "rect": {
+        "x": 671.234375,
+        "y": 346.609375,
+        "right": 761.765625,
+        "bottom": 390.609375,
+        "width": 90.53125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Play Black",
+      "rect": {
+        "x": 723.578125,
+        "y": 433.203125,
+        "right": 828.765625,
+        "bottom": 477.203125,
+        "width": 105.1875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 394,
+        "y": 492.59375,
+        "right": 1046,
+        "bottom": 536.59375,
+        "width": 652,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Start new game",
+      "rect": {
+        "x": 730.75,
+        "y": 443.9921875,
+        "right": 876.984375,
+        "bottom": 487.9921875,
+        "width": 146.234375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "new-game board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "visible-board-saved-state",
+      "label": "computer reply growing/black ply 1",
+      "plies": 1,
+      "fenPlacement": "rnbqkbnr/pppppppp/8/8/P7/8/1PPPPPPP/RNBQKBNR",
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e7, Black pawn",
+      "rect": {
+        "x": 430,
+        "y": 609.59375,
+        "right": 500,
+        "bottom": 679.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e5, empty square, legal move",
+      "rect": {
+        "x": 430,
+        "y": 469.59375,
+        "right": 500,
+        "bottom": 539.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-board-saved-state",
+      "label": "opening case growing/black ply 2",
+      "plies": 2,
+      "fenPlacement": "rnbqkbnr/pppp1ppp/8/4p3/P7/8/1PPPPPPP/RNBQKBNR",
+      "mismatchCount": 0
+    },
+    {
+      "kind": "visible-board-saved-state",
+      "label": "computer reply growing/black ply 3",
+      "plies": 3,
+      "fenPlacement": "rnbqkbnr/pppp1ppp/8/4p3/P1P5/8/1P1PPPPP/RNBQKBNR",
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Moves",
+      "rect": {
+        "x": 962.890625,
+        "y": 220.78125,
+        "right": 1046.015625,
+        "bottom": 264.78125,
+        "width": 83.125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Moves",
+      "rect": {
+        "x": 962.890625,
+        "y": 220.78125,
+        "right": 1046.015625,
+        "bottom": 264.78125,
+        "width": 83.125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-move-list",
+      "label": "growing/black",
+      "items": [
+        "1. a2\u2013a4",
+        "1\u2026 e7\u2013e5",
+        "2. c2\u2013c4"
+      ]
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 1050.8125,
+        "y": 220.78125,
+        "right": 1160.03125,
+        "bottom": 264.78125,
+        "width": 109.21875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Keep saved game",
+      "rect": {
+        "x": 563.015625,
+        "y": 443.9921875,
+        "right": 724.359375,
+        "bottom": 487.9921875,
+        "width": 161.34375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Challenge",
+      "rect": {
+        "x": 768.15625,
+        "y": 346.609375,
+        "right": 870.90625,
+        "bottom": 390.609375,
+        "width": 102.75,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Play White",
+      "rect": {
+        "x": 611.234375,
+        "y": 433.203125,
+        "right": 717.1875,
+        "bottom": 477.203125,
+        "width": 105.953125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 394,
+        "y": 492.59375,
+        "right": 1046,
+        "bottom": 536.59375,
+        "width": 652,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Start new game",
+      "rect": {
+        "x": 730.75,
+        "y": 443.9921875,
+        "right": 876.984375,
+        "bottom": 487.9921875,
+        "width": 146.234375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "new-game board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e2, White pawn",
+      "rect": {
+        "x": 500,
+        "y": 609.59375,
+        "right": 570,
+        "bottom": 679.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e4, empty square, legal move",
+      "rect": {
+        "x": 500,
+        "y": 469.59375,
+        "right": 570,
+        "bottom": 539.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-board-saved-state",
+      "label": "opening case challenge/white ply 1",
+      "plies": 1,
+      "fenPlacement": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR",
+      "mismatchCount": 0
+    },
+    {
+      "kind": "visible-board-saved-state",
+      "label": "computer reply challenge/white ply 2",
+      "plies": 2,
+      "fenPlacement": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR",
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Moves",
+      "rect": {
+        "x": 962.890625,
+        "y": 220.78125,
+        "right": 1046.015625,
+        "bottom": 264.78125,
+        "width": 83.125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Moves",
+      "rect": {
+        "x": 962.890625,
+        "y": 220.78125,
+        "right": 1046.015625,
+        "bottom": 264.78125,
+        "width": 83.125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-move-list",
+      "label": "challenge/white",
+      "items": [
+        "1. e2\u2013e4",
+        "1\u2026 g8\u2013f6"
+      ]
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 1050.8125,
+        "y": 220.78125,
+        "right": 1160.03125,
+        "bottom": 264.78125,
+        "width": 109.21875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Keep saved game",
+      "rect": {
+        "x": 563.015625,
+        "y": 443.9921875,
+        "right": 724.359375,
+        "bottom": 487.9921875,
+        "width": 161.34375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Challenge",
+      "rect": {
+        "x": 768.15625,
+        "y": 346.609375,
+        "right": 870.90625,
+        "bottom": 390.609375,
+        "width": 102.75,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Play Black",
+      "rect": {
+        "x": 723.578125,
+        "y": 433.203125,
+        "right": 828.765625,
+        "bottom": 477.203125,
+        "width": 105.1875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 394,
+        "y": 492.59375,
+        "right": 1046,
+        "bottom": 536.59375,
+        "width": 652,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Start new game",
+      "rect": {
+        "x": 730.75,
+        "y": 443.9921875,
+        "right": 876.984375,
+        "bottom": 487.9921875,
+        "width": 146.234375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "new-game board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "visible-board-saved-state",
+      "label": "computer reply challenge/black ply 1",
+      "plies": 1,
+      "fenPlacement": "rnbqkbnr/pppppppp/8/8/P7/8/1PPPPPPP/RNBQKBNR",
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e7, Black pawn",
+      "rect": {
+        "x": 430,
+        "y": 609.59375,
+        "right": 500,
+        "bottom": 679.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e5, empty square, legal move",
+      "rect": {
+        "x": 430,
+        "y": 469.59375,
+        "right": 500,
+        "bottom": 539.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-board-saved-state",
+      "label": "opening case challenge/black ply 2",
+      "plies": 2,
+      "fenPlacement": "rnbqkbnr/pppp1ppp/8/4p3/P7/8/1PPPPPPP/RNBQKBNR",
+      "mismatchCount": 0
+    },
+    {
+      "kind": "visible-board-saved-state",
+      "label": "Challenge Black position before leaving during computer thinking",
+      "plies": 2,
+      "fenPlacement": "rnbqkbnr/pppp1ppp/8/4p3/P7/8/1PPPPPPP/RNBQKBNR",
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Lessons",
+      "rect": {
+        "x": 316,
+        "y": 82,
+        "right": 428.890625,
+        "bottom": 126,
+        "width": 112.890625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "computer-cancel-on-leave",
+      "difficulty": "challenge",
+      "humanColor": "black",
+      "observedThinking": true,
+      "savedBefore": "rnbqkbnr/pppp1ppp/8/4p3/P7/8/1PPPPPPP/RNBQKBNR w KQkq - 0 2",
+      "savedAfter": "rnbqkbnr/pppp1ppp/8/4p3/P7/8/1PPPPPPP/RNBQKBNR w KQkq - 0 2",
+      "staleMoveCommitted": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Back to Thinking & Play",
+      "rect": {
+        "x": 20,
+        "y": 76,
+        "right": 68,
+        "bottom": 124,
+        "width": 48,
+        "height": 48
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "\u2713 Played 4\nQUICK THINK\nChess Explorers\n\nPlay against the computer",
+      "rect": {
+        "x": 404,
+        "y": 490,
+        "right": 712,
+        "bottom": 820,
+        "width": 308,
+        "height": 330
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "\u265f\nPlay a full game vs computer\n\u2192",
+      "rect": {
+        "x": 336,
+        "y": 208,
+        "right": 1104,
+        "bottom": 276,
+        "width": 768,
+        "height": 68
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Beginner",
+      "rect": {
+        "x": 569.078125,
+        "y": 346.609375,
+        "right": 664.84375,
+        "bottom": 390.609375,
+        "width": 95.765625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Play White",
+      "rect": {
+        "x": 611.234375,
+        "y": 433.203125,
+        "right": 717.1875,
+        "bottom": 477.203125,
+        "width": 105.953125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 394,
+        "y": 492.59375,
+        "right": 1046,
+        "bottom": 536.59375,
+        "width": 652,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Start new game",
+      "rect": {
+        "x": 730.75,
+        "y": 443.9921875,
+        "right": 876.984375,
+        "bottom": 487.9921875,
+        "width": 146.234375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "new-game board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "terminal-game-start",
+      "plan": "normal-start deterministic Beginner Scholar\u2019s Mate",
+      "positiveRewardEligible": false,
+      "initialSavedPlyCount": 0
+    },
+    {
+      "kind": "storage-fault-armed",
+      "ok": true,
+      "methodName": "setItem",
+      "targetKey": "amari_chess_game_v1",
+      "type": "write"
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e2, White pawn",
+      "rect": {
+        "x": 500,
+        "y": 609.59375,
+        "right": 570,
+        "bottom": 679.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e4, empty square, legal move",
+      "rect": {
+        "x": 500,
+        "y": 469.59375,
+        "right": 570,
+        "bottom": 539.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "held e4 after blocked write",
+      "fenPlacement": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "held-write-failure",
+      "terminalBoardNotYet": true,
+      "boardMatchesHumanMove": {
+        "pieces": 32,
+        "mismatchCount": 0
+      },
+      "savedBytesUnchanged": true,
+      "noRewardClaim": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Retry save",
+      "rect": {
+        "x": 798.390625,
+        "y": 220.78125,
+        "right": 1213.609375,
+        "bottom": 264.78125,
+        "width": 415.21875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "first-move-write-retry",
+      "retryWorked": true,
+      "beforePlyCount": 0,
+      "afterPlyCount": 2,
+      "rewardRawUnchanged": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "first computer reply after write Retry",
+      "fenPlacement": "rnbqkbnr/1ppppppp/8/p7/4P3/8/PPPP1PPP/RNBQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "storage-fault-armed",
+      "ok": true,
+      "methodName": "getItem",
+      "targetKey": "amari_chess_game_v1",
+      "type": "readback"
+    },
+    {
+      "kind": "control-geometry",
+      "label": "d1, White queen",
+      "rect": {
+        "x": 430,
+        "y": 679.59375,
+        "right": 500,
+        "bottom": 749.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "h5, empty square, legal move",
+      "rect": {
+        "x": 710,
+        "y": 399.59375,
+        "right": 780,
+        "bottom": 469.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Retry save",
+      "rect": {
+        "x": 798.390625,
+        "y": 220.78125,
+        "right": 1213.609375,
+        "bottom": 264.78125,
+        "width": 415.21875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "computer reply after committed-readback Retry",
+      "fenPlacement": "1nbqkbnr/rppppppp/8/p6Q/4P3/8/PPPP1PPP/RNB1KBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "readback-recovery",
+      "visibleRetry": true,
+      "committedTargetWasPresent": true,
+      "recoveredVisibleFen": "1nbqkbnr/rppppppp/8/p6Q/4P3/8/PPPP1PPP/RNB1KBNR w KQk - 2 3",
+      "aiRepliedOnce": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "f1, White bishop",
+      "rect": {
+        "x": 570,
+        "y": 679.59375,
+        "right": 640,
+        "bottom": 749.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "c4, empty square, legal move",
+      "rect": {
+        "x": 360,
+        "y": 469.59375,
+        "right": 430,
+        "bottom": 539.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "Scholar mate after human ply 5",
+      "fenPlacement": "1nbqkbnr/rppppppp/8/p6Q/2B1P3/8/PPPP1PPP/RNB1K1NR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "visible-position",
+      "label": "Scholar mate after computer ply 6",
+      "fenPlacement": "1nbqkbnr/rppppppp/8/7Q/p1B1P3/8/PPPP1PPP/RNB1K1NR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "h5, White queen",
+      "rect": {
+        "x": 710,
+        "y": 399.59375,
+        "right": 780,
+        "bottom": 469.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "f7, Black pawn, legal capture",
+      "rect": {
+        "x": 570,
+        "y": 259.59375,
+        "right": 640,
+        "bottom": 329.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "held checkmate board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "visible-position",
+      "label": "held final checkmate position",
+      "fenPlacement": "1nbqkbnr/rppppQpp/8/8/p1B1P3/8/PPPP1PPP/RNB1K1NR",
+      "pieces": 31,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "beginner-replay-has-no-positive-receipt",
+      "pointsBefore": 353,
+      "pointsAfter": 353
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Finish game",
+      "rect": {
+        "x": 947.15625,
+        "y": 275.15625,
+        "right": 1064.84375,
+        "bottom": 319.15625,
+        "width": 117.6875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Review final board",
+      "rect": {
+        "x": 636.265625,
+        "y": 257.015625,
+        "right": 803.71875,
+        "bottom": 301.015625,
+        "width": 167.453125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "reviewed terminal board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "visible-position",
+      "label": "review final board",
+      "fenPlacement": "1nbqkbnr/rppppQpp/8/8/p1B1P3/8/PPPP1PPP/RNB1K1NR",
+      "pieces": 31,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 1050.8125,
+        "y": 323.953125,
+        "right": 1160.03125,
+        "bottom": 367.953125,
+        "width": 109.21875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Keep saved game",
+      "rect": {
+        "x": 563.015625,
+        "y": 443.9921875,
+        "right": 724.359375,
+        "bottom": 487.9921875,
+        "width": 161.34375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Beginner",
+      "rect": {
+        "x": 569.078125,
+        "y": 346.609375,
+        "right": 664.84375,
+        "bottom": 390.609375,
+        "width": 95.765625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Play White",
+      "rect": {
+        "x": 611.234375,
+        "y": 433.203125,
+        "right": 717.1875,
+        "bottom": 477.203125,
+        "width": 105.953125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "New game",
+      "rect": {
+        "x": 394,
+        "y": 492.59375,
+        "right": 1046,
+        "bottom": 536.59375,
+        "width": 652,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Start new game",
+      "rect": {
+        "x": 730.75,
+        "y": 443.9921875,
+        "right": 876.984375,
+        "bottom": 487.9921875,
+        "width": 146.234375,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "board-geometry",
+      "label": "new-game board",
+      "board": {
+        "x": 220,
+        "y": 189.59375,
+        "right": 780,
+        "bottom": 749.59375,
+        "width": 560,
+        "height": 560
+      },
+      "squareCount": 64,
+      "minCellWidth": 70,
+      "minCellHeight": 70
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e2, White pawn",
+      "rect": {
+        "x": 500,
+        "y": 609.59375,
+        "right": 570,
+        "bottom": 679.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "e4, empty square, legal move",
+      "rect": {
+        "x": 500,
+        "y": 469.59375,
+        "right": 570,
+        "bottom": 539.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "Beginner replay after ply 1",
+      "fenPlacement": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "visible-position",
+      "label": "Beginner replay after computer ply 2",
+      "fenPlacement": "rnbqkbnr/1ppppppp/8/p7/4P3/8/PPPP1PPP/RNBQKBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "d1, White queen",
+      "rect": {
+        "x": 430,
+        "y": 679.59375,
+        "right": 500,
+        "bottom": 749.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "h5, empty square, legal move",
+      "rect": {
+        "x": 710,
+        "y": 399.59375,
+        "right": 780,
+        "bottom": 469.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "Beginner replay after ply 3",
+      "fenPlacement": "rnbqkbnr/1ppppppp/8/p6Q/4P3/8/PPPP1PPP/RNB1KBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "visible-position",
+      "label": "Beginner replay after computer ply 4",
+      "fenPlacement": "1nbqkbnr/rppppppp/8/p6Q/4P3/8/PPPP1PPP/RNB1KBNR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "f1, White bishop",
+      "rect": {
+        "x": 570,
+        "y": 679.59375,
+        "right": 640,
+        "bottom": 749.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "c4, empty square, legal move",
+      "rect": {
+        "x": 360,
+        "y": 469.59375,
+        "right": 430,
+        "bottom": 539.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "Beginner replay after ply 5",
+      "fenPlacement": "1nbqkbnr/rppppppp/8/p6Q/2B1P3/8/PPPP1PPP/RNB1K1NR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "visible-position",
+      "label": "Beginner replay after computer ply 6",
+      "fenPlacement": "1nbqkbnr/rppppppp/8/7Q/p1B1P3/8/PPPP1PPP/RNB1K1NR",
+      "pieces": 32,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "control-geometry",
+      "label": "h5, White queen",
+      "rect": {
+        "x": 710,
+        "y": 399.59375,
+        "right": 780,
+        "bottom": 469.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "f7, Black pawn, legal capture",
+      "rect": {
+        "x": 570,
+        "y": 259.59375,
+        "right": 640,
+        "bottom": 329.59375,
+        "width": 70,
+        "height": 70
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "visible-position",
+      "label": "Beginner replay after ply 7",
+      "fenPlacement": "1nbqkbnr/rppppQpp/8/8/p1B1P3/8/PPPP1PPP/RNB1K1NR",
+      "pieces": 31,
+      "mismatchCount": 0
+    },
+    {
+      "kind": "zero-farm-replay",
+      "game": "complete Beginner Scholar\u2019s Mate",
+      "pointsBefore": 353,
+      "pointsAfter": 353,
+      "receiptCountBefore": 1,
+      "receiptCountAfter": 1
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Finish game",
+      "rect": {
+        "x": 947.15625,
+        "y": 275.15625,
+        "right": 1064.84375,
+        "bottom": 319.15625,
+        "width": 117.6875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Lessons",
+      "rect": {
+        "x": 316,
+        "y": 82,
+        "right": 428.890625,
+        "bottom": 126,
+        "width": 112.890625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Back to Thinking & Play",
+      "rect": {
+        "x": 20,
+        "y": 76,
+        "right": 68,
+        "bottom": 124,
+        "width": 48,
+        "height": 48
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true
+    },
+    {
+      "kind": "protected-storage",
+      "allowedChanged": [
+        "amari_chess_game_v1"
+      ],
+      "unexpected": [],
+      "lessonProgressHashUnchanged": true,
+      "priorOtherGameCountsUnchanged": true,
+      "priorOtherGameClaimsUnchanged": true,
+      "priorEarnedStickersRetained": true,
+      "changedRewardMirrorsMatchCanonical": [],
+      "finalReceipts": 1,
+      "chessRewardClaims": 1
+    }
+  ],
+  "failures": [],
+  "providerAttempts": [],
+  "responseFailures": [],
+  "requestFailures": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "storageDiff": {
+    "changed": [
+      "amari_chess_game_v1"
+    ],
+    "unexpected": []
+  },
+  "cliReturnCode": 0,
+  "legalHistoryValidation": {
+    "passed": true,
+    "openingsChecked": 6,
+    "scholarMateChecked": true,
+    "errors": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-29T07:10:04.305162+00:00",
+  "evidenceCommit": "1beac766",
+  "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "3a54d3b4166c47b4cb7077b3b36e54e4d717f8e98b01eb12797b87b6649fe9b6",
+      "bytes": 1441,
+      "matchesPublishedRuntime": true
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "sha256": "e761fbd79e5299a6097cf66a509e2c82e77d3075882dc4c7a19a75175ddb646c",
+      "bytes": 16269,
+      "matchesPublishedRuntime": true
+    }
+  ],
+  "passed": true
+}

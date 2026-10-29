@@ -1,0 +1,28 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "level": 3,
+  "width": 1440,
+  "height": 844,
+  "entry": "/assets/arcade-CtJCXeke.js",
+  "rows": [],
+  "provider": [],
+  "failed": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "faultFacts": {
+    "status": "not-requested"
+  },
+  "replayFacts": {
+    "status": "not-requested"
+  },
+  "errors": [
+    {
+      "message": "Control is not wholly hit-testable at >=44px: Picture space {\"label\":\"Empty picture space, row 1, column 1\",\"x\":229,\"y\":465.3125,\"right\":269.8125,\"bottom\":524.28125,\"width\":40.8125,\"height\":58.96875,\"viewportWidth\":1440,\"viewportHeight\":844,\"visible\":true,\"centerHit\":true}",
+      "stack": "Error: Control is not wholly hit-testable at >=44px: Picture space {\"label\":\"Empty picture space, row 1, column 1\",\"x\":229,\"y\":465.3125,\"right\":269.8125,\"bottom\":524.28125,\"width\":40.8125,\"height\":58.96875,\"viewportWidth\":1440,\"viewportHeight\":844,\"visible\":true,\"centerHit\":true}\n    at mark (evalmachine.<anonymous>:10:552)\n    at async evalmachine.<anonymous>:112:61\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)\n    at async connection.onmessage (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:76275:29)"
+    }
+  ],
+  "stage": "native",
+  "cliReturnCode": 0
+}

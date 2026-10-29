@@ -1,0 +1,69 @@
+{
+  "startedAt": "2026-10-29T07:15:27.147926+00:00",
+  "checkout": "Existing canonical checkout reused",
+  "newWorktrees": 0,
+  "newBrowserProfiles": 0,
+  "qaSession": "amari-targeted-contained",
+  "profileStartKiB": 976560,
+  "profileGrowthBudgetMiB": 64,
+  "evidenceBudgetMiB": 10,
+  "diskFreeAtStart": "90GiB",
+  "dependency": {
+    "name": "chess.js",
+    "version": "1.4.0",
+    "bytesKiB": 784,
+    "manifestSha256": "36a258fdfb5e76d0816bf2b63dab3c917a0a8652f943da0e6be7e9b543765dfd",
+    "integrity": "sha512-BBJgrrtKQOzFLonR0l+k64A98NLemPwNsCskwb+29bRwobUa4iTm51E1kwGPbWXAcfdDa18nad6vpPPKPWarqw==",
+    "source": "https://registry.npmjs.org/chess.js/-/chess.js-1.4.0.tgz",
+    "license": "BSD-2-Clause",
+    "reason": "A complete orthodox move-rules engine is necessary for actual chess against computer; existing6x6lesson engine intentionally omits special rules.",
+    "installation": "Onepackage added into existing private real node_modules; exactpin1.4.0; lifecycle scripts disabled; dryrun addedonlyonepackage; noexistingpackageschanged.",
+    "retained": "Required canonical runtime dependency, not a duplicate private installation or checkout.",
+    "distributedLicense": {
+      "path": "public/licenses/chess-js.txt",
+      "bytes": 1315,
+      "sha256": "0b3a3c2b4432a26bb18f9d06f5bba4de015bcc980306b7db28b06025495e2186"
+    }
+  },
+  "newPaidGenerationCalls": 0,
+  "artifactPolicy": "No successful traces/videos; unique failures and representative final renders only. Reuse existing art and packages.",
+  "completedAt": "2026-10-29T09:19:13.322326+00:00",
+  "profileEndKiB": 984132,
+  "profileGrowthKiB": 7572,
+  "evidenceApproxKiB": 4356,
+  "removedTemporary": [
+    {
+      "path": "tmp/pair9-immutable-identity-raw.json",
+      "bytes": 14655,
+      "reason": "Task-owned temporary; canonical compact identity/source/evidence retained"
+    },
+    {
+      "path": "tmp/pair9-production-site-raw.json",
+      "bytes": 7246,
+      "reason": "Task-owned temporary; canonical compact identity/source/evidence retained"
+    },
+    {
+      "path": "tmp/pair9-cutover-before.cjs",
+      "bytes": 4190,
+      "reason": "Task-owned temporary; canonical compact identity/source/evidence retained"
+    },
+    {
+      "path": "tmp/pair9-cutover-after.cjs",
+      "bytes": 4863,
+      "reason": "Task-owned temporary; canonical compact identity/source/evidence retained"
+    },
+    {
+      "path": "tmp/pair9-cutover-settled.cjs",
+      "bytes": 5138,
+      "reason": "Task-owned temporary; canonical compact identity/source/evidence retained"
+    },
+    {
+      "path": "tmp/pair9-worker-state.cjs",
+      "bytes": 906,
+      "reason": "Task-owned temporary; canonical compact identity/source/evidence retained"
+    }
+  ],
+  "removedTemporaryBytes": 36998,
+  "retained": "One canonical dependency784KiB, existing400MiB dist reused in place, same persistent QA profile, original/final/failure evidence. No worktree or profile created.",
+  "diskFreeEnd": "89GiB"
+}

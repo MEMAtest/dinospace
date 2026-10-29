@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
+  "origin": "https://dinospace.netlify.app",
+  "backend": "https://dinospace-aq1k8ln19-memas-projects-23a0001d.vercel.app",
+  "assets": [
+    {
+      "path": "/assets/chessAi.worker-DD9YTbH5.js",
+      "localSha256": "f22c70419358a7b2e86e8aadb42297a5abf01a29c4cdf2f013d5748c517b083b",
+      "origin": {
+        "status": 200,
+        "contentType": "application/javascript",
+        "sha256": "f22c70419358a7b2e86e8aadb42297a5abf01a29c4cdf2f013d5748c517b083b",
+        "bytes": 40638
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "application/javascript",
+        "sha256": "f22c70419358a7b2e86e8aadb42297a5abf01a29c4cdf2f013d5748c517b083b",
+        "bytes": 40638
+      }
+    },
+    {
+      "path": "/licenses/chess-js.txt",
+      "localSha256": "0b3a3c2b4432a26bb18f9d06f5bba4de015bcc980306b7db28b06025495e2186",
+      "origin": {
+        "status": 200,
+        "contentType": "text/plain",
+        "sha256": "0b3a3c2b4432a26bb18f9d06f5bba4de015bcc980306b7db28b06025495e2186",
+        "bytes": 1315
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "text/plain",
+        "sha256": "0b3a3c2b4432a26bb18f9d06f5bba4de015bcc980306b7db28b06025495e2186",
+        "bytes": 1315
+      }
+    }
+  ]
+}

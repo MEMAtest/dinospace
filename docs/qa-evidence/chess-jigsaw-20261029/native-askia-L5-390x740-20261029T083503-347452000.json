@@ -1,0 +1,493 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "player": "askia",
+  "level": 5,
+  "width": 390,
+  "height": 740,
+  "entry": "/assets/arcade-CtJCXeke.js",
+  "namespaced": true,
+  "rows": [
+    {
+      "level": 5,
+      "rounds": [
+        {
+          "round": 1,
+          "pieces": 12,
+          "clueShown": true,
+          "expandedHelp": {
+            "x": 147,
+            "y": 396.734375,
+            "width": 96,
+            "height": 93.796875
+          },
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 59,
+              "y": 199.046875,
+              "right": 331,
+              "bottom": 403.046875,
+              "width": 272,
+              "height": 204
+            },
+            "tray": {
+              "x": 59,
+              "y": 407.046875,
+              "right": 331,
+              "bottom": 615.546875,
+              "width": 272,
+              "height": 208.5
+            },
+            "task": {
+              "x": 59,
+              "y": 56,
+              "right": 331,
+              "bottom": 140.734375,
+              "width": 272,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 4,
+              "y": 619.546875,
+              "right": 386,
+              "bottom": 667.546875,
+              "width": 382,
+              "height": 48
+            }
+          },
+          "wrongRetryChecked": true,
+          "heldReview": true,
+          "touchEvidence": {
+            "performed": true,
+            "classification": "emulated touch via CDP; not physical-device certification",
+            "cancelDidNotCredit": true,
+            "realTouchPlacedOne": true,
+            "pointerEvents": [
+              {
+                "type": "pointerdown",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointercancel",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointerdown",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointermove",
+                "pointerType": "touch",
+                "target": "0"
+              },
+              {
+                "type": "pointerup",
+                "pointerType": "touch",
+                "target": "0"
+              }
+            ]
+          },
+          "images": 2,
+          "primary": "Next round"
+        },
+        {
+          "round": 2,
+          "pieces": 12,
+          "clueShown": true,
+          "expandedHelp": {
+            "x": 147,
+            "y": 396.734375,
+            "width": 96,
+            "height": 93.796875
+          },
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 59,
+              "y": 199.046875,
+              "right": 331,
+              "bottom": 403.046875,
+              "width": 272,
+              "height": 204
+            },
+            "tray": {
+              "x": 59,
+              "y": 407.046875,
+              "right": 331,
+              "bottom": 615.546875,
+              "width": 272,
+              "height": 208.5
+            },
+            "task": {
+              "x": 59,
+              "y": 56,
+              "right": 331,
+              "bottom": 140.734375,
+              "width": 272,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 4,
+              "y": 619.546875,
+              "right": 386,
+              "bottom": 667.546875,
+              "width": 382,
+              "height": 48
+            }
+          },
+          "wrongRetryChecked": false,
+          "heldReview": true,
+          "touchEvidence": null,
+          "images": 2,
+          "primary": "Next round"
+        },
+        {
+          "round": 3,
+          "pieces": 12,
+          "clueShown": true,
+          "expandedHelp": {
+            "x": 147,
+            "y": 396.734375,
+            "width": 96,
+            "height": 93.796875
+          },
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 59,
+              "y": 199.046875,
+              "right": 331,
+              "bottom": 403.046875,
+              "width": 272,
+              "height": 204
+            },
+            "tray": {
+              "x": 59,
+              "y": 407.046875,
+              "right": 331,
+              "bottom": 615.546875,
+              "width": 272,
+              "height": 208.5
+            },
+            "task": {
+              "x": 59,
+              "y": 56,
+              "right": 331,
+              "bottom": 140.734375,
+              "width": 272,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 4,
+              "y": 619.546875,
+              "right": 386,
+              "bottom": 667.546875,
+              "width": 382,
+              "height": 48
+            }
+          },
+          "wrongRetryChecked": false,
+          "heldReview": true,
+          "touchEvidence": null,
+          "images": 2,
+          "primary": "Next round"
+        },
+        {
+          "round": 4,
+          "pieces": 12,
+          "clueShown": true,
+          "expandedHelp": {
+            "x": 147,
+            "y": 396.734375,
+            "width": 96,
+            "height": 93.796875
+          },
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 59,
+              "y": 199.046875,
+              "right": 331,
+              "bottom": 403.046875,
+              "width": 272,
+              "height": 204
+            },
+            "tray": {
+              "x": 59,
+              "y": 407.046875,
+              "right": 331,
+              "bottom": 615.546875,
+              "width": 272,
+              "height": 208.5
+            },
+            "task": {
+              "x": 59,
+              "y": 56,
+              "right": 331,
+              "bottom": 140.734375,
+              "width": 272,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 4,
+              "y": 619.546875,
+              "right": 386,
+              "bottom": 667.546875,
+              "width": 382,
+              "height": 48
+            }
+          },
+          "wrongRetryChecked": false,
+          "heldReview": true,
+          "touchEvidence": null,
+          "images": 1,
+          "primary": "Finish game"
+        }
+      ],
+      "protection": {
+        "targetCommit": {
+          "transactionId": "d7904ac3-13cb-4eb1-b5be-f7d36a1030ff",
+          "playedLevel": 4,
+          "plays": 10,
+          "level": 4,
+          "best": 3,
+          "previousLevel": 4,
+          "levelUp": false,
+          "levelBests": {
+            "0": 3,
+            "1": 3,
+            "2": 3,
+            "3": 3,
+            "4": 3
+          },
+          "legacyRewardThrough": -1,
+          "rewardPoints": 0
+        },
+        "rewardDelta": {
+          "points": 0,
+          "plays": 0,
+          "expectedPoints": 0
+        },
+        "hashes": {
+          "before": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "abbe6ed23906ed58c05a2bc05aa197c4ffc176a72e2b499338d1fa9150446a55",
+            "qa_rewards_20261024_amari_games_played": "f548fa04642afbef037a5eb4620ef3014f293023265088a0b9abfbd85dbf58cf",
+            "qa_rewards_20261024_amari_little_progress": "c34b8791ab6d9365e3fc00ad5fde1f9de550e228488706390d54599f291d50fd",
+            "qa_rewards_20261024_amari_points": "01e537fe58dd4b726c6bd15e012922c275bc03a7f115f4c20b3aef589d614f9f",
+            "qa_rewards_20261024_amari_rewards_v2": "bbef068a0cf77a621943f397024edf485a7417e61d049308582dfb1f1c3c042d",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+            "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+            "qa_rewards_20261024_askia_little_progress": "d40f531b1ea41ed301e7973f0365bafb31da1932b3a6f90f22cf86f9ee70a8af",
+            "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+            "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+          },
+          "after": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "abbe6ed23906ed58c05a2bc05aa197c4ffc176a72e2b499338d1fa9150446a55",
+            "qa_rewards_20261024_amari_games_played": "f548fa04642afbef037a5eb4620ef3014f293023265088a0b9abfbd85dbf58cf",
+            "qa_rewards_20261024_amari_little_progress": "c34b8791ab6d9365e3fc00ad5fde1f9de550e228488706390d54599f291d50fd",
+            "qa_rewards_20261024_amari_points": "01e537fe58dd4b726c6bd15e012922c275bc03a7f115f4c20b3aef589d614f9f",
+            "qa_rewards_20261024_amari_rewards_v2": "bbef068a0cf77a621943f397024edf485a7417e61d049308582dfb1f1c3c042d",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+            "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+            "qa_rewards_20261024_askia_little_progress": "217a4ae083efff33313e45a1688f6c62449586ce7c6c13bd0074c262d05fd41d",
+            "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+            "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+          }
+        }
+      },
+      "namespace": true,
+      "audioEvidence": {
+        "source": "http://127.0.0.1:5180/audio/en/51c80120-matilda.mp3",
+        "cancelledByMute": true
+      },
+      "faultFacts": {
+        "status": "not-requested"
+      },
+      "replayFacts": {
+        "status": "verified",
+        "returnedToParent": true,
+        "reopenedAndReloaded": true,
+        "sameLevelAvailable": true,
+        "sameLevelReplayed": true,
+        "zeroRewardDelta": true,
+        "transactionId": "9e1fe0dd-cc9e-4961-9b67-a2a5de754ba8",
+        "commit": {
+          "plays": 11,
+          "playedLevel": 4,
+          "rewardPoints": 0
+        },
+        "hashes": {
+          "before": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "abbe6ed23906ed58c05a2bc05aa197c4ffc176a72e2b499338d1fa9150446a55",
+            "qa_rewards_20261024_amari_games_played": "f548fa04642afbef037a5eb4620ef3014f293023265088a0b9abfbd85dbf58cf",
+            "qa_rewards_20261024_amari_little_progress": "c34b8791ab6d9365e3fc00ad5fde1f9de550e228488706390d54599f291d50fd",
+            "qa_rewards_20261024_amari_points": "01e537fe58dd4b726c6bd15e012922c275bc03a7f115f4c20b3aef589d614f9f",
+            "qa_rewards_20261024_amari_rewards_v2": "bbef068a0cf77a621943f397024edf485a7417e61d049308582dfb1f1c3c042d",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+            "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+            "qa_rewards_20261024_askia_little_progress": "217a4ae083efff33313e45a1688f6c62449586ce7c6c13bd0074c262d05fd41d",
+            "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+            "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+          },
+          "after": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "abbe6ed23906ed58c05a2bc05aa197c4ffc176a72e2b499338d1fa9150446a55",
+            "qa_rewards_20261024_amari_games_played": "f548fa04642afbef037a5eb4620ef3014f293023265088a0b9abfbd85dbf58cf",
+            "qa_rewards_20261024_amari_little_progress": "c34b8791ab6d9365e3fc00ad5fde1f9de550e228488706390d54599f291d50fd",
+            "qa_rewards_20261024_amari_points": "01e537fe58dd4b726c6bd15e012922c275bc03a7f115f4c20b3aef589d614f9f",
+            "qa_rewards_20261024_amari_rewards_v2": "bbef068a0cf77a621943f397024edf485a7417e61d049308582dfb1f1c3c042d",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+            "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+            "qa_rewards_20261024_askia_little_progress": "53d6ec26f4d527f7fcdccc1d03b50217f6514bbb68301f599065de16dc7835dd",
+            "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+            "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+          }
+        }
+      }
+    }
+  ],
+  "provider": [],
+  "failed": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "errors": [],
+  "faultFacts": {
+    "status": "not-requested"
+  },
+  "replayFacts": {
+    "status": "verified",
+    "returnedToParent": true,
+    "reopenedAndReloaded": true,
+    "sameLevelAvailable": true,
+    "sameLevelReplayed": true,
+    "zeroRewardDelta": true,
+    "transactionId": "9e1fe0dd-cc9e-4961-9b67-a2a5de754ba8",
+    "commit": {
+      "plays": 11,
+      "playedLevel": 4,
+      "rewardPoints": 0
+    },
+    "hashes": {
+      "before": {
+        "qa_rewards_20261024_amari_earned_sticker_ids_v1": "abbe6ed23906ed58c05a2bc05aa197c4ffc176a72e2b499338d1fa9150446a55",
+        "qa_rewards_20261024_amari_games_played": "f548fa04642afbef037a5eb4620ef3014f293023265088a0b9abfbd85dbf58cf",
+        "qa_rewards_20261024_amari_little_progress": "c34b8791ab6d9365e3fc00ad5fde1f9de550e228488706390d54599f291d50fd",
+        "qa_rewards_20261024_amari_points": "01e537fe58dd4b726c6bd15e012922c275bc03a7f115f4c20b3aef589d614f9f",
+        "qa_rewards_20261024_amari_rewards_v2": "bbef068a0cf77a621943f397024edf485a7417e61d049308582dfb1f1c3c042d",
+        "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+        "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+        "qa_rewards_20261024_askia_little_progress": "217a4ae083efff33313e45a1688f6c62449586ce7c6c13bd0074c262d05fd41d",
+        "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+        "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+      },
+      "after": {
+        "qa_rewards_20261024_amari_earned_sticker_ids_v1": "abbe6ed23906ed58c05a2bc05aa197c4ffc176a72e2b499338d1fa9150446a55",
+        "qa_rewards_20261024_amari_games_played": "f548fa04642afbef037a5eb4620ef3014f293023265088a0b9abfbd85dbf58cf",
+        "qa_rewards_20261024_amari_little_progress": "c34b8791ab6d9365e3fc00ad5fde1f9de550e228488706390d54599f291d50fd",
+        "qa_rewards_20261024_amari_points": "01e537fe58dd4b726c6bd15e012922c275bc03a7f115f4c20b3aef589d614f9f",
+        "qa_rewards_20261024_amari_rewards_v2": "bbef068a0cf77a621943f397024edf485a7417e61d049308582dfb1f1c3c042d",
+        "qa_rewards_20261024_askia_earned_sticker_ids_v1": "98a31b539863bbe30d1874d54c6e0db32e7c71dc4d2ed2dc38b6bcf45c40f84a",
+        "qa_rewards_20261024_askia_games_played": "4e0713919dbdaca9b9cd43d889fc9ac60824967fd7bc7bbdbdec969904ecbc36",
+        "qa_rewards_20261024_askia_little_progress": "53d6ec26f4d527f7fcdccc1d03b50217f6514bbb68301f599065de16dc7835dd",
+        "qa_rewards_20261024_askia_points": "7979226e1dfe00c9835ec02fe93e688319dc22092b2436c78110e1e4793854cd",
+        "qa_rewards_20261024_askia_rewards_v2": "ca1f208056a0cb24db9ad957c64705c61e322f784b4cb0dbf032512cd52f0a71"
+      }
+    }
+  },
+  "stage": "native",
+  "cliReturnCode": 0
+}

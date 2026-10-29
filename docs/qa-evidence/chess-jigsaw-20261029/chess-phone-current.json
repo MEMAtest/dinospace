@@ -1,0 +1,704 @@
+{
+  "passed": true,
+  "entry": "/assets/arcade-CELJo9Al.js",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "boxes": [
+    {
+      "label": "Lessons",
+      "x": 20.390625,
+      "y": 76.796875,
+      "width": 112.890625,
+      "height": 44,
+      "right": 133.28125,
+      "bottom": 120.796875,
+      "hit": true
+    },
+    {
+      "label": "Turn sound off",
+      "x": 325.609375,
+      "y": 76.796875,
+      "width": 44,
+      "height": 44,
+      "right": 369.609375,
+      "bottom": 120.796875,
+      "hit": true
+    },
+    {
+      "label": "a8, Black rook",
+      "x": 19,
+      "y": 177.984375,
+      "width": 44,
+      "height": 44,
+      "right": 63,
+      "bottom": 221.984375,
+      "hit": true
+    },
+    {
+      "label": "b8, Black knight",
+      "x": 63,
+      "y": 177.984375,
+      "width": 44,
+      "height": 44,
+      "right": 107,
+      "bottom": 221.984375,
+      "hit": true
+    },
+    {
+      "label": "c8, Black bishop",
+      "x": 107,
+      "y": 177.984375,
+      "width": 44,
+      "height": 44,
+      "right": 151,
+      "bottom": 221.984375,
+      "hit": true
+    },
+    {
+      "label": "d8, Black queen",
+      "x": 151,
+      "y": 177.984375,
+      "width": 44,
+      "height": 44,
+      "right": 195,
+      "bottom": 221.984375,
+      "hit": true
+    },
+    {
+      "label": "e8, Black king",
+      "x": 195,
+      "y": 177.984375,
+      "width": 44,
+      "height": 44,
+      "right": 239,
+      "bottom": 221.984375,
+      "hit": true
+    },
+    {
+      "label": "f8, Black bishop",
+      "x": 239,
+      "y": 177.984375,
+      "width": 44,
+      "height": 44,
+      "right": 283,
+      "bottom": 221.984375,
+      "hit": true
+    },
+    {
+      "label": "g8, Black knight",
+      "x": 283,
+      "y": 177.984375,
+      "width": 44,
+      "height": 44,
+      "right": 327,
+      "bottom": 221.984375,
+      "hit": true
+    },
+    {
+      "label": "h8, Black rook",
+      "x": 327,
+      "y": 177.984375,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 221.984375,
+      "hit": true
+    },
+    {
+      "label": "a7, empty square, last move",
+      "x": 19,
+      "y": 221.984375,
+      "width": 44,
+      "height": 44,
+      "right": 63,
+      "bottom": 265.984375,
+      "hit": true
+    },
+    {
+      "label": "b7, Black pawn",
+      "x": 63,
+      "y": 221.984375,
+      "width": 44,
+      "height": 44,
+      "right": 107,
+      "bottom": 265.984375,
+      "hit": true
+    },
+    {
+      "label": "c7, Black pawn",
+      "x": 107,
+      "y": 221.984375,
+      "width": 44,
+      "height": 44,
+      "right": 151,
+      "bottom": 265.984375,
+      "hit": true
+    },
+    {
+      "label": "d7, Black pawn",
+      "x": 151,
+      "y": 221.984375,
+      "width": 44,
+      "height": 44,
+      "right": 195,
+      "bottom": 265.984375,
+      "hit": true
+    },
+    {
+      "label": "e7, Black pawn",
+      "x": 195,
+      "y": 221.984375,
+      "width": 44,
+      "height": 44,
+      "right": 239,
+      "bottom": 265.984375,
+      "hit": true
+    },
+    {
+      "label": "f7, Black pawn",
+      "x": 239,
+      "y": 221.984375,
+      "width": 44,
+      "height": 44,
+      "right": 283,
+      "bottom": 265.984375,
+      "hit": true
+    },
+    {
+      "label": "g7, Black pawn",
+      "x": 283,
+      "y": 221.984375,
+      "width": 44,
+      "height": 44,
+      "right": 327,
+      "bottom": 265.984375,
+      "hit": true
+    },
+    {
+      "label": "h7, Black pawn",
+      "x": 327,
+      "y": 221.984375,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 265.984375,
+      "hit": true
+    },
+    {
+      "label": "a6, empty square",
+      "x": 19,
+      "y": 265.984375,
+      "width": 44,
+      "height": 44,
+      "right": 63,
+      "bottom": 309.984375,
+      "hit": true
+    },
+    {
+      "label": "b6, empty square",
+      "x": 63,
+      "y": 265.984375,
+      "width": 44,
+      "height": 44,
+      "right": 107,
+      "bottom": 309.984375,
+      "hit": true
+    },
+    {
+      "label": "c6, empty square",
+      "x": 107,
+      "y": 265.984375,
+      "width": 44,
+      "height": 44,
+      "right": 151,
+      "bottom": 309.984375,
+      "hit": true
+    },
+    {
+      "label": "d6, empty square",
+      "x": 151,
+      "y": 265.984375,
+      "width": 44,
+      "height": 44,
+      "right": 195,
+      "bottom": 309.984375,
+      "hit": true
+    },
+    {
+      "label": "e6, empty square",
+      "x": 195,
+      "y": 265.984375,
+      "width": 44,
+      "height": 44,
+      "right": 239,
+      "bottom": 309.984375,
+      "hit": true
+    },
+    {
+      "label": "f6, empty square",
+      "x": 239,
+      "y": 265.984375,
+      "width": 44,
+      "height": 44,
+      "right": 283,
+      "bottom": 309.984375,
+      "hit": true
+    },
+    {
+      "label": "g6, empty square",
+      "x": 283,
+      "y": 265.984375,
+      "width": 44,
+      "height": 44,
+      "right": 327,
+      "bottom": 309.984375,
+      "hit": true
+    },
+    {
+      "label": "h6, empty square",
+      "x": 327,
+      "y": 265.984375,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 309.984375,
+      "hit": true
+    },
+    {
+      "label": "a5, Black pawn, last move",
+      "x": 19,
+      "y": 309.984375,
+      "width": 44,
+      "height": 44,
+      "right": 63,
+      "bottom": 353.984375,
+      "hit": true
+    },
+    {
+      "label": "b5, empty square",
+      "x": 63,
+      "y": 309.984375,
+      "width": 44,
+      "height": 44,
+      "right": 107,
+      "bottom": 353.984375,
+      "hit": true
+    },
+    {
+      "label": "c5, empty square",
+      "x": 107,
+      "y": 309.984375,
+      "width": 44,
+      "height": 44,
+      "right": 151,
+      "bottom": 353.984375,
+      "hit": true
+    },
+    {
+      "label": "d5, empty square",
+      "x": 151,
+      "y": 309.984375,
+      "width": 44,
+      "height": 44,
+      "right": 195,
+      "bottom": 353.984375,
+      "hit": true
+    },
+    {
+      "label": "e5, empty square",
+      "x": 195,
+      "y": 309.984375,
+      "width": 44,
+      "height": 44,
+      "right": 239,
+      "bottom": 353.984375,
+      "hit": true
+    },
+    {
+      "label": "f5, empty square",
+      "x": 239,
+      "y": 309.984375,
+      "width": 44,
+      "height": 44,
+      "right": 283,
+      "bottom": 353.984375,
+      "hit": true
+    },
+    {
+      "label": "g5, empty square",
+      "x": 283,
+      "y": 309.984375,
+      "width": 44,
+      "height": 44,
+      "right": 327,
+      "bottom": 353.984375,
+      "hit": true
+    },
+    {
+      "label": "h5, empty square",
+      "x": 327,
+      "y": 309.984375,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 353.984375,
+      "hit": true
+    },
+    {
+      "label": "a4, empty square",
+      "x": 19,
+      "y": 353.984375,
+      "width": 44,
+      "height": 44,
+      "right": 63,
+      "bottom": 397.984375,
+      "hit": true
+    },
+    {
+      "label": "b4, empty square",
+      "x": 63,
+      "y": 353.984375,
+      "width": 44,
+      "height": 44,
+      "right": 107,
+      "bottom": 397.984375,
+      "hit": true
+    },
+    {
+      "label": "c4, empty square",
+      "x": 107,
+      "y": 353.984375,
+      "width": 44,
+      "height": 44,
+      "right": 151,
+      "bottom": 397.984375,
+      "hit": true
+    },
+    {
+      "label": "d4, empty square",
+      "x": 151,
+      "y": 353.984375,
+      "width": 44,
+      "height": 44,
+      "right": 195,
+      "bottom": 397.984375,
+      "hit": true
+    },
+    {
+      "label": "e4, White pawn",
+      "x": 195,
+      "y": 353.984375,
+      "width": 44,
+      "height": 44,
+      "right": 239,
+      "bottom": 397.984375,
+      "hit": true
+    },
+    {
+      "label": "f4, empty square",
+      "x": 239,
+      "y": 353.984375,
+      "width": 44,
+      "height": 44,
+      "right": 283,
+      "bottom": 397.984375,
+      "hit": true
+    },
+    {
+      "label": "g4, empty square",
+      "x": 283,
+      "y": 353.984375,
+      "width": 44,
+      "height": 44,
+      "right": 327,
+      "bottom": 397.984375,
+      "hit": true
+    },
+    {
+      "label": "h4, empty square",
+      "x": 327,
+      "y": 353.984375,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 397.984375,
+      "hit": true
+    },
+    {
+      "label": "a3, empty square",
+      "x": 19,
+      "y": 397.984375,
+      "width": 44,
+      "height": 44,
+      "right": 63,
+      "bottom": 441.984375,
+      "hit": true
+    },
+    {
+      "label": "b3, empty square",
+      "x": 63,
+      "y": 397.984375,
+      "width": 44,
+      "height": 44,
+      "right": 107,
+      "bottom": 441.984375,
+      "hit": true
+    },
+    {
+      "label": "c3, empty square",
+      "x": 107,
+      "y": 397.984375,
+      "width": 44,
+      "height": 44,
+      "right": 151,
+      "bottom": 441.984375,
+      "hit": true
+    },
+    {
+      "label": "d3, empty square",
+      "x": 151,
+      "y": 397.984375,
+      "width": 44,
+      "height": 44,
+      "right": 195,
+      "bottom": 441.984375,
+      "hit": true
+    },
+    {
+      "label": "e3, empty square",
+      "x": 195,
+      "y": 397.984375,
+      "width": 44,
+      "height": 44,
+      "right": 239,
+      "bottom": 441.984375,
+      "hit": true
+    },
+    {
+      "label": "f3, empty square",
+      "x": 239,
+      "y": 397.984375,
+      "width": 44,
+      "height": 44,
+      "right": 283,
+      "bottom": 441.984375,
+      "hit": true
+    },
+    {
+      "label": "g3, empty square",
+      "x": 283,
+      "y": 397.984375,
+      "width": 44,
+      "height": 44,
+      "right": 327,
+      "bottom": 441.984375,
+      "hit": true
+    },
+    {
+      "label": "h3, empty square",
+      "x": 327,
+      "y": 397.984375,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 441.984375,
+      "hit": true
+    },
+    {
+      "label": "a2, White pawn",
+      "x": 19,
+      "y": 441.984375,
+      "width": 44,
+      "height": 44,
+      "right": 63,
+      "bottom": 485.984375,
+      "hit": true
+    },
+    {
+      "label": "b2, White pawn",
+      "x": 63,
+      "y": 441.984375,
+      "width": 44,
+      "height": 44,
+      "right": 107,
+      "bottom": 485.984375,
+      "hit": true
+    },
+    {
+      "label": "c2, White pawn",
+      "x": 107,
+      "y": 441.984375,
+      "width": 44,
+      "height": 44,
+      "right": 151,
+      "bottom": 485.984375,
+      "hit": true
+    },
+    {
+      "label": "d2, White pawn",
+      "x": 151,
+      "y": 441.984375,
+      "width": 44,
+      "height": 44,
+      "right": 195,
+      "bottom": 485.984375,
+      "hit": true
+    },
+    {
+      "label": "e2, empty square",
+      "x": 195,
+      "y": 441.984375,
+      "width": 44,
+      "height": 44,
+      "right": 239,
+      "bottom": 485.984375,
+      "hit": true
+    },
+    {
+      "label": "f2, White pawn",
+      "x": 239,
+      "y": 441.984375,
+      "width": 44,
+      "height": 44,
+      "right": 283,
+      "bottom": 485.984375,
+      "hit": true
+    },
+    {
+      "label": "g2, White pawn",
+      "x": 283,
+      "y": 441.984375,
+      "width": 44,
+      "height": 44,
+      "right": 327,
+      "bottom": 485.984375,
+      "hit": true
+    },
+    {
+      "label": "h2, White pawn",
+      "x": 327,
+      "y": 441.984375,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 485.984375,
+      "hit": true
+    },
+    {
+      "label": "a1, White rook",
+      "x": 19,
+      "y": 485.984375,
+      "width": 44,
+      "height": 44,
+      "right": 63,
+      "bottom": 529.984375,
+      "hit": true
+    },
+    {
+      "label": "b1, White knight",
+      "x": 63,
+      "y": 485.984375,
+      "width": 44,
+      "height": 44,
+      "right": 107,
+      "bottom": 529.984375,
+      "hit": true
+    },
+    {
+      "label": "c1, White bishop",
+      "x": 107,
+      "y": 485.984375,
+      "width": 44,
+      "height": 44,
+      "right": 151,
+      "bottom": 529.984375,
+      "hit": true
+    },
+    {
+      "label": "d1, White queen",
+      "x": 151,
+      "y": 485.984375,
+      "width": 44,
+      "height": 44,
+      "right": 195,
+      "bottom": 529.984375,
+      "hit": true
+    },
+    {
+      "label": "e1, White king",
+      "x": 195,
+      "y": 485.984375,
+      "width": 44,
+      "height": 44,
+      "right": 239,
+      "bottom": 529.984375,
+      "hit": true
+    },
+    {
+      "label": "f1, White bishop",
+      "x": 239,
+      "y": 485.984375,
+      "width": 44,
+      "height": 44,
+      "right": 283,
+      "bottom": 529.984375,
+      "hit": true
+    },
+    {
+      "label": "g1, White knight",
+      "x": 283,
+      "y": 485.984375,
+      "width": 44,
+      "height": 44,
+      "right": 327,
+      "bottom": 529.984375,
+      "hit": true
+    },
+    {
+      "label": "h1, White rook",
+      "x": 327,
+      "y": 485.984375,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 529.984375,
+      "hit": true
+    },
+    {
+      "label": "Undo turn",
+      "x": 40.953125,
+      "y": 578.265625,
+      "width": 106.140625,
+      "height": 44,
+      "right": 147.09375,
+      "bottom": 622.265625,
+      "hit": true
+    },
+    {
+      "label": "Moves",
+      "x": 151.890625,
+      "y": 578.265625,
+      "width": 83.125,
+      "height": 44,
+      "right": 235.015625,
+      "bottom": 622.265625,
+      "hit": true
+    },
+    {
+      "label": "New game",
+      "x": 239.8125,
+      "y": 578.265625,
+      "width": 109.21875,
+      "height": 44,
+      "right": 349.03125,
+      "bottom": 622.265625,
+      "hit": true
+    }
+  ],
+  "invalid": [],
+  "soundToggleBothDirections": true,
+  "overflow": false
+}

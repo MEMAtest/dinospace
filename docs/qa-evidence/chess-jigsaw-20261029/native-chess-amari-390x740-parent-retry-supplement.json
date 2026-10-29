@@ -1,0 +1,25 @@
+{
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "viewport": "390x740",
+  "entryIdentity": "/assets/arcade-CELJo9Al.js",
+  "runtimeCommit": "85a0f9c26af842559580fb593ad37b410f1cfc8b",
+  "sourceReport": "native-chess-amari-390x740-20261029T075558-571724000.json",
+  "scope": "Focused continuation of the source-bound terminal checkmate parent-reward retry after the harness initially expected the setup-summary label instead of the held-board label.",
+  "row": {
+    "kind": "held-board-parent-retry-supplement",
+    "retryLabel": "Retry save",
+    "retryCenterHit": true,
+    "rewardBeforePoints": 328,
+    "rewardAfterPoints": 329,
+    "exactlyOnePoint": true,
+    "claimValue": 1,
+    "receiptClaimed": true,
+    "terminalStatus": "Black is checkmated. White wins."
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "providerAttempts": []
+}

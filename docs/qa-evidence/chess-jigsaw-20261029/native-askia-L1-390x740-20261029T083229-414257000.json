@@ -1,0 +1,328 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "player": "askia",
+  "level": 1,
+  "width": 390,
+  "height": 740,
+  "entry": "/assets/arcade-CtJCXeke.js",
+  "namespaced": true,
+  "rows": [
+    {
+      "level": 1,
+      "rounds": [
+        {
+          "round": 1,
+          "pieces": 2,
+          "clueShown": false,
+          "expandedHelp": null,
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 59,
+              "y": 178.890625,
+              "right": 331,
+              "bottom": 382.890625,
+              "width": 272,
+              "height": 204
+            },
+            "tray": {
+              "x": 59,
+              "y": 386.890625,
+              "right": 331,
+              "bottom": 592.390625,
+              "width": 272,
+              "height": 205.5
+            },
+            "task": {
+              "x": 59,
+              "y": 56,
+              "right": 331,
+              "bottom": 140.734375,
+              "width": 272,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 4,
+              "y": 596.390625,
+              "right": 386,
+              "bottom": 644.390625,
+              "width": 382,
+              "height": 48
+            }
+          },
+          "wrongRetryChecked": true,
+          "heldReview": true,
+          "touchEvidence": null,
+          "images": 1,
+          "primary": "Next round"
+        },
+        {
+          "round": 2,
+          "pieces": 2,
+          "clueShown": false,
+          "expandedHelp": null,
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 59,
+              "y": 178.890625,
+              "right": 331,
+              "bottom": 382.890625,
+              "width": 272,
+              "height": 204
+            },
+            "tray": {
+              "x": 59,
+              "y": 386.890625,
+              "right": 331,
+              "bottom": 592.390625,
+              "width": 272,
+              "height": 205.5
+            },
+            "task": {
+              "x": 59,
+              "y": 56,
+              "right": 331,
+              "bottom": 140.734375,
+              "width": 272,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 4,
+              "y": 596.390625,
+              "right": 386,
+              "bottom": 644.390625,
+              "width": 382,
+              "height": 48
+            }
+          },
+          "wrongRetryChecked": false,
+          "heldReview": true,
+          "touchEvidence": null,
+          "images": 2,
+          "primary": "Next round"
+        },
+        {
+          "round": 3,
+          "pieces": 2,
+          "clueShown": false,
+          "expandedHelp": null,
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 59,
+              "y": 178.890625,
+              "right": 331,
+              "bottom": 382.890625,
+              "width": 272,
+              "height": 204
+            },
+            "tray": {
+              "x": 59,
+              "y": 386.890625,
+              "right": 331,
+              "bottom": 592.390625,
+              "width": 272,
+              "height": 205.5
+            },
+            "task": {
+              "x": 59,
+              "y": 56,
+              "right": 331,
+              "bottom": 140.734375,
+              "width": 272,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 4,
+              "y": 596.390625,
+              "right": 386,
+              "bottom": 644.390625,
+              "width": 382,
+              "height": 48
+            }
+          },
+          "wrongRetryChecked": false,
+          "heldReview": true,
+          "touchEvidence": null,
+          "images": 2,
+          "primary": "Next round"
+        },
+        {
+          "round": 4,
+          "pieces": 2,
+          "clueShown": false,
+          "expandedHelp": null,
+          "layout": {
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "document": {
+              "width": 390,
+              "height": 740,
+              "scrollY": 0,
+              "scrollTop": 0
+            },
+            "board": {
+              "x": 59,
+              "y": 178.890625,
+              "right": 331,
+              "bottom": 382.890625,
+              "width": 272,
+              "height": 204
+            },
+            "tray": {
+              "x": 59,
+              "y": 386.890625,
+              "right": 331,
+              "bottom": 592.390625,
+              "width": 272,
+              "height": 205.5
+            },
+            "task": {
+              "x": 59,
+              "y": 56,
+              "right": 331,
+              "bottom": 140.734375,
+              "width": 272,
+              "height": 84.734375
+            },
+            "feedback": {
+              "x": 4,
+              "y": 596.390625,
+              "right": 386,
+              "bottom": 644.390625,
+              "width": 382,
+              "height": 48
+            }
+          },
+          "wrongRetryChecked": false,
+          "heldReview": true,
+          "touchEvidence": null,
+          "images": 2,
+          "primary": "Finish game"
+        }
+      ],
+      "protection": {
+        "targetCommit": {
+          "transactionId": "4955e154-a465-46e6-84b0-1e15df3df56b",
+          "playedLevel": 0,
+          "plays": 1,
+          "level": 1,
+          "best": 3,
+          "previousLevel": 0,
+          "levelUp": true,
+          "levelBests": {
+            "0": 3
+          },
+          "legacyRewardThrough": -1,
+          "rewardPoints": 8
+        },
+        "rewardDelta": {
+          "points": 8,
+          "plays": 1,
+          "expectedPoints": 8
+        },
+        "hashes": {
+          "before": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "abbe6ed23906ed58c05a2bc05aa197c4ffc176a72e2b499338d1fa9150446a55",
+            "qa_rewards_20261024_amari_games_played": "f548fa04642afbef037a5eb4620ef3014f293023265088a0b9abfbd85dbf58cf",
+            "qa_rewards_20261024_amari_little_progress": "c34b8791ab6d9365e3fc00ad5fde1f9de550e228488706390d54599f291d50fd",
+            "qa_rewards_20261024_amari_points": "01e537fe58dd4b726c6bd15e012922c275bc03a7f115f4c20b3aef589d614f9f",
+            "qa_rewards_20261024_amari_rewards_v2": "bbef068a0cf77a621943f397024edf485a7417e61d049308582dfb1f1c3c042d",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "f4d25571d7648b549c051ab9ab072165f3b790ba932e12e16dc75aeb7a38bbf4",
+            "qa_rewards_20261024_askia_games_played": "578c15ad1e740b2d252cae5e79a3a0b110b1af347409c4697ac76c6e7790d422",
+            "qa_rewards_20261024_askia_little_progress": "6fd98ba449a537d97284c32ed54bc53196c80041f66a11b52b7eba7312f4809a",
+            "qa_rewards_20261024_askia_points": "7a3eb27987707d7ecaf36d841b98371b5813c9614be057422e8e67c2772e7ca8",
+            "qa_rewards_20261024_askia_rewards_v2": "a1e3e50e17107b3cd639872de306eb9f7a9b4ce156e94a5de809ff7d16701b5d"
+          },
+          "after": {
+            "qa_rewards_20261024_amari_earned_sticker_ids_v1": "abbe6ed23906ed58c05a2bc05aa197c4ffc176a72e2b499338d1fa9150446a55",
+            "qa_rewards_20261024_amari_games_played": "f548fa04642afbef037a5eb4620ef3014f293023265088a0b9abfbd85dbf58cf",
+            "qa_rewards_20261024_amari_little_progress": "c34b8791ab6d9365e3fc00ad5fde1f9de550e228488706390d54599f291d50fd",
+            "qa_rewards_20261024_amari_points": "01e537fe58dd4b726c6bd15e012922c275bc03a7f115f4c20b3aef589d614f9f",
+            "qa_rewards_20261024_amari_rewards_v2": "bbef068a0cf77a621943f397024edf485a7417e61d049308582dfb1f1c3c042d",
+            "qa_rewards_20261024_askia_earned_sticker_ids_v1": "f4d25571d7648b549c051ab9ab072165f3b790ba932e12e16dc75aeb7a38bbf4",
+            "qa_rewards_20261024_askia_games_played": "d08ded2ea69724a69a208f0b9acae0f41b843eeccabb203766c376e06fd4152a",
+            "qa_rewards_20261024_askia_little_progress": "689bf861e1541799af64573b3dfe66d2eda4bca868a537ec327d0894e2e3dcf7",
+            "qa_rewards_20261024_askia_points": "a71a86baa41f33a67963cc3155cdf9acf6786ec63ddf851f32c7230953e0b08b",
+            "qa_rewards_20261024_askia_rewards_v2": "3f9f17431a4d515f519fcad0072bd3cee853a1e2278a7f1649d4189bcd3b85fd"
+          }
+        }
+      },
+      "namespace": true,
+      "audioEvidence": {
+        "source": "http://127.0.0.1:5180/audio/en/51c80120-matilda.mp3",
+        "cancelledByMute": true
+      },
+      "faultFacts": {
+        "status": "retried",
+        "mode": "progress-write",
+        "phase": "progress-write",
+        "attemptedTransactionId": "4955e154-a465-46e6-84b0-1e15df3df56b",
+        "attemptedRewardToken": null,
+        "attemptedRewardPoints": 0,
+        "progressChangedBeforeRetry": false,
+        "rewardChangedBeforeRetry": false,
+        "sameTransaction": true,
+        "heldRetryControl": true,
+        "rewardPointsAfterRetry": 8
+      },
+      "replayFacts": {
+        "status": "not-requested"
+      }
+    }
+  ],
+  "provider": [],
+  "failed": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "errors": [],
+  "faultFacts": {
+    "status": "retried",
+    "mode": "progress-write",
+    "phase": "progress-write",
+    "attemptedTransactionId": "4955e154-a465-46e6-84b0-1e15df3df56b",
+    "attemptedRewardToken": null,
+    "attemptedRewardPoints": 0,
+    "progressChangedBeforeRetry": false,
+    "rewardChangedBeforeRetry": false,
+    "sameTransaction": true,
+    "heldRetryControl": true,
+    "rewardPointsAfterRetry": 8
+  },
+  "replayFacts": {
+    "status": "not-requested"
+  },
+  "stage": "native",
+  "cliReturnCode": 0
+}

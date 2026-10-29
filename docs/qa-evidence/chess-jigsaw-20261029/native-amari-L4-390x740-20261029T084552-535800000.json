@@ -1,0 +1,28 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "level": 4,
+  "width": 390,
+  "height": 740,
+  "entry": "/assets/arcade-toHCUoOq.js",
+  "rows": [],
+  "provider": [],
+  "failed": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "faultFacts": {
+    "status": "not-requested"
+  },
+  "replayFacts": {
+    "status": "not-requested"
+  },
+  "errors": [
+    {
+      "message": "feedback is not wholly visible before placement: {\"viewport\":{\"width\":390,\"height\":740},\"document\":{\"width\":390,\"height\":771,\"scrollY\":0,\"scrollTop\":0},\"board\":{\"x\":59,\"y\":283.734375,\"right\":331,\"bottom\":487.734375,\"width\":272,\"height\":204},\"tray\":{\"x\":59,\"y\":491.734375,\"right\":331,\"bottom\":700.234375,\"width\":272,\"height\":208.5},\"task\":{\"x\":59,\"y\":125,\"right\":331,\"bottom\":209.734375,\"width\":272,\"height\":84.734375},\"feedback\":{\"x\":15,\"y\":704.234375,\"right\":375,\"bottom\":752.234375,\"width\":360,\"height\":48}}",
+      "stack": "Error: feedback is not wholly visible before placement: {\"viewport\":{\"width\":390,\"height\":740},\"document\":{\"width\":390,\"height\":771,\"scrollY\":0,\"scrollTop\":0},\"board\":{\"x\":59,\"y\":283.734375,\"right\":331,\"bottom\":487.734375,\"width\":272,\"height\":204},\"tray\":{\"x\":59,\"y\":491.734375,\"right\":331,\"bottom\":700.234375,\"width\":272,\"height\":208.5},\"task\":{\"x\":59,\"y\":125,\"right\":331,\"bottom\":209.734375,\"width\":272,\"height\":84.734375},\"feedback\":{\"x\":15,\"y\":704.234375,\"right\":375,\"bottom\":752.234375,\"width\":360,\"height\":48}}\n    at evalmachine.<anonymous>:103:172\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)\n    at async connection.onmessage (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:76275:29)"
+    }
+  ],
+  "stage": "native",
+  "cliReturnCode": 0
+}
