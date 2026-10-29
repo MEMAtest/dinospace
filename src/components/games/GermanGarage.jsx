@@ -97,15 +97,21 @@ export default function GermanGarage({ onBack, playSfx, soundOn, onToggleSound, 
       if (!path) { setSoundError(true); return; }
       const audio = new Audio(path);
       audioRef.current = audio;
+      const isCurrentPlayback = () => audioGenerationRef.current === generation && audioRef.current === audio;
       audio.onended = () => {
         if (audioRef.current === audio) audioRef.current = null;
         playNext();
       };
       audio.onerror = () => {
+        if (!isCurrentPlayback()) return;
         if (audioRef.current === audio) audioRef.current = null;
         setSoundError(true);
       };
-      audio.play().catch(() => setSoundError(true));
+      audio.play().catch(() => {
+        if (!isCurrentPlayback()) return;
+        audioRef.current = null;
+        setSoundError(true);
+      });
     };
     playNext();
   }, [soundOn, stopAudio]);

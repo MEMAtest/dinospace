@@ -311,6 +311,7 @@ const ExplorerWords = ({ module, soundOn, onLaunchGame }) => <details className=
 
 const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, playerId, initialModule }) => {
   const [moduleId, setModuleId] = useState(() => initialCurriculumModule(initialModule, playerId));
+  const stagePickerRef = useRef(null);
   const badgeCache = useRef(new Map());
   const [badgeView, setBadgeView] = useState(() => {
     const result = inspectCurriculumBadges(playerId);
@@ -548,6 +549,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
 
   const startQuestion = () => {
     if (persistenceIssue) return;
+    closeStagePicker('#quest-prompt');
     setSessionResumed(false);
     setLessonOpen(false);
     onGameEvent?.(difficultyGameId, 'start', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
@@ -731,6 +733,12 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
 
   const worldArt = activeModule.id === 'continents' ? geographyWorld : activeModule.id === 'time-detectives' ? historyWorld : natureWorld;
 
+  const closeStagePicker = (focusSelector) => {
+    const picker = stagePickerRef.current;
+    if (picker?.open) picker.open = false;
+    if (focusSelector) requestAnimationFrame(() => document.querySelector(focusSelector)?.focus({ preventScroll: true }));
+  };
+
   return (
     <CurriculumHintContext.Provider value={logAudioHint}>
     <div className={`curriculum-quest quest-${activeModule.id}`} style={{ '--quest-world': `url(${worldArt})` }}>
@@ -748,18 +756,18 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
           <span>Keep this page open and retry before continuing.</span>
           <button type="button" onClick={retryPersistence} className="quest-continue min-h-12">Retry save</button>
         </div>}
-        <details className="quest-stage-picker">
+        <details className="quest-stage-picker" ref={stagePickerRef}>
           <summary>Choose a topic or level</summary>
           <div className="quest-stage-picker-content">
             <nav className="quest-modules" aria-label="Curriculum modules">
               {CURRICULUM_MODULES.map((module) => (
-                <button key={module.id} type="button" onClick={() => { playSfx('click'); const savedDifficulty = loadCurriculumPreferences(curriculumStorage(), playerId).difficulties[module.id]; setDifficulty(savedDifficulty || getRecommendedDifficulty(`worldmap-${module.id}`)); setModuleId(module.id); }} aria-pressed={module.id === activeModule.id} className="quest-module-tab">
+                <button key={module.id} type="button" onClick={() => { playSfx('click'); const savedDifficulty = loadCurriculumPreferences(curriculumStorage(), playerId).difficulties[module.id]; setDifficulty(savedDifficulty || getRecommendedDifficulty(`worldmap-${module.id}`)); setModuleId(module.id); closeStagePicker('.quest-stage-picker summary'); }} aria-pressed={module.id === activeModule.id} className="quest-module-tab">
                   <span className="quest-module-icon" aria-hidden="true">{module.icon}</span><span><strong>{module.title}</strong><small>{module.subtitle}</small></span><ArrowRight className="quest-tab-arrow" size={18} />
                 </button>
               ))}
             </nav>
             <label className="quest-level-select">Choose a level
-              <select aria-label="Choose a level" value={difficulty} onChange={(event) => setDifficulty(event.target.value)}>
+              <select aria-label="Choose a level" value={difficulty} onChange={(event) => { setDifficulty(event.target.value); closeStagePicker(); }}>
                 {Object.entries(DIFFICULTY_LABELS).map(([band, label]) => <option key={band} value={band}>{label}</option>)}
               </select>
             </label>
@@ -789,7 +797,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
           {lessonOpen ? (
             <div className="quest-learn-stage">
               <p className="quest-stage-label">Learn</p>
-              <h2 id="quest-prompt">Explore {activeModule.title}</h2>
+              <h2 id="quest-prompt" tabIndex={-1}>Explore {activeModule.title}</h2>
               <div className="quest-learn-intro-row"><p className="quest-learn-intro">{sessionResumed ? 'Your saved round is ready to continue.' : 'Learn: explore the map labels, timeline clues or specimen models. Then try one question at a time.'}</p><div className="quest-actions quest-learn-actions"><button type="button" onClick={startQuestion} disabled={Boolean(persistenceIssue)} className="quest-start disabled:opacity-50"><Sparkles size={19} /> {sessionResumed ? 'Continue round' : 'Start round'} <ArrowRight size={18} /></button></div></div>
               <div className="quest-lesson-grid"><LessonVisual module={activeModule} round={round} /><ExplorerWords module={activeModule} soundOn={soundOn} onLaunchGame={onLaunchGame} /></div>
             </div>
@@ -800,7 +808,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
                 <div className="quest-round-track" role="progressbar" aria-label="Discovery run progress" aria-valuemin="0" aria-valuemax={roundOrder.length || Math.min(5, rounds.length)} aria-valuenow={roundCursor + (locked ? 1 : 0)}><span style={{ width: `${((roundCursor + (locked ? 1 : 0)) / (roundOrder.length || Math.min(5, rounds.length))) * 100}%` }} /></div>
               </div>
               {sessionResumed && <p className="quest-resume-note" role="status">Saved round restored. Continue where you left off.</p>}
-              <div className="quest-prompt-row"><h2 id="quest-prompt">{round.prompt}</h2>{!locked && <PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} />}</div>
+              <div className="quest-prompt-row"><h2 id="quest-prompt" tabIndex={-1}>{round.prompt}</h2>{!locked && <PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} />}</div>
               {!locked && <p className="quest-help"><Compass size={18} />{roundHelpFor(round)}</p>}
               {!locked && <>
                 {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={locked || Boolean(persistenceIssue)} showLabels={round.type === 'ocean'} />}
