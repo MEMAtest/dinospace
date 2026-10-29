@@ -931,7 +931,18 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
     const coverBook = library.find((book) => `${book.slug}-cover` === key);
     if (coverBook?.custom) setCoverMedia((media) => ({ ...media, [coverBook.id]: { ...(media[coverBook.id] || {}), status: 'missing' } }));
   };
-  const retryReaderMedia = () => { audioRef.current?.pause(); setReaderMedia({ bookId: selectedBook?.id, index: pageIndex, status: 'loading', image: null, audio: null, missingKeys: [] }); setReaderRetry((value) => value + 1); };
+  const retryReaderMedia = () => {
+    stopAudio();
+    const imageKey = isCover ? selectedBook?.coverAssetKey : currentPage?.imageAssetKey;
+    const audioKey = isCover ? selectedBook?.coverAudioAssetKey : currentPage?.audioAssetKey;
+    for (const key of [imageKey, audioKey].filter(Boolean)) hydratorRef.current?.invalidateAsset(key);
+    const errorKey = `${selectedBook?.slug}-${isCover ? 'cover' : pageIndex}`;
+    setImageErrors((errors) => Object.fromEntries(Object.entries(errors).filter(([key]) => key !== errorKey)));
+    setAudioError(false);
+    setReaderMedia({ bookId: selectedBook?.id, index: pageIndex, status: 'loading', image: null, audio: null, missingKeys: [] });
+    setAssetVersion((value) => value + 1);
+    setReaderRetry((value) => value + 1);
+  };
   const retryProgressSave = () => { const action = pendingProgressRef.current; if (action) persistProgress(action.childId, action.slug, action.patch); };
   const progressStorageReadable = ['ready', 'fresh', 'saved', 'completed', 'recovered', 'legacy-complete'].includes(progressStorageState);
   const retryLibraryCompletion = () => {
