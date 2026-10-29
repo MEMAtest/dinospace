@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-29T12:13:07.476022+00:00",
+  "previousRequestBudget": 164,
+  "reviewedRequestBudget": 166,
+  "reason": "One new lazy FactFinder JS chunk21429B and CSS7273B. Public generated art stays demand-loaded outside compiled precache.",
+  "emittedCompiledBytes": 29741219,
+  "unchangedIndependentByteCeiling": 41943040,
+  "noAdditionalMediaPrecache": true,
+  "firstFullTestRun": "Failed stale catalogue fixture and request cap; source feature checks passed. Corrected fixture for35activities and explicitly reviewed two additional requests; not counted as acceptance."
+}

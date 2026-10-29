@@ -7,7 +7,7 @@ const EXPECTED_GAME_IDS = [
   'memory', 'pattern', 'spot', 'puzzle', 'trace', 'phonics', 'addition', 'subtraction',
   'astronaut', 'worldmap', 'counting', 'words', 'storybooks', 'colormix', 'oddoneout', 'timeteller', 'numberline', 'chess',
   'dinojigsaw', 'shadowmatch', 'rocketbuilder', 'fuelup', 'firerescue', 'ladder',
-  'codecadets', 'writingdesk',
+  'codecadets', 'writingdesk', 'factfinder',
 ];
 
 test('five worlds map every game exactly once', () => {
@@ -25,5 +25,5 @@ test('recommended practice excludes bonus-only games', () => {
 test('little explorer games all exist in a world and never include reading-heavy games', () => {
   const mapped = new Set(LEARNING_WORLDS.flatMap((world) => world.gameIds));
   LITTLE_EXPLORER_GAME_IDS.forEach((id) => assert.ok(mapped.has(id), id));
-  ['words', 'hangman', 'trace', 'math', 'worldmap', 'chess'].forEach((id) => assert.equal(LITTLE_EXPLORER_GAME_IDS.includes(id), false, id));
+  ['words', 'hangman', 'trace', 'math', 'worldmap', 'chess', 'letters', 'factfinder'].forEach((id) => assert.equal(LITTLE_EXPLORER_GAME_IDS.includes(id), false, id));
 });

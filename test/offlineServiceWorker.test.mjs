@@ -195,10 +195,10 @@ test('the installed worker contains only compiled assets and stays under the eag
   assert.ok(assets.length > 0);
   assert.equal(new Set(assets).size, assets.length, 'precache paths are unique');
   assert.ok(assets.every((asset) => asset.startsWith('/assets/')), 'audio and story media are excluded from install');
-  // The29October full Chess mode adds one dedicated offline AI worker request.
-  // See docs/qa-evidence/chess-jigsaw-20261029/worker-budget-review.json.
+  // The29October Fact Finder adds one lazy JS and one CSS request.
+  // See docs/qa-evidence/letters-factfinder-20261029/worker-budget-review.json.
   // Keep the independent40MiB ceiling and require review for another increase.
-  assert.ok(assets.length <= 164, `compiled asset count ${assets.length} exceeds the reviewed 164-request budget`);
+  assert.ok(assets.length <= 166, `compiled asset count ${assets.length} exceeds the reviewed 166-request budget`);
   const emittedAssetFiles = (await readdir(path.join(buildDirectory, 'assets')))
     .filter((file) => /\.(?:css|js|mjs|png|jpg|jpeg|webp|svg|woff2?)$/i.test(file))
     .map((file) => `/assets/${file}`)
