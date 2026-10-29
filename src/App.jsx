@@ -212,7 +212,9 @@ const PlayerSession = ({
       const next = commitPlayerReward(player.id, rewardsRef.current, pointsEarned, gameIdAtCall, undefined, { rewardToken });
       rewardsRef.current = next;
       setRewards(next);
-      setRewardSaveFailed(!next.persisted);
+      // These lessons hold their own receipt and Retry action beside the result.
+      const lessonOwnsRetry = Boolean(rewardToken && ['dino', 'hangman'].includes(gameIdAtCall));
+      setRewardSaveFailed(!next.persisted && !lessonOwnsRetry);
       const total = next.points;
       if (quiet || (rewardToken && (!next.persisted || next.awardedPoints === 0))) return next;
       setCelebration({
