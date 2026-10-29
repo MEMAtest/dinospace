@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-29T06:15:14.122284+00:00",
+  "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "backend": "https://dinospace-ow24yqndj-memas-projects-23a0001d.vercel.app",
+  "passed": true,
+  "rows": [
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html",
+      "sha256": "3a54d3b4166c47b4cb7077b3b36e54e4d717f8e98b01eb12797b87b6649fe9b6",
+      "bytes": 1441
+    },
+    {
+      "path": "/assets/DiscoveryHeader-B_ffWsry.css",
+      "status": 200,
+      "contentType": "text/css",
+      "sha256": "279cc968aa91685ba17a9cf93716ac90c694454ebcced6fd24f949fee55d2d24",
+      "bytes": 17665
+    },
+    {
+      "path": "/assets/DiscoveryHeader-Csop6sOO.js",
+      "status": 200,
+      "contentType": "application/javascript",
+      "sha256": "f4aefdbc9b84ad67406334ca192132d21f09d6a6a26a3650b65185a8cefb87b2",
+      "bytes": 197968
+    },
+    {
+      "path": "/assets/arcade-ByaRabGz.css",
+      "status": 200,
+      "contentType": "text/css",
+      "sha256": "b147e71c89943f1d6ef42195f9e1f27e30b313a449f4484a68122fd15854174c",
+      "bytes": 261327
+    },
+    {
+      "path": "/assets/arcade-EBto46V3.js",
+      "status": 200,
+      "contentType": "application/javascript",
+      "sha256": "e0a488dc4ffad89f646f86b86a423e47f394314f4da71b0e8b2b384ab2fc6f71",
+      "bytes": 1239062
+    },
+    {
+      "path": "/assets/codeProgress-Maw33xUa.js",
+      "status": 200,
+      "contentType": "application/javascript",
+      "sha256": "43f1d9ee84bab614de24cfc4f2f34dab3d028e3da536a9a5aa9c05f4c2052c09",
+      "bytes": 496168
+    },
+    {
+      "path": "/assets/writingProgress-BANozLWz.js",
+      "status": 200,
+      "contentType": "application/javascript",
+      "sha256": "9987d91600a121640f33aab91fe7395942b2d6a44a1cced8286b32a769e031dc",
+      "bytes": 9445
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "contentType": "application/javascript",
+      "sha256": "e761fbd79e5299a6097cf66a509e2c82e77d3075882dc4c7a19a75175ddb646c",
+      "bytes": 16269
+    }
+  ],
+  "moduleEntry": "/assets/arcade-EBto46V3.js"
+}

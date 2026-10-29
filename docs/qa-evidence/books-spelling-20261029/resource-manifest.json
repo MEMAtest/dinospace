@@ -1,0 +1,45 @@
+{
+  "started": "2026-10-29",
+  "checkout": "existing canonical checkout reused",
+  "newWorktrees": 0,
+  "newDependencyInstallations": 0,
+  "buildDirectory": "existing dist reused in place",
+  "qaSession": "amari-targeted-contained",
+  "qaProfile": "tmp/amari-production-qa-profile",
+  "newBrowserProfiles": 0,
+  "profileStartKiB": 818408,
+  "profileObservedKiB": 909644,
+  "profileGrowthBudgetMiB": 160,
+  "evidenceBudgetMiB": 10,
+  "newPaidGenerationRequests": 0,
+  "providerHistoryReads": 2,
+  "historyOperator": {
+    "sourceBytes": 18318,
+    "source": "tmp/story-history-operator-20261029",
+    "deploymentRemoved": true,
+    "tokenRemoved": true,
+    "sourceRetainedReason": "History access request remains pending; retain small reviewed source for authorized read, then retire."
+  },
+  "uniqueOriginalBackup": "docs/game-delivery-20261019/batch1/approved-provider-qa/pip-sunflower-backup.json.gz",
+  "backupCopyPolicy": "Original gzip retained once; two sequential verified4,979,086-byte0600chooser files (native/canonical) were immediately deleted after synthetic UI restoration.",
+  "status": "Pair8 accepted; canonical checkout, sole browser profile and final evidence deliberately retained",
+  "budgetRevision": "Native seven-book narration/image playback and compiled candidates used about84MiB. Allow another bounded~70MiB for canonical media+savedQAbackup acceptance in the same sole profile; no extra profile, data reset, browser install or project copy.",
+  "profileSizeMaintenance": "Existing sole profile was already above256MiB and documented before this pair; retain its progress, no automatic clearing.",
+  "temporaryUploadManifest": "temporary-upload-manifest.json",
+  "evidenceObservedKiB": 3500,
+  "finishedAt": "2026-10-29T07:07:43.870800+00:00",
+  "evidenceFinalKiB": 4892,
+  "profileFinalKiB": 976560,
+  "removedBytecode": [
+    {
+      "path": "scripts/__pycache__/ensure-amari-qa-browser.cpython-314.pyc",
+      "bytes": 10326,
+      "reason": "Task-created Python bytecode only; source retained"
+    }
+  ],
+  "temporaryUploadBytesRemoved": 9958172,
+  "temporaryUploadManifests": [
+    "temporary-upload-manifest.json",
+    "canonical-temporary-upload-manifest.json"
+  ]
+}

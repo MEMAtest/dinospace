@@ -1,0 +1,88 @@
+{
+  "at": "2026-10-29T07:07:16.903177+00:00",
+  "passed": true,
+  "scope": "Targeted functional acceptance for Storybook Studio and Spelling Studio. Historical phone abort retained as unclassified, with exact-source clean targeted recovery on both viewports. No editorial/listening score or historical personal-book recovery.",
+  "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "entry": "/assets/arcade-EBto46V3.js",
+  "worker": "amari-discovery-v44",
+  "publicUrl": "https://dinospace.netlify.app",
+  "storybook": {
+    "phone": {
+      "content": {
+        "path": "production-storybook-full-resume-390x740-arcade-EBto46V3.json",
+        "sha256": "669d1c69b7f3a69097cc52bd5fefef8da93bc13bee15c749ecffeaa22da7f893"
+      },
+      "coverageAudit": {
+        "path": "production-phone-content-coverage.json",
+        "sha256": "5ddf3b557d30c92b4c424e0d2a9c30494dc2a3f3b024598743695e2e830da7dd"
+      },
+      "rawReportPassed": false,
+      "pages": 70,
+      "questions": 21,
+      "newRewardPoints": 7,
+      "historicalUnclassifiedRequest": "Mina audio-cover.mp3 net::ERR_ABORTED. Original report unchanged; no broad suppression.",
+      "cleanCurrentRecovery": {
+        "path": "production-mina-cover-audio-transition-390x740-EBto46V3-retry1.json",
+        "sha256": "270488d18c8230af636acfff95fbb6f4333918a6bc187a385f9829ab903f6615"
+      },
+      "coverageCheckpointStatus": "Earlier content-only checkpoint retained unchanged. Its overallAccepted:false/pending-gate text is superseded by this final summary after clean targeted recovery, desktop and both backup continuations passed."
+    },
+    "desktop": {
+      "report": {
+        "path": "production-storybook-full-1440x844-arcade-EBto46V3-search-retry1.json",
+        "sha256": "86c57363c024c083fa852f8f415a1bca88ffa620f8af10cf4884145bab2fa318"
+      },
+      "pages": 70,
+      "questions": 21,
+      "rewardDelta": 0,
+      "cleanMediaTransition": {
+        "path": "production-mina-cover-audio-transition-1440x844-EBto46V3.json",
+        "sha256": "f643a179c76042144bda0eb7f19f5eb8fe88da55f8d8e2639ad6f7da6a37b789"
+      }
+    },
+    "restoredQaBackup": {
+      "uiRestore": {
+        "path": "canonical-approved-backup-ui-restore.json",
+        "sha256": "6bae1b68cea2965ec40398e12c8dc877afd26a0ed5cc235269a0832cfd852f3b"
+      },
+      "phone": {
+        "path": "production-storybook-continuation-restored-390x740-arcade-EBto46V3-after-pip.json",
+        "sha256": "dbaed0bd13fda5c0b95b1fffffedc115e8c97c26868c231acde1f8a0938135d6"
+      },
+      "desktop": {
+        "path": "production-storybook-continuation-restored-1440x844-arcade-EBto46V3-after-pip-retry.json",
+        "sha256": "dd0327008c026ac238f31c884a5d2678811e6c59e096e205d6e76ab152e934c6"
+      },
+      "assetReferences": 14,
+      "personalRecovery": false
+    },
+    "observedPlayback": "At least one actual packaged page clip per included book per viewport; every page exact image/source and narration readiness. Exact cover auto-turn proved separately. No claim of human listening to every clip."
+  },
+  "spelling": {
+    "path": "production-spelling-summary-EBto46V3.json",
+    "sha256": "781b187e9c04a6c244714dfefe9827adf35ced2093e06ad85fa54fdf24bb4e95"
+  },
+  "protection": {
+    "path": "production-protection-summary.json",
+    "sha256": "d09a64bca0b6caf8706f061a7277f8275cbe67a1f62e85d1c9b946f4765d0b25"
+  },
+  "core": {
+    "path": "production-http.json",
+    "sha256": "fe87ad1ad8d566ab6aecde0607945e487d07ae4ceddb11d9cf2b34d42890ec36"
+  },
+  "art": {
+    "path": "production-art.json",
+    "sha256": "76c6e31ff8349eac039dea6a3304e256e63502bd52a59f4513751cebfb8290c8"
+  },
+  "mediaAvailability": {
+    "path": "production-media.json",
+    "sha256": "0a37ab8e3490744981e0e4846f067532da42da444a21d06b153767435712c313"
+  },
+  "sourceTests": {
+    "passed": 577,
+    "failed": 0,
+    "skipped": 0
+  },
+  "newPaidGenerationCalls": 0,
+  "personalStoriesRecovered": 0
+}

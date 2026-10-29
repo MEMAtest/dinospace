@@ -1,0 +1,851 @@
+{
+  "passed": false,
+  "origin": "https://dinospace.netlify.app",
+  "expectedEntry": "/assets/arcade-EBto46V3.js",
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "runMode": "full",
+  "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Back to world', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" aria-label=\"Back to world\" class=\"grid h-20 w-20 place-items-center rounded-full border-4 border-white bg-gradient-to-b from-amber-300 to-orange-500 text-white shadow-[0_6px_0_#9a3412] active:translate-y-1 active:shadow-none\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\n    at Object.click (evalmachine.<anonymous>:100:19)\n    at async runStorybook (evalmachine.<anonymous>:1142:40)\n    at async evalmachine.<anonymous>:1338:14\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+  "diagnostics": {
+    "errors": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedResponses": [],
+      "failedRequests": [],
+      "providerRequests": []
+    },
+    "mediaRequests": [
+      "https://dinospace.netlify.app/storybooks/kai-lost-library-book/audio-page-04.mp3",
+      "https://dinospace.netlify.app/storybooks/kai-lost-library-book/audio-page-05.mp3",
+      "https://dinospace.netlify.app/storybooks/kai-lost-library-book/audio-page-06.mp3",
+      "https://dinospace.netlify.app/storybooks/kai-lost-library-book/audio-page-07.mp3",
+      "https://dinospace.netlify.app/storybooks/kai-lost-library-book/audio-page-08.mp3",
+      "https://dinospace.netlify.app/storybooks/kai-lost-library-book/audio-page-09.mp3",
+      "https://dinospace.netlify.app/storybooks/kai-lost-library-book/audio-page-10.mp3",
+      "https://dinospace.netlify.app/audio/en/a21bafcf-matilda.mp3",
+      "https://dinospace.netlify.app/audio/en/55627a17-matilda.mp3",
+      "https://dinospace.netlify.app/audio/en/f83a2e0a-matilda.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-cover.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-page-01.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-page-02.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-page-03.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-page-04.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-page-05.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-page-06.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-page-07.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-page-08.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-page-09.mp3",
+      "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-page-10.mp3",
+      "https://dinospace.netlify.app/audio/en/9895a3c8-matilda.mp3",
+      "https://dinospace.netlify.app/audio/en/ab6e82ba-matilda.mp3",
+      "https://dinospace.netlify.app/audio/en/b10a5df4-matilda.mp3",
+      "https://dinospace.netlify.app/audio/en/0bbc061f-matilda.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-cover.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-page-01.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-page-02.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-page-03.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-page-04.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-page-05.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-page-06.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-page-07.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-page-08.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-page-09.mp3",
+      "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-page-10.mp3",
+      "https://dinospace.netlify.app/audio/en/fbece504-matilda.mp3",
+      "https://dinospace.netlify.app/audio/en/cff312e0-matilda.mp3"
+    ]
+  },
+  "partial": {
+    "origin": "https://dinospace.netlify.app",
+    "expectedEntry": "/assets/arcade-EBto46V3.js",
+    "viewport": {
+      "width": 1440,
+      "height": 844
+    },
+    "playerId": "amari",
+    "runMode": "full",
+    "books": [
+      {
+        "title": "Rex and the Missing Moon Map",
+        "slug": "rex-missing-moon-map",
+        "cover": {
+          "heading": "Rex and the Missing Moon Map",
+          "text": "Rex and the Missing Moon Map Cover 1/11 Tap to Start Again A 10-PAGE ADVENTURE Rex and the Missing Moon Map Rex, a cheerful young T-Rex astronaut, and his small robot friend Pip search the Moon for a lost star map. By sharing clues and working together, they find it and follow it home for a well-earned rest. Start Again Auto-turn pages after narration Previous Next",
+          "pageLabel": "Page 1 of 11",
+          "image": {
+            "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+            "complete": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201
+          },
+          "audio": {
+            "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-cover.mp3",
+            "readyState": 4,
+            "duration": 2.24,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Start reading Rex and the Missing Moon Map",
+            "Start Again",
+            "Auto-turn pages after narration",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        "pages": [
+          {
+            "pageIndex": 1,
+            "screenNo": 2,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-01.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-01.mp3",
+            "audioReadyState": 4,
+            "screenAudioReadyStateBeforeWait": 4,
+            "audioError": null,
+            "imageDimensions": [
+              1600,
+              1201
+            ],
+            "played": true
+          },
+          {
+            "pageIndex": 2,
+            "screenNo": 3,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-02.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-02.mp3",
+            "audioReadyState": 4,
+            "screenAudioReadyStateBeforeWait": 4,
+            "audioError": null,
+            "imageDimensions": [
+              1600,
+              1200
+            ]
+          },
+          {
+            "pageIndex": 3,
+            "screenNo": 4,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-03.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-03.mp3",
+            "audioReadyState": 4,
+            "screenAudioReadyStateBeforeWait": 4,
+            "audioError": null,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 4,
+            "screenNo": 5,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-04.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-04.mp3",
+            "audioReadyState": 4,
+            "screenAudioReadyStateBeforeWait": 4,
+            "audioError": null,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 5,
+            "screenNo": 6,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-05.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-05.mp3",
+            "audioReadyState": 4,
+            "screenAudioReadyStateBeforeWait": 4,
+            "audioError": null,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 6,
+            "screenNo": 7,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-06.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-06.mp3",
+            "audioReadyState": 4,
+            "screenAudioReadyStateBeforeWait": 4,
+            "audioError": null,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 7,
+            "screenNo": 8,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-07.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-07.mp3",
+            "audioReadyState": 4,
+            "screenAudioReadyStateBeforeWait": 4,
+            "audioError": null,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 8,
+            "screenNo": 9,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-08.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-08.mp3",
+            "audioReadyState": 4,
+            "screenAudioReadyStateBeforeWait": 4,
+            "audioError": null,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 9,
+            "screenNo": 10,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-09.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-09.mp3",
+            "audioReadyState": 4,
+            "screenAudioReadyStateBeforeWait": 4,
+            "audioError": null,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 10,
+            "screenNo": 11,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-10.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-10.mp3",
+            "audioReadyState": 4,
+            "screenAudioReadyStateBeforeWait": 4,
+            "audioError": null,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          }
+        ],
+        "narrationStarted": true,
+        "resumeProved": false,
+        "questions": [
+          {
+            "questionIndex": 0,
+            "prompt": "What clue did Pip spot?",
+            "answer": "A sparkly corner by a crater",
+            "evidencePhrase": "sparkly corner",
+            "wrongHeld": true,
+            "explanationHash": "9a60a1a64c2d4bd763d7030716ceab6b66e2991ff0ca113d4b3ff02f3ff5e777",
+            "choices": [
+              "88a69b07edccffaa79e2167d4cf380f7a8d008a83bdc3eb5121e99de0e23fc06",
+              "97e8f0d7bd4f37b9ab9d0fadeaf278818db30157b4318cb964089fb347dfa8d8",
+              "3ebee308e6d4086f061a83bfbb3891f71ac4ff2a97b130a60fc5cd21009d4e87"
+            ]
+          },
+          {
+            "questionIndex": 1,
+            "prompt": "How did Rex and Pip get the map back?",
+            "answer": "They worked together",
+            "evidencePhrase": "caught the paper corner",
+            "wrongHeld": false,
+            "explanationHash": "3f220e0e85ea72271dd0c05fb333f40047b0bd0202b522f4bbafc5fe0a16f775",
+            "choices": [
+              "6355c4d093885f4588a5af4fbef7ff9ab78709c420433f43083b45f3a140483f",
+              "21fefaaf187bdfdcbb4df98e248cba8b56635ebfce7ad483ea1a3b830b3aa38a",
+              "ad8250f99081dcf514e3ff4bdd5734f58d4763cd3e810e557e8db3827f3cf094"
+            ]
+          },
+          {
+            "questionIndex": 2,
+            "prompt": "What had Rex lost?",
+            "answer": "His star map",
+            "evidencePhrase": "star map",
+            "wrongHeld": false,
+            "explanationHash": "587b554ea03a00cacdd01e0f993da13861339c2a12fe92d9897bd5d9a16d6aa3",
+            "choices": [
+              "a22a0ef38c673654b5b7e99876740ee68fde883055475fbbb2f2ccce3ab9fcf6",
+              "1a93c055032cff82174971501d6304d2603e1a857914aa9933519e9658bb7211",
+              "0d77727c8debde3d144c17685924eb1eb06cf39de35cd4dfd16046fe98020493"
+            ]
+          }
+        ],
+        "initialCompleted": true,
+        "parentFault": false,
+        "receipt": {
+          "id": "storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8",
+          "rewardPlayerId": "amari",
+          "points": 1
+        },
+        "rewardTokenClaimCount": 1,
+        "rewardPointsDelta": 0,
+        "rewardGamesDelta": 0
+      }
+    ],
+    "probes": [
+      {
+        "kind": "existing-reader-profile-switch",
+        "status": "unavailable",
+        "profileCount": 1,
+        "reason": "Only one existing reader profile is available; no profile was created."
+      },
+      {
+        "kind": "blocked-active-reader-key",
+        "status": "deferred",
+        "reason": "Isolated after the primary book journey to avoid repeating an inconclusive harness setup."
+      },
+      {
+        "kind": "local-progress-fault-retry",
+        "status": "deferred",
+        "reason": "Already exercised at the phone viewport; desktop run concentrates on the full shelf and reader journey."
+      }
+    ],
+    "failures": [],
+    "initial": {
+      "identity": {
+        "url": "https://dinospace.netlify.app/?qa_spelling=1793255896445-1440-844#/play/storybooks",
+        "entry": "/assets/arcade-EBto46V3.js",
+        "namespace": true,
+        "actualViewport": {
+          "width": 1440,
+          "height": 844
+        }
+      },
+      "inventory": {
+        "kind": "library-inventory",
+        "text": "7 stories in this library 7 included · My stories (0) saved in this browser My stories (0) Included (7) Showing 1–7 of 7 matching stories",
+        "visibleCardCount": 7,
+        "cards": [
+          {
+            "title": "Rex and the Missing Moon Map",
+            "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+              "Rex and the Missing Moon Map",
+              "Add favourite",
+              "Read story: Rex and the Missing Moon Map"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Luna and the Whispering Forest",
+            "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+              "Luna and the Whispering Forest",
+              "Add favourite",
+              "Read story: Luna and the Whispering Forest"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Nia’s Great River Journey",
+            "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+              "Nia’s Great River Journey",
+              "Add favourite",
+              "Read story: Nia’s Great River Journey"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Bo and the Busy Bee Garden",
+            "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+              "Bo and the Busy Bee Garden",
+              "Add favourite",
+              "Read story: Bo and the Busy Bee Garden"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Sami and the Night-Light Parade",
+            "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+              "Sami and the Night-Light Parade",
+              "Add favourite",
+              "Read story: Sami and the Night-Light Parade"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Mina’s Mountain Seed",
+            "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/mina-mountain-seed/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Mina’s Mountain Seed, painted-2d, ages 5-6",
+              "Mina’s Mountain Seed",
+              "Add favourite",
+              "Read story: Mina’s Mountain Seed"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Kai and the Lost Library Book",
+            "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/kai-lost-library-book/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+              "Kai and the Lost Library Book",
+              "Add favourite",
+              "Read story: Kai and the Lost Library Book"
+            ],
+            "buttonCount": 4
+          }
+        ]
+      },
+      "visibleCardCount": 7,
+      "storage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 2133,
+            "sha256": "1875752bd87109552907d5c0263cf7adeaaef9f0cba5a8e9ba34fe6c3d7fbb2c"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 2328,
+            "sha256": "4cd2e06dedd170365db0ed939c6de316e58cb172c3e45ec8f505597ee5165900"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 501,
+            "sha256": "79f7018c20699be997095397010042e9f170c30ce1157358d5402f55b0df5bbe"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          }
+        ],
+        "stores": {
+          "books": 0,
+          "assets": 0,
+          "profiles": 1,
+          "series": 0
+        }
+      },
+      "originalStorage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 2133,
+            "sha256": "1875752bd87109552907d5c0263cf7adeaaef9f0cba5a8e9ba34fe6c3d7fbb2c"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 2328,
+            "sha256": "ac95cd0a023c630497f65b47765f8f675d5cea3d3dc9ea49d9135f374e3e6eb8"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 501,
+            "sha256": "79f7018c20699be997095397010042e9f170c30ce1157358d5402f55b0df5bbe"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          }
+        ],
+        "stores": {
+          "books": 0,
+          "assets": 0,
+          "profiles": 1,
+          "series": 0
+        }
+      },
+      "progress": {
+        "available": true,
+        "rows": [
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "rex-missing-moon-map",
+            "rowHash": "31f3364a2771d486de5f074558ea924a7fe713a100ce40ba7f2ab2a7d71f0fb7"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "luna-whispering-forest",
+            "rowHash": "a45f32d1be919b18b3e1d8bfb2a38a63cd67eb49fc8f78a90ea7ba9462727e24"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "nia-great-river-journey",
+            "rowHash": "d2a4637fb7be93d85a6214836376552bb9e6023c3090ef964792e09458706f7f"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "bo-busy-bee-garden",
+            "rowHash": "0efa25025c62670f6a39be5134912ab3616014499c3ec4aa3789be76461328c1"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "sami-night-light-parade",
+            "rowHash": "b27156f0257fb8be0de62da4c687c82d232c2a14dd72dfde559fe234805cdc5f"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "mina-mountain-seed",
+            "rowHash": "9dc3f756f990fccb0f1ac74694fe93d535c99ba6508ce7f0810cf4d3e5e16ed6"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "kai-lost-library-book",
+            "rowHash": "a4857ce050ea002e9d9a765d2d6c1c883ff1ba0c67a6f1376a065392f80ad0f5"
+          }
+        ],
+        "rawHash": "4cd2e06dedd170365db0ed939c6de316e58cb172c3e45ec8f505597ee5165900"
+      },
+      "rewards": {
+        "rawHash": "1875752bd87109552907d5c0263cf7adeaaef9f0cba5a8e9ba34fe6c3d7fbb2c",
+        "points": 349,
+        "storybooksGames": 7,
+        "storybookClaims": {
+          "storybooks:storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8": 1,
+          "storybooks:storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00": 1,
+          "storybooks:storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324": 1,
+          "storybooks:storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28": 1,
+          "storybooks:storybook-amari-sami-night-light-parade-275033aa-b11b-4374-b1d3-b52f2c8bc662": 1,
+          "storybooks:storybook-amari-mina-mountain-seed-286c94f5-90f2-47a6-921a-0357e078c971": 1,
+          "storybooks:storybook-amari-kai-lost-library-book-d8a296d9-0105-42f1-bb98-cbe98f2ad395": 1
+        },
+        "nonStoryClaimsHash": "56ebec02e1a5f55da4fdbae483e3118eb051529a63eaf0c1b2244ef527ae9775"
+      }
+    },
+    "currentBook": {
+      "title": "Luna and the Whispering Forest",
+      "slug": "luna-whispering-forest",
+      "pages": [
+        {
+          "pageIndex": 1,
+          "screenNo": 2,
+          "imagePath": "/storybooks/luna-whispering-forest/page-01.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/luna-whispering-forest/audio-page-01.mp3",
+          "audioReadyState": 4,
+          "screenAudioReadyStateBeforeWait": 4,
+          "audioError": null,
+          "imageDimensions": [
+            1600,
+            1201
+          ],
+          "played": true
+        },
+        {
+          "pageIndex": 2,
+          "screenNo": 3,
+          "imagePath": "/storybooks/luna-whispering-forest/page-02.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/luna-whispering-forest/audio-page-02.mp3",
+          "audioReadyState": 4,
+          "screenAudioReadyStateBeforeWait": 4,
+          "audioError": null,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 3,
+          "screenNo": 4,
+          "imagePath": "/storybooks/luna-whispering-forest/page-03.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/luna-whispering-forest/audio-page-03.mp3",
+          "audioReadyState": 4,
+          "screenAudioReadyStateBeforeWait": 4,
+          "audioError": null,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 4,
+          "screenNo": 5,
+          "imagePath": "/storybooks/luna-whispering-forest/page-04.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/luna-whispering-forest/audio-page-04.mp3",
+          "audioReadyState": 4,
+          "screenAudioReadyStateBeforeWait": 4,
+          "audioError": null,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 5,
+          "screenNo": 6,
+          "imagePath": "/storybooks/luna-whispering-forest/page-05.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/luna-whispering-forest/audio-page-05.mp3",
+          "audioReadyState": 4,
+          "screenAudioReadyStateBeforeWait": 4,
+          "audioError": null,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 6,
+          "screenNo": 7,
+          "imagePath": "/storybooks/luna-whispering-forest/page-06.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/luna-whispering-forest/audio-page-06.mp3",
+          "audioReadyState": 4,
+          "screenAudioReadyStateBeforeWait": 4,
+          "audioError": null,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 7,
+          "screenNo": 8,
+          "imagePath": "/storybooks/luna-whispering-forest/page-07.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/luna-whispering-forest/audio-page-07.mp3",
+          "audioReadyState": 4,
+          "screenAudioReadyStateBeforeWait": 4,
+          "audioError": null,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 8,
+          "screenNo": 9,
+          "imagePath": "/storybooks/luna-whispering-forest/page-08.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/luna-whispering-forest/audio-page-08.mp3",
+          "audioReadyState": 4,
+          "screenAudioReadyStateBeforeWait": 4,
+          "audioError": null,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 9,
+          "screenNo": 10,
+          "imagePath": "/storybooks/luna-whispering-forest/page-09.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/luna-whispering-forest/audio-page-09.mp3",
+          "audioReadyState": 4,
+          "screenAudioReadyStateBeforeWait": 4,
+          "audioError": null,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 10,
+          "screenNo": 11,
+          "imagePath": "/storybooks/luna-whispering-forest/page-10.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/luna-whispering-forest/audio-page-10.mp3",
+          "audioReadyState": 4,
+          "screenAudioReadyStateBeforeWait": 4,
+          "audioError": null,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "questionIndex": 0,
+          "prompt": "What had trapped the wind sprite?",
+          "answer": "A heavy branch",
+          "evidencePhrase": "heavy branch",
+          "wrongHeld": false,
+          "explanationHash": "b8daea2d514d90cdbad13d2eaf1a3adffabd8bb373bd5641f08a5af0b63d1dfc",
+          "choices": [
+            "ee4a3c4df217d3cc57ad8a925e03c2f280e01a805f3992cbbbc38231e1576f80",
+            "0b01a00f6cae834dec4abd7fda05a54a48e82ad0d2e7e2338a2ccd719a688153",
+            "aae12a49566d8c1aef012a209f10c86c69661dfa07beebecedbdc92c9072997c"
+          ]
+        }
+      ],
+      "stage": "question-1",
+      "cover": {
+        "heading": "Luna and the Whispering Forest",
+        "text": "Luna and the Whispering Forest Cover 1/11 Tap to Start Again A 10-PAGE ADVENTURE Luna and the Whispering Forest Luna the fox hears a mysterious whisper in the woods. She meets Barnaby the badger and Pip the robin, and together they find a trapped wind sprite. By working as a team, they free it, and the sprite rewards them by making the whole forest bloom and glow. They return home tired but happy, having made the woods a better place. Start Again Auto-turn pages after narration Previous Next",
+        "pageLabel": "Page 1 of 11",
+        "image": {
+          "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+          "complete": true,
+          "naturalWidth": 1600,
+          "naturalHeight": 1201
+        },
+        "audio": {
+          "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-cover.mp3",
+          "readyState": 4,
+          "duration": 2.56,
+          "paused": true,
+          "currentTime": 0,
+          "error": null
+        },
+        "buttons": [
+          "Back to storybooks",
+          "Turn sound off",
+          "Back to learning world",
+          "Start reading Luna and the Whispering Forest",
+          "Start Again",
+          "Auto-turn pages after narration",
+          "Previous page",
+          "Next page"
+        ]
+      }
+    }
+  },
+  "stage": "production",
+  "mode": "full",
+  "entryIdentity": "/assets/arcade-EBto46V3.js",
+  "capabilityPreflight": {
+    "url": "https://dinospace.netlify.app/?qa_spelling=1793255896445-1440-844#/play/storybooks",
+    "buffer": "function",
+    "cryptoSubtle": true
+  },
+  "cliReturnCode": 0
+}

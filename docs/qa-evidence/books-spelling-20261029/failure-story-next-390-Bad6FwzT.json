@@ -1,0 +1,173 @@
+{
+  "passed": false,
+  "kind": "actual-app-layout-failure",
+  "reason": "Nextpageclippedbelow740",
+  "entry": "/assets/arcade-Bad6FwzT.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "scrollY": 0,
+  "regions": [
+    {
+      "className": "storybook-reader min-h-screen w-full overflow-hidden bg-gradient-to-br from-indigo-700 via-violet-700 to-fuchsia-700 px-3 py-4 text-white sm:px-6 sm:py-6",
+      "rect": {
+        "x": 8,
+        "y": 66,
+        "width": 374,
+        "height": 668,
+        "top": 66,
+        "right": 382,
+        "bottom": 734,
+        "left": 8
+      },
+      "css": {
+        "height": "668px",
+        "minHeight": "0px",
+        "maxHeight": "none",
+        "display": "block",
+        "flex": "0 1 auto",
+        "flexShrink": "1",
+        "rows": "none",
+        "padding": "8px",
+        "boxSizing": "border-box",
+        "overflow": "hidden"
+      }
+    },
+    {
+      "className": "storybook-reader-frame mx-auto flex min-h-[calc(100vh-2rem)] max-w-7xl flex-col",
+      "rect": {
+        "x": 16,
+        "y": 74,
+        "width": 358,
+        "height": 708,
+        "top": 74,
+        "right": 374,
+        "bottom": 782,
+        "left": 16
+      },
+      "css": {
+        "height": "708px",
+        "minHeight": "708px",
+        "maxHeight": "none",
+        "display": "flex",
+        "flex": "0 1 auto",
+        "flexShrink": "1",
+        "rows": "none",
+        "padding": "0px",
+        "boxSizing": "border-box",
+        "overflow": "visible"
+      }
+    },
+    {
+      "className": "flex items-center justify-between gap-3",
+      "rect": {
+        "x": 16,
+        "y": 74,
+        "width": 358,
+        "height": 48,
+        "top": 74,
+        "right": 374,
+        "bottom": 122,
+        "left": 16
+      },
+      "css": {
+        "height": "48px",
+        "minHeight": "auto",
+        "maxHeight": "none",
+        "display": "flex",
+        "flex": "0 0 auto",
+        "flexShrink": "0",
+        "rows": "none",
+        "padding": "0px",
+        "boxSizing": "border-box",
+        "overflow": "visible"
+      }
+    },
+    {
+      "className": "storybook-reading-layout mt-4 grid flex-1 gap-4 lg:grid-cols-[1.35fr_.65fr] lg:items-center",
+      "rect": {
+        "x": 16,
+        "y": 166,
+        "width": 358,
+        "height": 558,
+        "top": 166,
+        "right": 374,
+        "bottom": 724,
+        "left": 16
+      },
+      "css": {
+        "height": "558px",
+        "minHeight": "0px",
+        "maxHeight": "none",
+        "display": "grid",
+        "flex": "1 1 0%",
+        "flexShrink": "1",
+        "rows": "167.391px 374.609px",
+        "padding": "0px",
+        "boxSizing": "border-box",
+        "overflow": "visible"
+      }
+    },
+    {
+      "className": "storybook-reading-panel flex flex-col rounded-[2rem] border-2 border-white/25 bg-slate-950/25 p-5 shadow-2xl backdrop-blur-md sm:p-7",
+      "rect": {
+        "x": 16,
+        "y": 349.390625,
+        "width": 358,
+        "height": 374.609375,
+        "top": 349.390625,
+        "right": 374,
+        "bottom": 724,
+        "left": 16
+      },
+      "css": {
+        "height": "374.609px",
+        "minHeight": "0px",
+        "maxHeight": "100%",
+        "display": "flex",
+        "flex": "0 1 auto",
+        "flexShrink": "1",
+        "rows": "none",
+        "padding": "20px",
+        "boxSizing": "border-box",
+        "overflow": "auto"
+      }
+    },
+    {
+      "className": "mt-4 flex items-center justify-between gap-3",
+      "rect": {
+        "x": 16,
+        "y": 732,
+        "width": 358,
+        "height": 50,
+        "top": 732,
+        "right": 374,
+        "bottom": 782,
+        "left": 16
+      },
+      "css": {
+        "height": "50px",
+        "minHeight": "auto",
+        "maxHeight": "none",
+        "display": "flex",
+        "flex": "0 0 auto",
+        "flexShrink": "0",
+        "rows": "none",
+        "padding": "0px",
+        "boxSizing": "border-box",
+        "overflow": "visible"
+      }
+    }
+  ],
+  "next": {
+    "x": 316,
+    "y": 732,
+    "width": 58,
+    "height": 50,
+    "top": 732,
+    "right": 374,
+    "bottom": 782,
+    "left": 316
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "events": [
+    {
+      "type": "playing",
+      "at": 1793256950579,
+      "src": "/storybooks/mina-mountain-seed/audio-cover.mp3",
+      "time": 0,
+      "error": null
+    },
+    {
+      "type": "playing",
+      "at": 1793256950648,
+      "src": "/storybooks/mina-mountain-seed/audio-cover.mp3",
+      "time": 0,
+      "error": null
+    },
+    {
+      "type": "ended",
+      "at": 1793256952459,
+      "src": "/storybooks/mina-mountain-seed/audio-cover.mp3",
+      "time": 1.76,
+      "error": null
+    },
+    {
+      "type": "playing",
+      "at": 1793256952974,
+      "src": "/storybooks/mina-mountain-seed/audio-page-01.mp3",
+      "time": 0,
+      "error": null
+    },
+    {
+      "type": "ended",
+      "at": 1793256964294,
+      "src": "/storybooks/mina-mountain-seed/audio-page-01.mp3",
+      "time": 11.28,
+      "error": null
+    },
+    {
+      "type": "playing",
+      "at": 1793256964803,
+      "src": "/storybooks/mina-mountain-seed/audio-page-02.mp3",
+      "time": 0,
+      "error": null
+    },
+    {
+      "type": "ended",
+      "at": 1793256975482,
+      "src": "/storybooks/mina-mountain-seed/audio-page-02.mp3",
+      "time": 10.64,
+      "error": null
+    }
+  ],
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "url": "https://dinospace.netlify.app/?qa_spelling=1793255896445-1440-844#/play/storybooks",
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "sourceCommit": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "entry": "/assets/arcade-EBto46V3.js",
+  "proofKind": "bounded visible-control Mina cover narration and normal auto-turn transition",
+  "cover": {
+    "path": "/storybooks/mina-mountain-seed/audio-cover.mp3",
+    "readyStateBeforeStart": 4,
+    "duration": 1.76,
+    "error": null
+  },
+  "controls": "Visible Start initiated cover; actual ended event then page-01 played and auto-turn advanced to page-02, which played. A manual Next later advanced; Pause stopped current narration; returned to library using visible Back to storybooks.",
+  "historicalAbort": "The original full-phone Mina cover ERR_ABORTED remains unclassified. This separate clean run observed no cover failure and demonstrates the normal cover-to-page path."
+}

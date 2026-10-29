@@ -1,0 +1,223 @@
+{
+  "at": "2026-10-29T06:52:03.422764+00:00",
+  "sourceReport": "production-storybook-full-resume-390x740-arcade-EBto46V3.json",
+  "sha256": "669d1c69b7f3a69097cc52bd5fefef8da93bc13bee15c749ecffeaa22da7f893",
+  "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "entry": "/assets/arcade-EBto46V3.js",
+  "origin": "https://dinospace.netlify.app",
+  "contentCoveragePassed": true,
+  "overallAccepted": false,
+  "openGate": "One static cover audio ERR_ABORTED needs explicit transition cancellation proof; desktop and canonical approved synthetic backup continuation are pending. Original report remains false.",
+  "books": [
+    {
+      "slug": "rex-missing-moon-map",
+      "pages": 10,
+      "pageIndexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "allImagesDecoded": true,
+      "allAudioReady": false,
+      "questions": 3,
+      "questionIndexes": [
+        0,
+        1,
+        2
+      ],
+      "narrationStarted": true,
+      "claimCount": 1,
+      "pointsDelta": 1,
+      "allAudioReadyOrActuallyPlayed": true,
+      "stalePreWaitRows": [
+        {
+          "page": 1,
+          "recordedReadyState": 0,
+          "actualPlaybackObserved": true
+        }
+      ]
+    },
+    {
+      "slug": "luna-whispering-forest",
+      "pages": 10,
+      "pageIndexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "allImagesDecoded": true,
+      "allAudioReady": true,
+      "questions": 3,
+      "questionIndexes": [
+        0,
+        1,
+        2
+      ],
+      "narrationStarted": true,
+      "claimCount": 1,
+      "pointsDelta": 1,
+      "allAudioReadyOrActuallyPlayed": true,
+      "stalePreWaitRows": []
+    },
+    {
+      "slug": "nia-great-river-journey",
+      "pages": 10,
+      "pageIndexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "allImagesDecoded": true,
+      "allAudioReady": true,
+      "questions": 3,
+      "questionIndexes": [
+        0,
+        1,
+        2
+      ],
+      "narrationStarted": true,
+      "claimCount": 1,
+      "pointsDelta": 1,
+      "allAudioReadyOrActuallyPlayed": true,
+      "stalePreWaitRows": []
+    },
+    {
+      "slug": "bo-busy-bee-garden",
+      "pages": 10,
+      "pageIndexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "allImagesDecoded": true,
+      "allAudioReady": true,
+      "questions": 3,
+      "questionIndexes": [
+        0,
+        1,
+        2
+      ],
+      "narrationStarted": true,
+      "claimCount": 1,
+      "pointsDelta": 1,
+      "allAudioReadyOrActuallyPlayed": true,
+      "stalePreWaitRows": []
+    },
+    {
+      "slug": "sami-night-light-parade",
+      "pages": 10,
+      "pageIndexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "allImagesDecoded": true,
+      "allAudioReady": true,
+      "questions": 3,
+      "questionIndexes": [
+        0,
+        1,
+        2
+      ],
+      "narrationStarted": true,
+      "claimCount": 1,
+      "pointsDelta": 1,
+      "allAudioReadyOrActuallyPlayed": true,
+      "stalePreWaitRows": []
+    },
+    {
+      "slug": "mina-mountain-seed",
+      "pages": 10,
+      "pageIndexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "allImagesDecoded": true,
+      "allAudioReady": true,
+      "questions": 3,
+      "questionIndexes": [
+        0,
+        1,
+        2
+      ],
+      "narrationStarted": true,
+      "claimCount": 1,
+      "pointsDelta": 1,
+      "allAudioReadyOrActuallyPlayed": true,
+      "stalePreWaitRows": []
+    },
+    {
+      "slug": "kai-lost-library-book",
+      "pages": 10,
+      "pageIndexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "allImagesDecoded": true,
+      "allAudioReady": true,
+      "questions": 3,
+      "questionIndexes": [
+        0,
+        1,
+        2
+      ],
+      "narrationStarted": true,
+      "claimCount": 1,
+      "pointsDelta": 1,
+      "allAudioReadyOrActuallyPlayed": true,
+      "stalePreWaitRows": []
+    }
+  ],
+  "metadataReconciliation": "Rex page1 persisted an initial readyState0 snapshot taken before the harness wait. The same row played:true is set only after startVisibleAudio observed playing/timeupdate for the exact page source; this supports actual playback without rewriting raw evidence. New harness rows will persist the post-wait readyState."
+}

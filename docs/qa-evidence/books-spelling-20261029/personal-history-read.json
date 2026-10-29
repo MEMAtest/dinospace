@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-29T04:19:40.976Z",
+  "productionKeyStayedServerSide": true,
+  "unauthenticatedOperatorStatus": 404,
+  "generationRequests": 0,
+  "historyReadRequests": [
+    {
+      "method": "GET",
+      "status": 502,
+      "page": 1,
+      "providerStatus": 401,
+      "error": "provider_error"
+    }
+  ],
+  "itemsReturned": 0,
+  "scope": "401 provider authorization rejection is not an empty-history result or evidence of deleted stories. No personal book was recovered. Existing7included and three knownQAbackups are not counted as personal recovery.",
+  "requiredAction": "Existing app narration key needs authorized history read access; requested asynchronously while game work continues.",
+  "sources": [
+    "https://elevenlabs.io/docs/api-reference/history/list",
+    "https://elevenlabs.io/docs/api-reference/history/get"
+  ],
+  "privateEvidence": "tmp/personal-story-history-20261029/production-summary.json",
+  "operatorSource": "tmp/story-history-operator-20261029",
+  "retirement": "Remove operator deployment after this read; canonical Netlify app remains pinned to its accepted backend.",
+  "operatorRetirement": {
+    "deployment": "dpl_CVTd6tbr66jUKkKdDQXSBmGrLwJ2",
+    "url": "https://dinospace-rh00had5g-memas-projects-23a0001d.vercel.app",
+    "removedAt": "2026-10-29T04:26:57.436775+00:00",
+    "tokenFileRemoved": true
+  },
+  "canonicalAppUnchanged": {
+    "runtime": "c2043b79699752727a33b458473557378b382242",
+    "htmlSha256": "b4f96f5b8c640bb5475c5dfe278a0807fcde334169b6bf85f77b80935bb45034",
+    "status": 200
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-29T06:03:46.622Z",
+  "entry": "/assets/arcade-EBto46V3.js",
+  "requestSuccessBeforeTransactionAbort": true,
+  "failedSaveStayedInDialog": true,
+  "error": "This device could not save the reader profile. Keep this form open and try again.",
+  "failedProfileAndMirrorUnchanged": true,
+  "retryGeometry": {
+    "rect": {
+      "x": 486,
+      "y": 312,
+      "width": 104.609375,
+      "height": 48,
+      "top": 312,
+      "right": 590.609375,
+      "bottom": 360,
+      "left": 486
+    },
+    "visible": true,
+    "hit": true
+  },
+  "retryActuallyClicked": true,
+  "profilesUnchangedAfterSameValueRetry": true,
+  "mirrorsEquivalentAfterRetry": true,
+  "activeReaderUnchanged": true,
+  "rewardsUnchanged": true,
+  "passed": true
+}

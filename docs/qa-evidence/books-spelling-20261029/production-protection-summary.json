@@ -1,0 +1,180 @@
+{
+  "at": "2026-10-29T07:07:16.903177+00:00",
+  "passed": true,
+  "before": {
+    "path": "pre-release-storage.json",
+    "sha256": "0349970ce181031cf221a9edb13cc81f8723b37835dbcecf268c41b07db24ed8"
+  },
+  "after": {
+    "path": "final-production-storage.json",
+    "sha256": "14f740d2e5c89cd1b18f9d7a405547a5cd916b4bb66ccba1c881533618de456e"
+  },
+  "protectedOriginalKeys": [
+    "amari_addition_progress_v1",
+    "amari_amari_dino_detective_batch3_v1",
+    "amari_astronaut_academy_progress_v1",
+    "amari_challenge_progress",
+    "amari_chess_explorers_progress_v1:amari",
+    "amari_code_cadets_progress_v1:amari",
+    "amari_discovery_passport_v1",
+    "amari_earned_sticker_ids_v1",
+    "amari_favourite_games",
+    "amari_game_levels_v1",
+    "amari_hangman_progress_v1:amari",
+    "amari_letter_trace_progress_v1",
+    "amari_little_progress",
+    "amari_memory_best",
+    "amari_memory_completion_v1",
+    "amari_memory_passport_v1",
+    "amari_memory_resume_v1",
+    "amari_numberline_progress_v1",
+    "amari_oddoneout_progress_v1",
+    "amari_subtraction_progress_v1",
+    "amari_timeteller_progress_v1",
+    "amari_writing_desk_progress_v1:amari",
+    "amari_writing_desk_projects_v1:amari:planet-field-notes",
+    "amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+    "amari_writing_desk_projects_v1:amari:planet-mini-report",
+    "amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+    "amari_writing_desk_projects_v1:amari:space-postcard",
+    "amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+    "askia_challenge_progress",
+    "askia_earned_sticker_ids_v1",
+    "askia_favourite_games",
+    "askia_games_played",
+    "askia_little_progress",
+    "askia_points",
+    "askia_rewards_v2",
+    "discovery_digital_rehearsal_v1:amari:code",
+    "discovery_digital_rehearsal_v1:amari:writing"
+  ],
+  "protectedOriginalKeyCount": 37,
+  "expectedChangedKeys": [
+    "amari_games_played",
+    "amari_points",
+    "amari_rewards_v2",
+    "amari_spelling_progress_v1",
+    "amari_spelling_recent_v1",
+    "amari_storybook_complete_bo-busy-bee-garden",
+    "amari_storybook_complete_kai-lost-library-book",
+    "amari_storybook_complete_luna-whispering-forest",
+    "amari_storybook_complete_mina-mountain-seed",
+    "amari_storybook_complete_nia-great-river-journey",
+    "amari_storybook_complete_rex-missing-moon-map",
+    "amari_storybook_complete_sami-night-light-parade",
+    "amari_storybook_progress_v1",
+    "amari_words_session_progress_v1:amari",
+    "amari_writing_samples_v1"
+  ],
+  "pointsDelta": 43,
+  "newWordsClaims": 6,
+  "newStorybookClaims": 7,
+  "originalGameCountsPreserved": true,
+  "originalClaimValuesPreserved": true,
+  "earnedStickerIdsPreserved": true,
+  "otherChildRawHashesPreserved": true,
+  "idbBefore": {
+    "exists": false
+  },
+  "idbAfter": {
+    "exists": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "records": [
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:cover",
+            "sha256": "3d00b9b772b3d445988aac0cf6f5f1ea63d51760a83907df03f264d0c2f27e92"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:cover-audio",
+            "sha256": "fa5cfe91383239d00ec94e867a5c9fff39f9c07d797e17a7ec8a5541722a6c2f"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-1:audio",
+            "sha256": "19416edea37a7f8b4f02b53609c1439a5434fe524d28c550eee813d5d57d93a5"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-1:image",
+            "sha256": "8df2cab9574c96b81191b6b94c34d2d5997dcc6edcd201426a9e35fa5ce9e533"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-2:audio",
+            "sha256": "876f618f641b72df50bf2b26b626e8969b6d2ed5adfcd0ed49211c82deb347eb"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-2:image",
+            "sha256": "f4e5ac0d733d666a5f800ce63c8b5dfe4b418cc7e9ee731dc3cc34f7d2431efc"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-3:audio",
+            "sha256": "0b361e1a952bae81301b21692adbde347b777ad807cf7a7262ba0e254d3fd3c0"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-3:image",
+            "sha256": "7267a8a88e2e111c650d18ce39645566895865a0cc9637b70874be70312cbaf7"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-4:audio",
+            "sha256": "ac3d0a6b7cd8c6a22861727ec174017c3d1760fb94b4e208d79fc8cb6bc345ce"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-4:image",
+            "sha256": "3e404785d316cc9c7fb50de9346cc4dfa50afd1eca7a6efb0495baae984edace"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-5:audio",
+            "sha256": "63cab288d4670a63dd69b831a3fd71e668ad76db22621b9fe5dc7b765906bb3b"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-5:image",
+            "sha256": "9a29ce10c1333dd8286c1591bce5e0d94ffeba26e57b432250bafd3489c19dc7"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-6:audio",
+            "sha256": "d9662b851f909dd6dfdd05bfe3db75d59a88ade5ffb8ea69d918218387e9ef4f"
+          },
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-6:image",
+            "sha256": "a8e6b15612db74b0031511fa982d0dc86a0e9d6838de79182ff06756e8aefbe3"
+          }
+        ]
+      },
+      "books": {
+        "count": 1,
+        "records": [
+          {
+            "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6",
+            "sha256": "2d94fd7e20351ec2e203c45494c50975173b94a4772c8bf86818eafba0fc592a"
+          }
+        ]
+      },
+      "profiles": {
+        "count": 1,
+        "records": [
+          {
+            "id": "amari",
+            "sha256": "f8cab0d909e55828c9fb12fa724e6eb5d30fddb1f975bf06c637231566ec9f5c"
+          }
+        ]
+      },
+      "series": {
+        "count": 0,
+        "records": []
+      }
+    },
+    "scope": "Book/profile/series metadata hashes and asset key/type/size hashes; no asset payload duplication."
+  },
+  "idbScope": "Canonical synthetic origin had no database before Pair8. Normal profile/library setup and one approved Pip QA restore created version2 with1QAbook/14assets/1existingAmari profile; no historical family recovery.",
+  "worker": {
+    "script": "https://dinospace.netlify.app/sw.js",
+    "controller": "https://dinospace.netlify.app/sw.js",
+    "caches": [
+      "amari-discovery-media-v1",
+      "amari-discovery-v44"
+    ]
+  },
+  "updateNoticeAbsent": true,
+  "horizontalOverflow": false
+}

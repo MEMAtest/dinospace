@@ -1,0 +1,150 @@
+{
+  "passed": false,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "entryIdentity": "/assets/arcade-DWkzBb0x.js",
+  "namespaceVerified": true,
+  "completedLevelRuns": [],
+  "responses": 0,
+  "baselineHashes": {
+    "legacy": {
+      "present": true,
+      "bytes": 37,
+      "sha256": "41b88406eff71b4155806e27e396e85de5d5c2fe467f5ea87d7a3ab7d145c53c"
+    },
+    "words": {
+      "present": false
+    },
+    "spelling": {
+      "present": false
+    },
+    "rewards": {
+      "present": true,
+      "bytes": 1138,
+      "sha256": "a9761f4f6cf1fcb8ce44e0ddc6db08c9355a28a2c3239af19f54e4bb2b084279"
+    },
+    "writing": {
+      "present": false
+    },
+    "recent": {
+      "present": true,
+      "bytes": 7,
+      "sha256": "28c6d6a35ce7aaab911191fd1c1dfcf60d288e59fe3456d085898d282800ea35"
+    },
+    "diagnostics": {
+      "present": true,
+      "bytes": 48560,
+      "sha256": "02ac743785ee53b2c0e5e7e512816289d29dad950672789c9dd8b6d2fd108c9e"
+    },
+    "lifecycle": {
+      "present": true,
+      "bytes": 15496,
+      "sha256": "c91ddcd1ba399e695d9523317a15f7577d902962bc34f3cd1ddf762704f3371b"
+    },
+    "learningAttempts": {
+      "present": true,
+      "bytes": 324587,
+      "sha256": "a0124e417285ef7af75ea609dc19c5435cb0942c1e024b775cacc600384a6fcc"
+    },
+    "ownLittle": {
+      "present": true,
+      "bytes": 1010,
+      "sha256": "1e770c4c65645f99d06b728ab07b3d7cccab25f0d45145f909648d3b2597f760"
+    },
+    "siblingLittle": {
+      "present": true,
+      "bytes": 1320,
+      "sha256": "bed117418194585d30d7645e46b52a1d30576ebd957061b642cdb96a4adeddfa"
+    },
+    "siblingWords": {
+      "present": false
+    },
+    "siblingRewards": {
+      "present": true,
+      "bytes": 496,
+      "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+    }
+  },
+  "rows": [
+    {
+      "kind": "baseline",
+      "entryIdentity": "/assets/arcade-DWkzBb0x.js",
+      "wordsProgressStatus": "fresh-or-legacy",
+      "legacyRewardThrough": -1,
+      "oldBest": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "plannedPoints": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "expectedDelta": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "positiveParentFaultLevel": 1
+    },
+    {
+      "kind": "control-geometry",
+      "label": "start level 1",
+      "rect": {
+        "x": 139,
+        "y": 427,
+        "right": 251,
+        "bottom": 539,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "rect": {
+        "x": 139,
+        "y": 427,
+        "right": 251,
+        "bottom": 539,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    }
+  ],
+  "failureClass": "harness-assumption; no app failure or progress mutation",
+  "failures": [
+    {
+      "message": "Optional Tricky Words stage does not match the visible clue length",
+      "stack": "Error: Optional Tricky Words stage does not match the visible clue length\n    at openOptional (evalmachine.<anonymous>:287:58)\n    at async runStage (evalmachine.<anonymous>:318:7)\n    at async evalmachine.<anonymous>:440:9\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)",
+      "completedLevelRuns": 0,
+      "rows": 3
+    }
+  ]
+}

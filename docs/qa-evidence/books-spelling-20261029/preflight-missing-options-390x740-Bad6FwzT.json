@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "candidateEntry": "http://127.0.0.1:5180/assets/arcade-Bad6FwzT.js",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740,
+    "scrollY": 0
+  },
+  "mode": "\ud83d\udc42Sound gap",
+  "stage": "Find the missing sound: 0 of 6 words",
+  "visibleCue": "A tiny sharp fastener can hold papers together.",
+  "testSideExpectedGraphemes": [
+    "p",
+    "i",
+    "n"
+  ],
+  "visibleSpaces": [
+    "\u2022",
+    "i",
+    "n"
+  ],
+  "visibleMissingOptions": [
+    {
+      "text": "a",
+      "x": 98,
+      "y": 456.8125,
+      "right": 142,
+      "bottom": 500.8125,
+      "width": 44,
+      "height": 44,
+      "hit": true,
+      "visible": true
+    },
+    {
+      "text": "c",
+      "x": 148,
+      "y": 459.8125,
+      "right": 192,
+      "bottom": 503.8125,
+      "width": 44,
+      "height": 44,
+      "hit": true,
+      "visible": true
+    },
+    {
+      "text": "p",
+      "x": 198,
+      "y": 459.8125,
+      "right": 242,
+      "bottom": 503.8125,
+      "width": 44,
+      "height": 44,
+      "hit": true,
+      "visible": true
+    },
+    {
+      "text": "u",
+      "x": 248,
+      "y": 459.8125,
+      "right": 292,
+      "bottom": 503.8125,
+      "width": 44,
+      "height": 44,
+      "hit": true,
+      "visible": true
+    }
+  ],
+  "correctMissingOption": "p",
+  "hearGeometry": {
+    "x": 167.34375,
+    "y": 343.8125,
+    "right": 310.65625,
+    "bottom": 387.8125,
+    "width": 143.3125,
+    "height": 44,
+    "hit": true,
+    "visible": true
+  },
+  "clueGeometry": {
+    "x": 188.25,
+    "y": 295.8125,
+    "right": 289.75,
+    "bottom": 339.8125,
+    "width": 101.5,
+    "height": 44,
+    "hit": true,
+    "visible": true
+  },
+  "noAnswerSubmitted": true,
+  "parentResponsesRemainAtFiveFromEarlierPartial": true
+}

@@ -1,0 +1,204 @@
+{
+  "kind": "canonical-spelling-native-acceptance-summary",
+  "sourceCommit": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "origin": "https://dinospace.netlify.app",
+  "entry": "/assets/arcade-EBto46V3.js",
+  "serviceWorkerVersion": 44,
+  "serviceWorker": {
+    "observedBefore": {
+      "activeState": "activated",
+      "waiting": null,
+      "installing": null,
+      "cacheNames": [
+        "amari-discovery-media-v1",
+        "amari-discovery-v44"
+      ]
+    },
+    "observedAfter": {
+      "activeState": "activated",
+      "waiting": null,
+      "installing": null,
+      "cacheNames": [
+        "amari-discovery-media-v1",
+        "amari-discovery-v44"
+      ]
+    },
+    "controller": "https://dinospace.netlify.app/sw.js"
+  },
+  "views": {
+    "390x740": {
+      "report": "production-spelling-390x740-arcade-EBto46V3.json",
+      "reportSha256": "6bf0e4a732e57109ea7f6bbdf14ffb8532edf241745a8f1753e0a7464a1d5fa4",
+      "passed": true,
+      "entry": "/assets/arcade-EBto46V3.js",
+      "namespaceVerified": true,
+      "targets": [
+        5,
+        6,
+        7,
+        3,
+        6,
+        4
+      ],
+      "uniqueResponses": 31,
+      "zeroDeltaReplayResponses": 5,
+      "completedLevelRuns": [
+        {
+          "level": 1,
+          "rounds": 5,
+          "points": 6,
+          "rewardDelta": 6
+        },
+        {
+          "level": 2,
+          "rounds": 6,
+          "points": 6,
+          "rewardDelta": 6
+        },
+        {
+          "level": 3,
+          "rounds": 7,
+          "points": 6,
+          "rewardDelta": 6
+        },
+        {
+          "level": 4,
+          "rounds": 3,
+          "points": 6,
+          "rewardDelta": 6
+        },
+        {
+          "level": 5,
+          "rounds": 6,
+          "points": 6,
+          "rewardDelta": 6
+        },
+        {
+          "level": 6,
+          "rounds": 4,
+          "points": 6,
+          "rewardDelta": 6
+        }
+      ],
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "failedRequests": 0,
+      "providerRequests": 0,
+      "parentRewardRetry": {
+        "kind": "parent-reward-retry",
+        "level": 1,
+        "positiveExpectedDelta": 6,
+        "sameAttemptAndClaimToken": true
+      },
+      "perWordWriteAndReadbackRetry": true,
+      "sessionWriteAndCommittedReadbackRetry": true,
+      "protection": {
+        "kind": "protected-and-rewards",
+        "legacyGameLevelsBytePreserved": true,
+        "siblingDataPreserved": true,
+        "otherGameCountsAndClaimsPreserved": true,
+        "newlyEarnedPositiveTransactions": 6,
+        "rewardDeltaTotal": 36
+      },
+      "reopenReplayIdempotency": {
+        "kind": "reopen-replay-idempotency",
+        "levels": 6,
+        "pointsStable": true,
+        "claimsStable": true
+      },
+      "finalScreenshotPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/books-spelling-20261029/native-spelling-390x740-arcade-EBto46V3.js.jpg"
+    },
+    "1440x844": {
+      "report": "production-spelling-1440x844-arcade-EBto46V3.json",
+      "reportSha256": "ff50d50ca471df0d1b87b715da1728a05a99fec05f6a3e6c94ddfb7039e07d94",
+      "passed": true,
+      "entry": "/assets/arcade-EBto46V3.js",
+      "namespaceVerified": true,
+      "targets": [
+        5,
+        6,
+        7,
+        3,
+        6,
+        4
+      ],
+      "uniqueResponses": 31,
+      "zeroDeltaReplayResponses": 5,
+      "completedLevelRuns": [
+        {
+          "level": 1,
+          "rounds": 5,
+          "points": 6,
+          "rewardDelta": 0
+        },
+        {
+          "level": 2,
+          "rounds": 6,
+          "points": 6,
+          "rewardDelta": 0
+        },
+        {
+          "level": 3,
+          "rounds": 7,
+          "points": 6,
+          "rewardDelta": 0
+        },
+        {
+          "level": 4,
+          "rounds": 3,
+          "points": 6,
+          "rewardDelta": 0
+        },
+        {
+          "level": 5,
+          "rounds": 6,
+          "points": 6,
+          "rewardDelta": 0
+        },
+        {
+          "level": 6,
+          "rounds": 4,
+          "points": 6,
+          "rewardDelta": 0
+        }
+      ],
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "failedRequests": 0,
+      "providerRequests": 0,
+      "parentRewardRetry": null,
+      "perWordWriteAndReadbackRetry": true,
+      "sessionWriteAndCommittedReadbackRetry": true,
+      "protection": {
+        "kind": "protected-and-rewards",
+        "legacyGameLevelsBytePreserved": true,
+        "siblingDataPreserved": true,
+        "otherGameCountsAndClaimsPreserved": true,
+        "newlyEarnedPositiveTransactions": 0,
+        "rewardDeltaTotal": 0
+      },
+      "reopenReplayIdempotency": {
+        "kind": "reopen-replay-idempotency",
+        "levels": 6,
+        "pointsStable": true,
+        "claimsStable": true
+      },
+      "finalScreenshotPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/books-spelling-20261029/native-spelling-1440x844-arcade-EBto46V3.js.jpg"
+    }
+  },
+  "points": {
+    "390x740": {
+      "positiveLevelTransactions": 6,
+      "pointsEarned": 36,
+      "parentRewardRetry": "level1; same attempt/token retried once"
+    },
+    "1440x844": {
+      "positiveLevelTransactions": 0,
+      "pointsEarned": 0,
+      "note": "all six levels replayed without farming"
+    }
+  },
+  "artifactNote": "The harness currently names final-render screenshot files native-spelling-* even in production mode; the JSON reports are correctly marked production and source-bound."
+}

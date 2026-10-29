@@ -1,0 +1,47 @@
+{
+  "kind": "optional-caption-save-observation",
+  "entryIdentity": "/assets/arcade-Bad6FwzT.js",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "mode": "\ud83d\udcddWrite it",
+  "visibleCardText": "READ IT, SAY IT, WRITE IT\n\nA CAT SAT.\n\nHear the caption\n\nThis is saved as a writing sample for a grown-up to review. The app does not pretend to grade handwriting.\n\nSaved!",
+  "savedWritingCount": 1,
+  "latestWriting": {
+    "id": "820dbdd5-8d03-4bad-adfc-a16cc74f96f3",
+    "prompt": "A CAT SAT.",
+    "response": "A CAT SAT.",
+    "savedAt": "2026-10-29T04:53:31.905Z",
+    "reviewed": false
+  },
+  "writingSha256": "7784f71e8f1818fb749a30142bd93dbbe9243e8bbb5fe5b66dcbd8f0263e10ca",
+  "baselineWritingPresent": false,
+  "baselineRewardsSha256": "a9761f4f6cf1fcb8ce44e0ddc6db08c9355a28a2c3239af19f54e4bb2b084279",
+  "currentRewardsSha256": "a9761f4f6cf1fcb8ce44e0ddc6db08c9355a28a2c3239af19f54e4bb2b084279",
+  "rewardPoints": 285,
+  "rewardClaimCount": 17,
+  "wordsSessionPresent": false,
+  "optionalTrickyRow": {
+    "attempts": 2,
+    "independentFirstTry": 2,
+    "independentDays": [
+      "2026-10-29"
+    ],
+    "needsPractice": 0,
+    "lastMode": "tricky",
+    "lastSeen": "2026-10-29",
+    "spellingTransactionIds": [
+      "6921e663-5dd1-484f-8206-122f8efe4471",
+      "fd182814-4271-439f-80ff-a965df2fdc31"
+    ]
+  },
+  "conclusion": {
+    "captionSavedInUI": true,
+    "priorWritingPreserved": true,
+    "parentSessionDidNotAdvance": true,
+    "parentRewardBytesUnchanged": true
+  },
+  "note": "The native journey harness assertion expected a feedback sentence that this branch does not render. The visible Saved! button and durable appended sample are the correct confirmation."
+}

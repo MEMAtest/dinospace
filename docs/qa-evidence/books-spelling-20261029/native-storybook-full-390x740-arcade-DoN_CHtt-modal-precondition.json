@@ -1,0 +1,34 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "expectedEntry": "/assets/arcade-DoN_CHtt.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "runMode": "full",
+  "error": "Error: reset library to all included and saved stories is clipped, covered, or undersized: {\"kind\":\"control-geometry\",\"label\":\"reset library to all included and saved stories\",\"rect\":{\"x\":168.34375,\"y\":219,\"right\":280.984375,\"bottom\":267,\"width\":112.640625,\"height\":48},\"viewport\":{\"width\":390,\"height\":740},\"wholeRectVisible\":true,\"centerHit\":false}\n    at assertControl (evalmachine.<anonymous>:65:13)\n    at async Object.click (evalmachine.<anonymous>:71:5)\n    at async browseClick (evalmachine.<anonymous>:362:5)\n    at async runStorybook (evalmachine.<anonymous>:464:3)\n    at async evalmachine.<anonymous>:1018:14\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)",
+  "partial": {
+    "origin": "http://127.0.0.1:5180",
+    "expectedEntry": "/assets/arcade-DoN_CHtt.js",
+    "viewport": {
+      "width": 390,
+      "height": 740
+    },
+    "playerId": "amari",
+    "runMode": "full",
+    "books": [],
+    "probes": [],
+    "failures": [],
+    "initial": null
+  },
+  "stage": "native",
+  "mode": "full",
+  "entryIdentity": "/assets/arcade-DoN_CHtt.js",
+  "capabilityPreflight": {
+    "url": "http://127.0.0.1:5180/?storybookPair8=0fee0001#/play/storybooks",
+    "buffer": "function",
+    "cryptoSubtle": true
+  },
+  "cliReturnCode": 0
+}

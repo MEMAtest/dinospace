@@ -1,0 +1,17 @@
+{
+  "fullNativeReaderBase": "0fee0001ef3c600990d3fb81841fff7142e74396",
+  "currentRuntime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "regions": [
+    {
+      "region": "reader",
+      "sourceSha256": "7c34332d4a06e63d69eeb88ad43596b30e71c7cf06fe99835eb6573fb5da2ed5",
+      "byteIdentical": true
+    },
+    {
+      "region": "quiz",
+      "sourceSha256": "d66d94acb485c6c866b4e5a50ca13d84235b64e16d0dbb2f6e8eea4af21a6d88",
+      "byteIdentical": true
+    }
+  ],
+  "runtimeDelta": "Only library save alert group wrapper and Storybook library sticky/overflow CSS; reader/quiz source and media/storage helpers remain unchanged. Full canonical matrix still required."
+}

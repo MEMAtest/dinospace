@@ -1,0 +1,42 @@
+{
+  "compiledSpellingBase": "1a1678e2cbb0ea37e7bc9970fc9cad62d6a5f5c6",
+  "currentStorybookRuntime": "0fee0001ef3c600990d3fb81841fff7142e74396",
+  "spellingSourcesIdentical": [
+    {
+      "path": "src/components/games/WordBuilder.jsx",
+      "sha256": "c8f5bdbcd90dc3d8cdad5807b29ccf214bd32755fbb5c0dd5116f712f4246822",
+      "unchanged": true
+    },
+    {
+      "path": "src/components/shared/GameSession.jsx",
+      "sha256": "04f8dc9d0561ea485d3f8b87f121e9050338e60e0f9504e33477ec3c66db1393",
+      "unchanged": true
+    },
+    {
+      "path": "src/App.jsx",
+      "sha256": "49af8638dda48122a9b75142ec1dd058cfbde999f85b9dcef8c06b8426520765",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/spellingStudio.js",
+      "sha256": "eb370b89373d061f15218f3e4014ca0def7a7076b979d603cf607fffb2cd982c",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/spellingProgress.js",
+      "sha256": "0d93c238850f12ea32ec48caa4f4b93345fc8fe367fe4149151c74dc3be7f9b3",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/wordsSessionProgress.js",
+      "sha256": "9736e9588b0e0a240b9a045d24ca830ce083def3fb76931bc29d4eb7722ce118",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/playerRewards.js",
+      "sha256": "d6e26cf12e63445624d18728587f67124a8a69ee3eeec213e13194e257b52c7e",
+      "unchanged": true
+    }
+  ],
+  "sharedCssChange": "Only Storybook-scoped specificity, frame height and78px Storybook chrome changed after Bad6; no Spelling selectors changed. Final canonical Spelling matrix remains required."
+}

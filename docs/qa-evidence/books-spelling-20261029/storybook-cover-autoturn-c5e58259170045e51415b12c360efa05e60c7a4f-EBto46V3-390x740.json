@@ -1,0 +1,22 @@
+{
+  "passed": false,
+  "sourceCommit": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "expectedEntry": "/assets/arcade-EBto46V3.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "steps": [],
+  "errors": {
+    "page": [],
+    "console": [],
+    "failedResponses": [],
+    "failedRequests": [],
+    "provider": []
+  },
+  "mediaEvents": [],
+  "error": "Error: Could not select Amari through the UI\n    at evalmachine.<anonymous>:16:120\n    at async evalmachine.<anonymous>:16:3\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)\n    at async connection.onmessage (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:76275:29)",
+  "finalURL": "http://127.0.0.1:5180/?pair8-autoturn=1793254334359#/world/read-write",
+  "currentText": "Read & Write\n\nSounds, spelling, stories and handwriting\n\n🎲 Surprise me\nWORDS\nLetter Launch\n\nLetters and sounds\n\n☆\n✓ Played 3\nWORDS\nSound Safari\n\nMatch the sounds\n\n☆\n✓ Played 6\nWORDS\nSpelling Studio\n\nLearn sounds and spell!\n\n☆\n✓ Played 21\nWORDS\nLetter Trace\n\nTrace big and small letters\n\n☆\nPRACTICE\n✓ Played 5\nBONUS PLAY\nDino Hangman\n\nRescue dinosaur words!\n\n☆\nNEW\n✓ Played 7\nWORDS\nStorybook Studio\n\nRead, listen and explore!\n\n☆",
+  "cliReturnCode": 0
+}

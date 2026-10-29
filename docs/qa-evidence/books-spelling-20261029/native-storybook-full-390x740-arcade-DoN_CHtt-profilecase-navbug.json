@@ -1,0 +1,34 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "expectedEntry": "/assets/arcade-DoN_CHtt.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "runMode": "full",
+  "error": "page.waitForFunction: Timeout 5000ms exceeded.\n    at runStorybook (evalmachine.<anonymous>:479:16)\n    at async evalmachine.<anonymous>:1004:14\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+  "partial": {
+    "origin": "http://127.0.0.1:5180",
+    "expectedEntry": "/assets/arcade-DoN_CHtt.js",
+    "viewport": {
+      "width": 390,
+      "height": 740
+    },
+    "playerId": "amari",
+    "runMode": "full",
+    "books": [],
+    "probes": [],
+    "failures": [],
+    "initial": null
+  },
+  "stage": "native",
+  "mode": "full",
+  "entryIdentity": "/assets/arcade-DoN_CHtt.js",
+  "capabilityPreflight": {
+    "url": "http://127.0.0.1:5180/?storybookPair8=0fee0001#/play/storybooks",
+    "buffer": "function",
+    "cryptoSubtle": true
+  },
+  "cliReturnCode": 0
+}

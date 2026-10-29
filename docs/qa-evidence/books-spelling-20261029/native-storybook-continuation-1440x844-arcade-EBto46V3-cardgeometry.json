@@ -1,0 +1,62 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "expectedEntry": "/assets/arcade-EBto46V3.js",
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "runMode": "continuation",
+  "error": "Error: reopen Storybook Studio with a one-shot active-reader read fault is clipped, covered, or undersized: {\"kind\":\"control-geometry\",\"label\":\"reopen Storybook Studio with a one-shot active-reader read fault\",\"rect\":{\"x\":404,\"y\":516,\"right\":712,\"bottom\":846,\"width\":308,\"height\":330},\"viewport\":{\"width\":1440,\"height\":844},\"wholeRectVisible\":false,\"centerHit\":true}\n    at assertControl (evalmachine.<anonymous>:69:13)\n    at async Object.click (evalmachine.<anonymous>:75:5)\n    at async browseClick (evalmachine.<anonymous>:375:5)\n    at async runStorybook (evalmachine.<anonymous>:581:7)\n    at async evalmachine.<anonymous>:1112:14\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)",
+  "diagnostics": {
+    "errors": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedResponses": [],
+      "failedRequests": [],
+      "providerRequests": []
+    },
+    "mediaRequests": []
+  },
+  "partial": {
+    "origin": "http://127.0.0.1:5180",
+    "expectedEntry": "/assets/arcade-EBto46V3.js",
+    "viewport": {
+      "width": 1440,
+      "height": 844
+    },
+    "playerId": "amari",
+    "runMode": "continuation",
+    "books": [],
+    "probes": [
+      {
+        "kind": "existing-reader-profile-switch",
+        "profileCount": 2,
+        "switchedBack": true,
+        "profileBytesPreserved": true,
+        "alternateProfileHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+        "alternateLabelHash": "111b5abdd956da6f5012e19e56ae28f454b4c2e4e4e09c526caa6aae67d98375"
+      },
+      {
+        "kind": "blocked-active-reader-key",
+        "status": "failed",
+        "stage": "native",
+        "createdQaReader": false,
+        "readerIdHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+        "readerCount": 2,
+        "error": "reopen Storybook Studio with a one-shot active-reader read fault is clipped, covered, or undersized: {\"kind\":\"control-geometry\",\"label\":\"reopen Storybook Studio with a one-shot active-reader read fault\",\"rect\":{\"x\":404,\"y\":516,\"right\":712,\"bottom\":846,\"width\":308,\"height\":330},\"viewport\":{\"width\":1440,\"height\":844},\"wholeRectVisible\":false,\"centerHit\":true}"
+      }
+    ],
+    "failures": [],
+    "initial": null
+  },
+  "stage": "native",
+  "mode": "continuation",
+  "entryIdentity": "/assets/arcade-EBto46V3.js",
+  "capabilityPreflight": {
+    "url": "http://127.0.0.1:5180/?libraryretry=1793252128450#/play/storybooks",
+    "buffer": "function",
+    "cryptoSubtle": true
+  },
+  "cliReturnCode": 0
+}

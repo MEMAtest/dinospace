@@ -28,7 +28,10 @@ Resource budget: no new worktrees or dependencies planned. Keep each pair's new 
 6. Fire Truck Rescue + Ladder Rescue.
 7. Dino Detective + Dino Hangman.
 8. Storybook Studio + Spelling Studio.
-9. Dino Jigsaw + Curriculum Quest.
-10. German Garage + Letter Launch.
+9. Chess Explorers full game against the computer + Dino Jigsaw.
+10. Curriculum Quest + German Garage.
+11. Letter Launch + Fact Finder (the separately requested learning wiki feature).
 
-Fourteen games already have recent source-bound functional delivery evidence; retain those implementations and run a final integration regression. This sequence audits or uplifts the remaining20 rather than treating every old unscored ledger row as unimplemented. Each pair remains open until its own concrete gates pass. `queue.json` is the current work queue.
+On 29 October the user requested a full playable chess game alongside the retained lessons. It is prioritized in the next batch after Pair 8; the remaining queued titles move forward without being dropped. Fact Finder remains a distinct new feature and must earn its own acceptance; prior game releases do not establish it.
+
+Fourteen games already have recent source-bound functional delivery evidence; retain those implementations and run a final integration regression. This sequence audits or uplifts the original remaining20, the newly requested full Chess mode and the separate Fact Finder feature rather than treating every old unscored ledger row as unimplemented. Each pair remains open until its own concrete gates pass. `queue.json` is the current work queue.

@@ -1,0 +1,51 @@
+{
+  "kind": "optional-tricky-practice-observation",
+  "candidateEntry": "/assets/arcade-DWkzBb0x.js",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "namespaceVerified": true,
+  "visibleParentStage": "Copy the word: 0 of 5 words",
+  "parentModeAfterReturn": "\ud83d\udc40Learn it",
+  "visibleClue": "Use this word when talking about yourself.",
+  "visibleAnswer": "I",
+  "visibleTiles": [
+    "i",
+    "n",
+    "t"
+  ],
+  "visibleGraphemeSpaces": 1,
+  "observedPractice": {
+    "spellingRow": {
+      "attempts": 1,
+      "independentFirstTry": 1,
+      "independentDays": [
+        "2026-10-29"
+      ],
+      "needsPractice": 0,
+      "lastMode": "tricky",
+      "lastSeen": "2026-10-29",
+      "spellingTransactionIds": [
+        "6921e663-5dd1-484f-8206-122f8efe4471"
+      ]
+    },
+    "wordsSessionRecordPresent": false,
+    "parentRewardPoints": 285,
+    "parentRewardClaimCount": 17,
+    "parentRewardsSha256": "a9761f4f6cf1fcb8ce44e0ddc6db08c9355a28a2c3239af19f54e4bb2b084279"
+  },
+  "baselineProtectedValues": {
+    "spellingRecordPresent": false,
+    "wordsSessionRecordPresent": false,
+    "parentRewardsSha256": "a9761f4f6cf1fcb8ce44e0ddc6db08c9355a28a2c3239af19f54e4bb2b084279"
+  },
+  "comparison": {
+    "parentStageCounter": "0 of 5",
+    "wordsSessionUnchanged": true,
+    "parentRewardBytesUnchanged": true
+  },
+  "note": "One visible Tricky word was answered and saved as optional spelling practice; parent stage and reward storage remained unchanged. This is real profile progress and is retained.",
+  "primaryGeometryEvidence": "preflight-primary-390x740-DWkzBb0x.json"
+}

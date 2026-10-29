@@ -1,0 +1,128 @@
+{
+  "kind": "compiled-spelling-native-summary",
+  "sourceCommit": "1a1678e2cbb0ea37e7bc9970fc9cad62d6a5f5c6",
+  "entry": "/assets/arcade-Bad6FwzT.js",
+  "serviceWorkerVersion": 44,
+  "origin": "http://127.0.0.1:5180",
+  "player": "Amari",
+  "namespaceVerified": true,
+  "runtimeMatrix": {
+    "390x740": {
+      "reports": [
+        "partial-native-level1-success-390x740-Bad6FwzT.json",
+        "native-spelling-390x740-arcade-Bad6FwzT.json"
+      ],
+      "completedStages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "uniqueStageResponses": 31,
+      "zeroDeltaReplayResponses": 5,
+      "allStagesCompleted": true,
+      "failures": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedResources": [],
+      "failedRequests": [],
+      "providerRequests": [],
+      "reportQualification": "Cumulative 31 unique stage responses combine 5 successful Stage 1 responses from a partial report (passed=false due a harness locator error after Level 1) with 26 successful Stage 2\u20136 responses in the passing continuation; continuation additionally has a 5-response zero-delta replay."
+    },
+    "1440x844": {
+      "report": "native-spelling-1440x844-arcade-Bad6FwzT.json",
+      "completedStages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "uniqueStageResponses": 31,
+      "zeroDeltaReplayResponses": 5,
+      "allStagesCompleted": true,
+      "failures": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedResources": [],
+      "failedRequests": [],
+      "providerRequests": []
+    }
+  },
+  "combinedGates": {
+    "targets": [
+      5,
+      6,
+      7,
+      3,
+      6,
+      4
+    ],
+    "sourceBoundUniqueResponsesPerViewport": 31,
+    "positiveRewardRetry": {
+      "levels": [
+        1,
+        2
+      ],
+      "sameTokenRetry": true
+    },
+    "sessionSaveRetry": {
+      "writeLevels": [
+        2
+      ],
+      "committedReadbackRetryLevels": [
+        3
+      ]
+    },
+    "perWordSaveRetry": {
+      "write": true,
+      "readback": true
+    },
+    "audio": {
+      "packagedPlaybackAndMutePause": true,
+      "leavePause": true
+    },
+    "zeroDeltaReplay": true,
+    "legacySiblingAndOtherGameProtection": true,
+    "optionalPractice": {
+      "trickyInitialTilePreflight": true,
+      "finalCandidateOptionalPracticeIsolation": true,
+      "savedWritingSampleRetained": true
+    },
+    "stickerProgressionAndRewards": {
+      "phoneContinuationPositiveTransactions": 5,
+      "phoneContinuationRewardDelta": 30,
+      "phoneEarlierPartialLevel1PositiveTransactions": 1,
+      "phoneEarlierPartialLevel1RewardDelta": 6,
+      "phoneCumulativePositiveTransactionsAcrossReports": 6,
+      "phoneCumulativeRewardDeltaAcrossReports": 36,
+      "desktopReplayRewardDeltas": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "scopeLimit": "Compiled local QA only; no public/canonical acceptance claim. Parent-owned public verification remains required.",
+  "prebuildGateReportedByRoot": "571/571 tests, zero skips.",
+  "sourceFileSha256": {
+    "src/components/games/WordBuilder.jsx": "c8f5bdbcd90dc3d8cdad5807b29ccf214bd32755fbb5c0dd5116f712f4246822",
+    "src/components/shared/GameSession.jsx": "04f8dc9d0561ea485d3f8b87f121e9050338e60e0f9504e33477ec3c66db1393",
+    "src/discoveryPremium.css": "23ef5e0b53a9e441921383d1b3f99990fbb6caa163bc30a0a10b985b0b5c0f51",
+    "src/App.css": "a0715e0a09edbd0fbde65816a75e0fa0fc8b314c5260c0768c19bf3aac22621a",
+    "src/App.jsx": "49af8638dda48122a9b75142ec1dd058cfbde999f85b9dcef8c06b8426520765"
+  },
+  "compiledArtifactProof": {
+    "entryReferencedByDistIndex": "/assets/arcade-Bad6FwzT.js",
+    "distIndexSha256": "97f8a30c1e6386494a672913fbcd0a32508b73c03cf65d1963c0c1128b1a7deb",
+    "compiledBundleSha256": "8a42f12ce2d772ffe6d3683e1602960f73f4ce3f6641b138c3e1896da0fca982",
+    "distServiceWorkerSha256": "a60310c27afd87f556609ea652803d49bbce8f6ac9ce62b76d59f4a24a1a60d2",
+    "sourceGateReference": "source-gates.json (571/571, zero skips; same runtime SHA and entry)"
+  }
+}

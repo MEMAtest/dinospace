@@ -1,0 +1,131 @@
+{
+  "reviewedAt": "2026-10-29",
+  "scope": "Pair 8 source-only independent review: Storybook Studio media/hydration, IndexedDB/profile/series inventories, spelling session progress and parent rewards.",
+  "sourceProofOnly": true,
+  "files": [
+    { "path": "src/components/games/StorybookStudio.jsx", "sha256": "aefe478cbd6193fd08512d8dc92014945cf6a1ef857678e54b92815b8d0c7963" },
+    { "path": "src/components/games/StorybookProfiles.jsx", "sha256": "10cc64710bb1b7053716f20beb38ad9aef69f8d7ec393a66ed1973333047fb49" },
+    { "path": "src/components/games/StorybookSeriesLibrary.jsx", "sha256": "1f9d899ecf1a6fe3c2e76212602cdecfebd497c34c386c893c8e45ca701c15c4" },
+    { "path": "src/data/storybookHydration.js", "sha256": "eaa7c19dfc095548841b4fad50467390e1938734765f62188d96f6dd0eb56000" },
+    { "path": "src/data/storybookStorage.js", "sha256": "9db5872cef1cc9e63e445d38670ac98b586d46a732306bf932c4cf32d7b2ec31" },
+    { "path": "src/data/storybookProfiles.js", "sha256": "05753ad6fffa40683857a9929536841c1105bee135c5fb604f157cf0197e605c" },
+    { "path": "src/components/games/WordBuilder.jsx", "sha256": "616a1e99b2838f784e30fc8477906841c910c86212001d15abd49e734a65e1d5" },
+    { "path": "src/components/shared/GameSession.jsx", "sha256": "fef4f64de177bb20ebd030f292b2a3313dc2e37866ff1174435addc9c119eb49" },
+    { "path": "src/data/wordsSessionProgress.js", "sha256": "9736e9588b0e0a240b9a045d24ca830ce083def3fb76931bc29d4eb7722ce118" },
+    { "path": "src/data/playerRewards.js", "sha256": "d6e26cf12e63445624d18728587f67124a8a69ee3eeec213e13194e257b52c7e" },
+    { "path": "src/App.jsx", "sha256": "49af8638dda48122a9b75142ec1dd058cfbde999f85b9dcef8c06b8426520765" }
+  ],
+  "blockers": [
+    {
+      "id": "profile-legacy-migration-bypassed",
+      "severity": "blocker",
+      "evidence": [
+        { "file": "src/data/storybookStorage.js", "lines": "217-229", "detail": "getChildProfiles performs the legacy localStorage migration when IndexedDB has no profiles; getChildProfilesInventory instead returns an available empty list." },
+        { "file": "src/components/games/StorybookStudio.jsx", "lines": "276-303", "detail": "Startup calls getChildProfilesInventory directly and installs its empty profile array, without invoking getChildProfiles or the existing migration path." }
+      ],
+      "impact": "On an upgraded device with profiles in amari_storybook_profiles_v1 and an empty new IndexedDB profiles store, existing readers are hidden and the studio falls back to an unsaved Amari profile. Saved reader identity/age selection therefore appears lost, although the legacy bytes remain in localStorage.",
+      "required_resolution": "Keep empty distinguishable from unavailable while migrating the legacy profile key into IndexedDB (or otherwise merge legacy profiles into the available inventory) before presenting an empty profile list. Confirm readback and preserve legacy data until verified."
+    }
+  ],
+  "limitations": [
+    {
+      "id": "storybook-parent-player-reward-binding-not-yet-wired",
+      "status": "pending-integration; not counted as an implementation finding per task instruction",
+      "evidence": [
+        { "file": "src/data/storybookProfiles.js", "lines": "111-133", "detail": "Completion receipts can store rewardPlayerId, defaulting to the Storybook child id." },
+        { "file": "src/components/games/StorybookStudio.jsx", "lines": "369-393, 411-425", "detail": "Claiming sends the receipt token through onCelebrate but does not bind the call to receipt.rewardPlayerId; finishBook also calls commitStoryCompletion without passing an outer App player id." },
+        { "file": "src/App.jsx", "lines": "269-286", "detail": "The game props include playerId, but current StorybookStudio function signature does not receive it." }
+      ],
+      "requiredProof": "Re-review once the planned receiver prop is wired. Verify new and recovered receipts claim against the original outer player after switching players or reopening, without paying another player or duplicating the claim."
+    },
+    {
+      "id": "native-runtime-unverified",
+      "detail": "This review read source and prior test files only. It does not establish compiled UI behavior, actual IndexedDB commit/upgrade behavior in the target browser, media autoplay/object-URL behavior, or live retry/reopen flows. No tests, build, browser, provider, or deployment were run."
+    }
+  ],
+  "reviewedBehaviors": {
+    "mediaHydration": "Source uses bounded object-URL retention, stale async load guards, retry invalidation, and cleanup on reader exit/disposal. No concrete blocker found in the reviewed cache paths.",
+    "storage": "IndexedDB v1-to-v2 upgrade creates missing stores without replacing existing stores; write APIs resolve only after transaction completion, and inventory APIs distinguish readable-empty from unavailable. Restore uses one books/assets transaction and skips duplicate IDs.",
+    "spelling": "Six levels are wired through GameSession; per-attempt receipts preserve best-score deltas, reject mismatched retry IDs, and gate completion on local readback and parent reward persistence. Packaged speech is used only when every requested segment is available; no premium fallback is requested by WordBuilder.",
+    "tests": "Not run in this review. Existing test files were inspected as source context, not treated as runtime proof."
+  },
+  "followUpReview": {
+    "reviewedAt": "2026-10-29",
+    "files": [
+      { "path": "src/data/storybookStorage.js", "sha256": "9db5872cef1cc9e63e445d38670ac98b586d46a732306bf932c4cf32d7b2ec31" },
+      { "path": "src/components/games/StorybookStudio.jsx", "sha256": "aefe478cbd6193fd08512d8dc92014945cf6a1ef857678e54b92815b8d0c7963" },
+      { "path": "test/storybookStorage.test.mjs", "sha256": "7f4e1f257f4684dd6e1aa7ad0a58a3e9b2f2a0ee00a22b88706f5bfabc681295" }
+    ],
+    "resolvedBlocker": "profile-legacy-migration-bypassed",
+    "resolution": "getChildProfilesInventory now checks the legacy profiles key when IndexedDB is empty; a readwrite transaction rechecks emptiness, migrates normalized profiles, and verifies them from IndexedDB. Unreadable, invalid, or failed migrations return unavailable without replacing legacy bytes. Studio consumes the availability-aware inventory, retaining the empty-versus-unavailable distinction.",
+    "evidence": "Source lines storybookStorage.js 205-265 and focused profile migration cases at storybookStorage.test.mjs 299-372 were inspected. Tests were not run.",
+    "remainingBlockers": [],
+    "proofBoundary": "Source-only delta review; no browser, build, runtime, or release proof."
+  },
+  "runtimeDeltaReview": {
+    "reviewedCommits": ["c267f9ed", "73a207e7"],
+    "reviewedAt": "2026-10-29",
+    "scope": "Compact literacy CSS and data opt-in, spelling word-prompt grouping, Discovery navigation labels, story-reader panel layout, and retry invalidation for saved media.",
+    "files": [
+      { "path": "src/discoveryPremium.css", "sha256": "23ef5e0b53a9e441921383d1b3f99990fbb6caa163bc30a0a10b985b0b5c0f51" },
+      { "path": "src/components/games/WordBuilder.jsx", "sha256": "af5e3bed00fb90928fa852de586476077ff17855e4842f5f39c33faa58a12ef7" },
+      { "path": "src/components/shared/GameSession.jsx", "sha256": "04f8dc9d0561ea485d3f8b87f121e9050338e60e0f9504e33477ec3c66db1393" },
+      { "path": "src/components/shared/DiscoveryHeader.jsx", "sha256": "17da0d8be900ae391f6bf22317c0aef1e98899153cfe39e6e6c16832644ab210" },
+      { "path": "src/components/games/StorybookStudio.jsx", "sha256": "efb0e3499a99f9a12378d796fe709300e9b30b51b2e604ed9df2ca7e3120f3a9" },
+      { "path": "src/data/storybookHydration.js", "sha256": "eaa7c19dfc095548841b4fad50467390e1938734765f62188d96f6dd0eb56000" },
+      { "path": "test/spellingStudio.test.mjs", "sha256": "44cadafb25e11f7320b6c6d012856ad0e263197fd3e83b60346e5036baa62000" },
+      { "path": "test/storybookHydration.test.mjs", "sha256": "9edd4a9ce6ed2a069268cd57c9463b16904b5b46fc15182ee67e43dc7fd1224a" }
+    ],
+    "remainingBlockers": [],
+    "reviewedBehaviors": {
+      "compactStyles": "Scoped to literacy surface selectors and the explicit words-session data attribute; Rocket/Fuel and unrelated discovery sessions are not selected by these new compact rules. Existing control sizing is 44px in the height-constrained spelling mode, consistent with this pair's native protocol threshold; controls remain visible in markup. No CSS selector was found that changes saved state or gameplay logic.",
+      "wordPromptAndLabels": "WordBuilder prompt/cue, word spaces and answer controls remain separate sibling groups after the wrapper change; mode labels retain visible text, and DiscoveryHeader button aria-labels match their visible navigation names. No answer is introduced into the missing-sound prompt.",
+      "readerLayout": "Reader panel remains a labelled, keyboard-focusable region with text and navigation outside the artwork; responsive rules constrain the illustration and make the text/tools panel vertically scrollable. Source review cannot establish final viewport geometry.",
+      "savedMediaRetry": "73a207e7 stops narration, invalidates only the current screen's stored image/audio keys, clears that screen's image/audio error presentation, and retriggers hydration. Hydrator drops the matching cache entry and any reader screen referencing it; stale pending reads cannot repopulate the cache, and no write/delete path for saved book assets is called.",
+      "tests": "Relevant test sources were inspected, not executed. Parent-reported full-suite result is recorded separately and was not independently verified in this source-only review."
+    },
+    "proofBoundary": "Source-bound delta review only. Native full matrix remains pending; this is not compiled, browser, provider, or live acceptance."
+  },
+  "profileAvailabilityReview": {
+    "reviewedAt": "2026-10-29",
+    "files": [
+      { "path": "src/components/games/StorybookStudio.jsx", "sha256": "4d24ae54f5dfdf84033895b5466c9ce6a6a8cf186c04fddebf8c2fd90e87c2cd" },
+      { "path": "src/components/games/StorybookCreator.jsx", "sha256": "d1254106e0cc3fde9a88e188ca80ca6fa592e5b6cf74c2b6968de9c8502bdf09" },
+      { "path": "src/data/storybookProfiles.js", "sha256": "05753ad6fffa40683857a9929536841c1105bee135c5fb604f157cf0197e605c" }
+    ],
+    "blocker": {
+      "id": "unavailable-reader-falls-back-to-amari-for-writes",
+      "severity": "blocker",
+      "evidence": [
+        { "file": "src/components/games/StorybookStudio.jsx", "lines": "173, 225, 284-292", "detail": "activeChildId initializes from the previously saved reader id, but activeChild resolves only from profiles and then defaults to Amari. If profile inventory is still loading or unavailable, an existing non-Amari id is not a verified profile; profiles remains empty on inventory failure." },
+        { "file": "src/components/games/StorybookStudio.jsx", "lines": "351-367, 413-426, 443-447, 496-506", "detail": "persistProgress, finishBook, goToScreen and openBook use activeChild.id without checking profileStorageState or membership in the successfully loaded profile list. A normal open immediately writes the bookmark under that fallback; finishing commits a completion receipt with the fallback reader id." },
+        { "file": "src/components/games/StorybookStudio.jsx", "lines": "752-777, 81-95", "detail": "createCustomStory only gates on story-library storage, while the creator receives fallback activeChild. It stores input.childId in the new record, so creation during unavailable profiles can attribute the draft metadata to Amari." },
+        { "file": "src/components/games/StorybookCreator.jsx", "lines": "17-19, 32-35", "detail": "Creator defaults ageBand from selectedChild and submits selectedChild.id or 'amari', making the fallback consequential before generation starts." }
+      ],
+      "impact": "When the saved active reader is another child and the profile inventory cannot be read (or has not loaded yet), the visible reader UI falls back to Amari. Opening/reading can write bookmark/favourite state under Amari, and finishing can create an Amari-scoped completion receipt; in a concurrent outer-player session that receipt can be claimed against a different playerId. Story creation can also save fallback Amari child metadata. This is a concrete identity-integrity failure; it does not require storage corruption or reward API failure.",
+      "smallGuardProposal": "Treat activeChild as unresolved until profileStorageState is available and activeChildId matches a member of profiles. Keep included stories readable if desired, but disable child-specific bookmark/favourite/finish/reward writes and custom-story creation until a verified reader exists. Recheck identity inside persistProgress and finishBook immediately before commit; do not substitute Amari. Keep the original activeChildId untouched while the inventory is unavailable."
+    },
+    "proofBoundary": "Source-only review; no browser, build, runtime, or actual record mutation was performed."
+  },
+  "readerIdentityGuardReview": {
+    "reviewedCommit": "0fee0001ef3c600990d3fb81841fff7142e74396",
+    "reviewedAt": "2026-10-29",
+    "files": [
+      { "path": "src/components/games/StorybookStudio.jsx", "sha256": "b6c38289073a10d63ca13444172a9932ff8b3b6a3847685f2f1597426a4d224a" },
+      { "path": "src/data/storybookReaderAccess.js", "sha256": "258d0c9da1257edee6dcc142072e54b4840a887017a36890d6f149a069143c71" },
+      { "path": "test/storybookReaderAccess.test.mjs", "sha256": "4c124f917acd37fc35e9be0d4bd4ada1aa4efe46dc489d1ccfa3bf989efdfe4c" }
+    ],
+    "resolvedBlocker": "unavailable-reader-falls-back-to-amari-for-writes",
+    "resolution": "Current source denies reader-specific writes unless profile inventory is available, the active preference is readable, the requested ID exactly matches the active ref, and that ID exists in the verified profile list. Loading, unavailable, missing, and unreadable preference states remain read-only. The visible fallback profile is not treated as a selected reader.",
+    "evidence": [
+      { "file": "src/data/storybookReaderAccess.js", "lines": "3-44", "detail": "Read preference distinguishes absent (fresh Amari) from unreadable/invalid; resolution matches a saved alternate exactly and selects a first profile only after the inventory is available and the previous ID is confirmed missing. Write predicate requires available status and exact requested/current ID." },
+      { "file": "src/components/games/StorybookStudio.jsx", "lines": "174-233, 383-404, 406-450, 496-520", "detail": "Startup retains the verified preference separately; latest status/profiles/preference refs gate bookmark/favourite and completion commits. Retry explicitly rereads preference and inventory, updates refs before releasing its busy guard, and recovers a stored alternate without writing a fallback." },
+      { "file": "src/components/games/StorybookStudio.jsx", "lines": "839-874", "detail": "Story creation is rejected before session creation unless the selected reader is verified; it is rechecked after session creation before outline planning and after outline response before saving the record." },
+      { "file": "src/components/games/StorybookStudio.jsx", "lines": "453-494", "detail": "Existing receipt reconciliation remains based on stored receipt identity and outer App player; it does not create a new reader progress record during reconciliation." },
+      { "file": "test/storybookReaderAccess.test.mjs", "lines": "1-58", "detail": "Focused source tests cover unavailable/loading denials, exact alternate match, confirmed-missing fallback, stale async active-reader change, unreadable preference, and absent-preference default." }
+    ],
+    "remainingBlockers": [],
+    "proofBoundary": "Source-only review at the exact commit and file SHA-256s above. The focused tests were inspected, not independently executed. Compiled/native Storybook matrix is still pending; separate legacy-origin recovery feasibility remains unlocated and unresolved."
+  },
+  "status": "The previously identified profile migration blocker is resolved in current source. Outer-player reward wiring is resolved in words-receipts-independent-review.json follow-up. This is source-only review, not native or release acceptance."
+}

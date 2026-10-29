@@ -1,0 +1,26 @@
+{
+  "entryIdentity": "/assets/arcade-Bad6FwzT.js",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "stage": "Find the missing sound: 0 of 6 words",
+  "correctVisibleChoice": {
+    "passed": true,
+    "locatorText": "p",
+    "box": {
+      "x": 198,
+      "y": 459.8125,
+      "width": 44,
+      "height": 44
+    },
+    "geometry": {
+      "x": 198,
+      "y": 459.8125,
+      "width": 44,
+      "height": 44,
+      "bottom": 503.8125,
+      "hit": true,
+      "visible": true
+    },
+    "clicked": false
+  }
+}

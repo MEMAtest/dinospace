@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "error": "locator.getAttribute: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('main.storybook-reader button[aria-label=\"Auto-turn pages after narration\"]')\u001b[22m\n\n    at evalmachine.<anonymous>:1:2553\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+  "requestFailures": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "url": "https://dinospace.netlify.app/?qa_spelling=1793255896445-1440-844#/play/storybooks",
+  "sourceCommit": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "entry": "/assets/arcade-EBto46V3.js",
+  "proofKind": "bounded actual-control Mina cover-to-page narration recovery"
+}

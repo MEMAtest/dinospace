@@ -1,0 +1,173 @@
+{
+  "at": "2026-10-29T05:37:48.604948+00:00",
+  "runtimeSource": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "buildDirectory": "dist",
+  "moduleEntry": "/assets/arcade-EBto46V3.js",
+  "worker": "amari-discovery-v44",
+  "tests": {
+    "command": "PWA_BUILD_DIR=dist npm test",
+    "passed": 577,
+    "failed": 0,
+    "skipped": 0
+  },
+  "lint": "scoped changed source files passed",
+  "diffCheck": "passed",
+  "files": [
+    {
+      "path": "public/sw.js",
+      "sha256": "dc762ede6a0d0a8c05008b3139a8b4b152bd8f1bf4fb85deec7e23fe2342ede9"
+    },
+    {
+      "path": "src/App.jsx",
+      "sha256": "49af8638dda48122a9b75142ec1dd058cfbde999f85b9dcef8c06b8426520765"
+    },
+    {
+      "path": "src/components/games/StorybookProfiles.jsx",
+      "sha256": "10cc64710bb1b7053716f20beb38ad9aef69f8d7ec393a66ed1973333047fb49"
+    },
+    {
+      "path": "src/components/games/StorybookSeriesLibrary.jsx",
+      "sha256": "1f9d899ecf1a6fe3c2e76212602cdecfebd497c34c386c893c8e45ca701c15c4"
+    },
+    {
+      "path": "src/components/games/StorybookStudio.jsx",
+      "sha256": "62c5ab40cab833cb90d0ede8051ce3df08529827255e589c6b0107b84af77cc8"
+    },
+    {
+      "path": "src/components/games/WordBuilder.jsx",
+      "sha256": "c8f5bdbcd90dc3d8cdad5807b29ccf214bd32755fbb5c0dd5116f712f4246822"
+    },
+    {
+      "path": "src/components/shared/DiscoveryHeader.jsx",
+      "sha256": "17da0d8be900ae391f6bf22317c0aef1e98899153cfe39e6e6c16832644ab210"
+    },
+    {
+      "path": "src/components/shared/GameSession.jsx",
+      "sha256": "04f8dc9d0561ea485d3f8b87f121e9050338e60e0f9504e33477ec3c66db1393"
+    },
+    {
+      "path": "src/data/playerRewards.js",
+      "sha256": "d6e26cf12e63445624d18728587f67124a8a69ee3eeec213e13194e257b52c7e"
+    },
+    {
+      "path": "src/data/spellingProgress.js",
+      "sha256": "0d93c238850f12ea32ec48caa4f4b93345fc8fe367fe4149151c74dc3be7f9b3"
+    },
+    {
+      "path": "src/data/spellingStudio.js",
+      "sha256": "eb370b89373d061f15218f3e4014ca0def7a7076b979d603cf607fffb2cd982c"
+    },
+    {
+      "path": "src/data/storybookBackup.js",
+      "sha256": "5412e78f45c6151fc5952678241eb7ee5198c8758e98cb940fc3d8d2bb13ad1b"
+    },
+    {
+      "path": "src/data/storybookHydration.js",
+      "sha256": "eaa7c19dfc095548841b4fad50467390e1938734765f62188d96f6dd0eb56000"
+    },
+    {
+      "path": "src/data/storybookProfiles.js",
+      "sha256": "05753ad6fffa40683857a9929536841c1105bee135c5fb604f157cf0197e605c"
+    },
+    {
+      "path": "src/data/storybookRewardScope.js",
+      "sha256": "422ec035663e58986ea0b264899175341b5a67f35a5ac36c872e4da84d3900f5"
+    },
+    {
+      "path": "src/data/storybookStorage.js",
+      "sha256": "9db5872cef1cc9e63e445d38670ac98b586d46a732306bf932c4cf32d7b2ec31"
+    },
+    {
+      "path": "src/data/wordsSessionProgress.js",
+      "sha256": "9736e9588b0e0a240b9a045d24ca830ce083def3fb76931bc29d4eb7722ce118"
+    },
+    {
+      "path": "src/discoveryPremium.css",
+      "sha256": "83b25d16da51a57c80bef219ae2f66d1ba131c043100d2fc6240f4dfd630a93c"
+    },
+    {
+      "path": "test/offlineServiceWorker.test.mjs",
+      "sha256": "2da4e55cf997cdd2b1cc704532d0f5d9bd66231ded45f92093981de36d9c162a"
+    },
+    {
+      "path": "test/playerRewards.test.mjs",
+      "sha256": "a3125446a2b074794458788ae391cfd6b53126b54c6e9a3bff0f6887067e021e"
+    },
+    {
+      "path": "test/spellingProgress.test.mjs",
+      "sha256": "a6039056f73c80f96d5c8198ae64adb1d522f312a209c95d8ec2ce6ac22e1083"
+    },
+    {
+      "path": "test/spellingStudio.test.mjs",
+      "sha256": "44cadafb25e11f7320b6c6d012856ad0e263197fd3e83b60346e5036baa62000"
+    },
+    {
+      "path": "test/storybookBackup.test.mjs",
+      "sha256": "94b07b25ed895cabc7ebfad55bf2ed45af751dfa8a58a1f1aec7876d4321b242"
+    },
+    {
+      "path": "test/storybookHydration.test.mjs",
+      "sha256": "9edd4a9ce6ed2a069268cd57c9463b16904b5b46fc15182ee67e43dc7fd1224a"
+    },
+    {
+      "path": "test/storybookInventory.test.mjs",
+      "sha256": "285ecfb59324e6469aa8faead3b304108287ff777c6ef4bf7471d54986d4743d"
+    },
+    {
+      "path": "test/storybookProfiles.test.mjs",
+      "sha256": "a6ca094d33fdf81f55acbe4315fbfe1a4c9bd5232128f727558d2860226915e7"
+    },
+    {
+      "path": "test/storybookRewardScope.test.mjs",
+      "sha256": "fc426b6bf08e60f141b271c10a01225cd40c69a36cdc1059fc27bc6195b3aa18"
+    },
+    {
+      "path": "test/storybookStorage.test.mjs",
+      "sha256": "7f4e1f257f4684dd6e1aa7ad0a58a3e9b2f2a0ee00a22b88706f5bfabc681295"
+    },
+    {
+      "path": "test/wordsSessionProgress.test.mjs",
+      "sha256": "a88aca22241942e4f4da0fd80f7cd5d7c12d7efcdb24f9c4181c3dd7429a8ab0"
+    },
+    {
+      "path": "src/data/storybookReaderAccess.js",
+      "sha256": "258d0c9da1257edee6dcc142072e54b4840a887017a36890d6f149a069143c71"
+    },
+    {
+      "path": "test/storybookReaderAccess.test.mjs",
+      "sha256": "4c124f917acd37fc35e9be0d4bd4ada1aa4efe46dc489d1ccfa3bf989efdfe4c"
+    }
+  ],
+  "buildIdentity": {
+    "indexSha256": "3a54d3b4166c47b4cb7077b3b36e54e4d717f8e98b01eb12797b87b6649fe9b6",
+    "workerSha256": "e761fbd79e5299a6097cf66a509e2c82e77d3075882dc4c7a19a75175ddb646c"
+  },
+  "sourceReview": "pair8-independent-review.json and words-receipts-independent-review.json follow-up resolutions",
+  "scope": "Source/build only; native and live acceptance pending. No new provider jobs.",
+  "earlierSource": "c267f9ed411e5472fa28cfa23d062a2cd4c271e6",
+  "testLog": "tmp/pair8-sticky-retry-tests.log",
+  "nativeAcceptance": {
+    "spelling": "native-summary-Bad6FwzT.json with exact source equivalence to c5",
+    "storybook": "All7included\u00d710pages\u00d73questions at390/1440 on0fee reader/quiz-equivalent to c5, plus finalc5 continuations/identity/abort/profile-save/auto-turn proofs",
+    "scope": "Compiled evidence remains entry-bound; full current canonical results separately recorded."
+  },
+  "rejectedCandidates": [
+    {
+      "runtimeSource": "73a207e7a62a0f323da181837cd4a8ddd016b11e",
+      "entry": "/assets/arcade-Bv85iu08.js",
+      "reason": "Native optionalTricky initializer can omit answer tile; coverRetry could reuse failedURL"
+    },
+    {
+      "runtimeSource": "1a1678e2cbb0ea37e7bc9970fc9cad62d6a5f5c6",
+      "entry": "/assets/arcade-Bad6FwzT.js",
+      "reason": "Unverified reader fallback could save wrongchild; Storybook Nextpageclippedonphone"
+    },
+    {
+      "runtimeSource": "0fee0001ef3c600990d3fb81841fff7142e74396",
+      "entry": "/assets/arcade-DoN_CHtt.js",
+      "reason": "Scrolled library saveRetryaboveviewport; independently reproduced and fixed sticky alert group"
+    }
+  ],
+  "canonicalAcceptance": "production-summary.json"
+}

@@ -1,0 +1,29 @@
+# Storybook Studio and Spelling Studio — Pair 8
+
+Status: targeted functional acceptance passed on the one public site at 390×740 and 1440×844. `production-summary.json` is the final source-bound index; no editorial/listening score or personal-book recovery is claimed.
+
+The one public app is https://dinospace.netlify.app. The current runtime is `c5e58259170045e51415b12c360efa05e60c7a4f`, module `/assets/arcade-EBto46V3.js`, worker `amari-discovery-v44`; immutable backend deployment `dpl_DND4didmjepBuX68w2hFikz2qyk9`, Netlify gateway `6ae2e8f735f8990b8d2719cb`. The old Vercel root/index redirect to Netlify.
+
+## Implemented changes
+
+Spelling has six stages from copying through six- and seven-letter words, exact packaged prompts, same-word retry, explicit Next/Finish, and independent versus supported practice records. Session receipts and parent reward claims survive write/readback failures without duplicate rewards. Optional practice is isolated from stage rewards. A real initial Tricky Words tile mismatch was repaired. Primary phone task controls and retry fit the viewport.
+
+Storybook separates seven included books from personal saved stories, preserves unreadable inventories as errors, and waits for committed IndexedDB transactions. It verifies the selected reader before writing progress, supports held save retries, and binds completion rewards to their original App player. Covers/current-page media hydrate on demand with bounded object URLs and storage-only retry. Page controls and sticky library retries remain reachable on phones and scrolled desktops. Backup restore validates complete media and skips colliding book IDs.
+
+## Evidence and limits
+
+`source-gates.json` records the compiled build and 577 passing tests with zero skips. These are local source/build checks, not CI. `spelling-source-equivalence.json` and `storybook-reader-source-equivalence.json` precisely limit reuse of older compiled evidence; they do not replace current canonical acceptance.
+
+`production-spelling-summary-EBto46V3.json` binds both raw canonical reports: each viewport completed all six stages (31 responses), plus five replay responses. Phone earned six new transactions totalling 36 points; desktop replay earned zero. Same-token parent retry, per-word write/readback, session write/readback and reopen retention passed, preserving legacy/sibling/other-game records. Both have no page, console, resource, request or provider errors.
+
+`production-http.json`, `production-gateway-identity.json`, `production-art.json` and `production-media.json` bind the published release: core runtime bytes, six Shadow hashes, 39 catalogue HEAD checks, 154 included-book media paths, 71 exact Spelling clips and 84 Storybook auxiliary clips. Media HEAD availability is not listening or gameplay proof. `cutover-retention.json` preserves 40 authoritative localStorage hashes and existing IndexedDB metadata/asset references through the visible Refresh games action; the subsequent worker 44 activation is separately recorded in the Spelling summary.
+
+Native Storybook content coverage and final continuation reports are retained with their actual entry identities and limitations. Unique genuine layout failures, harness-only locator/timing failures and their recoveries remain labelled; a failed report is not silently converted into a pass. Current canonical Storybook evidence is indexed in `production-summary.json`: each viewport covers 7 books ×10 pages and 3 questions. The phone matrix is a composite of preserved partials after harness-only errors. Its raw final report remains false for one unclassified static Mina cover `ERR_ABORTED`; clean actual-control Mina playback/transition recovery at 390 and 1440 closes the current path without reclassifying or hiding the historical request. Desktop full matrix and both post-restore continuations pass with empty error/provider arrays. `production-phone-content-coverage.json` explicitly reconciles one stale pre-wait audio-ready snapshot using observed actual playback. It is an earlier checkpoint: its `overallAccepted:false` and pending-gate text are retained historically and superseded by `production-summary.json`, which links the later desktop, phone recovery and backup results.
+
+`canonical-approved-backup-ui-restore.json` records the approved Pip QA fixture restored through the visible file chooser; the two `production-storybook-continuation-restored-...after-pip...` reports prove 14 asset references exported without gaps, storage-only media retries, actual playback/pause/leave, URL cleanup, ordinary re-entry and zero replay rewards. `production-protection-summary.json` independently confirms 37 older keys, original other-game counts/claims and earned stickers preserved; only the expected current-game records changed. New rewards were 36 Spelling points and 7 Storybook points, 13 stable claims total. The final page has worker 44, no update notice and no horizontal overflow.
+
+## Personal stories and resources
+
+The user's 8–9 personal stories remain unlocated in addition to the seven included books. No family browser data was inspected or imported. The previously approved Pip QA book is a synthetic backup fixture, never evidence of personal recovery. Two read-only provider-history attempts returned 401; there were no new paid generation calls. `personal-history-read.json` and `legacy-origin-recovery-feasibility.md` retain those separate limits.
+
+The existing checkout, dependencies, build directory and sole headless synthetic browser/profile are reused. No worktrees, installations or additional browser profiles were created. `resource-manifest.json` and `temporary-upload-manifest.json` record bounded evidence/profile growth and the immediate removal of the temporary chooser upload; the original approved compressed backup remains once. Monitoring remains deleted.

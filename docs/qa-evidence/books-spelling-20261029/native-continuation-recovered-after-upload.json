@@ -1,0 +1,3295 @@
+{
+  "at": "2026-10-29T06:01:06.392Z",
+  "entry": "/assets/arcade-EBto46V3.js",
+  "namespace": true,
+  "partial": {
+    "origin": "http://127.0.0.1:5180",
+    "expectedEntry": "/assets/arcade-EBto46V3.js",
+    "viewport": {
+      "width": 1440,
+      "height": 844
+    },
+    "playerId": "amari",
+    "runMode": "continuation",
+    "books": [],
+    "probes": [
+      {
+        "kind": "existing-reader-profile-switch",
+        "profileCount": 2,
+        "switchedBack": true,
+        "profileBytesPreserved": true,
+        "alternateProfileHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+        "alternateLabelHash": "111b5abdd956da6f5012e19e56ae28f454b4c2e4e4e09c526caa6aae67d98375"
+      },
+      {
+        "kind": "blocked-active-reader-key",
+        "status": "passed",
+        "stage": "native",
+        "createdQaReader": false,
+        "readerIdHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+        "readerCount": 2,
+        "recoveredSelectedReader": true,
+        "blockedProgressUnchanged": true,
+        "readerKeyUnchangedWhileBlocked": true,
+        "writeProof": {
+          "status": "passed",
+          "pageIndex": 1,
+          "amariRowPreserved": true,
+          "slug": "luna-whispering-forest"
+        },
+        "restoredOriginalSelection": true
+      },
+      {
+        "kind": "local-progress-fault-retry",
+        "status": "deferred",
+        "reason": "Already exercised at the phone viewport; desktop run concentrates on the full shelf and reader journey."
+      },
+      {
+        "kind": "preserved-progress-and-replay-zero",
+        "progressHashStable": true,
+        "pointsDelta": 0,
+        "storybooksGameDelta": 0,
+        "claimSetStable": true
+      },
+      {
+        "kind": "sibling-and-unrelated-progress-preservation",
+        "passed": true,
+        "protectedRowCount": 2
+      },
+      {
+        "kind": "completion-receipts",
+        "receipts": [
+          {
+            "readerChildId": "amari",
+            "slug": "rex-missing-moon-map",
+            "receipt": {
+              "id": "storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9",
+              "points": 1,
+              "version": 1,
+              "rewardPlayerId": "amari"
+            }
+          },
+          {
+            "readerChildId": "amari",
+            "slug": "luna-whispering-forest",
+            "receipt": {
+              "id": "storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c",
+              "points": 1,
+              "version": 1,
+              "rewardPlayerId": "amari"
+            }
+          },
+          {
+            "readerChildId": "amari",
+            "slug": "nia-great-river-journey",
+            "receipt": {
+              "id": "storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b",
+              "points": 1,
+              "version": 1,
+              "rewardPlayerId": "amari"
+            }
+          },
+          {
+            "readerChildId": "amari",
+            "slug": "bo-busy-bee-garden",
+            "receipt": {
+              "id": "storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3",
+              "points": 1,
+              "version": 1,
+              "rewardPlayerId": "amari"
+            }
+          },
+          {
+            "readerChildId": "amari",
+            "slug": "sami-night-light-parade",
+            "receipt": {
+              "id": "storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709",
+              "points": 1,
+              "version": 1,
+              "rewardPlayerId": "amari"
+            }
+          },
+          {
+            "readerChildId": "amari",
+            "slug": "mina-mountain-seed",
+            "receipt": {
+              "id": "storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640",
+              "points": 1,
+              "version": 1,
+              "rewardPlayerId": "amari"
+            }
+          },
+          {
+            "readerChildId": "amari",
+            "slug": "kai-lost-library-book",
+            "receipt": {
+              "id": "storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e",
+              "points": 1,
+              "version": 1,
+              "rewardPlayerId": "amari"
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ordinary-reopen",
+        "inventory": {
+          "kind": "library-inventory",
+          "text": "7 stories in this library 7 included \u00b7 My stories (0) saved in this browser My stories (0) Included (7) Showing 1\u20137 of 7 matching stories",
+          "visibleCardCount": 7,
+          "cards": [
+            {
+              "title": "Rex and the Missing Moon Map",
+              "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+                "Rex and the Missing Moon Map",
+                "Add favourite",
+                "Read story: Rex and the Missing Moon Map"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Luna and the Whispering Forest",
+              "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+                "Luna and the Whispering Forest",
+                "Add favourite",
+                "Read story: Luna and the Whispering Forest"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Nia\u2019s Great River Journey",
+              "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/nia-great-river-journey/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Nia\u2019s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+                "Nia\u2019s Great River Journey",
+                "Add favourite",
+                "Read story: Nia\u2019s Great River Journey"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Bo and the Busy Bee Garden",
+              "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/bo-busy-bee-garden/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+                "Bo and the Busy Bee Garden",
+                "Add favourite",
+                "Read story: Bo and the Busy Bee Garden"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Sami and the Night-Light Parade",
+              "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/sami-night-light-parade/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+                "Sami and the Night-Light Parade",
+                "Add favourite",
+                "Read story: Sami and the Night-Light Parade"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Mina\u2019s Mountain Seed",
+              "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/mina-mountain-seed/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Mina\u2019s Mountain Seed, painted-2d, ages 5-6",
+                "Mina\u2019s Mountain Seed",
+                "Add favourite",
+                "Read story: Mina\u2019s Mountain Seed"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Kai and the Lost Library Book",
+              "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/kai-lost-library-book/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+                "Kai and the Lost Library Book",
+                "Add favourite",
+                "Read story: Kai and the Lost Library Book"
+              ],
+              "buttonCount": 4
+            }
+          ]
+        },
+        "storage": {
+          "available": true,
+          "localKeys": [
+            {
+              "key": "qa_rewards_20261024_amari_rewards_v2",
+              "bytes": 2073,
+              "sha256": "186b5d2818aabd169bebcb9dfb0463213ea612f3b6c31e5cbfd4faeb6aa2e0f0"
+            },
+            {
+              "key": "qa_rewards_20261024_amari_storybook_active_child_v1",
+              "bytes": 5,
+              "sha256": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59"
+            },
+            {
+              "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+              "bytes": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+            },
+            {
+              "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+              "bytes": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+            },
+            {
+              "key": "qa_rewards_20261024_amari_storybook_profiles_v1",
+              "bytes": 236,
+              "sha256": "78f63e635f22a1889d4c8828e48f62b73600f819166b1a04b771d9ee34d3265b"
+            },
+            {
+              "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+              "bytes": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+            },
+            {
+              "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+              "bytes": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+            },
+            {
+              "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+              "bytes": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+            },
+            {
+              "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+              "bytes": 2613,
+              "sha256": "71e4ca49e101ef75399d4a07d1820cfe616a84270beb46df0e07b62e61cb155d"
+            },
+            {
+              "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+              "bytes": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+            },
+            {
+              "key": "qa_rewards_20261024_askia_rewards_v2",
+              "bytes": 496,
+              "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+            },
+            {
+              "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+              "bytes": 1,
+              "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+            }
+          ],
+          "stores": {
+            "books": 0,
+            "assets": 0,
+            "profiles": 2,
+            "series": 0
+          }
+        },
+        "progress": {
+          "available": true,
+          "rows": [
+            {
+              "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+              "slug": "rex-missing-moon-map",
+              "rowHash": "0833d9aa34a6aac3b206125b9e178e93b540d0972e8b14547cc3a6b2641aef73"
+            },
+            {
+              "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+              "slug": "luna-whispering-forest",
+              "rowHash": "2607f68833b78cf8a588b4eadc6fd45274b479ec778ab2392ce5918edfd61cfa"
+            },
+            {
+              "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+              "slug": "nia-great-river-journey",
+              "rowHash": "1bbb34bf1ce7874c20d7f0fbe731faff46ad0eeb08c046bc72af97801028070d"
+            },
+            {
+              "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+              "slug": "bo-busy-bee-garden",
+              "rowHash": "63a06cff10f241d14453657b86f311c81b902986639d2193f2bbcd5e68d40398"
+            },
+            {
+              "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+              "slug": "sami-night-light-parade",
+              "rowHash": "f33eb1a2e6c6330192bb092f4733f5fd300fc78591889de24e3aa1831b8b3ea1"
+            },
+            {
+              "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+              "slug": "mina-mountain-seed",
+              "rowHash": "aee7b8de78f2051f89cf0dd56f7a8c15fbdbe606b88e7660257f6b23611c6153"
+            },
+            {
+              "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+              "slug": "kai-lost-library-book",
+              "rowHash": "a95c99f764ff474bbf0614ac170b0cf9d726bd3892450025e6f4fb70def3efa7"
+            },
+            {
+              "childHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+              "slug": "rex-missing-moon-map",
+              "rowHash": "180ba4a31d30bf231fe7b6cdcf4d7145a6069bd74ecc468bdb7a6c59168a82a1"
+            },
+            {
+              "childHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+              "slug": "luna-whispering-forest",
+              "rowHash": "69b1c505fc0a8776840f1060c63d1f970bbdd7cbb8b8c2c709f0be2ba8f88df4"
+            }
+          ],
+          "rawHash": "71e4ca49e101ef75399d4a07d1820cfe616a84270beb46df0e07b62e61cb155d"
+        },
+        "rewards": {
+          "rawHash": "186b5d2818aabd169bebcb9dfb0463213ea612f3b6c31e5cbfd4faeb6aa2e0f0",
+          "points": 328,
+          "storybooksGames": 7,
+          "storybookClaims": {
+            "storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9": 1,
+            "storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c": 1,
+            "storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b": 1,
+            "storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3": 1,
+            "storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709": 1,
+            "storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640": 1,
+            "storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e": 1
+          },
+          "nonStoryClaimsHash": "f7e45e9aada99e8fafdfd88a2dc9c3e436b08fc954eeef8a3a9689e4af2994b4"
+        },
+        "objectURLs": {
+          "created": [],
+          "revoked": []
+        }
+      },
+      {
+        "kind": "approved-pip-qa-backup-ui-restore",
+        "sha256": "6460dad1981b6053a3e8bd2878d6e1403f671707f9f8a97bc6eec6575dda7cc0",
+        "decompressedBytes": 4979086,
+        "addedCount": 1,
+        "duplicateMessage": "Restored 1 story.",
+        "title": "Pip and the Sunflower",
+        "pageCount": 6,
+        "note": "Synthetic QA artifact only; no progress rows and no extracted file written.",
+        "coverRetry": {
+          "before": {
+            "src": "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+            "width": 2218,
+            "height": 1664
+          },
+          "after": {
+            "src": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+            "width": 2218,
+            "height": 1664
+          }
+        },
+        "readerCover": {
+          "heading": "Pip and the Sunflower",
+          "text": "Pip and the Sunflower Cover 1/7 Tap to Start Reading A 6-PAGE ADVENTURE Pip and the Sunflower Pip the fox and Robin plant a sunflower seed, water it daily, and wait patiently. With kindness and teamwork, they watch it grow into a tall, bright flower, celebrating their gentle garden adventure. Start Reading Auto-turn pages after narration Previous Next",
+          "pageLabel": "Page 1 of 7",
+          "image": {
+            "src": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+            "complete": true,
+            "naturalWidth": 2218,
+            "naturalHeight": 1664
+          },
+          "audio": {
+            "src": "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+            "readyState": 4,
+            "duration": 17.84,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Start reading Pip and the Sunflower",
+            "Start Reading",
+            "Auto-turn pages after narration",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        "page1": "Page 2 of 7",
+        "page2": "Page 3 of 7",
+        "urlsBefore": {
+          "created": [
+            {
+              "url": "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+              "type": "image/jpeg",
+              "bytes": 386992
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+              "type": "audio/mpeg",
+              "bytes": 103278
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+              "type": "image/jpeg",
+              "bytes": 395759
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+              "type": "audio/mpeg",
+              "bytes": 97009
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+              "type": "image/jpeg",
+              "bytes": 450643
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+              "type": "image/jpeg",
+              "bytes": 381687
+            }
+          ],
+          "revoked": [
+            "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+            "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+            "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+            "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+            "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+            "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+            "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+            "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+            "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+            "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+            "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+            "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+            "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+            "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2"
+          ]
+        },
+        "urlsAfterPage1": {
+          "state": {
+            "created": [
+              {
+                "url": "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+                "type": "audio/mpeg",
+                "bytes": 286345
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+                "type": "image/jpeg",
+                "bytes": 396652
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+                "type": "audio/mpeg",
+                "bytes": 99517
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+                "type": "image/jpeg",
+                "bytes": 422786
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+                "type": "audio/mpeg",
+                "bytes": 107458
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+                "type": "image/jpeg",
+                "bytes": 386992
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+                "type": "audio/mpeg",
+                "bytes": 103278
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+                "type": "image/jpeg",
+                "bytes": 395759
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+                "type": "audio/mpeg",
+                "bytes": 97009
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+                "type": "image/jpeg",
+                "bytes": 450643
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+                "type": "audio/mpeg",
+                "bytes": 107458
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+                "type": "audio/mpeg",
+                "bytes": 286345
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              }
+            ],
+            "revoked": [
+              "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+              "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+              "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+              "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+              "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+              "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+              "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+              "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+              "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+              "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+              "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+              "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+              "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+              "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+              "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed"
+            ]
+          },
+          "live": [
+            {
+              "url": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            }
+          ]
+        },
+        "urlsAfterRetry": {
+          "state": {
+            "created": [
+              {
+                "url": "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+                "type": "audio/mpeg",
+                "bytes": 286345
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+                "type": "image/jpeg",
+                "bytes": 396652
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+                "type": "audio/mpeg",
+                "bytes": 99517
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+                "type": "image/jpeg",
+                "bytes": 422786
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+                "type": "audio/mpeg",
+                "bytes": 107458
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+                "type": "image/jpeg",
+                "bytes": 386992
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+                "type": "audio/mpeg",
+                "bytes": 103278
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+                "type": "image/jpeg",
+                "bytes": 395759
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+                "type": "audio/mpeg",
+                "bytes": 97009
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+                "type": "image/jpeg",
+                "bytes": 450643
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+                "type": "audio/mpeg",
+                "bytes": 107458
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+                "type": "audio/mpeg",
+                "bytes": 286345
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/27be9fb7-ba7d-4744-a80e-fc814f22ba1a",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/510c9048-d330-4383-a6b3-d5e22493b4a8",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              }
+            ],
+            "revoked": [
+              "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+              "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+              "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+              "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+              "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+              "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+              "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+              "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+              "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+              "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+              "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+              "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+              "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+              "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+              "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+              "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+              "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6"
+            ]
+          },
+          "live": [
+            {
+              "url": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/27be9fb7-ba7d-4744-a80e-fc814f22ba1a",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/510c9048-d330-4383-a6b3-d5e22493b4a8",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            }
+          ]
+        },
+        "urlsAfterPage2": {
+          "state": {
+            "created": [
+              {
+                "url": "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+                "type": "audio/mpeg",
+                "bytes": 286345
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+                "type": "image/jpeg",
+                "bytes": 396652
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+                "type": "audio/mpeg",
+                "bytes": 99517
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+                "type": "image/jpeg",
+                "bytes": 422786
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+                "type": "audio/mpeg",
+                "bytes": 107458
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+                "type": "image/jpeg",
+                "bytes": 386992
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+                "type": "audio/mpeg",
+                "bytes": 103278
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+                "type": "image/jpeg",
+                "bytes": 395759
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+                "type": "audio/mpeg",
+                "bytes": 97009
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+                "type": "image/jpeg",
+                "bytes": 450643
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+                "type": "audio/mpeg",
+                "bytes": 107458
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+                "type": "audio/mpeg",
+                "bytes": 286345
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/27be9fb7-ba7d-4744-a80e-fc814f22ba1a",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/510c9048-d330-4383-a6b3-d5e22493b4a8",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/4cc00790-397d-42b9-9951-e51c844bc938",
+                "type": "image/jpeg",
+                "bytes": 396652
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/a723e9ec-9d44-48c4-98f4-498cc01a87a0",
+                "type": "audio/mpeg",
+                "bytes": 99517
+              }
+            ],
+            "revoked": [
+              "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+              "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+              "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+              "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+              "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+              "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+              "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+              "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+              "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+              "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+              "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+              "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+              "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+              "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+              "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+              "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+              "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6",
+              "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73"
+            ]
+          },
+          "live": [
+            {
+              "url": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/27be9fb7-ba7d-4744-a80e-fc814f22ba1a",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/510c9048-d330-4383-a6b3-d5e22493b4a8",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/4cc00790-397d-42b9-9951-e51c844bc938",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:http://127.0.0.1:5180/a723e9ec-9d44-48c4-98f4-498cc01a87a0",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            }
+          ]
+        },
+        "urlsAfterLeave": {
+          "state": {
+            "created": [
+              {
+                "url": "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+                "type": "audio/mpeg",
+                "bytes": 286345
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+                "type": "image/jpeg",
+                "bytes": 396652
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+                "type": "audio/mpeg",
+                "bytes": 99517
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+                "type": "image/jpeg",
+                "bytes": 422786
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+                "type": "audio/mpeg",
+                "bytes": 107458
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+                "type": "image/jpeg",
+                "bytes": 386992
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+                "type": "audio/mpeg",
+                "bytes": 103278
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+                "type": "image/jpeg",
+                "bytes": 395759
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+                "type": "audio/mpeg",
+                "bytes": 97009
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+                "type": "image/jpeg",
+                "bytes": 450643
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+                "type": "audio/mpeg",
+                "bytes": 107458
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+                "type": "image/jpeg",
+                "bytes": 381687
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+                "type": "audio/mpeg",
+                "bytes": 286345
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/27be9fb7-ba7d-4744-a80e-fc814f22ba1a",
+                "type": "image/jpeg",
+                "bytes": 387476
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/510c9048-d330-4383-a6b3-d5e22493b4a8",
+                "type": "audio/mpeg",
+                "bytes": 106204
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/4cc00790-397d-42b9-9951-e51c844bc938",
+                "type": "image/jpeg",
+                "bytes": 396652
+              },
+              {
+                "url": "blob:http://127.0.0.1:5180/a723e9ec-9d44-48c4-98f4-498cc01a87a0",
+                "type": "audio/mpeg",
+                "bytes": 99517
+              }
+            ],
+            "revoked": [
+              "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+              "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+              "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+              "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+              "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+              "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+              "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+              "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+              "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+              "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+              "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+              "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+              "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+              "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+              "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+              "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+              "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6",
+              "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+              "blob:http://127.0.0.1:5180/27be9fb7-ba7d-4744-a80e-fc814f22ba1a",
+              "blob:http://127.0.0.1:5180/510c9048-d330-4383-a6b3-d5e22493b4a8",
+              "blob:http://127.0.0.1:5180/4cc00790-397d-42b9-9951-e51c844bc938",
+              "blob:http://127.0.0.1:5180/a723e9ec-9d44-48c4-98f4-498cc01a87a0"
+            ]
+          },
+          "live": [
+            {
+              "url": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+              "type": "image/jpeg",
+              "bytes": 381687
+            }
+          ]
+        },
+        "exportSummary": {
+          "format": "amari-storybooks",
+          "version": 1,
+          "bytes": 4981777,
+          "sha256": "7bdca3f4821281bd056988dd2f094d3a85ffbb4acec7958a631a41b90eb274db",
+          "bookCount": 1,
+          "bookIds": [
+            "custom-7c480b44-19db-4096-a32e-df95001e7ba6"
+          ],
+          "pipBookId": "custom-7c480b44-19db-4096-a32e-df95001e7ba6",
+          "pipPages": 6,
+          "pipAssetRefCount": 14,
+          "pipAssetCount": 14,
+          "missingPipKeys": [],
+          "downloadURLRevoked": true
+        }
+      }
+    ],
+    "failures": [],
+    "initial": {
+      "identity": {
+        "url": "http://127.0.0.1:5180/?libraryretry=1793252128450#/play/storybooks",
+        "entry": "/assets/arcade-EBto46V3.js",
+        "namespace": true,
+        "actualViewport": {
+          "width": 1440,
+          "height": 844
+        }
+      },
+      "inventory": {
+        "kind": "library-inventory",
+        "text": "7 stories in this library 7 included \u00b7 My stories (0) saved in this browser My stories (0) Included (7) Showing 1\u20137 of 7 matching stories",
+        "visibleCardCount": 7,
+        "cards": [
+          {
+            "title": "Rex and the Missing Moon Map",
+            "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+              "Rex and the Missing Moon Map",
+              "Add favourite",
+              "Read story: Rex and the Missing Moon Map"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Luna and the Whispering Forest",
+            "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+              "Luna and the Whispering Forest",
+              "Add favourite",
+              "Read story: Luna and the Whispering Forest"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Nia\u2019s Great River Journey",
+            "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/nia-great-river-journey/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Nia\u2019s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+              "Nia\u2019s Great River Journey",
+              "Add favourite",
+              "Read story: Nia\u2019s Great River Journey"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Bo and the Busy Bee Garden",
+            "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/bo-busy-bee-garden/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+              "Bo and the Busy Bee Garden",
+              "Add favourite",
+              "Read story: Bo and the Busy Bee Garden"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Sami and the Night-Light Parade",
+            "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/sami-night-light-parade/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+              "Sami and the Night-Light Parade",
+              "Add favourite",
+              "Read story: Sami and the Night-Light Parade"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Mina\u2019s Mountain Seed",
+            "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/mina-mountain-seed/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Mina\u2019s Mountain Seed, painted-2d, ages 5-6",
+              "Mina\u2019s Mountain Seed",
+              "Add favourite",
+              "Read story: Mina\u2019s Mountain Seed"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Kai and the Lost Library Book",
+            "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/kai-lost-library-book/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+              "Kai and the Lost Library Book",
+              "Add favourite",
+              "Read story: Kai and the Lost Library Book"
+            ],
+            "buttonCount": 4
+          }
+        ]
+      },
+      "visibleCardCount": 7,
+      "storage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 2073,
+            "sha256": "186b5d2818aabd169bebcb9dfb0463213ea612f3b6c31e5cbfd4faeb6aa2e0f0"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_active_child_v1",
+            "bytes": 5,
+            "sha256": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_profiles_v1",
+            "bytes": 236,
+            "sha256": "78f63e635f22a1889d4c8828e48f62b73600f819166b1a04b771d9ee34d3265b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 2613,
+            "sha256": "71e4ca49e101ef75399d4a07d1820cfe616a84270beb46df0e07b62e61cb155d"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 496,
+            "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          }
+        ],
+        "stores": {
+          "books": 0,
+          "assets": 0,
+          "profiles": 2,
+          "series": 0
+        }
+      },
+      "originalStorage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 2073,
+            "sha256": "186b5d2818aabd169bebcb9dfb0463213ea612f3b6c31e5cbfd4faeb6aa2e0f0"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_active_child_v1",
+            "bytes": 5,
+            "sha256": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_profiles_v1",
+            "bytes": 236,
+            "sha256": "78f63e635f22a1889d4c8828e48f62b73600f819166b1a04b771d9ee34d3265b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 2493,
+            "sha256": "512248a1e44ff2339ea3c6b6b5d984989b2f92ab02f049bb1004bf7a212a9b2b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 496,
+            "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          }
+        ],
+        "stores": {
+          "books": 0,
+          "assets": 0,
+          "profiles": 2,
+          "series": 0
+        }
+      },
+      "progress": {
+        "available": true,
+        "rows": [
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "rex-missing-moon-map",
+            "rowHash": "0833d9aa34a6aac3b206125b9e178e93b540d0972e8b14547cc3a6b2641aef73"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "luna-whispering-forest",
+            "rowHash": "2607f68833b78cf8a588b4eadc6fd45274b479ec778ab2392ce5918edfd61cfa"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "nia-great-river-journey",
+            "rowHash": "1bbb34bf1ce7874c20d7f0fbe731faff46ad0eeb08c046bc72af97801028070d"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "bo-busy-bee-garden",
+            "rowHash": "63a06cff10f241d14453657b86f311c81b902986639d2193f2bbcd5e68d40398"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "sami-night-light-parade",
+            "rowHash": "f33eb1a2e6c6330192bb092f4733f5fd300fc78591889de24e3aa1831b8b3ea1"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "mina-mountain-seed",
+            "rowHash": "aee7b8de78f2051f89cf0dd56f7a8c15fbdbe606b88e7660257f6b23611c6153"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "kai-lost-library-book",
+            "rowHash": "a95c99f764ff474bbf0614ac170b0cf9d726bd3892450025e6f4fb70def3efa7"
+          },
+          {
+            "childHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+            "slug": "rex-missing-moon-map",
+            "rowHash": "180ba4a31d30bf231fe7b6cdcf4d7145a6069bd74ecc468bdb7a6c59168a82a1"
+          },
+          {
+            "childHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+            "slug": "luna-whispering-forest",
+            "rowHash": "69b1c505fc0a8776840f1060c63d1f970bbdd7cbb8b8c2c709f0be2ba8f88df4"
+          }
+        ],
+        "rawHash": "71e4ca49e101ef75399d4a07d1820cfe616a84270beb46df0e07b62e61cb155d"
+      },
+      "rewards": {
+        "rawHash": "186b5d2818aabd169bebcb9dfb0463213ea612f3b6c31e5cbfd4faeb6aa2e0f0",
+        "points": 328,
+        "storybooksGames": 7,
+        "storybookClaims": {
+          "storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9": 1,
+          "storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c": 1,
+          "storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b": 1,
+          "storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3": 1,
+          "storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709": 1,
+          "storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640": 1,
+          "storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e": 1
+        },
+        "nonStoryClaimsHash": "f7e45e9aada99e8fafdfd88a2dc9c3e436b08fc954eeef8a3a9689e4af2994b4"
+      }
+    },
+    "final": {
+      "endedAt": "2026-10-29T05:51:34.778Z",
+      "finalStorage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 2073,
+            "sha256": "186b5d2818aabd169bebcb9dfb0463213ea612f3b6c31e5cbfd4faeb6aa2e0f0"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_active_child_v1",
+            "bytes": 5,
+            "sha256": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_profiles_v1",
+            "bytes": 236,
+            "sha256": "78f63e635f22a1889d4c8828e48f62b73600f819166b1a04b771d9ee34d3265b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 2754,
+            "sha256": "9f8ea9fb7fcb25848772571966a0890a8177d18dd6cc5eea88d4c470d748da70"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 496,
+            "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          }
+        ],
+        "stores": {
+          "books": 1,
+          "assets": 14,
+          "profiles": 2,
+          "series": 0
+        }
+      },
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "failedResponses": [],
+        "failedRequests": [
+          {
+            "url": "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+            "error": "net::ERR_ABORTED"
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+            "error": "net::ERR_ABORTED"
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+            "error": "net::ERR_ABORTED"
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+            "error": "net::ERR_ABORTED"
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+            "error": "net::ERR_ABORTED"
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+            "error": "net::ERR_ABORTED"
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+            "error": "net::ERR_ABORTED"
+          }
+        ],
+        "providerRequests": []
+      },
+      "mediaRequests": [
+        "http://127.0.0.1:5180/storybooks/luna-whispering-forest/audio-cover.mp3",
+        "http://127.0.0.1:5180/storybooks/luna-whispering-forest/audio-page-01.mp3",
+        "http://127.0.0.1:5180/storybooks/luna-whispering-forest/audio-cover.mp3",
+        "http://127.0.0.1:5180/storybooks/luna-whispering-forest/audio-page-01.mp3",
+        "http://127.0.0.1:5180/storybooks/luna-whispering-forest/audio-page-02.mp3"
+      ],
+      "mediaEvents": [
+        {
+          "type": "playing",
+          "src": "blob:http://127.0.0.1:5180/510c9048-d330-4383-a6b3-d5e22493b4a8",
+          "time": 0.019301,
+          "duration": 6.56,
+          "muted": false,
+          "volume": 1
+        }
+      ],
+      "objectURLs": {
+        "created": [
+          {
+            "url": "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+            "type": "audio/mpeg",
+            "bytes": 286345
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+            "type": "image/jpeg",
+            "bytes": 387476
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+            "type": "audio/mpeg",
+            "bytes": 106204
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+            "type": "image/jpeg",
+            "bytes": 396652
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+            "type": "audio/mpeg",
+            "bytes": 99517
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+            "type": "image/jpeg",
+            "bytes": 422786
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+            "type": "image/jpeg",
+            "bytes": 386992
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+            "type": "audio/mpeg",
+            "bytes": 103278
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+            "type": "image/jpeg",
+            "bytes": 395759
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+            "type": "audio/mpeg",
+            "bytes": 97009
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+            "type": "image/jpeg",
+            "bytes": 450643
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+            "type": "audio/mpeg",
+            "bytes": 286345
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+            "type": "image/jpeg",
+            "bytes": 387476
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6",
+            "type": "audio/mpeg",
+            "bytes": 106204
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/27be9fb7-ba7d-4744-a80e-fc814f22ba1a",
+            "type": "image/jpeg",
+            "bytes": 387476
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/510c9048-d330-4383-a6b3-d5e22493b4a8",
+            "type": "audio/mpeg",
+            "bytes": 106204
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/4cc00790-397d-42b9-9951-e51c844bc938",
+            "type": "image/jpeg",
+            "bytes": 396652
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/a723e9ec-9d44-48c4-98f4-498cc01a87a0",
+            "type": "audio/mpeg",
+            "bytes": 99517
+          },
+          {
+            "url": "blob:http://127.0.0.1:5180/0a2f9ab8-1b33-4dd4-a456-06c56d27ce77",
+            "type": "application/json",
+            "bytes": 4981777
+          }
+        ],
+        "revoked": [
+          "blob:http://127.0.0.1:5180/1fd34ae4-8080-4272-9660-f14a7eb6e71a",
+          "blob:http://127.0.0.1:5180/8f69c0b9-eded-4807-9271-246db4cbde07",
+          "blob:http://127.0.0.1:5180/f953f6d1-b944-440a-a605-95a7f89885a6",
+          "blob:http://127.0.0.1:5180/d37407fe-f6e3-47b8-a7c6-3cfe3ada8aac",
+          "blob:http://127.0.0.1:5180/ebf9e6d1-5dd9-46d5-a1b5-bde088d7541b",
+          "blob:http://127.0.0.1:5180/e4377da8-3322-4b26-b365-932c1f5ae5f6",
+          "blob:http://127.0.0.1:5180/dd85988b-55c6-4023-b467-4c156bc55702",
+          "blob:http://127.0.0.1:5180/0f86fb45-ade5-4cef-b083-a5cc0a58be4c",
+          "blob:http://127.0.0.1:5180/b0b425ca-c499-4d41-a582-359c18bd410d",
+          "blob:http://127.0.0.1:5180/1c635c5e-fe53-4a74-828c-cb27752c9ed7",
+          "blob:http://127.0.0.1:5180/a71f4b48-fdcf-4a9f-8baa-e8da0f87b4e9",
+          "blob:http://127.0.0.1:5180/a9c4e775-9274-4430-a23b-96b089338ba1",
+          "blob:http://127.0.0.1:5180/02407e0b-9f97-4afa-ab99-454ec8fc32c1",
+          "blob:http://127.0.0.1:5180/3c74fc1f-195c-439b-bf47-dedd81bcfcc2",
+          "blob:http://127.0.0.1:5180/e85a0481-61f5-4fc6-8396-a3f1e77c81ed",
+          "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+          "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6",
+          "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+          "blob:http://127.0.0.1:5180/27be9fb7-ba7d-4744-a80e-fc814f22ba1a",
+          "blob:http://127.0.0.1:5180/510c9048-d330-4383-a6b3-d5e22493b4a8",
+          "blob:http://127.0.0.1:5180/4cc00790-397d-42b9-9951-e51c844bc938",
+          "blob:http://127.0.0.1:5180/a723e9ec-9d44-48c4-98f4-498cc01a87a0",
+          "blob:http://127.0.0.1:5180/0a2f9ab8-1b33-4dd4-a456-06c56d27ce77"
+        ]
+      },
+      "rows": [
+        {
+          "kind": "library-inventory",
+          "text": "7 stories in this library 7 included \u00b7 My stories (0) saved in this browser My stories (0) Included (7) Showing 1\u20137 of 7 matching stories",
+          "visibleCardCount": 7,
+          "cards": [
+            {
+              "title": "Rex and the Missing Moon Map",
+              "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+                "Rex and the Missing Moon Map",
+                "Add favourite",
+                "Read story: Rex and the Missing Moon Map"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Luna and the Whispering Forest",
+              "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+                "Luna and the Whispering Forest",
+                "Add favourite",
+                "Read story: Luna and the Whispering Forest"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Nia\u2019s Great River Journey",
+              "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/nia-great-river-journey/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Nia\u2019s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+                "Nia\u2019s Great River Journey",
+                "Add favourite",
+                "Read story: Nia\u2019s Great River Journey"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Bo and the Busy Bee Garden",
+              "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/bo-busy-bee-garden/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+                "Bo and the Busy Bee Garden",
+                "Add favourite",
+                "Read story: Bo and the Busy Bee Garden"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Sami and the Night-Light Parade",
+              "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/sami-night-light-parade/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+                "Sami and the Night-Light Parade",
+                "Add favourite",
+                "Read story: Sami and the Night-Light Parade"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Mina\u2019s Mountain Seed",
+              "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/mina-mountain-seed/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Mina\u2019s Mountain Seed, painted-2d, ages 5-6",
+                "Mina\u2019s Mountain Seed",
+                "Add favourite",
+                "Read story: Mina\u2019s Mountain Seed"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Kai and the Lost Library Book",
+              "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/kai-lost-library-book/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+                "Kai and the Lost Library Book",
+                "Add favourite",
+                "Read story: Kai and the Lost Library Book"
+              ],
+              "buttonCount": 4
+            }
+          ]
+        },
+        {
+          "kind": "library-inventory",
+          "text": "7 stories in this library 7 included \u00b7 My stories (0) saved in this browser My stories (0) Included (7) Showing 1\u20137 of 7 matching stories",
+          "visibleCardCount": 7,
+          "cards": [
+            {
+              "title": "Rex and the Missing Moon Map",
+              "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+                "Rex and the Missing Moon Map",
+                "Add favourite",
+                "Read story: Rex and the Missing Moon Map"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Luna and the Whispering Forest",
+              "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+                "Luna and the Whispering Forest",
+                "Add favourite",
+                "Read story: Luna and the Whispering Forest"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Nia\u2019s Great River Journey",
+              "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/nia-great-river-journey/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Nia\u2019s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+                "Nia\u2019s Great River Journey",
+                "Add favourite",
+                "Read story: Nia\u2019s Great River Journey"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Bo and the Busy Bee Garden",
+              "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/bo-busy-bee-garden/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+                "Bo and the Busy Bee Garden",
+                "Add favourite",
+                "Read story: Bo and the Busy Bee Garden"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Sami and the Night-Light Parade",
+              "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/sami-night-light-parade/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+                "Sami and the Night-Light Parade",
+                "Add favourite",
+                "Read story: Sami and the Night-Light Parade"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Mina\u2019s Mountain Seed",
+              "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/mina-mountain-seed/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Mina\u2019s Mountain Seed, painted-2d, ages 5-6",
+                "Mina\u2019s Mountain Seed",
+                "Add favourite",
+                "Read story: Mina\u2019s Mountain Seed"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Kai and the Lost Library Book",
+              "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/kai-lost-library-book/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+                "Kai and the Lost Library Book",
+                "Add favourite",
+                "Read story: Kai and the Lost Library Book"
+              ],
+              "buttonCount": 4
+            }
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "reset library to all included and saved stories",
+          "rect": {
+            "x": 228.34375,
+            "y": 233,
+            "right": 340.984375,
+            "bottom": 281,
+            "width": 112.640625,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "story search",
+          "rect": {
+            "x": 97,
+            "y": 543,
+            "right": 1343,
+            "bottom": 591,
+            "width": 1246,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "library-inventory",
+          "text": "7 stories in this library 7 included \u00b7 My stories (0) saved in this browser My stories (0) Included (7) Showing 1\u20137 of 7 matching stories",
+          "visibleCardCount": 7,
+          "cards": [
+            {
+              "title": "Rex and the Missing Moon Map",
+              "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+                "Rex and the Missing Moon Map",
+                "Add favourite",
+                "Read story: Rex and the Missing Moon Map"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Luna and the Whispering Forest",
+              "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+                "Luna and the Whispering Forest",
+                "Add favourite",
+                "Read story: Luna and the Whispering Forest"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Nia\u2019s Great River Journey",
+              "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/nia-great-river-journey/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Nia\u2019s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+                "Nia\u2019s Great River Journey",
+                "Add favourite",
+                "Read story: Nia\u2019s Great River Journey"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Bo and the Busy Bee Garden",
+              "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/bo-busy-bee-garden/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+                "Bo and the Busy Bee Garden",
+                "Add favourite",
+                "Read story: Bo and the Busy Bee Garden"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Sami and the Night-Light Parade",
+              "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/sami-night-light-parade/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+                "Sami and the Night-Light Parade",
+                "Add favourite",
+                "Read story: Sami and the Night-Light Parade"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Mina\u2019s Mountain Seed",
+              "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/mina-mountain-seed/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Mina\u2019s Mountain Seed, painted-2d, ages 5-6",
+                "Mina\u2019s Mountain Seed",
+                "Add favourite",
+                "Read story: Mina\u2019s Mountain Seed"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Kai and the Lost Library Book",
+              "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/kai-lost-library-book/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+                "Kai and the Lost Library Book",
+                "Add favourite",
+                "Read story: Kai and the Lost Library Book"
+              ],
+              "buttonCount": 4
+            }
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "reading profile selector",
+          "rect": {
+            "x": 267.203125,
+            "y": 407,
+            "right": 496.203125,
+            "bottom": 455,
+            "width": 229,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "choose synthetic reader for identity retry probe",
+          "rect": {
+            "x": 267.203125,
+            "y": 407,
+            "right": 496.203125,
+            "bottom": 455,
+            "width": 229,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "leave Storybook before the blocked-reader reload",
+          "rect": {
+            "x": 80,
+            "y": 104,
+            "right": 128,
+            "bottom": 152,
+            "width": 48,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "confirm leaving Storybook for the learning world",
+          "rect": {
+            "x": 739.437255859375,
+            "y": 408.3939208984375,
+            "right": 817.186279296875,
+            "bottom": 486.1429138183594,
+            "width": 77.7490234375,
+            "height": 77.74899291992188
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "reopen Storybook Studio with a one-shot active-reader read fault",
+          "rect": {
+            "x": 404,
+            "y": 490,
+            "right": 712,
+            "bottom": 820,
+            "width": 308,
+            "height": 330
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "story search",
+          "rect": {
+            "x": 97,
+            "y": 651,
+            "right": 1343,
+            "bottom": 699,
+            "width": 1246,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "open Luna and the Whispering Forest in read-only reader mode",
+          "rect": {
+            "x": 101,
+            "y": 683.484375,
+            "right": 231.34375,
+            "bottom": 731.484375,
+            "width": 130.34375,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "reader-screen",
+          "heading": "Luna and the Whispering Forest",
+          "text": "Luna and the Whispering Forest Cover 1/11 Reader identity could not be verified, so this change was not saved. Retry the reader check before saving progress. Retry reader check Tap to Start Reading A 10-PAGE ADVENTURE Luna and the Whispering Forest Luna the fox hears a mysterious whisper in the woods. She meets Barnaby the badger and Pip the robin, and together they find a trapped wind sprite. By working as a team, they free it, and the sprite rewards them by making the whole forest bloom and glow. They return home tired but happy, having made the woods a better place. Start Reading Auto-turn pages after narration Previous Next",
+          "pageLabel": "Page 1 of 11",
+          "image": {
+            "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/cover.webp",
+            "complete": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201
+          },
+          "audio": {
+            "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/audio-cover.mp3",
+            "readyState": 4,
+            "duration": 2.56,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Retry reader check",
+            "Start reading Luna and the Whispering Forest",
+            "Start Reading",
+            "Auto-turn pages after narration",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "disable automatic page turning for reader-key probe",
+          "rect": {
+            "x": 960.59375,
+            "y": 734,
+            "right": 1346,
+            "bottom": 782,
+            "width": 385.40625,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "attempt reading while active-reader key is unavailable",
+          "rect": {
+            "x": 960.59375,
+            "y": 654,
+            "right": 1346,
+            "bottom": 702,
+            "width": 385.40625,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "reader-screen",
+          "heading": "Luna and the Whispering Forest",
+          "text": "Luna and the Whispering Forest Page 1 2/11 Reader identity could not be verified, so this change was not saved. Retry the reader check before saving progress. Retry reader check Illustration 1 of 10 PAGE 1 One evening, Luna the fox heard a whisper. It floated through the trees like a falling leaf. \u201cWho\u2019s there?\u201d she asked. But only the wind answered. Her whiskers twitched with curiosity. Hear page Replay Read-aloud story Word help Previous Next",
+          "pageLabel": "Page 2 of 11",
+          "image": {
+            "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/page-01.webp",
+            "complete": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201
+          },
+          "audio": {
+            "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/audio-page-01.mp3",
+            "readyState": 4,
+            "duration": 12.64,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Retry reader check",
+            "Play narration",
+            "Replay",
+            "Hear meaning of hollow",
+            "Hear meaning of sprite",
+            "Hear meaning of shimmer",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "retry the active-reader check",
+          "rect": {
+            "x": 876.984375,
+            "y": 172,
+            "right": 1030.890625,
+            "bottom": 220,
+            "width": 153.90625,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "return after active-reader recovery",
+          "rect": {
+            "x": 80,
+            "y": 72,
+            "right": 128,
+            "bottom": 120,
+            "width": 48,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "reopen untouched Luna and the Whispering Forest after reader recovery",
+          "rect": {
+            "x": 101,
+            "y": 683.484375,
+            "right": 231.34375,
+            "bottom": 731.484375,
+            "width": 130.34375,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "reader-screen",
+          "heading": "Luna and the Whispering Forest",
+          "text": "Luna and the Whispering Forest Cover 1/11 Tap to Start Reading A 10-PAGE ADVENTURE Luna and the Whispering Forest Luna the fox hears a mysterious whisper in the woods. She meets Barnaby the badger and Pip the robin, and together they find a trapped wind sprite. By working as a team, they free it, and the sprite rewards them by making the whole forest bloom and glow. They return home tired but happy, having made the woods a better place. Start Reading Auto-turn pages after narration Previous Next",
+          "pageLabel": "Page 1 of 11",
+          "image": {
+            "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/cover.webp",
+            "complete": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201
+          },
+          "audio": {
+            "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/audio-cover.mp3",
+            "readyState": 4,
+            "duration": 2.56,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Start reading Luna and the Whispering Forest",
+            "Start Reading",
+            "Auto-turn pages after narration",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "save a page under the explicitly verified reader",
+          "rect": {
+            "x": 960.59375,
+            "y": 616,
+            "right": 1346,
+            "bottom": 664,
+            "width": 385.40625,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "reader-screen",
+          "heading": "Luna and the Whispering Forest",
+          "text": "Luna and the Whispering Forest Page 1 2/11 Illustration 1 of 10 PAGE 1 One evening, Luna the fox heard a whisper. It floated through the trees like a falling leaf. \u201cWho\u2019s there?\u201d she asked. But only the wind answered. Her whiskers twitched with curiosity. Hear page Replay Read-aloud story Word help Previous Next",
+          "pageLabel": "Page 2 of 11",
+          "image": {
+            "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/page-01.webp",
+            "complete": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201
+          },
+          "audio": {
+            "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/audio-page-01.mp3",
+            "readyState": 4,
+            "duration": 12.64,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Play narration",
+            "Replay",
+            "Hear meaning of hollow",
+            "Hear meaning of sprite",
+            "Hear meaning of shimmer",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "save another page under the verified reader",
+          "rect": {
+            "x": 1262.96875,
+            "y": 772,
+            "right": 1360,
+            "bottom": 822,
+            "width": 97.03125,
+            "height": 50
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "reader-screen",
+          "heading": "Luna and the Whispering Forest",
+          "text": "Luna and the Whispering Forest Page 2 3/11 Illustration 2 of 10 PAGE 2 Luna padded along the winding path. The whisper grew louder. \u201cThis way,\u201d it seemed to say. She followed it past gnarled oaks and soft mossy stones, her heart beating fast with excitement. Hear page Replay Read-aloud story Word help Previous Next",
+          "pageLabel": "Page 3 of 11",
+          "image": {
+            "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/page-02.webp",
+            "complete": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201
+          },
+          "audio": {
+            "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/audio-page-02.mp3",
+            "readyState": 4,
+            "duration": 13.6,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Play narration",
+            "Replay",
+            "Hear meaning of hollow",
+            "Hear meaning of sprite",
+            "Hear meaning of shimmer",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "leave verified-reader write probe",
+          "rect": {
+            "x": 80,
+            "y": 72,
+            "right": 128,
+            "bottom": 120,
+            "width": 48,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "restore original reader after identity probe",
+          "rect": {
+            "x": 267.203125,
+            "y": 407,
+            "right": 496.203125,
+            "bottom": 455,
+            "width": 229,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "story search",
+          "rect": {
+            "x": 97,
+            "y": 543,
+            "right": 1343,
+            "bottom": 591,
+            "width": 1246,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "story search",
+          "rect": {
+            "x": 97,
+            "y": 543,
+            "right": 1343,
+            "bottom": 591,
+            "width": 1246,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "leave Storybook Studio",
+          "rect": {
+            "x": 80,
+            "y": 104,
+            "right": 128,
+            "bottom": 152,
+            "width": 48,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "reopen Storybook Studio",
+          "rect": {
+            "x": 404,
+            "y": 490,
+            "right": 712,
+            "bottom": 820,
+            "width": 308,
+            "height": 330
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "library-inventory",
+          "text": "7 stories in this library 7 included \u00b7 My stories (0) saved in this browser My stories (0) Included (7) Showing 1\u20137 of 7 matching stories",
+          "visibleCardCount": 7,
+          "cards": [
+            {
+              "title": "Rex and the Missing Moon Map",
+              "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+                "Rex and the Missing Moon Map",
+                "Add favourite",
+                "Read story: Rex and the Missing Moon Map"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Luna and the Whispering Forest",
+              "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+                "Luna and the Whispering Forest",
+                "Add favourite",
+                "Read story: Luna and the Whispering Forest"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Nia\u2019s Great River Journey",
+              "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/nia-great-river-journey/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Nia\u2019s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+                "Nia\u2019s Great River Journey",
+                "Add favourite",
+                "Read story: Nia\u2019s Great River Journey"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Bo and the Busy Bee Garden",
+              "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/bo-busy-bee-garden/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+                "Bo and the Busy Bee Garden",
+                "Add favourite",
+                "Read story: Bo and the Busy Bee Garden"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Sami and the Night-Light Parade",
+              "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/sami-night-light-parade/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+                "Sami and the Night-Light Parade",
+                "Add favourite",
+                "Read story: Sami and the Night-Light Parade"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Mina\u2019s Mountain Seed",
+              "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/mina-mountain-seed/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Mina\u2019s Mountain Seed, painted-2d, ages 5-6",
+                "Mina\u2019s Mountain Seed",
+                "Add favourite",
+                "Read story: Mina\u2019s Mountain Seed"
+              ],
+              "buttonCount": 4
+            },
+            {
+              "title": "Kai and the Lost Library Book",
+              "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+              "cover": [
+                {
+                  "src": "http://127.0.0.1:5180/storybooks/kai-lost-library-book/cover.webp",
+                  "complete": true,
+                  "naturalWidth": 1600,
+                  "naturalHeight": 1201
+                }
+              ],
+              "buttons": [
+                "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+                "Kai and the Lost Library Book",
+                "Add favourite",
+                "Read story: Kai and the Lost Library Book"
+              ],
+              "buttonCount": 4
+            }
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "open parent tools for backup restore",
+          "rect": {
+            "x": 1244.609375,
+            "y": 326,
+            "right": 1360,
+            "bottom": 374,
+            "width": 115.390625,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "restore approved Pip QA backup",
+          "rect": {
+            "x": 534.1875,
+            "y": 398,
+            "right": 716.265625,
+            "bottom": 446,
+            "width": 182.078125,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "story search",
+          "rect": {
+            "x": 97,
+            "y": 558,
+            "right": 1343,
+            "bottom": 606,
+            "width": 1246,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "retry stored Pip cover after bounded decode-error event",
+          "rect": {
+            "x": 117,
+            "y": 575.484375,
+            "right": 208.4375,
+            "bottom": 623.484375,
+            "width": 91.4375,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "open approved Pip QA story",
+          "rect": {
+            "x": 101,
+            "y": 679.5123291015625,
+            "right": 231.34375,
+            "bottom": 727.5123291015625,
+            "width": 130.34375,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "reader-screen",
+          "heading": "Pip and the Sunflower",
+          "text": "Pip and the Sunflower Cover 1/7 Tap to Start Reading A 6-PAGE ADVENTURE Pip and the Sunflower Pip the fox and Robin plant a sunflower seed, water it daily, and wait patiently. With kindness and teamwork, they watch it grow into a tall, bright flower, celebrating their gentle garden adventure. Start Reading Auto-turn pages after narration Previous Next",
+          "pageLabel": "Page 1 of 7",
+          "image": {
+            "src": "blob:http://127.0.0.1:5180/d1c3ad81-05e8-431f-8cca-ecb0c2d3489b",
+            "complete": true,
+            "naturalWidth": 2218,
+            "naturalHeight": 1664
+          },
+          "audio": {
+            "src": "blob:http://127.0.0.1:5180/bef629a1-3815-449d-a590-3097c187bc73",
+            "readyState": 4,
+            "duration": 17.84,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Start reading Pip and the Sunflower",
+            "Start Reading",
+            "Auto-turn pages after narration",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "disable Pip auto-turn",
+          "rect": {
+            "x": 960.59375,
+            "y": 610,
+            "right": 1346,
+            "bottom": 658,
+            "width": 385.40625,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "start approved Pip QA story",
+          "rect": {
+            "x": 960.59375,
+            "y": 550,
+            "right": 1346,
+            "bottom": 598,
+            "width": 385.40625,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "reader-screen",
+          "heading": "Pip and the Sunflower",
+          "text": "Pip and the Sunflower Page 1 2/7 Illustration 1 of 6 PAGE 1 Pip the fox found a tiny seed. Robin flew down to see. 'Let's plant it!' said Pip. Hear page Replay Read-aloud story Previous Next",
+          "pageLabel": "Page 2 of 7",
+          "image": {
+            "src": "blob:http://127.0.0.1:5180/f20e0d9e-b227-45f4-b46d-ebc9cb2f4ee8",
+            "complete": true,
+            "naturalWidth": 2218,
+            "naturalHeight": 1664
+          },
+          "audio": {
+            "src": "blob:http://127.0.0.1:5180/ba5198db-a6ad-483d-a6b7-73829f8f15f6",
+            "readyState": 4,
+            "duration": 6.56,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Play narration",
+            "Replay",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "retry stored Pip media after bounded decode-error event",
+          "rect": {
+            "x": 1086.3125,
+            "y": 342,
+            "right": 1235.640625,
+            "bottom": 390,
+            "width": 149.328125,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "narration control",
+          "rect": {
+            "x": 960.59375,
+            "y": 470,
+            "right": 1099.1875,
+            "bottom": 520,
+            "width": 138.59375,
+            "height": 50
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "pause Pip page narration",
+          "rect": {
+            "x": 960.59375,
+            "y": 470,
+            "right": 1066.015625,
+            "bottom": 520,
+            "width": 105.421875,
+            "height": 50
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "advance Pip reader",
+          "rect": {
+            "x": 1262.96875,
+            "y": 772,
+            "right": 1360,
+            "bottom": 822,
+            "width": 97.03125,
+            "height": 50
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "reader-screen",
+          "heading": "Pip and the Sunflower",
+          "text": "Pip and the Sunflower Page 2 3/7 Illustration 2 of 6 PAGE 2 They dug a little hole. Pip placed the seed in, and Robin covered it with soil. Hear page Replay Read-aloud story Previous Next",
+          "pageLabel": "Page 3 of 7",
+          "image": {
+            "src": "blob:http://127.0.0.1:5180/4cc00790-397d-42b9-9951-e51c844bc938",
+            "complete": true,
+            "naturalWidth": 2218,
+            "naturalHeight": 1664
+          },
+          "audio": {
+            "src": "blob:http://127.0.0.1:5180/a723e9ec-9d44-48c4-98f4-498cc01a87a0",
+            "readyState": 4,
+            "duration": 6.16,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Play narration",
+            "Replay",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        {
+          "kind": "control-geometry",
+          "label": "leave Pip reader",
+          "rect": {
+            "x": 80,
+            "y": 72,
+            "right": 128,
+            "bottom": 120,
+            "width": 48,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "story search",
+          "rect": {
+            "x": 97,
+            "y": 398,
+            "right": 1343,
+            "bottom": 446,
+            "width": 1246,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        },
+        {
+          "kind": "control-geometry",
+          "label": "export approved synthetic Pip story backup",
+          "rect": {
+            "x": 350.65625,
+            "y": 398,
+            "right": 526.1875,
+            "bottom": 446,
+            "width": 175.53125,
+            "height": 48
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "wholeRectVisible": true,
+          "centerHit": true
+        }
+      ]
+    }
+  },
+  "callbackCompleted": false,
+  "stagedPayloadPresent": false,
+  "uiStatuses": [
+    "8 stories in this library7 included \u00b7 My stories (1) saved in this browserMy stories (1)Included (7)Showing 1\u20138 of 8 matching stories",
+    "Story backup downloaded. Keep it somewhere safe."
+  ]
+}

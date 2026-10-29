@@ -1,0 +1,44 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "expectedEntry": "/assets/arcade-EBto46V3.js",
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "runMode": "continuation-restored",
+  "error": "Error: collapse parent tools before library controls is clipped, covered, or undersized: {\"kind\":\"control-geometry\",\"label\":\"collapse parent tools before library controls\",\"rect\":{\"x\":1209.65625,\"y\":326,\"right\":1360,\"bottom\":374,\"width\":150.34375,\"height\":48},\"viewport\":{\"width\":1440,\"height\":844},\"wholeRectVisible\":true,\"centerHit\":false}\n    at assertControl (evalmachine.<anonymous>:69:13)\n    at async Object.click (evalmachine.<anonymous>:75:5)\n    at async browseClick (evalmachine.<anonymous>:435:5)\n    at async runStorybook (evalmachine.<anonymous>:539:38)\n    at async evalmachine.<anonymous>:1176:14\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)",
+  "diagnostics": {
+    "errors": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedResponses": [],
+      "failedRequests": [],
+      "providerRequests": []
+    },
+    "mediaRequests": []
+  },
+  "partial": {
+    "origin": "http://127.0.0.1:5180",
+    "expectedEntry": "/assets/arcade-EBto46V3.js",
+    "viewport": {
+      "width": 1440,
+      "height": 844
+    },
+    "playerId": "amari",
+    "runMode": "continuation-restored",
+    "books": [],
+    "probes": [],
+    "failures": [],
+    "initial": null
+  },
+  "stage": "native",
+  "mode": "continuation-restored",
+  "entryIdentity": "/assets/arcade-EBto46V3.js",
+  "capabilityPreflight": {
+    "url": "http://127.0.0.1:5180/?libraryretry=1793252128450#/play/storybooks",
+    "buffer": "function",
+    "cryptoSubtle": true
+  },
+  "cliReturnCode": 0
+}

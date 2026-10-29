@@ -1,0 +1,393 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "expectedEntry": "/assets/arcade-DoN_CHtt.js",
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "runMode": "full",
+  "error": "Error: retry favourite save is clipped, covered, or undersized: {\"kind\":\"control-geometry\",\"label\":\"retry favourite save\",\"rect\":{\"x\":435.671875,\"y\":-309,\"right\":604.078125,\"bottom\":-261,\"width\":168.40625,\"height\":48},\"viewport\":{\"width\":1440,\"height\":844},\"wholeRectVisible\":false,\"centerHit\":false}\n    at assertControl (evalmachine.<anonymous>:65:13)\n    at async Object.click (evalmachine.<anonymous>:71:5)\n    at async runStorybook (evalmachine.<anonymous>:696:3)\n    at async evalmachine.<anonymous>:1025:14\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)",
+  "partial": {
+    "origin": "http://127.0.0.1:5180",
+    "expectedEntry": "/assets/arcade-DoN_CHtt.js",
+    "viewport": {
+      "width": 1440,
+      "height": 844
+    },
+    "playerId": "amari",
+    "runMode": "full",
+    "books": [],
+    "probes": [
+      {
+        "kind": "existing-reader-profile-switch",
+        "profileCount": 2,
+        "switchedBack": true,
+        "profileBytesPreserved": true,
+        "alternateProfileHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+        "alternateLabelHash": "111b5abdd956da6f5012e19e56ae28f454b4c2e4e4e09c526caa6aae67d98375"
+      },
+      {
+        "kind": "blocked-active-reader-key",
+        "status": "deferred",
+        "reason": "Isolated after the primary book journey to avoid repeating an inconclusive harness setup."
+      }
+    ],
+    "failures": [],
+    "initial": {
+      "identity": {
+        "url": "http://127.0.0.1:5180/?storybookPair8=0fee0001#/play/storybooks",
+        "entry": "/assets/arcade-DoN_CHtt.js",
+        "namespace": true
+      },
+      "inventory": {
+        "kind": "library-inventory",
+        "text": "7 stories in this library 7 included · My stories (0) saved in this browser My stories (0) Included (7) Showing 1–7 of 7 matching stories",
+        "visibleCardCount": 7,
+        "cards": [
+          {
+            "title": "Rex and the Missing Moon Map",
+            "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+              "Rex and the Missing Moon Map",
+              "Add favourite",
+              "Read story: Rex and the Missing Moon Map"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Luna and the Whispering Forest",
+            "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+              "Luna and the Whispering Forest",
+              "Add favourite",
+              "Read story: Luna and the Whispering Forest"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Nia’s Great River Journey",
+            "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/nia-great-river-journey/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+              "Nia’s Great River Journey",
+              "Add favourite",
+              "Read story: Nia’s Great River Journey"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Bo and the Busy Bee Garden",
+            "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/bo-busy-bee-garden/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+              "Bo and the Busy Bee Garden",
+              "Add favourite",
+              "Read story: Bo and the Busy Bee Garden"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Sami and the Night-Light Parade",
+            "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/sami-night-light-parade/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+              "Sami and the Night-Light Parade",
+              "Add favourite",
+              "Read story: Sami and the Night-Light Parade"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Mina’s Mountain Seed",
+            "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/mina-mountain-seed/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Mina’s Mountain Seed, painted-2d, ages 5-6",
+              "Mina’s Mountain Seed",
+              "Add favourite",
+              "Read story: Mina’s Mountain Seed"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Kai and the Lost Library Book",
+            "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/kai-lost-library-book/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+              "Kai and the Lost Library Book",
+              "Add favourite",
+              "Read story: Kai and the Lost Library Book"
+            ],
+            "buttonCount": 4
+          }
+        ]
+      },
+      "visibleCardCount": 7,
+      "storage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 2073,
+            "sha256": "186b5d2818aabd169bebcb9dfb0463213ea612f3b6c31e5cbfd4faeb6aa2e0f0"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_active_child_v1",
+            "bytes": 5,
+            "sha256": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_profiles_v1",
+            "bytes": 236,
+            "sha256": "78f63e635f22a1889d4c8828e48f62b73600f819166b1a04b771d9ee34d3265b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 2328,
+            "sha256": "f3dbccdd9610f69fc5a2dc850cf57bfd19f4a3b4bec8f23d6fc451c375a55a9a"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 496,
+            "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          }
+        ],
+        "stores": {
+          "books": 0,
+          "assets": 0,
+          "profiles": 2,
+          "series": 0
+        }
+      },
+      "originalStorage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 2073,
+            "sha256": "186b5d2818aabd169bebcb9dfb0463213ea612f3b6c31e5cbfd4faeb6aa2e0f0"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_active_child_v1",
+            "bytes": 5,
+            "sha256": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_profiles_v1",
+            "bytes": 236,
+            "sha256": "78f63e635f22a1889d4c8828e48f62b73600f819166b1a04b771d9ee34d3265b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 2328,
+            "sha256": "f3dbccdd9610f69fc5a2dc850cf57bfd19f4a3b4bec8f23d6fc451c375a55a9a"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 496,
+            "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          }
+        ],
+        "stores": {
+          "books": 0,
+          "assets": 0,
+          "profiles": 2,
+          "series": 0
+        }
+      },
+      "progress": {
+        "available": true,
+        "rows": [
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "rex-missing-moon-map",
+            "rowHash": "11500344af7888b7cb6a7f8d751467b5d347701caee07a4d3833b6102b6e3702"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "luna-whispering-forest",
+            "rowHash": "59eb31692dc9ffdd550f98f5749bed7073ce6905c742c5443d9be0e9636fcb08"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "nia-great-river-journey",
+            "rowHash": "8ac1f643320a063847ef3f5ca271a468a619786a229143c2129f930754ff47a1"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "bo-busy-bee-garden",
+            "rowHash": "7eb84bddf0f772ca31c19f1355116ccc74e1a48af48633020550855d3bb03eb1"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "sami-night-light-parade",
+            "rowHash": "cf07092f40b26afaf84d33c7714cc97b2fdb22cf5dddeb5ee7eaa126f17b7a77"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "mina-mountain-seed",
+            "rowHash": "9578800024c0d935433036bc0d25491b3ffaf743325300b1a02370442f4167be"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "kai-lost-library-book",
+            "rowHash": "d04baedbd835fa10d4e43af4e70848462e71501d465280b46c39dc69fbef920d"
+          }
+        ],
+        "rawHash": "f3dbccdd9610f69fc5a2dc850cf57bfd19f4a3b4bec8f23d6fc451c375a55a9a"
+      },
+      "rewards": {
+        "rawHash": "186b5d2818aabd169bebcb9dfb0463213ea612f3b6c31e5cbfd4faeb6aa2e0f0",
+        "points": 328,
+        "storybooksGames": 7,
+        "storybookClaims": {
+          "storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9": 1,
+          "storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c": 1,
+          "storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b": 1,
+          "storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3": 1,
+          "storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709": 1,
+          "storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640": 1,
+          "storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e": 1
+        },
+        "nonStoryClaimsHash": "f7e45e9aada99e8fafdfd88a2dc9c3e436b08fc954eeef8a3a9689e4af2994b4"
+      }
+    }
+  },
+  "stage": "native",
+  "mode": "full",
+  "entryIdentity": "/assets/arcade-DoN_CHtt.js",
+  "capabilityPreflight": {
+    "url": "http://127.0.0.1:5180/?storybookPair8=0fee0001#/play/storybooks",
+    "buffer": "function",
+    "cryptoSubtle": true
+  },
+  "cliReturnCode": 0
+}

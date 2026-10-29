@@ -1,0 +1,102 @@
+{
+  "passed": false,
+  "sourceCommit": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "expectedEntry": "/assets/arcade-EBto46V3.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "steps": [
+    {
+      "kind": "auto-turn-before",
+      "pressed": "true"
+    },
+    {
+      "kind": "primary-control",
+      "label": "start cover narration",
+      "rect": {
+        "x": 30,
+        "y": 474.671875,
+        "right": 360,
+        "bottom": 522.671875,
+        "width": 330,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "full": true,
+      "hit": true
+    },
+    {
+      "kind": "primary-control",
+      "label": "pause first-page narration via UI",
+      "rect": {
+        "x": 30,
+        "y": 510.484375,
+        "right": 135.421875,
+        "bottom": 560.484375,
+        "width": 105.421875,
+        "height": 50
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "full": true,
+      "hit": true
+    }
+  ],
+  "errors": {
+    "page": [],
+    "console": [],
+    "failedResponses": [],
+    "failedRequests": [],
+    "provider": []
+  },
+  "identity": {
+    "url": "http://127.0.0.1:5180/?pair8-autoturn=1793254334359#/world/read-write",
+    "namespace": true,
+    "entry": "/assets/arcade-EBto46V3.js"
+  },
+  "before": {
+    "rex": {
+      "completed": true,
+      "pageIndex": 9,
+      "favourite": false,
+      "receipt": {
+        "id": "storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9",
+        "points": 1,
+        "version": 1,
+        "rewardPlayerId": "amari"
+      }
+    },
+    "points": 328,
+    "storybookGames": 7,
+    "claimCount": 7,
+    "progressSemanticSha256": "00e5620e75a4bf71fb0f1a033a0f884502a054b3e65b44fb65745c213b689e9d",
+    "rewardRawSha256": "186b5d2818aabd169bebcb9dfb0463213ea612f3b6c31e5cbfd4faeb6aa2e0f0"
+  },
+  "cover": {
+    "pageLabel": "Page 1 of 11",
+    "image": {
+      "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/cover.webp",
+      "complete": true,
+      "width": 1600,
+      "height": 1201
+    },
+    "audio": {
+      "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/audio-cover.mp3",
+      "readyState": 4,
+      "duration": 2.24,
+      "paused": true,
+      "currentTime": 0,
+      "error": null
+    }
+  },
+  "error": "Error: First-page pause UI gate failed {\"pageLabel\":\"Page 2 of 11\",\"src\":\"http://127.0.0.1:5180/storybooks/rex-missing-moon-map/audio-page-01.mp3\",\"readyState\":4,\"currentTime\":0.094268,\"paused\":false}\n    at evalmachine.<anonymous>:38:499\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)\n    at async connection.onmessage (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:76275:29)",
+  "finalURL": "http://127.0.0.1:5180/?pair8-autoturn=1793254334359#/play/storybooks",
+  "currentText": "Discovery HQ\nAmari\nRex and the Missing Moon Map\nPage 1\n2/11\nIllustration 1 of 10\n\nPAGE 1\n\nRex the young T-Rex astronaut loved exploring. Today he landed his little rocket on the silvery Moon, with his best friend Pip the robot rolling happily beside him.\n\nPause\nReplay\nRead-aloud story\nWord help",
+  "cliReturnCode": 0
+}

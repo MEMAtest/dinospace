@@ -1,0 +1,7572 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "entryIdentity": "/assets/arcade-Bad6FwzT.js",
+  "namespaceVerified": true,
+  "startLevel": 2,
+  "baseline": {
+    "legacy": {
+      "present": true,
+      "bytes": 37,
+      "sha256": "41b88406eff71b4155806e27e396e85de5d5c2fe467f5ea87d7a3ab7d145c53c"
+    },
+    "words": {
+      "present": true,
+      "bytes": 275,
+      "sha256": "9c2322e2f764e93c8e67ee31096786768393475beb491292ac3ffd0c1ef5292c"
+    },
+    "spelling": {
+      "present": true,
+      "bytes": 1243,
+      "sha256": "46ce73218ca995cbbc4e9389982885849d673ee05f2d6f18a50e1a48cd0607dc"
+    },
+    "rewards": {
+      "present": true,
+      "bytes": 1195,
+      "sha256": "7941c0d711fb9e116eb8fe06664f424f39a68af91249afa7e0ac86f68f71dc24"
+    },
+    "writing": {
+      "present": true,
+      "bytes": 293,
+      "sha256": "53e8149b0d7bc38290c09c85d4d40ab49e51e2e37f011689292d61af3e64b9c0"
+    },
+    "recent": {
+      "present": true,
+      "bytes": 49,
+      "sha256": "5f5660faabe4a5fc1332539c6e91a03a0d3d4c9d4db4566bf83a289ae90f1a6c"
+    },
+    "diagnostics": {
+      "present": true,
+      "bytes": 46612,
+      "sha256": "7b2475d1cfba7176ade9a944b99fb910b74e7d9151fcc94207860d44a3cbcae0"
+    },
+    "lifecycle": {
+      "present": true,
+      "bytes": 15070,
+      "sha256": "989c653546d0d632b47de6938e26fb582329732b24c9778109191770e0202a93"
+    },
+    "learningAttempts": {
+      "present": true,
+      "bytes": 323815,
+      "sha256": "4fc2c5b1375a0206fcd9789fd1d836f4d61df0caa272e0d9d844d93aeb40e589"
+    },
+    "ownLittle": {
+      "present": true,
+      "bytes": 1010,
+      "sha256": "1e770c4c65645f99d06b728ab07b3d7cccab25f0d45145f909648d3b2597f760"
+    },
+    "siblingLittle": {
+      "present": true,
+      "bytes": 1320,
+      "sha256": "bed117418194585d30d7645e46b52a1d30576ebd957061b642cdb96a4adeddfa"
+    },
+    "siblingWords": {
+      "present": false
+    },
+    "siblingRewards": {
+      "present": true,
+      "bytes": 496,
+      "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+    }
+  },
+  "stageTargets": [
+    5,
+    6,
+    7,
+    3,
+    6,
+    4
+  ],
+  "completedLevelRuns": [
+    {
+      "level": 2,
+      "rounds": 6,
+      "points": 6,
+      "rewardDelta": 6
+    },
+    {
+      "level": 3,
+      "rounds": 7,
+      "points": 6,
+      "rewardDelta": 6
+    },
+    {
+      "level": 4,
+      "rounds": 3,
+      "points": 6,
+      "rewardDelta": 6
+    },
+    {
+      "level": 5,
+      "rounds": 6,
+      "points": 6,
+      "rewardDelta": 6
+    },
+    {
+      "level": 6,
+      "rounds": 4,
+      "points": 6,
+      "rewardDelta": 6
+    }
+  ],
+  "responses": 26,
+  "zeroDeltaReplayResponses": 5,
+  "rows": [
+    {
+      "kind": "baseline",
+      "entryIdentity": "/assets/arcade-Bad6FwzT.js",
+      "wordsProgressStatus": "canonical",
+      "legacyRewardThrough": -1,
+      "oldBest": [
+        6,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "plannedPoints": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "expectedDelta": [
+        0,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "positiveParentFaultLevel": 2
+    },
+    {
+      "kind": "control-geometry",
+      "label": "select level 2 for normal progression",
+      "rect": {
+        "x": 115,
+        "y": 381,
+        "right": 163,
+        "bottom": 429,
+        "width": 48,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "start level 2",
+      "rect": {
+        "x": 139,
+        "y": 517,
+        "right": 251,
+        "bottom": 629,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-start",
+      "rect": {
+        "x": 139,
+        "y": 517,
+        "right": 251,
+        "bottom": 629,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 59.453125,
+        "y": 204.4375,
+        "right": 330.53125,
+        "bottom": 232.4375,
+        "width": 271.078125,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 141.65625,
+        "y": 150.4375,
+        "right": 248.328125,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "wrong missing-sound option",
+      "rect": {
+        "x": 148,
+        "y": 459.8125,
+        "right": 192,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "wrong missing-sound feedback",
+      "rect": {
+        "x": 36,
+        "y": 519.8125,
+        "right": 354,
+        "bottom": 538.703125,
+        "width": 318,
+        "height": 18.890625
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "wrong-answer-held-word",
+      "mode": "missing",
+      "clue": "A chair can hold someone after they sit down.",
+      "heldWordLength": 3
+    },
+    {
+      "kind": "control-geometry",
+      "label": "missing-sound answer",
+      "rect": {
+        "x": 98,
+        "y": 459.8125,
+        "right": 142,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 567.8125,
+        "right": 272.25,
+        "bottom": 615.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 59.453125,
+        "y": 204.4375,
+        "right": 330.53125,
+        "bottom": 232.4375,
+        "width": 271.078125,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 141.65625,
+        "y": 150.4375,
+        "right": 248.328125,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "missing-sound answer",
+      "rect": {
+        "x": 198,
+        "y": 459.8125,
+        "right": 242,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 567.8125,
+        "right": 272.25,
+        "bottom": 615.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 59.453125,
+        "y": 204.4375,
+        "right": 330.53125,
+        "bottom": 232.4375,
+        "width": 271.078125,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 141.65625,
+        "y": 150.4375,
+        "right": 248.328125,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "missing-sound answer",
+      "rect": {
+        "x": 148,
+        "y": 459.8125,
+        "right": 192,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 567.8125,
+        "right": 272.25,
+        "bottom": 615.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 59.453125,
+        "y": 204.4375,
+        "right": 330.53125,
+        "bottom": 232.4375,
+        "width": 271.078125,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 141.65625,
+        "y": 150.4375,
+        "right": 248.328125,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "missing-sound answer",
+      "rect": {
+        "x": 198,
+        "y": 459.8125,
+        "right": 242,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 567.8125,
+        "right": 272.25,
+        "bottom": 615.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 59.453125,
+        "y": 204.4375,
+        "right": 330.53125,
+        "bottom": 232.4375,
+        "width": 271.078125,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 141.65625,
+        "y": 150.4375,
+        "right": 248.328125,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "missing-sound answer",
+      "rect": {
+        "x": 148,
+        "y": 459.8125,
+        "right": 192,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 567.8125,
+        "right": 272.25,
+        "bottom": 615.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 59.453125,
+        "y": 204.4375,
+        "right": 330.53125,
+        "bottom": 232.4375,
+        "width": 271.078125,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 141.65625,
+        "y": 150.4375,
+        "right": 248.328125,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "missing-sound answer",
+      "rect": {
+        "x": 248,
+        "y": 459.8125,
+        "right": 292,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "finish stage",
+      "rect": {
+        "x": 110.5625,
+        "y": 567.8125,
+        "right": 279.4375,
+        "bottom": 615.8125,
+        "width": 168.875,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "session save Retry",
+      "rect": {
+        "x": 88.90625,
+        "y": 603.375,
+        "right": 301.078125,
+        "bottom": 651.375,
+        "width": 212.171875,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "session-save-retry",
+      "level": 2,
+      "fault": "write",
+      "sameHeldFactsAndFinalWord": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "parent reward Retry",
+      "rect": {
+        "x": 88.90625,
+        "y": 603.375,
+        "right": 301.078125,
+        "bottom": 651.375,
+        "width": 212.171875,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "parent-reward-retry",
+      "level": 2,
+      "positiveExpectedDelta": 6,
+      "sameAttemptAndClaimToken": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next level",
+      "rect": {
+        "x": 155,
+        "y": 398,
+        "right": 267,
+        "bottom": 510,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "stage-complete",
+      "level": 2,
+      "score": 6,
+      "rewardDelta": 6,
+      "transactionId": "6692a9a7-b18b-4086-9dcf-bc853d253675",
+      "token": "words:6692a9a7-b18b-4086-9dcf-bc853d253675",
+      "noDuplicateClaim": true,
+      "uniqueWords": 6,
+      "target": 6,
+      "words": [
+        {
+          "round": 1,
+          "word": "SAT",
+          "graphemes": [
+            "s",
+            "a",
+            "t"
+          ],
+          "clue": "A chair can hold someone after they sit down.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": true,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "👂sound gap",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "s",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "f",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "e",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "word": "KID",
+          "graphemes": [
+            "k",
+            "i",
+            "d"
+          ],
+          "clue": "Another word for a child.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "👂sound gap",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "f",
+                "x": 98,
+                "y": 459.1490478515625,
+                "right": 142,
+                "bottom": 503.1490478515625,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "c",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "i",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "k",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 3,
+          "word": "MAT",
+          "graphemes": [
+            "m",
+            "a",
+            "t"
+          ],
+          "clue": "A soft rectangle can sit under someone doing stretches.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "👂sound gap",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "u",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "g",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "p",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 4,
+          "word": "TAN",
+          "graphemes": [
+            "t",
+            "a",
+            "n"
+          ],
+          "clue": "A light brown shade.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "👂sound gap",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "i",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "r",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 5,
+          "word": "CAT",
+          "graphemes": [
+            "c",
+            "a",
+            "t"
+          ],
+          "clue": "A furry pet may purr and meow.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "👂sound gap",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "b",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "c",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "r",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 6,
+          "word": "TAP",
+          "graphemes": [
+            "t",
+            "a",
+            "p"
+          ],
+          "clue": "Turn this to make water flow.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "👂sound gap",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "k",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "l",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "u",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "p",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "control-geometry",
+      "label": "launch level 3",
+      "rect": {
+        "x": 155,
+        "y": 398,
+        "right": 267,
+        "bottom": 510,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.40625,
+        "y": 204.4375,
+        "right": 323.59375,
+        "bottom": 232.4375,
+        "width": 257.1875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "visible teaching clue",
+      "rect": {
+        "x": 124,
+        "y": 255.4375,
+        "right": 354,
+        "bottom": 273.625,
+        "width": 230,
+        "height": 18.1875
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 441.625,
+        "right": 192,
+        "bottom": 485.625,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 441.625,
+        "right": 217,
+        "bottom": 485.625,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 441.625,
+        "right": 192,
+        "bottom": 485.625,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 549.625,
+        "right": 272.25,
+        "bottom": 597.625,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.40625,
+        "y": 204.4375,
+        "right": 323.59375,
+        "bottom": 232.4375,
+        "width": 257.1875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 48,
+        "y": 459.8125,
+        "right": 92,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 459.8125,
+        "right": 217,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 459.8125,
+        "right": 292,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 567.8125,
+        "right": 272.25,
+        "bottom": 615.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.40625,
+        "y": 204.4375,
+        "right": 323.59375,
+        "bottom": 232.4375,
+        "width": 257.1875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 298,
+        "y": 459.8125,
+        "right": 342,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 223,
+        "y": 459.8125,
+        "right": 267,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 459.8125,
+        "right": 242,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 567.8125,
+        "right": 272.25,
+        "bottom": 615.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.40625,
+        "y": 204.4375,
+        "right": 323.59375,
+        "bottom": 232.4375,
+        "width": 257.1875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 459.8125,
+        "right": 292,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 459.8125,
+        "right": 217,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 459.8125,
+        "right": 242,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 567.8125,
+        "right": 272.25,
+        "bottom": 615.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.40625,
+        "y": 204.4375,
+        "right": 323.59375,
+        "bottom": 232.4375,
+        "width": 257.1875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 98,
+        "y": 459.8125,
+        "right": 142,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 459.8125,
+        "right": 217,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 459.8125,
+        "right": 192,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 567.8125,
+        "right": 272.25,
+        "bottom": 615.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.40625,
+        "y": 204.4375,
+        "right": 323.59375,
+        "bottom": 232.4375,
+        "width": 257.1875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 459.8125,
+        "right": 292,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 123,
+        "y": 459.8125,
+        "right": 167,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 459.8125,
+        "right": 292,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 576.484375,
+        "right": 272.25,
+        "bottom": 624.484375,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.40625,
+        "y": 204.4375,
+        "right": 323.59375,
+        "bottom": 232.4375,
+        "width": 257.1875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 48,
+        "y": 459.8125,
+        "right": 92,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 273,
+        "y": 459.8125,
+        "right": 317,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 459.8125,
+        "right": 292,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "finish stage",
+      "rect": {
+        "x": 110.5625,
+        "y": 567.8125,
+        "right": 279.4375,
+        "bottom": 615.8125,
+        "width": 168.875,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "session save Retry",
+      "rect": {
+        "x": 88.90625,
+        "y": 603.375,
+        "right": 301.078125,
+        "bottom": 651.375,
+        "width": 212.171875,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "session-save-retry",
+      "level": 3,
+      "fault": "readback",
+      "sameHeldFactsAndFinalWord": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next level",
+      "rect": {
+        "x": 155,
+        "y": 398,
+        "right": 267,
+        "bottom": 510,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "stage-complete",
+      "level": 3,
+      "score": 6,
+      "rewardDelta": 6,
+      "transactionId": "1b7f23d6-222f-47a7-accf-0e1ef0938b0e",
+      "token": "words:1b7f23d6-222f-47a7-accf-0e1ef0938b0e",
+      "noDuplicateClaim": true,
+      "uniqueWords": 7,
+      "target": 7,
+      "words": [
+        {
+          "round": 1,
+          "word": "TIN",
+          "graphemes": [
+            "t",
+            "i",
+            "n"
+          ],
+          "clue": "Food can come in a metal can.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": true,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "l",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "n",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "i",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "c",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "k",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "word": "TAG",
+          "graphemes": [
+            "t",
+            "a",
+            "g"
+          ],
+          "clue": "A small label attached to an item.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "t",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "m",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "p",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "s",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "g",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 3,
+          "word": "SIP",
+          "graphemes": [
+            "s",
+            "i",
+            "p"
+          ],
+          "clue": "Take a small drink from a cup.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "d",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "p",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "i",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "u",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "s",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 4,
+          "word": "PAT",
+          "graphemes": [
+            "p",
+            "a",
+            "t"
+          ],
+          "clue": "Give a puppy a gentle tap with your hand.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "n",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "s",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "p",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "u",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 5,
+          "word": "MAN",
+          "graphemes": [
+            "m",
+            "a",
+            "n"
+          ],
+          "clue": "An adult person.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "l",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "m",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "n",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "o",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 6,
+          "word": "MAD",
+          "graphemes": [
+            "m",
+            "a",
+            "d"
+          ],
+          "clue": "A face may show this feeling when someone feels cross.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "p",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "u",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "s",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "m",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "d",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 7,
+          "word": "PAN",
+          "graphemes": [
+            "p",
+            "a",
+            "n"
+          ],
+          "clue": "Cook food in a round metal pot with a handle.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "p",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "c",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "u",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "s",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "n",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "control-geometry",
+      "label": "launch level 4",
+      "rect": {
+        "x": 155,
+        "y": 398,
+        "right": 267,
+        "bottom": 510,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 71.296875,
+        "y": 204.4375,
+        "right": 318.703125,
+        "bottom": 232.4375,
+        "width": 247.40625,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 98,
+        "y": 459.8125,
+        "right": 142,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 123,
+        "y": 459.8125,
+        "right": 167,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 459.8125,
+        "right": 192,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 567.8125,
+        "right": 272.25,
+        "bottom": 615.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 71.296875,
+        "y": 204.4375,
+        "right": 318.703125,
+        "bottom": 232.4375,
+        "width": 247.40625,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 298,
+        "y": 459.8125,
+        "right": 342,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 298,
+        "y": 459.8125,
+        "right": 342,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 223,
+        "y": 415.8125,
+        "right": 267,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 415.8125,
+        "right": 292,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 532.484375,
+        "right": 272.25,
+        "bottom": 580.484375,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 71.296875,
+        "y": 160.4375,
+        "right": 318.703125,
+        "bottom": 188.4375,
+        "width": 247.40625,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 106.4375,
+        "right": 363,
+        "bottom": 150.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 299.8125,
+        "right": 310.65625,
+        "bottom": 343.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 251.8125,
+        "right": 289.75,
+        "bottom": 295.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 48,
+        "y": 415.8125,
+        "right": 92,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 415.8125,
+        "right": 292,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 223,
+        "y": 415.8125,
+        "right": 267,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "finish stage",
+      "rect": {
+        "x": 110.5625,
+        "y": 523.8125,
+        "right": 279.4375,
+        "bottom": 571.8125,
+        "width": 168.875,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next level",
+      "rect": {
+        "x": 155,
+        "y": 384,
+        "right": 267,
+        "bottom": 496,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "stage-complete",
+      "level": 4,
+      "score": 6,
+      "rewardDelta": 6,
+      "transactionId": "b73674ad-596f-48ea-9415-0f387fc5fb7e",
+      "token": "words:b73674ad-596f-48ea-9415-0f387fc5fb7e",
+      "noDuplicateClaim": true,
+      "uniqueWords": 3,
+      "target": 3,
+      "words": [
+        {
+          "round": 1,
+          "word": "ROCK",
+          "graphemes": [
+            "r",
+            "o",
+            "ck"
+          ],
+          "clue": "A hard lump of stone.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 3,
+            "controls": [
+              {
+                "label": "p",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "r",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "o",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "ck",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "i",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "word": "FROG",
+          "graphemes": [
+            "f",
+            "r",
+            "o",
+            "g"
+          ],
+          "clue": "A small hopping animal that lives near ponds.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 4,
+            "controls": [
+              {
+                "label": "k",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "b",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "h",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "o",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "g",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "f",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "r",
+                "x": 173,
+                "y": 509.8125,
+                "right": 217,
+                "bottom": 553.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 3,
+          "word": "STEM",
+          "graphemes": [
+            "s",
+            "t",
+            "e",
+            "m"
+          ],
+          "clue": "The stalk that holds up a flower.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 4,
+            "controls": [
+              {
+                "label": "s",
+                "x": 48,
+                "y": 415.8125,
+                "right": 92,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 98,
+                "y": 415.8125,
+                "right": 142,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "h",
+                "x": 148,
+                "y": 415.8125,
+                "right": 192,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "m",
+                "x": 198,
+                "y": 415.8125,
+                "right": 242,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "e",
+                "x": 248,
+                "y": 415.8125,
+                "right": 292,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 298,
+                "y": 415.8125,
+                "right": 342,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "k",
+                "x": 173,
+                "y": 465.8125,
+                "right": 217,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "control-geometry",
+      "label": "launch level 5",
+      "rect": {
+        "x": 155,
+        "y": 384,
+        "right": 267,
+        "bottom": 496,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 77.21875,
+        "y": 204.4375,
+        "right": 312.78125,
+        "bottom": 232.4375,
+        "width": 235.5625,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 98,
+        "y": 459.8125,
+        "right": 142,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 98,
+        "y": 459.8125,
+        "right": 142,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 98,
+        "y": 415.8125,
+        "right": 142,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 73,
+        "y": 415.8125,
+        "right": 117,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 532.484375,
+        "right": 272.25,
+        "bottom": 580.484375,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 77.21875,
+        "y": 160.4375,
+        "right": 312.78125,
+        "bottom": 188.4375,
+        "width": 235.5625,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 106.4375,
+        "right": 363,
+        "bottom": 150.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 299.8125,
+        "right": 310.65625,
+        "bottom": 343.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 251.8125,
+        "right": 289.75,
+        "bottom": 295.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 298,
+        "y": 415.8125,
+        "right": 342,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 273,
+        "y": 415.8125,
+        "right": 317,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 415.8125,
+        "right": 292,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 532.484375,
+        "right": 272.25,
+        "bottom": 580.484375,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 77.21875,
+        "y": 160.4375,
+        "right": 312.78125,
+        "bottom": 188.4375,
+        "width": 235.5625,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 106.4375,
+        "right": 363,
+        "bottom": 150.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 299.8125,
+        "right": 310.65625,
+        "bottom": 343.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 251.8125,
+        "right": 289.75,
+        "bottom": 295.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 48,
+        "y": 415.8125,
+        "right": 92,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 415.8125,
+        "right": 292,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 98,
+        "y": 415.8125,
+        "right": 142,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 123,
+        "y": 415.8125,
+        "right": 167,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 415.8125,
+        "right": 292,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 523.8125,
+        "right": 272.25,
+        "bottom": 571.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 77.21875,
+        "y": 160.4375,
+        "right": 312.78125,
+        "bottom": 188.4375,
+        "width": 235.5625,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 106.4375,
+        "right": 363,
+        "bottom": 150.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 299.8125,
+        "right": 310.65625,
+        "bottom": 343.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 251.8125,
+        "right": 289.75,
+        "bottom": 295.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 48,
+        "y": 415.8125,
+        "right": 92,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 98,
+        "y": 415.8125,
+        "right": 142,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 413.58941650390625,
+        "right": 217,
+        "bottom": 457.58941650390625,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 523.8125,
+        "right": 272.25,
+        "bottom": 571.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 77.21875,
+        "y": 160.4375,
+        "right": 312.78125,
+        "bottom": 188.4375,
+        "width": 235.5625,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 106.4375,
+        "right": 363,
+        "bottom": 150.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 299.8125,
+        "right": 310.65625,
+        "bottom": 343.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 251.8125,
+        "right": 289.75,
+        "bottom": 295.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 465.8125,
+        "right": 217,
+        "bottom": 509.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 298,
+        "y": 415.8125,
+        "right": 342,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 415.8125,
+        "right": 217,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 415.8125,
+        "right": 292,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 523.8125,
+        "right": 272.25,
+        "bottom": 571.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 77.21875,
+        "y": 160.4375,
+        "right": 312.78125,
+        "bottom": 188.4375,
+        "width": 235.5625,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 106.4375,
+        "right": 363,
+        "bottom": 150.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 299.8125,
+        "right": 310.65625,
+        "bottom": 343.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 251.8125,
+        "right": 289.75,
+        "bottom": 295.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 465.8125,
+        "right": 217,
+        "bottom": 509.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 48,
+        "y": 415.8125,
+        "right": 92,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 223,
+        "y": 415.8125,
+        "right": 267,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 98,
+        "y": 415.8125,
+        "right": 142,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "finish stage",
+      "rect": {
+        "x": 110.5625,
+        "y": 523.8125,
+        "right": 279.4375,
+        "bottom": 571.8125,
+        "width": 168.875,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next level",
+      "rect": {
+        "x": 155,
+        "y": 384,
+        "right": 267,
+        "bottom": 496,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "stage-complete",
+      "level": 5,
+      "score": 6,
+      "rewardDelta": 6,
+      "transactionId": "2a03774e-87a3-469a-b620-67111c25775a",
+      "token": "words:2a03774e-87a3-469a-b620-67111c25775a",
+      "noDuplicateClaim": true,
+      "uniqueWords": 6,
+      "target": 6,
+      "words": [
+        {
+          "round": 1,
+          "word": "PETAL",
+          "graphemes": [
+            "p",
+            "e",
+            "t",
+            "a",
+            "l"
+          ],
+          "clue": "One of the colourful parts around a flower’s centre.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 5,
+            "controls": [
+              {
+                "label": "a",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "p",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "e",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "s",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "n",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "l",
+                "x": 148,
+                "y": 509.8125,
+                "right": 192,
+                "bottom": 553.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "o",
+                "x": 198,
+                "y": 509.8125,
+                "right": 242,
+                "bottom": 553.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "word": "METAL",
+          "graphemes": [
+            "m",
+            "e",
+            "t",
+            "a",
+            "l"
+          ],
+          "clue": "A strong material used to make many spoons.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 5,
+            "controls": [
+              {
+                "label": "d",
+                "x": 48,
+                "y": 415.8125,
+                "right": 92,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "f",
+                "x": 98,
+                "y": 415.8125,
+                "right": 142,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "c",
+                "x": 148,
+                "y": 415.8125,
+                "right": 192,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "e",
+                "x": 198,
+                "y": 415.8125,
+                "right": 242,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 248,
+                "y": 415.8125,
+                "right": 292,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "m",
+                "x": 298,
+                "y": 415.8125,
+                "right": 342,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "l",
+                "x": 148,
+                "y": 465.8125,
+                "right": 192,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 198,
+                "y": 465.8125,
+                "right": 242,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 3,
+          "word": "PLANT",
+          "graphemes": [
+            "p",
+            "l",
+            "a",
+            "n",
+            "t"
+          ],
+          "clue": "A living thing with roots and leaves.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 5,
+            "controls": [
+              {
+                "label": "p",
+                "x": 48,
+                "y": 415.8125,
+                "right": 92,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "h",
+                "x": 98,
+                "y": 415.8125,
+                "right": 142,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 148,
+                "y": 415.8125,
+                "right": 192,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "n",
+                "x": 198,
+                "y": 415.8125,
+                "right": 242,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "o",
+                "x": 248,
+                "y": 415.8125,
+                "right": 292,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "l",
+                "x": 298,
+                "y": 415.8125,
+                "right": 342,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "r",
+                "x": 148,
+                "y": 465.8125,
+                "right": 192,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 198,
+                "y": 465.8125,
+                "right": 242,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 4,
+          "word": "HANDS",
+          "graphemes": [
+            "h",
+            "a",
+            "n",
+            "d",
+            "s"
+          ],
+          "clue": "The body parts at the ends of your arms.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 5,
+            "controls": [
+              {
+                "label": "h",
+                "x": 48,
+                "y": 415.8125,
+                "right": 92,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "m",
+                "x": 98,
+                "y": 415.8125,
+                "right": 142,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "n",
+                "x": 148,
+                "y": 415.8125,
+                "right": 192,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "p",
+                "x": 198,
+                "y": 415.8125,
+                "right": 242,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 248,
+                "y": 415.8125,
+                "right": 292,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "d",
+                "x": 298,
+                "y": 415.8125,
+                "right": 342,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "s",
+                "x": 148,
+                "y": 465.8125,
+                "right": 192,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "f",
+                "x": 198,
+                "y": 465.8125,
+                "right": 242,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 5,
+          "word": "BRICK",
+          "graphemes": [
+            "b",
+            "r",
+            "i",
+            "ck"
+          ],
+          "clue": "A small block used to build a wall.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 4,
+            "controls": [
+              {
+                "label": "k",
+                "x": 48,
+                "y": 415.8125,
+                "right": 92,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "c",
+                "x": 98,
+                "y": 415.8125,
+                "right": 142,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "i",
+                "x": 148,
+                "y": 415.8125,
+                "right": 192,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "p",
+                "x": 198,
+                "y": 415.8125,
+                "right": 242,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "ck",
+                "x": 248,
+                "y": 415.8125,
+                "right": 292,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "r",
+                "x": 298,
+                "y": 415.8125,
+                "right": 342,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "b",
+                "x": 173,
+                "y": 465.8125,
+                "right": 217,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 6,
+          "word": "GLASS",
+          "graphemes": [
+            "g",
+            "l",
+            "a",
+            "ss"
+          ],
+          "clue": "A see-through material used for windows.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 4,
+            "controls": [
+              {
+                "label": "l",
+                "x": 48,
+                "y": 415.8125,
+                "right": 92,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "ss",
+                "x": 98,
+                "y": 415.8125,
+                "right": 142,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "p",
+                "x": 148,
+                "y": 415.8125,
+                "right": 192,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "f",
+                "x": 198,
+                "y": 415.8125,
+                "right": 242,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 248,
+                "y": 415.8125,
+                "right": 292,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "r",
+                "x": 298,
+                "y": 415.8125,
+                "right": 342,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "g",
+                "x": 173,
+                "y": 465.8125,
+                "right": 217,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "control-geometry",
+      "label": "launch level 6",
+      "rect": {
+        "x": 155,
+        "y": 384,
+        "right": 267,
+        "bottom": 496,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.09375,
+        "y": 204.4375,
+        "right": 323.890625,
+        "bottom": 232.4375,
+        "width": 257.796875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 150.4375,
+        "right": 363,
+        "bottom": 194.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 343.8125,
+        "right": 310.65625,
+        "bottom": 387.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 295.8125,
+        "right": 289.75,
+        "bottom": 339.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 459.8125,
+        "right": 192,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 98,
+        "y": 459.8125,
+        "right": 142,
+        "bottom": 503.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 98,
+        "y": 459.477294921875,
+        "right": 142,
+        "bottom": 503.477294921875,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 73,
+        "y": 415.8125,
+        "right": 117,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 415.8125,
+        "right": 192,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 532.484375,
+        "right": 272.25,
+        "bottom": 580.484375,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.09375,
+        "y": 160.4375,
+        "right": 323.890625,
+        "bottom": 188.4375,
+        "width": 257.796875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 106.4375,
+        "right": 363,
+        "bottom": 150.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 299.8125,
+        "right": 310.65625,
+        "bottom": 343.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 251.8125,
+        "right": 289.75,
+        "bottom": 295.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 48,
+        "y": 415.8125,
+        "right": 92,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 415.8125,
+        "right": 292,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 298,
+        "y": 415.8125,
+        "right": 342,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 73,
+        "y": 415.8125,
+        "right": 117,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 415.8125,
+        "right": 192,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 523.8125,
+        "right": 272.25,
+        "bottom": 571.8125,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.09375,
+        "y": 160.4375,
+        "right": 323.890625,
+        "bottom": 188.4375,
+        "width": 257.796875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 106.4375,
+        "right": 363,
+        "bottom": 150.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 299.8125,
+        "right": 310.65625,
+        "bottom": 343.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 251.8125,
+        "right": 289.75,
+        "bottom": 295.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 415.8125,
+        "right": 192,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 298,
+        "y": 415.8125,
+        "right": 342,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 415.8125,
+        "right": 192,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 414.0862731933594,
+        "right": 217,
+        "bottom": 458.0862731933594,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 415.8125,
+        "right": 192,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 532.484375,
+        "right": 272.25,
+        "bottom": 580.484375,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "stage progress cue",
+      "rect": {
+        "x": 66.09375,
+        "y": 160.4375,
+        "right": 323.890625,
+        "bottom": 188.4375,
+        "width": 257.796875,
+        "height": 28
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 256.328125,
+        "y": 106.4375,
+        "right": 363,
+        "bottom": 150.4375,
+        "width": 106.671875,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 299.8125,
+        "right": 310.65625,
+        "bottom": 343.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "show clue",
+      "rect": {
+        "x": 188.25,
+        "y": 251.8125,
+        "right": 289.75,
+        "bottom": 295.8125,
+        "width": 101.5,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 415.8125,
+        "right": 292,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 415.8125,
+        "right": 192,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 248,
+        "y": 415.8125,
+        "right": 292,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8125,
+        "right": 242,
+        "bottom": 459.8125,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 223,
+        "y": 415.8124694824219,
+        "right": 267,
+        "bottom": 459.8124694824219,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 415.8116760253906,
+        "right": 242,
+        "bottom": 459.8116760253906,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "finish stage",
+      "rect": {
+        "x": 110.5625,
+        "y": 532.484375,
+        "right": 279.4375,
+        "bottom": 580.484375,
+        "width": 168.875,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "world after final level",
+      "rect": {
+        "x": 283,
+        "y": 414,
+        "right": 379,
+        "bottom": 510,
+        "width": 96,
+        "height": 96
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "stage-complete",
+      "level": 6,
+      "score": 6,
+      "rewardDelta": 6,
+      "transactionId": "14fc64e4-9840-4127-9cef-24bd71250557",
+      "token": "words:14fc64e4-9840-4127-9cef-24bd71250557",
+      "noDuplicateClaim": true,
+      "uniqueWords": 4,
+      "target": 4,
+      "words": [
+        {
+          "round": 1,
+          "word": "RABBIT",
+          "graphemes": [
+            "r",
+            "a",
+            "b",
+            "b",
+            "i",
+            "t"
+          ],
+          "clue": "A furry animal with long ears that hops.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 6,
+            "controls": [
+              {
+                "label": "i",
+                "x": 48,
+                "y": 459.8125,
+                "right": 92,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 98,
+                "y": 459.8125,
+                "right": 142,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "r",
+                "x": 148,
+                "y": 459.8125,
+                "right": 192,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "b",
+                "x": 198,
+                "y": 459.8125,
+                "right": 242,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "c",
+                "x": 248,
+                "y": 459.8125,
+                "right": 292,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 298,
+                "y": 459.8125,
+                "right": 342,
+                "bottom": 503.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "b",
+                "x": 123,
+                "y": 509.8125,
+                "right": 167,
+                "bottom": 553.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "s",
+                "x": 173,
+                "y": 509.8125,
+                "right": 217,
+                "bottom": 553.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "k",
+                "x": 223,
+                "y": 509.8125,
+                "right": 267,
+                "bottom": 553.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "word": "SUMMER",
+          "graphemes": [
+            "s",
+            "u",
+            "m",
+            "m",
+            "e",
+            "r"
+          ],
+          "clue": "The warm season after spring.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 6,
+            "controls": [
+              {
+                "label": "s",
+                "x": 48,
+                "y": 415.8125,
+                "right": 92,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "e",
+                "x": 98,
+                "y": 415.8125,
+                "right": 142,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "d",
+                "x": 148,
+                "y": 415.8125,
+                "right": 192,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "r",
+                "x": 198,
+                "y": 415.8125,
+                "right": 242,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "u",
+                "x": 248,
+                "y": 415.8125,
+                "right": 292,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "c",
+                "x": 298,
+                "y": 415.8125,
+                "right": 342,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "m",
+                "x": 123,
+                "y": 465.8125,
+                "right": 167,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "l",
+                "x": 173,
+                "y": 465.8125,
+                "right": 217,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "m",
+                "x": 223,
+                "y": 465.8125,
+                "right": 267,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 3,
+          "word": "CANDLE",
+          "graphemes": [
+            "c",
+            "a",
+            "n",
+            "d",
+            "l",
+            "e"
+          ],
+          "clue": "A wax stick with a wick that gives light.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 6,
+            "controls": [
+              {
+                "label": "f",
+                "x": 48,
+                "y": 415.8125,
+                "right": 92,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "e",
+                "x": 98,
+                "y": 415.8125,
+                "right": 142,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "c",
+                "x": 148,
+                "y": 415.8125,
+                "right": 192,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "d",
+                "x": 198,
+                "y": 415.8125,
+                "right": 242,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "n",
+                "x": 248,
+                "y": 415.8125,
+                "right": 292,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "l",
+                "x": 298,
+                "y": 415.8125,
+                "right": 342,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 123,
+                "y": 465.8125,
+                "right": 167,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "g",
+                "x": 173,
+                "y": 465.8125,
+                "right": 217,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 223,
+                "y": 465.8125,
+                "right": 267,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        },
+        {
+          "round": 4,
+          "word": "PLASTIC",
+          "graphemes": [
+            "p",
+            "l",
+            "a",
+            "s",
+            "t",
+            "i",
+            "c"
+          ],
+          "clue": "A material used for many bottles and toys.",
+          "answerMethod": "visible accessible picture clue",
+          "wrongRetry": false,
+          "teachingClue": false,
+          "layout": {
+            "modeName": "✍️spell it",
+            "graphemeSpaces": 7,
+            "controls": [
+              {
+                "label": "k",
+                "x": 48,
+                "y": 415.8125,
+                "right": 92,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "b",
+                "x": 98,
+                "y": 415.8125,
+                "right": 142,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "a",
+                "x": 148,
+                "y": 415.8125,
+                "right": 192,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "l",
+                "x": 198,
+                "y": 415.8125,
+                "right": 242,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "p",
+                "x": 248,
+                "y": 415.8125,
+                "right": 292,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "c",
+                "x": 298,
+                "y": 415.8125,
+                "right": 342,
+                "bottom": 459.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "t",
+                "x": 98,
+                "y": 465.8125,
+                "right": 142,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "s",
+                "x": 148,
+                "y": 465.8125,
+                "right": 192,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "i",
+                "x": 198,
+                "y": 465.8125,
+                "right": 242,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              },
+              {
+                "label": "f",
+                "x": 248,
+                "y": 465.8125,
+                "right": 292,
+                "bottom": 509.8125,
+                "width": 44,
+                "height": 44,
+                "centerHit": true,
+                "inViewport": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "protected-and-rewards",
+      "legacyGameLevelsBytePreserved": true,
+      "siblingDataPreserved": true,
+      "otherGameCountsAndClaimsPreserved": true,
+      "newlyEarnedPositiveTransactions": 5,
+      "rewardDeltaTotal": 30
+    },
+    {
+      "kind": "control-geometry",
+      "label": "replay-level-one-selector",
+      "rect": {
+        "x": 59,
+        "y": 360,
+        "right": 107,
+        "bottom": 408,
+        "width": 48,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "replay-level-one-start",
+      "rect": {
+        "x": 139,
+        "y": 484,
+        "right": 251,
+        "bottom": 596,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "packaged-audio-mute",
+      "replay": true,
+      "source": "http://127.0.0.1:5180/audio/en/84bb2fd2-matilda.mp3",
+      "packagedAudio": true,
+      "stoppedByMute": "pause"
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 27,
+        "y": 141.4375,
+        "right": 133.65625,
+        "bottom": 185.4375,
+        "width": 106.65625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 286.8125,
+        "right": 310.65625,
+        "bottom": 330.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 123,
+        "y": 460.1875,
+        "right": 167,
+        "bottom": 504.1875,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 460.1875,
+        "right": 242,
+        "bottom": 504.1875,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 460.1875,
+        "right": 217,
+        "bottom": 504.1875,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "per-word save Retry",
+      "rect": {
+        "x": 88.265625,
+        "y": 532.859375,
+        "right": 301.734375,
+        "bottom": 580.859375,
+        "width": 213.46875,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "per-word-save-retry",
+      "fault": "write",
+      "visibleRetry": true,
+      "sameWordHeld": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "replay next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 524.1875,
+        "right": 272.25,
+        "bottom": 572.1875,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 27,
+        "y": 150.4375,
+        "right": 133.65625,
+        "bottom": 194.4375,
+        "width": 106.65625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 277.625,
+        "right": 310.65625,
+        "bottom": 321.625,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 223,
+        "y": 451,
+        "right": 267,
+        "bottom": 495,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 451,
+        "right": 242,
+        "bottom": 495,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 451,
+        "right": 217,
+        "bottom": 495,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "per-word save Retry",
+      "rect": {
+        "x": 88.265625,
+        "y": 523.671875,
+        "right": 301.734375,
+        "bottom": 571.671875,
+        "width": 213.46875,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "per-word-save-retry",
+      "fault": "readback",
+      "visibleRetry": true,
+      "sameWordHeld": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "replay next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 515,
+        "right": 272.25,
+        "bottom": 563,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 27,
+        "y": 150.4375,
+        "right": 133.65625,
+        "bottom": 194.4375,
+        "width": 106.65625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 277.625,
+        "right": 310.65625,
+        "bottom": 321.625,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 123,
+        "y": 451,
+        "right": 167,
+        "bottom": 495,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 451,
+        "right": 192,
+        "bottom": 495,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 451,
+        "right": 217,
+        "bottom": 495,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "replay next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 515,
+        "right": 272.25,
+        "bottom": 563,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 27,
+        "y": 150.4375,
+        "right": 133.65625,
+        "bottom": 194.4375,
+        "width": 106.65625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 277.625,
+        "right": 310.65625,
+        "bottom": 321.625,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 223,
+        "y": 451,
+        "right": 267,
+        "bottom": 495,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 198,
+        "y": 451,
+        "right": 242,
+        "bottom": 495,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 451,
+        "right": 217,
+        "bottom": 495,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "replay next word",
+      "rect": {
+        "x": 117.734375,
+        "y": 515,
+        "right": 272.25,
+        "bottom": 563,
+        "width": 154.515625,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected mode",
+      "rect": {
+        "x": 27,
+        "y": 150.4375,
+        "right": 133.65625,
+        "bottom": 194.4375,
+        "width": 106.65625,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "hear the word",
+      "rect": {
+        "x": 167.34375,
+        "y": 295.8125,
+        "right": 310.65625,
+        "bottom": 339.8125,
+        "width": 143.3125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 123,
+        "y": 469.1875,
+        "right": 167,
+        "bottom": 513.1875,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 148,
+        "y": 469.1875,
+        "right": 192,
+        "bottom": 513.1875,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "letter tile answer",
+      "rect": {
+        "x": 173,
+        "y": 469.1875,
+        "right": 217,
+        "bottom": 513.1875,
+        "width": 44,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "zero-delta-stage-replay",
+      "level": 1,
+      "transactionId": "e364ee19-a471-463e-ba6c-1c06746084ac",
+      "rewardDelta": 0,
+      "pointsStable": true,
+      "playCountStable": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "re-entry level 6",
+      "rect": {
+        "x": 139,
+        "y": 496,
+        "right": 251,
+        "bottom": 608,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "leave-audio-cancel",
+      "path": "direct",
+      "exactPackagedSource": "http://127.0.0.1:5180/audio/en/b4971670-matilda.mp3",
+      "stoppedBy": "pause"
+    },
+    {
+      "kind": "reopen-replay-idempotency",
+      "levels": 6,
+      "pointsStable": true,
+      "claimsStable": true
+    },
+    {
+      "kind": "integrity",
+      "brokenImages": [],
+      "failedResources": [],
+      "failedRequests": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "providerRequests": []
+    },
+    {
+      "kind": "final-render",
+      "screenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/books-spelling-20261029/native-spelling-390x740-arcade-Bad6FwzT.js.jpg"
+    }
+  ],
+  "failures": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedResources": [],
+  "failedRequests": [],
+  "providerRequests": [],
+  "stage": "native",
+  "cliReturnCode": 0
+}

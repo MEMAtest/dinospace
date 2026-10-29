@@ -1,0 +1,4413 @@
+{
+  "origin": "https://dinospace.netlify.app",
+  "expectedEntry": "/assets/arcade-EBto46V3.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "playerId": "amari",
+  "runMode": "continuation-restored",
+  "books": [],
+  "probes": [
+    {
+      "kind": "existing-reader-profile-switch",
+      "status": "unavailable",
+      "profileCount": 1,
+      "reason": "Only one existing reader profile is available; no profile was created."
+    },
+    {
+      "kind": "local-progress-fault-retry",
+      "status": "deferred",
+      "reason": "Already exercised at the phone viewport; desktop run concentrates on the full shelf and reader journey."
+    },
+    {
+      "kind": "preserved-progress-and-replay-zero",
+      "progressHashStable": true,
+      "pointsDelta": 0,
+      "storybooksGameDelta": 0,
+      "claimSetStable": true
+    },
+    {
+      "kind": "sibling-and-unrelated-progress-preservation",
+      "passed": true,
+      "protectedRowCount": 1
+    },
+    {
+      "kind": "completion-receipts",
+      "receipts": [
+        {
+          "readerChildId": "amari",
+          "slug": "rex-missing-moon-map",
+          "receipt": {
+            "id": "storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8",
+            "points": 1,
+            "version": 1,
+            "rewardPlayerId": "amari"
+          }
+        },
+        {
+          "readerChildId": "amari",
+          "slug": "luna-whispering-forest",
+          "receipt": {
+            "id": "storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00",
+            "points": 1,
+            "version": 1,
+            "rewardPlayerId": "amari"
+          }
+        },
+        {
+          "readerChildId": "amari",
+          "slug": "nia-great-river-journey",
+          "receipt": {
+            "id": "storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324",
+            "points": 1,
+            "version": 1,
+            "rewardPlayerId": "amari"
+          }
+        },
+        {
+          "readerChildId": "amari",
+          "slug": "bo-busy-bee-garden",
+          "receipt": {
+            "id": "storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28",
+            "points": 1,
+            "version": 1,
+            "rewardPlayerId": "amari"
+          }
+        },
+        {
+          "readerChildId": "amari",
+          "slug": "sami-night-light-parade",
+          "receipt": {
+            "id": "storybook-amari-sami-night-light-parade-275033aa-b11b-4374-b1d3-b52f2c8bc662",
+            "points": 1,
+            "version": 1,
+            "rewardPlayerId": "amari"
+          }
+        },
+        {
+          "readerChildId": "amari",
+          "slug": "mina-mountain-seed",
+          "receipt": {
+            "id": "storybook-amari-mina-mountain-seed-286c94f5-90f2-47a6-921a-0357e078c971",
+            "points": 1,
+            "version": 1,
+            "rewardPlayerId": "amari"
+          }
+        },
+        {
+          "readerChildId": "amari",
+          "slug": "kai-lost-library-book",
+          "receipt": {
+            "id": "storybook-amari-kai-lost-library-book-d8a296d9-0105-42f1-bb98-cbe98f2ad395",
+            "points": 1,
+            "version": 1,
+            "rewardPlayerId": "amari"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ordinary-reopen",
+      "inventory": {
+        "kind": "library-inventory",
+        "text": "8 stories in this library 7 included · My stories (1) saved in this browser My stories (1) Included (7) Showing 1–8 of 8 matching stories",
+        "visibleCardCount": 8,
+        "cards": [
+          {
+            "title": "Rex and the Missing Moon Map",
+            "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+              "Rex and the Missing Moon Map",
+              "Add favourite",
+              "Read story: Rex and the Missing Moon Map"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Luna and the Whispering Forest",
+            "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+              "Luna and the Whispering Forest",
+              "Add favourite",
+              "Read story: Luna and the Whispering Forest"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Nia’s Great River Journey",
+            "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+              "Nia’s Great River Journey",
+              "Add favourite",
+              "Read story: Nia’s Great River Journey"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Bo and the Busy Bee Garden",
+            "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+              "Bo and the Busy Bee Garden",
+              "Add favourite",
+              "Read story: Bo and the Busy Bee Garden"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Sami and the Night-Light Parade",
+            "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+              "Sami and the Night-Light Parade",
+              "Add favourite",
+              "Read story: Sami and the Night-Light Parade"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Mina’s Mountain Seed",
+            "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/mina-mountain-seed/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Mina’s Mountain Seed, painted-2d, ages 5-6",
+              "Mina’s Mountain Seed",
+              "Add favourite",
+              "Read story: Mina’s Mountain Seed"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Kai and the Lost Library Book",
+            "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/kai-lost-library-book/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+              "Kai and the Lost Library Book",
+              "Add favourite",
+              "Read story: Kai and the Lost Library Book"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": null,
+            "titleHash": "5a93e192e406714599167895667a1816eb186068ad2c47308538997fd0b002c4",
+            "cover": [
+              {
+                "src": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+                "complete": true,
+                "naturalWidth": 2218,
+                "naturalHeight": 1664
+              }
+            ],
+            "buttonCount": 4
+          }
+        ]
+      },
+      "storage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 2133,
+            "sha256": "1875752bd87109552907d5c0263cf7adeaaef9f0cba5a8e9ba34fe6c3d7fbb2c"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 2469,
+            "sha256": "0754f736d3d7492656bfc78ce333f4fc3e6b9c76081e9c53ed8c7df42dbbc5e6"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 501,
+            "sha256": "79f7018c20699be997095397010042e9f170c30ce1157358d5402f55b0df5bbe"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          }
+        ],
+        "stores": {
+          "books": 1,
+          "assets": 14,
+          "profiles": 1,
+          "series": 0
+        }
+      },
+      "progress": {
+        "available": true,
+        "rows": [
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "rex-missing-moon-map",
+            "rowHash": "8718f05afd9d3527c61a9b8edecd87e77a5f518330ab0b9fd05ca58f39285d60"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "luna-whispering-forest",
+            "rowHash": "0056c2b64b700fb0f61875855d1430ee088fa0d3d838abcfef82956bb275abbd"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "nia-great-river-journey",
+            "rowHash": "baec20014897a145db3007968fc10685396e898b4b6217ebb55732c657e1ad14"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "bo-busy-bee-garden",
+            "rowHash": "a55d5805fa56a06d86e483ceefa95ed47d5a83666e684b382bcebdf5c2991776"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "sami-night-light-parade",
+            "rowHash": "5f83df7a443e87630324e8a628cc14ae9ac9319b1a54171b9dd22c2d8b5beb26"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "mina-mountain-seed",
+            "rowHash": "1277a3410e38ad9fded6ccf8a9bef41ea1b06f840affb30ae007c1f83b330364"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "kai-lost-library-book",
+            "rowHash": "84365ada3b64bf8a1d7f9272bccab610e68ee4f644d172bfccb2fb7265bee3c8"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "custom-7c480b44-19db-4096-a32e-df95001e7ba6",
+            "rowHash": "7a2fd1818fb8d263e681f12c5657c1b7d6ec32dda345643b7ac02f9ec2db5e5d"
+          }
+        ],
+        "rawHash": "0754f736d3d7492656bfc78ce333f4fc3e6b9c76081e9c53ed8c7df42dbbc5e6"
+      },
+      "rewards": {
+        "rawHash": "1875752bd87109552907d5c0263cf7adeaaef9f0cba5a8e9ba34fe6c3d7fbb2c",
+        "points": 349,
+        "storybooksGames": 7,
+        "storybookClaims": {
+          "storybooks:storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8": 1,
+          "storybooks:storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00": 1,
+          "storybooks:storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324": 1,
+          "storybooks:storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28": 1,
+          "storybooks:storybook-amari-sami-night-light-parade-275033aa-b11b-4374-b1d3-b52f2c8bc662": 1,
+          "storybooks:storybook-amari-mina-mountain-seed-286c94f5-90f2-47a6-921a-0357e078c971": 1,
+          "storybooks:storybook-amari-kai-lost-library-book-d8a296d9-0105-42f1-bb98-cbe98f2ad395": 1
+        },
+        "nonStoryClaimsHash": "56ebec02e1a5f55da4fdbae483e3118eb051529a63eaf0c1b2244ef527ae9775"
+      },
+      "objectURLs": {
+        "created": [
+          {
+            "url": "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+            "type": "audio/mpeg",
+            "bytes": 286345
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+            "type": "image/jpeg",
+            "bytes": 387476
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+            "type": "audio/mpeg",
+            "bytes": 106204
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+            "type": "image/jpeg",
+            "bytes": 396652
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+            "type": "audio/mpeg",
+            "bytes": 99517
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+            "type": "image/jpeg",
+            "bytes": 422786
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+            "type": "image/jpeg",
+            "bytes": 386992
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+            "type": "audio/mpeg",
+            "bytes": 103278
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+            "type": "image/jpeg",
+            "bytes": 395759
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+            "type": "audio/mpeg",
+            "bytes": 97009
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+            "type": "image/jpeg",
+            "bytes": 450643
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+            "type": "audio/mpeg",
+            "bytes": 286345
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+            "type": "image/jpeg",
+            "bytes": 387476
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+            "type": "audio/mpeg",
+            "bytes": 106204
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+            "type": "image/jpeg",
+            "bytes": 387476
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+            "type": "audio/mpeg",
+            "bytes": 106204
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+            "type": "image/jpeg",
+            "bytes": 396652
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+            "type": "audio/mpeg",
+            "bytes": 99517
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+            "type": "application/json",
+            "bytes": 4981420
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+            "type": "image/jpeg",
+            "bytes": 396652
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+            "type": "audio/mpeg",
+            "bytes": 99517
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+            "type": "image/jpeg",
+            "bytes": 396652
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+            "type": "audio/mpeg",
+            "bytes": 99517
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+            "type": "image/jpeg",
+            "bytes": 422786
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+            "type": "application/json",
+            "bytes": 4981420
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+            "type": "image/jpeg",
+            "bytes": 381687
+          }
+        ],
+        "revoked": [
+          "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+          "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+          "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+          "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+          "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+          "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+          "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+          "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+          "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+          "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+          "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+          "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+          "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+          "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+          "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+          "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+          "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+          "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+          "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+          "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+          "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+          "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+          "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+          "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+          "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+          "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+          "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+          "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+          "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+          "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+          "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+          "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+          "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+          "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+          "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+          "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+          "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b"
+        ]
+      }
+    },
+    {
+      "kind": "approved-pip-qa-backup-ui-restore",
+      "sha256": "6460dad1981b6053a3e8bd2878d6e1403f671707f9f8a97bc6eec6575dda7cc0",
+      "decompressedBytes": null,
+      "addedCount": 0,
+      "duplicateMessage": "Pip backup was restored in the preceding bounded continuation.",
+      "title": "Pip and the Sunflower",
+      "pageCount": 6,
+      "note": "Synthetic QA artifact restored before this continuation; no second restore attempted.",
+      "coverRetry": {
+        "before": {
+          "src": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+          "width": 2218,
+          "height": 1664
+        },
+        "after": {
+          "src": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+          "width": 2218,
+          "height": 1664
+        }
+      },
+      "readerCover": {
+        "heading": "Pip and the Sunflower",
+        "text": "Pip and the Sunflower Page 3 4/7 Illustration 3 of 6 PAGE 3 Every day, Pip watered the spot. Robin sang a happy song. But nothing came up. Hear page Replay Read-aloud story",
+        "pageLabel": "Page 4 of 7",
+        "image": {
+          "src": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+          "complete": true,
+          "naturalWidth": 2218,
+          "naturalHeight": 1664
+        },
+        "audio": {
+          "src": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+          "readyState": 4,
+          "duration": 6.64,
+          "paused": true,
+          "currentTime": 0,
+          "error": null
+        },
+        "buttons": [
+          "Back to storybooks",
+          "Turn sound off",
+          "Back to learning world",
+          "Play narration",
+          "Replay",
+          "Previous page",
+          "Next page"
+        ]
+      },
+      "page1": "Page 4 of 7",
+      "page2": "Page 5 of 7",
+      "urlsBefore": {
+        "created": [
+          {
+            "url": "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+            "type": "audio/mpeg",
+            "bytes": 286345
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+            "type": "image/jpeg",
+            "bytes": 387476
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+            "type": "audio/mpeg",
+            "bytes": 106204
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+            "type": "image/jpeg",
+            "bytes": 396652
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+            "type": "audio/mpeg",
+            "bytes": 99517
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+            "type": "image/jpeg",
+            "bytes": 422786
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+            "type": "image/jpeg",
+            "bytes": 386992
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+            "type": "audio/mpeg",
+            "bytes": 103278
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+            "type": "image/jpeg",
+            "bytes": 395759
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+            "type": "audio/mpeg",
+            "bytes": 97009
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+            "type": "image/jpeg",
+            "bytes": 450643
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+            "type": "audio/mpeg",
+            "bytes": 286345
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+            "type": "image/jpeg",
+            "bytes": 387476
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+            "type": "audio/mpeg",
+            "bytes": 106204
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+            "type": "image/jpeg",
+            "bytes": 387476
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+            "type": "audio/mpeg",
+            "bytes": 106204
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+            "type": "image/jpeg",
+            "bytes": 396652
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+            "type": "audio/mpeg",
+            "bytes": 99517
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+            "type": "application/json",
+            "bytes": 4981420
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+            "type": "image/jpeg",
+            "bytes": 396652
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+            "type": "audio/mpeg",
+            "bytes": 99517
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+            "type": "image/jpeg",
+            "bytes": 396652
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+            "type": "audio/mpeg",
+            "bytes": 99517
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+            "type": "image/jpeg",
+            "bytes": 422786
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+            "type": "application/json",
+            "bytes": 4981420
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+            "type": "image/jpeg",
+            "bytes": 381687
+          }
+        ],
+        "revoked": [
+          "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+          "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+          "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+          "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+          "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+          "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+          "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+          "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+          "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+          "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+          "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+          "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+          "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+          "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+          "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+          "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+          "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+          "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+          "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+          "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+          "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+          "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+          "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+          "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+          "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+          "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+          "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+          "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+          "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+          "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+          "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+          "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+          "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+          "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+          "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+          "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+          "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b"
+        ]
+      },
+      "urlsAfterPage1": {
+        "state": {
+          "created": [
+            {
+              "url": "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+              "type": "image/jpeg",
+              "bytes": 386992
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+              "type": "audio/mpeg",
+              "bytes": 103278
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+              "type": "image/jpeg",
+              "bytes": 395759
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+              "type": "audio/mpeg",
+              "bytes": 97009
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+              "type": "image/jpeg",
+              "bytes": 450643
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+              "type": "application/json",
+              "bytes": 4981420
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+              "type": "application/json",
+              "bytes": 4981420
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            }
+          ],
+          "revoked": [
+            "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+            "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+            "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+            "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+            "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+            "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+            "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+            "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+            "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+            "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+            "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+            "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+            "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+            "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+            "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+            "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+            "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+            "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+            "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+            "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+            "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+            "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+            "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+            "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+            "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+            "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+            "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+            "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+            "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+            "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+            "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+            "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+            "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+            "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+            "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+            "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+            "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+            "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31"
+          ]
+        },
+        "live": [
+          {
+            "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+            "type": "image/jpeg",
+            "bytes": 422786
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          }
+        ]
+      },
+      "urlsAfterRetry": {
+        "state": {
+          "created": [
+            {
+              "url": "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+              "type": "image/jpeg",
+              "bytes": 386992
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+              "type": "audio/mpeg",
+              "bytes": 103278
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+              "type": "image/jpeg",
+              "bytes": 395759
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+              "type": "audio/mpeg",
+              "bytes": 97009
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+              "type": "image/jpeg",
+              "bytes": 450643
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+              "type": "application/json",
+              "bytes": 4981420
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+              "type": "application/json",
+              "bytes": 4981420
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a3589877-d412-4560-a6d9-227b5322916e",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            }
+          ],
+          "revoked": [
+            "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+            "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+            "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+            "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+            "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+            "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+            "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+            "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+            "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+            "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+            "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+            "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+            "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+            "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+            "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+            "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+            "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+            "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+            "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+            "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+            "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+            "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+            "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+            "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+            "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+            "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+            "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+            "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+            "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+            "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+            "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+            "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+            "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+            "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+            "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+            "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+            "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+            "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+            "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+            "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801"
+          ]
+        },
+        "live": [
+          {
+            "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/a3589877-d412-4560-a6d9-227b5322916e",
+            "type": "image/jpeg",
+            "bytes": 422786
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          }
+        ]
+      },
+      "urlsAfterPage2": {
+        "state": {
+          "created": [
+            {
+              "url": "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+              "type": "image/jpeg",
+              "bytes": 386992
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+              "type": "audio/mpeg",
+              "bytes": 103278
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+              "type": "image/jpeg",
+              "bytes": 395759
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+              "type": "audio/mpeg",
+              "bytes": 97009
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+              "type": "image/jpeg",
+              "bytes": 450643
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+              "type": "application/json",
+              "bytes": 4981420
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+              "type": "application/json",
+              "bytes": 4981420
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a3589877-d412-4560-a6d9-227b5322916e",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/942fbe2e-563f-413d-8041-3a1de6645fd7",
+              "type": "image/jpeg",
+              "bytes": 386992
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a74f97ee-522c-4239-8383-5e5197cf9436",
+              "type": "audio/mpeg",
+              "bytes": 103278
+            }
+          ],
+          "revoked": [
+            "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+            "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+            "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+            "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+            "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+            "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+            "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+            "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+            "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+            "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+            "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+            "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+            "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+            "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+            "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+            "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+            "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+            "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+            "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+            "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+            "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+            "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+            "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+            "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+            "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+            "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+            "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+            "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+            "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+            "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+            "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+            "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+            "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+            "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+            "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+            "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+            "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+            "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+            "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+            "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801"
+          ]
+        },
+        "live": [
+          {
+            "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+            "type": "image/jpeg",
+            "bytes": 381687
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/a3589877-d412-4560-a6d9-227b5322916e",
+            "type": "image/jpeg",
+            "bytes": 422786
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+            "type": "audio/mpeg",
+            "bytes": 107458
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/942fbe2e-563f-413d-8041-3a1de6645fd7",
+            "type": "image/jpeg",
+            "bytes": 386992
+          },
+          {
+            "url": "blob:https://dinospace.netlify.app/a74f97ee-522c-4239-8383-5e5197cf9436",
+            "type": "audio/mpeg",
+            "bytes": 103278
+          }
+        ]
+      },
+      "urlsAfterLeave": {
+        "state": {
+          "created": [
+            {
+              "url": "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+              "type": "image/jpeg",
+              "bytes": 386992
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+              "type": "audio/mpeg",
+              "bytes": 103278
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+              "type": "image/jpeg",
+              "bytes": 395759
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+              "type": "audio/mpeg",
+              "bytes": 97009
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+              "type": "image/jpeg",
+              "bytes": 450643
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+              "type": "audio/mpeg",
+              "bytes": 286345
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+              "type": "image/jpeg",
+              "bytes": 387476
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+              "type": "audio/mpeg",
+              "bytes": 106204
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+              "type": "application/json",
+              "bytes": 4981420
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+              "type": "image/jpeg",
+              "bytes": 396652
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+              "type": "audio/mpeg",
+              "bytes": 99517
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+              "type": "application/json",
+              "bytes": 4981420
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+              "type": "image/jpeg",
+              "bytes": 381687
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a3589877-d412-4560-a6d9-227b5322916e",
+              "type": "image/jpeg",
+              "bytes": 422786
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+              "type": "audio/mpeg",
+              "bytes": 107458
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/942fbe2e-563f-413d-8041-3a1de6645fd7",
+              "type": "image/jpeg",
+              "bytes": 386992
+            },
+            {
+              "url": "blob:https://dinospace.netlify.app/a74f97ee-522c-4239-8383-5e5197cf9436",
+              "type": "audio/mpeg",
+              "bytes": 103278
+            }
+          ],
+          "revoked": [
+            "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+            "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+            "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+            "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+            "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+            "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+            "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+            "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+            "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+            "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+            "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+            "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+            "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+            "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+            "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+            "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+            "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+            "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+            "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+            "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+            "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+            "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+            "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+            "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+            "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+            "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+            "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+            "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+            "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+            "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+            "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+            "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+            "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+            "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+            "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+            "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+            "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+            "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+            "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+            "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+            "blob:https://dinospace.netlify.app/a3589877-d412-4560-a6d9-227b5322916e",
+            "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+            "blob:https://dinospace.netlify.app/942fbe2e-563f-413d-8041-3a1de6645fd7",
+            "blob:https://dinospace.netlify.app/a74f97ee-522c-4239-8383-5e5197cf9436"
+          ]
+        },
+        "live": [
+          {
+            "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+            "type": "image/jpeg",
+            "bytes": 381687
+          }
+        ]
+      },
+      "exportSummary": {
+        "format": "amari-storybooks",
+        "version": 1,
+        "bytes": 4981420,
+        "sha256": "35f3729236a65c634458ed3da3d135c5ebeb1782037555b04a6b6114a89a6cfa",
+        "bookCount": 1,
+        "bookIds": [
+          "custom-7c480b44-19db-4096-a32e-df95001e7ba6"
+        ],
+        "pipBookId": "custom-7c480b44-19db-4096-a32e-df95001e7ba6",
+        "pipPages": 6,
+        "pipAssetRefCount": 14,
+        "pipAssetCount": 14,
+        "missingPipKeys": [],
+        "downloadURLRevoked": true
+      }
+    }
+  ],
+  "failures": [],
+  "initial": {
+    "identity": {
+      "url": "https://dinospace.netlify.app/?qa_spelling=1793255896445-1440-844#/play/storybooks",
+      "entry": "/assets/arcade-EBto46V3.js",
+      "namespace": true,
+      "actualViewport": {
+        "width": 390,
+        "height": 740
+      }
+    },
+    "inventory": {
+      "kind": "library-inventory",
+      "text": "8 stories in this library 7 included · My stories (1) saved in this browser My stories (1) Included (7) Showing 1–8 of 8 matching stories",
+      "visibleCardCount": 8,
+      "cards": [
+        {
+          "title": "Rex and the Missing Moon Map",
+          "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+          "cover": [
+            {
+              "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+              "complete": true,
+              "naturalWidth": 1600,
+              "naturalHeight": 1201
+            }
+          ],
+          "buttons": [
+            "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+            "Rex and the Missing Moon Map",
+            "Add favourite",
+            "Read story: Rex and the Missing Moon Map"
+          ],
+          "buttonCount": 4
+        },
+        {
+          "title": "Luna and the Whispering Forest",
+          "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+          "cover": [
+            {
+              "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+              "complete": true,
+              "naturalWidth": 1600,
+              "naturalHeight": 1201
+            }
+          ],
+          "buttons": [
+            "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+            "Luna and the Whispering Forest",
+            "Add favourite",
+            "Read story: Luna and the Whispering Forest"
+          ],
+          "buttonCount": 4
+        },
+        {
+          "title": "Nia’s Great River Journey",
+          "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+          "cover": [
+            {
+              "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+              "complete": true,
+              "naturalWidth": 1600,
+              "naturalHeight": 1201
+            }
+          ],
+          "buttons": [
+            "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+            "Nia’s Great River Journey",
+            "Add favourite",
+            "Read story: Nia’s Great River Journey"
+          ],
+          "buttonCount": 4
+        },
+        {
+          "title": "Bo and the Busy Bee Garden",
+          "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+          "cover": [
+            {
+              "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+              "complete": true,
+              "naturalWidth": 1600,
+              "naturalHeight": 1201
+            }
+          ],
+          "buttons": [
+            "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+            "Bo and the Busy Bee Garden",
+            "Add favourite",
+            "Read story: Bo and the Busy Bee Garden"
+          ],
+          "buttonCount": 4
+        },
+        {
+          "title": "Sami and the Night-Light Parade",
+          "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+          "cover": [
+            {
+              "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+              "complete": true,
+              "naturalWidth": 1600,
+              "naturalHeight": 1201
+            }
+          ],
+          "buttons": [
+            "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+            "Sami and the Night-Light Parade",
+            "Add favourite",
+            "Read story: Sami and the Night-Light Parade"
+          ],
+          "buttonCount": 4
+        },
+        {
+          "title": "Mina’s Mountain Seed",
+          "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+          "cover": [
+            {
+              "src": "https://dinospace.netlify.app/storybooks/mina-mountain-seed/cover.webp",
+              "complete": true,
+              "naturalWidth": 1600,
+              "naturalHeight": 1201
+            }
+          ],
+          "buttons": [
+            "Open Mina’s Mountain Seed, painted-2d, ages 5-6",
+            "Mina’s Mountain Seed",
+            "Add favourite",
+            "Read story: Mina’s Mountain Seed"
+          ],
+          "buttonCount": 4
+        },
+        {
+          "title": "Kai and the Lost Library Book",
+          "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+          "cover": [
+            {
+              "src": "https://dinospace.netlify.app/storybooks/kai-lost-library-book/cover.webp",
+              "complete": true,
+              "naturalWidth": 1600,
+              "naturalHeight": 1201
+            }
+          ],
+          "buttons": [
+            "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+            "Kai and the Lost Library Book",
+            "Add favourite",
+            "Read story: Kai and the Lost Library Book"
+          ],
+          "buttonCount": 4
+        },
+        {
+          "title": null,
+          "titleHash": "5a93e192e406714599167895667a1816eb186068ad2c47308538997fd0b002c4",
+          "cover": [
+            {
+              "src": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+              "complete": true,
+              "naturalWidth": 2218,
+              "naturalHeight": 1664
+            }
+          ],
+          "buttonCount": 4
+        }
+      ]
+    },
+    "visibleCardCount": 8,
+    "storage": {
+      "available": true,
+      "localKeys": [
+        {
+          "key": "qa_rewards_20261024_amari_rewards_v2",
+          "bytes": 2133,
+          "sha256": "1875752bd87109552907d5c0263cf7adeaaef9f0cba5a8e9ba34fe6c3d7fbb2c"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+          "bytes": 2469,
+          "sha256": "0754f736d3d7492656bfc78ce333f4fc3e6b9c76081e9c53ed8c7df42dbbc5e6"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_askia_rewards_v2",
+          "bytes": 501,
+          "sha256": "79f7018c20699be997095397010042e9f170c30ce1157358d5402f55b0df5bbe"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        }
+      ],
+      "stores": {
+        "books": 1,
+        "assets": 14,
+        "profiles": 1,
+        "series": 0
+      }
+    },
+    "originalStorage": {
+      "available": true,
+      "localKeys": [
+        {
+          "key": "qa_rewards_20261024_amari_rewards_v2",
+          "bytes": 2133,
+          "sha256": "1875752bd87109552907d5c0263cf7adeaaef9f0cba5a8e9ba34fe6c3d7fbb2c"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+          "bytes": 2469,
+          "sha256": "0754f736d3d7492656bfc78ce333f4fc3e6b9c76081e9c53ed8c7df42dbbc5e6"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_askia_rewards_v2",
+          "bytes": 501,
+          "sha256": "79f7018c20699be997095397010042e9f170c30ce1157358d5402f55b0df5bbe"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        }
+      ],
+      "stores": {
+        "books": 1,
+        "assets": 14,
+        "profiles": 1,
+        "series": 0
+      }
+    },
+    "progress": {
+      "available": true,
+      "rows": [
+        {
+          "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+          "slug": "rex-missing-moon-map",
+          "rowHash": "8718f05afd9d3527c61a9b8edecd87e77a5f518330ab0b9fd05ca58f39285d60"
+        },
+        {
+          "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+          "slug": "luna-whispering-forest",
+          "rowHash": "0056c2b64b700fb0f61875855d1430ee088fa0d3d838abcfef82956bb275abbd"
+        },
+        {
+          "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+          "slug": "nia-great-river-journey",
+          "rowHash": "baec20014897a145db3007968fc10685396e898b4b6217ebb55732c657e1ad14"
+        },
+        {
+          "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+          "slug": "bo-busy-bee-garden",
+          "rowHash": "a55d5805fa56a06d86e483ceefa95ed47d5a83666e684b382bcebdf5c2991776"
+        },
+        {
+          "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+          "slug": "sami-night-light-parade",
+          "rowHash": "5f83df7a443e87630324e8a628cc14ae9ac9319b1a54171b9dd22c2d8b5beb26"
+        },
+        {
+          "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+          "slug": "mina-mountain-seed",
+          "rowHash": "1277a3410e38ad9fded6ccf8a9bef41ea1b06f840affb30ae007c1f83b330364"
+        },
+        {
+          "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+          "slug": "kai-lost-library-book",
+          "rowHash": "84365ada3b64bf8a1d7f9272bccab610e68ee4f644d172bfccb2fb7265bee3c8"
+        },
+        {
+          "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+          "slug": "custom-7c480b44-19db-4096-a32e-df95001e7ba6",
+          "rowHash": "7a2fd1818fb8d263e681f12c5657c1b7d6ec32dda345643b7ac02f9ec2db5e5d"
+        }
+      ],
+      "rawHash": "0754f736d3d7492656bfc78ce333f4fc3e6b9c76081e9c53ed8c7df42dbbc5e6"
+    },
+    "rewards": {
+      "rawHash": "1875752bd87109552907d5c0263cf7adeaaef9f0cba5a8e9ba34fe6c3d7fbb2c",
+      "points": 349,
+      "storybooksGames": 7,
+      "storybookClaims": {
+        "storybooks:storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8": 1,
+        "storybooks:storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00": 1,
+        "storybooks:storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324": 1,
+        "storybooks:storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28": 1,
+        "storybooks:storybook-amari-sami-night-light-parade-275033aa-b11b-4374-b1d3-b52f2c8bc662": 1,
+        "storybooks:storybook-amari-mina-mountain-seed-286c94f5-90f2-47a6-921a-0357e078c971": 1,
+        "storybooks:storybook-amari-kai-lost-library-book-d8a296d9-0105-42f1-bb98-cbe98f2ad395": 1
+      },
+      "nonStoryClaimsHash": "56ebec02e1a5f55da4fdbae483e3118eb051529a63eaf0c1b2244ef527ae9775"
+    }
+  },
+  "final": {
+    "endedAt": "2026-10-29T07:03:41.671Z",
+    "finalStorage": {
+      "available": true,
+      "localKeys": [
+        {
+          "key": "qa_rewards_20261024_amari_rewards_v2",
+          "bytes": 2133,
+          "sha256": "1875752bd87109552907d5c0263cf7adeaaef9f0cba5a8e9ba34fe6c3d7fbb2c"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+          "bytes": 2469,
+          "sha256": "99a46c7690e40ae10a83351298d54d5c8aee2bcdfd0a832f2a9db6230728cec9"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        },
+        {
+          "key": "qa_rewards_20261024_askia_rewards_v2",
+          "bytes": 501,
+          "sha256": "79f7018c20699be997095397010042e9f170c30ce1157358d5402f55b0df5bbe"
+        },
+        {
+          "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "bytes": 1,
+          "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+        }
+      ],
+      "stores": {
+        "books": 1,
+        "assets": 14,
+        "profiles": 1,
+        "series": 0
+      }
+    },
+    "errors": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedResponses": [],
+      "failedRequests": [],
+      "intentionalRevocationAborts": [],
+      "unclassifiedFailedRequests": [],
+      "providerRequests": []
+    },
+    "mediaHealth": {
+      "activeMedia": [
+        {
+          "tag": "img",
+          "url": "https://dinospace.netlify.app/models/solar-v1/saturn.png",
+          "complete": true,
+          "naturalWidth": 320
+        },
+        {
+          "tag": "img",
+          "url": "https://dinospace.netlify.app/assets/amari-astronaut-robot-Dj0NBZLZ.png",
+          "complete": true,
+          "naturalWidth": 1254
+        },
+        {
+          "tag": "img",
+          "url": "https://dinospace.netlify.app/art/storybook-v4/reading-crew.webp",
+          "complete": true,
+          "naturalWidth": 600
+        },
+        {
+          "tag": "img",
+          "url": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+          "complete": true,
+          "naturalWidth": 1600
+        },
+        {
+          "tag": "img",
+          "url": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+          "complete": true,
+          "naturalWidth": 1600
+        },
+        {
+          "tag": "img",
+          "url": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+          "complete": true,
+          "naturalWidth": 1600
+        },
+        {
+          "tag": "img",
+          "url": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+          "complete": true,
+          "naturalWidth": 1600
+        },
+        {
+          "tag": "img",
+          "url": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+          "complete": true,
+          "naturalWidth": 1600
+        },
+        {
+          "tag": "img",
+          "url": "https://dinospace.netlify.app/storybooks/mina-mountain-seed/cover.webp",
+          "complete": true,
+          "naturalWidth": 1600
+        },
+        {
+          "tag": "img",
+          "url": "https://dinospace.netlify.app/storybooks/kai-lost-library-book/cover.webp",
+          "complete": true,
+          "naturalWidth": 1600
+        },
+        {
+          "tag": "img",
+          "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+          "complete": true,
+          "naturalWidth": 2218
+        }
+      ],
+      "brokenImages": [],
+      "brokenMedia": []
+    },
+    "mediaRequests": [],
+    "mediaEvents": [
+      {
+        "type": "playing",
+        "src": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+        "time": 0,
+        "duration": 6.64,
+        "muted": false,
+        "volume": 1
+      },
+      {
+        "type": "timeupdate",
+        "src": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+        "time": 0,
+        "duration": 6.64,
+        "muted": false,
+        "volume": 1
+      },
+      {
+        "type": "pause",
+        "src": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+        "time": 0,
+        "duration": 6.64,
+        "muted": false,
+        "volume": 1
+      },
+      {
+        "type": "timeupdate",
+        "src": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+        "time": 0,
+        "duration": 6.64,
+        "muted": false,
+        "volume": 1
+      },
+      {
+        "type": "playing",
+        "src": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+        "time": 0,
+        "duration": 6.64,
+        "muted": false,
+        "volume": 1
+      }
+    ],
+    "objectURLs": {
+      "created": [
+        {
+          "url": "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+          "type": "audio/mpeg",
+          "bytes": 286345
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+          "type": "image/jpeg",
+          "bytes": 387476
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+          "type": "audio/mpeg",
+          "bytes": 106204
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+          "type": "image/jpeg",
+          "bytes": 396652
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+          "type": "audio/mpeg",
+          "bytes": 99517
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+          "type": "image/jpeg",
+          "bytes": 422786
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+          "type": "audio/mpeg",
+          "bytes": 107458
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+          "type": "image/jpeg",
+          "bytes": 386992
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+          "type": "audio/mpeg",
+          "bytes": 103278
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+          "type": "image/jpeg",
+          "bytes": 395759
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+          "type": "audio/mpeg",
+          "bytes": 97009
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+          "type": "image/jpeg",
+          "bytes": 450643
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+          "type": "audio/mpeg",
+          "bytes": 107458
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+          "type": "audio/mpeg",
+          "bytes": 286345
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+          "type": "image/jpeg",
+          "bytes": 387476
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+          "type": "audio/mpeg",
+          "bytes": 106204
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+          "type": "image/jpeg",
+          "bytes": 387476
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+          "type": "audio/mpeg",
+          "bytes": 106204
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+          "type": "image/jpeg",
+          "bytes": 396652
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+          "type": "audio/mpeg",
+          "bytes": 99517
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+          "type": "application/json",
+          "bytes": 4981420
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+          "type": "image/jpeg",
+          "bytes": 396652
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+          "type": "audio/mpeg",
+          "bytes": 99517
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+          "type": "image/jpeg",
+          "bytes": 396652
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+          "type": "audio/mpeg",
+          "bytes": 99517
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+          "type": "image/jpeg",
+          "bytes": 422786
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+          "type": "audio/mpeg",
+          "bytes": 107458
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+          "type": "application/json",
+          "bytes": 4981420
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+          "type": "image/jpeg",
+          "bytes": 381687
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+          "type": "image/jpeg",
+          "bytes": 422786
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+          "type": "audio/mpeg",
+          "bytes": 107458
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a3589877-d412-4560-a6d9-227b5322916e",
+          "type": "image/jpeg",
+          "bytes": 422786
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+          "type": "audio/mpeg",
+          "bytes": 107458
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/942fbe2e-563f-413d-8041-3a1de6645fd7",
+          "type": "image/jpeg",
+          "bytes": 386992
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a74f97ee-522c-4239-8383-5e5197cf9436",
+          "type": "audio/mpeg",
+          "bytes": 103278
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d6e081f7-334b-4981-8e45-9b8191f4ab80",
+          "type": "application/json",
+          "bytes": 4981420
+        }
+      ],
+      "revoked": [
+        "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+        "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+        "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+        "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+        "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+        "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+        "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+        "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+        "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+        "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+        "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+        "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+        "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+        "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+        "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+        "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+        "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+        "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+        "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+        "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+        "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+        "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+        "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+        "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+        "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+        "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+        "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+        "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+        "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+        "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+        "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+        "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+        "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+        "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+        "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+        "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+        "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+        "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+        "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+        "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+        "blob:https://dinospace.netlify.app/a3589877-d412-4560-a6d9-227b5322916e",
+        "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+        "blob:https://dinospace.netlify.app/942fbe2e-563f-413d-8041-3a1de6645fd7",
+        "blob:https://dinospace.netlify.app/a74f97ee-522c-4239-8383-5e5197cf9436",
+        "blob:https://dinospace.netlify.app/d6e081f7-334b-4981-8e45-9b8191f4ab80"
+      ]
+    },
+    "objectURLTimeline": {
+      "created": [
+        {
+          "url": "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257306319
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+          "type": "audio/mpeg",
+          "bytes": 286345,
+          "atMs": 1793257306319
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+          "type": "image/jpeg",
+          "bytes": 387476,
+          "atMs": 1793257306319
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+          "type": "audio/mpeg",
+          "bytes": 106204,
+          "atMs": 1793257306321
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+          "type": "image/jpeg",
+          "bytes": 396652,
+          "atMs": 1793257306321
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+          "type": "audio/mpeg",
+          "bytes": 99517,
+          "atMs": 1793257306323
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+          "type": "image/jpeg",
+          "bytes": 422786,
+          "atMs": 1793257306324
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+          "type": "audio/mpeg",
+          "bytes": 107458,
+          "atMs": 1793257306325
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+          "type": "image/jpeg",
+          "bytes": 386992,
+          "atMs": 1793257306325
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+          "type": "audio/mpeg",
+          "bytes": 103278,
+          "atMs": 1793257306325
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+          "type": "image/jpeg",
+          "bytes": 395759,
+          "atMs": 1793257306326
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+          "type": "audio/mpeg",
+          "bytes": 97009,
+          "atMs": 1793257306326
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+          "type": "image/jpeg",
+          "bytes": 450643,
+          "atMs": 1793257306327
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+          "type": "audio/mpeg",
+          "bytes": 107458,
+          "atMs": 1793257306327
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257306341
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257380348
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257381266
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257381829
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+          "type": "audio/mpeg",
+          "bytes": 286345,
+          "atMs": 1793257382285
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+          "type": "image/jpeg",
+          "bytes": 387476,
+          "atMs": 1793257382613
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+          "type": "audio/mpeg",
+          "bytes": 106204,
+          "atMs": 1793257382613
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+          "type": "image/jpeg",
+          "bytes": 387476,
+          "atMs": 1793257382942
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+          "type": "audio/mpeg",
+          "bytes": 106204,
+          "atMs": 1793257382942
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+          "type": "image/jpeg",
+          "bytes": 396652,
+          "atMs": 1793257383596
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+          "type": "audio/mpeg",
+          "bytes": 99517,
+          "atMs": 1793257383596
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+          "type": "application/json",
+          "bytes": 4981420,
+          "atMs": 1793257384681
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257403547
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257404606
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257405182
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+          "type": "image/jpeg",
+          "bytes": 396652,
+          "atMs": 1793257405478
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+          "type": "audio/mpeg",
+          "bytes": 99517,
+          "atMs": 1793257405478
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+          "type": "image/jpeg",
+          "bytes": 396652,
+          "atMs": 1793257405929
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+          "type": "audio/mpeg",
+          "bytes": 99517,
+          "atMs": 1793257405929
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+          "type": "image/jpeg",
+          "bytes": 422786,
+          "atMs": 1793257406510
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+          "type": "audio/mpeg",
+          "bytes": 107458,
+          "atMs": 1793257406510
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+          "type": "application/json",
+          "bytes": 4981420,
+          "atMs": 1793257407624
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257416078
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257418188
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/067661c0-6330-4a00-a0b0-9a471e067a79",
+          "type": "image/jpeg",
+          "bytes": 381687,
+          "atMs": 1793257418795
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+          "type": "image/jpeg",
+          "bytes": 422786,
+          "atMs": 1793257418978
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+          "type": "audio/mpeg",
+          "bytes": 107458,
+          "atMs": 1793257418979
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a3589877-d412-4560-a6d9-227b5322916e",
+          "type": "image/jpeg",
+          "bytes": 422786,
+          "atMs": 1793257419178
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+          "type": "audio/mpeg",
+          "bytes": 107458,
+          "atMs": 1793257419178
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/942fbe2e-563f-413d-8041-3a1de6645fd7",
+          "type": "image/jpeg",
+          "bytes": 386992,
+          "atMs": 1793257419712
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a74f97ee-522c-4239-8383-5e5197cf9436",
+          "type": "audio/mpeg",
+          "bytes": 103278,
+          "atMs": 1793257419712
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d6e081f7-334b-4981-8e45-9b8191f4ab80",
+          "type": "application/json",
+          "bytes": 4981420,
+          "atMs": 1793257420514
+        }
+      ],
+      "revoked": [
+        {
+          "url": "blob:https://dinospace.netlify.app/981279b8-974e-4922-8c81-4df0d802811d",
+          "atMs": 1793257306321
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/08377002-ff07-40ec-b317-1cc137994419",
+          "atMs": 1793257306321
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/e682b771-2fae-44d3-ae58-e428e4a08694",
+          "atMs": 1793257306323
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/be6ed245-e578-43fe-8a16-1159ada34345",
+          "atMs": 1793257306324
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/2a9e45d7-c419-4e7f-adec-ec0ebc880721",
+          "atMs": 1793257306324
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/009254b1-798d-432b-8536-5f4d32337ee3",
+          "atMs": 1793257306325
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6c0c8fba-dfa8-4a67-b87a-654f7e39d267",
+          "atMs": 1793257306325
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6ad3e881-3787-4054-b302-7fcb001f27a5",
+          "atMs": 1793257306325
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/cdbde20a-a7cc-45c4-b91c-c34c1beabe27",
+          "atMs": 1793257306326
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d6eee726-18cf-43a0-879e-8a4a5cd5e190",
+          "atMs": 1793257306327
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/ead36410-4a78-4234-81e7-65849bed3335",
+          "atMs": 1793257306327
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/ce668d11-0d07-47ce-bfcc-813e02b20627",
+          "atMs": 1793257306328
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/9c4fcee8-7f7b-4707-9e0f-dd6e09dd9477",
+          "atMs": 1793257306329
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a91ed2a9-a9b0-41b6-8c6d-465fe34289b4",
+          "atMs": 1793257306330
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/99d409e9-2bea-45ef-bfcf-71ddcde4d4d1",
+          "atMs": 1793257380051
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/93e831d8-57cb-41ae-85a6-06b015b952d4",
+          "atMs": 1793257380931
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/0ff5c0b2-3ea8-499c-94da-e042902109c5",
+          "atMs": 1793257381813
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/27c30d04-04e5-44f0-90d2-7fc1f4a28b99",
+          "atMs": 1793257382888
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/96beab47-e99a-4b80-aa2f-dfeecd2769ef",
+          "atMs": 1793257382888
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d71339f6-0d9d-459f-afcd-982b0b909ba7",
+          "atMs": 1793257383581
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/8a902b7b-be6f-443f-bc82-c39a4c15a591",
+          "atMs": 1793257383890
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/26edf410-1b24-409a-8cf9-d802a07d2b72",
+          "atMs": 1793257383890
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/9f63a2de-f1e2-43a6-9bb7-69531b9daec3",
+          "atMs": 1793257383890
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/183dffdc-5659-4a57-a2f8-01a89e4c548e",
+          "atMs": 1793257383890
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/23d5ed6a-4885-4df8-acba-acc79883ef52",
+          "atMs": 1793257385684
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d30298e2-f88b-4a2e-a6d9-e8d81e420430",
+          "atMs": 1793257403266
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/43471d14-98f3-471c-a029-1f38105f29a2",
+          "atMs": 1793257404265
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a1896c98-f4e1-4d1a-b3a2-2e502897467a",
+          "atMs": 1793257405151
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/65de441b-02eb-4338-ade8-f215807b93e0",
+          "atMs": 1793257405917
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6caffac3-f722-46c2-b0db-1dbd97bf4e0f",
+          "atMs": 1793257405917
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/7c2d2286-397c-431b-a175-3a6a77810858",
+          "atMs": 1793257406795
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/f2b272bc-b10f-478f-bdab-0b87550a0e29",
+          "atMs": 1793257406795
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/b03f3f61-4832-4f34-a2da-81792dae4c5e",
+          "atMs": 1793257406795
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/25bd42ca-29eb-4f90-968c-829a84d2ed52",
+          "atMs": 1793257406795
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/0f56a9b5-9321-4c45-ab12-0d5825ee1010",
+          "atMs": 1793257408626
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+          "atMs": 1793257415783
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/6af83389-c8f8-4701-b3b0-3c3f54a20b4b",
+          "atMs": 1793257417046
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+          "atMs": 1793257418779
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+          "atMs": 1793257419163
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+          "atMs": 1793257419163
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a3589877-d412-4560-a6d9-227b5322916e",
+          "atMs": 1793257419885
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/665bf8d3-2c26-4e42-8239-6baa1a165b54",
+          "atMs": 1793257419885
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/942fbe2e-563f-413d-8041-3a1de6645fd7",
+          "atMs": 1793257419885
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/a74f97ee-522c-4239-8383-5e5197cf9436",
+          "atMs": 1793257419885
+        },
+        {
+          "url": "blob:https://dinospace.netlify.app/d6e081f7-334b-4981-8e45-9b8191f4ab80",
+          "atMs": 1793257421515
+        }
+      ]
+    },
+    "rows": [
+      {
+        "kind": "library-inventory",
+        "text": "8 stories in this library 7 included · My stories (1) saved in this browser My stories (1) Included (7) Showing 1–8 of 8 matching stories",
+        "visibleCardCount": 8,
+        "cards": [
+          {
+            "title": "Rex and the Missing Moon Map",
+            "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+              "Rex and the Missing Moon Map",
+              "Add favourite",
+              "Read story: Rex and the Missing Moon Map",
+              "New story with Moon Explorers"
+            ],
+            "buttonCount": 5
+          },
+          {
+            "title": "Luna and the Whispering Forest",
+            "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+              "Luna and the Whispering Forest",
+              "Add favourite",
+              "Read story: Luna and the Whispering Forest",
+              "New story with Forest Friends"
+            ],
+            "buttonCount": 5
+          },
+          {
+            "title": "Nia’s Great River Journey",
+            "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+              "Nia’s Great River Journey",
+              "Add favourite",
+              "Read story: Nia’s Great River Journey",
+              "New story with River Keepers"
+            ],
+            "buttonCount": 5
+          },
+          {
+            "title": "Bo and the Busy Bee Garden",
+            "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+              "Bo and the Busy Bee Garden",
+              "Add favourite",
+              "Read story: Bo and the Busy Bee Garden",
+              "New story with Garden Discoveries"
+            ],
+            "buttonCount": 5
+          },
+          {
+            "title": "Sami and the Night-Light Parade",
+            "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+              "Sami and the Night-Light Parade",
+              "Add favourite",
+              "Read story: Sami and the Night-Light Parade",
+              "New story with Gentle Evenings"
+            ],
+            "buttonCount": 5
+          },
+          {
+            "title": "Mina’s Mountain Seed",
+            "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/mina-mountain-seed/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Mina’s Mountain Seed, painted-2d, ages 5-6",
+              "Mina’s Mountain Seed",
+              "Add favourite",
+              "Read story: Mina’s Mountain Seed",
+              "New story with Mountain Seed Stories"
+            ],
+            "buttonCount": 5
+          },
+          {
+            "title": "Kai and the Lost Library Book",
+            "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/kai-lost-library-book/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+              "Kai and the Lost Library Book",
+              "Add favourite",
+              "Read story: Kai and the Lost Library Book",
+              "New story with Neighbourhood Clues"
+            ],
+            "buttonCount": 5
+          },
+          {
+            "title": null,
+            "titleHash": "5a93e192e406714599167895667a1816eb186068ad2c47308538997fd0b002c4",
+            "cover": [
+              {
+                "src": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+                "complete": true,
+                "naturalWidth": 2218,
+                "naturalHeight": 1664
+              }
+            ],
+            "buttonCount": 4
+          }
+        ]
+      },
+      {
+        "kind": "control-geometry",
+        "label": "collapse parent tools before library controls",
+        "rect": {
+          "x": 219.65625,
+          "y": 304,
+          "right": 370,
+          "bottom": 352,
+          "width": 150.34375,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "library-inventory",
+        "text": "8 stories in this library 7 included · My stories (1) saved in this browser My stories (1) Included (7) Showing 1–8 of 8 matching stories",
+        "visibleCardCount": 8,
+        "cards": [
+          {
+            "title": "Rex and the Missing Moon Map",
+            "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+              "Rex and the Missing Moon Map",
+              "Add favourite",
+              "Read story: Rex and the Missing Moon Map"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Luna and the Whispering Forest",
+            "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+              "Luna and the Whispering Forest",
+              "Add favourite",
+              "Read story: Luna and the Whispering Forest"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Nia’s Great River Journey",
+            "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+              "Nia’s Great River Journey",
+              "Add favourite",
+              "Read story: Nia’s Great River Journey"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Bo and the Busy Bee Garden",
+            "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+              "Bo and the Busy Bee Garden",
+              "Add favourite",
+              "Read story: Bo and the Busy Bee Garden"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Sami and the Night-Light Parade",
+            "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+              "Sami and the Night-Light Parade",
+              "Add favourite",
+              "Read story: Sami and the Night-Light Parade"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Mina’s Mountain Seed",
+            "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/mina-mountain-seed/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Mina’s Mountain Seed, painted-2d, ages 5-6",
+              "Mina’s Mountain Seed",
+              "Add favourite",
+              "Read story: Mina’s Mountain Seed"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Kai and the Lost Library Book",
+            "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/kai-lost-library-book/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+              "Kai and the Lost Library Book",
+              "Add favourite",
+              "Read story: Kai and the Lost Library Book"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": null,
+            "titleHash": "5a93e192e406714599167895667a1816eb186068ad2c47308538997fd0b002c4",
+            "cover": [
+              {
+                "src": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+                "complete": true,
+                "naturalWidth": 2218,
+                "naturalHeight": 1664
+              }
+            ],
+            "buttonCount": 4
+          }
+        ]
+      },
+      {
+        "kind": "control-geometry",
+        "label": "reset library to all included and saved stories",
+        "rect": {
+          "x": 168.34375,
+          "y": 219,
+          "right": 280.984375,
+          "bottom": 267,
+          "width": 112.640625,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "story search",
+        "rect": {
+          "x": 33,
+          "y": 513,
+          "right": 357,
+          "bottom": 561,
+          "width": 324,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "library-inventory",
+        "text": "8 stories in this library 7 included · My stories (1) saved in this browser My stories (1) Included (7) Showing 1–8 of 8 matching stories",
+        "visibleCardCount": 8,
+        "cards": [
+          {
+            "title": "Rex and the Missing Moon Map",
+            "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+              "Rex and the Missing Moon Map",
+              "Add favourite",
+              "Read story: Rex and the Missing Moon Map"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Luna and the Whispering Forest",
+            "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+              "Luna and the Whispering Forest",
+              "Add favourite",
+              "Read story: Luna and the Whispering Forest"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Nia’s Great River Journey",
+            "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+              "Nia’s Great River Journey",
+              "Add favourite",
+              "Read story: Nia’s Great River Journey"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Bo and the Busy Bee Garden",
+            "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+              "Bo and the Busy Bee Garden",
+              "Add favourite",
+              "Read story: Bo and the Busy Bee Garden"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Sami and the Night-Light Parade",
+            "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+              "Sami and the Night-Light Parade",
+              "Add favourite",
+              "Read story: Sami and the Night-Light Parade"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Mina’s Mountain Seed",
+            "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/mina-mountain-seed/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Mina’s Mountain Seed, painted-2d, ages 5-6",
+              "Mina’s Mountain Seed",
+              "Add favourite",
+              "Read story: Mina’s Mountain Seed"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Kai and the Lost Library Book",
+            "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/kai-lost-library-book/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+              "Kai and the Lost Library Book",
+              "Add favourite",
+              "Read story: Kai and the Lost Library Book"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": null,
+            "titleHash": "5a93e192e406714599167895667a1816eb186068ad2c47308538997fd0b002c4",
+            "cover": [
+              {
+                "src": "blob:https://dinospace.netlify.app/53760373-00bf-4fc3-a523-0014a75e507d",
+                "complete": true,
+                "naturalWidth": 2218,
+                "naturalHeight": 1664
+              }
+            ],
+            "buttonCount": 4
+          }
+        ]
+      },
+      {
+        "kind": "control-geometry",
+        "label": "reading profile selector",
+        "rect": {
+          "x": 203.203125,
+          "y": 377,
+          "right": 321.203125,
+          "bottom": 425,
+          "width": 118,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "story search",
+        "rect": {
+          "x": 33,
+          "y": 513,
+          "right": 357,
+          "bottom": 561,
+          "width": 324,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "story search",
+        "rect": {
+          "x": 33,
+          "y": 513,
+          "right": 357,
+          "bottom": 561,
+          "width": 324,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "leave Storybook Studio",
+        "rect": {
+          "x": 20,
+          "y": 78,
+          "right": 68,
+          "bottom": 126,
+          "width": 48,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "confirm leaving Storybook for the learning world",
+        "rect": {
+          "x": 214.65623474121094,
+          "y": 356.2406311035156,
+          "right": 293.2811584472656,
+          "bottom": 434.8655700683594,
+          "width": 78.62492370605469,
+          "height": 78.62493896484375
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "reopen Storybook Studio",
+        "rect": {
+          "x": 12,
+          "y": 370,
+          "right": 378,
+          "bottom": 700,
+          "width": 366,
+          "height": 330
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "library-inventory",
+        "text": "8 stories in this library 7 included · My stories (1) saved in this browser My stories (1) Included (7) Showing 1–8 of 8 matching stories",
+        "visibleCardCount": 8,
+        "cards": [
+          {
+            "title": "Rex and the Missing Moon Map",
+            "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+              "Rex and the Missing Moon Map",
+              "Add favourite",
+              "Read story: Rex and the Missing Moon Map"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Luna and the Whispering Forest",
+            "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+              "Luna and the Whispering Forest",
+              "Add favourite",
+              "Read story: Luna and the Whispering Forest"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Nia’s Great River Journey",
+            "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+              "Nia’s Great River Journey",
+              "Add favourite",
+              "Read story: Nia’s Great River Journey"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Bo and the Busy Bee Garden",
+            "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+              "Bo and the Busy Bee Garden",
+              "Add favourite",
+              "Read story: Bo and the Busy Bee Garden"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Sami and the Night-Light Parade",
+            "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+              "Sami and the Night-Light Parade",
+              "Add favourite",
+              "Read story: Sami and the Night-Light Parade"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Mina’s Mountain Seed",
+            "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/mina-mountain-seed/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Mina’s Mountain Seed, painted-2d, ages 5-6",
+              "Mina’s Mountain Seed",
+              "Add favourite",
+              "Read story: Mina’s Mountain Seed"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Kai and the Lost Library Book",
+            "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/kai-lost-library-book/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+              "Kai and the Lost Library Book",
+              "Add favourite",
+              "Read story: Kai and the Lost Library Book"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": null,
+            "titleHash": "5a93e192e406714599167895667a1816eb186068ad2c47308538997fd0b002c4",
+            "cover": [
+              {
+                "src": "blob:https://dinospace.netlify.app/bbec9a7b-5e9f-41b6-9fae-89a35990cc31",
+                "complete": true,
+                "naturalWidth": 2218,
+                "naturalHeight": 1664
+              }
+            ],
+            "buttonCount": 4
+          }
+        ]
+      },
+      {
+        "kind": "control-geometry",
+        "label": "story search",
+        "rect": {
+          "x": 33,
+          "y": 513,
+          "right": 357,
+          "bottom": 561,
+          "width": 324,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "retry stored Pip cover after bounded decode-error event",
+        "rect": {
+          "x": 161,
+          "y": 514,
+          "right": 252.4375,
+          "bottom": 562,
+          "width": 91.4375,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "open approved Pip QA story",
+        "rect": {
+          "x": 145,
+          "y": 603,
+          "right": 293.296875,
+          "bottom": 651,
+          "width": 148.296875,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "reader-screen",
+        "heading": "Pip and the Sunflower",
+        "text": "Pip and the Sunflower Page 3 4/7 Illustration 3 of 6 PAGE 3 Every day, Pip watered the spot. Robin sang a happy song. But nothing came up. Hear page Replay Read-aloud story",
+        "pageLabel": "Page 4 of 7",
+        "image": {
+          "src": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+          "complete": true,
+          "naturalWidth": 2218,
+          "naturalHeight": 1664
+        },
+        "audio": {
+          "src": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+          "readyState": 4,
+          "duration": 6.64,
+          "paused": true,
+          "currentTime": 0,
+          "error": null
+        },
+        "buttons": [
+          "Back to storybooks",
+          "Turn sound off",
+          "Back to learning world",
+          "Play narration",
+          "Replay",
+          "Previous page",
+          "Next page"
+        ]
+      },
+      {
+        "kind": "reader-screen",
+        "heading": "Pip and the Sunflower",
+        "text": "Pip and the Sunflower Page 3 4/7 Illustration 3 of 6 PAGE 3 Every day, Pip watered the spot. Robin sang a happy song. But nothing came up. Hear page Replay Read-aloud story",
+        "pageLabel": "Page 4 of 7",
+        "image": {
+          "src": "blob:https://dinospace.netlify.app/39a3a19a-811b-441d-b487-26c70a0a7914",
+          "complete": true,
+          "naturalWidth": 2218,
+          "naturalHeight": 1664
+        },
+        "audio": {
+          "src": "blob:https://dinospace.netlify.app/a0bce95c-5a32-48c0-8eee-67b161a49801",
+          "readyState": 4,
+          "duration": 6.64,
+          "paused": true,
+          "currentTime": 0,
+          "error": null
+        },
+        "buttons": [
+          "Back to storybooks",
+          "Turn sound off",
+          "Back to learning world",
+          "Play narration",
+          "Replay",
+          "Previous page",
+          "Next page"
+        ]
+      },
+      {
+        "kind": "control-geometry",
+        "label": "retry stored Pip media after bounded decode-error event",
+        "rect": {
+          "x": 193.9375,
+          "y": 371.1875,
+          "right": 343.265625,
+          "bottom": 419.1875,
+          "width": 149.328125,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "narration control",
+        "rect": {
+          "x": 30,
+          "y": 456.484375,
+          "right": 168.59375,
+          "bottom": 506.484375,
+          "width": 138.59375,
+          "height": 50
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "pause Pip page narration",
+        "rect": {
+          "x": 30,
+          "y": 456.484375,
+          "right": 135.421875,
+          "bottom": 506.484375,
+          "width": 105.421875,
+          "height": 50
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "advance Pip reader",
+        "rect": {
+          "x": 316,
+          "y": 670,
+          "right": 374,
+          "bottom": 720,
+          "width": 58,
+          "height": 50
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "reader-screen",
+        "heading": "Pip and the Sunflower",
+        "text": "Pip and the Sunflower Page 4 5/7 Illustration 4 of 6 PAGE 4 Pip felt sad. 'Where is our flower?' Robin said, 'Be patient, little friend.' Pause Replay Read-aloud story",
+        "pageLabel": "Page 5 of 7",
+        "image": {
+          "src": "blob:https://dinospace.netlify.app/942fbe2e-563f-413d-8041-3a1de6645fd7",
+          "complete": true,
+          "naturalWidth": 2218,
+          "naturalHeight": 1664
+        },
+        "audio": {
+          "src": "blob:https://dinospace.netlify.app/a74f97ee-522c-4239-8383-5e5197cf9436",
+          "readyState": 4,
+          "duration": 6.4,
+          "paused": false,
+          "currentTime": 0.029321,
+          "error": null
+        },
+        "buttons": [
+          "Back to storybooks",
+          "Turn sound off",
+          "Back to learning world",
+          "Pause narration",
+          "Replay",
+          "Previous page",
+          "Next page"
+        ]
+      },
+      {
+        "kind": "control-geometry",
+        "label": "leave Pip reader",
+        "rect": {
+          "x": 16,
+          "y": 74,
+          "right": 64,
+          "bottom": 122,
+          "width": 48,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "story search",
+        "rect": {
+          "x": 33,
+          "y": 513,
+          "right": 357,
+          "bottom": 561,
+          "width": 324,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "open parent tools for backup export verification",
+        "rect": {
+          "x": 254.609375,
+          "y": 304,
+          "right": 370,
+          "bottom": 352,
+          "width": 115.390625,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      },
+      {
+        "kind": "control-geometry",
+        "label": "export approved synthetic Pip story backup",
+        "rect": {
+          "x": 33,
+          "y": 346,
+          "right": 208.53125,
+          "bottom": 394,
+          "width": 175.53125,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "wholeRectVisible": true,
+        "centerHit": true
+      }
+    ]
+  },
+  "passed": true,
+  "stage": "production",
+  "mode": "continuation-restored",
+  "entryIdentity": "/assets/arcade-EBto46V3.js",
+  "capabilityPreflight": {
+    "url": "https://dinospace.netlify.app/?qa_spelling=1793255896445-1440-844#/play/storybooks",
+    "buffer": "function",
+    "cryptoSubtle": true
+  },
+  "cliReturnCode": 0
+}

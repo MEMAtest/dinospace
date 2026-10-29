@@ -1,0 +1,193 @@
+{
+  "passed": false,
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "entryIdentity": "/assets/arcade-DWkzBb0x.js",
+  "namespaceVerified": true,
+  "completedLevelRuns": [],
+  "responses": 0,
+  "baselineHashes": {
+    "legacy": {
+      "present": true,
+      "bytes": 103,
+      "sha256": "c2684a690fa4f84abfc809845f6579be1ce0868f5cdd1eee0354d961722d78a0"
+    },
+    "words": {
+      "present": true,
+      "bytes": 17,
+      "sha256": "398b676e47d03a29016ee92fe378b8b4f1b3e965390c4c64ce78d27f79df74d1"
+    },
+    "spelling": {
+      "present": true,
+      "bytes": 104,
+      "sha256": "b9211150ba7a105225e8666b0d7d280049bb0f22548110c81ef5dd52493fe6c4"
+    },
+    "rewards": {
+      "present": true,
+      "bytes": 105,
+      "sha256": "d9cdc6122e22eac52950a9e5a16d7ce4ceb81bbdd0f808c9f0cfb7e8bd78422e"
+    },
+    "writing": {
+      "present": true,
+      "bytes": 17,
+      "sha256": "398b676e47d03a29016ee92fe378b8b4f1b3e965390c4c64ce78d27f79df74d1"
+    },
+    "recent": {
+      "present": true,
+      "bytes": 103,
+      "sha256": "0dccf7a8fd559ecd935419288cbc9fe6f812c693c86178980cd508517e54a4d6"
+    },
+    "diagnostics": {
+      "present": true,
+      "bytes": 106,
+      "sha256": "d5453ad49f906de43d51c1aed8b275af1fdab3e82fe9cbf79fa36bb4661ad97f"
+    },
+    "lifecycle": {
+      "present": true,
+      "bytes": 106,
+      "sha256": "ef0ef00c87d17a09dd5ca4c4f1df00e77a5ec25deecef90d7666373b302669d7"
+    },
+    "learningAttempts": {
+      "present": true,
+      "bytes": 107,
+      "sha256": "ea45070c6c0d55b694ce7edcf0ed620113df064c535ea2fef2e73995884f267c"
+    },
+    "ownLittle": {
+      "present": true,
+      "bytes": 105,
+      "sha256": "5490f0a28dc8f6fd1b2819ef4c2155817f2a2020d4f5397f099d1da79e60afda"
+    },
+    "siblingLittle": {
+      "present": true,
+      "bytes": 105,
+      "sha256": "c8184ac0aba8eeb42c8278fb8ee14df748b61afafe5a60b1bb89d9993a017693"
+    },
+    "siblingWords": {
+      "present": true,
+      "bytes": 17,
+      "sha256": "398b676e47d03a29016ee92fe378b8b4f1b3e965390c4c64ce78d27f79df74d1"
+    },
+    "siblingRewards": {
+      "present": true,
+      "bytes": 104,
+      "sha256": "aebde4b948e48c226d0476fc010924603658064c501771bc408b3a9387fe262e"
+    }
+  },
+  "rows": [
+    {
+      "kind": "baseline",
+      "entryIdentity": "/assets/arcade-DWkzBb0x.js",
+      "wordsProgressStatus": "fresh-or-legacy",
+      "legacyRewardThrough": -1,
+      "oldBest": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "plannedPoints": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "expectedDelta": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "positiveParentFaultLevel": 1
+    },
+    {
+      "kind": "control-geometry",
+      "label": "start level 1",
+      "rect": {
+        "x": 139,
+        "y": 427,
+        "right": 251,
+        "bottom": 539,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "rect": {
+        "x": 139,
+        "y": 427,
+        "right": 251,
+        "bottom": 539,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "optional practice disclosure",
+      "rect": {
+        "x": 35,
+        "y": 644,
+        "right": 355,
+        "bottom": 692,
+        "width": 320,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "optional practice Tricky words",
+      "rect": {
+        "x": 35,
+        "y": 704,
+        "right": 165.8125,
+        "bottom": 748,
+        "width": 130.8125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": false
+    }
+  ],
+  "failureClass": "harness-policy; optional secondary control requires explicit scroll; no app failure or parent progress mutation",
+  "failures": [
+    {
+      "message": "optional practice Tricky words is outside the viewport or its center is covered: {\"kind\":\"control-geometry\",\"label\":\"optional practice Tricky words\",\"rect\":{\"x\":35,\"y\":704,\"right\":165.8125,\"bottom\":748,\"width\":130.8125,\"height\":44},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"inViewport\":false}",
+      "stack": "Error: optional practice Tricky words is outside the viewport or its center is covered: {\"kind\":\"control-geometry\",\"label\":\"optional practice Tricky words\",\"rect\":{\"x\":35,\"y\":704,\"right\":165.8125,\"bottom\":748,\"width\":130.8125,\"height\":44},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"inViewport\":false}\n    at measure (evalmachine.<anonymous>:100:60)\n    at async openOptional (evalmachine.<anonymous>:295:5)\n    at async runStage (evalmachine.<anonymous>:334:7)\n    at async evalmachine.<anonymous>:458:9\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)",
+      "completedLevelRuns": 0,
+      "rows": 5
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "reviewedAt": "2026-10-29",
+  "sourceCommit": "2c8209eba409ea03d1435fa7637d4a1c9b5693d7",
+  "scope": "Independent read-only review of Storybook IndexedDB storage/backup helpers and focused storage/backup tests. Studio integration is excluded. No tests, browser, build, deployment, install, or providers were used.",
+  "files": [
+    { "path": "src/data/storybookStorage.js", "sha256": "c3289d5dfd27240f3f42b0357cc25a94f6a68e59d2f9a515882387aea1d6adee" },
+    { "path": "src/data/storybookBackup.js", "sha256": "5412e78f45c6151fc5952678241eb7ee5198c8758e98cb940fc3d8d2bb13ad1b" },
+    { "path": "test/storybookStorage.test.mjs", "sha256": "de83e19e71737c64e82defc704c0c9ccdcfcf40bf1548906cd554ca6a71c9254" },
+    { "path": "test/storybookBackup.test.mjs", "sha256": "94b07b25ed895cabc7ebfad55bf2ed45af751dfa8a58a1f1aec7876d4321b242" },
+    { "path": "test/storybookInventory.test.mjs", "sha256": "285ecfb59324e6469aa8faead3b304108287ff777c6ef4bf7471d54986d4743d" }
+  ],
+  "blockers": [],
+  "historicalFindings": [
+    {
+      "id": "blocked-open-test-never-settles",
+      "status": "resolved by review delta",
+      "finding": "The prior source ignored onblocked, leaving the fake blocked-open test pending. The current source settles unavailable, clears the cached promise, and closes any late successful connection."
+    }
+  ],
+  "limitations": [
+    {
+      "id": "failed-profile-mirror-delete-can-resurrect-profile",
+      "locations": [
+        { "path": "src/data/storybookStorage.js", "lines": "199-213,227-235" }
+      ],
+      "finding": "The IDB profile deletion can commit and return true while its best-effort localStorage mirror update fails. If this removed the last IDB profile, the next compatibility `getChildProfiles()` call treats the empty store as first-run migration and recreates the stale profile from `amari_storybook_profiles_v1`. The new availability-aware inventory getter avoids that fallback when used; consider a durable migration-complete/tombstone marker so compatibility reads cannot resurrect an explicitly deleted profile after mirror failure."
+    }
+  ],
+  "reviewedBehaviors": "Writes settle on transaction completion/abort rather than request success; open failures invalidate the cached promise and versionchange closes/reopens the connection; v1 upgrade creates only missing stores; inventory APIs distinguish readable-empty from unavailable; profile/series saves return commit status and preserve unknown metadata; restore validates required custom-book assets before mutation, adds nonduplicate ids with books/assets in one transaction, and aborts as a unit; backup round-trip retains unknown progress metadata while filtering unsafe prototype keys.",
+  "acceptanceBoundary": "Source and test-definition review only. No test run or native IndexedDB proof was performed.",
+  "reviewDeltas": [
+    {
+      "reviewedAt": "2026-10-29",
+      "scope": "Recheck of blocked-open settlement and the focused blocked-retry test after a concurrent source update.",
+      "files": [
+        { "path": "src/data/storybookStorage.js", "sha256": "e6054abcbc9e46f7bacc46795d7c222fc5f1f7d96f5a0bcdb7ab463cb592fefb" },
+        { "path": "test/storybookStorage.test.mjs", "sha256": "9b985ab3b7cb69bf9a68fe8f67b42222736d99f6c9953a41da1f55dab96b1139" },
+        { "path": "src/data/storybookBackup.js", "sha256": "5412e78f45c6151fc5952678241eb7ee5198c8758e98cb940fc3d8d2bb13ad1b" },
+        { "path": "test/storybookBackup.test.mjs", "sha256": "94b07b25ed895cabc7ebfad55bf2ed45af751dfa8a58a1f1aec7876d4321b242" },
+        { "path": "test/storybookInventory.test.mjs", "sha256": "285ecfb59324e6469aa8faead3b304108287ff777c6ef4bf7471d54986d4743d" }
+      ],
+      "resolvedFinding": "blocked-open-test-never-settles",
+      "resolution": "Resolved in the current source: the first blocked event rejects the cached open attempt so inventory reports unavailable; the cache is cleared for a subsequent open; if the original request later succeeds, its late database connection is closed. This matches the fake's blocked-then-retry sequence.",
+      "blockedStatusLimitation": "Inventory callers receive the generic unavailable result; the API does not distinguish a blocked upgrade from other open failures or expose progress.",
+      "outstandingBlockers": [],
+      "acceptanceBoundary": "Source-only recheck; no tests or native IndexedDB run."
+    }
+  ]
+}

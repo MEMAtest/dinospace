@@ -6,7 +6,7 @@
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980",
+  "canonicalRelease": "c5e58259170045e51415b12c360efa05e60c7a4f",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1076,15 +1076,15 @@
   "publicUrl": "https://dinospace.netlify.app",
   "singlePublicSiteRelease": {
     "publicUrl": "https://dinospace.netlify.app",
-    "runtimeCommit": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980",
-    "runtimeDeployment": "dpl_3ezxU4YAvgvfXxgHxkx1z6xvfjDD",
-    "runtimeUrl": "https://dinospace-hlgopfy6d-memas-projects-23a0001d.vercel.app",
-    "netlifyDeploy": "6ae29019a3ef2b87889f7e27",
-    "cache": "v41",
-    "evidence": "docs/qa-evidence/rescue-pair-20261028/README.md",
+    "runtimeCommit": "c5e58259170045e51415b12c360efa05e60c7a4f",
+    "runtimeDeployment": "dpl_DND4didmjepBuX68w2hFikz2qyk9",
+    "runtimeUrl": "https://dinospace-ow24yqndj-memas-projects-23a0001d.vercel.app",
+    "netlifyDeploy": "6ae2e8f735f8990b8d2719cb",
+    "cache": "v44",
+    "evidence": "docs/qa-evidence/books-spelling-20261029/README.md",
     "oldPublicAlias": "Redirect-only root/index app entry; legacy API/static routes retained for installed clients",
-    "nativeCheck": "Final8canonical journeys passed;32level-runs,248fires and74rescues;28earlier protected hashes andbothchild sticker mirrors preserved",
-    "scope": "Targeted rescue functional acceptance; no new whole-catalogue editorial/listening score or historical family-story recovery."
+    "nativeCheck": "Full included reader/quiz and six-stage Spelling at390/1440; positive same-token retries, recovery and synthetic backup media retention passed",
+    "scope": "Targeted functional acceptance for Storybook Studio and Spelling Studio. Historical phone abort retained as unclassified, with exact-source clean targeted recovery on both viewports. No editorial/listening score or historical personal-book recovery."
   },
   "personalStoryRecovery": {
     "userConfirmedExpectedPersonalStories": [
@@ -1245,29 +1245,33 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": 7,
-    "runtime": "c2043b79699752727a33b458473557378b382242",
+    "pair": 8,
+    "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-m6m5qd3z8-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_CsK1oBbZoJW5Dn5WSVvChwSVzzsG",
-    "netlifyGatewayDeploy": "6ae2bf3d0e9ac4fec2a96773",
-    "serviceWorkerCache": "amari-discovery-v43",
+    "backendUrl": "https://dinospace-ow24yqndj-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_DND4didmjepBuX68w2hFikz2qyk9",
+    "netlifyGatewayDeploy": "6ae2e8f735f8990b8d2719cb",
+    "serviceWorkerCache": "amari-discovery-v44",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/dino-pair-20261029/README.md",
-    "scope": "Intentional public candidate; compiled6journeys passed. Canonical6journeys still required. No editorial scores changed.",
+    "evidence": "docs/qa-evidence/books-spelling-20261029/README.md",
     "sourceTests": {
-      "passed": 518,
+      "passed": 577,
       "skipped": 0
     },
     "editorialScoresChanged": false,
     "paidCalls": 0,
+    "scope": "Targeted functional acceptance for Storybook Studio and Spelling Studio. Historical phone abort retained as unclassified, with exact-source clean targeted recovery on both viewports. No editorial/listening score or historical personal-book recovery.",
+    "production": "docs/qa-evidence/books-spelling-20261029/production-summary.json",
+    "verifiedAt": "2026-10-29T07:07:16.903177+00:00",
     "functionalAcceptance": {
-      "nativeJourneys": 6,
-      "canonicalJourneys": 6,
-      "runsPerMatrix": 42,
-      "primaryResponsesPerMatrix": 210,
+      "storybookPagesPerViewport": 70,
+      "storybookQuestionsPerViewport": 21,
+      "spellingResponsesPerViewport": 31,
+      "replayResponsesPerViewport": 5,
+      "protectionPassed": true,
       "positiveRetryVerified": true,
-      "earlierProgressAndStickersRetained": true
+      "approvedQaBackupAssets": 14,
+      "personalBooksRecovered": 0
     }
   },
   "latestDinoHangmanUplift": {
@@ -1295,5 +1299,75 @@
       "positiveRetryVerified": true,
       "earlierProgressAndStickersRetained": true
     }
-  }
+  },
+  "activeDeliveryCandidate": {
+    "pair": 8,
+    "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+    "status": "native_acceptance_in_progress",
+    "evidence": "docs/qa-evidence/books-spelling-20261029/acceptance.md",
+    "newPaidGenerationRequests": 0,
+    "sourceTests": {
+      "passed": 577,
+      "skipped": 0
+    },
+    "moduleEntry": "/assets/arcade-EBto46V3.js"
+  },
+  "lastVerifiedDeliveryRelease": {
+    "pair": 8,
+    "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-ow24yqndj-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_DND4didmjepBuX68w2hFikz2qyk9",
+    "netlifyGatewayDeploy": "6ae2e8f735f8990b8d2719cb",
+    "serviceWorkerCache": "amari-discovery-v44",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/books-spelling-20261029/README.md",
+    "sourceTests": {
+      "passed": 577,
+      "skipped": 0
+    },
+    "editorialScoresChanged": false,
+    "paidCalls": 0,
+    "scope": "Targeted functional acceptance for Storybook Studio and Spelling Studio. Historical phone abort retained as unclassified, with exact-source clean targeted recovery on both viewports. No editorial/listening score or historical personal-book recovery.",
+    "production": "docs/qa-evidence/books-spelling-20261029/production-summary.json",
+    "verifiedAt": "2026-10-29T07:07:16.903177+00:00",
+    "functionalAcceptance": {
+      "storybookPagesPerViewport": 70,
+      "storybookQuestionsPerViewport": 21,
+      "spellingResponsesPerViewport": 31,
+      "replayResponsesPerViewport": 5,
+      "protectionPassed": true,
+      "positiveRetryVerified": true,
+      "approvedQaBackupAssets": 14,
+      "personalBooksRecovered": 0
+    }
+  },
+  "deliveryReleaseHistory": [
+    {
+      "pair": 7,
+      "runtime": "c2043b79699752727a33b458473557378b382242",
+      "publicUrl": "https://dinospace.netlify.app",
+      "backendUrl": "https://dinospace-m6m5qd3z8-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_CsK1oBbZoJW5Dn5WSVvChwSVzzsG",
+      "netlifyGatewayDeploy": "6ae2bf3d0e9ac4fec2a96773",
+      "serviceWorkerCache": "amari-discovery-v43",
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/dino-pair-20261029/README.md",
+      "scope": "Pair7 canonical6journeys and compiled6journeys passed; strict phone/desktop controls, positive retry, record/sticker retention verified. No editorial scores changed.",
+      "sourceTests": {
+        "passed": 518,
+        "skipped": 0
+      },
+      "editorialScoresChanged": false,
+      "paidCalls": 0,
+      "functionalAcceptance": {
+        "nativeJourneys": 6,
+        "canonicalJourneys": 6,
+        "runsPerMatrix": 42,
+        "primaryResponsesPerMatrix": 210,
+        "positiveRetryVerified": true,
+        "earlierProgressAndStickersRetained": true
+      }
+    }
+  ]
 }

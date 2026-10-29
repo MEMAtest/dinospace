@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "entryIdentity": "/assets/arcade-DWkzBb0x.js",
+  "namespaced": true,
+  "primaryGeometry": {
+    "viewport": {
+      "width": 390,
+      "height": 740,
+      "scrollY": 0
+    },
+    "stage": "Copy the word: 0 of 5 words",
+    "card": {
+      "x": 23,
+      "y": 238.4375,
+      "right": 367,
+      "bottom": 572,
+      "width": 344,
+      "height": 333.5625,
+      "centerHit": true,
+      "inViewport": true
+    },
+    "hear": {
+      "x": 167.34375,
+      "y": 277.625,
+      "right": 310.65625,
+      "bottom": 321.625,
+      "width": 143.3125,
+      "height": 44,
+      "centerHit": true,
+      "inViewport": true
+    },
+    "tileCount": 3,
+    "tiles": [
+      {
+        "label": "a",
+        "x": 123,
+        "y": 451,
+        "right": 167,
+        "bottom": 495,
+        "width": 44,
+        "height": 44,
+        "centerHit": true,
+        "inViewport": true
+      },
+      {
+        "label": "p",
+        "x": 173,
+        "y": 451,
+        "right": 217,
+        "bottom": 495,
+        "width": 44,
+        "height": 44,
+        "centerHit": true,
+        "inViewport": true
+      },
+      {
+        "label": "t",
+        "x": 223,
+        "y": 451,
+        "right": 267,
+        "bottom": 495,
+        "width": 44,
+        "height": 44,
+        "centerHit": true,
+        "inViewport": true
+      }
+    ],
+    "spaces": 3
+  }
+}

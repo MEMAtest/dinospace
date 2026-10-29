@@ -1,0 +1,1491 @@
+{
+  "passed": false,
+  "origin": "https://dinospace.netlify.app",
+  "expectedEntry": "/assets/arcade-EBto46V3.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "runMode": "full-resume",
+  "error": "TypeError: Object.has is not a function\n    at runStorybook (evalmachine.<anonymous>:1083:407)\n    at async evalmachine.<anonymous>:1284:14\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)\n    at async connection.onmessage (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:76275:29)",
+  "diagnostics": {
+    "errors": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedResponses": [],
+      "failedRequests": [],
+      "providerRequests": []
+    },
+    "mediaRequests": [
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-09.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-08.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-07.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-06.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-05.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-04.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-03.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-02.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-01.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-02.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-03.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-04.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-05.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-06.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-07.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-08.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-09.mp3",
+      "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-page-10.mp3",
+      "https://dinospace.netlify.app/audio/en/4b964577-matilda.mp3",
+      "https://dinospace.netlify.app/audio/en/781f8f82-matilda.mp3",
+      "https://dinospace.netlify.app/audio/en/fa8cc2f6-matilda.mp3"
+    ]
+  },
+  "partial": {
+    "origin": "https://dinospace.netlify.app",
+    "expectedEntry": "/assets/arcade-EBto46V3.js",
+    "viewport": {
+      "width": 390,
+      "height": 740
+    },
+    "playerId": "amari",
+    "runMode": "full-resume",
+    "books": [
+      {
+        "title": "Rex and the Missing Moon Map",
+        "slug": "rex-missing-moon-map",
+        "cover": {
+          "heading": "Rex and the Missing Moon Map",
+          "text": "Rex and the Missing Moon Map Cover 1/11 Tap to Start Reading A 10-PAGE ADVENTURE Rex, a cheerful young T-Rex astronaut, and his small robot friend Pip search the Moon for a lost star map. By sharing clues and working together, they find it and follow it home for a well-earned rest. Start Reading Auto-turn pages after narration",
+          "pageLabel": "Page 1 of 11",
+          "image": {
+            "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+            "complete": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201
+          },
+          "audio": {
+            "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/audio-cover.mp3",
+            "readyState": 4,
+            "duration": 2.24,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Start reading Rex and the Missing Moon Map",
+            "Start Reading",
+            "Auto-turn pages after narration",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        "pages": [
+          {
+            "pageIndex": 1,
+            "screenNo": 2,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-01.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-01.mp3",
+            "audioReadyState": 0,
+            "imageDimensions": [
+              1600,
+              1201
+            ],
+            "played": true
+          },
+          {
+            "pageIndex": 2,
+            "screenNo": 3,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-02.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-02.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1200
+            ]
+          },
+          {
+            "pageIndex": 3,
+            "screenNo": 4,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-03.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-03.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 4,
+            "screenNo": 5,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-04.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-04.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 5,
+            "screenNo": 6,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-05.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-05.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 6,
+            "screenNo": 7,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-06.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-06.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 7,
+            "screenNo": 8,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-07.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-07.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 8,
+            "screenNo": 9,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-08.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-08.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 9,
+            "screenNo": 10,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-09.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-09.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 10,
+            "screenNo": 11,
+            "imagePath": "/storybooks/rex-missing-moon-map/page-10.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/rex-missing-moon-map/audio-page-10.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          }
+        ],
+        "narrationStarted": true,
+        "resumeProved": true,
+        "questions": [
+          {
+            "questionIndex": 0,
+            "prompt": "What clue did Pip spot?",
+            "answer": "A sparkly corner by a crater",
+            "evidencePhrase": "sparkly corner",
+            "wrongHeld": true,
+            "explanationHash": "9a60a1a64c2d4bd763d7030716ceab6b66e2991ff0ca113d4b3ff02f3ff5e777",
+            "choices": [
+              "88a69b07edccffaa79e2167d4cf380f7a8d008a83bdc3eb5121e99de0e23fc06",
+              "97e8f0d7bd4f37b9ab9d0fadeaf278818db30157b4318cb964089fb347dfa8d8",
+              "3ebee308e6d4086f061a83bfbb3891f71ac4ff2a97b130a60fc5cd21009d4e87"
+            ]
+          },
+          {
+            "questionIndex": 1,
+            "prompt": "How did Rex and Pip get the map back?",
+            "answer": "They worked together",
+            "evidencePhrase": "caught the paper corner",
+            "wrongHeld": false,
+            "explanationHash": "3f220e0e85ea72271dd0c05fb333f40047b0bd0202b522f4bbafc5fe0a16f775",
+            "choices": [
+              "6355c4d093885f4588a5af4fbef7ff9ab78709c420433f43083b45f3a140483f",
+              "ad8250f99081dcf514e3ff4bdd5734f58d4763cd3e810e557e8db3827f3cf094",
+              "21fefaaf187bdfdcbb4df98e248cba8b56635ebfce7ad483ea1a3b830b3aa38a"
+            ]
+          },
+          {
+            "questionIndex": 2,
+            "prompt": "What had Rex lost?",
+            "answer": "His star map",
+            "evidencePhrase": "star map",
+            "wrongHeld": false,
+            "explanationHash": "587b554ea03a00cacdd01e0f993da13861339c2a12fe92d9897bd5d9a16d6aa3",
+            "choices": [
+              "1a93c055032cff82174971501d6304d2603e1a857914aa9933519e9658bb7211",
+              "0d77727c8debde3d144c17685924eb1eb06cf39de35cd4dfd16046fe98020493",
+              "a22a0ef38c673654b5b7e99876740ee68fde883055475fbbb2f2ccce3ab9fcf6"
+            ]
+          }
+        ],
+        "initialCompleted": false,
+        "parentFault": true,
+        "receipt": {
+          "id": "storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8",
+          "rewardPlayerId": "amari",
+          "points": 1
+        },
+        "rewardTokenClaimCount": 1,
+        "rewardPointsDelta": 1,
+        "rewardGamesDelta": 1
+      },
+      {
+        "title": "Luna and the Whispering Forest",
+        "slug": "luna-whispering-forest",
+        "cover": {
+          "heading": "Luna and the Whispering Forest",
+          "text": "Luna and the Whispering Forest Cover 1/11 Tap to Start Reading A 10-PAGE ADVENTURE Luna the fox hears a mysterious whisper in the woods. She meets Barnaby the badger and Pip the robin, and together they find a trapped wind sprite. By working as a team, they free it, and the sprite rewards them by making the whole forest bloom and glow. They return home tired but happy, having made the woods a better place. Start Reading Auto-turn pages after narration",
+          "pageLabel": "Page 1 of 11",
+          "image": {
+            "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+            "complete": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201
+          },
+          "audio": {
+            "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/audio-cover.mp3",
+            "readyState": 4,
+            "duration": 2.56,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Start reading Luna and the Whispering Forest",
+            "Start Reading",
+            "Auto-turn pages after narration",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        "pages": [
+          {
+            "pageIndex": 1,
+            "screenNo": 2,
+            "imagePath": "/storybooks/luna-whispering-forest/page-01.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/luna-whispering-forest/audio-page-01.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ],
+            "played": true
+          },
+          {
+            "pageIndex": 2,
+            "screenNo": 3,
+            "imagePath": "/storybooks/luna-whispering-forest/page-02.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/luna-whispering-forest/audio-page-02.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 3,
+            "screenNo": 4,
+            "imagePath": "/storybooks/luna-whispering-forest/page-03.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/luna-whispering-forest/audio-page-03.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 4,
+            "screenNo": 5,
+            "imagePath": "/storybooks/luna-whispering-forest/page-04.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/luna-whispering-forest/audio-page-04.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 5,
+            "screenNo": 6,
+            "imagePath": "/storybooks/luna-whispering-forest/page-05.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/luna-whispering-forest/audio-page-05.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 6,
+            "screenNo": 7,
+            "imagePath": "/storybooks/luna-whispering-forest/page-06.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/luna-whispering-forest/audio-page-06.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 7,
+            "screenNo": 8,
+            "imagePath": "/storybooks/luna-whispering-forest/page-07.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/luna-whispering-forest/audio-page-07.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 8,
+            "screenNo": 9,
+            "imagePath": "/storybooks/luna-whispering-forest/page-08.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/luna-whispering-forest/audio-page-08.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 9,
+            "screenNo": 10,
+            "imagePath": "/storybooks/luna-whispering-forest/page-09.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/luna-whispering-forest/audio-page-09.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 10,
+            "screenNo": 11,
+            "imagePath": "/storybooks/luna-whispering-forest/page-10.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/luna-whispering-forest/audio-page-10.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          }
+        ],
+        "narrationStarted": true,
+        "resumeProved": false,
+        "questions": [
+          {
+            "questionIndex": 0,
+            "prompt": "What happened after the friends freed the sprite?",
+            "answer": "Flowers bloomed and leaves shimmered",
+            "evidencePhrase": "flowers bloomed",
+            "wrongHeld": false,
+            "explanationHash": "93804f142d98efd4cd0ee5de704de3cc443efe3478cb0d21d651b68474bb1dca",
+            "choices": [
+              "ac38b86351afe1af7c089168c8399d221c28a459994718cc753ec1421c289601",
+              "01d263d52216cfb9bc1f0d6867489acca9dc42ea60410fe4c5762bcf13476ebf",
+              "fb44b1baaf27611f6a3c7d4342f6be1c3473d22734c679edaa989776a4f69c13"
+            ]
+          },
+          {
+            "questionIndex": 1,
+            "prompt": "Where did the whisper lead the friends?",
+            "answer": "An old hollow tree",
+            "evidencePhrase": "ancient hollow tree",
+            "wrongHeld": false,
+            "explanationHash": "fc2c31e7dd1a3a94ca83e302eba9c20b732e514bd39470b10381afb7b1c3207f",
+            "choices": [
+              "8b1a5835058678ce3ccf887f707ae7b36907474f7d7f3180455c74a41b7ffd86",
+              "6914de086f6b1b2df46ae53e55625cee5ade34e524dcb206ecb0d7d97840713d",
+              "8d7f7eb4a23981db4a7aa6decc6adf448ec714f816da90c33dab68b8406d0abd"
+            ]
+          },
+          {
+            "questionIndex": 2,
+            "prompt": "What had trapped the wind sprite?",
+            "answer": "A heavy branch",
+            "evidencePhrase": "heavy branch",
+            "wrongHeld": false,
+            "explanationHash": "b8daea2d514d90cdbad13d2eaf1a3adffabd8bb373bd5641f08a5af0b63d1dfc",
+            "choices": [
+              "aae12a49566d8c1aef012a209f10c86c69661dfa07beebecedbdc92c9072997c",
+              "ee4a3c4df217d3cc57ad8a925e03c2f280e01a805f3992cbbbc38231e1576f80",
+              "0b01a00f6cae834dec4abd7fda05a54a48e82ad0d2e7e2338a2ccd719a688153"
+            ]
+          }
+        ],
+        "initialCompleted": false,
+        "parentFault": false,
+        "receipt": {
+          "id": "storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00",
+          "rewardPlayerId": "amari",
+          "points": 1
+        },
+        "rewardTokenClaimCount": 1,
+        "rewardPointsDelta": 1,
+        "rewardGamesDelta": 1
+      },
+      {
+        "title": "Nia’s Great River Journey",
+        "slug": "nia-great-river-journey",
+        "cover": {
+          "heading": "Nia’s Great River Journey",
+          "text": "Nia’s Great River Journey Cover 1/11 Tap to Start Reading A 10-PAGE ADVENTURE Young elephant Nia travels with her herd along a winding river, meets hippos, kingfishers and buffalo, helps move litter to safety for park rangers, and learns that clean water keeps every living thing alive. Start Reading Auto-turn pages after narration",
+          "pageLabel": "Page 1 of 11",
+          "image": {
+            "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+            "complete": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201
+          },
+          "audio": {
+            "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/audio-cover.mp3",
+            "readyState": 4,
+            "duration": 1.92,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Start reading Nia’s Great River Journey",
+            "Start Reading",
+            "Auto-turn pages after narration",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        "pages": [
+          {
+            "pageIndex": 1,
+            "screenNo": 2,
+            "imagePath": "/storybooks/nia-great-river-journey/page-01.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/nia-great-river-journey/audio-page-01.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ],
+            "played": true
+          },
+          {
+            "pageIndex": 2,
+            "screenNo": 3,
+            "imagePath": "/storybooks/nia-great-river-journey/page-02.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/nia-great-river-journey/audio-page-02.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 3,
+            "screenNo": 4,
+            "imagePath": "/storybooks/nia-great-river-journey/page-03.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/nia-great-river-journey/audio-page-03.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 4,
+            "screenNo": 5,
+            "imagePath": "/storybooks/nia-great-river-journey/page-04.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/nia-great-river-journey/audio-page-04.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 5,
+            "screenNo": 6,
+            "imagePath": "/storybooks/nia-great-river-journey/page-05.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/nia-great-river-journey/audio-page-05.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 6,
+            "screenNo": 7,
+            "imagePath": "/storybooks/nia-great-river-journey/page-06.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/nia-great-river-journey/audio-page-06.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 7,
+            "screenNo": 8,
+            "imagePath": "/storybooks/nia-great-river-journey/page-07.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/nia-great-river-journey/audio-page-07.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 8,
+            "screenNo": 9,
+            "imagePath": "/storybooks/nia-great-river-journey/page-08.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/nia-great-river-journey/audio-page-08.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 9,
+            "screenNo": 10,
+            "imagePath": "/storybooks/nia-great-river-journey/page-09.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/nia-great-river-journey/audio-page-09.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 10,
+            "screenNo": 11,
+            "imagePath": "/storybooks/nia-great-river-journey/page-10.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/nia-great-river-journey/audio-page-10.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          }
+        ],
+        "narrationStarted": true,
+        "resumeProved": false,
+        "questions": [
+          {
+            "questionIndex": 0,
+            "prompt": "Who would collect the litter?",
+            "answer": "The park rangers",
+            "evidencePhrase": "park rangers",
+            "wrongHeld": false,
+            "explanationHash": "d0b1c8734ace61fea48914d99453403c2bd30792ccaa64d4fca893780f6d6f5e",
+            "choices": [
+              "3319484b39f25b63d373dfcf3205ba89939d6733b9e57460ed1dad671e264fac",
+              "b787abef201b2cbe0ca3672fa9af30f65cfd56e68b0d7c894c19d7d226bd089f",
+              "7bfb7b17ae73bfca8cd8d1ef1d834bdfad96fcedb098b85cf4a823758e04ea50"
+            ]
+          },
+          {
+            "questionIndex": 1,
+            "prompt": "Why did Nia want to keep the river clean?",
+            "answer": "Many animals need its water",
+            "evidencePhrase": "clean water keeps us all strong",
+            "wrongHeld": false,
+            "explanationHash": "b7c3310e9287b9e25f0c7e768fc17e478cfffbe8718b0db73d334e4d8fc9eced",
+            "choices": [
+              "7519abeba95f9b2bc47d8762abe8714b2de702332d742f6731852ee2d3a5d0db",
+              "b533737c5bf80195810d3686aee5cc1b60bf78cd21ba946d60ca1c661fa23d5a",
+              "553c22c28c58493ffc0b87ed2304fddbc3dc87ae014754153f08c92a4aba7349"
+            ]
+          },
+          {
+            "questionIndex": 2,
+            "prompt": "What litter did Nia find by the river?",
+            "answer": "An old sack and empty bottles",
+            "evidencePhrase": "old sack",
+            "wrongHeld": false,
+            "explanationHash": "e82b3f323e274df46bc8b85db4eeccedc89b2223cce760549c6c9e8b01112914",
+            "choices": [
+              "7c7a348f438881c5b6b11f9cdb895fc6830f063cea605213155abb80f37a738c",
+              "1a27b907969bb1aafea06943135cbd8ee3900bc947124a12d4cb81b7f0e1615b",
+              "231e68cc8a1b4d6538ec9b081c20d9de11077460d5ddf4afd6747ab5ff213f83"
+            ]
+          }
+        ],
+        "initialCompleted": false,
+        "parentFault": false,
+        "receipt": {
+          "id": "storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324",
+          "rewardPlayerId": "amari",
+          "points": 1
+        },
+        "rewardTokenClaimCount": 1,
+        "rewardPointsDelta": 1,
+        "rewardGamesDelta": 1
+      },
+      {
+        "title": "Bo and the Busy Bee Garden",
+        "slug": "bo-busy-bee-garden",
+        "cover": {
+          "heading": "Bo and the Busy Bee Garden",
+          "text": "Bo and the Busy Bee Garden Cover 1/11 Tap to Start Reading A 10-PAGE ADVENTURE Bo watches Bea the bee visit the flowering apple trees in Gran’s garden and learns how pollen can help some flowers grow into fruit. Start Reading Auto-turn pages after narration",
+          "pageLabel": "Page 1 of 11",
+          "image": {
+            "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+            "complete": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201
+          },
+          "audio": {
+            "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/audio-cover.mp3",
+            "readyState": 4,
+            "duration": 2.4,
+            "paused": true,
+            "currentTime": 0,
+            "error": null
+          },
+          "buttons": [
+            "Back to storybooks",
+            "Turn sound off",
+            "Back to learning world",
+            "Start reading Bo and the Busy Bee Garden",
+            "Start Reading",
+            "Auto-turn pages after narration",
+            "Previous page",
+            "Next page"
+          ]
+        },
+        "pages": [
+          {
+            "pageIndex": 1,
+            "screenNo": 2,
+            "imagePath": "/storybooks/bo-busy-bee-garden/page-01.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/bo-busy-bee-garden/audio-page-01.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ],
+            "played": true
+          },
+          {
+            "pageIndex": 2,
+            "screenNo": 3,
+            "imagePath": "/storybooks/bo-busy-bee-garden/page-02.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/bo-busy-bee-garden/audio-page-02.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 3,
+            "screenNo": 4,
+            "imagePath": "/storybooks/bo-busy-bee-garden/page-03.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/bo-busy-bee-garden/audio-page-03.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 4,
+            "screenNo": 5,
+            "imagePath": "/storybooks/bo-busy-bee-garden/page-04.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/bo-busy-bee-garden/audio-page-04.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 5,
+            "screenNo": 6,
+            "imagePath": "/storybooks/bo-busy-bee-garden/page-05.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/bo-busy-bee-garden/audio-page-05.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 6,
+            "screenNo": 7,
+            "imagePath": "/storybooks/bo-busy-bee-garden/page-06.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/bo-busy-bee-garden/audio-page-06.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 7,
+            "screenNo": 8,
+            "imagePath": "/storybooks/bo-busy-bee-garden/page-07.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/bo-busy-bee-garden/audio-page-07.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 8,
+            "screenNo": 9,
+            "imagePath": "/storybooks/bo-busy-bee-garden/page-08.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/bo-busy-bee-garden/audio-page-08.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 9,
+            "screenNo": 10,
+            "imagePath": "/storybooks/bo-busy-bee-garden/page-09.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/bo-busy-bee-garden/audio-page-09.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          },
+          {
+            "pageIndex": 10,
+            "screenNo": 11,
+            "imagePath": "/storybooks/bo-busy-bee-garden/page-10.webp",
+            "imageDecoded": true,
+            "audioPath": "/storybooks/bo-busy-bee-garden/audio-page-10.mp3",
+            "audioReadyState": 4,
+            "imageDimensions": [
+              1600,
+              1201
+            ]
+          }
+        ],
+        "narrationStarted": true,
+        "resumeProved": false,
+        "questions": [
+          {
+            "questionIndex": 0,
+            "prompt": "How did Bo stay safe while watching Bea?",
+            "answer": "Bo watched from the path",
+            "evidencePhrase": "watched from the path",
+            "wrongHeld": false,
+            "explanationHash": "008274e4811a54679f0de00b579650421b7d8665a2e8b356ab04dd565191cb7b",
+            "choices": [
+              "3d97177823a5e0ea6a39ee78dd04f82ea78132b2173eb675e717bcb6a11b66a7",
+              "63f7be0820c6c954af0c522c57fcfdf17a6320786575e728b67532fec64779bb",
+              "d86617118d95bb2c2516890c5d875e9d123bf075c233195953ed1c5fbef2d45a"
+            ]
+          },
+          {
+            "questionIndex": 1,
+            "prompt": "What sweet drink did Bea sip?",
+            "answer": "Nectar",
+            "evidencePhrase": "sipped nectar",
+            "wrongHeld": false,
+            "explanationHash": "cbc04da617da9d5052a86756dfb479d1e993813a2d1fd59faef29dd383e3e0c1",
+            "choices": [
+              "e6430d7988dcb69c79d2d9925ba9c9bfc9ab6e76d83905ac74947f1b99bd6b4f",
+              "596028019f8f2b357424d856c763520b29a37efc60280cc86bb85c945f4a7072",
+              "a308801ab8d269e4b7ced2526ebf9df7c2d857d0db4fa3ff6f8db376ac322ec5"
+            ]
+          },
+          {
+            "questionIndex": 2,
+            "prompt": "How can pollen help some flowers?",
+            "answer": "It can help fruit begin to grow",
+            "evidencePhrase": "make fruit",
+            "wrongHeld": false,
+            "explanationHash": "3ad657c56bdfabf2caaf226b4e3ba645041bb88783346ba01369602788234d3f",
+            "choices": [
+              "71c79775089e9eb9ad6426e25908528fddf305ff05b110fc5aba267d6aa75c7f",
+              "cab5e1867ed3e666261af9443a32811b6da19f0314e496870bca870dc43da811",
+              "2e63c70b637443e815d6cf538b66a6123904dba6ae4ab1d981b7ef3c5a308a0a"
+            ]
+          }
+        ],
+        "initialCompleted": false,
+        "parentFault": false,
+        "receipt": {
+          "id": "storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28",
+          "rewardPlayerId": "amari",
+          "points": 1
+        },
+        "rewardTokenClaimCount": 1,
+        "rewardPointsDelta": 1,
+        "rewardGamesDelta": 1
+      }
+    ],
+    "probes": [
+      {
+        "kind": "existing-reader-profile-switch",
+        "status": "unavailable",
+        "profileCount": 1,
+        "reason": "Only one existing reader profile is available; no profile was created."
+      },
+      {
+        "kind": "local-progress-fault-retry",
+        "status": "deferred",
+        "reason": "Already exercised at the phone viewport; desktop run concentrates on the full shelf and reader journey."
+      }
+    ],
+    "failures": [],
+    "initial": {
+      "identity": {
+        "url": "https://dinospace.netlify.app/?qa_spelling=1793255896445-1440-844#/play/storybooks",
+        "entry": "/assets/arcade-EBto46V3.js",
+        "namespace": true,
+        "actualViewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "inventory": {
+        "kind": "library-inventory",
+        "text": "7 stories in this library 7 included · My stories (0) saved in this browser My stories (0) Included (7) Showing 1–7 of 7 matching stories",
+        "visibleCardCount": 7,
+        "cards": [
+          {
+            "title": "Rex and the Missing Moon Map",
+            "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+              "Rex and the Missing Moon Map",
+              "Add favourite",
+              "Read story: Rex and the Missing Moon Map"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Luna and the Whispering Forest",
+            "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+              "Luna and the Whispering Forest",
+              "Add favourite",
+              "Read story: Luna and the Whispering Forest"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Nia’s Great River Journey",
+            "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+              "Nia’s Great River Journey",
+              "Add favourite",
+              "Read story: Nia’s Great River Journey"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Bo and the Busy Bee Garden",
+            "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+              "Bo and the Busy Bee Garden",
+              "Add favourite",
+              "Read story: Bo and the Busy Bee Garden"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Sami and the Night-Light Parade",
+            "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+              "Sami and the Night-Light Parade",
+              "Add favourite",
+              "Continue story: Sami and the Night-Light Parade"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Mina’s Mountain Seed",
+            "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/mina-mountain-seed/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Mina’s Mountain Seed, painted-2d, ages 5-6",
+              "Mina’s Mountain Seed",
+              "Add favourite",
+              "Read story: Mina’s Mountain Seed"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Kai and the Lost Library Book",
+            "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+            "cover": [
+              {
+                "src": "https://dinospace.netlify.app/storybooks/kai-lost-library-book/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+              "Kai and the Lost Library Book",
+              "Add favourite",
+              "Read story: Kai and the Lost Library Book"
+            ],
+            "buttonCount": 4
+          }
+        ]
+      },
+      "visibleCardCount": 7,
+      "storage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 1864,
+            "sha256": "74f6ccb84ba07846f7855a3c3ca6efdd9982034f64df271753af42aa79e8af33"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 1464,
+            "sha256": "731f08b600370fba0aea2ff4c9b3876644e4ce2227acf68d78d5ab029c9b4ff4"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 501,
+            "sha256": "79f7018c20699be997095397010042e9f170c30ce1157358d5402f55b0df5bbe"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          }
+        ],
+        "stores": {
+          "books": 0,
+          "assets": 0,
+          "profiles": 1,
+          "series": 0
+        }
+      },
+      "originalStorage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 1864,
+            "sha256": "74f6ccb84ba07846f7855a3c3ca6efdd9982034f64df271753af42aa79e8af33"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 1464,
+            "sha256": "731f08b600370fba0aea2ff4c9b3876644e4ce2227acf68d78d5ab029c9b4ff4"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 501,
+            "sha256": "79f7018c20699be997095397010042e9f170c30ce1157358d5402f55b0df5bbe"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          }
+        ],
+        "stores": {
+          "books": 0,
+          "assets": 0,
+          "profiles": 1,
+          "series": 0
+        }
+      },
+      "progress": {
+        "available": true,
+        "rows": [
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "rex-missing-moon-map",
+            "rowHash": "151c86901bd754ee172ebaac82e3e6acf34c0d34f6b3881abe14e2e44547024a"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "luna-whispering-forest",
+            "rowHash": "3ed9eacfe70e8e3e213263532cd6293902a0c97230454b4604a25c8e85ad32be"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "nia-great-river-journey",
+            "rowHash": "54c15544422ea28e9adb274243687d7b35bfbf0e5a7da01d1811510e302f4328"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "bo-busy-bee-garden",
+            "rowHash": "54b81182566361a101862663beb1365b2830954824662d064a21c0519c28956f"
+          },
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "sami-night-light-parade",
+            "rowHash": "eac454685755351f4d30ce6e081783f5485c5c59b8be6b35844ce72305592cb8"
+          }
+        ],
+        "rawHash": "731f08b600370fba0aea2ff4c9b3876644e4ce2227acf68d78d5ab029c9b4ff4"
+      },
+      "rewards": {
+        "rawHash": "74f6ccb84ba07846f7855a3c3ca6efdd9982034f64df271753af42aa79e8af33",
+        "points": 346,
+        "storybooksGames": 4,
+        "storybookClaims": {
+          "storybooks:storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8": 1,
+          "storybooks:storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00": 1,
+          "storybooks:storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324": 1,
+          "storybooks:storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28": 1
+        },
+        "nonStoryClaimsHash": "56ebec02e1a5f55da4fdbae483e3118eb051529a63eaf0c1b2244ef527ae9775"
+      }
+    },
+    "priorEvidence": {
+      "reportPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/books-spelling-20261029/production-storybook-full-390x740-arcade-EBto46V3-image-transition.json",
+      "inheritedCompletedSlugs": [
+        "rex-missing-moon-map",
+        "luna-whispering-forest",
+        "nia-great-river-journey",
+        "bo-busy-bee-garden"
+      ],
+      "inheritedPageCounts": [
+        {
+          "slug": "rex-missing-moon-map",
+          "count": 10
+        },
+        {
+          "slug": "luna-whispering-forest",
+          "count": 10
+        },
+        {
+          "slug": "nia-great-river-journey",
+          "count": 10
+        },
+        {
+          "slug": "bo-busy-bee-garden",
+          "count": 10
+        }
+      ],
+      "resumedBookSlug": "sami-night-light-parade",
+      "inheritedPageCount": 8,
+      "note": "Prior completed book rows and partial current-book rows are carried forward from this exact source-bound report; no app state was seeded or rewritten."
+    },
+    "currentBook": {
+      "title": "Sami and the Night-Light Parade",
+      "slug": "sami-night-light-parade",
+      "pages": [
+        {
+          "pageIndex": 1,
+          "screenNo": 2,
+          "imagePath": "/storybooks/sami-night-light-parade/page-01.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-01.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1201
+          ],
+          "played": true
+        },
+        {
+          "pageIndex": 2,
+          "screenNo": 3,
+          "imagePath": "/storybooks/sami-night-light-parade/page-02.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-02.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 3,
+          "screenNo": 4,
+          "imagePath": "/storybooks/sami-night-light-parade/page-03.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-03.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1202
+          ]
+        },
+        {
+          "pageIndex": 4,
+          "screenNo": 5,
+          "imagePath": "/storybooks/sami-night-light-parade/page-04.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-04.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1202
+          ]
+        },
+        {
+          "pageIndex": 5,
+          "screenNo": 6,
+          "imagePath": "/storybooks/sami-night-light-parade/page-05.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-05.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 6,
+          "screenNo": 7,
+          "imagePath": "/storybooks/sami-night-light-parade/page-06.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-06.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 7,
+          "screenNo": 8,
+          "imagePath": "/storybooks/sami-night-light-parade/page-07.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-07.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 8,
+          "screenNo": 9,
+          "imagePath": "/storybooks/sami-night-light-parade/page-08.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-08.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 9,
+          "screenNo": 10,
+          "imagePath": "/storybooks/sami-night-light-parade/page-09.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-09.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        },
+        {
+          "pageIndex": 10,
+          "screenNo": 11,
+          "imagePath": "/storybooks/sami-night-light-parade/page-10.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-10.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "questionIndex": 0,
+          "prompt": "What did Tavi do above the grass?",
+          "answer": "Blink a small light",
+          "evidencePhrase": "blink above the grass",
+          "wrongHeld": false,
+          "explanationHash": "9dbfa61c5ddd1a54e1232f9ddd99c340b0afe05c199a86edea8ffc0135ef49b7",
+          "choices": [
+            "5e22f1f8e6f47a1ac1155cd8dce594cd2a700bf0b24a2f238c4d98ce6d473b4f",
+            "805979c13205ced17f571eee142a1b2f21d796f85450dfac5dd20142100d5d26",
+            "0db66cb249c0e3b8070ebb4405bcda78bd46c9469440c80f4df2c1e48fbb18b3"
+          ]
+        },
+        {
+          "questionIndex": 1,
+          "prompt": "Why did Sami’s lantern grow dim?",
+          "answer": "A battery had slipped out of place",
+          "evidencePhrase": "battery had slipped out of place",
+          "wrongHeld": false,
+          "explanationHash": "0230b30cddf2258676c45ab0a85b6e1856509471e469003e1c1be45f70532e1a",
+          "choices": [
+            "515b7664da305ec296b459796b97fd42df89bea2914ba9f2e9063dc75cf1e435",
+            "6f9ba96d75fa6e9d6a3566e399af1667428ad9a5cba559b4cc91830ce302b361",
+            "9525da37ce50bc0ae4ae8a969f4f15ebb3181737a10f483b9576565a5affada3"
+          ]
+        },
+        {
+          "questionIndex": 2,
+          "prompt": "What order did Sami remember?",
+          "answer": "Sunset, lanterns, stars, bedtime",
+          "evidencePhrase": "sunset lanterns stars then bedtime",
+          "wrongHeld": false,
+          "explanationHash": "aaa1dd8812c0b44d9c518fa7b95c023b7be3ee0476b786117618fbaf5e043f72",
+          "choices": [
+            "5d6b7b683fafc6238a52b66e4953413da220e8154056166740e20b529523ade7",
+            "c5f88599a9f5d9b51ae4f9beac8a555d0f317f4d084030577980dfcc4c4aa2d4",
+            "bf75c7534c8a7a96e2a7d6564e24378bed1b33964177d3bd04b3e1a715fa925c"
+          ]
+        }
+      ],
+      "stage": "question-3",
+      "cover": {
+        "heading": "Sami and the Night-Light Parade",
+        "text": "Sami and the Night-Light Parade Cover 1/11 Tap to Start Reading A 10-PAGE ADVENTURE With Dad close by, Sami follows a family lantern parade and notices the changing sky, moving shadows and a blinking firefly. Start Reading Auto-turn pages after narration",
+        "pageLabel": "Page 1 of 11",
+        "image": {
+          "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+          "complete": true,
+          "naturalWidth": 1600,
+          "naturalHeight": 1201
+        },
+        "audio": {
+          "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/audio-cover.mp3",
+          "readyState": 4,
+          "duration": 2.24,
+          "paused": true,
+          "currentTime": 0,
+          "error": null
+        },
+        "buttons": [
+          "Back to storybooks",
+          "Turn sound off",
+          "Back to learning world",
+          "Start reading Sami and the Night-Light Parade",
+          "Start Reading",
+          "Auto-turn pages after narration",
+          "Previous page",
+          "Next page"
+        ]
+      },
+      "resumeSourceScan": [
+        {
+          "pageLabel": "Page 2 of 11",
+          "method": "visible Previous control"
+        },
+        {
+          "pageLabel": "Page 3 of 11",
+          "imagePath": "/storybooks/sami-night-light-parade/page-02.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-02.mp3",
+          "audioReadyState": 4
+        },
+        {
+          "pageLabel": "Page 4 of 11",
+          "imagePath": "/storybooks/sami-night-light-parade/page-03.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-03.mp3",
+          "audioReadyState": 4
+        },
+        {
+          "pageLabel": "Page 5 of 11",
+          "imagePath": "/storybooks/sami-night-light-parade/page-04.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-04.mp3",
+          "audioReadyState": 4
+        },
+        {
+          "pageLabel": "Page 6 of 11",
+          "imagePath": "/storybooks/sami-night-light-parade/page-05.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-05.mp3",
+          "audioReadyState": 4
+        },
+        {
+          "pageLabel": "Page 7 of 11",
+          "imagePath": "/storybooks/sami-night-light-parade/page-06.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-06.mp3",
+          "audioReadyState": 4
+        },
+        {
+          "pageLabel": "Page 8 of 11",
+          "imagePath": "/storybooks/sami-night-light-parade/page-07.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-07.mp3",
+          "audioReadyState": 4
+        },
+        {
+          "pageLabel": "Page 9 of 11",
+          "imagePath": "/storybooks/sami-night-light-parade/page-08.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-08.mp3",
+          "audioReadyState": 4
+        },
+        {
+          "pageLabel": "Page 10 of 11",
+          "imagePath": "/storybooks/sami-night-light-parade/page-09.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/sami-night-light-parade/audio-page-09.mp3",
+          "audioReadyState": 4
+        }
+      ]
+    }
+  },
+  "stage": "production",
+  "mode": "full-resume",
+  "entryIdentity": "/assets/arcade-EBto46V3.js",
+  "capabilityPreflight": {
+    "url": "https://dinospace.netlify.app/?qa_spelling=1793255896445-1440-844#/play/storybooks",
+    "buffer": "function",
+    "cryptoSubtle": true
+  },
+  "cliReturnCode": 0
+}

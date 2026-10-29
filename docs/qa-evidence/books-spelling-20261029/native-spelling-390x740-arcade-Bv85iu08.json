@@ -1,0 +1,236 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "entryIdentity": "/assets/arcade-Bv85iu08.js",
+  "namespaceVerified": true,
+  "baseline": {
+    "legacy": {
+      "present": true,
+      "bytes": 37,
+      "sha256": "41b88406eff71b4155806e27e396e85de5d5c2fe467f5ea87d7a3ab7d145c53c"
+    },
+    "words": {
+      "present": false
+    },
+    "spelling": {
+      "present": true,
+      "bytes": 205,
+      "sha256": "ba68e2a3fbcb26a7c7ddea906d7635e5901b1cbd7f23473ec10ce5edc626e17d"
+    },
+    "rewards": {
+      "present": true,
+      "bytes": 1138,
+      "sha256": "a9761f4f6cf1fcb8ce44e0ddc6db08c9355a28a2c3239af19f54e4bb2b084279"
+    },
+    "writing": {
+      "present": false
+    },
+    "recent": {
+      "present": true,
+      "bytes": 25,
+      "sha256": "8566a7b5c130acab29bd21303ae5eceb3659ec82e909b51c77fccb2662fa866e"
+    },
+    "diagnostics": {
+      "present": true,
+      "bytes": 48306,
+      "sha256": "acad920a6c2ff240ed1569e4c94e2fafd26ef71fb7435fe314dc2183b5386347"
+    },
+    "lifecycle": {
+      "present": true,
+      "bytes": 15437,
+      "sha256": "546edde8451f64c1e653ad38610c617b51320d78153f0275f052beb7c42c0786"
+    },
+    "learningAttempts": {
+      "present": true,
+      "bytes": 324587,
+      "sha256": "a0124e417285ef7af75ea609dc19c5435cb0942c1e024b775cacc600384a6fcc"
+    },
+    "ownLittle": {
+      "present": true,
+      "bytes": 1010,
+      "sha256": "1e770c4c65645f99d06b728ab07b3d7cccab25f0d45145f909648d3b2597f760"
+    },
+    "siblingLittle": {
+      "present": true,
+      "bytes": 1320,
+      "sha256": "bed117418194585d30d7645e46b52a1d30576ebd957061b642cdb96a4adeddfa"
+    },
+    "siblingWords": {
+      "present": false
+    },
+    "siblingRewards": {
+      "present": true,
+      "bytes": 496,
+      "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+    }
+  },
+  "completedLevelRuns": [],
+  "responses": 0,
+  "rows": [
+    {
+      "kind": "baseline",
+      "entryIdentity": "/assets/arcade-Bv85iu08.js",
+      "wordsProgressStatus": "fresh-or-legacy",
+      "legacyRewardThrough": -1,
+      "oldBest": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "plannedPoints": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "expectedDelta": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "positiveParentFaultLevel": 1
+    },
+    {
+      "kind": "control-geometry",
+      "label": "start level 1",
+      "rect": {
+        "x": 139,
+        "y": 427,
+        "right": 251,
+        "bottom": 539,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "rect": {
+        "x": 139,
+        "y": 427,
+        "right": 251,
+        "bottom": 539,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "optional-practice-scroll",
+      "label": "optional practice disclosure",
+      "scrolled": false,
+      "initialRect": {
+        "x": 35,
+        "y": 644,
+        "width": 320,
+        "height": 48
+      },
+      "initialScrollY": 0,
+      "finalScrollY": 0
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "optional practice disclosure",
+      "rect": {
+        "x": 35,
+        "y": 644,
+        "right": 355,
+        "bottom": 692,
+        "width": 320,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "optional-practice-scroll",
+      "label": "optional practice Tricky words",
+      "scrolled": true,
+      "initialRect": {
+        "x": 35,
+        "y": 704,
+        "width": 130.8125,
+        "height": 44
+      },
+      "initialScrollY": 0,
+      "finalScrollY": 8
+    },
+    {
+      "kind": "control-geometry",
+      "label": "optional practice Tricky words",
+      "rect": {
+        "x": 35,
+        "y": 696,
+        "right": 165.8125,
+        "bottom": 740,
+        "width": 130.8125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "actual-visible-optional-tricky-mismatch",
+      "entryIdentity": "/assets/arcade-Bv85iu08.js",
+      "clue": "Use this word when talking about yourself.",
+      "expectedAnswer": "I",
+      "visibleGraphemeSpaces": 1,
+      "visibleTiles": [
+        "t",
+        "a",
+        "n"
+      ],
+      "answerTilePresent": false,
+      "observation": "Read from rendered accessibility labels and actual tile buttons; no app state injection."
+    }
+  ],
+  "failures": [
+    {
+      "screenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/books-spelling-20261029/failure-spelling-390x740-1793249429247.jpg"
+    },
+    {
+      "message": "Optional Tricky Words does not expose the visible clue graphemes for practice",
+      "stack": "Error: Optional Tricky Words does not expose the visible clue graphemes for practice\n    at openOptional (evalmachine.<anonymous>:325:122)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:472:9)\n    at async runStage (evalmachine.<anonymous>:360:7)\n    at async evalmachine.<anonymous>:484:9\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)",
+      "completedLevelRuns": 0,
+      "rows": 7
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedResources": [],
+  "failedRequests": [],
+  "providerRequests": [],
+  "stage": "native",
+  "cliReturnCode": 0,
+  "failureClass": "actual app defect: optional Tricky practice can present tiles without the visible clue answer"
+}

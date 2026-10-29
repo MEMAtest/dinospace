@@ -1,0 +1,32 @@
+{
+  "reviewedAt": "2026-10-29",
+  "artifact": "tmp/story-history-operator-20261029",
+  "owner": "root",
+  "retirement": "Remove the operator-only Vercel deployment after the authorized history read. Retain any private history export once outside Git; this artifact contains no family history.",
+  "files": [
+    { "path": "tmp/story-history-operator-20261029/api/read-history.mjs", "sha256": "24d97ab4fdee4fff15a489094ffb1a33c96298e5bfbd4f11921bb8751b16787e" },
+    { "path": "tmp/story-history-operator-20261029/test/read-history.test.mjs", "sha256": "c01ebc977df7ccc0a3804b3b480662d5ff5e010e04fd7ae8cea466a568b18549" },
+    { "path": "tmp/story-history-operator-20261029/vercel.json", "sha256": "5ec821f6dc5907f67090ad1d6ce293847a96162d37acca5029a450bb82a2778a" },
+    { "path": "tmp/story-history-operator-20261029/package.json", "sha256": "85bd716ab5a69b013f09f188f2827700036cc2581cb054ded983adf78b19e3fb" },
+    { "path": "tmp/story-history-operator-20261029/public/index.html", "sha256": "3cba0b391b673c93d81bc1ea435216724de302b09793b6182cf9af53f09a3b4c" },
+    { "path": "tmp/story-history-operator-20261029/.vercel/project.json", "sha256": "1a9b844b4977425ebbf1125c2c853dc8eb337fff5b68c990f6fe3fdecdb35a8a" }
+  ],
+  "artifactBytes": 18318,
+  "securityContract": {
+    "method": "GET only; invalid/missing/expired token receives 404 before provider access; non-GET requires valid operator token then receives 405.",
+    "authorization": "32-byte canonical base64url token in x-story-history-token; SHA-256 of the token's UTF-8 text compared in constant time with STORY_HISTORY_AUDIT_DIGEST; STORY_HISTORY_AUDIT_EXPIRES_AT must be future and no more than 30 minutes from request time.",
+    "provider": "Server-only ELEVENLABS_API_KEY; configured voice precedence ELEVENLABS_STORY_VOICE_ID, ELEVENLABS_ENGLISH_VOICE_ID, ELEVENLABS_VOICE_ID; outbound requests are GET https://api.elevenlabs.io/v1/history with fixed voice_id, page_size=250, sort_direction=asc, source=TTS, date_after_unix=2026-09-01T00:00:00Z, date_before_unix=2026-10-24T00:00:00Z, and validated cursor only. The provider is filtered to the fixed interval, then source/voice/date are checked again server-side. Placeholder [Sensitive] API keys fail closed.",
+    "limits": "Provider stream and serialized response capped at 2 MiB; request bodies rejected; fetch uses a 30-second abort timeout; no retries; no CORS; Cache-Control private/no-store and X-Robots-Tag noindex; no logging.",
+    "response": "Only id, ISO date, text, model, content_type, has_more, and cursor are returned. Exact token/digest/API-key substrings are suppressed from returned rows; provider error bodies and environment objects are never serialized."
+  },
+  "tests": {
+    "command": "node --test tmp/story-history-operator-20261029/test/read-history.test.mjs",
+    "result": "8 passed, 0 failed, 0 skipped",
+    "network": "Fake fetch only; no provider calls or real credentials."
+  },
+  "limitations": [
+    "Vercel deployment and hosted function behavior have not been checked. Root will inspect configuration and perform any authorized temporary deployment.",
+    "The endpoint returns private TTS history text to its operator caller; do not expose its URL or token publicly, and remove the deployment after the one authorized read."
+  ],
+  "reviewStatus": "Temporary source artifact updated for root inspection. Node 22.x is declared through package engines; Vercel function maxDuration is 30 seconds. No deploy, browser, credentials, installs, alias changes, or application code changes were made."
+}

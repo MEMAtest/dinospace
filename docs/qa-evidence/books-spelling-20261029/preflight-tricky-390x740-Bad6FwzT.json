@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "entryIdentity": "/assets/arcade-Bad6FwzT.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "initialParentStage": 0,
+  "clue": "Use this word when talking about yourself.",
+  "graphemeSpaces": 1,
+  "tiles": [
+    "i",
+    "f",
+    "r",
+    "n"
+  ],
+  "answerTileGeometry": {
+    "x": 98,
+    "y": 471.8125,
+    "right": 142,
+    "bottom": 515.8125,
+    "width": 44,
+    "height": 44,
+    "centerHit": true,
+    "inViewport": true
+  },
+  "optionalControlInitialRect": {
+    "x": 35,
+    "y": 696,
+    "width": 130.8125,
+    "height": 44
+  },
+  "parentStageStillZero": true,
+  "storageUnchanged": true,
+  "note": "No answer was submitted during preflight."
+}

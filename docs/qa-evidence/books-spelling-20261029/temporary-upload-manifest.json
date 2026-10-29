@@ -1,0 +1,15 @@
+{
+  "purpose": "One temporary UI file-chooser upload of previously approved QA book into sole synthetic profile; no family recovery.",
+  "original": "docs/game-delivery-20261019/batch1/approved-provider-qa/pip-sunflower-backup.json.gz",
+  "temporaryFile": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/tmp/pip-approved-upload-20261029.json",
+  "bytes": 4979086,
+  "sha256": "ffe091df7d558764ef779177d5e57e6b3164df1f0f6b11b7012046af62df82c3",
+  "newPaidCalls": 0,
+  "retirement": "Remove immediately after UI confirms restore; original gzip remains once.",
+  "removedAt": "2026-10-29T05:59:11.769595+00:00",
+  "removedBytes": 4979086,
+  "uiConfirmation": "Recovered continuation shows approved Pip QA book restored and exported; current UI inventory8=7included+1knownQAbook.",
+  "scope": "File chooser was handled; this is not an accepted restore result or personal recovery.",
+  "uiEvidence": "native-continuation-recovered-after-upload.json",
+  "acceptanceLimit": "Original callback completed its steps but failed strict request assertion on7 revoked audio blob aborts; timestamped final continuation still required."
+}

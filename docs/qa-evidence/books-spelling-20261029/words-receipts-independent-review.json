@@ -1,0 +1,51 @@
+{
+  "reviewedAt": "2026-10-29",
+  "scope": "Bounded source review of spelling session receipts, GameSession/App/playerRewards integration, and Storybook progress/completion receipt APIs.",
+  "sourceProofOnly": true,
+  "files": [
+    { "path": "src/data/wordsSessionProgress.js", "sha256": "9736e9588b0e0a240b9a045d24ca830ce083def3fb76931bc29d4eb7722ce118" },
+    { "path": "src/components/shared/GameSession.jsx", "sha256": "fef4f64de177bb20ebd030f292b2a3313dc2e37866ff1174435addc9c119eb49" },
+    { "path": "src/data/playerRewards.js", "sha256": "d6e26cf12e63445624d18728587f67124a8a69ee3eeec213e13194e257b52c7e" },
+    { "path": "src/App.jsx", "sha256": "49af8638dda48122a9b75142ec1dd058cfbde999f85b9dcef8c06b8426520765" },
+    { "path": "src/data/storybookProfiles.js", "sha256": "05753ad6fffa40683857a9929536841c1105bee135c5fb604f157cf0197e605c" },
+    { "path": "src/components/games/StorybookStudio.jsx", "sha256": "aefe478cbd6193fd08512d8dc92014945cf6a1ef857678e54b92815b8d0c7963" },
+    { "path": "src/components/games/WordBuilder.jsx", "sha256": "616a1e99b2838f784e30fc8477906841c910c86212001d15abd49e734a65e1d5" },
+    { "path": "test/wordsSessionProgress.test.mjs", "sha256": "a88aca22241942e4f4da0fd80f7cd5d7c12d7efcdb24f9c4181c3dd7429a8ab0" },
+    { "path": "test/storybookProfiles.test.mjs", "sha256": "a6ca094d33fdf81f55acbe4315fbfe1a4c9bd5232128f727558d2860226915e7" },
+    { "path": "test/playerRewards.test.mjs", "sha256": "a3125446a2b074794458788ae391cfd6b53126b54c6e9a3bff0f6887067e021e" }
+  ],
+  "blockers": [
+    {
+      "id": "storybook-receipt-reward-player-not-bound",
+      "severity": "blocker",
+      "evidence": [
+        { "file": "src/components/games/StorybookStudio.jsx", "lines": "155, 369-393, 411-425", "detail": "StorybookStudio does not accept playerId. New completion calls omit the rewardPlayerId option, and recovered receipts are sent to onCelebrate without reading receipt.rewardPlayerId." },
+        { "file": "src/data/storybookProfiles.js", "lines": "111-138", "detail": "The API supports storing rewardPlayerId, but its default is the Storybook child id; recovered completion returns the stored receipt unchanged." },
+        { "file": "src/App.jsx", "lines": "267-286, 297-312", "detail": "App supplies the outer player's onCelebrate callback and playerId to gameProps, but Studio currently consumes neither playerId nor a receipt-selected player callback." }
+      ],
+      "impact": "A completion receipt is not bound to the selected outer App player. New receipts currently store the inner Storybook reader id; after switching outer players or reopening, reconciliation claims through the currently active parent's callback. This can credit the wrong outer player and makes a failed claim's Retry target unstable.",
+      "requiredResolution": "Pass the outer player id into StorybookStudio; persist it when creating the receipt; on receipt recovery/Retry, claim using the receipt's original rewardPlayerId. Preserve a deliberate compatibility path for older receipts without that field."
+    }
+  ],
+  "boundedVerdict": {
+    "words": "No concrete blocker found in the reviewed spelling receipt flow. Per-level best-score deltas are capped at the 2/4/6-star improvement ladder; positive receipts are retained and zero receipts bounded; malformed records fail closed; valid unknown canonical metadata survives writes; legacy highest-unlocked ceiling suppresses rewards for prior levels. The final correct answer defers finish until the learner acknowledges it; failed persistence retains pendingFinishRef and Retry uses the same attempt id; a committed parent-failure receipt is reconciled on reopen. GameSession uses the unscaled parent celebrate callback with the actual delta and idempotency token. WordBuilder's session mode suppresses per-word awards; nested optional practice receives no game-event callback and suppresses practice awards.",
+    "storybookProgressApi": "Strict progress parsing validates optional rewardPlayerId, rejects malformed completion receipts without writing, and preserves unknown progress metadata through commitStoryProgress. The UI receiver defect above prevents accepting the end-to-end original-player binding yet.",
+    "nativeAndTests": "Existing focused test files were inspected but not run. No build, browser, provider, or deployment was used; this report is not native acceptance."
+  },
+  "followUpReview": {
+    "reviewedAt": "2026-10-29",
+    "files": [
+      { "path": "src/components/games/StorybookStudio.jsx", "sha256": "aefe478cbd6193fd08512d8dc92014945cf6a1ef857678e54b92815b8d0c7963" },
+      { "path": "src/data/storybookRewardScope.js", "sha256": "422ec035663e58986ea0b264899175341b5a67f35a5ac36c872e4da84d3900f5" },
+      { "path": "src/data/storybookProfiles.js", "sha256": "05753ad6fffa40683857a9929536841c1105bee135c5fb604f157cf0197e605c" },
+      { "path": "test/storybookRewardScope.test.mjs", "sha256": "fc426b6bf08e60f141b271c10a01225cd40c69a36cdc1059fc27bc6195b3aa18" },
+      { "path": "test/storybookProfiles.test.mjs", "sha256": "a6ca094d33fdf81f55acbe4315fbfe1a4c9bd5232128f727558d2860226915e7" }
+    ],
+    "resolvedBlocker": "storybook-receipt-reward-player-not-bound",
+    "resolution": "Studio receives outer playerId and writes it as rewardPlayerId on a new completion receipt. Reconciliation scopes receipts by readerChildId and claims only when the stored receiver matches the current App player. Pending Retry uses the same receipt and its reader identity; old receipts without rewardPlayerId fall back to their historical reader id.",
+    "evidence": "Source lines StorybookStudio.jsx 156, 370-409 and 413-433; storybookRewardScope.js; tests for matching/mismatching owners, legacy fallback, and immutable stored receiver after recovery were inspected. Tests were not run.",
+    "remainingBlockers": [],
+    "proofBoundary": "Source-only delta review; no browser, build, runtime, or release proof."
+  },
+  "status": "The previously identified Storybook outer-player receipt binding blocker is resolved in current source. The spelling receipt path remains clear in this bounded source review."
+}

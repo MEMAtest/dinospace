@@ -1,0 +1,390 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "expectedEntry": "/assets/arcade-DoN_CHtt.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "runMode": "full",
+  "error": "locator.scrollIntoViewIfNeeded: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('section[aria-label=\"Storybook library\"] article').filter({ hasText: 'Rex and the Missing Moon Map' }).first().getByRole('button', { name: /Continue story/ })\u001b[22m\n\n    at browseClick (evalmachine.<anonymous>:361:19)\n    at runStorybook (evalmachine.<anonymous>:802:15)\n    at async evalmachine.<anonymous>:1014:14\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+  "partial": {
+    "origin": "http://127.0.0.1:5180",
+    "expectedEntry": "/assets/arcade-DoN_CHtt.js",
+    "viewport": {
+      "width": 390,
+      "height": 740
+    },
+    "playerId": "amari",
+    "runMode": "full",
+    "books": [],
+    "probes": [
+      {
+        "kind": "existing-reader-profile-switch",
+        "profileCount": 2,
+        "switchedBack": true,
+        "profileBytesPreserved": true,
+        "alternateProfileHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+        "alternateLabelHash": "111b5abdd956da6f5012e19e56ae28f454b4c2e4e4e09c526caa6aae67d98375"
+      },
+      {
+        "kind": "blocked-active-reader-key",
+        "status": "deferred",
+        "reason": "Isolated after the primary book journey to avoid repeating an inconclusive harness setup."
+      },
+      {
+        "kind": "local-progress-fault-retry",
+        "mode": "write",
+        "failedUIWasHeld": true,
+        "retryRestoredValue": true,
+        "unrelatedRowsPreserved": true,
+        "fault": {},
+        "intermediateProgress": {
+          "available": true,
+          "rows": [
+            {
+              "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+              "slug": "rex-missing-moon-map",
+              "rowHash": "b3c85091a33b869be0d4b978be11daaa1e803cd98452c2ea3d5ebe2a463ca5d9"
+            }
+          ],
+          "rawHash": "995ad8d6b62f6a9025bda79633161ce2d16b3708c453ef213d570d8419394c64"
+        }
+      }
+    ],
+    "failures": [],
+    "initial": {
+      "identity": {
+        "url": "http://127.0.0.1:5180/?storybookPair8=0fee0001#/play/storybooks",
+        "entry": "/assets/arcade-DoN_CHtt.js",
+        "namespace": true
+      },
+      "inventory": {
+        "kind": "library-inventory",
+        "text": "7 stories in this library 7 included · My stories (0) saved in this browser My stories (0) Included (7) Showing 1–7 of 7 matching stories",
+        "visibleCardCount": 7,
+        "cards": [
+          {
+            "title": "Rex and the Missing Moon Map",
+            "titleHash": "d41df3f3a8a8c8049880a358a40f1eb69c55078d9c4d752c22aa30c64c24a06b",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6",
+              "Rex and the Missing Moon Map",
+              "Add favourite",
+              "Read story: Rex and the Missing Moon Map"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Luna and the Whispering Forest",
+            "titleHash": "764463553a04ac2b3be916bf7346a6200a9b8814dc600a23a9ae4ba57707803b",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/luna-whispering-forest/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6",
+              "Luna and the Whispering Forest",
+              "Add favourite",
+              "Read story: Luna and the Whispering Forest"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Nia’s Great River Journey",
+            "titleHash": "124b4441627a606d670de179d2d392a8bb422c1418948e7aef9e157d70456c4a",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/nia-great-river-journey/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6",
+              "Nia’s Great River Journey",
+              "Add favourite",
+              "Read story: Nia’s Great River Journey"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Bo and the Busy Bee Garden",
+            "titleHash": "0a2b4e8d3db98b6a39a42726269406c0fb784dd3115a62cd176b3b671b693dea",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/bo-busy-bee-garden/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6",
+              "Bo and the Busy Bee Garden",
+              "Add favourite",
+              "Read story: Bo and the Busy Bee Garden"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Sami and the Night-Light Parade",
+            "titleHash": "d583845e1a958fd47885430271910125850cfd21085f8b9b0316ca35fb927043",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/sami-night-light-parade/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Sami and the Night-Light Parade, painted-2d, ages 5-6",
+              "Sami and the Night-Light Parade",
+              "Add favourite",
+              "Read story: Sami and the Night-Light Parade"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Mina’s Mountain Seed",
+            "titleHash": "4ecddbd32acb52227ca09d4a728fb1744f0693a9f6cd773d4452b03855b49571",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/mina-mountain-seed/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Mina’s Mountain Seed, painted-2d, ages 5-6",
+              "Mina’s Mountain Seed",
+              "Add favourite",
+              "Read story: Mina’s Mountain Seed"
+            ],
+            "buttonCount": 4
+          },
+          {
+            "title": "Kai and the Lost Library Book",
+            "titleHash": "18b5558cbf220c9a1e1e5f158c716bbc0b7d942ad4ea50e3bb34ea46dd1ef028",
+            "cover": [
+              {
+                "src": "http://127.0.0.1:5180/storybooks/kai-lost-library-book/cover.webp",
+                "complete": true,
+                "naturalWidth": 1600,
+                "naturalHeight": 1201
+              }
+            ],
+            "buttons": [
+              "Open Kai and the Lost Library Book, painted-2d, ages 5-6",
+              "Kai and the Lost Library Book",
+              "Add favourite",
+              "Read story: Kai and the Lost Library Book"
+            ],
+            "buttonCount": 4
+          }
+        ]
+      },
+      "visibleCardCount": 7,
+      "storage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 1534,
+            "sha256": "04d9f9f1a01659c686b4f2dec404e3fae7b49d12c44c91af7b7eadc7f2eaf62b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_active_child_v1",
+            "bytes": 5,
+            "sha256": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_profiles_v1",
+            "bytes": 236,
+            "sha256": "78f63e635f22a1889d4c8828e48f62b73600f819166b1a04b771d9ee34d3265b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 356,
+            "sha256": "995ad8d6b62f6a9025bda79633161ce2d16b3708c453ef213d570d8419394c64"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 496,
+            "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+          }
+        ],
+        "stores": {
+          "books": 0,
+          "assets": 0,
+          "profiles": 2,
+          "series": 0
+        }
+      },
+      "originalStorage": {
+        "available": true,
+        "localKeys": [
+          {
+            "key": "qa_rewards_20261024_amari_rewards_v2",
+            "bytes": 1534,
+            "sha256": "04d9f9f1a01659c686b4f2dec404e3fae7b49d12c44c91af7b7eadc7f2eaf62b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_active_child_v1",
+            "bytes": 5,
+            "sha256": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_profiles_v1",
+            "bytes": 236,
+            "sha256": "78f63e635f22a1889d4c8828e48f62b73600f819166b1a04b771d9ee34d3265b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+            "bytes": 1,
+            "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          {
+            "key": "qa_rewards_20261024_amari_storybook_progress_v1",
+            "bytes": 356,
+            "sha256": "995ad8d6b62f6a9025bda79633161ce2d16b3708c453ef213d570d8419394c64"
+          },
+          {
+            "key": "qa_rewards_20261024_askia_rewards_v2",
+            "bytes": 496,
+            "sha256": "1b6db654b27c9ba7c3319aefa04df6b8f18335f48968d04a8027b75e7b8d7ada"
+          }
+        ],
+        "stores": {
+          "books": 0,
+          "assets": 0,
+          "profiles": 2,
+          "series": 0
+        }
+      },
+      "progress": {
+        "available": true,
+        "rows": [
+          {
+            "childHash": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59",
+            "slug": "rex-missing-moon-map",
+            "rowHash": "b3c85091a33b869be0d4b978be11daaa1e803cd98452c2ea3d5ebe2a463ca5d9"
+          }
+        ],
+        "rawHash": "995ad8d6b62f6a9025bda79633161ce2d16b3708c453ef213d570d8419394c64"
+      },
+      "rewards": {
+        "rawHash": "04d9f9f1a01659c686b4f2dec404e3fae7b49d12c44c91af7b7eadc7f2eaf62b",
+        "points": 322,
+        "storybooksGames": 1,
+        "storybookClaims": {
+          "storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9": 1
+        },
+        "nonStoryClaimsHash": "f7e45e9aada99e8fafdfd88a2dc9c3e436b08fc954eeef8a3a9689e4af2994b4"
+      }
+    },
+    "currentBook": {
+      "title": "Rex and the Missing Moon Map",
+      "slug": "rex-missing-moon-map",
+      "pages": [
+        {
+          "pageIndex": 1,
+          "screenNo": 2,
+          "imagePath": "/storybooks/rex-missing-moon-map/page-01.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/rex-missing-moon-map/audio-page-01.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1201
+          ],
+          "played": true
+        },
+        {
+          "pageIndex": 2,
+          "screenNo": 3,
+          "imagePath": "/storybooks/rex-missing-moon-map/page-02.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/rex-missing-moon-map/audio-page-02.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1200
+          ]
+        },
+        {
+          "pageIndex": 3,
+          "screenNo": 4,
+          "imagePath": "/storybooks/rex-missing-moon-map/page-03.webp",
+          "imageDecoded": true,
+          "audioPath": "/storybooks/rex-missing-moon-map/audio-page-03.mp3",
+          "audioReadyState": 4,
+          "imageDimensions": [
+            1600,
+            1201
+          ]
+        }
+      ],
+      "questions": [],
+      "stage": "page-3",
+      "cover": {
+        "heading": "Rex and the Missing Moon Map",
+        "text": "Rex and the Missing Moon Map Cover 1/11 Tap to Start Again A 10-PAGE ADVENTURE Rex, a cheerful young T-Rex astronaut, and his small robot friend Pip search the Moon for a lost star map. By sharing clues and working together, they find it and follow it home for a well-earned rest. Start Again Auto-turn pages after narration",
+        "pageLabel": "Page 1 of 11",
+        "image": {
+          "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/cover.webp",
+          "complete": true,
+          "naturalWidth": 1600,
+          "naturalHeight": 1201
+        },
+        "audio": {
+          "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/audio-cover.mp3",
+          "readyState": 4,
+          "duration": 2.24,
+          "paused": true,
+          "currentTime": 0,
+          "error": null
+        },
+        "buttons": [
+          "Back to storybooks",
+          "Turn sound off",
+          "Back to learning world",
+          "Start reading Rex and the Missing Moon Map",
+          "Start Again",
+          "Auto-turn pages after narration",
+          "Previous page",
+          "Next page"
+        ]
+      }
+    }
+  },
+  "stage": "native",
+  "mode": "full",
+  "entryIdentity": "/assets/arcade-DoN_CHtt.js",
+  "capabilityPreflight": {
+    "url": "http://127.0.0.1:5180/?storybookPair8=0fee0001#/play/storybooks",
+    "buffer": "function",
+    "cryptoSubtle": true
+  },
+  "cliReturnCode": 0
+}

@@ -1,0 +1,49 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "expectedEntry": "/assets/arcade-DoN_CHtt.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "runMode": "full",
+  "error": "page.waitForFunction: Timeout 5000ms exceeded.\n    at runStorybook (evalmachine.<anonymous>:523:18)\n    at async evalmachine.<anonymous>:1000:14\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+  "partial": {
+    "origin": "http://127.0.0.1:5180",
+    "expectedEntry": "/assets/arcade-DoN_CHtt.js",
+    "viewport": {
+      "width": 390,
+      "height": 740
+    },
+    "playerId": "amari",
+    "runMode": "full",
+    "books": [],
+    "probes": [
+      {
+        "kind": "existing-reader-profile-switch",
+        "status": "unavailable",
+        "profileCount": 1,
+        "reason": "Only one existing reader profile is available; no profile was created."
+      },
+      {
+        "kind": "blocked-active-reader-key",
+        "status": "running",
+        "stage": "native",
+        "createdQaReader": true,
+        "readerIdHash": "79bd3919df24c4656c89bddebb09c3e8eed9f351ee6ca1e3e90f3dfcafd5f070",
+        "readerCount": 2
+      }
+    ],
+    "failures": [],
+    "initial": null
+  },
+  "stage": "native",
+  "mode": "full",
+  "entryIdentity": "/assets/arcade-DoN_CHtt.js",
+  "capabilityPreflight": {
+    "url": "http://127.0.0.1:5180/?storybookPair8=0fee0001#/play/storybooks",
+    "buffer": "function",
+    "cryptoSubtle": true
+  },
+  "cliReturnCode": 0
+}

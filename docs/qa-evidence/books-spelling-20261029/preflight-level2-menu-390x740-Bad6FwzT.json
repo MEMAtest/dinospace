@@ -1,0 +1,33 @@
+{
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "passed": true,
+  "entryIdentity": "/assets/arcade-Bad6FwzT.js",
+  "menuPlayActions": [
+    "Play Spelling Studio level 2"
+  ],
+  "levelSelectorCount": 6,
+  "selectedLevel2": {
+    "x": 115,
+    "y": 381,
+    "width": 48,
+    "height": 48,
+    "bottom": 429,
+    "hit": true,
+    "visible": true
+  },
+  "level2Play": {
+    "x": 139,
+    "y": 517,
+    "width": 112,
+    "height": 112,
+    "bottom": 629,
+    "hit": true,
+    "visible": true
+  },
+  "visibleStage": "Find the missing sound: 0 of 6 words",
+  "mode": "\ud83d\udc42Sound gap",
+  "sessionAndRewardsUnchanged": true,
+  "noAnswerSubmitted": true,
+  "leaveConfirmationHonored": true
+}

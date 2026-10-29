@@ -1,0 +1,193 @@
+{
+  "passed": false,
+  "sourceCommit": "c5e58259170045e51415b12c360efa05e60c7a4f",
+  "expectedEntry": "/assets/arcade-EBto46V3.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "steps": [
+    {
+      "kind": "primary-control",
+      "what": "return to first story page with Previous",
+      "rect": {
+        "x": 16,
+        "y": 670,
+        "right": 74,
+        "bottom": 720,
+        "width": 58,
+        "height": 50
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "full": true,
+      "hit": true
+    }
+  ],
+  "errors": {
+    "page": [],
+    "console": [],
+    "failedResponses": [],
+    "failedRequests": [],
+    "provider": []
+  },
+  "identity": {
+    "url": "http://127.0.0.1:5180/?pair8-autoturn=1793254334359#/play/storybooks",
+    "namespace": true,
+    "entry": "/assets/arcade-EBto46V3.js"
+  },
+  "coverPlayback": {
+    "cover": [
+      {
+        "type": "play",
+        "source": "audio-cover.mp3",
+        "time": 0,
+        "duration": 2.24,
+        "page": "Page 1 of 11",
+        "paused": true
+      },
+      {
+        "type": "playing",
+        "source": "audio-cover.mp3",
+        "time": 0,
+        "duration": 2.24,
+        "page": "Page 1 of 11",
+        "paused": true
+      },
+      {
+        "type": "timeupdate",
+        "source": "audio-cover.mp3",
+        "time": 0,
+        "duration": 2.24,
+        "page": "Page 1 of 11",
+        "paused": true
+      },
+      {
+        "type": "pause",
+        "source": "audio-cover.mp3",
+        "time": 0,
+        "duration": 2.24,
+        "page": "Page 1 of 11",
+        "paused": true
+      },
+      {
+        "type": "timeupdate",
+        "source": "audio-cover.mp3",
+        "time": 0,
+        "duration": 2.24,
+        "page": "Page 1 of 11",
+        "paused": true
+      },
+      {
+        "type": "play",
+        "source": "audio-cover.mp3",
+        "time": 0,
+        "duration": 2.24,
+        "page": "Page 1 of 11",
+        "paused": false
+      },
+      {
+        "type": "playing",
+        "source": "audio-cover.mp3",
+        "time": 0,
+        "duration": 2.24,
+        "page": "Page 1 of 11",
+        "paused": false
+      },
+      {
+        "type": "timeupdate",
+        "source": "audio-cover.mp3",
+        "time": 0.235,
+        "duration": 2.24,
+        "page": "Page 1 of 11",
+        "paused": false
+      },
+      {
+        "type": "pause",
+        "source": "audio-cover.mp3",
+        "time": 2.24,
+        "duration": 2.24,
+        "page": "Page 1 of 11",
+        "paused": true
+      },
+      {
+        "type": "ended",
+        "source": "audio-cover.mp3",
+        "time": 2.24,
+        "duration": 2.24,
+        "page": "Page 1 of 11",
+        "paused": true
+      },
+      {
+        "type": "timeupdate",
+        "source": "audio-cover.mp3",
+        "time": 0,
+        "duration": null,
+        "page": "Page 2 of 11",
+        "paused": true
+      }
+    ],
+    "page1": [
+      {
+        "type": "play",
+        "source": "audio-page-01.mp3",
+        "time": 0.009,
+        "duration": 12,
+        "page": "Page 2 of 11",
+        "paused": false
+      },
+      {
+        "type": "playing",
+        "source": "audio-page-01.mp3",
+        "time": 0.009,
+        "duration": 12,
+        "page": "Page 2 of 11",
+        "paused": false
+      },
+      {
+        "type": "timeupdate",
+        "source": "audio-page-01.mp3",
+        "time": 0.234,
+        "duration": 12,
+        "page": "Page 2 of 11",
+        "paused": false
+      },
+      {
+        "type": "pause",
+        "source": "audio-page-01.mp3",
+        "time": 12,
+        "duration": 12,
+        "page": "Page 2 of 11",
+        "paused": true
+      },
+      {
+        "type": "ended",
+        "source": "audio-page-01.mp3",
+        "time": 12,
+        "duration": 12,
+        "page": "Page 2 of 11",
+        "paused": true
+      },
+      {
+        "type": "timeupdate",
+        "source": "audio-page-01.mp3",
+        "time": 0,
+        "duration": null,
+        "page": "Page 3 of 11",
+        "paused": true
+      }
+    ],
+    "coverEnded": true,
+    "page1PlayingAfterCover": true,
+    "current": {
+      "pageLabel": "Page 11 of 11",
+      "src": "http://127.0.0.1:5180/storybooks/rex-missing-moon-map/audio-page-10.mp3"
+    }
+  },
+  "error": "page.waitForFunction: Timeout 15000ms exceeded.\n    at evalmachine.<anonymous>:12:223\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+  "finalURL": "http://127.0.0.1:5180/?pair8-autoturn=1793254334359#/play/storybooks",
+  "currentText": "Discovery HQ\nAmari\nRex and the Missing Moon Map\nPage 10\n11/11\nIllustration 10 of 10\n\nPAGE 10\n\nRex tucked the map safely away and patted Pip's warm metal head. \"We did it together,\" he said. And the two friends flew home, sleepy, smiling, and ready for the next adventure.\n\nPause\nReplay\nRead-aloud story\nWord help",
+  "cliReturnCode": 0
+}

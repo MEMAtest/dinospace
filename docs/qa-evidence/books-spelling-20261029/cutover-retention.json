@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "beforeEntry": "/assets/arcade-DYyDnHAt.js",
+  "afterEntry": "/assets/arcade-EBto46V3.js",
+  "protectedKeyCount": 40,
+  "changed": {},
+  "newKeys": [],
+  "idbMetadataAndAssetsUnchanged": true,
+  "update": {
+    "beforeEntry": "/assets/arcade-DYyDnHAt.js",
+    "entry": "/assets/arcade-EBto46V3.js",
+    "via": "visibleRefreshgames",
+    "notice": 0,
+    "caches": [
+      "amari-discovery-media-v1",
+      "amari-discovery-v43"
+    ],
+    "url": "https://dinospace.netlify.app/?qa_pair8_cutover=1793254962898#/home"
+  },
+  "activationFollowup": {
+    "evidence": "production-spelling-summary-EBto46V3.json",
+    "observedBeforeAndAfter": "Registration activated, no waiting/installing; cache amari-discovery-v44 + amari-discovery-media-v1. No update call/cache operation required.",
+    "transitionNote": "Raw original cutover snapshot retained the prior cache43 during asynchronous worker activation; the subsequent observed activation is recorded separately."
+  }
+}
