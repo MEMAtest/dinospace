@@ -418,7 +418,7 @@ const LittleGameShell = ({
             </p>
           )}
           {(result.levelUp || newStickers.length > 0) && (
-            <div className="flex flex-wrap items-stretch justify-center gap-3">
+            <div className={`${compactDone ? 'pair-compact-rewards' : ''} flex flex-wrap items-stretch justify-center gap-3`}>
               {result.levelUp && (
                   <div className={`flex items-center ${compactDone ? 'gap-2 rounded-xl border-2 px-2 py-1' : 'gap-3 rounded-[1.6rem] border-4 px-4 py-3'} border-amber-300 bg-white/90 shadow-xl animate-pop-in`} style={{ animationDelay: '700ms' }}>
                   <div className="text-left">
@@ -426,7 +426,7 @@ const LittleGameShell = ({
                     <p className={`max-w-48 ${compactDone ? 'text-xs' : 'text-sm'} font-bold text-slate-700`}>Level {result.level + 1}: {LITTLE_LEVEL_GOALS[gameId]?.[result.level]}</p>
                     <LevelDots level={result.level} total={levels.length} className="mt-1 !px-0 !py-0 !shadow-none" />
                   </div>
-                  {renderUnlock && <div className={compactDone ? 'h-12 w-16' : 'h-20 w-24'}>{renderUnlock(levels[result.level], levels[result.previous])}</div>}
+                  {renderUnlock && <div className={compactDone ? 'pair-compact-unlock-art h-12 w-16' : 'h-20 w-24'}>{renderUnlock(levels[result.level], levels[result.previous])}</div>}
                 </div>
               )}
               {newStickers.map((sticker) => (
