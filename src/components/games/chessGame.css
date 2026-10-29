@@ -148,4 +148,4 @@
 
 .chess-play-square--dragging > .chess-play-piece { opacity: .25; }
 .chess-drag-piece { position: fixed; z-index: 70; display: grid; place-items: center; pointer-events: none; filter: drop-shadow(0 5px 4px #0006); }
-.chess-move-instruction { margin: .2rem auto .4rem; max-width: 820px; font-size: .82rem; line-height: 1.2; font-weight: 750; text-align: center; }
+.chess-move-instruction { background: #fffef4; color: #392316; border-radius: 6px; margin: .2rem auto .4rem; max-width: 820px; font-size: .82rem; line-height: 1.2; font-weight: 750; text-align: center; }
