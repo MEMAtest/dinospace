@@ -448,21 +448,21 @@ const LittleGameShell = ({
               >
                 {result.levelUp && !(pairSafeProgress && level < highestLevel) ? <SkipForward size={50} strokeWidth={2.8} fill="currentColor" /> : <RotateCcw size={46} strokeWidth={2.8} />}
               </BigRoundButton>
-              <span className="text-sm font-black text-slate-700">{pairSafeProgress ? pairRunActionLabel(level, result) : result.levelUp ? 'Next level' : 'Try again'}</span>
+              <span className={`${compactDone ? 'rounded-md bg-white/95 px-1.5 leading-4' : ''} text-sm font-black text-slate-700`}>{pairSafeProgress ? pairRunActionLabel(level, result) : result.levelUp ? 'Next level' : 'Try again'}</span>
             </div>
             {onNextGame && (
               <div className="flex flex-col items-center gap-1">
                 <BigRoundButton onClick={onNextGame} label="Next game" size={compactDone ? 'h-16 w-16' : 'h-24 w-24'} tone="bg-gradient-to-b from-sky-400 to-blue-600 text-white">
                   <SkipForward size={54} strokeWidth={2.8} fill="currentColor" />
                 </BigRoundButton>
-                <span className="text-sm font-black text-slate-700">Next game</span>
+                <span className={`${compactDone ? 'rounded-md bg-white/95 px-1.5 leading-4' : ''} text-sm font-black text-slate-700`}>Next game</span>
               </div>
             )}
             <div className="flex flex-col items-center gap-1">
               <BigRoundButton onClick={onBack} label="Go home" size={compactDone ? 'h-16 w-16' : 'h-24 w-24'} tone="bg-gradient-to-b from-amber-300 to-orange-500 text-white">
                 <Home size={46} strokeWidth={2.8} />
               </BigRoundButton>
-              <span className="text-sm font-black text-slate-700">Home</span>
+              <span className={`${compactDone ? 'rounded-md bg-white/95 px-1.5 leading-4' : ''} text-sm font-black text-slate-700`}>Home</span>
             </div>
           </div>
         </main>
