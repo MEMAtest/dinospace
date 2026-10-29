@@ -424,6 +424,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                 </div>
                 <p className="puzzle-preview-skill m-0 rounded-xl bg-emerald-50 px-2 py-2 text-xs font-bold text-emerald-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-sm">{chapter.skill}</p>
                 <button type="button" onClick={hearPrompt} aria-label="Hear puzzle instructions again" className="puzzle-hear-button inline-flex min-h-12 w-full items-center justify-center gap-1 rounded-xl bg-sky-100 px-2 text-xs font-black text-sky-900 sm:mt-3 sm:gap-2 sm:px-3 sm:text-base"><Volume2 size={19} /> <span className="sm:hidden">Hear again</span><span className="hidden sm:inline">Hear instructions again</span></button>
+                <button type="button" onClick={showHint} disabled={!tray.length} className="puzzle-mobile-hint inline-flex min-h-12 items-center justify-center gap-1 rounded-xl bg-amber-100 px-2 text-xs font-black text-orange-800 sm:hidden"><Lightbulb size={18} />{showMappingDemo ? 'Show a piece mapping' : 'Hint'}</button>
                 <div className="puzzle-picture-progress col-span-2 mt-0 flex flex-wrap justify-center gap-2 sm:mt-3" aria-label="Chapter progress">
                   {queue.map((entry, index) => <span key={entry.id} aria-label={`Picture ${index + 1}${savedProgress.completedSceneIds.includes(entry.id) ? ', completed before' : ''}`} className={`grid h-10 w-10 place-items-center rounded-full border-2 text-sm font-black ${index === sceneIndex ? 'border-orange-700 bg-orange-500 text-white' : savedProgress.completedSceneIds.includes(entry.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-800' : 'border-slate-300 bg-white text-slate-600'}`}>{index + 1}</span>)}
                 </div>
@@ -439,7 +440,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                     <div className="puzzle-tray-panel rounded-3xl border-4 border-white bg-white/90 p-3 shadow-lg sm:p-4">
                       <div className="puzzle-tray-heading mb-3 flex items-center justify-between gap-2">
                         <p className="font-black text-slate-800">Picture pieces <span className="text-slate-500">({tray.length} left · {moves} moves)</span></p>
-                        <button type="button" onClick={showHint} disabled={!tray.length} className="puzzle-hint-button inline-flex min-h-12 items-center gap-1.5 rounded-full bg-amber-100 px-4 font-black text-orange-800 disabled:opacity-50"><Lightbulb size={18} />{showMappingDemo ? 'Show a piece mapping' : 'Hint'}</button>
+                        <button type="button" onClick={showHint} disabled={!tray.length} className="puzzle-hint-button hidden min-h-12 sm:inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-4 font-black text-orange-800 disabled:opacity-50"><Lightbulb size={18} />{showMappingDemo ? 'Show a piece mapping' : 'Hint'}</button>
                       </div>
                       {tray.length > 10 && <p className="puzzle-tray-swipe-cue text-xs font-bold text-orange-900 sm:hidden">Swipe sideways for more pieces ↔</p>}
                       <div className="puzzle-piece-tray grid gap-1.5 sm:gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(48px, 1fr))' }} role="group" aria-label="Picture piece tray">

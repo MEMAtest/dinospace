@@ -292,3 +292,18 @@
     max-width: 360px;
   }
 }
+
+@media (max-width: 639px) {
+  .puzzle-play-main { gap: .35rem; padding-top: .3rem; }
+  .puzzle-preview-panel { grid-template-columns: 56px minmax(0,1fr) 48px auto; grid-template-rows: auto; gap: .3rem; padding: .35rem; }
+  .puzzle-preview-image { width: 56px; height: 56px; }
+  .puzzle-preview-skill { padding: .2rem; }
+  .puzzle-hear-button { grid-column: 3; width: 48px; padding: 0; }
+  .puzzle-hear-button span { display: none; }
+  .puzzle-mobile-hint { grid-column: 4; grid-row: 1; align-self: center; min-width: 64px; max-width: 90px; }
+  .puzzle-picture-progress { display: none; }
+  .puzzle-play-panel { gap: .35rem; }
+  .puzzle-tray-heading { margin-bottom: .2rem; }
+  .puzzle-tray-heading .puzzle-hint-button { display: none; }
+  .puzzle-tray-swipe-cue { margin: 0; line-height: 1.1; }
+}
