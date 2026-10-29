@@ -95,7 +95,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     ? (word.word === 'TAN' ? 'A light tan colour swatch' : SPELLING_WORD_ART[word.word]?.alt || word.hint)
     : preAnswerCue;
   const missingIndex = word.graphemes.length ? wordIndex % word.graphemes.length : 0;
-  const [tiles, setTiles] = useState(() => makeTiles(queue[0]?.graphemes || [], mode === 'spell' ? 3 : 0, taught));
+  const [tiles, setTiles] = useState(() => makeTiles(word.graphemes, ['spell', 'tricky'].includes(mode) ? 3 : 0, taught));
   const [captionText, setCaptionText] = useState('');
   const [captionSaved, setCaptionSaved] = useState(false);
   const captions = useMemo(() => {
