@@ -472,9 +472,10 @@ const LetterLaunch = ({
       <PracticeProgress skill={PHASE_LABELS[chapterIndex]} completed={Math.min(roundCount, targetCount)} target={targetCount} accent="sky" />
       <div className="letter-launch-panel">
         <p className="letter-launch-kicker">{round.kind === 'build-word' ? 'Blend the sounds' : round.kind === 'case-match' ? 'Big and little letters' : chapterIndex === 0 ? 'Name and sound' : 'Find the first sound'}</p>
-        <div className="letter-launch-clue" aria-label={round.kind === 'case-match' ? `Little letter ${round.target.letter.toLowerCase()}` : round.kind === 'build-word' || round.kind === 'first-sound' ? `Picture clue for ${round.target.word}` : 'Listen to the word'}>
-          {round.kind === 'case-match' ? <span>{round.target.letter.toLowerCase()}</span> : round.kind === 'letter-sound' ? '👂' : round.target.emoji}
+        <div className="letter-launch-clue" aria-label={round.kind === 'case-match' ? `Little letter ${round.target.letter.toLowerCase()}` : round.kind !== 'case-match' ? `Picture clue for ${round.target.word}` : 'Listen to the word'}>
+          {round.kind === 'case-match' ? <span>{round.target.letter.toLowerCase()}</span> : round.target.emoji}
         </div>
+        {['letter-sound', 'first-sound'].includes(round.kind) && <p className="letter-launch-caption">{round.target.word}</p>}
         {letterLaunchClueCaption(round) && <p className="letter-launch-caption">{letterLaunchClueCaption(round)}</p>}
         <p className="letter-launch-instruction">{round.kind === 'build-word'
           ? 'Choose one sound tile at a time to build the word.'
@@ -483,7 +484,7 @@ const LetterLaunch = ({
             : chapterIndex === 0
               ? 'A letter has a name and can spell a sound. Listen to the word; find the starting letter.'
               : 'Say the word slowly. Choose the letter or letter team that spells its first sound.'}</p>
-        {round.kind === 'letter-sound' && <p className="letter-launch-name-note">A letter has a name. In a word, it can spell a sound. Listen, then choose the letter for the first sound.</p>}
+
         <div className="letter-launch-audio-row">
           <button type="button" disabled={!canReplayPrompt || !soundOn} onClick={replayClue} aria-label={canReplayPrompt ? 'Hear the clue again' : 'Recorded clue unavailable'} className="letter-launch-audio"><Volume2 size={20} /> Hear the clue again</button>
           {canHearTargetWord && <button type="button" disabled={!soundOn} onClick={hearTargetWord} aria-label="Hear the whole word" className="letter-launch-audio"><Volume2 size={20} /> Hear the whole word</button>}
