@@ -393,26 +393,28 @@ export default function NumberLineJump({
   const limit = chapter.max;
   const missingStart = q.type === 'missing' && q.missing === 0 && !locked && !hintUsed;
   const missingEnd = q.type === 'missing' && q.missing === 2 && !locked && !hintUsed;
-  return <div className="min-h-[100dvh] bg-gradient-to-b from-sky-100 via-lime-50 to-amber-100 p-3 text-slate-900 sm:p-6" data-numberline-phase="play" data-numberline-question={q.id} data-run-seed={seed} data-chapter={chapter.id} data-mission-index={ri + 1}>
+  return <div className="min-h-[100dvh] bg-gradient-to-b from-sky-100 via-lime-50 to-amber-100 p-2 text-slate-900 sm:p-6 [&>header]:p-2 [&>header_h1]:text-lg [&>header_p]:text-[10px] sm:[&>header_h1]:text-3xl sm:[&>header_p]:text-[11px]" data-numberline-phase="play" data-numberline-question={q.id} data-run-seed={seed} data-chapter={chapter.id} data-mission-index={ri + 1}>
     {header}
-    <main className="mx-auto mt-4 max-w-4xl rounded-3xl border-2 border-white bg-white/95 p-4 text-center shadow-xl sm:p-6" data-mission-type={q.type}>
-      <p className="mb-1 text-xs font-black uppercase tracking-wide text-teal-800">{q.type === 'hop' ? 'Make the journey' : q.type === 'missing' ? 'Find the missing part' : q.compare === 'farther' ? 'Compare the distance' : 'Compare the landing numbers'}</p>
-      <h2 className="mx-auto max-w-2xl text-xl font-black" aria-live="polite">{locked ? 'Your journey, explained' : q.prompt}</h2>
-      {!locked && <button className="my-3 inline-flex min-h-12 items-center gap-2 rounded-xl bg-teal-50 px-4 font-black text-teal-900" onClick={() => tell(speak, numberLineNarrationText(q), numberLineNarrationSegments(q))}><Volume2 size={20} />Hear mission</button>}
-      {q.type === 'compare' ? <div className="mt-3 grid gap-3">
-        <NumberLineJourney limit={limit} start={q.start1} end={q.end1} position={q.end1} showRoute label={`Frog A · ${q.hops1} hops`} />
-        <NumberLineJourney limit={limit} start={q.start2} end={q.end2} position={q.end2} showRoute label={`Frog B · ${q.hops2} hops`} />
-      </div> : <div className="mt-3"><NumberLineJourney limit={limit} label={q.type === 'hop' ? `${trail.length} of ${q.b} hops made` : q.missing === 0 ? 'Find the start' : q.missing === 1 ? 'Count the spaces' : 'Find the landing number'}
+    <main className="mx-auto mt-2 max-w-4xl rounded-3xl border-2 border-white bg-white/95 p-2 text-center shadow-xl sm:mt-4 sm:p-6" data-mission-type={q.type}>
+      <p className="mb-0.5 text-[10px] font-black uppercase tracking-wide text-teal-800 sm:text-xs">{q.type === 'hop' ? 'Make the journey' : q.type === 'missing' ? 'Find the missing part' : q.compare === 'farther' ? 'Compare the distance' : 'Compare the landing numbers'}</p>
+      <h2 className="mx-auto max-w-2xl text-lg font-black leading-tight sm:text-xl" aria-live="polite">{locked ? 'Your journey, explained' : q.prompt}</h2>
+      {q.type === 'compare' ? <div className="mt-1 grid gap-1.5 sm:mt-3 sm:gap-3">
+        <NumberLineJourney compact limit={limit} start={q.start1} end={q.end1} position={q.end1} showRoute label={`Frog A · ${q.hops1} hops`} />
+        <NumberLineJourney compact limit={limit} start={q.start2} end={q.end2} position={q.end2} showRoute label={`Frog B · ${q.hops2} hops`} />
+      </div> : <div className="mt-1 sm:mt-3"><NumberLineJourney compact limit={limit} label={q.type === 'hop' ? `${trail.length} of ${q.b} hops made` : q.missing === 0 ? 'Find the start' : q.missing === 1 ? 'Count the spaces' : 'Find the landing number'}
         start={q.type === 'hop' ? q.a : missingStart ? undefined : q.start} end={q.type === 'hop' || missingEnd ? undefined : q.end} position={q.type === 'hop' ? position : missingEnd ? q.start : q.end}
         trail={trail} showRoute={q.type === 'missing' && (hintUsed || locked)} onSwipe={q.type === 'hop' ? dir => hopTo(position + dir) : undefined} disabled={locked} /></div>}
+      {!locked && <div className="mx-auto mt-1 flex max-w-md gap-2 sm:mt-3">
+        <button type="button" onClick={() => tell(speak, numberLineNarrationText(q), numberLineNarrationSegments(q))} className="inline-flex min-h-12 flex-1 items-center justify-center gap-1 rounded-xl bg-teal-50 px-2 text-sm font-black text-teal-900 sm:gap-2 sm:px-4 sm:text-base"><Volume2 size={18} />Hear mission</button>
+        <button type="button" disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 flex-1 items-center justify-center gap-1 rounded-xl border-2 border-amber-400 bg-amber-50 px-2 text-sm font-black disabled:opacity-50 sm:gap-2 sm:px-4 sm:text-base"><Lightbulb size={18} />{hintUsed ? 'Hint used' : 'Use one hint'}</button>
+      </div>}
       {!locked && (q.type === 'hop' ? <>
-        <p className="mt-3 rounded-xl bg-teal-50 p-3 font-black text-teal-900">Start {q.a} · {q.b} {q.b === 1 ? 'hop' : 'hops'} {q.direction > 0 ? 'forward →' : 'back ←'}</p>
-        <div className="mt-3 grid grid-cols-2 gap-2">
+        <div className="mt-1 grid grid-cols-2 gap-2 sm:mt-3">
           <button disabled={position <= 0 || trail.length >= q.b} onClick={() => hopTo(position - 1)} onKeyDown={e => { if (e.key === 'ArrowLeft') { e.preventDefault(); hopTo(position - 1); } }} className="min-h-14 rounded-2xl border-2 border-teal-700 bg-white px-2 font-black text-teal-900 disabled:opacity-50">← Hop back</button>
           <button disabled={position >= 10 || trail.length >= q.b} onClick={() => hopTo(position + 1)} onKeyDown={e => { if (e.key === 'ArrowRight') { e.preventDefault(); hopTo(position + 1); } }} className="min-h-14 rounded-2xl bg-teal-800 px-2 font-black text-white disabled:opacity-50">Hop forward →</button>
-        </div><p className="mt-2 text-sm font-semibold text-slate-600">Tap a hop button, use its arrow key, or swipe the frog.</p><p className="sr-only" aria-live="polite">Frog at {position}. Accepted hops: {trail.join(', ') || 'none'}.</p>
-      </> : <div className="my-4 grid grid-cols-2 gap-2 sm:grid-cols-3" role="group" aria-label="Choose the answer">{q.options.map(o => <button key={o} onClick={() => answer(o)} className="min-h-14 rounded-2xl bg-teal-800 px-3 text-xl font-black text-white">{o === 'same' ? 'Same' : q.type === 'compare' ? `Frog ${o}` : o}</button>)}</div>)}
-      {locked ? <section aria-label="Worked answer" className="mt-3 rounded-2xl border-2 border-emerald-200 bg-emerald-50 p-3 sm:mt-4 sm:p-4">
+        </div><p className="sr-only" aria-live="polite">Frog at {position}. Accepted hops: {trail.join(', ') || 'none'}.</p>
+      </> : <div className="my-1 grid grid-cols-2 gap-2 sm:my-4 sm:grid-cols-3" role="group" aria-label="Choose the answer">{q.options.map(o => <button key={o} onClick={() => answer(o)} className="min-h-14 rounded-2xl bg-teal-800 px-3 text-xl font-black text-white">{o === 'same' ? 'Same' : q.type === 'compare' ? `Frog ${o}` : o}</button>)}</div>)}
+      {locked ? <section aria-label="Worked answer" className="mt-1 rounded-2xl border-2 border-emerald-200 bg-emerald-50 p-2 sm:mt-4 sm:p-4">
         <p className="mb-1 text-xs font-black uppercase tracking-wide text-emerald-800">You worked it out!</p>
         <p role="status" className="font-bold text-slate-800">{feedback}</p>
         {ri === 5 && completionError && <section role="alert" className="mt-2 rounded-xl border-2 border-rose-600 bg-white p-3 text-left font-bold"><p>{completionError}</p><button type="button" data-numberline-result-retry onClick={() => void finishChapter(completionRef.current)} disabled={completionBusy} className="mt-2 min-h-12 w-full rounded-xl bg-rose-700 px-4 text-white disabled:opacity-50">{completionBusy ? 'Saving…' : completionError.toLowerCase().includes('reward') ? 'Retry reward confirmation' : 'Retry saving this result'}</button></section>}
@@ -423,7 +425,6 @@ export default function NumberLineJump({
         </div>
       </section> : <>
         {feedback && <p role="status" className="my-3 rounded-xl bg-amber-50 p-3 font-bold">{feedback}</p>}
-        <button disabled={hintUsed} onClick={hint} className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-400 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20} />{hintUsed ? 'Hint used' : 'Use one hint'}</button>
       </>}
     </main>
   </div>;
