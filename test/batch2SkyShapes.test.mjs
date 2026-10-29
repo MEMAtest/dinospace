@@ -6,7 +6,7 @@ import {
 import { GAME_DIAGNOSTICS_KEY, recordGameDiagnostic } from '../src/data/gameDiagnostics.js';
 import {
   getSkyShapesProgress, recordSkyFlightCompletion, recordSkyEpisodeReward, recordSkyMissionCompletion, rememberSkyMissionQueue,
-  skyRewardCallbackUnits, SKY_CHAPTER_BONUS_STARS,
+  skyRewardCallbackUnits, SKY_CHAPTER_BONUS_STARS, pendingSkyShapesRewards, markSkyShapesRewardClaimedStrict,
 } from '../src/data/skyShapesProgress.js';
 
 const memoryStorage = () => {
@@ -140,12 +140,15 @@ test('Sky Shapes saves mission accuracy and episode rewards per child, unlocking
     const result = recordSkyMissionCompletion('amari', mission.id, 90 + index, 2, storage);
     assert.equal(result.newlyCompletedMission, true);
     assert.equal(result.episodeComplete, index === episode.missions.length - 1);
+    if (index === episode.missions.length - 1) {
+      for (const receipt of pendingSkyShapesRewards(getSkyShapesProgress('amari', storage))) markSkyShapesRewardClaimedStrict('amari', receipt.id, storage);
+    }
   }
   const saved = getSkyShapesProgress('amari', storage);
   assert.equal(saved.unlockedEpisode, 1);
   assert.deepEqual(saved.completedEpisodeIds, [episode.id]);
   assert.equal(saved.bestAccuracy[episode.missions[2].id], 92);
-  assert.equal(recordSkyEpisodeReward('amari', episode.id, 2, storage).improved, true);
+  assert.equal(recordSkyEpisodeReward('amari', episode.id, 2, storage).improved, false);
   assert.equal(getSkyShapesProgress('askia', storage).unlockedEpisode, 0);
   assert.equal(recordSkyMissionCompletion('amari', 'unknown', 100, 3, storage), null);
 });
@@ -182,6 +185,7 @@ test('all twelve perfect Sky missions award 36 stars and three one-time chapter 
       total += result.awardedStars;
       if (result.newlyCompletedEpisode) total += SKY_CHAPTER_BONUS_STARS;
     }
+    for (const receipt of pendingSkyShapesRewards(getSkyShapesProgress('amari', storage))) markSkyShapesRewardClaimedStrict('amari', receipt.id, storage);
   }
   assert.equal(total, 42);
   for (const episode of SKY_SHAPE_EPISODES) {
@@ -206,7 +210,9 @@ test('flight completion saves before navigation and replay cannot repeat mission
     assert.equal(result.chapterBonusStars, index === episode.missions.length - 1 ? 2 : 0);
     if (index === episode.missions.length - 1) {
       assert.equal(reloaded.bestStars[episode.id], 3);
-      assert.equal(reloaded.unlockedEpisode, 1);
+      for (const receipt of pendingSkyShapesRewards(reloaded)) markSkyShapesRewardClaimedStrict('amari', receipt.id, storage);
+      const confirmed = getSkyShapesProgress('amari', storage);
+      assert.equal(confirmed.unlockedEpisode, 1);
     }
   }
   assert.equal(earned, 14);
