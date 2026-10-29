@@ -367,6 +367,7 @@ const LittleGameShell = ({
       className={`relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b ${background} bg-cover bg-center font-sans text-slate-800 select-none`}
       data-pair-compact={compactStart || compactDone ? 'true' : undefined}
       data-little-game={gameId}
+      data-little-phase={phase}
       style={backgroundArt && !backgroundArtPortrait ? { backgroundImage: `url(${backgroundArt})` } : undefined}
     >
       {backgroundArt && backgroundArtPortrait && (
