@@ -306,15 +306,15 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
 
   return (
     <div className="min-h-[100dvh] overflow-x-hidden bg-[#07132f] text-white relative" data-hangman-level={level.id} data-hangman-phase="play" data-hangman-seed={runSeed}>
-      <header className="relative z-20 mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 pt-4 sm:px-7">
+      <header className="relative z-20 mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 pt-2 sm:px-7 sm:pt-4">
         <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="min-w-0 text-center"><p className="text-xs font-bold uppercase tracking-[0.18em] text-fuchsia-200">Level {selectedLevel + 1} of {HANGMAN_LEVELS.length} · {level.lengthLabel}</p><h1 className="text-2xl font-black sm:text-4xl">Dino Hangman</h1></div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" />
       </header>
       <main className="relative z-10 mx-auto grid max-w-6xl gap-3 px-2 pb-5 pt-2 sm:gap-4 sm:px-4 sm:pb-8 sm:pt-3 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,.95fr)] lg:items-start">
         <section className="rounded-[1.5rem] border border-white/15 bg-white/10 p-2 shadow-2xl backdrop-blur-xl sm:rounded-[2rem] sm:p-5 xl:p-7">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <div className="flex min-w-0 items-center gap-2"><div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-fuchsia-400/20 text-2xl">{word.emoji}</div><div className="min-w-0"><p className="text-[0.65rem] font-black uppercase tracking-[0.12em] text-fuchsia-200 sm:text-xs sm:tracking-[0.2em]">{level.lengthLabel} · {word.category}</p><p className="text-base font-black sm:text-lg" aria-live="polite">{statusMessage}</p></div></div>
+          <div className="flex flex-nowrap items-center justify-between gap-2">
+            <div className="flex min-w-0 flex-1 items-center gap-2"><div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-fuchsia-400/20 text-2xl">{word.emoji}</div><div className="min-w-0"><p className="text-[0.65rem] font-black uppercase tracking-[0.12em] text-fuchsia-200 sm:text-xs sm:tracking-[0.2em]">{level.lengthLabel} · {word.category}</p><p className="text-base font-black sm:text-lg" aria-live="polite">{statusMessage}</p></div></div>
             <div className="flex items-center gap-2 rounded-xl bg-black/20 px-2 py-1.5 sm:gap-4 sm:rounded-2xl sm:px-4 sm:py-2">
               <p className="text-sm font-black text-amber-300" aria-label={`${runStats.rescued} of ${level.target} rescued`}>{runStats.rescued}/{level.target} ⭐</p>
               <p className="text-sm font-bold text-cyan-100" aria-label={`${shieldsLeft} of ${MAX_MISTAKES} shields remaining`}>🛡️ {shieldsLeft}/{MAX_MISTAKES}</p>
