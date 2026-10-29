@@ -245,16 +245,16 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     }
     setProgressState({ ok: true, progress: saved.progress });
     onGameEvent?.('spot', 'scene_complete', { level: pending.chapterIndex, round: pending.sceneIndex + 1, seed: pending.seed, firstAttempt: !pending.hadMistake, hints: pending.hintCount });
-    if (saved.chapterComplete) {
+    if (pending.isLastScene && saved.chapterComplete) {
       setPhase('chapter-complete');
       const praise = getPraise();
       setFeedback(spotDifferenceCompletionMessage({ chapterComplete: true, chapterName: SPOT_DIFFERENCE_CHAPTERS[pending.chapterIndex].name, praise }));
       onGameEvent?.('spot', 'level_completed', { level: pending.chapterIndex, round: pending.sceneIndex + 1, seed: pending.seed, firstAttempt: !pending.hadMistake, hints: pending.hintCount, wrongTaps: pending.wrongTapCount, difficulty: SPOT_DIFFERENCE_CHAPTERS[pending.chapterIndex].band });
-      if (saved.receipt && !saved.receipt.claimed && !await claimReceipt(saved.receipt, false)) {
-        setCompletionSaveState('failed');
-        completionBusyRef.current = false;
-        return false;
-      }
+    }
+    if (saved.receipt && !saved.receipt.claimed && !await claimReceipt(saved.receipt, false)) {
+      setCompletionSaveState('failed');
+      completionBusyRef.current = false;
+      return false;
     }
     setCompletionSaveState('saved');
     completionBusyRef.current = false;
@@ -318,7 +318,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     if (nextFound.length === scene.differences.length) {
       setFeedback(spotDifferenceCompletionMessage());
       setPhase('scene-complete');
-      const pending = { sceneId: scene.id, chapterIndex, sceneIndex, seed, hadMistake, hintCount, wrongTapCount };
+      const pending = { sceneId: scene.id, chapterIndex, sceneIndex, isLastScene: sceneIndex === queue.length - 1, seed, hadMistake, hintCount, wrongTapCount };
       pendingSceneRef.current = pending;
       setCompletionSaveState('saving');
       speakPackagedBatch2Line(speak, spotDifferenceNarration.completed(scene));
