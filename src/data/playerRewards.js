@@ -25,12 +25,14 @@ export const rewardClaimToken = (gameId, receiptId) => (
                 : gameId === 'jet' ? `dino:jet:${receiptId}`
                   : gameId === 'math' ? `dino:math:${receiptId}`
                     : gameId === 'counting' ? `dino:counting:${receiptId}`
-                      : gameId === 'addition' ? `dino:addition:${receiptId}` : `${gameId}:${receiptId}`
+                      : gameId === 'addition' ? `dino:addition:${receiptId}`
+                        : gameId === 'subtraction' ? `dino:subtraction:${receiptId}`
+                          : gameId === 'numberline' ? `dino:numberline:${receiptId}` : `${gameId}:${receiptId}`
 );
 const normalizeClaimToken = (key) => {
   const alias = key.match(/^(chess|dinojigsaw):/i);
   if (alias) return rewardClaimToken(alias[1].toLowerCase(), key.slice(alias[0].length));
-  const reserved = key.match(/^dino:(chess|jigsaw|german|curriculum|letters|puzzle|spot|jet|math|counting|addition):/i);
+  const reserved = key.match(/^dino:(chess|jigsaw|german|curriculum|letters|puzzle|spot|jet|math|counting|addition|subtraction|numberline):/i);
   if (reserved) return `dino:${reserved[1].toLowerCase()}:${key.slice(reserved[0].length)}`;
   return key;
 };
@@ -44,7 +46,9 @@ const claimGame = (key) => key.startsWith('dino:chess:') ? 'chess'
               : key.startsWith('dino:jet:') ? 'jet'
                 : key.startsWith('dino:math:') ? 'math'
                   : key.startsWith('dino:counting:') ? 'counting'
-                    : key.startsWith('dino:addition:') ? 'addition' : key.split(':')[0];
+                    : key.startsWith('dino:addition:') ? 'addition'
+                      : key.startsWith('dino:subtraction:') ? 'subtraction'
+                        : key.startsWith('dino:numberline:') ? 'numberline' : key.split(':')[0];
 const read = (storage, key, fallback) => {
   try { return JSON.parse(storage?.getItem(key) ?? 'null') ?? fallback; } catch { return fallback; }
 };
@@ -94,7 +98,7 @@ const commitClaimedReward = (playerId, current, amount, gameId, storage, rewardT
   const failed = (error) => ({ ...before, persisted: false, awardedPoints: 0, recovered: false, error });
   if (typeof rewardToken !== 'string') return failed('Reward claim is invalid.');
   rewardToken = normalizeClaimToken(rewardToken);
-  if (!['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap', 'letters', 'puzzle', 'spot', 'jet', 'math', 'counting', 'addition'].includes(gameId) || claimGame(rewardToken) !== gameId || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
+  if (!['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap', 'letters', 'puzzle', 'spot', 'jet', 'math', 'counting', 'addition', 'subtraction', 'numberline'].includes(gameId) || claimGame(rewardToken) !== gameId || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
   if (!storage || typeof storage.getItem !== 'function' || typeof storage.setItem !== 'function') return failed('Reward storage is unavailable.');
   let canonical, canonicalRaw;
   try {

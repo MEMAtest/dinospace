@@ -169,7 +169,7 @@ const createWorker = ({ precacheAssets = [], networkRoutes = new Map() } = {}) =
 };
 
 test('service worker source keeps its shell and media caches separate', () => {
-  assert.match(workerSource, /const CACHE_NAME = 'amari-discovery-v52'/);
+  assert.match(workerSource, /const CACHE_NAME = 'amari-discovery-v53'/);
   assert.doesNotMatch(workerSource, /const CACHE_NAME = 'amari-discovery-v40'/);
   assert.match(workerSource, /const MEDIA_CACHE_NAME = 'amari-discovery-media-v1'/);
   assert.match(workerSource, /await cache\.addAll\(CORE_APP_SHELL\)/);

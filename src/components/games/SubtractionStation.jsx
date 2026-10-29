@@ -1,7 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
 import { SUBTRACTION_CHAPTERS, arithmeticNarrationSegments, createSubtractionRun, createArithmeticSeed, arithmeticRewardUnits, scoreArithmeticResults } from '../../data/arithmeticAdventure.js';
-import { getArithmeticProgress, rememberStartedArithmeticRun, saveArithmeticRun } from '../../data/arithmeticProgress.js';
+import {
+  readArithmeticProgressStrict, rememberStartedArithmeticRunStrict, recordArithmeticRunCompletionStrict,
+  getPendingArithmeticRewardReceiptsStrict, pendingArithmeticRewardReceipts, markArithmeticRewardReceiptClaimedStrict,
+} from '../../data/arithmeticProgress.js';
+import { rewardClaimToken } from '../../data/playerRewards.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const tell = (speak, text, segments = arithmeticNarrationSegments(text)) => speak?.(text, { premium: false, segments });
@@ -22,8 +26,10 @@ const ObjectIcon = ({ object, color }) => <svg viewBox="0 0 32 32" className="h-
 const Chapter = ({ chapter, index, selected, done, locked, onClick }) => <button type="button" disabled={locked} onClick={onClick} aria-pressed={selected} className={`min-h-16 rounded-2xl border-2 p-3 text-left font-black disabled:opacity-50 ${selected ? 'border-violet-600 bg-violet-100' : 'border-white bg-white'}`}><span className="block text-xs uppercase tracking-wide">Chapter {index + 1}{done ? ' · Badge earned' : locked ? ' · Locked' : ''}</span>{chapter.title}</button>;
 
 export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, cancelNarration = noopCancel, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) {
-  const [progress, setProgress] = useState(() => getArithmeticProgress('subtraction', playerId));
-  const [chapterIndex, setChapterIndex] = useState(() => getArithmeticProgress('subtraction', playerId).unlockedChapter);
+  const [progressState, setProgressState] = useState(() => readArithmeticProgressStrict('subtraction', playerId));
+  const progress = progressState.ok ? progressState.progress : { completedChapterIds: [], bestStars: {}, recentQuestionIds: {} };
+  const unlockedChapter = Math.min(progress.completedChapterIds.length, SUBTRACTION_CHAPTERS.length - 1);
+  const [chapterIndex, setChapterIndex] = useState(() => Math.min(readArithmeticProgressStrict('subtraction', playerId).progress?.completedChapterIds.length || 0, SUBTRACTION_CHAPTERS.length - 1));
   const [phase, setPhase] = useState('start');
   const [seed, setSeed] = useState(null);
   const [rounds, setRounds] = useState([]);
@@ -35,13 +41,100 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
   const [completedResults, setCompletedResults] = useState([]);
   const [removedTokens, setRemovedTokens] = useState([]);
   const [hintCount, setHintCount] = useState(0);
-  const [completion, setCompletion] = useState(null);
+  const [completionPending, setCompletionPending] = useState(false);
+  const [completionError, setCompletionError] = useState('');
+  const [startError, setStartError] = useState('');
+  const [rewardDrainBusy, setRewardDrainBusy] = useState(true);
+  const [rewardClaimError, setRewardClaimError] = useState(false);
+  const [pendingRewardReceipt, setPendingRewardReceipt] = useState(null);
+  const [progressRetryBusy, setProgressRetryBusy] = useState(false);
+  const pendingStartRef = useRef(null);
+  const pendingCompletionRef = useRef(null);
+  const completionBusyRef = useRef(false);
+  const receiptClaimsRef = useRef(new Map());
+  const receiptDrainRef = useRef(null);
+  const reconciledReceiptsRef = useRef(new Set());
   const chapter = SUBTRACTION_CHAPTERS[chapterIndex];
   const question = rounds[roundIndex];
+  const canStart = progressState.ok && !rewardDrainBusy && !pendingRewardReceipt && !rewardClaimError;
+
+  const refreshProgress = useCallback(() => {
+    const loaded = readArithmeticProgressStrict('subtraction', playerId);
+    setProgressState(loaded);
+    return loaded;
+  }, [playerId]);
+
+  const claimRewardReceipt = useCallback(async (receipt) => {
+    if (!receipt?.id || !Number.isInteger(receipt.rewardDelta) || receipt.rewardDelta <= 0 || receipt.claimed) return true;
+    const claimId = `${playerId || 'amari'}:${receipt.id}`;
+    if (reconciledReceiptsRef.current.has(claimId)) return true;
+    const existing = receiptClaimsRef.current.get(claimId);
+    if (existing) return existing;
+    const operation = Promise.resolve().then(async () => {
+      setPendingRewardReceipt(receipt);
+      let parent;
+      try {
+        parent = await onCelebrate(`${SUBTRACTION_CHAPTERS.find(({ id }) => id === receipt.chapterId)?.title || 'Subtraction'} complete!`, arithmeticRewardUnits(receipt.rewardDelta), 0, 'subtraction', {
+          quiet: true,
+          rewardToken: rewardClaimToken('subtraction', receipt.id),
+        });
+      } catch { parent = null; }
+      if (parent?.persisted !== true) {
+        setRewardClaimError(true);
+        return false;
+      }
+      const marked = markArithmeticRewardReceiptClaimedStrict('subtraction', playerId, receipt.id);
+      if (!marked.ok) {
+        setRewardClaimError(true);
+        return false;
+      }
+      reconciledReceiptsRef.current.add(claimId);
+      setProgressState({ ok: true, status: 'ready', progress: marked.progress });
+      setPendingRewardReceipt(null);
+      setRewardClaimError(false);
+      return true;
+    });
+    receiptClaimsRef.current.set(claimId, operation);
+    try { return await operation; }
+    finally { if (receiptClaimsRef.current.get(claimId) === operation) receiptClaimsRef.current.delete(claimId); }
+  }, [onCelebrate, playerId]);
+
+  const drainPendingRewards = useCallback(async () => {
+    if (receiptDrainRef.current) return receiptDrainRef.current;
+    const operation = (async () => {
+      setRewardDrainBusy(true);
+      setRewardClaimError(false);
+      const loaded = getPendingArithmeticRewardReceiptsStrict('subtraction', playerId);
+      if (!loaded.ok) {
+        setProgressState(loaded);
+        setRewardClaimError(true);
+        return false;
+      }
+      setProgressState(loaded);
+      let failed = false;
+      for (const receipt of loaded.receipts) if (!await claimRewardReceipt(receipt)) failed = true;
+      if (failed) { setRewardClaimError(true); return false; }
+      setPendingRewardReceipt(null);
+      setRewardClaimError(false);
+      refreshProgress();
+      return true;
+    })();
+    receiptDrainRef.current = operation;
+    try { return await operation; }
+    finally {
+      if (receiptDrainRef.current === operation) receiptDrainRef.current = null;
+      setRewardDrainBusy(false);
+    }
+  }, [claimRewardReceipt, playerId, refreshProgress]);
 
   useEffect(() => {
     onPhaseChange?.(phase === 'done' ? 'finish' : phase === 'start' ? 'intro' : 'play');
   }, [phase, onPhaseChange]);
+  useEffect(() => {
+    if (phase !== 'start') return undefined;
+    const timer = window.setTimeout(() => { void drainPendingRewards(); }, 0);
+    return () => window.clearTimeout(timer);
+  }, [drainPendingRewards, phase]);
   useEffect(() => () => cancelNarration(), [cancelNarration]);
   useEffect(() => {
     if (phase !== 'play' || !question) return;
@@ -51,12 +144,37 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
 
   const start = (index = chapterIndex) => {
     cancelNarration();
-    const newSeed = createArithmeticSeed();
-    const recent = getArithmeticProgress('subtraction', playerId).recentQuestionIds[index] || [];
-    const queue = createSubtractionRun({ chapter: index, seed: newSeed, recentIds: recent });
-    if (rememberStartedArithmeticRun('subtraction', playerId, index, queue)) {
-      setProgress(getArithmeticProgress('subtraction', playerId));
+    const loaded = readArithmeticProgressStrict('subtraction', playerId);
+    if (!loaded.ok) {
+      setProgressState(loaded);
+      setStartError(loaded.error || 'Saved progress could not be checked. Retry before starting.');
+      return;
     }
+    if (rewardDrainBusy || pendingRewardReceipt || rewardClaimError || pendingArithmeticRewardReceipts(loaded.progress).length) {
+      setStartError('Confirm saved chapter rewards before starting another run.');
+      void drainPendingRewards();
+      return;
+    }
+    if (!Number.isInteger(index) || index < 0 || index >= SUBTRACTION_CHAPTERS.length || index > Math.min(loaded.progress.completedChapterIds.length, SUBTRACTION_CHAPTERS.length - 1)) return;
+    let attempt = pendingStartRef.current?.chapterIndex === index ? pendingStartRef.current : null;
+    if (!attempt) {
+      const newSeed = createArithmeticSeed();
+      const recent = loaded.progress.recentQuestionIds[index] || [];
+      const queue = createSubtractionRun({ chapter: index, seed: newSeed, recentIds: recent });
+      attempt = { chapterIndex: index, seed: newSeed, queue };
+    }
+    pendingStartRef.current = attempt;
+    const { seed: newSeed, queue } = attempt;
+    const saved = rememberStartedArithmeticRunStrict('subtraction', playerId, index, queue);
+    if (!saved.ok) {
+      setProgressState(loaded);
+      setChapterIndex(index);
+      setStartError('Question history could not be saved. Retry to start this same six-question run.');
+      return;
+    }
+    pendingStartRef.current = null;
+    setProgressState({ ok: true, status: 'ready', progress: saved.progress });
+    setStartError('');
     setChapterIndex(index);
     setSeed(newSeed);
     setRounds(queue);
@@ -67,11 +185,13 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     setFeedback('');
     setCompletedResults([]);
     setHintCount(0);
-    setCompletion(null);
     setRemovedTokens([]);
+    setCompletionPending(false);
+    setCompletionError('');
+    pendingCompletionRef.current = null;
     setPhase('play');
     onGameEvent?.('subtraction', 'start', { level: index, seed: newSeed, difficulty: SUBTRACTION_CHAPTERS[index].id });
-    if (progress.completedChapterIds.includes(SUBTRACTION_CHAPTERS[index].id)) {
+    if (loaded.progress.completedChapterIds.includes(SUBTRACTION_CHAPTERS[index].id)) {
       onGameEvent?.('subtraction', 'replay', { level: index, seed: newSeed, difficulty: SUBTRACTION_CHAPTERS[index].id, hintCount: 0 });
     }
   };
@@ -101,7 +221,11 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     setFeedback(question.explanation);
     const results = [...completedResults, { correct: true, firstAttempt, priorWrong: mistake, hintCount: hintUsed ? 1 : 0 }];
     setCompletedResults(results);
-    if (roundIndex === rounds.length - 1) finishChapter(results);
+    if (roundIndex === rounds.length - 1) {
+      const stars = scoreArithmeticResults(results).stars;
+      pendingCompletionRef.current = { chapterIndex, rounds, stars, seed, hintCount: hintCount + (hintUsed ? 1 : 0), completionEventSent: false };
+      setCompletionError('');
+    }
     playSfx('success');
     onGameEvent?.('subtraction', 'answer_correct', {
       level: chapterIndex, round: roundIndex, seed, difficulty: chapter.id,
@@ -120,22 +244,79 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     tell(speak, question.clue, arithmeticNarrationSegments(question, 'clue'));
   };
 
-  const finishChapter = (results) => {
-    const { stars } = scoreArithmeticResults(results);
-    const result = saveArithmeticRun('subtraction', playerId, chapterIndex, rounds, stars);
-    if (!result) return null;
-    setProgress(result.progress);
-    if (result.awardedStars > 0) {
-      onCelebrate?.(`${chapter.title} complete!`, arithmeticRewardUnits(result.awardedStars), 0, 'subtraction');
+  const finishChapter = async (draft = pendingCompletionRef.current) => {
+    if (!draft || completionBusyRef.current) return false;
+    completionBusyRef.current = true;
+    pendingCompletionRef.current = draft;
+    setCompletionPending(true);
+    setCompletionError('');
+    if (draft.newlyCompleted === undefined) {
+      const before = readArithmeticProgressStrict('subtraction', playerId);
+      if (!before.ok) {
+        setProgressState(before);
+        setCompletionError('Saved progress needs checking. Retry this result.');
+        setCompletionPending(false);
+        completionBusyRef.current = false;
+        return false;
+      }
+      const chapterId = SUBTRACTION_CHAPTERS[draft.chapterIndex]?.id;
+      const wasAlreadyEarned = before.progress.completedChapterIds.includes(chapterId)
+        || (before.progress.bestStars[chapterId] || 0) > 0
+        || before.progress.completedChapterIds.length > draft.chapterIndex;
+      draft.newlyCompleted = !wasAlreadyEarned;
     }
-    onGameEvent?.('subtraction', 'level_complete', { level: chapterIndex, round: 5, seed, difficulty: chapter.id, hintCount });
-    const saved = { ...result, stars };
-    setCompletion(saved);
-    return saved;
+    const result = recordArithmeticRunCompletionStrict('subtraction', playerId, draft.chapterIndex, draft.rounds, draft.stars);
+    if (!result.ok) {
+      setCompletionError('Result ready. Save failed. Retry this result.');
+      setCompletionPending(false);
+      completionBusyRef.current = false;
+      return false;
+    }
+    draft.newlyCompleted = Boolean(draft.newlyCompleted || result.newlyCompleted);
+    setProgressState({ ok: true, status: 'ready', progress: result.progress });
+    if (!draft.completionEventSent) {
+      draft.completionEventSent = true;
+      onGameEvent?.('subtraction', 'level_complete', { level: draft.chapterIndex, round: 5, seed: draft.seed, difficulty: SUBTRACTION_CHAPTERS[draft.chapterIndex].id, hintCount: draft.hintCount });
+    }
+    const drained = await drainPendingRewards();
+    if (!drained) {
+      setCompletionError('Result saved. Reward needs sync. Retry.');
+      setCompletionPending(false);
+      completionBusyRef.current = false;
+      return false;
+    }
+    const latest = readArithmeticProgressStrict('subtraction', playerId);
+    if (!latest.ok || pendingArithmeticRewardReceipts(latest.progress).length) {
+      if (!latest.ok) setProgressState(latest);
+      setCompletionError('Saved rewards need confirmation. Retry.');
+      setCompletionPending(false);
+      completionBusyRef.current = false;
+      return false;
+    }
+    setProgressState(latest);
+    setCompletionPending(false);
+    setCompletionError('');
+    setFeedback(draft.newlyCompleted
+      ? `Chapter complete! You earned ${draft.stars} ${draft.stars === 1 ? 'star' : 'stars'}.`
+      : `Replay complete! Your best is ${latest.progress.bestStars[SUBTRACTION_CHAPTERS[draft.chapterIndex].id]} ${latest.progress.bestStars[SUBTRACTION_CHAPTERS[draft.chapterIndex].id] === 1 ? 'star' : 'stars'}.`);
+    setPhase('done');
+    playSfx('complete');
+    completionBusyRef.current = false;
+    pendingCompletionRef.current = null;
+    return true;
+  };
+
+  const retryProgressRead = () => {
+    setProgressRetryBusy(true);
+    const loaded = readArithmeticProgressStrict('subtraction', playerId);
+    setProgressState(loaded);
+    if (loaded.ok) setChapterIndex((current) => Math.min(current, loaded.progress.completedChapterIds.length, SUBTRACTION_CHAPTERS.length - 1));
+    setProgressRetryBusy(false);
+    if (loaded.ok) void drainPendingRewards();
   };
 
   const next = () => {
-    if (!locked) return;
+    if (!locked || completionPending) return;
     cancelNarration();
     if (roundIndex < 5) {
       setRoundIndex((index) => index + 1);
@@ -146,14 +327,8 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
       setRemovedTokens([]);
       return;
     }
-    const result = completion;
-    if (!result) return;
-    const { stars } = result;
-    setFeedback(result.newlyCompleted
-      ? `Chapter complete! You earned ${stars} ${stars === 1 ? 'star' : 'stars'}.`
-      : `Replay complete! Your best is ${result.progress.bestStars[chapter.id]} ${result.progress.bestStars[chapter.id] === 1 ? 'star' : 'stars'}.`);
-    setPhase('done');
-    playSfx('complete');
+    if (!pendingCompletionRef.current) return;
+    void finishChapter(pendingCompletionRef.current);
   };
 
   const leave = () => {
@@ -183,7 +358,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     const action = question.b === 0 ? 'Nothing is taken away. Every object in the starting group remains.' : `Tap ${question.b} ${question.b === 1 ? question.one : question.many} in the same group to show what is taken away.`;
     return <section className="mx-auto max-w-xl rounded-2xl border-2 border-violet-200 bg-white p-3" aria-label="Take-away model">
       <p className="text-xs font-black uppercase tracking-wide text-violet-800">{instruction}</p>
-      <p className="mt-1 text-sm font-bold">{description} {action}</p>
+        {!locked && <p className="mt-1 text-sm font-bold">{description} {action}</p>}
       <p className="my-2 text-2xl font-black" aria-label={`Equation: ${question.a} minus ${question.b} equals ${locked ? question.answer : 'unknown'}`}>{question.a} − {question.b} = {locked ? question.answer : '?'}</p>
       <div role="group" aria-label={`Starting group: ${question.a} ${question.a === 1 ? question.one : question.many}. ${removedTokens.length} marked to take away.`} className="rounded-xl border-2 border-slate-200 bg-slate-50 p-3">
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2"><b>Starting group · {question.a}</b><span className="text-sm font-bold text-rose-700">Take away · {question.b}</span></div>
@@ -194,9 +369,43 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
         <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-sm font-bold"><span>Marked: {removedTokens.length} of {question.b}</span><span>Left: {question.a - removedTokens.length}</span></div>
       </div>
       {!locked && <div className="mt-2 flex justify-center gap-2"><button type="button" onClick={() => setRemovedTokens((previous) => previous.slice(0, -1))} disabled={!removedTokens.length} className="inline-flex min-h-12 items-center gap-1 rounded-xl border-2 border-slate-300 px-3 font-bold disabled:opacity-50"><RotateCcw size={18}/> Undo</button><button type="button" onClick={() => setRemovedTokens([])} disabled={!removedTokens.length} className="min-h-12 rounded-xl border-2 border-slate-300 px-3 font-bold disabled:opacity-50">Reset</button></div>}
-      {locked && <p className="mt-2 rounded-xl bg-violet-50 p-2 font-bold">Same {question.a} objects: {question.b} taken away, {question.answer} left.</p>}
     </section>;
   }, [question, locked, removedTokens]);
-  if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>{phase === 'start' ? <main className="mx-auto mt-5 max-w-4xl"><p className="mb-4 rounded-2xl bg-white p-4 text-center font-bold">Take away, compare groups, and solve stories. Each chapter has six questions and a worked answer you control.</p><div className="grid gap-3 sm:grid-cols-3">{SUBTRACTION_CHAPTERS.map((c,i)=><Chapter key={c.id} chapter={c} index={i} selected={chapterIndex===i} done={progress.completedChapterIds.includes(c.id)} locked={i>progress.unlockedChapter} onClick={()=>setChapterIndex(i)} />)}</div><button onClick={()=>start()} className="mt-5 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white">Start {chapter.title}</button></main> : <main className="mx-auto mt-8 max-w-2xl rounded-3xl bg-white p-6 text-center shadow-xl"><p className="text-2xl font-black">{feedback}</p><p className="mt-3">Choose the next unlocked chapter or replay a completed chapter.</p><button className="mt-5 min-h-14 w-full rounded-2xl bg-violet-700 px-5 font-black text-white" onClick={()=>{cancelNarration();setPhase('start');setChapterIndex(progress.unlockedChapter);}}>Continue</button><button className="mt-3 min-h-14 w-full rounded-2xl bg-white px-5 font-black text-violet-800 ring-2 ring-violet-700" onClick={()=>start(chapterIndex)}>Replay {chapter.title}</button></main>}</div>;
-  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex+1} of 3 · Question {roundIndex+1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header><main className="mx-auto mt-4 max-w-4xl rounded-3xl bg-white/90 p-4 text-center shadow-xl sm:p-6"><p className="mb-3 text-lg font-bold" aria-live="polite">{question?.prompt}</p><div className="mb-4 flex flex-wrap justify-center gap-2"><button className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-violet-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>{locked&&<button className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-violet-100 px-4 font-black" onClick={()=>tell(speak, question.explanation, arithmeticNarrationSegments(question, 'explanation'))}><Volume2 size={20}/> Hear explanation</button>}</div>{model}<div className="my-4 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose the answer">{question?.options.map(option=><button key={option} disabled={locked} onClick={()=>attempt(option)} className="min-h-14 min-w-16 rounded-2xl bg-violet-700 px-5 text-2xl font-black text-white shadow disabled:opacity-60" aria-label={`Answer ${option}`}>{option}</button>)}</div>{feedback&&<p role="status" className="mx-auto mb-3 max-w-2xl rounded-xl bg-violet-50 p-3 font-bold">{feedback}</p>}{!locked&&<button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button>}{locked&&<button onClick={next} className="mt-3 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white">{roundIndex===5?'Finish chapter':'Next question'}</button>}</main></div>;
+  if (phase === 'start' || phase === 'done') return (
+    <div className="min-h-[100dvh] bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6" data-subtraction-phase={phase}>
+      <header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>
+      {phase === 'start' ? <main className="mx-auto mt-3 max-w-4xl" data-subtraction-menu>
+        <p className="mb-3 rounded-2xl bg-white p-3 text-center font-bold">Take away, compare groups, and solve stories. Each chapter has six questions. Your worked answer stays until Finish chapter, and chapter progress saves then.</p>
+        {!progressState.ok && <section role="alert" className="mb-3 rounded-2xl border-2 border-rose-600 bg-white p-3 text-center font-bold"><p>Saved chapter progress is unavailable, so chapters stay locked until it can be checked.</p><button onClick={retryProgressRead} disabled={progressRetryBusy} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{progressRetryBusy ? 'Checking saved progress…' : 'Retry saved progress'}</button></section>}
+        {rewardDrainBusy && <p role="status" className="mb-3 rounded-xl bg-white p-3 text-center font-semibold">Checking saved chapter rewards…</p>}
+        {rewardClaimError && <section role="alert" className="mb-3 rounded-2xl border-2 border-amber-600 bg-white p-3 text-center font-bold"><p>A saved chapter reward still needs confirmation.</p><button onClick={()=>void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry reward confirmation</button></section>}
+        {startError && <p role="alert" className="mb-3 rounded-xl border-2 border-rose-500 bg-white p-3 text-center font-bold">{startError}</p>}
+        <section className="rounded-2xl bg-white p-3 shadow" aria-label="Selected subtraction chapter">
+          <p className="text-xs font-black uppercase tracking-wide">Selected · Chapter {chapterIndex + 1} of 3</p><h2 className="mt-1 text-lg font-black">{chapter.title}</h2><p className="text-sm">{chapter.skill[0].toUpperCase() + chapter.skill.slice(1)} · up to {chapter.max}</p>
+          <button type="button" data-subtraction-start disabled={!canStart || chapterIndex > unlockedChapter} onClick={()=>start(chapterIndex)} className="mt-3 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white disabled:opacity-50">
+            {pendingStartRef.current?.chapterIndex === chapterIndex ? 'Retry saving this chapter' : progress.completedChapterIds.includes(chapter.id) ? `Replay ${chapter.title}` : `Start ${chapter.title}`}
+          </button>
+        </section>
+        <details className="mt-3 rounded-2xl bg-white p-3 shadow" aria-label="Chapter choices"><summary className="min-h-12 cursor-pointer content-center font-black">Choose another chapter</summary><div className="mt-2 grid gap-2 sm:grid-cols-3">{SUBTRACTION_CHAPTERS.map((item,index)=><Chapter key={item.id} chapter={item} index={index} selected={chapterIndex===index} done={progress.completedChapterIds.includes(item.id)} locked={!progressState.ok || index>unlockedChapter} onClick={()=>{setChapterIndex(index);setStartError('');}} />)}</div></details>
+      </main> : <main className="mx-auto mt-5 max-w-2xl rounded-3xl bg-white p-5 text-center shadow-xl" data-subtraction-result><p className="text-xl font-black">{feedback}</p><p className="mt-2">Choose the next unlocked chapter or replay a completed chapter.</p><button className="mt-4 min-h-14 w-full rounded-2xl bg-violet-700 px-5 font-black text-white" onClick={()=>{cancelNarration();setPhase('start');setChapterIndex(unlockedChapter);}}>Continue</button><button className="mt-3 min-h-14 w-full rounded-2xl bg-white px-5 font-black text-violet-800 ring-2 ring-violet-700" onClick={()=>start(chapterIndex)}>Replay {chapter.title}</button></main>}
+    </div>
+  );
+  const equation = question?.type === 'compare'
+    ? `${question.a} and ${question.b} → ${locked ? question.answer : '?'} unpaired`
+    : `${question?.a} − ${question?.b} = ${locked ? question?.answer : '?'}`;
+  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6" data-subtraction-phase="play" data-subtraction-question={question?.id} data-subtraction-run-seed={seed}>
+    <header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex+1} of 3 · Question {roundIndex+1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>
+    <main className="mx-auto mt-3 max-w-4xl rounded-3xl bg-white/90 p-3 text-center shadow-xl sm:mt-4 sm:p-6">
+      <p className="mb-2 text-lg font-bold" aria-live="polite">{question?.prompt}</p>
+      {question?.type === 'compare' && <p className="mb-2 text-xl font-black" aria-label={`Difference model: ${equation}`}>{equation}</p>}
+      {!locked && <button className="mb-2 inline-flex min-h-12 items-center gap-2 rounded-xl bg-violet-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>}
+      {model}
+      {feedback&&<p role="status" className="mx-auto my-2 max-w-2xl rounded-xl bg-violet-50 p-2 font-bold">{feedback}</p>}
+      {locked&&<button onClick={()=>tell(speak, question.explanation, arithmeticNarrationSegments(question, 'explanation'))} className="mx-auto inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-violet-700 bg-white px-4 font-black"><Volume2 size={20}/> Hear explanation</button>}
+      {!locked && <div className="my-3 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose the answer">{question?.options.map(option=><button key={option} disabled={locked} onClick={()=>attempt(option)} className="min-h-14 min-w-16 rounded-2xl bg-violet-700 px-5 text-2xl font-black text-white shadow disabled:opacity-60" aria-label={`Answer ${option}`}>{option}</button>)}</div>}
+      {!locked&&<button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button>}
+      {completionError&&<section role="alert" className="mx-auto mt-2 max-w-2xl rounded-2xl border-2 border-rose-600 bg-white p-2 text-sm font-bold"><p>{completionError}</p><button data-subtraction-result-retry onClick={()=>void finishChapter(pendingCompletionRef.current)} disabled={completionPending} className="mt-1 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{completionPending?'Saving…':completionError.includes('reward') || completionError.includes('rewards') ? 'Retry reward confirmation' : 'Retry saving this result'}</button></section>}
+      {locked&&!completionError&&<button onClick={next} disabled={completionPending} className="mt-3 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white disabled:opacity-60">{roundIndex===5?'Finish chapter':'Next question'}</button>}
+    </main>
+  </div>;
 }
