@@ -135,7 +135,7 @@ const DetectiveRound = ({ round, playId, runSeed, config, complete, mistake, spe
 const LittleDinoDetective = (props) => {
   const [visitSeed] = useState(() => Math.floor(Math.random() * 0xffffffff) || 1);
   return (
-    <LittleGameShell {...props} gameId="dino" title="Dino Detective" intro={LITTLE_LINES.dinoIntro} finishLine={LITTLE_LINES.dinoFound} background="from-sky-400 via-emerald-300 to-lime-300" backgroundArtPortrait={PORTRAIT_SCENE} playFullBleed pairSafeProgress manualNext compactStart compactDone manualNextPrompt="Ready to search for the next dinosaur?" manualNextReviewLabel="Dinosaur find" startArt={<img src={ASKIA} alt="Askia ready to look for dinosaurs" className="mx-auto max-h-[36vh] w-full object-contain drop-shadow-2xl" />} renderUnlock={() => <DetectiveDino kind="trike" className="h-full w-full" />}>
+    <LittleGameShell {...props} gameId="dino" title="Dino Detective" intro={LITTLE_LINES.dinoIntro} finishLine={LITTLE_LINES.dinoFound} background="from-sky-400 via-emerald-300 to-lime-300" backgroundArtPortrait={PORTRAIT_SCENE} playFullBleed pairSafeProgress manualNext compactStart compactDone manualNextPrompt="Ready to search for the next dinosaur?" manualNextReviewLabel="Dinosaur find" startArt={<img src={ASKIA} alt="Askia ready to look for dinosaurs" className="pointer-events-none mx-auto h-full max-h-full w-full object-contain drop-shadow-2xl" />} renderUnlock={() => <DetectiveDino kind="trike" className="h-full w-full" />}>
       {({ round, playId, config, complete, mistake }) => (
         <DetectiveRound key={`${playId}-${round}`} round={round} playId={playId} runSeed={visitSeed} config={config} complete={complete} mistake={mistake} speak={props.speak} playSfx={props.playSfx} />
       )}
