@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161",
+  "previousRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+  "unchangedPaths": [
+    "public/art",
+    "public/audio",
+    "public/storybooks"
+  ],
+  "verification": "Source-equal to prior served corpus; current model/art and advancing packaged audio verified through controls. No repeated corpus downloads.",
+  "references": [
+    {
+      "path": "docs/qa-evidence/count-add-save-20261029/retained-art-lineage.json",
+      "sha256": "495bb07e38ed470c2cfab4f742a43e093a7872f9bf0bd62ae3bd7941f67b4a90"
+    }
+  ],
+  "currentSourceRuntime": "4d21a25b61f3208ed0114c75b12de414235c5161"
+}

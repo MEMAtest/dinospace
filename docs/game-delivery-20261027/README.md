@@ -35,3 +35,5 @@ Resource budget: no new worktrees or dependencies planned. Keep each pair's new 
 On 29 October the user requested a full playable chess game alongside the retained lessons. It was delivered and verified with Dino Jigsaw as Pair9; the remaining queued titles continue without being dropped. Fact Finder earned its own separate Pair11 acceptance; catalogue route checks are not its content proof.
 
 Fourteen games already have recent source-bound functional delivery evidence; retain those implementations and run a final integration regression. This sequence audits or uplifts the original remaining20, the newly requested full Chess mode and the separate Fact Finder feature rather than treating every old unscored ledger row as unimplemented. Each pair remains open until its own concrete gates pass. `queue.json` is the current work queue.
+
+Pair16 Subtraction/Number Line is live verified at runtime4d21a25b, worker53; four72question journeys and117key/allIDB cutover checks pass. Active pair17 is Time Teller + Sound Safari.

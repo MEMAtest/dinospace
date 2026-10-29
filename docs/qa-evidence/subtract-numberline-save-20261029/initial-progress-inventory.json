@@ -1,0 +1,85 @@
+{
+  "scope": "Read-only initial synthetic progress inventory; no acceptance/reset",
+  "snapshots": [
+    {
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-BQHHIXkm.js",
+      "namespaced": true,
+      "progress": {
+        "amari_subtraction_progress_v1": {
+          "version": 1,
+          "completedChapterIds": [],
+          "bestStars": {},
+          "recentQuestionIds": {
+            "0": [
+              "take:apple:5:0",
+              "take:flower:5:2",
+              "take:flower:9:4",
+              "take:star:6:5",
+              "take:cookie:8:7",
+              "take:star:4:4",
+              "take:gem:0:0",
+              "take:gem:4:1"
+            ]
+          },
+          "unlockedChapter": 0
+        },
+        "amari_numberline_progress_v1": {
+          "version": 1,
+          "completedChapterIds": [
+            "forward-back",
+            "missing-numbers",
+            "compare-distances"
+          ],
+          "bestStars": {
+            "forward-back": 3,
+            "missing-numbers": 3,
+            "compare-distances": 3
+          },
+          "recentQuestionIds": {
+            "0": [
+              "hop:8:1:2",
+              "hop:5:1:5",
+              "hop:1:1:2",
+              "hop:9:-1:9",
+              "hop:3:1:4",
+              "hop:4:-1:4",
+              "hop:7:1:3",
+              "hop:4:1:5"
+            ],
+            "1": [
+              "missing:11:2:2",
+              "missing:0:12:1",
+              "missing:10:1:2",
+              "missing:1:14:1",
+              "missing:1:13:0",
+              "missing:3:15:0",
+              "missing:2:14:2",
+              "missing:0:12:0"
+            ],
+            "2": [
+              "compare:larger:1:9:10:10",
+              "compare:larger:14:1:1:6",
+              "compare:farther:13:1:1:6",
+              "compare:farther:9:11:18:1",
+              "compare:farther:14:2:2:7",
+              "compare:larger:8:12:16:1",
+              "compare:farther:11:9:19:1",
+              "compare:larger:16:4:4:9"
+            ]
+          },
+          "unlockedChapter": 2
+        }
+      }
+    },
+    {
+      "origin": "http://127.0.0.1:5180",
+      "entry": "/assets/arcade-BQHHIXkm.js",
+      "namespaced": true,
+      "progress": {
+        "amari_subtraction_progress_v1": null,
+        "amari_numberline_progress_v1": null
+      }
+    }
+  ]
+}

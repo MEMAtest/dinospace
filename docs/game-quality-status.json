@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T15:59:02.117262+00:00",
+  "updatedAt": "2026-10-29T19:07:09.834444+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1187,7 +1187,7 @@
     "functionalAcceptance": true
   },
   "deliveryQueue": "docs/game-delivery-20261027/queue.json",
-  "activeDeliveryPair": 16,
+  "activeDeliveryPair": 17,
   "latestCodeWritingUplift": {
     "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
     "publicUrl": "https://dinospace.netlify.app",
@@ -1245,27 +1245,27 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": 15,
-    "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
-    "entry": "/assets/arcade-BQHHIXkm.js",
+    "pair": 16,
+    "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161",
+    "entry": "/assets/arcade-Ci1bLa53.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-2ruzdby0f-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_6wtPMCLZDRPBuVHj1MSuKXtdPkF3",
-    "netlifyGatewayDeploy": "6ae38e425a0e2655b35aa219",
-    "serviceWorkerCache": "amari-discovery-v52",
+    "backendUrl": "https://dinospace-ijea23dp4-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_7YmMNH4vjAcMy1xXNk798MXkNP9e",
+    "netlifyGatewayDeploy": "6ae398676c9e2ee54e48c3d2",
+    "serviceWorkerCache": "amari-discovery-v53",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/count-add-save-20261029/README.md",
-    "production": "docs/qa-evidence/count-add-save-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/count-add-save-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
+    "production": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/subtract-numberline-save-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 723,
+      "passed": 733,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T18:24:25.947138+00:00",
+    "verifiedAt": "2026-10-29T19:07:09.834444+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2\u21923only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery."
+    "scope": "Allfour72question native/canonical390/1440journeys; strict save/reward retry and replay0, actualpublicSubtraction faults+9/pendingsync+3once, legacyNumberLine3badges retained0award; nativefreshNumberLine fault lineage; actual117key/allIDB14media refresh retention. Functional scope only."
   },
   "latestDinoHangmanUplift": {
     "pair": 7,
@@ -1294,38 +1294,36 @@
     }
   },
   "activeDeliveryCandidate": {
-    "status": "planning",
-    "pair": 16,
+    "pair": 17,
     "games": [
-      "subtraction",
-      "numberline"
+      "timeteller",
+      "phonics"
     ],
-    "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/plan.md",
-    "publicRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
-    "paidCalls": 0
+    "status": "implementation",
+    "publicBaselineRuntime": "4d21a25b61f3208ed0114c75b12de414235c5161"
   },
   "lastVerifiedDeliveryRelease": {
-    "pair": 15,
-    "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
-    "entry": "/assets/arcade-BQHHIXkm.js",
+    "pair": 16,
+    "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161",
+    "entry": "/assets/arcade-Ci1bLa53.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-2ruzdby0f-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_6wtPMCLZDRPBuVHj1MSuKXtdPkF3",
-    "netlifyGatewayDeploy": "6ae38e425a0e2655b35aa219",
-    "serviceWorkerCache": "amari-discovery-v52",
+    "backendUrl": "https://dinospace-ijea23dp4-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_7YmMNH4vjAcMy1xXNk798MXkNP9e",
+    "netlifyGatewayDeploy": "6ae398676c9e2ee54e48c3d2",
+    "serviceWorkerCache": "amari-discovery-v53",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/count-add-save-20261029/README.md",
-    "production": "docs/qa-evidence/count-add-save-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/count-add-save-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
+    "production": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/subtract-numberline-save-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 723,
+      "passed": 733,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T18:24:25.947138+00:00",
+    "verifiedAt": "2026-10-29T19:07:09.834444+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2\u21923only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery."
+    "scope": "Allfour72question native/canonical390/1440journeys; strict save/reward retry and replay0, actualpublicSubtraction faults+9/pendingsync+3once, legacyNumberLine3badges retained0award; nativefreshNumberLine fault lineage; actual117key/allIDB14media refresh retention. Functional scope only."
   },
   "deliveryReleaseHistory": [
     {
@@ -1573,6 +1571,29 @@
       "paidCalls": 0,
       "editorialScoresChanged": false,
       "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2\u21923only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery."
+    },
+    {
+      "pair": 16,
+      "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161",
+      "entry": "/assets/arcade-Ci1bLa53.js",
+      "publicUrl": "https://dinospace.netlify.app",
+      "backendUrl": "https://dinospace-ijea23dp4-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_7YmMNH4vjAcMy1xXNk798MXkNP9e",
+      "netlifyGatewayDeploy": "6ae398676c9e2ee54e48c3d2",
+      "serviceWorkerCache": "amari-discovery-v53",
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
+      "production": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
+      "sourceGates": "docs/qa-evidence/subtract-numberline-save-20261029/source-gates.json",
+      "sourceTests": {
+        "passed": 733,
+        "failed": 0,
+        "skipped": 0
+      },
+      "verifiedAt": "2026-10-29T19:07:09.834444+00:00",
+      "paidCalls": 0,
+      "editorialScoresChanged": false,
+      "scope": "Allfour72question native/canonical390/1440journeys; strict save/reward retry and replay0, actualpublicSubtraction faults+9/pendingsync+3once, legacyNumberLine3badges retained0award; nativefreshNumberLine fault lineage; actual117key/allIDB14media refresh retention. Functional scope only."
     }
   ],
   "latestChessJigsawUplift": {
@@ -1769,5 +1790,28 @@
     "paidCalls": 0,
     "editorialScoresChanged": false,
     "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2\u21923only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery."
+  },
+  "latestSubtractionNumberLineSaveUplift": {
+    "pair": 16,
+    "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161",
+    "entry": "/assets/arcade-Ci1bLa53.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-ijea23dp4-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_7YmMNH4vjAcMy1xXNk798MXkNP9e",
+    "netlifyGatewayDeploy": "6ae398676c9e2ee54e48c3d2",
+    "serviceWorkerCache": "amari-discovery-v53",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
+    "production": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/subtract-numberline-save-20261029/source-gates.json",
+    "sourceTests": {
+      "passed": 733,
+      "failed": 0,
+      "skipped": 0
+    },
+    "verifiedAt": "2026-10-29T19:07:09.834444+00:00",
+    "paidCalls": 0,
+    "editorialScoresChanged": false,
+    "scope": "Allfour72question native/canonical390/1440journeys; strict save/reward retry and replay0, actualpublicSubtraction faults+9/pendingsync+3once, legacyNumberLine3badges retained0award; nativefreshNumberLine fault lineage; actual117key/allIDB14media refresh retention. Functional scope only."
   }
 }

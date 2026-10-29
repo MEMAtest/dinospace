@@ -1,0 +1,383 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "faultModeRequested": true,
+  "rows": [
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "prompt": "There are 7 gems. Take away 6. How many are left?",
+      "visibleEquation": "7 minus 6 equals unknown",
+      "answerFromVisible": 1,
+      "questionIdentity": "take:gem:7:6",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/cf7a4223-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/cf7a4223-matilda.mp3",
+            "currentTime": 0.065862,
+            "duration": 1.253878,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 901.3999999761581
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 916.8000000119209
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 918.8000000119209
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 7,
+        "aria": "Starting group: 7 gems. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 7 gems. 0 marked to take away.",
+          "rect": {
+            "x": 45,
+            "y": 343,
+            "width": 300,
+            "height": 168,
+            "right": 345,
+            "bottom": 511
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9c77b975-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9c77b975-matilda.mp3",
+            "currentTime": 0.059623,
+            "duration": 1.160998,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1266.5999999642372
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1282
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1284.0999999642372
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "prompt": "There are 9 stars. Take away 8. How many are left?",
+      "visibleEquation": "9 minus 8 equals unknown",
+      "answerFromVisible": 1,
+      "questionIdentity": "take:star:9:8",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 9,
+        "aria": "Starting group: 9 stars. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 9 stars. 0 marked to take away.",
+          "rect": {
+            "x": 45,
+            "y": 363,
+            "width": 300,
+            "height": 168,
+            "right": 345,
+            "bottom": 531
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "prompt": "There are 10 flowers. Take away 7. How many are left?",
+      "visibleEquation": "10 minus 7 equals unknown",
+      "answerFromVisible": 3,
+      "questionIdentity": "take:flower:10:7",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 10,
+        "aria": "Starting group: 10 flowers. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 10 flowers. 0 marked to take away.",
+          "rect": {
+            "x": 45,
+            "y": 363,
+            "width": 300,
+            "height": 168,
+            "right": 345,
+            "bottom": 531
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "prompt": "There is 1 cookie. Take away 0. How many are left?",
+      "visibleEquation": "1 minus 0 equals unknown",
+      "answerFromVisible": 1,
+      "questionIdentity": "take:cookie:1:0",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 1,
+        "aria": "Starting group: 1 cookie. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 1 cookie. 0 marked to take away.",
+          "rect": {
+            "x": 45,
+            "y": 363,
+            "width": 300,
+            "height": 116,
+            "right": 345,
+            "bottom": 479
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "prompt": "There are 4 shells. Take away 4. How many are left?",
+      "visibleEquation": "4 minus 4 equals unknown",
+      "answerFromVisible": 0,
+      "questionIdentity": "take:shell:4:4",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 4,
+        "aria": "Starting group: 4 shells. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 4 shells. 0 marked to take away.",
+          "rect": {
+            "x": 45,
+            "y": 363,
+            "width": 300,
+            "height": 116,
+            "right": 345,
+            "bottom": 479
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "prompt": "There are 4 cookies. Take away 1. How many are left?",
+      "visibleEquation": "4 minus 1 equals unknown",
+      "answerFromVisible": 3,
+      "questionIdentity": "take:cookie:4:1",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 4,
+        "aria": "Starting group: 4 cookies. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 4 cookies. 0 marked to take away.",
+          "rect": {
+            "x": 45,
+            "y": 363,
+            "width": 300,
+            "height": 116,
+            "right": 345,
+            "bottom": 479
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      }
+    }
+  ],
+  "games": {},
+  "providerAttempts": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-DNo95aga.js"
+  },
+  "soundOriginals": {
+    "subtraction": true
+  },
+  "faultEligibility": {
+    "subtraction": {
+      "key": "amari_subtraction_progress_v1",
+      "initial": {
+        "rawHash": "ed6be4217753354b05eb18e1caa12e99b04eca5c3504bb36c48465d6d85785b2",
+        "completed": [],
+        "bestStars": {}
+      },
+      "material": [
+        {
+          "id": "take-away",
+          "index": 0,
+          "completed": false,
+          "oldStars": 0
+        },
+        {
+          "id": "compare",
+          "index": 1,
+          "completed": false,
+          "oldStars": 0
+        },
+        {
+          "id": "stories",
+          "index": 2,
+          "completed": false,
+          "oldStars": 0
+        }
+      ],
+      "completionIndex": 0,
+      "pendingIndex": 1
+    }
+  },
+  "faultCases": {
+    "subtractionStart": {
+      "restored": true,
+      "fired": true,
+      "didSet": false,
+      "mode": "write",
+      "key": "amari_subtraction_progress_v1",
+      "retryLabel": "Retry saving this chapter",
+      "retriedSameQueue": true
+    }
+  },
+  "failure": {
+    "message": "locator.click: Timeout 2000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-subtraction-phase=\"play\"]').getByRole('group', { name: /^Starting group:/ }).getByRole('button', { name: /, remains$/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" aria-pressed=\"false\" aria-label=\"cookie 2, remains\" class=\"relative flex min-h-12 min-w-12 items-center justify-center rounded-xl border-2 border-transparent bg-white disabled:cursor-default\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    4 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n",
+    "stack": "locator.click: Timeout 2000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-subtraction-phase=\"play\"]').getByRole('group', { name: /^Starting group:/ }).getByRole('button', { name: /, remains$/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" aria-pressed=\"false\" aria-label=\"cookie 2, remains\" class=\"relative flex min-h-12 min-w-12 items-center justify-center rounded-xl border-2 border-transparent bg-white disabled:cursor-default\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m"
+  },
+  "controlAudit": {
+    "checked": 99,
+    "minimumWidth": 48,
+    "minimumHeight": 48,
+    "allCenterHits": true,
+    "allInsideViewport": true
+  },
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "stage": "native",
+  "runtimeSource": "640d056d3dc04d88c85a3278f9766832c620b2f4",
+  "entry": "/assets/arcade-DNo95aga.js",
+  "sourceHead": "640d056d3dc04d88c85a3278f9766832c620b2f4",
+  "sourceHashes": {
+    "src/App.jsx": "a91e7fccb18efa7f33eb18538cd2636c1b6ec370581bf3de40e9bb6d10357e3e",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/arithmeticAdventure.js": "5e3dfd0f4d2de27262b89daf967f7942926601ab3354da7d6430d35d6aba93f7",
+    "src/data/arithmeticProgress.js": "697a21ae88249b6971eedcf46b01c78d1c44cb75b6beef79fbddd29b498cc4dd",
+    "src/data/timeLineAdventure.js": "d1f4eb687db00094019a580e76625bc3c526844659b46c085185149f5984b42c",
+    "src/data/timeLineProgress.js": "32fcdc6eceebdca607a158894d338ae453d4998d283a8283d9331443cf936400",
+    "src/data/batch4Narration.js": "88743fa76c2006ef369b3bbe7ec236e7b661f62996411f37d9c7ce6417bd790d",
+    "src/data/playerRewards.js": "35f244da9a07e9ed6a9afed9f0b5a4be129808df731261539b8e495cd38106b4",
+    "src/components/games/SubtractionStation.jsx": "a33d266d475a85f5907ab5bb4a0c06c4d4ee6a3f0b8ce0089af991b009281af9",
+    "src/components/games/NumberLineJump.jsx": "64a1c2b04051bcf8091176946772ee8552fabe2474d8676add7672f52c87950f",
+    "src/components/games/NumberLineJourney.jsx": "2d2697cf96a9f46ffc96b6a82e038f96a33f7a975dbc3a9163d5d1cd8d9cf992",
+    "src/components/games/TimeLineLearningUI.jsx": "54c1290d888f49a41fdfd528ac61cb54b23105886b8db361eab3cec5dfa1163d",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/subtract-numberline-save-20261029/protocol.md": "f0b971a05aef2c01dd9597444e9b7bb714a11b81c66966ec5690904e428a0e78",
+    "docs/qa-evidence/subtract-numberline-save-20261029/subtract-numberline-native.cjs": "f6a7088d3043f130cf814416be9aa052dc0ae8e1e36ab2c637979996b4eac297"
+  },
+  "driverSHA256": "f6a7088d3043f130cf814416be9aa052dc0ae8e1e36ab2c637979996b4eac297",
+  "runnerSHA256": "c3234438b41290525cba0b09fc74163f64703ea286ee45c7e1683865062d8dac",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1442212,
+    "entrySha256": "dc29fd078224cb2ab220486b093743389c419f5d6d4f1fcc53bc41d6e80fbc21",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair16-native",
+  "scope": "Full actual-visible-control Subtraction Station and Number Line Jump acceptance for three chapters, six normal questions and six lower-rated replay questions per chapter at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "at": "2026-10-29T18:27:00.309940+00:00",
+  "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+  "evidenceCommit": "9f572e4c571326f1c7167e6da90658c300c34652",
+  "rows": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "fa07a371722f5e26fdc4b603996300c1a3affea7b35b480f3e9215ce3d486bc4"
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "sha256": "d60c2572a9cea128d5940b55ef50cb51cb4726e4844ffe97881ae646c7dfcd5d"
+    }
+  ]
+}

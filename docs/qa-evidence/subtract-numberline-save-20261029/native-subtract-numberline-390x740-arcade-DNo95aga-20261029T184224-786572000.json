@@ -1,0 +1,180 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "faultModeRequested": true,
+  "rows": [
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "prompt": "There are 7 cookies. Take away 0. How many are left?",
+      "visibleEquation": "7 minus 0 equals unknown",
+      "answerFromVisible": {},
+      "questionIdentity": "take:cookie:7:0",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/4563cfb0-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/4563cfb0-matilda.mp3",
+            "currentTime": 0.053269,
+            "duration": 1.346757,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 899.1999999880791
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 915.5999999642372
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 917.5999999642372
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 7,
+        "aria": "Starting group: 7 cookies. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 7 cookies. 0 marked to take away.",
+          "rect": {
+            "x": 45,
+            "y": 343,
+            "width": 300,
+            "height": 168,
+            "right": 345,
+            "bottom": 511
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      }
+    }
+  ],
+  "games": {},
+  "providerAttempts": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-DNo95aga.js"
+  },
+  "soundOriginals": {
+    "subtraction": true
+  },
+  "faultEligibility": {
+    "subtraction": {
+      "key": "amari_subtraction_progress_v1",
+      "initial": {
+        "rawHash": "8d5ff367745f6d011e62be86e3b29eb0c5d994b9376cdb3e07aa8d123fbaf3ca",
+        "completed": [],
+        "bestStars": {}
+      },
+      "material": [
+        {
+          "id": "take-away",
+          "index": 0,
+          "completed": false,
+          "oldStars": 0
+        },
+        {
+          "id": "compare",
+          "index": 1,
+          "completed": false,
+          "oldStars": 0
+        },
+        {
+          "id": "stories",
+          "index": 2,
+          "completed": false,
+          "oldStars": 0
+        }
+      ],
+      "completionIndex": 0,
+      "pendingIndex": 1
+    }
+  },
+  "faultCases": {
+    "subtractionStart": {
+      "restored": true,
+      "fired": true,
+      "didSet": false,
+      "mode": "write",
+      "key": "amari_subtraction_progress_v1",
+      "retryLabel": "Retry saving this chapter",
+      "retriedSameQueue": true
+    }
+  },
+  "failure": {
+    "message": "Visible Answer [object Promise] missing",
+    "stack": "Error: Visible Answer [object Promise] missing\n    at ok (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:11:30)\n    at answerControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:28:355)\n    at async questionSub (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:47:16)\n    at async runGame (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:76:13)\n    at async runPair16 (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:94:1168)\n    at async evalmachine.<anonymous>:4:8\n    at async evalmachine.<anonymous>:3:20"
+  },
+  "controlAudit": {
+    "checked": 19,
+    "minimumWidth": 48,
+    "minimumHeight": 48,
+    "allCenterHits": true,
+    "allInsideViewport": true
+  },
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "stage": "native",
+  "runtimeSource": "640d056d3dc04d88c85a3278f9766832c620b2f4",
+  "entry": "/assets/arcade-DNo95aga.js",
+  "sourceHead": "640d056d3dc04d88c85a3278f9766832c620b2f4",
+  "sourceHashes": {
+    "src/App.jsx": "a91e7fccb18efa7f33eb18538cd2636c1b6ec370581bf3de40e9bb6d10357e3e",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/arithmeticAdventure.js": "5e3dfd0f4d2de27262b89daf967f7942926601ab3354da7d6430d35d6aba93f7",
+    "src/data/arithmeticProgress.js": "697a21ae88249b6971eedcf46b01c78d1c44cb75b6beef79fbddd29b498cc4dd",
+    "src/data/timeLineAdventure.js": "d1f4eb687db00094019a580e76625bc3c526844659b46c085185149f5984b42c",
+    "src/data/timeLineProgress.js": "32fcdc6eceebdca607a158894d338ae453d4998d283a8283d9331443cf936400",
+    "src/data/batch4Narration.js": "88743fa76c2006ef369b3bbe7ec236e7b661f62996411f37d9c7ce6417bd790d",
+    "src/data/playerRewards.js": "35f244da9a07e9ed6a9afed9f0b5a4be129808df731261539b8e495cd38106b4",
+    "src/components/games/SubtractionStation.jsx": "a33d266d475a85f5907ab5bb4a0c06c4d4ee6a3f0b8ce0089af991b009281af9",
+    "src/components/games/NumberLineJump.jsx": "64a1c2b04051bcf8091176946772ee8552fabe2474d8676add7672f52c87950f",
+    "src/components/games/NumberLineJourney.jsx": "2d2697cf96a9f46ffc96b6a82e038f96a33f7a975dbc3a9163d5d1cd8d9cf992",
+    "src/components/games/TimeLineLearningUI.jsx": "54c1290d888f49a41fdfd528ac61cb54b23105886b8db361eab3cec5dfa1163d",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/subtract-numberline-save-20261029/protocol.md": "f0b971a05aef2c01dd9597444e9b7bb714a11b81c66966ec5690904e428a0e78",
+    "docs/qa-evidence/subtract-numberline-save-20261029/subtract-numberline-native.cjs": "9109ac8e2b7afd001669b2fc5980f718fc5c03652635a0eadf65cfe9f1624784"
+  },
+  "driverSHA256": "9109ac8e2b7afd001669b2fc5980f718fc5c03652635a0eadf65cfe9f1624784",
+  "runnerSHA256": "c3234438b41290525cba0b09fc74163f64703ea286ee45c7e1683865062d8dac",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1442212,
+    "entrySha256": "dc29fd078224cb2ab220486b093743389c419f5d6d4f1fcc53bc41d6e80fbc21",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair16-native",
+  "scope": "Full actual-visible-control Subtraction Station and Number Line Jump acceptance for three chapters, six normal questions and six lower-rated replay questions per chapter at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

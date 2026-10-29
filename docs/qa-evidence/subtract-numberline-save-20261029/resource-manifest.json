@@ -1,0 +1,84 @@
+{
+  "at": "2026-10-29T19:07:09.834444+00:00",
+  "newCheckouts": 0,
+  "newProfiles": 0,
+  "newDependencyInstalls": 0,
+  "evidenceBudgetBytes": 8388608,
+  "profileBeforeKiB": 1104136,
+  "profileGrowthBudgetBytes": 67108864,
+  "newAssets": "Existing artwork and packaged narration reused; no paid provider calls",
+  "freeSpaceBeforeGiB": "87",
+  "profileAfterKiB": 1139536,
+  "profileGrowthBytes": 36249600,
+  "evidenceBytesBeforeManifest": 1606610,
+  "retained": "Final JSON reports/source checks plus unique failures/screenshots, source-bound fault scopes and compact deployment identities. One existing persistent QA profile retained.",
+  "removedTaskOwnedTemps": [
+    {
+      "path": "tmp/pair16-build-r3.log",
+      "bytes": 14592,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-build-r2.log",
+      "bytes": 14592,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-build-r1.log",
+      "bytes": 14592,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-build-r5.log",
+      "bytes": 14591,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-build-r4.log",
+      "bytes": 14591,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-build-r6.log",
+      "bytes": 14591,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-tests-r1.log",
+      "bytes": 72688,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-tests-r3.log",
+      "bytes": 72705,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-tests-r2.log",
+      "bytes": 72727,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-tests-r6.log",
+      "bytes": 72684,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-tests-r5.log",
+      "bytes": 72682,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-tests-r4.log",
+      "bytes": 72710,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    },
+    {
+      "path": "tmp/pair16-parent-claims.log",
+      "bytes": 2148,
+      "reason": "Passed intermediate log; final full gate/source checks retained and fixes source-committed."
+    }
+  ],
+  "removedLogicalBytes": 525893,
+  "retainedTemps": "Deployment stdout and compact before/after runner scripts retained until final catalogue handoff; unique failed structured reports/screenshots kept."
+}

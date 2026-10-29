@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 16,
+  "activePair": 17,
   "pairs": [
     {
       "number": 1,
@@ -342,13 +342,18 @@
           "name": "Number Line Jump"
         }
       ],
-      "status": "in_progress",
+      "status": "live_verified",
       "role": "Strict durable save/reward repair and current viewport integration",
-      "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/plan.md",
+      "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
       "openGates": [
         "Strict local/parent receipt recovery",
         "Full native+canonical affected mechanics both viewports"
-      ]
+      ],
+      "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161",
+      "verifiedAt": "2026-10-29T19:07:09.834444+00:00",
+      "production": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
+      "sourceGates": "docs/qa-evidence/subtract-numberline-save-20261029/source-gates.json",
+      "openGate": null
     }
   ],
   "retainedReleasedScopes": [

@@ -1,0 +1,54 @@
+{
+  "scope": "Failed reports remain failed. Fresh successful reports prove repairs; Subtraction-only completed scope from BG8 is indexed separately.",
+  "reports": [
+    {
+      "report": "native-subtract-numberline-390x740-arcade-BG8HdFaL-20261029T185416-649728000.json",
+      "passed": false,
+      "questionRows": 37,
+      "classification": "product layout defect",
+      "failure": "Number Line hint is not wholly inside the viewport: {\"text\":\"Use one hint\",\"rect\":{\"x\":114.75,\"y\":747,\"width\":160.5,\"height\":48,\"right\":275.25,\"bottom\":795},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}"
+    },
+    {
+      "report": "native-subtract-numberline-390x740-arcade-BWRT9QcS-20261029T185212-108137000.json",
+      "passed": false,
+      "questionRows": 1,
+      "classification": "QA driver defect",
+      "failure": "Undo one visible take-away mark is missing or not uniquely visible"
+    },
+    {
+      "report": "native-subtract-numberline-390x740-arcade-BWRT9QcS-20261029T185244-903619000.json",
+      "passed": false,
+      "questionRows": 13,
+      "classification": "product layout defect",
+      "failure": "Next Subtraction question is not wholly inside the viewport: {\"text\":\"Next question\",\"rect\":{\"x\":35,\"y\":705,\"width\":320,\"height\":56,\"right\":355,\"bottom\":761},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"pointerEvents\":\"auto\"}"
+    },
+    {
+      "report": "native-subtract-numberline-390x740-arcade-DNo95aga-20261029T184224-786572000.json",
+      "passed": false,
+      "questionRows": 1,
+      "classification": "QA driver defect",
+      "failure": "Visible Answer [object Promise] missing"
+    },
+    {
+      "report": "native-subtract-numberline-390x740-arcade-DNo95aga-20261029T184718-944990000.json",
+      "passed": false,
+      "questionRows": 5,
+      "classification": "QA driver defect",
+      "failure": "Mark visible take-away object 2 is missing or not uniquely visible"
+    },
+    {
+      "report": "native-subtract-numberline-390x740-arcade-DNo95aga-20261029T184733-250800000.json",
+      "passed": false,
+      "questionRows": 6,
+      "classification": "QA driver defect",
+      "failure": "locator.click: Timeout 2000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-subtraction-phase=\"play\"]').getByRole('group', { name: /^Starting group:/ }).getByRole('button', { name: /, remains$/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" aria-pressed=\"false\" aria-label=\"cookie 2, remains\" class=\"relative flex min-h-12 min-w-12 items-center justify-center rounded-xl border-2 border-transparent bg-white disabled:cursor-default\">\u2026</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 \u00d7 waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m"
+    },
+    {
+      "report": "native-subtract-numberline-390x740-arcade-DNo95aga-20261029T184752-685521000.json",
+      "passed": false,
+      "questionRows": 7,
+      "classification": "product layout defect",
+      "failure": "Use visible Subtraction hint is not wholly inside the viewport: {\"text\":\"Use one hint\",\"rect\":{\"x\":114.75,\"y\":725,\"width\":160.5,\"height\":48,\"right\":275.25,\"bottom\":773},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}"
+    }
+  ]
+}
