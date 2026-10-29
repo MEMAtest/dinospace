@@ -292,14 +292,14 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
   if (!practiceWords.length || practiceWords.length < level.target) return <div className="min-h-[100dvh] bg-slate-950 p-6 text-white"><h1 className="text-2xl font-black">More sounds needed</h1><p className="my-4">There are not enough words at this level using the sounds selected in Grown-ups. Choose an earlier level or review the sound selection together.</p><button className="min-h-12 rounded-xl bg-white px-5 text-slate-900" onClick={goToLevelMap}>Back to levels</button></div>;
 
   if (phase === 'finish') return (
-    <div className="min-h-[100dvh] overflow-x-hidden bg-[#07132f] px-4 pb-8 pt-4 text-white" data-hangman-level={level.id} data-hangman-phase="finish">
+    <div className="min-h-[calc(100dvh-11rem)] overflow-x-hidden bg-[#07132f] px-4 pb-4 pt-3 text-white sm:pb-8 sm:pt-4" data-hangman-level={level.id} data-hangman-phase="finish">
       <header className="mx-auto flex max-w-4xl items-center justify-between gap-3"><button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button><div className="text-center"><p className="text-xs font-bold uppercase tracking-[0.2em] text-fuchsia-200">Dino Hangman</p><h1 className="text-2xl font-black">{level.name} complete</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" /></header>
-      <main className="mx-auto mt-8 max-w-xl rounded-[2rem] border border-white/15 bg-white/10 p-6 text-center shadow-2xl" tabIndex={-1} ref={successRef}>
-        <DinoIcon species="trex" size={112} className="mx-auto" /><Sparkles className="mx-auto mt-2 text-amber-300" size={32} />
-        <h2 className="mt-3 text-3xl font-black">{saveStatus || 'Your level result is saved.'}</h2>
+      <main className="mx-auto mt-3 max-w-xl rounded-[2rem] border border-white/15 bg-white/10 p-4 text-center shadow-2xl sm:mt-6 sm:p-6" tabIndex={-1} ref={successRef}>
+        <DinoIcon species="trex" size={80} className="mx-auto" /><Sparkles className="mx-auto mt-1 text-amber-300" size={20} />
+        <h2 className="mt-2 text-2xl font-black sm:text-3xl">Level saved!</h2><p className="mt-2 text-sm font-semibold text-emerald-100">{saveStatus || 'Your level result is saved.'}</p>
         <p className="mt-3 text-white/80">You rescued {runStats.rescued} words. First-try rescues: {runStats.firstTry} of {runStats.rescued}.</p>
         <p className="mt-2 font-bold text-amber-200">{lastRewardDelta > 0 ? `${lastRewardDelta} reward points added to this level’s best.` : 'No new points this time. Your saved best remains.'}</p>
-        <div className="mt-6 flex flex-wrap justify-center gap-3"><button onClick={goToLevelMap} className="min-h-12 rounded-xl bg-white/15 px-5 font-black">Level map</button>{selectedLevel < HANGMAN_LEVELS.length - 1 && unlocked(selectedLevel + 1) && <button onClick={() => startLevel(selectedLevel + 1)} className="min-h-12 rounded-xl bg-lime-500 px-5 font-black">Next level →</button>}{selectedLevel === HANGMAN_LEVELS.length - 1 && onNextGame && <button onClick={onNextGame} className="min-h-12 rounded-xl bg-lime-500 px-5 font-black">Next game →</button>}</div>
+        <div className="mt-3 flex flex-wrap justify-center gap-2 sm:mt-6 sm:gap-3"><button onClick={goToLevelMap} className="min-h-12 rounded-xl bg-white/15 px-5 font-black">Level map</button>{selectedLevel < HANGMAN_LEVELS.length - 1 && unlocked(selectedLevel + 1) && <button onClick={() => startLevel(selectedLevel + 1)} className="min-h-12 rounded-xl bg-lime-500 px-5 font-black">Next level →</button>}{selectedLevel === HANGMAN_LEVELS.length - 1 && onNextGame && <button onClick={onNextGame} className="min-h-12 rounded-xl bg-lime-500 px-5 font-black">Next game →</button>}</div>
       </main>
     </div>
   );
