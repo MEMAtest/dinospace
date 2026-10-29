@@ -243,6 +243,9 @@ const LetterLaunch = ({
 
   const beginChapter = (index) => {
     if (!progressState?.ok || index > progressState.progress.unlockedChapterIndex || pendingLetterLaunchRewards(progressState.storedProgress).length > 0 || claimError) return;
+    // Chapter cards can be lower down the menu. Start each lesson at its top
+    // so the clue, audio switch and choices are visible on a small screen.
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     const recent = loadRecentKeys(playerId, index);
     const seed = newRunSeed();
     const target = buildLetterLaunchRound(index, recent, letterLaunchRandomFor(seed, 0), 0, selectedSoundSet);
