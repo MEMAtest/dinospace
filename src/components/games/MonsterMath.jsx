@@ -86,10 +86,10 @@ const CounterModel = ({ question, locked, animationCount, showHint, clueShown, g
         </div>
       </div>
       <p className="mt-1 text-center text-base font-black text-slate-800 sm:text-lg" aria-live="polite">{numberLineInstruction(model, locked)}</p>
-      {guided && <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-        <button type="button" onClick={onStep} disabled={guided.remaining === 0} className="min-h-12 rounded-xl bg-amber-500 px-4 font-black text-amber-950 disabled:cursor-not-allowed disabled:opacity-50">Jump one step {model.operation === 'add' ? 'forward' : 'back'}</button>
-        <button type="button" onClick={onResetSteps} disabled={guided.completed === 0} className="min-h-12 rounded-xl bg-slate-200 px-4 font-black text-slate-900 disabled:cursor-not-allowed disabled:opacity-50">Start again</button>
-        <p className="w-full text-center font-bold text-amber-950" aria-live="polite">At {guided.position}. {guided.remaining ? `${guided.remaining} ${guided.remaining === 1 ? 'jump' : 'jumps'} to go.` : 'All jumps done.'}</p>
+      {guided && <div className="mt-2 grid grid-cols-2 gap-2 sm:mt-3 sm:gap-3">
+        <button type="button" onClick={onStep} disabled={guided.remaining === 0} className="min-h-12 rounded-xl bg-amber-500 px-2 text-sm font-black leading-tight text-amber-950 disabled:cursor-not-allowed disabled:opacity-50">Jump one step {model.operation === 'add' ? 'forward' : 'back'}</button>
+        <button type="button" onClick={onResetSteps} disabled={guided.completed === 0} className="min-h-12 rounded-xl bg-slate-200 px-2 text-sm font-black leading-tight text-slate-900 disabled:cursor-not-allowed disabled:opacity-50">Start again</button>
+        <p className="col-span-2 text-center text-sm font-bold leading-tight text-amber-950" aria-live="polite">At {guided.position}. {guided.remaining ? `${guided.remaining} ${guided.remaining === 1 ? 'jump' : 'jumps'} to go.` : 'All jumps done.'}</p>
       </div>}
     </div>
   );
@@ -504,7 +504,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
             <div role="group" aria-label="Choose the answer" className="grid grid-cols-2 gap-2 sm:gap-3">
               {question?.options.map((option) => <button key={option} type="button" disabled={locked} onClick={() => checkAnswer(option)} className="min-h-14 rounded-xl border-2 border-white bg-sky-600 text-2xl font-black text-white shadow-[0_4px_0_#075985] transition hover:bg-sky-700 active:translate-y-1 active:shadow-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-yellow-300 disabled:opacity-55 sm:min-h-16 sm:rounded-2xl sm:border-4 sm:text-3xl sm:shadow-[0_5px_0_#075985]">{option}</button>)}
             </div>
-            <button type="button" onClick={requestHint} disabled={locked || hadHint} className="mt-2 min-h-11 rounded-xl bg-amber-200 px-4 py-1.5 text-sm font-black text-amber-950 disabled:opacity-55 sm:mt-3 sm:min-h-12 sm:py-2 sm:text-base"><Lightbulb size={18} className="mr-1 inline" />{hadHint ? 'Clue shown' : question?.model.type === 'number-line' ? 'Try the jumps' : 'Show me a clue'}</button>
+            {!locked && !hadHint && <button type="button" onClick={requestHint} className="mt-2 min-h-11 rounded-xl bg-amber-200 px-4 py-1.5 text-sm font-black text-amber-950 sm:mt-3 sm:min-h-12 sm:py-2 sm:text-base"><Lightbulb size={18} className="mr-1 inline" />{question?.model.type === 'number-line' ? 'Try the jumps' : 'Show me a clue'}</button>}
           </section>
         </div>
 
