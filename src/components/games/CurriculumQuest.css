@@ -219,3 +219,9 @@
   .quest-investigation-observation-row>.quest-audio-compact{width:48px;min-width:48px;min-height:48px}
   .quest-investigation-question{margin:8px 0;font-size:16px;line-height:1.2}
 }
+@media(min-width:641px){
+  .quest-route-body{display:grid;grid-template-columns:minmax(0,15rem) minmax(10rem,11rem);align-items:center;justify-content:center;gap:14px}
+  .quest-route-map{width:15rem;gap:6px}
+  .quest-route-body>.mt-4{width:11rem;max-width:100%;margin:0;gap:6px}
+  .quest-route-body>.mt-4 button{min-width:48px;min-height:48px}
+}
