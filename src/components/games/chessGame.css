@@ -79,7 +79,7 @@
   color: #2a1b11;
   font-weight: 850;
   line-height: 1.15;
-  touch-action: none;
+  touch-action: manipulation;
 }
 .chess-full-button:disabled, .chess-full-primary:disabled { opacity: 0.55; }
 .chess-full-primary { border-color: #3b1764; background: #54218a; color: white; }

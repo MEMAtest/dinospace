@@ -58,7 +58,6 @@ export default function ChessGame({
   const [dragging, setDragging] = useState(null);
   const pointerRef = useRef(null);
   const suppressClickRef = useRef(false);
-  const clickTimerRef = useRef(null);
   const [promotionFrom, setPromotionFrom] = useState(null);
   const [message, setMessage] = useState('Choose a side and difficulty, then start a game.');
   const [saving, setSaving] = useState(false);
@@ -431,9 +430,8 @@ export default function ChessGame({
   };
 
   const beginPointer = (event, square) => {
-    if (!humanTurn || busyRef.current || event.button !== 0 || event.isPrimary === false || !isHumanPiece(currentGame.get(square))) return;
     suppressClickRef.current = false;
-    if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
+    if (!humanTurn || busyRef.current || event.button !== 0 || event.isPrimary === false || !isHumanPiece(currentGame.get(square))) return;
     pointerRef.current = { id: event.pointerId, from: square, x: event.clientX, y: event.clientY, size: event.currentTarget.getBoundingClientRect().width, moved: false };
     event.currentTarget.setPointerCapture?.(event.pointerId);
   };
@@ -455,7 +453,6 @@ export default function ChessGame({
     if (!pointer.moved) return;
     event.preventDefault();
     suppressClickRef.current = true;
-    clickTimerRef.current = setTimeout(() => { suppressClickRef.current = false; }, 0);
     const target = cancelled ? null : document.elementFromPoint(event.clientX, event.clientY)?.closest('[data-chess-square]');
     const to = target?.getAttribute('data-chess-square');
     if (to && to !== pointer.from) moveHumanPiece(pointer.from, to);
@@ -465,7 +462,7 @@ export default function ChessGame({
   useEffect(() => {
     if (mode !== 'playing' || thinking || saving || finished) { pointerRef.current = null; setDragging(null); }
   }, [mode, thinking, saving, finished]);
-  useEffect(() => () => { if (clickTimerRef.current) clearTimeout(clickTimerRef.current); pointerRef.current = null; }, []);
+  useEffect(() => () => { pointerRef.current = null; }, []);
 
   const promote = (promotion) => {
     if (!promotionFrom) return;
