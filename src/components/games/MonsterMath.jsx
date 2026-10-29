@@ -115,6 +115,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
   const [newEpisodeBadge, setNewEpisodeBadge] = useState(false);
   const [runStars, setRunStars] = useState(1);
   const [startStorageError, setStartStorageError] = useState('');
+  const pendingStartRef = useRef(null);
   const [completionPending, setCompletionPending] = useState(false);
   const [completionError, setCompletionError] = useState('');
   const [pendingRewardReceipt, setPendingRewardReceipt] = useState(null);
@@ -243,13 +244,26 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
       if (!loaded.ok) setProgressState(loaded);
       return;
     }
-    const seed = createMonsterRunSeed();
-    const recent = loaded.progress.recentQuestionIds[selectedIndex] || [];
-    const queue = createMonsterMathRun({ episodeIndex: selectedIndex, seed, recentQuestionIds: recent });
+    let attempt = pendingStartRef.current?.episodeIndex === selectedIndex ? pendingStartRef.current : null;
+    if (!attempt) {
+      const seed = createMonsterRunSeed();
+      const recent = loaded.progress.recentQuestionIds[selectedIndex] || [];
+      const queue = createMonsterMathRun({ episodeIndex: selectedIndex, seed, recentQuestionIds: recent });
+      attempt = { episodeIndex: selectedIndex, seed, queue };
+    }
+    pendingStartRef.current = attempt;
+    const { seed, queue } = attempt;
     const remembered = rememberMonsterMathRunStrict(playerId, selectedIndex, queue.map((item) => item.id));
-    setStartStorageError(remembered.ok ? '' : 'Question history could not be saved yet. You can practise; episode completion will wait for a confirmed save.');
+    if (!remembered.ok) {
+      setProgressState(loaded);
+      setEpisodeIndex(selectedIndex);
+      setStartStorageError('Question history could not be saved. Retry to start this same six-question run.');
+      return;
+    }
+    pendingStartRef.current = null;
+    setStartStorageError('');
     questionAnnouncementRef.current = '';
-    setProgressState(remembered.ok ? { ok: true, progress: remembered.progress } : loaded);
+    setProgressState({ ok: true, progress: remembered.progress });
     setEpisodeIndex(selectedIndex);
     setRunSeed(seed);
     setRounds(queue);
@@ -281,15 +295,26 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     pendingCompletionRef.current = draft;
     setCompletionPending(true);
     setCompletionError('');
+    if (draft.newlyCompleted === undefined) {
+      const before = getMonsterMathProgressStrict(playerId);
+      if (before.ok) {
+        const episodeId = MONSTER_MATH_EPISODES[draft.episodeIndex]?.id;
+        const wasAlreadyEarned = before.progress.completedEpisodeIds.includes(episodeId)
+          || (before.progress.bestStars[episodeId] || 0) > 0
+          || before.progress.unlockedEpisode > draft.episodeIndex;
+        draft.newlyCompleted = !wasAlreadyEarned;
+      }
+    }
     const completion = recordMonsterEpisodeCompletionStrict(playerId, draft.episodeIndex, draft.stars, draft.questionIds);
     if (!completion.ok) {
       setCompletionError('This six-question result is ready, but saved progress could not be confirmed. Retry to save this same result.');
       completionBusyRef.current = false;
       return;
     }
+    draft.newlyCompleted = Boolean(draft.newlyCompleted || completion.newlyCompleted);
     setProgressState({ ok: true, progress: completion.progress });
     setRunStars(draft.stars);
-    setNewEpisodeBadge(completion.newlyCompleted);
+    setNewEpisodeBadge(draft.newlyCompleted);
     if (!draft.completionEventSent) {
       draft.completionEventSent = true;
       onGameEvent?.('math', 'level_complete', { level: draft.episodeIndex, round: draft.questionIds.length - 1, seed: draft.seed, difficulty: MONSTER_MATH_EPISODES[draft.episodeIndex].band });
@@ -413,10 +438,10 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
             <p className="text-[10px] font-black uppercase tracking-widest text-orange-700 sm:text-xs">Episode {episodeIndex + 1} · {episode.band}</p>
             <div className="mt-0.5 flex items-start justify-between gap-2"><h2 className="text-xl font-black leading-tight sm:text-3xl">{episode.title}</h2><span className="shrink-0 rounded-full bg-amber-100 px-2 py-1 text-xs font-black text-amber-950 sm:px-3 sm:text-sm">{progress.bestStars[episode.id] ? `${'★'.repeat(progress.bestStars[episode.id])} best` : progress.completedEpisodeIds.includes(episode.id) ? 'Completed' : 'Ready'}</span></div>
             <p className="mt-1 text-sm font-bold leading-snug text-slate-700 sm:mt-2">{episode.subtitle}</p>
-            <button type="button" disabled={!canStartEpisode} onClick={() => startEpisode(episodeIndex)} className="mt-2 inline-flex min-h-14 w-full items-center justify-center rounded-xl bg-orange-700 px-5 py-2 text-base font-black text-white shadow-[0_4px_0_#9a3412] hover:bg-orange-800 active:translate-y-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50 sm:mt-5 sm:min-h-16 sm:rounded-2xl sm:px-6 sm:py-3 sm:text-lg sm:shadow-[0_6px_0_#9a3412]">{progress.completedEpisodeIds.includes(episode.id) ? 'Replay this episode' : 'Start six questions'}</button>
+            <button type="button" disabled={!canStartEpisode} onClick={() => startEpisode(episodeIndex)} className="mt-2 inline-flex min-h-14 w-full items-center justify-center rounded-xl bg-orange-700 px-5 py-2 text-base font-black text-white shadow-[0_4px_0_#9a3412] hover:bg-orange-800 active:translate-y-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50 sm:mt-5 sm:min-h-16 sm:rounded-2xl sm:px-6 sm:py-3 sm:text-lg sm:shadow-[0_6px_0_#9a3412]">{pendingStartRef.current?.episodeIndex === episodeIndex ? 'Retry saving this episode' : progress.completedEpisodeIds.includes(episode.id) ? 'Replay this episode' : 'Start six questions'}</button>
             <details className="mt-2 rounded-xl border border-amber-200 bg-white/80 sm:mt-4 sm:rounded-2xl" aria-label="Episode choices">
               <summary className="flex min-h-12 cursor-pointer items-center justify-center px-3 text-sm font-black text-orange-900">Choose another episode</summary>
-              <div className="grid gap-2 p-2 md:grid-cols-3">{MONSTER_MATH_EPISODES.map((entry, index) => <EpisodeTile key={entry.id} episode={entry} index={index} progress={progress} selected={episodeIndex === index} disabled={!progressState.ok || index > progress.unlockedEpisode} onSelect={() => setEpisodeIndex(index)} />)}</div>
+              <div className="grid gap-2 p-2 md:grid-cols-3">{MONSTER_MATH_EPISODES.map((entry, index) => <EpisodeTile key={entry.id} episode={entry} index={index} progress={progress} selected={episodeIndex === index} disabled={!progressState.ok || index > progress.unlockedEpisode} onSelect={() => { setEpisodeIndex(index); setStartStorageError(''); }} />)}</div>
             </details>
           </section>
         </main>
