@@ -15,7 +15,7 @@ import { rewardClaimToken } from '../../data/playerRewards.js';
 const praiseFor = (stars) => stars === 3 ? 'Brilliant counting!' : stars === 2 ? 'Great counting!' : 'You kept counting!';
 const pluralOf = (noun) => noun.endsWith('y') ? `${noun.slice(0, -1)}ies` : `${noun}s`;
 
-const CountMotif = ({ kind, accent }) => {
+const CountMotif = ({ kind, accent, compact = false }) => {
   const common = { fill: accent, stroke: '#fff7d6', strokeWidth: 1.8, strokeLinejoin: 'round', strokeLinecap: 'round' };
   let art;
   switch (kind) {
@@ -36,7 +36,7 @@ const CountMotif = ({ kind, accent }) => {
     case 'map-star': art = <><path d="m5 12 12-6 14 6 12-6v32l-12 6-14-6-12 6Z" {...common}/><path d="M17 7v30m14-25v30m-14-18 14 6" fill="none" stroke="#fff" strokeWidth="1.5"/><path d="m25 14 2.5 5 5.5.8-4 3.8 1 5.4-5-2.7-5 2.7 1-5.4-4-3.8 5.5-.8Z" fill="#fef08a" stroke="#fff" strokeWidth="1.4"/></>; break;
     default: art = <circle cx="24" cy="24" r="17" {...common}/>;
   }
-  return <svg aria-hidden="true" viewBox="0 0 48 48" className="h-9 w-9 drop-shadow sm:h-10 sm:w-10">{art}</svg>;
+  return <svg aria-hidden="true" viewBox="0 0 48 48" className={`drop-shadow ${compact ? 'h-6 w-6 sm:h-8 sm:w-8' : 'h-9 w-9 sm:h-10 sm:w-10'}`}>{art}</svg>;
 };
 
 const constellationPoints = {
@@ -373,16 +373,16 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
             <div><p className="text-xs font-black uppercase tracking-widest text-white/70">{episode.name} · {episode.band}</p><h2 className="text-2xl font-black sm:text-3xl">{round.scene.title}</h2></div>
           </div>
           <p className="mt-1 rounded-xl bg-black/20 px-3 py-1.5 text-xs font-bold text-white/90 sm:mt-2 sm:py-2 sm:text-sm">{strategy}</p>
-          <div className="relative mx-auto mt-2 aspect-square w-full max-w-[288px] rounded-3xl border border-white/25 bg-black/15 sm:mt-4 sm:max-w-[440px]" data-layout-variant={round.layoutVariant} data-count-episode={episode.id} data-count-question={round.id} data-run-seed={run.seed} data-round-index={roundIndex + 1} role="group" aria-label={`Counting board for ${round.scene.title}; ${layoutDescription}`}>
+          <div className={`relative mx-auto mt-2 aspect-square w-full rounded-3xl border border-white/25 bg-black/15 sm:mt-4 ${phase === 'count' ? 'max-w-[288px] sm:max-w-[440px]' : phase === 'answer' ? 'max-w-[220px] sm:max-w-[320px]' : 'max-w-[160px] sm:max-w-[220px]'}`} data-layout-variant={round.layoutVariant} data-count-episode={episode.id} data-count-question={round.id} data-run-seed={run.seed} data-round-index={roundIndex + 1} role="group" aria-label={`Counting board for ${round.scene.title}; ${layoutDescription}`}>
             {round.objects.map((object) => {
               const countedIndex = tappedIds.indexOf(object.id);
-              return <button key={object.id} type="button" aria-pressed={countedIndex >= 0} disabled={phase !== 'count'} onClick={() => handleTapObject(object.id)} aria-label={`${round.scene.noun}${countedIndex >= 0 ? `, counted as ${countedIndex + 1}` : ', not counted yet'}`} style={{ left: `${object.x}%`, top: `${object.y}%` }} className={`absolute grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl border-2 p-0 shadow-lg transition focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-200 sm:h-14 sm:w-14 ${countedIndex >= 0 ? 'border-yellow-100 bg-yellow-200/30 opacity-75' : 'border-white/20 bg-white/10 hover:scale-105'} disabled:cursor-default`}>
-                <CountMotif kind={round.scene.motif} accent={round.scene.accent} />
+              return <button key={object.id} type="button" aria-pressed={countedIndex >= 0} disabled={phase !== 'count'} onClick={() => handleTapObject(object.id)} aria-label={`${round.scene.noun}${countedIndex >= 0 ? `, counted as ${countedIndex + 1}` : ', not counted yet'}`} style={{ left: `${object.x}%`, top: `${object.y}%` }} className={`absolute grid ${phase === 'count' ? 'h-12 w-12 sm:h-14 sm:w-14' : 'h-8 w-8 sm:h-10 sm:w-10'} -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl border-2 p-0 shadow-lg transition focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-200 ${countedIndex >= 0 ? 'border-yellow-100 bg-yellow-200/30 opacity-75' : 'border-white/20 bg-white/10 hover:scale-105'} disabled:cursor-default`}>
+                <CountMotif kind={round.scene.motif} accent={round.scene.accent} compact={phase !== 'count'} />
                 {countedIndex >= 0 && <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full border border-slate-900 bg-yellow-300 text-xs font-black text-slate-950">{countedIndex + 1}</span>}
               </button>;
             })}
           </div>
-          {phase !== 'fact' && <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-black/20 px-3 py-2 sm:mt-3">
+          {phase === 'count' && <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-black/20 px-3 py-2 sm:mt-3">
             <p className="font-black" aria-live="polite">{phase === 'count' ? (tappedIds.length ? `Counted ${tappedIds.length} object${tappedIds.length === 1 ? '' : 's'}.` : 'Tap each object once to count it.') : phase === 'answer' ? COUNT_THE_STARS_NARRATION.countQuestion : 'Count complete'}</p>
             <div className="flex flex-wrap gap-2"><button type="button" onClick={() => speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] })} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 font-black"><Volume2 size={18} /> Hear instructions</button><button type="button" disabled={roundHadHint || phase === 'fact'} onClick={showCountingClue} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-300 px-3 font-black text-indigo-950 disabled:opacity-50"><Lightbulb size={18} /> Show a clue</button></div>
           </div>}
