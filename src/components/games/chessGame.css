@@ -139,3 +139,9 @@
 .chess-full-header{background:#fffdf7;border:2px solid #ead7b3;border-radius:.8rem;padding:4px;color:#2a1b11}
 .chess-full-header .chess-header-level{display:block;margin-top:2px;font-size:.7rem;text-align:center}
 .chess-sound-toggle{width:44px;justify-self:end;padding:6px}
+
+/* Piece artwork must never determine rank height: all 64 squares are equal. */
+.chess-play-board { grid-template-rows: repeat(8, minmax(0, 1fr)); }
+@media (min-width: 640px) {
+  .chess-play-board { width: min(100%, 560px); }
+}
