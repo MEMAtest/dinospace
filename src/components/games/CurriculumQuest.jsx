@@ -213,13 +213,13 @@ const SequenceRound = ({ round, sequence, onPick, disabled }) => {
   const next = [...round.items].sort((a, b) => a.order - b.order)[sequence.length];
   return (
     <div className="mx-auto w-full max-w-3xl">
-      <div className="mb-4 flex flex-wrap justify-center gap-2" aria-label="Sequence so far">
+      <div className="quest-sequence-summary mb-4 flex flex-wrap justify-center gap-2" aria-label="Sequence so far" aria-live="polite">
         {sequence.map((item, index) => <span key={item.id} className="rounded-full bg-amber-500 px-3 py-2 text-sm font-black text-white">{index + 1}. {item.label}</span>)}
       </div>
       <p className="mb-3 text-center text-sm font-black text-amber-900">{next ? `Choose the next clue (${sequence.length + 1} of ${round.items.length}).` : 'Sequence complete!'}</p>
-      <div className="grid gap-3 sm:grid-cols-3">
-        {round.items.map((item) => (
-          <div key={item.id} className="flex flex-col items-center gap-2 rounded-3xl border-4 border-amber-200 bg-white p-2 shadow-lg">
+      <div className="quest-sequence-grid grid gap-3 sm:grid-cols-3">
+        {round.items.filter((item) => !sequence.some((chosen) => chosen.id === item.id)).map((item) => (
+          <div key={item.id} className="quest-sequence-option flex flex-col items-center gap-2 rounded-3xl border-4 border-amber-200 bg-white p-2 shadow-lg">
             <button type="button" onClick={() => onPick(item.id)} disabled={disabled || sequence.some((chosen) => chosen.id === item.id)} aria-label={`Choose ${item.label}`} className="min-h-24 w-full rounded-2xl px-2 py-2 text-center transition hover:-translate-y-1 active:translate-y-0 disabled:opacity-45">
               <ChoiceArt item={item} />
               <strong className="mt-1 block text-sm font-black text-slate-800">{item.label}</strong>
@@ -247,9 +247,10 @@ const RouteRound = ({ round, step, onMove, disabled }) => {
   });
   const position = visited.at(-1);
   return (
-    <div className="mx-auto w-full max-w-xl rounded-3xl border-4 border-sky-200 bg-sky-100 p-4 shadow-inner">
+    <div className="quest-route-card mx-auto w-full max-w-xl rounded-3xl border-4 border-sky-200 bg-sky-100 p-4 shadow-inner">
       <div className="mb-3 flex items-center justify-between text-sm font-black text-sky-900"><span>↑ N</span><span>Treasure map</span><span>{step}/{round.path.length} moves</span></div>
-      <div className="mx-auto grid max-w-sm grid-cols-3 gap-2" aria-label="A three by three treasure map">
+      <div className="quest-route-body">
+      <div className="quest-route-map mx-auto grid max-w-sm grid-cols-3 gap-2" aria-label="A three by three treasure map">
         {Array.from({ length: 9 }, (_, index) => {
           const row = Math.floor(index / 3);
           const col = index % 3;
@@ -268,6 +269,7 @@ const RouteRound = ({ round, step, onMove, disabled }) => {
         <button type="button" disabled={disabled} onClick={() => onMove('south')} className="min-h-12 rounded-2xl bg-white font-black text-sky-900 shadow">S ↓</button>
         <button type="button" disabled={disabled} onClick={() => onMove('east')} className="min-h-12 rounded-2xl bg-white font-black text-sky-900 shadow">E →</button>
       </div>
+      </div>
     </div>
   );
 };
@@ -275,13 +277,13 @@ const RouteRound = ({ round, step, onMove, disabled }) => {
 const InvestigationRound = ({ round, prediction, onPredict, onConclude, disabled, selected, soundOn }) => (
   <div className="mx-auto w-full max-w-3xl">
     {!prediction ? (
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className="quest-investigation-predictions grid gap-3 sm:grid-cols-2">
         {round.predictions.map((option) => <div key={option.id} className="flex flex-col items-center gap-2 rounded-3xl border-4 border-emerald-200 bg-white p-2 shadow-lg"><button type="button" onClick={() => onPredict(option.id)} className="min-h-20 w-full rounded-2xl p-2 text-center"><span className="block text-4xl">{option.emoji}</span><strong className="mt-2 block text-sm font-black">{option.label}</strong></button></div>)}
       </div>
     ) : (
       <>
-        <div className="rounded-3xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center"><p className="text-xs font-black uppercase tracking-wider text-emerald-700">Observation</p><p className="mt-2 font-bold text-slate-700">{round.observation}</p><div className="mt-3"><PackagedAudioButton text={round.observation} label="Hear observation" soundOn={soundOn} /></div></div>
-        <h3 className="my-4 text-center text-xl font-black text-slate-900">What does the observation tell us?</h3>
+        <div className="quest-investigation-observation rounded-3xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center"><p className="text-xs font-black uppercase tracking-wider text-emerald-700">Observation</p><p className="mt-2 font-bold text-slate-700">{round.observation}</p><div className="mt-3"><PackagedAudioButton text={round.observation} label="Hear observation" soundOn={soundOn} /></div></div>
+        <h3 className="quest-investigation-question my-4 text-center text-xl font-black text-slate-900">What does the observation tell us?</h3>
         <ChoiceRound round={round} onPick={onConclude} disabled={disabled} selected={selected} />
       </>
     )}
@@ -767,7 +769,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
               ))}
             </nav>
             <label className="quest-level-select">Choose a level
-              <select aria-label="Choose a level" value={difficulty} onChange={(event) => { setDifficulty(event.target.value); closeStagePicker(); }}>
+              <select aria-label="Choose a level" value={difficulty} onChange={(event) => { setDifficulty(event.target.value); closeStagePicker('.quest-stage-picker summary'); }}>
                 {Object.entries(DIFFICULTY_LABELS).map(([band, label]) => <option key={band} value={band}>{label}</option>)}
               </select>
             </label>
@@ -782,15 +784,20 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
         </ol>
 
         {queueComplete ? (
-          <section className="quest-paper text-center" aria-labelledby="quest-complete">
+          <section className="quest-paper quest-completion text-center" aria-labelledby="quest-complete">
             <span className={`quest-year-badge ${ACCENT_BADGE_CLASSES[accent]}`}>{DIFFICULTY_LABELS[difficulty]} path complete</span>
-            <h2 id="quest-complete" className="mt-4 text-3xl font-black text-slate-900">You finished this discovery run!</h2>
-            <p className="mx-auto mt-2 max-w-xl text-lg font-bold text-slate-700">You explored {roundOrder.length} questions in {activeModule.title}. Choose a level to practise it again.</p>
-            <div className="mx-auto mt-5 max-w-xs"><CurriculumBadge badge={CURRICULUM_BADGES.find((badge) => badge.module === moduleId && badge.band === difficulty)} earned /><p className="mt-3 font-bold text-indigo-800">Your badge is safely saved in your sticker collection.</p></div>
-            <div className="mt-5 flex flex-wrap justify-center gap-3" aria-label="Choose a curriculum level">
-              {Object.keys(DIFFICULTY_LABELS).map((band) => <button key={band} type="button" onClick={() => { if (band === difficulty) replayQueue(); else setDifficulty(band); }} aria-pressed={band === difficulty} className={`min-h-12 rounded-full border-2 px-5 font-black ${band === difficulty ? 'border-indigo-700 bg-indigo-700 text-white' : 'border-indigo-200 bg-white text-indigo-800'}`}>{DIFFICULTY_LABELS[band]}</button>)}
-            </div>
-            <button type="button" onClick={replayQueue} className="quest-start mt-6"><RotateCcw size={18} /> Restart this level</button>
+            <h2 id="quest-complete" className="mt-2 text-2xl font-black text-slate-900">You finished this discovery run!</h2>
+            <p className="mx-auto mt-1 max-w-xl text-sm font-bold text-slate-700">{activeModule.title} · {roundOrder.length} questions explored.</p>
+            <button type="button" onClick={replayQueue} className="quest-start quest-restart-action mt-3"><RotateCcw size={18} /> Restart this level</button>
+            <details className="quest-completion-details">
+              <summary>Badge and other levels</summary>
+              <div className="quest-completion-secondary">
+                <div className="mx-auto max-w-xs"><CurriculumBadge badge={CURRICULUM_BADGES.find((badge) => badge.module === moduleId && badge.band === difficulty)} earned /><p className="mt-2 font-bold text-indigo-800">Your badge is saved in your sticker collection.</p></div>
+                <div className="flex flex-wrap justify-center gap-2" aria-label="Choose another curriculum level">
+                  {Object.keys(DIFFICULTY_LABELS).map((band) => <button key={band} type="button" onClick={() => { if (band === difficulty) replayQueue(); else setDifficulty(band); }} aria-pressed={band === difficulty} className={`min-h-12 rounded-full border-2 px-5 font-black ${band === difficulty ? 'border-indigo-700 bg-indigo-700 text-white' : 'border-indigo-200 bg-white text-indigo-800'}`}>{DIFFICULTY_LABELS[band]}</button>)}
+                </div>
+              </div>
+            </details>
           </section>
         ) : (
         <section className="quest-paper" aria-labelledby="quest-prompt">
