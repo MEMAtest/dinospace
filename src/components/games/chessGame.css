@@ -135,3 +135,7 @@
   .chess-match-status { min-height: 34px; }
   .chess-board-frame { width: min(100%, 320px); }
 }
+
+.chess-full-header{background:#fffdf7;border:2px solid #ead7b3;border-radius:.8rem;padding:4px;color:#2a1b11}
+.chess-full-header .chess-header-level{display:block;margin-top:2px;font-size:.7rem;text-align:center}
+.chess-sound-toggle{width:44px;justify-self:end;padding:6px}

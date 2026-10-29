@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ChevronDown, RotateCcw, Swords, Undo2 } from 'lucide-react';
+import { ArrowLeft, ChevronDown, RotateCcw, Swords, Undo2, Volume2, VolumeX } from 'lucide-react';
 import {
   CHESS_DIFFICULTIES, CHESS_PIECE_NAMES, colorCode, colorName, createChessGame,
   applyChessMove, getChessBoardSquares, getChessStatus, legalMovesFrom, restoreChessGame, serializeChessGame,
@@ -44,7 +44,7 @@ function formatMove(move, index) {
 }
 
 export default function ChessGame({
-  playerId = 'amari', onBack = () => {}, onPhaseChange, onCelebrate = () => {}, playSfx = () => {},
+  playerId = 'amari', onBack = () => {}, onPhaseChange, onCelebrate = () => {}, playSfx = () => {}, soundOn = true, onToggleSound = () => {},
 }) {
   const [progress, setProgress] = useState(null);
   const [loadError, setLoadError] = useState('');
@@ -422,11 +422,12 @@ export default function ChessGame({
   const lastMove = currentSnapshot.history.at(-1);
   const checkSquare = status.inCheck ? currentGame.board().flatMap((rank, row) => rank.map((piece, col) => piece?.type === 'k' && piece.color === currentGame.turn() ? `${String.fromCharCode(97 + col)}${8 - row}` : null)).find(Boolean) : null;
   const pendingError = Boolean(pendingRef.current);
+  const soundControl = <button type="button" className="chess-full-button chess-sound-toggle" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'} onClick={onToggleSound}>{soundOn ? <Volume2 size={20} /> : <VolumeX size={20} />}</button>;
 
-  if (loadError || !progress) return <main className="chess-full-game"><header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer</h1></header><section className="chess-full-card" role="alert"><p>{loadError || 'Reading saved chess data…'}</p><button type="button" className="chess-full-button" onClick={load}>Retry reading saved game</button></section></main>;
+  if (loadError || !progress) return <main className="chess-full-game"><header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer</h1>{soundControl}</header><section className="chess-full-card" role="alert"><p>{loadError || 'Reading saved chess data…'}</p><button type="button" className="chess-full-button" onClick={load}>Retry reading saved game</button></section></main>;
 
   if (mode === 'setup' || mode === 'complete') return <main className="chess-full-game">
-    <header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer</h1></header>
+    <header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer</h1>{soundControl}</header>
     <section className="chess-full-card chess-setup-card">
       <div className="chess-full-badge"><Swords size={21} /> Full 8×8 game</div>
       {matchRef.current?.result && <div className="chess-full-result" role="status"><h2>{matchRef.current.status.message}</h2><p>{matchRef.current.result.outcome === 'win' ? 'You won.' : matchRef.current.result.outcome === 'loss' ? 'The computer won this game.' : 'This game was a draw.'}</p><button type="button" className="chess-full-button" onClick={() => setMode('playing')}>Review final board</button>{pendingError && <><p role="alert">{message}</p><button className="chess-full-primary" onClick={retryPending} disabled={saving}>Retry reward confirmation</button></>}</div>}
@@ -441,7 +442,7 @@ export default function ChessGame({
   </main>;
 
   return <main className="chess-full-game">
-    <header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer</h1><span className="chess-header-level">{DIFFICULTY_LABELS[match?.difficulty || difficulty]}</span></header>
+    <header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer<span className="chess-header-level">{DIFFICULTY_LABELS[match?.difficulty || difficulty]}</span></h1>{soundControl}</header>
     <section className="chess-match-layout" aria-label="Chess match">
       <div className="chess-match-status"><strong>{status.gameOver ? status.message : thinking ? 'Computer thinking…' : `${colorName(currentSnapshot.turn)} to move${status.inCheck ? ' · Check!' : ''}`}</strong><span>You are {colorName(colorCode(humanColor))} · Computer is {colorName(humanColor === 'white' ? 'b' : 'w')}</span></div>
       <div className="chess-board-frame">
