@@ -353,22 +353,19 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
       </div>;
     }
     const selected = new Set(removedTokens);
-    const instruction = question.type === 'story' ? 'STORY · Give away the second amount' : 'TAKE AWAY · Remove the second amount';
-    const description = `Start with ${question.a} ${question.a === 1 ? question.one : question.many}.`;
-    const action = question.b === 0 ? 'Nothing is taken away. Every object in the starting group remains.' : `Tap ${question.b} ${question.b === 1 ? question.one : question.many} in the same group to show what is taken away.`;
-    return <section className="mx-auto max-w-xl rounded-2xl border-2 border-violet-200 bg-white p-3" aria-label="Take-away model">
-      <p className="text-xs font-black uppercase tracking-wide text-violet-800">{instruction}</p>
-        {!locked && <p className="mt-1 text-sm font-bold">{description} {action}</p>}
-      <p className="my-2 text-2xl font-black" aria-label={`Equation: ${question.a} minus ${question.b} equals ${locked ? question.answer : 'unknown'}`}>{question.a} − {question.b} = {locked ? question.answer : '?'}</p>
-      <div role="group" aria-label={`Starting group: ${question.a} ${question.a === 1 ? question.one : question.many}. ${removedTokens.length} marked to take away.`} className="rounded-xl border-2 border-slate-200 bg-slate-50 p-3">
-        <div className="mb-2 flex flex-wrap items-center justify-between gap-2"><b>Starting group · {question.a}</b><span className="text-sm font-bold text-rose-700">Take away · {question.b}</span></div>
+    return <section className="mx-auto max-w-xl rounded-2xl border-2 border-violet-200 bg-white p-2 sm:p-3" aria-label="Take-away model">
+      <p className="hidden text-xs font-black uppercase tracking-wide text-violet-800 sm:block">{question.type === 'story' ? 'Story · Give away the second amount' : 'Take away · Remove the second amount'}</p>
+      {!locked && <p className="mt-1 text-xs font-bold">{question.b === 0 ? 'Nothing is taken away.' : 'Tap the objects being taken away.'}</p>}
+      <p className="my-1 text-2xl font-black sm:my-2" aria-label={`Equation: ${question.a} minus ${question.b} equals ${locked ? question.answer : 'unknown'}`}>{question.a} − {question.b} = {locked ? question.answer : '?'}</p>
+      <div role="group" aria-label={`Starting group: ${question.a} ${question.a === 1 ? question.one : question.many}. ${removedTokens.length} marked to take away.`} className="rounded-xl border-2 border-slate-200 bg-slate-50 p-2 sm:p-3">
+        <div className="mb-1 flex flex-wrap items-center justify-between gap-1 text-sm"><b>Starting group · {question.a}</b><span className="font-bold text-rose-700">Take away · {question.b}</span></div>
         <div className="flex flex-wrap justify-center gap-1" aria-label="Tap objects to mark them for taking away">
           {Array.from({ length: question.a }, (_, index) => <button key={index} type="button" disabled={locked || (!selected.has(index) && removedTokens.length >= question.b)} onClick={() => setRemovedTokens((previous) => previous.includes(index) ? previous.filter((item) => item !== index) : [...previous, index])} aria-pressed={selected.has(index)} aria-label={`${question.object} ${index + 1}${selected.has(index) ? ', marked to take away' : ', remains'}`} className={`relative flex min-h-12 min-w-12 items-center justify-center rounded-xl border-2 ${selected.has(index) ? 'border-rose-500 bg-rose-100 opacity-70' : 'border-transparent bg-white'} disabled:cursor-default`}><ObjectIcon object={question.object} color={selected.has(index) ? 'rose' : question.color}/>{selected.has(index) && <><span aria-hidden="true" className="absolute inset-x-1/4 top-1/2 h-0.5 -rotate-45 bg-slate-950"/><span aria-hidden="true" className="sr-only">Marked to take away</span></>}</button>)}
           {question.a === 0 && <span className="py-2 text-sm font-bold text-slate-500">Empty starting group</span>}
         </div>
-        <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-sm font-bold"><span>Marked: {removedTokens.length} of {question.b}</span><span>Left: {question.a - removedTokens.length}</span></div>
+        <div className="mt-1 flex flex-wrap items-center justify-between gap-1 text-sm font-bold"><span>Marked: {removedTokens.length} of {question.b}</span><span>Left: {question.a - removedTokens.length}</span></div>
       </div>
-      {!locked && <div className="mt-2 flex justify-center gap-2"><button type="button" onClick={() => setRemovedTokens((previous) => previous.slice(0, -1))} disabled={!removedTokens.length} className="inline-flex min-h-12 items-center gap-1 rounded-xl border-2 border-slate-300 px-3 font-bold disabled:opacity-50"><RotateCcw size={18}/> Undo</button><button type="button" onClick={() => setRemovedTokens([])} disabled={!removedTokens.length} className="min-h-12 rounded-xl border-2 border-slate-300 px-3 font-bold disabled:opacity-50">Reset</button></div>}
+      {!locked && <div className="mt-1 flex justify-center gap-2 sm:mt-2"><button type="button" onClick={() => setRemovedTokens((previous) => previous.slice(0, -1))} disabled={!removedTokens.length} className="inline-flex min-h-12 items-center gap-1 rounded-xl border-2 border-slate-300 px-3 font-bold disabled:opacity-50"><RotateCcw size={18}/> Undo</button><button type="button" onClick={() => setRemovedTokens([])} disabled={!removedTokens.length} className="min-h-12 rounded-xl border-2 border-slate-300 px-3 font-bold disabled:opacity-50">Reset</button></div>}
     </section>;
   }, [question, locked, removedTokens]);
   if (phase === 'start' || phase === 'done') return (
@@ -398,7 +395,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     <main className="mx-auto mt-3 max-w-4xl rounded-3xl bg-white/90 p-3 text-center shadow-xl sm:mt-4 sm:p-6">
       <p className="mb-2 text-lg font-bold" aria-live="polite">{question?.prompt}</p>
       {question?.type === 'compare' && <p className="mb-2 text-xl font-black" aria-label={`Difference model: ${equation}`}>{equation}</p>}
-      {!locked && <button className="mb-2 inline-flex min-h-12 items-center gap-2 rounded-xl bg-violet-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>}
+      {!locked && <button className="mb-1 inline-flex min-h-12 items-center gap-2 rounded-xl bg-violet-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>}
       {model}
       {feedback&&<p role="status" className="mx-auto my-2 max-w-2xl rounded-xl bg-violet-50 p-2 font-bold">{feedback}</p>}
       {locked&&<button onClick={()=>tell(speak, question.explanation, arithmeticNarrationSegments(question, 'explanation'))} className="mx-auto inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-violet-700 bg-white px-4 font-black"><Volume2 size={20}/> Hear explanation</button>}

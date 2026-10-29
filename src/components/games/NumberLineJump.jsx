@@ -132,10 +132,10 @@ export default function NumberLineJump({
   const start = (index = chapterIndex, retry = false) => {
     cancelNarration();
     const loaded = refreshProgress();
-    if (!loaded.ok) { setStartError(loaded.error || 'Saved progress could not be checked. Retry before starting.'); return; }
+    if (!loaded.ok) { setStartError('Saved progress is unavailable. Try again before starting.'); return; }
     const pending = getPendingTimeLineRewardReceiptsStrict('numberline', playerId);
     if (!pending.ok || pending.receipts.length || rewardDrainBusy || pendingRewardReceipt || rewardClaimError) {
-      setStartError('Confirm saved chapter rewards before starting another world.');
+      setStartError('Finish syncing your saved reward before you start.');
       void drainPendingRewards();
       return;
     }
@@ -153,7 +153,7 @@ export default function NumberLineJump({
       setProgressState(loaded);
       setChapterIndex(index);
       setPendingStart(attempt);
-      setStartError('Question history could not be saved. Retry to start this same six-question run.');
+      setStartError('This run is ready. Save it to begin.');
       return;
     }
     startRef.current = null;
@@ -173,7 +173,7 @@ export default function NumberLineJump({
     setCompletionError('');
     completionRef.current = null;
     setTrail([]);
-    setPosition(next[0]?.a || next[0]?.start || 0);
+    setPosition(attempt.run[0]?.a ?? attempt.run[0]?.start ?? 0);
     setPhase('play');
     onGameEvent?.('numberline', 'start', {
       level: index,
@@ -282,7 +282,7 @@ export default function NumberLineJump({
       setLocked(false);
       setFeedback('');
       setTrail([]);
-      setPosition(run[index].a || run[index].start || 0);
+      setPosition(run[index].a ?? run[index].start ?? 0);
       return;
     }
     void finishChapter(completionRef.current);
@@ -297,7 +297,7 @@ export default function NumberLineJump({
       const before = readTimeLineProgressStrict('numberline', playerId);
       if (!before.ok) {
         setProgressState(before);
-        setCompletionError('Saved progress could not be checked. Retry before finishing this world.');
+        setCompletionError('Progress needs a check before you finish. Try again.');
         setCompletionBusy(false);
         completionBusyRef.current = false;
         return false;
@@ -309,7 +309,7 @@ export default function NumberLineJump({
     }
     const result = recordTimeLineRunCompletionStrict('numberline', playerId, draft.chapterIndex, draft.run, draft.stars);
     if (!result.ok) {
-      setCompletionError('This six-mission result is ready, but saved progress could not be confirmed. Retry saving this result.');
+      setCompletionError('This result is ready. Try saving again.');
       setCompletionBusy(false);
       completionBusyRef.current = false;
       return false;
@@ -322,7 +322,7 @@ export default function NumberLineJump({
     }
     const drained = await drainPendingRewards();
     if (!drained) {
-      setCompletionError('This result is saved, but its reward still needs confirmation. Retry reward confirmation.');
+      setCompletionError('Your result is saved. Retry the reward.');
       setCompletionBusy(false);
       completionBusyRef.current = false;
       return false;
@@ -330,7 +330,7 @@ export default function NumberLineJump({
     const latest = readTimeLineProgressStrict('numberline', playerId);
     if (!latest.ok || pendingTimeLineRewardReceipts(latest.progress).length) {
       if (!latest.ok) setProgressState(latest);
-      setCompletionError(latest.error || 'Confirm saved rewards before finishing this world.');
+      setCompletionError('Saved rewards need a check. Retry to finish.');
       setCompletionBusy(false);
       completionBusyRef.current = false;
       return false;
