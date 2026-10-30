@@ -1245,27 +1245,18 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": 18,
-    "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
-    "entry": "/assets/arcade-DbnxyNUQ.js",
+    "pair": "Chess layout repair",
+    "runtime": "478a007c",
+    "entry": "/assets/arcade-C_xp8Sgc.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-2fm3y9pei-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_F7dgv95pWuMm5KiuP74FACfW1b6Y",
-    "netlifyGatewayDeploy": "6ae3b4ed8c6a1eb24f737349",
-    "serviceWorkerCache": "amari-discovery-v56",
+    "backendUrl": "https://dinospace-kqylrff1d-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_DNMTzTZhVqhaLT286ZvYei4Zm3ZB",
+    "netlifyGatewayDeploy": "6ae4623026ea168df89b9a06",
+    "serviceWorkerCache": "amari-discovery-v57",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
-    "production": "docs/qa-evidence/colour-shadow-save-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/colour-shadow-save-20261029/source-gates.json",
-    "sourceTests": {
-      "passed": 757,
-      "failed": 0,
-      "skipped": 0
-    },
-    "verifiedAt": "2026-10-29T21:11:51.066760+00:00",
-    "paidCalls": 0,
-    "editorialScoresChanged": false,
-    "scope": "Four full103-row native/canonical phone/desktop journeys, per-child strict saves and reward-fault recovery, capped replay, actual touch cancel/drag and held-fact departure, plus117-record/all-IDB14-media cached-tab refresh retention. Colour positive browser reward faults remain unexercised on existing completed profiles; no seeded eligibility. Final whole-catalogue integration is separate."
+    "evidence": "docs/qa-evidence/chess-layout-20261030/README.md",
+    "scope": "Chess board layout and representative input check; earlier catalogue acceptance evidence retained.",
+    "verifiedAt": "2026-10-30T09:24:47.712448+00:00"
   },
   "latestDinoHangmanUplift": {
     "pair": 7,
