@@ -149,3 +149,35 @@
 .chess-play-square--dragging > .chess-play-piece { opacity: .25; }
 .chess-drag-piece { position: fixed; z-index: 70; display: grid; place-items: center; pointer-events: none; filter: drop-shadow(0 5px 4px #0006); }
 .chess-move-instruction { background: #fffef4; color: #392316; border-radius: 6px; margin: .2rem auto .4rem; max-width: 820px; font-size: .82rem; line-height: 1.2; font-weight: 750; text-align: center; }
+
+/* Keep the board in the main column even when the instruction is present. */
+.chess-match-layout {
+  grid-template-areas: "status" "instruction" "board" "controls";
+}
+.chess-match-status { grid-area: status; }
+.chess-move-instruction { grid-area: instruction; padding: .45rem .8rem; }
+.chess-board-frame {
+  grid-area: board;
+  padding: 6px;
+  background: linear-gradient(145deg, #81532f, #3d2416);
+  box-shadow: 0 12px 28px rgb(18 17 43 / 35%), inset 0 0 0 1px #e9c589;
+}
+.chess-play-board { width: 100%; box-shadow: 0 0 0 2px #402313; }
+.chess-control-card { grid-area: controls; box-shadow: 0 8px 24px rgb(18 17 43 / 20%); }
+@media (min-width: 640px) {
+  .chess-match-layout {
+    grid-template-columns: minmax(0, 560px) minmax(220px, 1fr);
+    grid-template-areas: "status status" "instruction instruction" "board controls";
+  }
+  .chess-match-status { grid-column: auto; width: 100%; }
+  .chess-move-instruction { width: 100%; margin: 0; }
+  .chess-board-frame { width: 100%; }
+}
+@media (max-width: 639px) {
+  .chess-board-frame { width: min(100%, 364px); }
+  .chess-play-board { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .chess-play-square { min-width: 0; min-height: 0; }
+}
+@media (max-width: 639px) {
+  .chess-board-frame { padding: 4px; }
+}

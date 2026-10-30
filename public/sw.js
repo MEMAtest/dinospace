@@ -1,6 +1,6 @@
 // Bump the app shell cache when compiled application assets change. Media has
 // its own stable cache so an app upgrade does not discard clips already used.
-const CACHE_NAME = 'amari-discovery-v56';
+const CACHE_NAME = 'amari-discovery-v57';
 const MEDIA_CACHE_NAME = 'amari-discovery-media-v1';
 const PRECACHE_ASSETS = []; // __PRECACHE_ASSETS__
 const CORE_APP_SHELL = [
