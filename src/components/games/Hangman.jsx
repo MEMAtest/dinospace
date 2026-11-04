@@ -2,12 +2,14 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import { ArrowLeft, Home, Lightbulb, RotateCcw, ShieldCheck, Sparkles, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import rescueDinoArt from '../../assets/little/detective-trex.webp';
+import rescueLandscape from '../../assets/little/jigsaw-lake-v1.webp';
 import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
 import { hangmanLettersForLevel, HANGMAN_LEVELS, hangmanWordsForLevel, makeHangmanQueue, makeHangmanSeed, markHangmanWordRescued, nextHangmanWordIndex } from '../../data/hangmanLevels.js';
 import { commitHangmanLevel, hangmanPointsForRun, isHangmanLevelUnlocked, positiveHangmanRewardTransactions, readHangmanProgress, rememberHangmanWord } from '../../data/hangmanProgress.js';
 
 const MAX_MISTAKES = 6;
+const RESCUE_BACKGROUND = { backgroundImage: `linear-gradient(rgba(7, 19, 47, .76), rgba(7, 19, 47, .88)), url(${rescueLandscape})`, backgroundSize: 'cover', backgroundPosition: 'center' };
 const freshRound = () => ({ guessedLetters: [], roundState: 'playing', hintsUsed: 0, hadMistake: false, repeated: false });
 
 const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => {}, soundOn = true, onToggleSound = () => {}, cancelNarration = () => {}, onCelebrate = () => {}, onGameEvent = () => {}, playerId = 'amari' }) => {
@@ -253,7 +255,7 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
   const statusMessage = round.roundState === 'won' ? round.repeated ? 'Word already rescued' : 'Word rescued!' : round.roundState === 'lost' ? `The word was ${word.word}` : `${shieldsLeft} shield${shieldsLeft === 1 ? '' : 's'} left`;
 
   if (phase === 'intro') return (
-    <div className="min-h-[100dvh] overflow-x-hidden bg-[#07132f] px-4 pb-8 pt-4 text-white">
+    <div className="min-h-[100dvh] overflow-x-hidden bg-[#07132f] px-4 pb-8 pt-4 text-white" style={RESCUE_BACKGROUND}>
       <header className="mx-auto flex max-w-5xl items-center justify-between gap-3">
         <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="min-w-0 text-center"><p className="text-xs font-bold uppercase tracking-[0.2em] text-fuchsia-200">Letter rescue mission</p><h1 className="text-2xl font-black sm:text-4xl">Dino Hangman</h1></div>
@@ -298,7 +300,7 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
   if (!practiceWords.length || practiceWords.length < level.target) return <div className="min-h-[100dvh] bg-slate-950 p-6 text-white"><h1 className="text-2xl font-black">More sounds needed</h1><p className="my-4">There are not enough words at this level using the sounds selected in Grown-ups. Choose an earlier level or review the sound selection together.</p><button className="min-h-12 rounded-xl bg-white px-5 text-slate-900" onClick={goToLevelMap}>Back to levels</button></div>;
 
   if (phase === 'finish') return (
-    <div className="min-h-[calc(100dvh-11rem)] overflow-x-hidden bg-[#07132f] px-4 pb-4 pt-3 text-white sm:pb-8 sm:pt-4" data-hangman-level={level.id} data-hangman-phase="finish">
+    <div className="min-h-[calc(100dvh-11rem)] overflow-x-hidden bg-[#07132f] px-4 pb-4 pt-3 text-white sm:pb-8 sm:pt-4" style={RESCUE_BACKGROUND} data-hangman-level={level.id} data-hangman-phase="finish">
       <header className="mx-auto flex max-w-4xl items-center justify-between gap-3"><button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button><div className="text-center"><p className="text-xs font-bold uppercase tracking-[0.2em] text-fuchsia-200">Dino Hangman</p><h1 className="text-2xl font-black">{level.name} complete</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" /></header>
       <main className="mx-auto mt-3 max-w-xl rounded-[2rem] border border-white/15 bg-white/10 p-4 text-center shadow-2xl sm:mt-6 sm:p-6" tabIndex={-1} ref={successRef}>
         <img src={rescueDinoArt} alt="" className="mx-auto h-20 w-20 object-contain" /><Sparkles className="mx-auto mt-1 text-amber-300" size={20} />
@@ -311,7 +313,8 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
   );
 
   return (
-    <div className="min-h-[100dvh] overflow-x-hidden bg-[#07132f] text-white relative" data-hangman-level={level.id} data-hangman-phase="play" data-hangman-seed={runSeed}>
+    <div className="min-h-[100dvh] overflow-x-hidden bg-[#07132f] text-white relative" style={RESCUE_BACKGROUND} data-hangman-level={level.id} data-hangman-phase="play" data-hangman-seed={runSeed}>
+      <img src={rescueDinoArt} alt="" aria-hidden="true" className="pointer-events-none absolute right-0 top-24 h-44 w-44 object-contain opacity-20" />
       <header className="relative z-20 mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 pt-2 sm:px-7 sm:pt-4">
         <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="min-w-0 text-center"><p className="text-xs font-bold uppercase tracking-[0.18em] text-fuchsia-200">Level {selectedLevel + 1} of {HANGMAN_LEVELS.length} · {level.lengthLabel}</p><h1 className="flex items-center justify-center gap-1 text-2xl font-black sm:text-4xl"><img src={rescueDinoArt} alt="" className="h-7 w-7 shrink-0 object-contain" />Dino Hangman</h1></div>
