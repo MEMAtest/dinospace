@@ -22,8 +22,8 @@ const newMatchId = () => {
 function PieceMark({ piece }) {
   if (!piece) return null;
   const white = piece.color === 'w';
-  const ink = white ? '#302319' : '#fff3d1';
-  const fill = white ? '#fffdf3' : '#182338';
+  const ink = white ? '#513427' : '#122347';
+  const fill = white ? '#fff3d5' : '#5aa8df';
   const shapes = {
     p: <><circle cx="22.5" cy="12" r="6" /><path d="M19 18h7l2 12H17z" /><path d="M15 30h15l3 6H12z" /></>,
     n: <><path d="M12 35c0-7 5-10 6-15l-5 4-5-3 6-10 7-5 3 4c8 0 12 8 11 16l-2 9z" /><path d="m15 13 3 1m6-4-1 6" fill="none" /><circle cx="19" cy="15" r="1.2" fill={ink} stroke="none" /></>,
@@ -38,6 +38,13 @@ function PieceMark({ piece }) {
       <path d="M12 34h21l3 5H9z" />
       <path d="M9 39h27v3H9z" />
     </g>
+    {/* Friendly faces sit below the distinctive tops of each chess piece. */}
+    <ellipse cx="22.5" cy="34.5" rx="8.4" ry="5.2" fill={white ? '#ffe2bb' : '#aee1f8'} stroke={ink} strokeWidth="1.1" />
+    <g aria-hidden="true" fill={ink} stroke="none">
+      <circle cx="19.5" cy="33.6" r="1.3" />
+      <circle cx="25.5" cy="33.6" r="1.3" />
+    </g>
+    <path d="M20.5 36q2 1.8 4 0" fill="none" stroke={ink} strokeWidth="1" strokeLinecap="round" />
   </svg>;
 }
 
