@@ -1245,18 +1245,18 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": "Chess layout repair",
-    "runtime": "478a007c",
-    "entry": "/assets/arcade-C_xp8Sgc.js",
+    "pair": "Chess visual and layout uplift",
+    "runtime": "bc039853d209d210477793ea0719a2a9dfadd5bd",
+    "entry": "/assets/arcade-C9Jx51U2.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-kqylrff1d-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_DNMTzTZhVqhaLT286ZvYei4Zm3ZB",
-    "netlifyGatewayDeploy": "6ae4623026ea168df89b9a06",
-    "serviceWorkerCache": "amari-discovery-v57",
+    "backendUrl": "https://dinospace-pd4ilme62-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_HW1RMc3GkkNFv8sihPZW26EYm8Aj",
+    "netlifyGatewayDeploy": "6aeb011854f3fc822b331fc2",
+    "serviceWorkerCache": "amari-discovery-v58",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/chess-layout-20261030/README.md",
-    "scope": "Chess board layout and representative input check; earlier catalogue acceptance evidence retained.",
-    "verifiedAt": "2026-10-30T09:24:47.712448+00:00"
+    "evidence": "docs/qa-evidence/chess-friendly-20261104/README.md",
+    "verifiedAt": "2026-11-04T09:56:35.425553+00:00",
+    "scope": "Chess visual and responsive layout; representative actual move and reload with synthetic profile."
   },
   "latestDinoHangmanUplift": {
     "pair": 7,
