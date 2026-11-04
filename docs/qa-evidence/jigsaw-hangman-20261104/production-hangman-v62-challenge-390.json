@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "entry": "/assets/arcade-yYH5eORi.js",
+  "width": 390,
+  "height": 740,
+  "rows": [
+    {
+      "kind": "standard-mode",
+      "hearAvailable": true,
+      "skips": 1
+    },
+    {
+      "kind": "clue-only",
+      "answer": "CANDLE",
+      "audioHiddenBefore": true,
+      "audioAvailableAfter": true,
+      "geometry": {
+        "count": 26,
+        "minWidth": 44.28125,
+        "minHeight": 44,
+        "visible": true,
+        "overflow": false
+      },
+      "skips": 12
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "providers": []
+}

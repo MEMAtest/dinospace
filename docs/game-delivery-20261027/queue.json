@@ -5,7 +5,14 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": null,
+  "activePair": {
+    "games": [
+      "Spelling Studio",
+      "Letter Launch"
+    ],
+    "status": "audit_in_progress",
+    "scope": "Review current gameplay and visual learning cues; no new acceptance claimed."
+  },
   "pairs": [
     {
       "number": 1,
@@ -186,7 +193,7 @@
       "games": [
         {
           "id": "chess",
-          "name": "Chess Explorers — play against the computer",
+          "name": "Chess Explorers \u2014 play against the computer",
           "scope": "New full-game mode alongside retained lessons; requested29October"
         },
         {
@@ -391,6 +398,25 @@
       "entry": "/assets/arcade-DbnxyNUQ.js",
       "publicChallenges": 206,
       "scope": "Functional release criteria passed; final catalogue integration remains separate, no editorial score assignment."
+    },
+    {
+      "number": 19,
+      "games": [
+        {
+          "id": "dinojigsaw",
+          "name": "Dino Jigsaw"
+        },
+        {
+          "id": "hangman",
+          "name": "Dino Hangman"
+        }
+      ],
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/jigsaw-hangman-20261104/README.md",
+      "runtime": "41c66bc07722d4015ff46214c8039cff585d2333",
+      "entry": "/assets/arcade-yYH5eORi.js",
+      "openGate": null,
+      "scope": "Requested new visual and gameplay uplift, after the original 18-pair functional programme."
     }
   ],
   "retainedReleasedScopes": [
@@ -563,9 +589,9 @@
       "verifiedAt": "2026-10-29T15:07:33.392207+00:00"
     }
   ],
-  "completionStatus": "all_pairs_live_verified_final_integration_passed",
+  "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "currentRuntime": "41c66bc07722d4015ff46214c8039cff585d2333",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json"
 }

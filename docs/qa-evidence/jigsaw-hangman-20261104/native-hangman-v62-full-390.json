@@ -1,0 +1,1384 @@
+{
+  "passed": true,
+  "stage": "full",
+  "player": "amari",
+  "origin": "http://127.0.0.1:5180",
+  "width": 390,
+  "height": 740,
+  "entryIdentity": "http://127.0.0.1:5180/assets/arcade-yYH5eORi.js",
+  "completedLevels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "targets": [
+    3,
+    3,
+    6,
+    4
+  ],
+  "transactionCount": 5,
+  "assistedEvidence": true,
+  "legacyBytesPreserved": true,
+  "protectedKeysUnchanged": true,
+  "rows": [
+    {
+      "kind": "replay-baseline",
+      "previousBest": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "plannedScores": [
+        2,
+        6,
+        6,
+        6
+      ],
+      "plannedDeltas": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "legacyRewardCeiling": null,
+      "faultPlan": {
+        "localFailureLevel": null,
+        "parentRewardFailureLevel": null,
+        "skipped": "No positive improvement delta remains in the saved bests."
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-1",
+      "x": 40,
+      "y": 979,
+      "width": 310,
+      "height": 134,
+      "bottom": 1113,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-2",
+      "x": 40,
+      "y": 1125,
+      "width": 310,
+      "height": 162,
+      "bottom": 1287,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 162
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-3",
+      "x": 40,
+      "y": 1299,
+      "width": 310,
+      "height": 134,
+      "bottom": 1433,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 134
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-map-4",
+      "x": 40,
+      "y": 1445,
+      "width": 310,
+      "height": 162,
+      "bottom": 1607,
+      "visible": false,
+      "fullyInViewport": false,
+      "centerHit": false,
+      "minHeight": 162
+    },
+    {
+      "kind": "control-geometry",
+      "label": "selected-level-start",
+      "x": 53,
+      "y": 620,
+      "width": 242,
+      "height": 56,
+      "bottom": 676,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "initial-map",
+      "player": "amari",
+      "width": 390,
+      "height": 740,
+      "levels": [
+        {
+          "name": "First words",
+          "target": 3
+        },
+        {
+          "name": "Four-letter rescue",
+          "target": 3
+        },
+        {
+          "name": "Five-letter rescue",
+          "target": 6
+        },
+        {
+          "name": "Long-word rescue",
+          "target": 4
+        }
+      ],
+      "protectedKeys": 9
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 560,
+      "width": 188,
+      "height": 56,
+      "bottom": 616,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 859,
+        "width": 310,
+        "height": 134,
+        "bottom": 993,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "Hear the word",
+      "x": 278,
+      "y": 279,
+      "width": 84,
+      "height": 48,
+      "bottom": 327,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "audio-mute-cancel",
+      "exactClipObserved": true,
+      "pausedAfterMute": true
+    },
+    {
+      "kind": "audio-next-cancel",
+      "pausedAfterNext": true
+    },
+    {
+      "kind": "audio-packaged-availability",
+      "exactVisibleClipAvailable": true,
+      "scannedSkippedWords": 0
+    },
+    {
+      "kind": "audio-leave-cancel",
+      "pausedAfterLeave": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "x": 53,
+      "y": 560,
+      "width": 188,
+      "height": 56,
+      "bottom": 616,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 1,
+      "name": "First words",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 859,
+        "width": 310,
+        "height": 134,
+        "bottom": 993,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "An empty space between two things.",
+      "length": 3,
+      "category": "-AP",
+      "emoji": "↔️",
+      "geometry": {
+        "x": 28,
+        "y": 271,
+        "width": 242,
+        "height": 64,
+        "bottom": 335,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "same-word Retry",
+      "x": 222,
+      "y": 477,
+      "width": 58,
+      "height": 48,
+      "bottom": 525,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "held-loss-board",
+      "x": 37,
+      "y": 352,
+      "width": 316,
+      "height": 44,
+      "bottom": 396,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 44
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "An empty space between two things.",
+      "length": 3,
+      "category": "-AP",
+      "emoji": "↔️",
+      "geometry": {
+        "x": 28,
+        "y": 271,
+        "width": 242,
+        "height": 64,
+        "bottom": 335,
+        "visible": true
+      }
+    },
+    {
+      "kind": "wrong-answer-retry",
+      "clueLength": 3,
+      "heldAnswerVisibleBeforeRetry": true,
+      "sameClueAfterRetry": true,
+      "heldBoardGeometry": {
+        "x": 37,
+        "y": 352,
+        "width": 316,
+        "height": 44,
+        "bottom": 396,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 44
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-next-word-1",
+      "x": 243,
+      "y": 477,
+      "width": 73,
+      "height": 48,
+      "bottom": 525,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A furry pet can bark and wag its tail.",
+      "length": 3,
+      "category": "-OG",
+      "emoji": "🐕",
+      "geometry": {
+        "x": 28,
+        "y": 271,
+        "width": 242,
+        "height": 64,
+        "bottom": 335,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "one-letter hint",
+      "x": 85,
+      "y": 413,
+      "width": 70,
+      "height": 48,
+      "bottom": 461,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-next-word-2",
+      "x": 247,
+      "y": 509,
+      "width": 73,
+      "height": 48,
+      "bottom": 557,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "Food can come in a metal can.",
+      "length": 3,
+      "category": "-IN",
+      "emoji": "🥫",
+      "geometry": {
+        "x": 28,
+        "y": 271,
+        "width": 242,
+        "height": 64,
+        "bottom": 335,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 1,
+      "target": 3,
+      "rescued": [
+        1,
+        2,
+        3
+      ],
+      "uniqueVisibleWordCount": 3
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 1,
+      "priorBest": 6,
+      "plannedScore": 2,
+      "expectedDelta": 0,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-held-finish",
+      "x": 245,
+      "y": 477,
+      "width": 70,
+      "height": 48,
+      "bottom": 525,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "Food can come in a metal can.",
+      "length": 3,
+      "category": "-IN",
+      "emoji": "🥫",
+      "geometry": {
+        "x": 28,
+        "y": 271,
+        "width": 242,
+        "height": 64,
+        "bottom": 335,
+        "visible": true
+      }
+    },
+    {
+      "kind": "held-level-result",
+      "level": 1,
+      "target": 3,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "documentHeight": 757,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-saved-result-Level-map",
+      "x": 65,
+      "y": 591,
+      "width": 119,
+      "height": 48,
+      "bottom": 639,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-saved-result-Next",
+      "x": 191,
+      "y": 591,
+      "width": 134,
+      "height": 48,
+      "bottom": 639,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "saved-result-navigation-geometry",
+      "level": 1,
+      "result": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "documentHeight": 757,
+        "viewportHeight": 740
+      },
+      "levelMap": {
+        "x": 65,
+        "y": 591,
+        "width": 119,
+        "height": 48,
+        "bottom": 639,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      },
+      "next": {
+        "x": 191,
+        "y": 591,
+        "width": 134,
+        "height": 48,
+        "bottom": 639,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-start",
+      "x": 53,
+      "y": 620,
+      "width": 242,
+      "height": 56,
+      "bottom": 676,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 2,
+      "name": "Four-letter rescue",
+      "target": 3,
+      "geometry": {
+        "x": 40,
+        "y": 1125,
+        "width": 310,
+        "height": 162,
+        "bottom": 1287,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A musical instrument you hit with sticks.",
+      "length": 4,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "🥁",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 334,
+        "height": 44,
+        "bottom": 326,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-next-word-1",
+      "x": 243,
+      "y": 468,
+      "width": 73,
+      "height": 48,
+      "bottom": 516,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A cloth shelter used for camping.",
+      "length": 4,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "⛺",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 334,
+        "height": 44,
+        "bottom": 326,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-next-word-2",
+      "x": 243,
+      "y": 468,
+      "width": 73,
+      "height": 48,
+      "bottom": 516,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A pillow feels like this.",
+      "length": 4,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "🧸",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 334,
+        "height": 44,
+        "bottom": 326,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 2,
+      "target": 3,
+      "rescued": [
+        1,
+        2,
+        3
+      ],
+      "uniqueVisibleWordCount": 3
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 2,
+      "priorBest": 6,
+      "plannedScore": 6,
+      "expectedDelta": 0,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-held-finish",
+      "x": 245,
+      "y": 448,
+      "width": 70,
+      "height": 48,
+      "bottom": 496,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A pillow feels like this.",
+      "length": 4,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "🧸",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 334,
+        "height": 44,
+        "bottom": 326,
+        "visible": true
+      }
+    },
+    {
+      "kind": "held-level-result",
+      "level": 2,
+      "target": 3,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "documentHeight": 757,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-saved-result-Level-map",
+      "x": 65,
+      "y": 591,
+      "width": 119,
+      "height": 48,
+      "bottom": 639,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-2-saved-result-Next",
+      "x": 191,
+      "y": 591,
+      "width": 134,
+      "height": 48,
+      "bottom": 639,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "saved-result-navigation-geometry",
+      "level": 2,
+      "result": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "documentHeight": 757,
+        "viewportHeight": 740
+      },
+      "levelMap": {
+        "x": 65,
+        "y": 591,
+        "width": 119,
+        "height": 48,
+        "bottom": 639,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      },
+      "next": {
+        "x": 191,
+        "y": 591,
+        "width": 134,
+        "height": 48,
+        "bottom": 639,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-start",
+      "x": 53,
+      "y": 620,
+      "width": 238,
+      "height": 56,
+      "bottom": 676,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 3,
+      "name": "Five-letter rescue",
+      "target": 6,
+      "geometry": {
+        "x": 40,
+        "y": 1299,
+        "width": 310,
+        "height": 134,
+        "bottom": 1433,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A living thing with roots and leaves.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🪴",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 242,
+        "height": 64,
+        "bottom": 346,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-1",
+      "x": 243,
+      "y": 488,
+      "width": 73,
+      "height": 48,
+      "bottom": 536,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "The firm outside edge of a loaf of bread.",
+      "length": 5,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "🍞",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 334,
+        "height": 44,
+        "bottom": 326,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-2",
+      "x": 243,
+      "y": 468,
+      "width": 73,
+      "height": 48,
+      "bottom": 516,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "One of the colourful parts around a flower’s centre.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🌸",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 242,
+        "height": 64,
+        "bottom": 346,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-3",
+      "x": 243,
+      "y": 488,
+      "width": 73,
+      "height": 48,
+      "bottom": 536,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A see-through material used for windows.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🥛",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 242,
+        "height": 64,
+        "bottom": 346,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-4",
+      "x": 243,
+      "y": 488,
+      "width": 73,
+      "height": 48,
+      "bottom": 536,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A mark left behind by a foot or a wheel.",
+      "length": 5,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "👣",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 334,
+        "height": 44,
+        "bottom": 326,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-next-word-5",
+      "x": 243,
+      "y": 468,
+      "width": 73,
+      "height": 48,
+      "bottom": 516,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A strong material used to make many spoons.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🥄",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 242,
+        "height": 64,
+        "bottom": 346,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 3,
+      "target": 6,
+      "rescued": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "uniqueVisibleWordCount": 6
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 3,
+      "priorBest": 6,
+      "plannedScore": 6,
+      "expectedDelta": 0,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-held-finish",
+      "x": 245,
+      "y": 488,
+      "width": 70,
+      "height": 48,
+      "bottom": 536,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A strong material used to make many spoons.",
+      "length": 5,
+      "category": "LONGER WORDS",
+      "emoji": "🥄",
+      "geometry": {
+        "x": 28,
+        "y": 282,
+        "width": 242,
+        "height": 64,
+        "bottom": 346,
+        "visible": true
+      }
+    },
+    {
+      "kind": "held-level-result",
+      "level": 3,
+      "target": 6,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "documentHeight": 757,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-saved-result-Level-map",
+      "x": 65,
+      "y": 591,
+      "width": 119,
+      "height": 48,
+      "bottom": 639,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-3-saved-result-Next",
+      "x": 191,
+      "y": 591,
+      "width": 134,
+      "height": 48,
+      "bottom": 639,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "saved-result-navigation-geometry",
+      "level": 3,
+      "result": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "documentHeight": 757,
+        "viewportHeight": 740
+      },
+      "levelMap": {
+        "x": 65,
+        "y": 591,
+        "width": 119,
+        "height": 48,
+        "bottom": 639,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      },
+      "next": {
+        "x": 191,
+        "y": 591,
+        "width": 134,
+        "height": 48,
+        "bottom": 639,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-start",
+      "x": 53,
+      "y": 620,
+      "width": 243,
+      "height": 56,
+      "bottom": 676,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 56
+    },
+    {
+      "kind": "level-menu",
+      "level": 4,
+      "name": "Long-word rescue",
+      "target": 4,
+      "geometry": {
+        "x": 40,
+        "y": 1445,
+        "width": 310,
+        "height": 162,
+        "bottom": 1607,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "full-keyboard-geometry",
+      "level": 4,
+      "count": 26,
+      "uniqueKeys": 26,
+      "minWidth": 44,
+      "minHeight": 44,
+      "allKeysFullyInViewport": true,
+      "allKeyCentersHitTestToButtons": true,
+      "dailyMissionHudCount": 0,
+      "clue": {
+        "top": 298,
+        "bottom": 342,
+        "visible": true
+      },
+      "word": {
+        "top": 359,
+        "bottom": 403,
+        "visible": true
+      },
+      "grid": {
+        "x": 28,
+        "y": 476,
+        "width": 334,
+        "height": 212,
+        "bottom": 688
+      },
+      "rowCount": 4,
+      "maxKeyBottom": 688,
+      "viewport": {
+        "width": 390,
+        "height": 740,
+        "documentWidth": 390,
+        "scrollY": 0
+      }
+    },
+    {
+      "kind": "keyboard-click-reachability",
+      "level": 4,
+      "expected": 26,
+      "tested": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z"
+      ],
+      "passed": true
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "The highest part of a hill.",
+      "length": 7,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "⛰️",
+      "geometry": {
+        "x": 28,
+        "y": 298,
+        "width": 334,
+        "height": 44,
+        "bottom": 342,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-next-word-1",
+      "x": 243,
+      "y": 484,
+      "width": 73,
+      "height": 48,
+      "bottom": 532,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A mischievous little creature in a fairy tale.",
+      "length": 6,
+      "category": "SHORT-VOWEL CLUSTERS",
+      "emoji": "👺",
+      "geometry": {
+        "x": 28,
+        "y": 298,
+        "width": 334,
+        "height": 64,
+        "bottom": 362,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-next-word-2",
+      "x": 243,
+      "y": 504,
+      "width": 73,
+      "height": 48,
+      "bottom": 552,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "The warm season after spring.",
+      "length": 6,
+      "category": "LONGER WORDS",
+      "emoji": "☀️",
+      "geometry": {
+        "x": 28,
+        "y": 298,
+        "width": 242,
+        "height": 64,
+        "bottom": 362,
+        "visible": true
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-next-word-3",
+      "x": 243,
+      "y": 504,
+      "width": 73,
+      "height": 48,
+      "bottom": 552,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A wax stick with a wick that gives light.",
+      "length": 6,
+      "category": "LONGER WORDS",
+      "emoji": "🕯️",
+      "geometry": {
+        "x": 28,
+        "y": 298,
+        "width": 242,
+        "height": 64,
+        "bottom": 362,
+        "visible": true
+      }
+    },
+    {
+      "kind": "level-target-reached",
+      "level": 4,
+      "target": 4,
+      "rescued": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "uniqueVisibleWordCount": 4
+    },
+    {
+      "kind": "level-replay-reward-delta",
+      "level": 4,
+      "priorBest": 6,
+      "plannedScore": 6,
+      "expectedDelta": 0,
+      "injectedLocalFailure": false,
+      "injectedParentRewardFailure": false
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-held-finish",
+      "x": 245,
+      "y": 504,
+      "width": 70,
+      "height": 48,
+      "bottom": 552,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "visible-clue-caption",
+      "clue": "A wax stick with a wick that gives light.",
+      "length": 6,
+      "category": "LONGER WORDS",
+      "emoji": "🕯️",
+      "geometry": {
+        "x": 28,
+        "y": 298,
+        "width": 242,
+        "height": 64,
+        "bottom": 362,
+        "visible": true
+      }
+    },
+    {
+      "kind": "held-level-result",
+      "level": 4,
+      "target": 4,
+      "geometry": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "documentHeight": 757,
+        "viewportHeight": 740
+      }
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-saved-result-Level-map",
+      "x": 61,
+      "y": 591,
+      "width": 119,
+      "height": 48,
+      "bottom": 639,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-4-saved-result-Next",
+      "x": 188,
+      "y": 591,
+      "width": 141,
+      "height": 48,
+      "bottom": 639,
+      "visible": true,
+      "fullyInViewport": true,
+      "centerHit": true,
+      "minHeight": 48
+    },
+    {
+      "kind": "saved-result-navigation-geometry",
+      "level": 4,
+      "result": {
+        "x": 8,
+        "y": 147,
+        "width": 374,
+        "height": 580,
+        "bottom": 727,
+        "fullyInViewport": true,
+        "documentHeight": 757,
+        "viewportHeight": 740
+      },
+      "levelMap": {
+        "x": 61,
+        "y": 591,
+        "width": 119,
+        "height": 48,
+        "bottom": 639,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      },
+      "next": {
+        "x": 188,
+        "y": 591,
+        "width": 141,
+        "height": 48,
+        "bottom": 639,
+        "visible": true,
+        "fullyInViewport": true,
+        "centerHit": true,
+        "minHeight": 48
+      }
+    },
+    {
+      "kind": "reward-fault-tests-skipped",
+      "reason": "All planned scores are equal to or below saved bests; no positive reward delta is available."
+    },
+    {
+      "kind": "stable-reward-reentry",
+      "stableToken": "hangman:first-words-4170493800",
+      "pointsAfterFirstRecovery": 490,
+      "playsAfterFirstRecovery": 5,
+      "duplicateReentryAddedZero": true
+    },
+    {
+      "kind": "protected-storage",
+      "legacyUnchanged": true,
+      "siblingAndChessKeysUnchanged": true,
+      "changedKeys": []
+    },
+    {
+      "kind": "resource-integrity",
+      "brokenImages": [],
+      "failedRequests": [],
+      "failedResponses": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "apiRequests": []
+    }
+  ],
+  "errors": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "resourceFailures": [],
+  "requestFailures": [],
+  "brokenImages": [],
+  "apiRequests": []
+}

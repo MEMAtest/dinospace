@@ -3,7 +3,7 @@
   "previousRequestLimit": 168,
   "revisedRequestLimit": 170,
   "observedRequests": 170,
-  "observedBytes": 31128552,
+  "observedBytes": 31128947,
   "byteLimit": 41943040,
   "tradeoff": "Two more net install requests and approximately 1.2 MiB of new source art; retained 40 MiB ceiling and no additional audio or story corpora.",
   "assetOwnership": "Three generated WebP files are the canonical shipped copies. Generated source PNGs remain in the image-generation directory."
