@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { DINO_NAMES, JIGSAW_SCENES, LITTLE_LEVELS } from '../src/data/littleGames.js';
 import {
   JIGSAW_LEVELS, jigsawCompletionCredit, jigsawGuideMode, jigsawPlacementIsCorrect,
-  jigsawReviewLine, jigsawTaskLine, jigsawPieceCount,
+  jigsawReviewLine, jigsawTaskLine, jigsawPieceCount, jigsawSceneForRound,
 } from '../src/data/dinoJigsawProgression.js';
 
 test('keeps saved level indexes and the established two, four, eight and twelve piece progression', () => {
@@ -13,6 +13,25 @@ test('keeps saved level indexes and the established two, four, eight and twelve 
   ]);
   assert.deepEqual(JIGSAW_LEVELS.map(({ scenes }) => scenes), [4, 4, 4, 5, 6]);
   assert.deepEqual(JIGSAW_LEVELS.map(({ grids }) => grids.length), [4, 4, 4, 4, 4]);
+});
+
+test('each new level starts with the newly unlocked picture and avoids repeats', () => {
+  for (const { scenes, grids } of JIGSAW_LEVELS) for (const playId of [1, 2, 5]) {
+    const order = [...JIGSAW_SCENES].reverse();
+    const played = grids.map((_, round) => jigsawSceneForRound(JIGSAW_SCENES, order, scenes, round, playId));
+    assert.equal(played[0], JIGSAW_SCENES[scenes - 1]);
+    assert.equal(new Set(played).size, played.length);
+    assert.ok(played.every((scene) => JIGSAW_SCENES.indexOf(scene) < scenes));
+  }
+});
+
+test('levels without a newly unlocked picture rotate their first picture on replay', () => {
+  const order = [...JIGSAW_SCENES].reverse();
+  const first = jigsawSceneForRound(JIGSAW_SCENES, order, 4, 0, 1, false);
+  const replay = jigsawSceneForRound(JIGSAW_SCENES, order, 4, 0, 2, false);
+  assert.notEqual(first, replay);
+  const played = Array.from({ length: 4 }, (_, round) => jigsawSceneForRound(JIGSAW_SCENES, order, 4, round, 2, false));
+  assert.equal(new Set(played).size, 4);
 });
 
 test('later levels use six distinct authored dinosaur scene targets and switch to an optional picture clue', () => {

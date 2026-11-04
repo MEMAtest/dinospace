@@ -6,8 +6,11 @@ import { Dino } from '../DinoArt.jsx';
 import { useRoundHint } from '../useRoundHint.js';
 import { pointInRect, shuffled, shuffledOutOfOrder } from '../littleKit.js';
 import { DINO_NAMES, JIGSAW_SCENES, LITTLE_LINES } from '../../../data/littleGames.js';
-import { jigsawAllowsAutomaticHint, jigsawCompletionCredit, jigsawGuideMode, jigsawPlacementIsCorrect, jigsawReviewLine, jigsawTaskLine } from '../../../data/dinoJigsawProgression.js';
+import { JIGSAW_LEVELS, jigsawAllowsAutomaticHint, jigsawCompletionCredit, jigsawGuideMode, jigsawPlacementIsCorrect, jigsawReviewLine, jigsawSceneForRound, jigsawTaskLine } from '../../../data/dinoJigsawProgression.js';
 import jungleArt from '../../../assets/little/bg-dino.webp';
+import lakeArt from '../../../assets/little/jigsaw-lake-v1.webp';
+import forestArt from '../../../assets/little/jigsaw-forest-v1.webp';
+import canyonArt from '../../../assets/little/jigsaw-canyon-v1.webp';
 import trexArt from '../../../assets/little/detective-trex.webp';
 import brontoArt from '../../../assets/little/detective-bronto.webp';
 import trikeArt from '../../../assets/little/detective-trike.webp';
@@ -15,15 +18,17 @@ import stegoArt from '../../../assets/little/detective-stego.webp';
 import ankyloArt from '../../../assets/little/detective-ankylo.webp';
 import './dinoJigsaw.css';
 
-const DINO_PICTURES = { trex: trexArt, bronto: brontoArt, trike: trikeArt, stego: stegoArt, ankylo: ankyloArt };
+const DINO_PICTURES = { trex: trexArt, bronto: brontoArt, trike: trikeArt, stego: stegoArt, ankylo: ankyloArt, ptero: '/art/shadow-match-v1/ptero.webp' };
+const SCENE_BACKGROUNDS = { volcano: jungleArt, lake: lakeArt, meadow: lakeArt, sky: canyonArt, forest: forestArt, eggs: forestArt };
 
 const PuzzlePicture = ({ scene, cols = 1, rows = 1, index = 0, className = '' }) => {
+  const [failedDino, setFailedDino] = useState(null);
   const column = index % cols;
   const row = Math.floor(index / cols);
   return <div className={`dino-jigsaw-picture ${className}`} style={{ width: `${cols * 100}%`, height: `${rows * 100}%`, left: `${-column * 100}%`, top: `${-row * 100}%` }}>
-    <img src={jungleArt} alt="" className="dino-jigsaw-picture__scene" />
-    {DINO_PICTURES[scene.dino]
-      ? <img src={DINO_PICTURES[scene.dino]} alt="" className="dino-jigsaw-picture__character" />
+    <img src={SCENE_BACKGROUNDS[scene.id] || jungleArt} alt="" className="dino-jigsaw-picture__scene" />
+    {DINO_PICTURES[scene.dino] && failedDino !== scene.dino
+      ? <img src={DINO_PICTURES[scene.dino]} alt="" onError={() => setFailedDino(scene.dino)} className="dino-jigsaw-picture__character" />
       : <Dino kind={scene.dino} className="dino-jigsaw-picture__character" />}
   </div>;
 };
@@ -201,11 +206,9 @@ const DinoJigsaw = (props) => {
         : null)}
     >
       {({ round, rounds, complete, mistake, playId, config, level }) => {
-        // Only pictures unlocked at this level; the newest one comes first.
-        const unlocked = JIGSAW_SCENES.slice(0, config.scenes);
-        const newest = unlocked[unlocked.length - 1];
-        const pool = [newest, ...order.filter((scene) => unlocked.includes(scene) && scene !== newest)];
-        const scene = pool[(round + playId - 1) % pool.length];
+        // Show newly unlocked pictures first; rotate otherwise to keep replays fresh.
+        const newlyUnlocked = level === 0 || config.scenes > (JIGSAW_LEVELS[level - 1]?.scenes ?? 0);
+        const scene = jigsawSceneForRound(JIGSAW_SCENES, order, config.scenes, round, playId, newlyUnlocked);
         return (
           <JigsawRound
             key={`${playId}-${round}`}

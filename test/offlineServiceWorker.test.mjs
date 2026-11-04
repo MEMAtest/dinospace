@@ -169,7 +169,7 @@ const createWorker = ({ precacheAssets = [], networkRoutes = new Map() } = {}) =
 };
 
 test('service worker source keeps its shell and media caches separate', () => {
-  assert.match(workerSource, /const CACHE_NAME = 'amari-discovery-v58'/);
+  assert.match(workerSource, /const CACHE_NAME = 'amari-discovery-v59'/);
   assert.doesNotMatch(workerSource, /const CACHE_NAME = 'amari-discovery-v40'/);
   assert.match(workerSource, /const MEDIA_CACHE_NAME = 'amari-discovery-media-v1'/);
   assert.match(workerSource, /await cache\.addAll\(CORE_APP_SHELL\)/);
@@ -198,8 +198,9 @@ test('the installed worker contains only compiled assets and stays under the eag
   // The29October Trace phone-fit repair adds one dedicated CSS request.
   // See docs/qa-evidence/trace-cosmic-fit-20261029/worker-budget-review.json.
   // Pair13 adds one dedicated PuzzlePlay.css request; see puzzle-spot-fit-20261029/worker-budget-review.json.
-  // Keep the independent40MiB ceiling and require review for another increase.
-  assert.ok(assets.length <= 168, `compiled asset count ${assets.length} exceeds the reviewed 168-request budget`);
+  // Three new Jigsaw landscapes were reviewed in jigsaw-hangman-20261104/worker-budget-review.json.
+  // Keep the independent 40 MiB ceiling and require review for another increase.
+  assert.ok(assets.length <= 170, `compiled asset count ${assets.length} exceeds the reviewed 170-request budget`);
   const emittedAssetFiles = (await readdir(path.join(buildDirectory, 'assets')))
     .filter((file) => /\.(?:css|js|mjs|png|jpg|jpeg|webp|svg|woff2?)$/i.test(file))
     .map((file) => `/assets/${file}`)

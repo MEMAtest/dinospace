@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Home, Lightbulb, RotateCcw, ShieldCheck, Sparkles, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
-import DinoIcon from '../shared/DinoIcon.jsx';
+import rescueDinoArt from '../../assets/little/detective-trex.webp';
 import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
 import { hangmanLettersForLevel, HANGMAN_LEVELS, hangmanWordsForLevel, makeHangmanQueue, makeHangmanSeed, markHangmanWordRescued, nextHangmanWordIndex } from '../../data/hangmanLevels.js';
@@ -15,6 +15,7 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
   const [recentWords, setRecentWords] = useState(() => progress.recentWordsByLevel[progress.currentLevel] || []);
   const [phase, setPhase] = useState('intro');
   const [selectedLevel, setSelectedLevel] = useState(() => progress.currentLevel);
+  const [clueOnly, setClueOnly] = useState(false);
   useLayoutEffect(() => { window.scrollTo(0, 0); }, [phase, selectedLevel]);
   const [runSeed, setRunSeed] = useState(() => makeHangmanSeed());
   const [wordIndex, setWordIndex] = useState(0);
@@ -260,13 +261,17 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
       </header>
       <main className="mx-auto mt-3 grid max-w-5xl gap-5 lg:mt-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,.8fr)]">
         <section className="rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-xl sm:p-7">
-          <div className="flex items-center gap-4"><DinoIcon species="trex" size={80} /><div><p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">Choose your rescue</p><h2 className="text-2xl font-black">Four levels of word clues</h2></div></div>
+          <div className="flex items-center gap-4"><img src={rescueDinoArt} alt="" className="h-20 w-20 shrink-0 object-contain drop-shadow-lg" /><div><p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">Choose your rescue</p><h2 className="text-2xl font-black">Four levels of word clues</h2></div></div>
           <p className="mt-4 text-white/80">Use the picture and meaning clue, then choose letters. Longer words unlock as you rescue words. Only words made from the selected taught sounds appear.</p>
           {!progress.persistenceSafe && <p className="mt-3 rounded-xl border border-amber-200/40 bg-amber-100/10 p-3 text-sm font-bold text-amber-100" role="status">Saved progress cannot be checked safely. You can practise the first level, but rewards and unlocks are paused until saved data can be verified.</p>}
           {pendingReward && <div className="mt-3 rounded-xl border border-rose-200/40 bg-rose-100/10 p-3 text-sm font-bold text-rose-50" role="alert"><p>A saved level reward still needs confirmation. Retry it before leaving this game.</p><button onClick={retryPendingReward} className="mt-2 min-h-12 rounded-xl bg-white px-4 font-black text-slate-900">Retry saved reward</button></div>}
           <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-lime-200/30 bg-lime-200/10 p-3 sm:p-4">
             <button type="button" onClick={() => startLevel(selectedLevel)} disabled={!unlocked(selectedLevel) || poolForLevel(selectedLevel).length < HANGMAN_LEVELS[selectedLevel].target} className="min-h-14 rounded-2xl bg-gradient-to-b from-lime-400 to-green-600 px-5 font-black text-white shadow-[0_5px_0_#166534] disabled:cursor-not-allowed disabled:opacity-40">Start {HANGMAN_LEVELS[selectedLevel].name} →</button>
             <p className="min-w-0 flex-1 text-sm text-white/80"><strong className="text-white">{HANGMAN_LEVELS[selectedLevel].lengthLabel} · rescue {HANGMAN_LEVELS[selectedLevel].target}</strong><br />Progress saves separately for each child. Replaying keeps your best score.</p>
+          </div>
+          <div className="mt-3 flex flex-wrap items-center gap-3 rounded-2xl border border-cyan-200/30 bg-cyan-100/10 p-3">
+            <button type="button" aria-pressed={clueOnly} onClick={() => setClueOnly((value) => !value)} className="min-h-12 rounded-xl border-2 border-cyan-200/60 bg-slate-950/50 px-4 font-black text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-300">Clue-only challenge: {clueOnly ? 'On' : 'Off'}</button>
+            <p className="text-sm text-cyan-50">{clueOnly ? 'Use the meaning clue first. Hear the word after the answer.' : 'Hear the word whenever a recording is available.'}</p>
           </div>
           <div className="mt-5 grid gap-3 sm:grid-cols-2" aria-label="Hangman levels">
             {HANGMAN_LEVELS.map((item, index) => {
@@ -296,7 +301,7 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
     <div className="min-h-[calc(100dvh-11rem)] overflow-x-hidden bg-[#07132f] px-4 pb-4 pt-3 text-white sm:pb-8 sm:pt-4" data-hangman-level={level.id} data-hangman-phase="finish">
       <header className="mx-auto flex max-w-4xl items-center justify-between gap-3"><button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button><div className="text-center"><p className="text-xs font-bold uppercase tracking-[0.2em] text-fuchsia-200">Dino Hangman</p><h1 className="text-2xl font-black">{level.name} complete</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" /></header>
       <main className="mx-auto mt-3 max-w-xl rounded-[2rem] border border-white/15 bg-white/10 p-4 text-center shadow-2xl sm:mt-6 sm:p-6" tabIndex={-1} ref={successRef}>
-        <DinoIcon species="trex" size={80} className="mx-auto" /><Sparkles className="mx-auto mt-1 text-amber-300" size={20} />
+        <img src={rescueDinoArt} alt="" className="mx-auto h-20 w-20 object-contain" /><Sparkles className="mx-auto mt-1 text-amber-300" size={20} />
         <h2 className="mt-2 text-2xl font-black sm:text-3xl">Level saved!</h2><p className="mt-2 text-sm font-semibold text-emerald-100">{saveStatus || 'Your level result is saved.'}</p>
         <p className="mt-3 text-white/80">You rescued {runStats.rescued} words. First-try rescues: {runStats.firstTry} of {runStats.rescued}.</p>
         <p className="mt-2 font-bold text-amber-200">{lastRewardDelta > 0 ? `${lastRewardDelta} reward points added to this level’s best.` : 'No new points this time. Your saved best remains.'}</p>
@@ -309,7 +314,7 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
     <div className="min-h-[100dvh] overflow-x-hidden bg-[#07132f] text-white relative" data-hangman-level={level.id} data-hangman-phase="play" data-hangman-seed={runSeed}>
       <header className="relative z-20 mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 pt-2 sm:px-7 sm:pt-4">
         <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
-        <div className="min-w-0 text-center"><p className="text-xs font-bold uppercase tracking-[0.18em] text-fuchsia-200">Level {selectedLevel + 1} of {HANGMAN_LEVELS.length} · {level.lengthLabel}</p><h1 className="text-2xl font-black sm:text-4xl">Dino Hangman</h1></div>
+        <div className="min-w-0 text-center"><p className="text-xs font-bold uppercase tracking-[0.18em] text-fuchsia-200">Level {selectedLevel + 1} of {HANGMAN_LEVELS.length} · {level.lengthLabel}</p><h1 className="flex items-center justify-center gap-1 text-2xl font-black sm:text-4xl"><img src={rescueDinoArt} alt="" className="h-7 w-7 shrink-0 object-contain" />Dino Hangman</h1></div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" />
       </header>
       <main className="relative z-10 mx-auto grid max-w-6xl gap-3 px-2 pb-5 pt-2 sm:gap-4 sm:px-4 sm:pb-8 sm:pt-3 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,.95fr)] lg:items-start">
@@ -321,7 +326,7 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
               <p className="text-sm font-bold text-cyan-100" aria-label={`${shieldsLeft} of ${MAX_MISTAKES} shields remaining`}>🛡️ {shieldsLeft}/{MAX_MISTAKES}</p>
             </div>
           </div>
-          <div className="mt-2 flex flex-wrap items-center gap-2 sm:mt-3"><p className="min-h-11 min-w-0 flex-1 rounded-xl bg-cyan-100/10 p-2.5 font-bold leading-snug text-cyan-50 sm:min-h-12 sm:rounded-2xl sm:p-3">{word.clue}</p>{wordAudio ? <button aria-label="Hear the word" onClick={playWordAudio} disabled={!soundOn} className="min-h-12 shrink-0 rounded-xl bg-white/15 px-3 font-black disabled:opacity-50"><Volume2 size={18} className="mr-1 inline" />Hear</button> : <p className="max-w-36 rounded-xl bg-white/5 px-2 py-2 text-xs leading-tight text-white/60">Use the clue and choose letters.</p>}</div>
+          <div className="mt-2 flex flex-wrap items-center gap-2 sm:mt-3"><p className="min-h-11 min-w-0 flex-1 rounded-xl bg-cyan-100/10 p-2.5 font-bold leading-snug text-cyan-50 sm:min-h-12 sm:rounded-2xl sm:p-3">{word.clue}</p>{wordAudio && (!clueOnly || isRoundOver) ? <button aria-label="Hear the word" onClick={playWordAudio} disabled={!soundOn} className="min-h-12 shrink-0 rounded-xl bg-white/15 px-3 font-black disabled:opacity-50"><Volume2 size={18} className="mr-1 inline" />Hear</button> : <p className="max-w-36 rounded-xl bg-white/5 px-2 py-2 text-xs leading-tight text-white/60">{clueOnly && wordAudio ? 'Clue-only challenge: hear the word after your answer.' : 'Use the clue and choose letters.'}</p>}</div>
           {hintFeedback && <p className="mt-2 rounded-xl bg-amber-200/10 px-2 py-1 text-xs font-bold text-amber-100 sm:p-3 sm:text-sm" role="status" aria-label={hintFeedback}><span aria-hidden="true">Hint: one letter revealed · helped</span></p>}
           <div className="mt-2 rounded-2xl border border-white/10 bg-slate-950/45 p-2 sm:mt-4 sm:rounded-[1.75rem] sm:p-6"><div className="flex flex-wrap items-end justify-center gap-1 sm:gap-3" aria-label={`Word has ${word.word.length} letters`}>{word.word.split('').map((letter, index) => {
             const visible = guessedLetters.includes(letter) || round.roundState !== 'playing';
@@ -345,7 +350,7 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
           })}</div></div>}
         </section>
         <aside className="hidden rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur-xl lg:block lg:p-6">
-          <div className="flex items-center justify-between"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-200">Dino shield bay</p><h2 className="mt-1 text-2xl font-black">Keep Dino safe!</h2></div><DinoIcon species="trex" size={78} className="animate-bounce-slow" /></div>
+          <div className="flex items-center justify-between"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-200">Dino shield bay</p><h2 className="mt-1 text-2xl font-black">Keep Dino safe!</h2></div><img src={rescueDinoArt} alt="" className="h-20 w-20 object-contain animate-bounce-slow" /></div>
           <div className="mt-4 rounded-[1.5rem] border border-white/10 bg-slate-950/35 p-4"><div className="flex items-center justify-between text-sm font-bold text-white/70"><span>Comet shields</span><span>{wrongLetters.length}/{MAX_MISTAKES} used</span></div><div className="mt-3 grid grid-cols-3 gap-3" aria-label={`${shieldsLeft} of ${MAX_MISTAKES} comet shields remaining`}>{Array.from({ length: MAX_MISTAKES }, (_, index) => {
             const hit = index < wrongLetters.length;
             return <div key={index} className={`grid aspect-square place-items-center rounded-2xl border text-3xl transition ${hit ? 'border-rose-400/25 bg-rose-500/15 grayscale' : 'border-cyan-300/40 bg-cyan-300/15 shadow-[0_0_18px_rgba(103,232,249,0.12)]'}`} aria-label={hit ? `Shield ${index + 1} used` : `Shield ${index + 1} ready`}>{hit ? '💥' : '🛡️'}</div>;

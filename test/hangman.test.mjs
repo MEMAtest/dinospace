@@ -37,6 +37,19 @@ test('four Hangman levels keep increasing word lengths, existing targets and eno
   assert.ok(hangmanWordsForLevel(2, new Set(PHASE_SOUNDS[2])).some(({ word }) => word.length === 5));
 });
 
+test('the later levels have enough extra taught words for genuinely different replays', () => {
+  const taught = new Set(DEFAULT_TAUGHT_GRAPHEMES);
+  for (const index of [2, 3]) {
+    const words = hangmanWordsForLevel(index, taught);
+    assert.ok(words.length >= HANGMAN_LEVELS[index].target * 2);
+    const first = makeHangmanQueue(index, taught, { seed: 41 });
+    const replay = makeHangmanQueue(index, taught, { seed: 41, recent: first.slice(0, HANGMAN_LEVELS[index].target).map(({ word }) => word) });
+    assert.notEqual(first[0].word, replay[0].word);
+  }
+  const withoutDoubleL = new Set([...taught].filter((sound) => sound !== 'll'));
+  assert.ok(!hangmanWordsForLevel(3, withoutDoubleL).some(({ word }) => word === 'HILLTOP'));
+});
+
 test('seeded queues are distinct within a level and move a recently seen word away from the boundary', () => {
   const taught = new Set([...PHASE_SOUNDS[2], ...PHASE_SOUNDS[3]]);
   const plain = makeHangmanQueue(3, taught, { seed: 41 });

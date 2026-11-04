@@ -1,0 +1,29 @@
+{
+  "generator": "built-in image generation, 4 November 2026",
+  "assets": [
+    {
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-8fef426f-ad32-4823-b998-5fc21319d51c.png",
+      "sourceSHA256": "ef9da85aa6c3ac99c5dbd96ad67079fd944dc8297ced6e7a69fd6a41795298a3",
+      "shipped": "src/assets/little/jigsaw-lake-v1.webp",
+      "shippedSHA256": "bd2f14b5b8b75165bae2791f9c56efc582867b50bfacf87ebe5810ec08728563",
+      "bytes": 351924,
+      "encoding": "cwebp quality 82"
+    },
+    {
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-a69fdac9-403d-4dff-bb4b-c47f16386f66.png",
+      "sourceSHA256": "9db209e1e0fafc26f822bc3082b8087ebc3167bdd33de8e9364539c48543af6c",
+      "shipped": "src/assets/little/jigsaw-forest-v1.webp",
+      "shippedSHA256": "605807e9aea1b66d983a8e2bb05775a8072eedd35946be701b9b21839c72500d",
+      "bytes": 475528,
+      "encoding": "cwebp quality 82"
+    },
+    {
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-11c5563a-3663-45ce-8930-444f7b95c87f.png",
+      "sourceSHA256": "c1ad54264b0a9b5a68dd006a8122513b9c2020357ce45698a7f7e59dd9229512",
+      "shipped": "src/assets/little/jigsaw-canyon-v1.webp",
+      "shippedSHA256": "98627e91192c8c6ce9f45e5c027478f9ac8aba33ce3028c4bb3ccb727ca1b178",
+      "bytes": 420912,
+      "encoding": "cwebp quality 82"
+    }
+  ]
+}

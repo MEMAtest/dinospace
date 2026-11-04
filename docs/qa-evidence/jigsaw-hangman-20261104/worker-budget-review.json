@@ -1,0 +1,10 @@
+{
+  "reason": "Three versioned jigsaw landscapes replace one repeated setting; they are compiled and available offline with the rest of the app shell.",
+  "previousRequestLimit": 168,
+  "revisedRequestLimit": 170,
+  "observedRequests": 170,
+  "observedBytes": 31128552,
+  "byteLimit": 41943040,
+  "tradeoff": "Two more net install requests and approximately 1.2 MiB of new source art; retained 40 MiB ceiling and no additional audio or story corpora.",
+  "assetOwnership": "Three generated WebP files are the canonical shipped copies. Generated source PNGs remain in the image-generation directory."
+}
