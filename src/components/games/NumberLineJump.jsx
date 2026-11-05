@@ -9,7 +9,8 @@ import {
 } from '../../data/timeLineProgress.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
 import { LearningHeader } from './TimeLineLearningUI.jsx';
-import NumberLineJourney, { Frog } from './NumberLineJourney.jsx';
+import NumberLineJourney from './NumberLineJourney.jsx';
+import frogArt from '../../assets/memory-match/isolated-frog-v1-card.webp';
 const tell = (speak, line, segments) => speak?.(line, { premium: false, segments });
 const noopCancel = () => {};
 export default function NumberLineJump({
@@ -373,7 +374,7 @@ export default function NumberLineJump({
       {rewardClaimError && <section role="alert" className="mb-2 rounded-2xl border-2 border-amber-600 bg-white p-3 text-center font-bold"><p>A saved world reward still needs confirmation.</p><button type="button" onClick={() => void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry reward confirmation</button></section>}
       {startError && <p role="alert" className="mb-2 rounded-xl border-2 border-rose-500 bg-white p-3 text-center font-bold">{startError}</p>}
       <section className="rounded-3xl border-2 border-teal-200 bg-white p-4 text-center shadow-md sm:p-6" aria-label="Selected number line world">
-        <div className="flex items-center justify-center gap-3"><Frog /><div className="text-left"><p className="text-xs font-black uppercase tracking-wide text-teal-800">Selected · World {chapterIndex + 1} of 3</p><h2 className="text-xl font-black text-teal-950">{chapter.title}</h2><p className="text-sm font-semibold text-slate-600">{chapter.skill} · 6 missions</p></div></div>
+        <div className="flex items-center justify-center gap-3"><img src={frogArt} alt="" aria-hidden="true" className="h-14 w-14 shrink-0 object-contain" /><div className="text-left"><p className="text-xs font-black uppercase tracking-wide text-teal-800">Selected · World {chapterIndex + 1} of 3</p><h2 className="text-xl font-black text-teal-950">{chapter.title}</h2><p className="text-sm font-semibold text-slate-600">{chapter.skill} · 6 missions</p></div></div>
         <button type="button" data-numberline-start disabled={!canStart || chapterIndex > progress.unlockedChapter} onClick={() => start(chapterIndex, Boolean(pendingStart))} className="mt-3 min-h-14 w-full rounded-2xl bg-teal-800 px-5 text-lg font-black text-white shadow-md disabled:opacity-50">
           {pendingStart ? 'Retry saving this same six-mission run' : progress.completedChapterIds.includes(chapter.id) ? `Replay ${chapter.title}` : `Start ${chapter.title} →`}
         </button>

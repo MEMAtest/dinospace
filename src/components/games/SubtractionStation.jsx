@@ -379,8 +379,9 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
         {rewardDrainBusy && <p role="status" className="mb-3 rounded-xl bg-white p-3 text-center font-semibold">Checking saved chapter rewards…</p>}
         {rewardClaimError && <section role="alert" className="mb-3 rounded-2xl border-2 border-amber-600 bg-white p-3 text-center font-bold"><p>A saved chapter reward still needs confirmation.</p><button onClick={()=>void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry reward confirmation</button></section>}
         {startError && <p role="alert" className="mb-3 rounded-xl border-2 border-rose-500 bg-white p-3 text-center font-bold">{startError}</p>}
-        <section className="rounded-2xl bg-white p-3 shadow" aria-label="Selected subtraction chapter">
-          <p className="text-xs font-black uppercase tracking-wide">Selected · Chapter {chapterIndex + 1} of 3</p><h2 className="mt-1 text-lg font-black">{chapter.title}</h2><p className="text-sm">{chapter.skill[0].toUpperCase() + chapter.skill.slice(1)} · up to {chapter.max}</p>
+        <section className="relative rounded-2xl bg-white p-3 shadow" aria-label="Selected subtraction chapter">
+          <img src="/art/catalog-v3/game-subtraction.webp" alt="" aria-hidden="true" className="pointer-events-none absolute right-3 top-2 h-14 w-20 object-contain" />
+          <div className="min-h-14 pr-20"><p className="text-xs font-black uppercase tracking-wide">Selected · Chapter {chapterIndex + 1} of 3</p><h2 className="mt-1 text-lg font-black">{chapter.title}</h2><p className="text-sm">{chapter.skill[0].toUpperCase() + chapter.skill.slice(1)} · up to {chapter.max}</p></div>
           <button type="button" data-subtraction-start disabled={!canStart || chapterIndex > unlockedChapter} onClick={()=>start(chapterIndex)} className="mt-3 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white disabled:opacity-50">
             {pendingStartRef.current?.chapterIndex === chapterIndex ? 'Retry saving this chapter' : progress.completedChapterIds.includes(chapter.id) ? `Replay ${chapter.title}` : `Start ${chapter.title}`}
           </button>
