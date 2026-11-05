@@ -7,8 +7,8 @@
   "batchSize": 2,
   "activePair": {
     "games": [
-      "Time Teller",
-      "Sound Safari"
+      "Colour Mixing Lab",
+      "Shadow Match"
     ],
     "status": "audit_in_progress",
     "scope": "Review next pair against current public release."
@@ -474,6 +474,25 @@
       "entry": "/assets/arcade-UpMdFwWa.js",
       "openGate": null,
       "scope": "Illustrated chapter selection; 72 current live questions per viewport; no new editorial or listening score."
+    },
+    {
+      "number": 23,
+      "games": [
+        {
+          "id": "timeteller",
+          "name": "Time Teller"
+        },
+        {
+          "id": "phonics",
+          "name": "Sound Safari"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/time-safari-visual-20261105/README.md",
+      "runtime": "ab2b64ab7f3c64324d7d781f76140fbf67528c4c",
+      "entry": "/assets/arcade-FCGeHFcT.js",
+      "openGate": null,
+      "scope": "Illustrated mission selection; 72 current live questions per viewport; existing phonemes unchanged, no new editorial or listening score."
     }
   ],
   "retainedReleasedScopes": [
@@ -648,7 +667,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "61a8d746c4ea2d5dccb73a1a0d54fb2c2b4fbe0b",
+  "currentRuntime": "ab2b64ab7f3c64324d7d781f76140fbf67528c4c",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {

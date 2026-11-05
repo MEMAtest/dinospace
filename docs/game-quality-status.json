@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T21:38:49.997599+00:00",
+  "updatedAt": "2026-11-05T21:52:57.140049+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1245,18 +1245,18 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": "Subtraction Station and Number Line Jump illustrated menu update",
-    "runtime": "61a8d746c4ea2d5dccb73a1a0d54fb2c2b4fbe0b",
-    "entry": "/assets/arcade-UpMdFwWa.js",
+    "pair": "Time Teller and Sound Safari illustrated menu update",
+    "runtime": "ab2b64ab7f3c64324d7d781f76140fbf67528c4c",
+    "entry": "/assets/arcade-FCGeHFcT.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-o2h8akq47-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_7VETb6hu7YGJGKx6eRF36n2J9ev9",
-    "netlifyGatewayDeploy": "6aecf6b0ce4663b4d1b1d2a7",
-    "serviceWorkerCache": "amari-discovery-v66",
+    "backendUrl": "https://dinospace-ce16c1axg-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_3ifUA9PBXR6GiYikSS6usVeZiHP3",
+    "netlifyGatewayDeploy": "6aecf9b9360e88f128e6f97b",
+    "serviceWorkerCache": "amari-discovery-v67",
     "status": "live_verified_targeted",
-    "evidence": "docs/qa-evidence/subtract-numberline-visual-20261105/README.md",
-    "verifiedAt": "2026-11-05T21:38:49.997599+00:00",
-    "scope": "Illustrated chapter selection; 72 current live questions per viewport; no new editorial or listening score.",
+    "evidence": "docs/qa-evidence/time-safari-visual-20261105/README.md",
+    "verifiedAt": "2026-11-05T21:52:57.140049+00:00",
+    "scope": "Illustrated mission selection; 72 current live questions per viewport; existing phonemes unchanged, no new editorial or listening score.",
     "sourceTests": {
       "passed": 760,
       "failed": 0,
@@ -1954,6 +1954,26 @@
     "evidence": "docs/qa-evidence/subtract-numberline-visual-20261105/README.md",
     "verifiedAt": "2026-11-05T21:38:49.997599+00:00",
     "scope": "Illustrated chapter selection; 72 current live questions per viewport; no new editorial or listening score.",
+    "sourceTests": {
+      "passed": 760,
+      "failed": 0,
+      "skipped": 0
+    },
+    "paidCalls": 0
+  },
+  "latestTimeSafariVisualUpdate": {
+    "pair": "Time Teller and Sound Safari illustrated menu update",
+    "runtime": "ab2b64ab7f3c64324d7d781f76140fbf67528c4c",
+    "entry": "/assets/arcade-FCGeHFcT.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-ce16c1axg-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_3ifUA9PBXR6GiYikSS6usVeZiHP3",
+    "netlifyGatewayDeploy": "6aecf9b9360e88f128e6f97b",
+    "serviceWorkerCache": "amari-discovery-v67",
+    "status": "live_verified_targeted",
+    "evidence": "docs/qa-evidence/time-safari-visual-20261105/README.md",
+    "verifiedAt": "2026-11-05T21:52:57.140049+00:00",
+    "scope": "Illustrated mission selection; 72 current live questions per viewport; existing phonemes unchanged, no new editorial or listening score.",
     "sourceTests": {
       "passed": 760,
       "failed": 0,

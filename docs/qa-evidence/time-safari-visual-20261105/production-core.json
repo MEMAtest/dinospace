@@ -1,0 +1,226 @@
+{
+  "passed": true,
+  "resources": [
+    {
+      "path": "/",
+      "sha256": "7e7c11640610793ef14e286082208fd8e65d90c45ecdca3bef69997df07cb21b",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "encoding": null,
+          "bytes": 1441,
+          "prefixHex": "3c21646f63747970"
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "encoding": null,
+          "bytes": 1441,
+          "prefixHex": "3c21646f63747970"
+        }
+      ]
+    },
+    {
+      "path": "/sw.js",
+      "sha256": "783bc6888509d882c009bf0c9c8125925cdbe24553d954e681129f7d8fc829aa",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 16534,
+          "prefixHex": "2f2f2042756d7020"
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 16534,
+          "prefixHex": "2f2f2042756d7020"
+        }
+      ]
+    },
+    {
+      "path": "/assets/arcade-FCGeHFcT.js",
+      "sha256": "28b8dc306c367b240def8dd0e914cc21d02ea2765cf2ea342672dddb94efca75",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 1478575,
+          "prefixHex": "636f6e7374205f5f"
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 1478575,
+          "prefixHex": "636f6e7374205f5f"
+        }
+      ]
+    },
+    {
+      "path": "/assets/DiscoveryHeader-F1MGveSx.js",
+      "sha256": "f4aefdbc9b84ad67406334ca192132d21f09d6a6a26a3650b65185a8cefb87b2",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 197968,
+          "prefixHex": "2866756e6374696f"
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 197968,
+          "prefixHex": "2866756e6374696f"
+        }
+      ]
+    },
+    {
+      "path": "/assets/codeProgress-vW73Y7vt.js",
+      "sha256": "d7f7f104283387c99bcf1636996789bb543e0b1721a21b8614a897b2310d8f70",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 496168,
+          "prefixHex": "696d706f72747b63"
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 496168,
+          "prefixHex": "696d706f72747b63"
+        }
+      ]
+    },
+    {
+      "path": "/assets/writingProgress-BANozLWz.js",
+      "sha256": "9987d91600a121640f33aab91fe7395942b2d6a44a1cced8286b32a769e031dc",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 9445,
+          "prefixHex": "636f6e737420503d"
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 9445,
+          "prefixHex": "636f6e737420503d"
+        }
+      ]
+    },
+    {
+      "path": "/assets/DiscoveryHeader-Dt86kjrx.css",
+      "sha256": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/css; charset=utf-8",
+          "encoding": null,
+          "bytes": 25695,
+          "prefixHex": "3a726f6f747b2d2d"
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/css; charset=utf-8",
+          "encoding": null,
+          "bytes": 25695,
+          "prefixHex": "3a726f6f747b2d2d"
+        }
+      ]
+    },
+    {
+      "path": "/assets/arcade-F77KqWlw.css",
+      "sha256": "51ae55419d172eee759c753ca1840cda745f15acbaa5529d05a9b852e538b3c8",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/css; charset=utf-8",
+          "encoding": null,
+          "bytes": 297317,
+          "prefixHex": "2a2c3a6265666f72"
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/css; charset=utf-8",
+          "encoding": null,
+          "bytes": 297317,
+          "prefixHex": "2a2c3a6265666f72"
+        }
+      ]
+    },
+    {
+      "path": "/art/catalog-v3/game-timeteller.webp",
+      "sha256": "0ed80fa4349dc47b811e949cd11a17d68a2f2e990b7b9f03eee17fd7f16df51b",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "image/webp",
+          "encoding": null,
+          "bytes": 59764,
+          "prefixHex": "524946466ce90000"
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "image/webp",
+          "encoding": null,
+          "bytes": 59764,
+          "prefixHex": "524946466ce90000"
+        }
+      ]
+    },
+    {
+      "path": "/art/catalog-v3/game-phonics.webp",
+      "sha256": "aa6dc44f8ec5688afd1b8b2580d7c45d0cab5dab994d0de4d74f7ab9711827be",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "image/webp",
+          "encoding": null,
+          "bytes": 68282,
+          "prefixHex": "52494646b20a0100"
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "image/webp",
+          "encoding": null,
+          "bytes": 68282,
+          "prefixHex": "52494646b20a0100"
+        }
+      ]
+    }
+  ],
+  "entry": "/assets/arcade-FCGeHFcT.js"
+}
