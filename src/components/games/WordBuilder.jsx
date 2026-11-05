@@ -8,6 +8,7 @@ import { commitSpellingAttempt, commitSpellingWritingSample, readSpellingProgres
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { SoundToggle } from '../shared/index.jsx';
 import classroomScene from '../../assets/game-scenes/spelling-studio.webp';
+import { learningPictureFor } from '../learning/pictureClues.js';
 import './amariScenes.css';
 
 const LETTER_BANK = ['s', 'a', 't', 'p', 'i', 'n', 'm', 'd', 'g', 'o', 'c', 'k', 'e', 'u', 'r', 'h', 'b', 'f', 'l', 'sh', 'ch', 'th', 'ai', 'ee', 'oa', 'oo'];
@@ -89,10 +90,11 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const trickyWords = useMemo(() => spellingTrickyWordsForPhase(runActivePhase), [runActivePhase]);
   const words = mode === 'tricky' ? trickyWords : regularWords;
   const word = useMemo(() => words.length ? words[wordIndex % words.length] : { word: '', graphemes: [], emoji: '🔒', hint: '' }, [words, wordIndex]);
+  const picture = SPELLING_WORD_ART[word.word] || learningPictureFor(word.word);
   const preAnswerCue = word.cue || SPELLING_PREANSWER_CUES[word.word] || 'Think about what you can hear and see.';
   const mayNameAnswer = mode === 'copy' || locked;
   const artworkDescription = mayNameAnswer
-    ? (word.word === 'TAN' ? 'A light tan colour swatch' : SPELLING_WORD_ART[word.word]?.alt || word.hint)
+    ? (word.word === 'TAN' ? 'A light tan colour swatch' : picture?.alt || word.hint)
     : preAnswerCue;
   const missingIndex = word.graphemes.length ? wordIndex % word.graphemes.length : 0;
   const [tiles, setTiles] = useState(() => makeTiles(word.graphemes, ['spell', 'tricky'].includes(mode) ? 3 : 0, taught));
@@ -423,8 +425,8 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           ) : <>
           <div className="spelling-word-cue">
           <div className="spelling-word-art mx-auto grid h-28 w-36 place-items-center rounded-3xl bg-cyan-50 text-6xl shadow-inner sm:h-32 sm:w-40">
-            {SPELLING_WORD_ART[word.word]
-              ? <img src={SPELLING_WORD_ART[word.word].src} alt={artworkDescription} className="h-full w-full object-contain p-1" />
+            {picture
+              ? <img src={picture.src} alt={artworkDescription} className="h-full w-full object-contain p-1" />
               : word.word === 'TAN' ? <span role="img" aria-label={artworkDescription} className="block h-20 w-20 rounded-2xl border-2 border-white" style={{ backgroundColor: '#d2b48c' }} />
                 : <span role="img" aria-label={artworkDescription}>{word.emoji}</span>}
           </div>

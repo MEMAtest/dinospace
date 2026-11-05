@@ -19,6 +19,7 @@ import {
 import { rewardClaimToken } from '../../data/playerRewards.js';
 import { playerStorageKey } from '../../data/players.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
+import { learningPictureFor } from '../learning/pictureClues.js';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
 import launchWorld from '../../assets/little/bg-fuelup.webp';
 import './letterLaunch.css';
@@ -490,7 +491,9 @@ const LetterLaunch = ({
       <div className="letter-launch-panel">
         <p className="letter-launch-kicker">{round.kind === 'build-word' ? 'Blend the sounds' : round.kind === 'case-match' ? 'Big and little letters' : chapterIndex === 0 ? 'Name and sound' : 'Find the first sound'}</p>
         <div className="letter-launch-clue" aria-label={round.kind === 'case-match' ? `Little letter ${round.target.letter.toLowerCase()}` : round.kind !== 'case-match' ? `Picture clue for ${round.target.word}` : 'Listen to the word'}>
-          {round.kind === 'case-match' ? <span>{round.target.letter.toLowerCase()}</span> : round.target.emoji}
+          {round.kind === 'case-match' ? <span>{round.target.letter.toLowerCase()}</span> : learningPictureFor(round.target.word)
+            ? <img className="letter-launch-picture" src={learningPictureFor(round.target.word).src} alt="" />
+            : round.target.emoji}
         </div>
         {['letter-sound', 'first-sound'].includes(round.kind) && <p className="letter-launch-caption">{round.target.word}</p>}
         {letterLaunchClueCaption(round) && <p className="letter-launch-caption">{letterLaunchClueCaption(round)}</p>}

@@ -25,6 +25,7 @@
 .letter-launch-panel{width:100%;margin:0;border:3px solid #a5f3fc;border-radius:1.5rem;background:#ffffffef;padding:.65rem .75rem .5rem;color:#0f172a;text-align:center;box-shadow:0 6px 0 #1a80c7,0 14px 26px #09165a66}
 .letter-launch-kicker{margin:0;color:#075985;font-size:.72rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase}
 .letter-launch-clue{display:grid;min-height:66px;place-items:center;margin:.1rem auto .25rem;color:#0569bf;font-size:clamp(3.2rem,11vw,5.25rem);font-weight:1000;line-height:1;filter:drop-shadow(0 4px 3px #7dd3fc99)}
+.letter-launch-picture{display:block;width:66px;height:66px;object-fit:contain}
 .letter-launch-caption{margin:-.1rem 0 .2rem;color:#3730a3;font-weight:850}
 .letter-launch-instruction{margin:.15rem auto .25rem;max-width:42rem;color:#334155;font-size:.92rem;font-weight:780;line-height:1.2}
 .letter-launch-name-note{margin:.25rem auto 0;color:#164e63;font-size:.86rem;font-weight:750;line-height:1.2}
@@ -75,6 +76,7 @@
   .letter-launch-task{gap:.25rem;padding-top:.1rem}
   .letter-launch-panel{padding:.4rem .6rem}
   .letter-launch-clue{min-height:48px;font-size:3rem;margin:.1rem auto}
+  .letter-launch-picture{width:48px;height:48px}
   .letter-launch-instruction{font-size:.86rem}
   .letter-launch-stage{height:28px}
   .letter-launch-rocket{width:30px;height:30px;bottom:2px}
