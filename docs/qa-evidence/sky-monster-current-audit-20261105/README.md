@@ -2,7 +2,7 @@
 
 Acceptance remains open. No game source was changed or released as part of this audit. Current production module `/assets/arcade-C5jqYKfV.js`, runtime `72ce4a32ee6cf4ca69ffe3276161818b71870efd`.
 
-The original phone and desktop full journeys, plus two phone reruns, each completed 36 Monster questions and 12 Sky flights, but all four report `passed: false`: catalogue images recorded `net::ERR_ABORTED` during the multi-route journey. No page errors, console errors, HTTP response errors or provider attempts were reported in those failure messages. Preserve the original failure status; successful task counts do not override it.
+The original phone and desktop full journeys, plus three phone reruns, each completed 36 Monster questions and 12 Sky flights, but all five report `passed: false`: catalogue images recorded `net::ERR_ABORTED` during the multi-route journey. No page errors, console errors, HTTP response errors or provider attempts were reported in those failure messages. Preserve the original failure status; successful task counts do not override it.
 
 HEAD requests to the six originally reported image URLs returned 200. `catalog-post-abort-check-20261105.json` shows the two visible Creative Lab pictures decoded after the first run. A focused navigation probe initially ran before lazy images had populated and failed; its retry waited for the visible images to decode and passed with no failed requests. An immediate-return probe recorded no failures, so it did not reproduce the aborts. These small probes do not explain every aborted request and do not close the full-journey gate.
 
@@ -21,3 +21,5 @@ Focused observations:
 - `docs/qa-evidence/sky-monster-save-20261029/catalog-navigation-settled-20261105.json` (failed early-read probe)
 - `docs/qa-evidence/sky-monster-save-20261029/catalog-navigation-settled-retry-20261105.json`
 - `docs/qa-evidence/sky-monster-save-20261029/catalog-fast-navigation-20261105.json` (inconclusive)
+
+A three-cycle fast Sky Shapes navigation probe recorded 18 catalogue requests and no aborts (`docs/qa-evidence/sky-monster-save-20261029/catalog-race-trace-20261105.json`). A further full mobile run on that warmed profile still reported aborted catalogue images after completing all 36 questions and 12 flights (`docs/qa-evidence/sky-monster-save-20261029/production-full-sky-monster-390x740-arcade-C5jqYKfV-20261105T004150-215646000.json`). The targeted probe did not reproduce or explain the full-run warning; full acceptance remains open.
