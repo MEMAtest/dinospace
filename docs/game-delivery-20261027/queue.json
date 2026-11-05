@@ -5,14 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": {
-    "games": [
-      "Spelling Studio",
-      "Letter Launch"
-    ],
-    "status": "audit_in_progress",
-    "scope": "Review current gameplay and visual learning cues; no new acceptance claimed."
-  },
+  "activePair": null,
   "pairs": [
     {
       "number": 1,
@@ -193,7 +186,7 @@
       "games": [
         {
           "id": "chess",
-          "name": "Chess Explorers \u2014 play against the computer",
+          "name": "Chess Explorers — play against the computer",
           "scope": "New full-game mode alongside retained lessons; requested29October"
         },
         {
@@ -417,6 +410,25 @@
       "entry": "/assets/arcade-yYH5eORi.js",
       "openGate": null,
       "scope": "Requested new visual and gameplay uplift, after the original 18-pair functional programme."
+    },
+    {
+      "number": 20,
+      "games": [
+        {
+          "id": "words",
+          "name": "Spelling Studio"
+        },
+        {
+          "id": "letters",
+          "name": "Letter Launch"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/literacy-pictures-20261105/README.md",
+      "runtime": "72ce4a32ee6cf4ca69ffe3276161818b71870efd",
+      "entry": "/assets/arcade-C5jqYKfV.js",
+      "openGate": null,
+      "scope": "Targeted ten shared picture clues; other words retain emoji; live phone Spelling uses documented 0.5px geometry tolerance."
     }
   ],
   "retainedReleasedScopes": [
@@ -591,7 +603,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "41c66bc07722d4015ff46214c8039cff585d2333",
+  "currentRuntime": "72ce4a32ee6cf4ca69ffe3276161818b71870efd",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json"
 }

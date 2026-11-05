@@ -1,0 +1,244 @@
+{
+  "passed": false,
+  "origin": "https://dinospace.netlify.app",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "entryIdentity": "/assets/arcade-BGcijMgk.js",
+  "namespaceVerified": true,
+  "startLevel": 1,
+  "baseline": {
+    "legacy": {
+      "present": true,
+      "bytes": 188,
+      "sha256": "bbc1b662a80313ac767e30b9f91531308f398aada913dd1bf378ddddcde56e1b"
+    },
+    "words": {
+      "present": true,
+      "bytes": 1658,
+      "sha256": "b28f6f1b1d0c1338fcd7eddb91d4cedd14a312a6f6f9907a60d7d49a180d8688"
+    },
+    "spelling": {
+      "present": true,
+      "bytes": 8905,
+      "sha256": "1994e673bf721ebd385bb3c07d7fe08f85890731de1eb16e9879688709123818"
+    },
+    "rewards": {
+      "present": true,
+      "bytes": 4651,
+      "sha256": "a3152d17eff7e6749a6e80460542caef308e046ab1bd4d63611fafd416c68ebf"
+    },
+    "writing": {
+      "present": true,
+      "bytes": 293,
+      "sha256": "62e676c233cc949248983b98f7422de295975aa694b12da09f5046fc5a5df250"
+    },
+    "recent": {
+      "present": true,
+      "bytes": 59,
+      "sha256": "abf62b159bf6b3e35fcde4ff9ca256ac81ef312b375b2f7b87a2670b4731b092"
+    },
+    "diagnostics": {
+      "present": true,
+      "bytes": 46983,
+      "sha256": "85895a6c341be89b90488234576c5f44368297d508596e9af4a3acf90d02a1f5"
+    },
+    "lifecycle": {
+      "present": true,
+      "bytes": 10183,
+      "sha256": "fb9bc1ab342bbb7293d994f8650a86967a7c5bff589ed92c168ea27254086288"
+    },
+    "learningAttempts": {
+      "present": true,
+      "bytes": 326603,
+      "sha256": "6d5d62892a452ebc91bc5ea0530eaf6188f879eb858a81cd764a5dfaa84789cc"
+    },
+    "ownLittle": {
+      "present": true,
+      "bytes": 1755,
+      "sha256": "6d7c0354ce9c7136597f96c1db005717e3c00853235bb943d915a1ab939c5f8c"
+    },
+    "siblingLittle": {
+      "present": true,
+      "bytes": 2236,
+      "sha256": "45282af6119e5323585fc90bbe7268c01208048979f6b8de7aeb4c5d650e5ecf"
+    },
+    "siblingWords": {
+      "present": false
+    },
+    "siblingRewards": {
+      "present": true,
+      "bytes": 1074,
+      "sha256": "dcaf92553e05d060292a442a23851f11d8205b3bfb9c7f886049c0d23ca43ca7"
+    }
+  },
+  "completedLevelRuns": [],
+  "responses": 0,
+  "rows": [
+    {
+      "kind": "baseline",
+      "entryIdentity": "/assets/arcade-BGcijMgk.js",
+      "wordsProgressStatus": "canonical",
+      "legacyRewardThrough": -1,
+      "oldBest": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "plannedPoints": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "expectedDelta": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "positiveParentFaultLevel": null
+    },
+    {
+      "kind": "control-geometry",
+      "label": "select level 1 for normal progression",
+      "rect": {
+        "x": 59,
+        "y": 360,
+        "right": 107,
+        "bottom": 408,
+        "width": 48,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "start level 1",
+      "rect": {
+        "x": 139,
+        "y": 484,
+        "right": 251,
+        "bottom": 596,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "control-geometry",
+      "label": "level-1-start",
+      "rect": {
+        "x": 139,
+        "y": 484,
+        "right": 251,
+        "bottom": 596,
+        "width": 112,
+        "height": 112
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": true
+    },
+    {
+      "kind": "optional-practice-scroll",
+      "label": "optional practice disclosure",
+      "scrolled": false,
+      "initialRect": {
+        "x": 35,
+        "y": 662.1875,
+        "width": 320,
+        "height": 48
+      },
+      "initialScrollY": 0,
+      "finalScrollY": 0
+    },
+    {
+      "kind": "readable-content-geometry",
+      "label": "optional practice disclosure",
+      "rect": {
+        "x": 35,
+        "y": 662.1875,
+        "right": 355,
+        "bottom": 710.1875,
+        "width": 320,
+        "height": 48
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "visible": true
+    },
+    {
+      "kind": "optional-practice-scroll",
+      "label": "optional practice Tricky words",
+      "scrolled": true,
+      "initialRect": {
+        "x": 35,
+        "y": 722.1875,
+        "width": 130.8125,
+        "height": 44
+      },
+      "initialScrollY": 0,
+      "finalScrollY": 26
+    },
+    {
+      "kind": "control-geometry",
+      "label": "optional practice Tricky words",
+      "rect": {
+        "x": 35,
+        "y": 696.1875,
+        "right": 165.8125,
+        "bottom": 740.1875,
+        "width": 130.8125,
+        "height": 44
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "inViewport": false
+    }
+  ],
+  "failures": [
+    {
+      "screenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/books-spelling-20261029/failure-spelling-390x740-1793837089304.jpg"
+    },
+    {
+      "message": "optional practice Tricky words is outside the viewport or its center is covered: {\"kind\":\"control-geometry\",\"label\":\"optional practice Tricky words\",\"rect\":{\"x\":35,\"y\":696.1875,\"right\":165.8125,\"bottom\":740.1875,\"width\":130.8125,\"height\":44},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"inViewport\":false}",
+      "stack": "Error: optional practice Tricky words is outside the viewport or its center is covered: {\"kind\":\"control-geometry\",\"label\":\"optional practice Tricky words\",\"rect\":{\"x\":35,\"y\":696.1875,\"right\":165.8125,\"bottom\":740.1875,\"width\":130.8125,\"height\":44},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"inViewport\":false}\n    at measure (evalmachine.<anonymous>:104:60)\n    at async openOptional (evalmachine.<anonymous>:323:5)\n    at async runStage (evalmachine.<anonymous>:364:7)\n    at async evalmachine.<anonymous>:490:7\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:70028:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66237:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67387:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67394:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:70024:11)",
+      "completedLevelRuns": 0,
+      "rows": 8
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedResources": [],
+  "failedRequests": [],
+  "providerRequests": [],
+  "stage": "production",
+  "cliReturnCode": 0
+}
