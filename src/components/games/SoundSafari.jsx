@@ -14,6 +14,7 @@ import {
   recordSoundSafariChapterCompletionStrict,
 } from '../../data/soundSafariProgress.js';
 import safariScene from '../../assets/game-scenes/sound-safari.webp';
+import safariPictures from '../../assets/sound-safari/word-pictures-v1.webp';
 import './amariScenes.css';
 
 const sayPackaged = (speak, text) => {
@@ -22,36 +23,12 @@ const sayPackaged = (speak, text) => {
   return true;
 };
 
+// One consistent illustration sheet; each cell depicts the corresponding word.
+const PICTURE_ORDER = ['ant', 'sit', 'sip', 'tip', 'pit', 'pin', 'tin', 'tap', 'nap', 'pan', 'pat', 'sap', 'pip', 'snip', 'snap', 'spin', 'pants', 'insect'];
 function SvgWordPicture({ item }) {
-  const w = item.word.toLowerCase();
-  const stroke = '#263449';
-  const base = <>
-    <ellipse cx="60" cy="80" rx="37" ry="5" fill="#dce8dc" />
-    {w === 'insect' && <><path d="M25 72q33-29 75-35M60 59l-15-18m23 13 20-19M48 66 35 58m31 3 17 9" fill="none" stroke="#54875a" strokeWidth="5" strokeLinecap="round"/><ellipse cx="60" cy="51" rx="19" ry="22" fill="#db6258" stroke={stroke} strokeWidth="3"/><path d="M60 30v42" stroke={stroke} strokeWidth="2"/><circle cx="51" cy="44" r="3" fill={stroke}/><circle cx="69" cy="44" r="3" fill={stroke}/><circle cx="51" cy="58" r="3" fill={stroke}/><circle cx="69" cy="58" r="3" fill={stroke}/><circle cx="60" cy="26" r="8" fill="#394657"/><path d="m56 20-6-8m14 8 6-8m-20 5-5 2m28-2 5 2" stroke={stroke} strokeWidth="2" strokeLinecap="round"/></>}
-    {w === 'in' && <><rect x="28" y="26" width="64" height="48" rx="4" fill="#e5b76b" stroke={stroke} strokeWidth="3" /><circle cx="61" cy="49" r="13" fill="#ef7d55" stroke={stroke} strokeWidth="2" /><path d="M28 36h64" stroke="#b77e3f" strokeWidth="3" /></>}
-    {w === 'ant' && <><path d="M36 47 26 36m16 11 2-15m28 15 11-11M43 59 31 72m23-12-5 15m21-15 8 15m1-15 13 12" stroke={stroke} strokeWidth="3" strokeLinecap="round"/><circle cx="44" cy="51" r="10" fill="#be5944"/><circle cx="63" cy="51" r="13" fill="#cc6a4d"/><circle cx="82" cy="51" r="9" fill="#a7473b"/><circle cx="85" cy="48" r="1.8" fill="white"/></>}
-    {['sit','sits','sat'].includes(w) && <><rect x="73" y="49" width="25" height="6" rx="2" fill="#aa744e"/><path d="M77 55v22m17-22v22M60 37v20h19" fill="none" stroke="#aa744e" strokeWidth="5"/><circle cx="46" cy="28" r="11" fill="#e8b48d"/><path d="M46 39v20l18 1m-18-1L36 75m28-15 10 14" fill="none" stroke="#487f9c" strokeWidth="8" strokeLinecap="round"/></>}
-    {['sip','sips'].includes(w) && <><path d="M36 39h47l-5 35H42z" fill="#8ed1d5" stroke={stroke} strokeWidth="3"/><path d="M60 39 70 20h7" fill="none" stroke="#dc7650" strokeWidth="4"/><path d="M83 48h8a8 8 0 0 1 0 16h-9" fill="none" stroke={stroke} strokeWidth="3"/><path d="M44 52h31" stroke="white" strokeWidth="3"/></>}
-    {['tip','tips'].includes(w) && <><path d="m34 70 31-36 7 23-38 15z" fill="#e4aa59" stroke={stroke} strokeWidth="3"/><path d="m71 57 16-17m-17 17 3-24m-3 24 20-5" stroke={stroke} strokeWidth="3" strokeLinecap="round"/></>}
-    {['pit','pits'].includes(w) && <><path d="M22 49h76l-14 23H37z" fill="#9b633e" stroke={stroke} strokeWidth="3"/><path d="M35 49q25 35 50 0" fill="#563f35"/><path d="M27 43h66" stroke="#7ca567" strokeWidth="6" strokeLinecap="round"/></>}
-    {['pin','pins'].includes(w) && <><path d="m41 67 35-40" stroke="#758391" strokeWidth="7" strokeLinecap="round"/><circle cx="80" cy="23" r="9" fill="#e16f62" stroke={stroke} strokeWidth="2"/><path d="m38 70-5 8" stroke="#394657" strokeWidth="3"/></>}
-    {['tin','tins'].includes(w) && <><path d="M37 31q22-12 46 0v43q-24 12-46 0z" fill="#b9c8d0" stroke={stroke} strokeWidth="3"/><ellipse cx="60" cy="31" rx="23" ry="7" fill="#e1eaed" stroke={stroke} strokeWidth="3"/><path d="M39 40h42" stroke="#8ba3ad" strokeWidth="3"/></>}
-    {['tap','taps'].includes(w) && <><path d="M34 42h50v11H60v17H47V53H34z" fill="#a8bac4" stroke={stroke} strokeWidth="3"/><path d="M50 37V28h27v9M62 68q-5 8 0 12 6-4 0-12" fill="#69bfd3" stroke="#438ca0" strokeWidth="2"/></>}
-    {['nap'].includes(w) && <><path d="M29 48h62v26H29z" fill="#8bb9d4" stroke={stroke} strokeWidth="3"/><ellipse cx="48" cy="47" rx="18" ry="12" fill="#f5e6c6" stroke={stroke} strokeWidth="2"/><circle cx="52" cy="42" r="9" fill="#e8b48d"/><path d="M57 47h31" stroke="#f5e6c6" strokeWidth="8"/><path d="M72 30q8-12 18-1m-3-11q7-9 13 0" fill="none" stroke="#e5bb59" strokeWidth="3" strokeLinecap="round"/></>}
-    {['pan','pans'].includes(w) && <><ellipse cx="55" cy="52" rx="28" ry="19" fill="#7b8b99" stroke={stroke} strokeWidth="3"/><path d="M80 48h23v8H80" fill="#596c7a" stroke={stroke} strokeWidth="3"/><ellipse cx="55" cy="50" rx="20" ry="12" fill="#f1ce79"/></>}
-    {['pat','pats'].includes(w) && <><path d="M31 61q10-8 20 0l12 12H31z" fill="#dbad8d" stroke={stroke} strokeWidth="2"/><path d="M45 60V34q0-7 6-7t6 7v18m0 2V30q0-7 6-7t6 7v25m0 1V35q0-6 6-6t6 6v23m0 3q10-9 14-1l-4 15H55" fill="#e8b48d" stroke={stroke} strokeWidth="2"/><circle cx="94" cy="64" r="12" fill="#d89061"/><path d="m87 55-5-7m13 5 4-8" stroke={stroke} strokeWidth="3"/></>}
-    {['sap'].includes(w) && <><path d="M47 73V35h25v38" fill="#936040" stroke={stroke} strokeWidth="3"/><path d="M58 38 35 24m23 17 27-20m-26 5 1-15" stroke="#5c9863" strokeWidth="7" strokeLinecap="round"/><path d="M82 50q9 11 0 14-9-3 0-14" fill="#e7b54e"/></>}
-    {['nip'].includes(w) && <><path d="M28 58q19-18 39 0-20 25-39 0" fill="#da8b6b" stroke={stroke} strokeWidth="3"/><path d="M68 58q16-22 31-4-8 19-31 4" fill="#c86b54" stroke={stroke} strokeWidth="3"/><path d="M56 58h16" stroke="white" strokeWidth="3"/></>}
-    {['nit','nits'].includes(w) && <><path d="M29 58q31-30 62 0" fill="none" stroke="#493d3b" strokeWidth="13"/><ellipse cx="52" cy="45" rx="5" ry="8" fill="#dfaa50" stroke={stroke} strokeWidth="2"/><ellipse cx="72" cy="39" rx="5" ry="8" fill="#dfaa50" stroke={stroke} strokeWidth="2"/><ellipse cx="83" cy="52" rx="5" ry="8" fill="#dfaa50" stroke={stroke} strokeWidth="2"/></>}
-    {w === 'pip' && <><circle cx="60" cy="54" r="29" fill="#ed9a61" stroke={stroke} strokeWidth="3"/><path d="M60 25v58M31 54h58M40 34l40 40m0-40L40 74" stroke="#fff0ce" strokeWidth="4"/><ellipse cx="50" cy="45" rx="3" ry="6" fill="#6f5135"/><ellipse cx="69" cy="61" rx="3" ry="6" fill="#6f5135"/><ellipse cx="69" cy="43" rx="3" ry="6" fill="#6f5135"/><path d="M59 25q5-10 14-8" stroke="#6d9a55" strokeWidth="4"/></>}
-    {['snip'].includes(w) && <><circle cx="39" cy="65" r="10" fill="none" stroke="#71838e" strokeWidth="5"/><circle cx="59" cy="65" r="10" fill="none" stroke="#71838e" strokeWidth="5"/><path d="m46 59 37-33M53 59 28 31" stroke="#d77862" strokeWidth="4"/><path d="M78 26h18v28H78z" fill="#f2da99" stroke={stroke} strokeWidth="2"/></>}
-    {['snap','snaps'].includes(w) && <><path d="M42 75V44q0-5 5-5t5 5v10V30q0-5 5-5t5 5v24V34q0-5 5-5t5 5v22V40q0-5 5-5t5 5v25q-8 16-22 16-12 0-18-6" fill="#e4b494" stroke={stroke} strokeWidth="2"/><path d="m87 23 4-8m5 10 8-4" stroke="#e7b958" strokeWidth="3" strokeLinecap="round"/></>}
-    {['spin','spins'].includes(w) && <><path d="M60 19v13" stroke={stroke} strokeWidth="5"/><path d="M60 31q-31 17-26 32 7 20 26 22 19-2 26-22 5-15-26-32" fill="#e86e60" stroke={stroke} strokeWidth="3"/><path d="M39 62h42" stroke="#f6d27e" strokeWidth="5"/><circle cx="60" cy="62" r="7" fill="#5b8baf"/></>}
-    {['spit','spits'].includes(w) && <><circle cx="52" cy="36" r="17" fill="#e8b48d"/><path d="M36 32q16-23 33 0" fill="#394657"/><path d="M52 53v24m0-13-19 15m19-15 20 15" stroke="#5887a0" strokeWidth="8" strokeLinecap="round"/><path d="M73 48q12 9 2 14-11-2-2-14" fill="#84cfdd"/></>}
-    {w === 'pants' && <><path d="M37 30h46l6 40-18 7-11-20-10 20-18-7z" fill="#e58e9d" stroke={stroke} strokeWidth="3"/><path d="m60 31 1 24m-1 0-20 15m20-15 21 15" fill="none" stroke="#b85f77" strokeWidth="3"/><path d="M38 35h46" stroke="#f4c4cc" strokeWidth="4"/></>}
-    {['satin'].includes(w) && <><path d="M26 38q21-18 42 0t28 0v34q-24 15-45 0T26 72z" fill="#bfa4d7" stroke={stroke} strokeWidth="3"/><path d="M30 47q27 18 59 0m-59 12q27 18 59 0" fill="none" stroke="#e6d7f3" strokeWidth="4"/></>}
-  </>;
-  return <svg viewBox="0 0 120 92" className="h-16 w-full max-w-24 sm:h-24 sm:max-w-36" aria-hidden="true" focusable="false">{base}</svg>;
+  const index = PICTURE_ORDER.indexOf(item.word.toLowerCase());
+  if (index < 0) return null;
+  return <span aria-hidden="true" className="mx-auto block h-16 w-16 rounded-xl sm:h-24 sm:w-24" style={{ backgroundImage: `url("${safariPictures}")`, backgroundSize: '300% 600%', backgroundPosition: `${(index % 3) * 50}% ${Math.floor(index / 3) * 20}%` }} />;
 }
 
 const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, cancelNarration = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, onReviewComplete, sessionTarget = 0, playerId = 'amari', phonemeAudio = SOUND_SAFARI_PHONEME_AUDIO }) => {
