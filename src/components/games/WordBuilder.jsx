@@ -503,7 +503,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           Keep practising! Try spelling the word again another day.
         </p>
         {sessionTarget > 0 && !hideOptionalPractice && (
-          <details className="mt-3 w-full max-w-2xl rounded-xl bg-white/90 p-3 text-cyan-950">
+          <details className="mt-2 w-full max-w-2xl rounded-xl bg-white/90 p-3 text-cyan-950">
             <summary className="cursor-pointer font-black">Optional practice (does not change this stage)</summary>
             <div className="mt-3 flex flex-wrap gap-2">
               {MODES.slice(3).map((item) => <button key={item.id} disabled={locked} onClick={() => setOptionalMode(item.id)} className="min-h-11 rounded-lg bg-cyan-100 px-4 font-black text-cyan-900 disabled:opacity-50">{item.label}</button>)}
