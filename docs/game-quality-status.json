@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T00:12:45.276291+00:00",
+  "updatedAt": "2026-11-05T21:27:59.265122+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1245,18 +1245,18 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": "Spelling Studio and Letter Launch illustrated clue update",
-    "runtime": "72ce4a32ee6cf4ca69ffe3276161818b71870efd",
-    "entry": "/assets/arcade-C5jqYKfV.js",
+    "pair": "Count the Stars and Addition Adventure visual/navigation correction",
+    "runtime": "f9d7c6f27d3a088df59521f600db8f40b21d1839",
+    "entry": "/assets/arcade-BBjJnjd-.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-ql9cd6xpg-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_4zinWiWiAVDXJzJknUw8zWEV5SjQ",
-    "netlifyGatewayDeploy": "6aebc8f913b0e3c95d59480e",
-    "serviceWorkerCache": "amari-discovery-v64",
+    "backendUrl": "https://dinospace-bw47bh8jl-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_9jT8YGj6qVzsLsbZsXvDs2xjJF6W",
+    "netlifyGatewayDeploy": "6aecf3fe602cf5c1233a37ee",
+    "serviceWorkerCache": "amari-discovery-v65",
     "status": "live_verified_targeted",
-    "evidence": "docs/qa-evidence/literacy-pictures-20261105/README.md",
-    "verifiedAt": "2026-11-05T00:12:45.276291+00:00",
-    "scope": "10 shared picture clues, full targeted live journeys; other words retain emoji; phone optional button needs 0.5px geometry tolerance. No whole-catalogue score or personal-book recovery.",
+    "evidence": "docs/qa-evidence/count-add-visual-20261105/README.md",
+    "verifiedAt": "2026-11-05T21:27:59.265122+00:00",
+    "scope": "Correct counting header and add existing illustrated Addition chapter art; 72 live questions per viewport; no editorial or human listening score.",
     "sourceTests": {
       "passed": 760,
       "failed": 0,
@@ -1920,5 +1920,25 @@
     "evidence": "docs/qa-evidence/sky-monster-resolution-20261105/README.md",
     "runtime": "72ce4a32ee6cf4ca69ffe3276161818b71870efd",
     "scope": "QA driver waits for visible catalogue imagery before reload; no product change, no new editorial or listening score."
+  },
+  "latestCountAdditionVisualCorrection": {
+    "pair": "Count the Stars and Addition Adventure visual/navigation correction",
+    "runtime": "f9d7c6f27d3a088df59521f600db8f40b21d1839",
+    "entry": "/assets/arcade-BBjJnjd-.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-bw47bh8jl-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_9jT8YGj6qVzsLsbZsXvDs2xjJF6W",
+    "netlifyGatewayDeploy": "6aecf3fe602cf5c1233a37ee",
+    "serviceWorkerCache": "amari-discovery-v65",
+    "status": "live_verified_targeted",
+    "evidence": "docs/qa-evidence/count-add-visual-20261105/README.md",
+    "verifiedAt": "2026-11-05T21:27:59.265122+00:00",
+    "scope": "Correct counting header and add existing illustrated Addition chapter art; 72 live questions per viewport; no editorial or human listening score.",
+    "sourceTests": {
+      "passed": 760,
+      "failed": 0,
+      "skipped": 0
+    },
+    "paidCalls": 0
   }
 }

@@ -1,0 +1,78 @@
+{
+  "passed": false,
+  "resources": [
+    {
+      "path": "/",
+      "sha256": "78c5b18c11d2af0c049453869687fdbf08a8feea6a624ee6a42f6020ca0dbfe3",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/sw.js",
+      "sha256": "cd696c72c268a8e543e51df7d647e8381a8aafa2c42a7b8f7172687bb9d7ecad",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/arcade-BBjJnjd-.js",
+      "sha256": "98ff534a997ae04bf15cbbe289a11397229908cc1607c475b622e8811dc036d2",
+      "matchesBuild": [
+        false,
+        true
+      ]
+    },
+    {
+      "path": "/assets/DiscoveryHeader-F1MGveSx.js",
+      "sha256": "f4aefdbc9b84ad67406334ca192132d21f09d6a6a26a3650b65185a8cefb87b2",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/codeProgress-vW73Y7vt.js",
+      "sha256": "d7f7f104283387c99bcf1636996789bb543e0b1721a21b8614a897b2310d8f70",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/writingProgress-BANozLWz.js",
+      "sha256": "9987d91600a121640f33aab91fe7395942b2d6a44a1cced8286b32a769e031dc",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/DiscoveryHeader-Dt86kjrx.css",
+      "sha256": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/arcade-F77KqWlw.css",
+      "sha256": "51ae55419d172eee759c753ca1840cda745f15acbaa5529d05a9b852e538b3c8",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/art/catalog-v3/game-addition.webp",
+      "sha256": "7a995ad4260e644b6e812681cf7669cc3ca5fc1c2dc73a11ad1fcf2c63714297",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    }
+  ],
+  "entry": "/assets/arcade-BBjJnjd-.js"
+}

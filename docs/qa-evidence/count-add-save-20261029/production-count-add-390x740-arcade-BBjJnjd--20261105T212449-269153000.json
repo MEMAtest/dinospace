@@ -1,0 +1,2905 @@
+{
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "viewport": "390x740",
+  "rows": [
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 0,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 4,
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "https://dinospace.netlify.app/audio/en/93fa9195-matilda.mp3",
+            "origin": "https://dinospace.netlify.app",
+            "pathname": "/audio/en/93fa9195-matilda.mp3",
+            "currentTime": 0.05184,
+            "duration": 1.996916,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1210.1000000014901
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1233.7999999970198
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1235.8999999985099
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 1,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 1,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 2,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 5,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 3,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 3,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 4,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 2,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 5,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 5,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 2,
+      "wrongRetry": true,
+      "recount": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 5,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 4,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 1,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 5,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 1,
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 3,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 0,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 9,
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "https://dinospace.netlify.app/audio/en/93fa9195-matilda.mp3",
+            "origin": "https://dinospace.netlify.app",
+            "pathname": "/audio/en/93fa9195-matilda.mp3",
+            "currentTime": 0.066814,
+            "duration": 1.996916,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 5775.79999999702
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 5791.79999999702
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 5793.89999999851
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 1,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 7,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 2,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 2,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 3,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 3,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 4,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 4,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 5,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 6,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 8,
+      "wrongRetry": true,
+      "recount": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 9,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 10,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 1,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 4,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 2,
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 5,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 0,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 2,
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "https://dinospace.netlify.app/audio/en/93fa9195-matilda.mp3",
+            "origin": "https://dinospace.netlify.app",
+            "pathname": "/audio/en/93fa9195-matilda.mp3",
+            "currentTime": 0.089232,
+            "duration": 1.996916,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 12125.89999999851
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 12141.79999999702
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 12143.70000000298
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 1,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 15,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 2,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 13,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 3,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 19,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 4,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 14,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 5,
+      "replay": false,
+      "faultSequence": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "modelCount": 20,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 20,
+      "wrongRetry": true,
+      "recount": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 10,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 8,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 12,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 1,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "count",
+      "chapter": 3,
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "modelCount": 11,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 2 flowers and 4 flowers together. How many altogether?",
+      "equation": "2 + 4 = ?",
+      "answerFromVisible": 6,
+      "modelGeometries": [
+        {
+          "label": "First group, 2 flowers",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 68,
+            "right": 180,
+            "bottom": 401
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 4 flowers",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 68,
+            "right": 355,
+            "bottom": 401
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "https://dinospace.netlify.app/audio/en/124c0b83-matilda.mp3",
+            "origin": "https://dinospace.netlify.app",
+            "pathname": "/audio/en/124c0b83-matilda.mp3",
+            "currentTime": 0.080964,
+            "duration": 1.160998,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 27225.70000000298
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 27240.89999999851
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 27243
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "hint": true,
+      "joinSplit": true,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 2 apples and 2 apples together. How many altogether?",
+      "equation": "2 + 2 = ?",
+      "answerFromVisible": 4,
+      "modelGeometries": [
+        {
+          "label": "First group, 2 apples",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 68,
+            "right": 180,
+            "bottom": 401
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 2 apples",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 68,
+            "right": 355,
+            "bottom": 401
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 5 cookies and 4 cookies together. How many altogether?",
+      "equation": "5 + 4 = ?",
+      "answerFromVisible": 9,
+      "modelGeometries": [
+        {
+          "label": "First group, 5 cookies",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 100,
+            "right": 180,
+            "bottom": 433
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 4 cookies",
+          "rect": {
+            "x": 210,
+            "y": 349,
+            "width": 145,
+            "height": 68,
+            "right": 355,
+            "bottom": 417
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 0 gems and 0 gems together. How many altogether?",
+      "equation": "0 + 0 = ?",
+      "answerFromVisible": 0,
+      "modelGeometries": [
+        {
+          "label": "First group, 0 gems",
+          "rect": {
+            "x": 35,
+            "y": 341,
+            "width": 145,
+            "height": 40,
+            "right": 180,
+            "bottom": 381
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 0 gems",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 56,
+            "right": 355,
+            "bottom": 389
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 9 flowers and 0 flowers together. How many altogether?",
+      "equation": "9 + 0 = ?",
+      "answerFromVisible": 9,
+      "modelGeometries": [
+        {
+          "label": "First group, 9 flowers",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 132,
+            "right": 180,
+            "bottom": 465
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 0 flowers",
+          "rect": {
+            "x": 210,
+            "y": 371,
+            "width": 145,
+            "height": 56,
+            "right": 355,
+            "bottom": 427
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 1 flower and 5 flowers together. How many altogether?",
+      "equation": "1 + 5 = ?",
+      "answerFromVisible": 6,
+      "modelGeometries": [
+        {
+          "label": "First group, 1 flower",
+          "rect": {
+            "x": 35,
+            "y": 349,
+            "width": 145,
+            "height": 68,
+            "right": 180,
+            "bottom": 417
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 5 flowers",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 100,
+            "right": 355,
+            "bottom": 433
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "completionSurface": "Replay complete! Your best is 3 stars. All three chapters are complete. Replay any chapter. ContinueReplay Put Groups Together",
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 2 flowers and 7 flowers together. How many altogether?",
+      "equation": "2 + 7 = ?",
+      "answerFromVisible": 9,
+      "modelGeometries": [
+        {
+          "label": "First group, 2 flowers",
+          "rect": {
+            "x": 35,
+            "y": 349,
+            "width": 145,
+            "height": 68,
+            "right": 180,
+            "bottom": 417
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 7 flowers",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 100,
+            "right": 355,
+            "bottom": 433
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 6 stars and 1 star together. How many altogether?",
+      "equation": "6 + 1 = ?",
+      "answerFromVisible": 7,
+      "modelGeometries": [
+        {
+          "label": "First group, 6 stars",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 100,
+            "right": 180,
+            "bottom": 433
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 1 star",
+          "rect": {
+            "x": 210,
+            "y": 349,
+            "width": 145,
+            "height": 68,
+            "right": 355,
+            "bottom": 417
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 0 flowers and 8 flowers together. How many altogether?",
+      "equation": "0 + 8 = ?",
+      "answerFromVisible": 8,
+      "modelGeometries": [
+        {
+          "label": "First group, 0 flowers",
+          "rect": {
+            "x": 35,
+            "y": 363,
+            "width": 145,
+            "height": 40,
+            "right": 180,
+            "bottom": 403
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 8 flowers",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 100,
+            "right": 355,
+            "bottom": 433
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 3 gems and 3 gems together. How many altogether?",
+      "equation": "3 + 3 = ?",
+      "answerFromVisible": 6,
+      "modelGeometries": [
+        {
+          "label": "First group, 3 gems",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 68,
+            "right": 180,
+            "bottom": 401
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 3 gems",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 68,
+            "right": 355,
+            "bottom": 401
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 10 flowers and 0 flowers together. How many altogether?",
+      "equation": "10 + 0 = ?",
+      "answerFromVisible": 10,
+      "modelGeometries": [
+        {
+          "label": "First group, 10 flowers",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 132,
+            "right": 180,
+            "bottom": 465
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 0 flowers",
+          "rect": {
+            "x": 210,
+            "y": 371,
+            "width": 145,
+            "height": 56,
+            "right": 355,
+            "bottom": 427
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 1,
+      "chapterId": "groups",
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Put 0 shells and 7 shells together. How many altogether?",
+      "equation": "0 + 7 = ?",
+      "answerFromVisible": 7,
+      "modelGeometries": [
+        {
+          "label": "First group, 0 shells",
+          "rect": {
+            "x": 35,
+            "y": 363,
+            "width": 145,
+            "height": 40,
+            "right": 180,
+            "bottom": 403
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 7 shells",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 100,
+            "right": 355,
+            "bottom": 433
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "completionSurface": "Replay complete! Your best is 3 stars. All three chapters are complete. Replay any chapter. ContinueReplay Put Groups Together",
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "9 and what number make 13?",
+      "equation": "9 + ? = 13",
+      "answerFromVisible": 4,
+      "modelGeometries": [
+        {
+          "label": "Whole, 13 counters",
+          "rect": {
+            "x": 75,
+            "y": 305,
+            "width": 240,
+            "height": 72,
+            "right": 315,
+            "bottom": 377
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 9 counters",
+          "rect": {
+            "x": 79,
+            "y": 421,
+            "width": 124,
+            "height": 88,
+            "right": 203,
+            "bottom": 509
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "https://dinospace.netlify.app/audio/en/2da4685c-matilda.mp3",
+            "origin": "https://dinospace.netlify.app",
+            "pathname": "/audio/en/2da4685c-matilda.mp3",
+            "currentTime": 0.09387,
+            "duration": 1.857596,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 29291.60000000149
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 29306.79999999702
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 29564.10000000149
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "hint": true,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "1 and what number make 16?",
+      "equation": "1 + ? = 16",
+      "answerFromVisible": 15,
+      "modelGeometries": [
+        {
+          "label": "Whole, 16 counters",
+          "rect": {
+            "x": 51,
+            "y": 305,
+            "width": 288,
+            "height": 72,
+            "right": 339,
+            "bottom": 377
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 1 counters",
+          "rect": {
+            "x": 93,
+            "y": 421,
+            "width": 96,
+            "height": 72,
+            "right": 189,
+            "bottom": 493
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "13 and what number make 18?",
+      "equation": "13 + ? = 18",
+      "answerFromVisible": 5,
+      "modelGeometries": [
+        {
+          "label": "Whole, 18 counters",
+          "rect": {
+            "x": 49,
+            "y": 305,
+            "width": 292,
+            "height": 88,
+            "right": 341,
+            "bottom": 393
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 13 counters",
+          "rect": {
+            "x": 79,
+            "y": 437,
+            "width": 124,
+            "height": 104,
+            "right": 203,
+            "bottom": 541
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "14 and what number make 19?",
+      "equation": "14 + ? = 19",
+      "answerFromVisible": 5,
+      "modelGeometries": [
+        {
+          "label": "Whole, 19 counters",
+          "rect": {
+            "x": 49,
+            "y": 305,
+            "width": 292,
+            "height": 88,
+            "right": 341,
+            "bottom": 393
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 14 counters",
+          "rect": {
+            "x": 79,
+            "y": 437,
+            "width": 124,
+            "height": 104,
+            "right": 203,
+            "bottom": 541
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "2 and what number make 17?",
+      "equation": "2 + ? = 17",
+      "answerFromVisible": 15,
+      "modelGeometries": [
+        {
+          "label": "Whole, 17 counters",
+          "rect": {
+            "x": 49,
+            "y": 305,
+            "width": 292,
+            "height": 88,
+            "right": 341,
+            "bottom": 393
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 2 counters",
+          "rect": {
+            "x": 93,
+            "y": 437,
+            "width": 96,
+            "height": 72,
+            "right": 189,
+            "bottom": 509
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "13 and what number make 19?",
+      "equation": "13 + ? = 19",
+      "answerFromVisible": 6,
+      "modelGeometries": [
+        {
+          "label": "Whole, 19 counters",
+          "rect": {
+            "x": 49,
+            "y": 305,
+            "width": 292,
+            "height": 88,
+            "right": 341,
+            "bottom": 393
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 13 counters",
+          "rect": {
+            "x": 79,
+            "y": 437,
+            "width": 124,
+            "height": 104,
+            "right": 203,
+            "bottom": 541
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "completionSurface": "Replay complete! Your best is 3 stars. All three chapters are complete. Replay any chapter. ContinueReplay Number Bonds",
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "4 and what number make 20?",
+      "equation": "4 + ? = 20",
+      "answerFromVisible": 16,
+      "modelGeometries": [
+        {
+          "label": "Whole, 20 counters",
+          "rect": {
+            "x": 49,
+            "y": 305,
+            "width": 292,
+            "height": 88,
+            "right": 341,
+            "bottom": 393
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 4 counters",
+          "rect": {
+            "x": 93,
+            "y": 437,
+            "width": 96,
+            "height": 72,
+            "right": 189,
+            "bottom": 509
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "7 and what number make 14?",
+      "equation": "7 + ? = 14",
+      "answerFromVisible": 7,
+      "modelGeometries": [
+        {
+          "label": "Whole, 14 counters",
+          "rect": {
+            "x": 67,
+            "y": 305,
+            "width": 256,
+            "height": 72,
+            "right": 323,
+            "bottom": 377
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 7 counters",
+          "rect": {
+            "x": 79,
+            "y": 421,
+            "width": 124,
+            "height": 88,
+            "right": 203,
+            "bottom": 509
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "0 and what number make 8?",
+      "equation": "0 + ? = 8",
+      "answerFromVisible": 8,
+      "modelGeometries": [
+        {
+          "label": "Whole, 8 counters",
+          "rect": {
+            "x": 115,
+            "y": 305,
+            "width": 160,
+            "height": 72,
+            "right": 275,
+            "bottom": 377
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 0 counters",
+          "rect": {
+            "x": 93,
+            "y": 421,
+            "width": 96,
+            "height": 60,
+            "right": 189,
+            "bottom": 481
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "6 and what number make 13?",
+      "equation": "6 + ? = 13",
+      "answerFromVisible": 7,
+      "modelGeometries": [
+        {
+          "label": "Whole, 13 counters",
+          "rect": {
+            "x": 75,
+            "y": 305,
+            "width": 240,
+            "height": 72,
+            "right": 315,
+            "bottom": 377
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 6 counters",
+          "rect": {
+            "x": 81,
+            "y": 421,
+            "width": 120,
+            "height": 72,
+            "right": 201,
+            "bottom": 493
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "17 and what number make 18?",
+      "equation": "17 + ? = 18",
+      "answerFromVisible": 1,
+      "modelGeometries": [
+        {
+          "label": "Whole, 18 counters",
+          "rect": {
+            "x": 49,
+            "y": 305,
+            "width": 292,
+            "height": 88,
+            "right": 341,
+            "bottom": 393
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 17 counters",
+          "rect": {
+            "x": 79,
+            "y": 437,
+            "width": 124,
+            "height": 104,
+            "right": 203,
+            "bottom": 541
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 2,
+      "chapterId": "bonds",
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "0 and what number make 17?",
+      "equation": "0 + ? = 17",
+      "answerFromVisible": 17,
+      "modelGeometries": [
+        {
+          "label": "Whole, 17 counters",
+          "rect": {
+            "x": 49,
+            "y": 305,
+            "width": 292,
+            "height": 88,
+            "right": 341,
+            "bottom": 393
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Known part, 0 counters",
+          "rect": {
+            "x": 93,
+            "y": 437,
+            "width": 96,
+            "height": 60,
+            "right": 189,
+            "bottom": 497
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "completionSurface": "Replay complete! Your best is 3 stars. All three chapters are complete. Replay any chapter. ContinueReplay Number Bonds",
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Leo has 0 stars and gets 9 more. How many now?",
+      "equation": "0 + 9 = ?",
+      "answerFromVisible": 9,
+      "modelGeometries": [
+        {
+          "label": "First group, 0 stars",
+          "rect": {
+            "x": 35,
+            "y": 379,
+            "width": 145,
+            "height": 40,
+            "right": 180,
+            "bottom": 419
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 9 stars",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 132,
+            "right": 355,
+            "bottom": 465
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "https://dinospace.netlify.app/audio/en/725446bd-matilda.mp3",
+            "origin": "https://dinospace.netlify.app",
+            "pathname": "/audio/en/725446bd-matilda.mp3",
+            "currentTime": 0.078776,
+            "duration": 1.346757,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 31491.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 31507.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 31509.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "hint": true,
+      "joinSplit": true,
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Kai has 11 shells and gets 2 more. How many now?",
+      "equation": "11 + 2 = ?",
+      "answerFromVisible": 13,
+      "modelGeometries": [
+        {
+          "label": "First group, 11 shells",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 132,
+            "right": 180,
+            "bottom": 465
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 2 shells",
+          "rect": {
+            "x": 210,
+            "y": 365,
+            "width": 145,
+            "height": 68,
+            "right": 355,
+            "bottom": 433
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Leo has 4 flowers and gets 16 more. How many now?",
+      "equation": "4 + 16 = ?",
+      "answerFromVisible": 20,
+      "modelGeometries": [
+        {
+          "label": "First group, 4 flowers",
+          "rect": {
+            "x": 35,
+            "y": 381,
+            "width": 145,
+            "height": 68,
+            "right": 180,
+            "bottom": 449
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 16 flowers",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 164,
+            "right": 355,
+            "bottom": 497
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Kai has 16 cookies and gets 4 more. How many now?",
+      "equation": "16 + 4 = ?",
+      "answerFromVisible": 20,
+      "modelGeometries": [
+        {
+          "label": "First group, 16 cookies",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 164,
+            "right": 180,
+            "bottom": 497
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 4 cookies",
+          "rect": {
+            "x": 210,
+            "y": 381,
+            "width": 145,
+            "height": 68,
+            "right": 355,
+            "bottom": 449
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Leo has 6 flowers and gets 12 more. How many now?",
+      "equation": "6 + 12 = ?",
+      "answerFromVisible": 18,
+      "modelGeometries": [
+        {
+          "label": "First group, 6 flowers",
+          "rect": {
+            "x": 35,
+            "y": 349,
+            "width": 145,
+            "height": 100,
+            "right": 180,
+            "bottom": 449
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 12 flowers",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 132,
+            "right": 355,
+            "bottom": 465
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Kai has 1 apple and gets 2 more. How many now?",
+      "equation": "1 + 2 = ?",
+      "answerFromVisible": 3,
+      "modelGeometries": [
+        {
+          "label": "First group, 1 apple",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 68,
+            "right": 180,
+            "bottom": 401
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 2 apples",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 68,
+            "right": 355,
+            "bottom": 401
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "completionSurface": "Replay complete! Your best is 3 stars. All three chapters are complete. Replay any chapter. ContinueReplay Addition Stories",
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Kai has 7 apples and gets 8 more. How many now?",
+      "equation": "7 + 8 = ?",
+      "answerFromVisible": 15,
+      "modelGeometries": [
+        {
+          "label": "First group, 7 apples",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 100,
+            "right": 180,
+            "bottom": 433
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 8 apples",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 100,
+            "right": 355,
+            "bottom": 433
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Noah has 12 flowers and gets 7 more. How many now?",
+      "equation": "12 + 7 = ?",
+      "answerFromVisible": 19,
+      "modelGeometries": [
+        {
+          "label": "First group, 12 flowers",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 132,
+            "right": 180,
+            "bottom": 465
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 7 flowers",
+          "rect": {
+            "x": 210,
+            "y": 349,
+            "width": 145,
+            "height": 100,
+            "right": 355,
+            "bottom": 449
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Kai has 3 cookies and gets 14 more. How many now?",
+      "equation": "3 + 14 = ?",
+      "answerFromVisible": 17,
+      "modelGeometries": [
+        {
+          "label": "First group, 3 cookies",
+          "rect": {
+            "x": 35,
+            "y": 381,
+            "width": 145,
+            "height": 68,
+            "right": 180,
+            "bottom": 449
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 14 cookies",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 164,
+            "right": 355,
+            "bottom": 497
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Mia has 10 apples and gets 10 more. How many now?",
+      "equation": "10 + 10 = ?",
+      "answerFromVisible": 20,
+      "modelGeometries": [
+        {
+          "label": "First group, 10 apples",
+          "rect": {
+            "x": 35,
+            "y": 333,
+            "width": 145,
+            "height": 132,
+            "right": 180,
+            "bottom": 465
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 10 apples",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 132,
+            "right": 355,
+            "bottom": 465
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Ava has 2 flowers and gets 15 more. How many now?",
+      "equation": "2 + 15 = ?",
+      "answerFromVisible": 17,
+      "modelGeometries": [
+        {
+          "label": "First group, 2 flowers",
+          "rect": {
+            "x": 35,
+            "y": 381,
+            "width": 145,
+            "height": 68,
+            "right": 180,
+            "bottom": 449
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 15 flowers",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 164,
+            "right": 355,
+            "bottom": 497
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "answered": true
+    },
+    {
+      "game": "addition",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "expectedRewardDelta": 3,
+      "faultSequence": false,
+      "prompt": "Leo has 6 gems and gets 11 more. How many now?",
+      "equation": "6 + 11 = ?",
+      "answerFromVisible": 17,
+      "modelGeometries": [
+        {
+          "label": "First group, 6 gems",
+          "rect": {
+            "x": 35,
+            "y": 349,
+            "width": 145,
+            "height": 100,
+            "right": 180,
+            "bottom": 449
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "label": "Second group, 11 gems",
+          "rect": {
+            "x": 210,
+            "y": 333,
+            "width": 145,
+            "height": 132,
+            "right": 355,
+            "bottom": 465
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "completionSurface": "Replay complete! Your best is 3 stars. All three chapters are complete. Replay any chapter. ContinueReplay Addition Stories",
+      "answered": true
+    }
+  ],
+  "games": {
+    "count": {
+      "title": "Count the Stars",
+      "key": "amari_amari_count_the_stars_batch3_v1",
+      "rowCount": 36,
+      "savedProgress": {
+        "version": 1,
+        "unlockedEpisode": 2,
+        "completedEpisodeIds": [
+          "star-garden",
+          "constellation-workshop",
+          "galaxy-survey"
+        ],
+        "bestStars": {
+          "star-garden": 3,
+          "constellation-workshop": 3,
+          "galaxy-survey": 3
+        },
+        "earnedConstellationPageIds": [
+          "constellation-star-garden",
+          "constellation-workshop",
+          "galaxy-survey"
+        ],
+        "recentQuestionIds": {
+          "0": [
+            "rocket-lights:2:orbit",
+            "comet-seeds:5:orbit",
+            "fireflies:2:orbit",
+            "comet-seeds:5:grouped",
+            "comet-seeds:4:orbit",
+            "rocket-lights:1:grouped",
+            "moon-berries:5:orbit",
+            "tiny-planets:3:orbit"
+          ],
+          "1": [
+            "star-clusters:4:orbit",
+            "moon-rocks:6:grouped",
+            "moon-rocks:8:grouped",
+            "star-clusters:9:grouped",
+            "meteor-trails:10:orbit",
+            "observatory-windows:1:orbit",
+            "star-clusters:4:grouped",
+            "satellite-bolts:5:grouped"
+          ],
+          "2": [
+            "nebula-dots:14:grouped",
+            "nebula-dots:20:orbit",
+            "satellite-panels:20:grouped",
+            "nebula-dots:10:orbit",
+            "planet-rings:8:orbit",
+            "crater-gems:12:grouped",
+            "planet-rings:1:orbit",
+            "constellation-maps:11:orbit"
+          ]
+        },
+        "rewardReceipts": [
+          {
+            "id": "star-garden:best:3",
+            "rewardDelta": 1,
+            "claimed": true
+          },
+          {
+            "id": "constellation-workshop:best:3",
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          {
+            "id": "galaxy-survey:best:3",
+            "rewardDelta": 3,
+            "claimed": true
+          }
+        ]
+      },
+      "storage": {
+        "changed": [
+          "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+          "qa_rewards_20261024_amari_game_diagnostics_v1",
+          "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+          "qa_rewards_20261024_amari_learning_attempts_v1",
+          "qa_rewards_20261024_amari_skill_mastery_v1"
+        ],
+        "unexpected": [],
+        "unchanged": [
+          "amari-sound-on",
+          "qa_rewards_20261024_amari_addition_progress_v1",
+          "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+          "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+          "qa_rewards_20261024_amari_challenge_done",
+          "qa_rewards_20261024_amari_challenge_progress",
+          "qa_rewards_20261024_amari_chapter_badges_v1",
+          "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+          "qa_rewards_20261024_amari_chess_game_v1",
+          "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+          "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+          "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+          "qa_rewards_20261024_amari_cosmic_tactics_v1",
+          "qa_rewards_20261024_amari_curriculum_badges_v1",
+          "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_preferences_v1",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_discovery_active_player",
+          "qa_rewards_20261024_amari_discovery_passport_v1",
+          "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+          "qa_rewards_20261024_amari_favourite_games",
+          "qa_rewards_20261024_amari_game_levels_v1",
+          "qa_rewards_20261024_amari_games_played",
+          "qa_rewards_20261024_amari_german_chapter_progress_v1",
+          "qa_rewards_20261024_amari_german_recent_targets_v1",
+          "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+          "qa_rewards_20261024_amari_lastplay",
+          "qa_rewards_20261024_amari_learning_migration_v1",
+          "qa_rewards_20261024_amari_letter_launch_progress_v1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+          "qa_rewards_20261024_amari_letter_trace_progress_v1",
+          "qa_rewards_20261024_amari_little_progress",
+          "qa_rewards_20261024_amari_memory_best",
+          "qa_rewards_20261024_amari_memory_completion_v1",
+          "qa_rewards_20261024_amari_memory_passport_v1",
+          "qa_rewards_20261024_amari_memory_resume_v1",
+          "qa_rewards_20261024_amari_monster_math_progress_v1",
+          "qa_rewards_20261024_amari_numberline_progress_v1",
+          "qa_rewards_20261024_amari_oddoneout_progress_v1",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+          "qa_rewards_20261024_amari_points",
+          "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+          "qa_rewards_20261024_amari_recent_games",
+          "qa_rewards_20261024_amari_rewards_v2",
+          "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+          "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+          "qa_rewards_20261024_amari_spelling_progress_v1",
+          "qa_rewards_20261024_amari_spelling_recent_v1",
+          "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+          "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "qa_rewards_20261024_amari_storybook_progress_v1",
+          "qa_rewards_20261024_amari_streak",
+          "qa_rewards_20261024_amari_subtraction_progress_v1",
+          "qa_rewards_20261024_amari_timeteller_progress_v1",
+          "qa_rewards_20261024_amari_voice_mode_v4",
+          "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+          "qa_rewards_20261024_amari_writing_samples_v1",
+          "qa_rewards_20261024_askia_challenge_done",
+          "qa_rewards_20261024_askia_challenge_progress",
+          "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+          "qa_rewards_20261024_askia_favourite_games",
+          "qa_rewards_20261024_askia_games_played",
+          "qa_rewards_20261024_askia_lastplay",
+          "qa_rewards_20261024_askia_little_progress",
+          "qa_rewards_20261024_askia_points",
+          "qa_rewards_20261024_askia_recent_games",
+          "qa_rewards_20261024_askia_rewards_v2",
+          "qa_rewards_20261024_askia_streak",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+        ]
+      },
+      "rewards": {
+        "receiptCount": 3,
+        "receipts": [
+          {
+            "id": "star-garden:best:3",
+            "rewardDelta": 1,
+            "claimed": true,
+            "token": "dino:counting:star-garden:best:3"
+          },
+          {
+            "id": "constellation-workshop:best:3",
+            "rewardDelta": 3,
+            "claimed": true,
+            "token": "dino:counting:constellation-workshop:best:3"
+          },
+          {
+            "id": "galaxy-survey:best:3",
+            "rewardDelta": 3,
+            "claimed": true,
+            "token": "dino:counting:galaxy-survey:best:3"
+          }
+        ],
+        "beforePoints": 491,
+        "afterPoints": 491,
+        "changedTokens": [],
+        "newlyClaimed": []
+      }
+    },
+    "addition": {
+      "title": "Addition Adventure",
+      "key": "amari_addition_progress_v1",
+      "rowCount": 36,
+      "savedProgress": {
+        "version": 1,
+        "completedChapterIds": [
+          "groups",
+          "bonds",
+          "stories"
+        ],
+        "bestStars": {
+          "groups": 3,
+          "bonds": 3,
+          "stories": 3
+        },
+        "recentQuestionIds": {
+          "0": [
+            "groups:flower:9:0",
+            "groups:flower:1:5",
+            "groups:flower:2:7",
+            "groups:star:6:1",
+            "groups:flower:0:8",
+            "groups:gem:3:3",
+            "groups:flower:10:0",
+            "groups:shell:0:7"
+          ],
+          "1": [
+            "bond:17:2",
+            "bond:19:13",
+            "bond:20:4",
+            "bond:14:7",
+            "bond:8:0",
+            "bond:13:6",
+            "bond:18:17",
+            "bond:17:0"
+          ],
+          "2": [
+            "story:3:1:6:12",
+            "story:0:3:1:2",
+            "story:0:3:7:8",
+            "story:3:4:12:7",
+            "story:5:3:3:14",
+            "story:0:0:10:10",
+            "story:3:2:2:15",
+            "story:4:1:6:11"
+          ]
+        },
+        "unlockedChapter": 2,
+        "rewardReceipts": {
+          "groups:best:3": {
+            "id": "groups:best:3",
+            "chapterId": "groups",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          "bonds:best:3": {
+            "id": "bonds:best:3",
+            "chapterId": "bonds",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          "stories:best:3": {
+            "id": "stories:best:3",
+            "chapterId": "stories",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          }
+        }
+      },
+      "storage": {
+        "changed": [
+          "qa_rewards_20261024_amari_addition_progress_v1",
+          "qa_rewards_20261024_amari_game_diagnostics_v1",
+          "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+          "qa_rewards_20261024_amari_learning_attempts_v1",
+          "qa_rewards_20261024_amari_skill_mastery_v1"
+        ],
+        "unexpected": [],
+        "unchanged": [
+          "amari-sound-on",
+          "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+          "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+          "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+          "qa_rewards_20261024_amari_challenge_done",
+          "qa_rewards_20261024_amari_challenge_progress",
+          "qa_rewards_20261024_amari_chapter_badges_v1",
+          "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+          "qa_rewards_20261024_amari_chess_game_v1",
+          "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+          "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+          "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+          "qa_rewards_20261024_amari_cosmic_tactics_v1",
+          "qa_rewards_20261024_amari_curriculum_badges_v1",
+          "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_preferences_v1",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_discovery_active_player",
+          "qa_rewards_20261024_amari_discovery_passport_v1",
+          "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+          "qa_rewards_20261024_amari_favourite_games",
+          "qa_rewards_20261024_amari_game_levels_v1",
+          "qa_rewards_20261024_amari_games_played",
+          "qa_rewards_20261024_amari_german_chapter_progress_v1",
+          "qa_rewards_20261024_amari_german_recent_targets_v1",
+          "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+          "qa_rewards_20261024_amari_lastplay",
+          "qa_rewards_20261024_amari_learning_migration_v1",
+          "qa_rewards_20261024_amari_letter_launch_progress_v1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+          "qa_rewards_20261024_amari_letter_trace_progress_v1",
+          "qa_rewards_20261024_amari_little_progress",
+          "qa_rewards_20261024_amari_memory_best",
+          "qa_rewards_20261024_amari_memory_completion_v1",
+          "qa_rewards_20261024_amari_memory_passport_v1",
+          "qa_rewards_20261024_amari_memory_resume_v1",
+          "qa_rewards_20261024_amari_monster_math_progress_v1",
+          "qa_rewards_20261024_amari_numberline_progress_v1",
+          "qa_rewards_20261024_amari_oddoneout_progress_v1",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+          "qa_rewards_20261024_amari_points",
+          "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+          "qa_rewards_20261024_amari_recent_games",
+          "qa_rewards_20261024_amari_rewards_v2",
+          "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+          "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+          "qa_rewards_20261024_amari_spelling_progress_v1",
+          "qa_rewards_20261024_amari_spelling_recent_v1",
+          "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+          "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "qa_rewards_20261024_amari_storybook_progress_v1",
+          "qa_rewards_20261024_amari_streak",
+          "qa_rewards_20261024_amari_subtraction_progress_v1",
+          "qa_rewards_20261024_amari_timeteller_progress_v1",
+          "qa_rewards_20261024_amari_voice_mode_v4",
+          "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+          "qa_rewards_20261024_amari_writing_samples_v1",
+          "qa_rewards_20261024_askia_challenge_done",
+          "qa_rewards_20261024_askia_challenge_progress",
+          "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+          "qa_rewards_20261024_askia_favourite_games",
+          "qa_rewards_20261024_askia_games_played",
+          "qa_rewards_20261024_askia_lastplay",
+          "qa_rewards_20261024_askia_little_progress",
+          "qa_rewards_20261024_askia_points",
+          "qa_rewards_20261024_askia_recent_games",
+          "qa_rewards_20261024_askia_rewards_v2",
+          "qa_rewards_20261024_askia_streak",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+        ]
+      },
+      "rewards": {
+        "receiptCount": 3,
+        "receipts": [
+          {
+            "id": "groups:best:3",
+            "rewardDelta": 3,
+            "claimed": true,
+            "token": "dino:addition:groups:best:3"
+          },
+          {
+            "id": "bonds:best:3",
+            "rewardDelta": 3,
+            "claimed": true,
+            "token": "dino:addition:bonds:best:3"
+          },
+          {
+            "id": "stories:best:3",
+            "rewardDelta": 3,
+            "claimed": true,
+            "token": "dino:addition:stories:best:3"
+          }
+        ],
+        "beforePoints": 491,
+        "afterPoints": 491,
+        "changedTokens": [],
+        "newlyClaimed": []
+      }
+    }
+  },
+  "runtime": {
+    "origin": "https://dinospace.netlify.app",
+    "namespaced": true,
+    "entry": "/assets/arcade-BBjJnjd-.js",
+    "landed": "player"
+  },
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "providerAttempts": [],
+  "soundOriginals": {
+    "count": true,
+    "addition": true
+  },
+  "faultEligibility": {
+    "count": {
+      "completionChapter": null,
+      "material": []
+    },
+    "addition": {
+      "startChapter": 2,
+      "completionChapter": null,
+      "pendingReloadChapter": null,
+      "material": []
+    }
+  },
+  "visibleCatalogueImagesBeforeReload": [
+    {
+      "src": "https://dinospace.netlify.app/art/catalog-v3/game-counting.webp",
+      "naturalWidth": 640
+    },
+    {
+      "src": "https://dinospace.netlify.app/art/catalog-v3/game-fuelup.webp",
+      "naturalWidth": 640
+    }
+  ],
+  "reloadPersistence": {
+    "countRawIdentical": true,
+    "additionRawIdentical": true,
+    "parentRawIdentical": true,
+    "countCompleted": [
+      "star-garden",
+      "constellation-workshop",
+      "galaxy-survey"
+    ],
+    "additionCompleted": [
+      "groups",
+      "bonds",
+      "stories"
+    ]
+  },
+  "controlAudit": {
+    "checked": 637,
+    "minimumWidth": 48,
+    "minimumHeight": 48,
+    "allCenterHits": true,
+    "allInsideViewport": true,
+    "labelCounts": {
+      "Choose Amari in the normal player picker": 1,
+      "Maths Missions world": 2,
+      "Count the Stars catalogue entry": 1,
+      "Open the secondary Count survey picker": 6,
+      "Select naturally unlocked Count survey Star Garden": 2,
+      "Start selected Count survey 1": 2,
+      "Count model board": 36,
+      "Count visible object 1": 36,
+      "Count visible object 2": 32,
+      "Count visible object 3": 28,
+      "Count visible object 4": 25,
+      "Select count from the rendered object model": 36,
+      "Replay visible counting explanation": 36,
+      "Advance after count explanation": 36,
+      "Count visible object 5": 21,
+      "Count completion map control": 3,
+      "Return to Count survey map": 3,
+      "Use visible count strategy clue": 3,
+      "Record a visible incorrect count before retry": 18,
+      "Use the visible recount recovery": 3,
+      "Recount visible object 1": 3,
+      "Recount visible object 2": 3,
+      "Return after lower Count replay": 3,
+      "Select naturally unlocked Count survey Constellation Workshop": 2,
+      "Start selected Count survey 2": 2,
+      "Count visible object 6": 16,
+      "Count visible object 7": 15,
+      "Count visible object 8": 14,
+      "Count visible object 9": 12,
+      "Recount visible object 3": 2,
+      "Recount visible object 4": 2,
+      "Recount visible object 5": 2,
+      "Recount visible object 6": 2,
+      "Recount visible object 7": 2,
+      "Recount visible object 8": 2,
+      "Count visible object 10": 10,
+      "Select naturally unlocked Count survey Galaxy Survey": 2,
+      "Start selected Count survey 3": 2,
+      "Count visible object 11": 8,
+      "Count visible object 12": 7,
+      "Count visible object 13": 6,
+      "Count visible object 14": 5,
+      "Count visible object 15": 4,
+      "Count visible object 16": 3,
+      "Count visible object 17": 3,
+      "Count visible object 18": 3,
+      "Count visible object 19": 3,
+      "Count visible object 20": 2,
+      "Recount visible object 9": 1,
+      "Recount visible object 10": 1,
+      "Recount visible object 11": 1,
+      "Recount visible object 12": 1,
+      "Recount visible object 13": 1,
+      "Recount visible object 14": 1,
+      "Recount visible object 15": 1,
+      "Recount visible object 16": 1,
+      "Recount visible object 17": 1,
+      "Recount visible object 18": 1,
+      "Recount visible object 19": 1,
+      "Recount visible object 20": 1,
+      "Return to the normal world chooser": 1,
+      "Addition Adventure catalogue entry": 1,
+      "Open the secondary Addition chapter picker": 3,
+      "Select naturally unlocked Put Groups Together": 1,
+      "Start selected Addition chapter Put Groups Together": 1,
+      "Use visible addition clue": 3,
+      "Join the two visible addition groups": 2,
+      "Split the visible addition groups": 2,
+      "Record a visible incorrect addition answer before retry": 21,
+      "Choose answer from the visible arithmetic model": 36,
+      "Replay visible worked explanation": 36,
+      "Advance after held explanation": 30,
+      "Finish the six-question Addition result after its held explanation": 6,
+      "Replay Put Groups Together for lower-rating proof": 1,
+      "Continue after lower addition replay": 3,
+      "Select naturally unlocked Number Bonds": 2,
+      "Start selected Addition chapter Number Bonds": 1,
+      "Replay Number Bonds for lower-rating proof": 1,
+      "Select naturally unlocked Addition Stories": 2,
+      "Start selected Addition chapter Addition Stories": 1,
+      "Replay Addition Stories for lower-rating proof": 1
+    }
+  },
+  "stage": "production",
+  "runtimeSource": "f9d7c6f27d3a088df59521f600db8f40b21d1839",
+  "entry": "/assets/arcade-BBjJnjd-.js",
+  "sourceHead": "f9d7c6f27d3a088df59521f600db8f40b21d1839",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/countTheStarsBatch3.js": "c1d38e827d00a07b22d36da90f4364149f0825ea77c9e6f277a54f8c24e21b23",
+    "src/data/countTheStarsProgress.js": "01f7608246634a8a160b906b6171e88373e200f66a620f325c6382d449f097b7",
+    "src/data/arithmeticAdventure.js": "5e3dfd0f4d2de27262b89daf967f7942926601ab3354da7d6430d35d6aba93f7",
+    "src/data/arithmeticProgress.js": "697a21ae88249b6971eedcf46b01c78d1c44cb75b6beef79fbddd29b498cc4dd",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/components/games/AmariCountTheStars.jsx": "c4afdd547505b169ccc66eefa60ea6201bc9012efc591b86f96eb1892d0cf55e",
+    "src/components/games/AdditionAdventure.jsx": "ce03b75c90a182d7b2e3fc77c58aed508c07f026c602def0562ea6e744d07cc7",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/count-add-save-20261029/protocol.md": "14f78b75e2cf1784ad076d7b0fdbd5f7f20ab2964078da8fff613a7589b0e8fb",
+    "docs/qa-evidence/count-add-save-20261029/count-add-native.cjs": "5e6f11a6ddc335a9447ea465a063105d90e756620a7854fb65e7bdd499fc39e1"
+  },
+  "driverSHA256": "5e6f11a6ddc335a9447ea465a063105d90e756620a7854fb65e7bdd499fc39e1",
+  "runnerSHA256": "6f1640693a218edfc073a7b7240c387a4a8cd1e70272c4cc5f77baa18c57d60b",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "application/javascript; charset=utf-8",
+    "entryBytes": 1477750,
+    "entrySha256": "98ff534a997ae04bf15cbbe289a11397229908cc1607c475b622e8811dc036d2",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "sky-monster-resolution",
+  "faultModeRequested": false,
+  "scope": "Full actual-visible-control Count the Stars and Addition Adventure acceptance for three chapters, six normal questions and six lower-rated replay questions per chapter at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

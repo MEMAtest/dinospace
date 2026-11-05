@@ -7,11 +7,11 @@
   "batchSize": 2,
   "activePair": {
     "games": [
-      "Count the Stars",
-      "Addition Adventure"
+      "Subtraction Station",
+      "Number Line Jump"
     ],
     "status": "audit_in_progress",
-    "scope": "Review and verify the next maths pair on the current public runtime."
+    "scope": "Review the next pair on the current public runtime."
   },
   "pairs": [
     {
@@ -436,6 +436,25 @@
       "entry": "/assets/arcade-C5jqYKfV.js",
       "openGate": null,
       "scope": "Targeted ten shared picture clues; other words retain emoji; live phone Spelling uses documented 0.5px geometry tolerance."
+    },
+    {
+      "number": 21,
+      "games": [
+        {
+          "id": "counting",
+          "name": "Count the Stars"
+        },
+        {
+          "id": "addition",
+          "name": "Addition Adventure"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/count-add-visual-20261105/README.md",
+      "runtime": "f9d7c6f27d3a088df59521f600db8f40b21d1839",
+      "entry": "/assets/arcade-BBjJnjd-.js",
+      "openGate": null,
+      "scope": "Correct counting header and add existing illustrated Addition chapter art; 72 live questions per viewport; no editorial or human listening score."
     }
   ],
   "retainedReleasedScopes": [
@@ -610,7 +629,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "72ce4a32ee6cf4ca69ffe3276161818b71870efd",
+  "currentRuntime": "f9d7c6f27d3a088df59521f600db8f40b21d1839",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {
