@@ -417,6 +417,9 @@ async function chooseCountEpisode(page, h, index, { faults = false, result } = {
     const option = details.getByRole('button', { name: new RegExp(`^${names[index]}(?: ·|$)`) });
     await clickNav(page, h, option, `Select naturally unlocked Count survey ${names[index]}`);
   }
+  const expectedName = ['Star Garden', 'Constellation Workshop', 'Galaxy Survey'][index];
+  const headerName = await page.getByRole('heading', { name: 'Count the Stars', exact: true }).locator('..').locator('p').innerText();
+  assert(headerName.trim() === expectedName, `Count header ${headerName} does not match selected survey ${expectedName}`);
   const start = btn(page, 'Start selected survey');
   const replay = btn(page, 'Replay selected survey');
   const control = await replay.count() && await replay.isVisible() ? replay : start;
@@ -446,6 +449,9 @@ async function chooseAdditionChapter(page, h, index, { start = true } = {}) {
     const option = details.getByRole('button', { name: new RegExp(`Chapter ${index + 1}.*${names[index]}`, 'i') });
     await clickNav(page, h, option, `Select naturally unlocked ${names[index]}`);
   }
+  const chapterArt = page.locator('[data-addition-menu] img[src="/art/catalog-v3/game-addition.webp"]');
+  await chapterArt.waitFor({ state: 'visible', timeout: 5000 });
+  await page.waitForFunction(() => { const image = document.querySelector('[data-addition-menu] img[src="/art/catalog-v3/game-addition.webp"]'); return image?.complete && image.naturalWidth > 0; }, null, { timeout: 10000 });
   const primary = page.locator('[data-addition-start]');
   await waitEnabled(page, primary, 'Addition primary start');
   if (!start) return primary;
@@ -645,6 +651,18 @@ module.exports = async function runCountAddition(page, { origin, expectedEntry, 
     await runGame(page, helper, 'count', result, { faults });
     await runGame(page, helper, 'addition', result, { faults });
     const countSaved = await snapshot(page, COUNT_KEY); const additionSaved = await snapshot(page, ADD_KEY); const parentSaved = await parentRecord(page);
+    // The parent catalogue begins lazy image loads on return. An intentional
+    // reload must wait for visible artwork and started requests to settle.
+    const catalogueImages = await page.waitForFunction(() => {
+      const visible = [...document.images].filter(image => {
+        const rect = image.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < innerHeight;
+      });
+      if (!visible.length || visible.some(image => !image.complete || image.naturalWidth === 0)) return false;
+      return visible.map(image => ({ src: image.currentSrc, naturalWidth: image.naturalWidth }));
+    }, null, { timeout: 15000 });
+    result.visibleCatalogueImagesBeforeReload = await catalogueImages.jsonValue();
+    await page.waitForLoadState('networkidle', { timeout: 15000 });
     await page.reload({ waitUntil: 'domcontentloaded', timeout: 15000 });
     await helper.installGuards();
     await page.waitForFunction(() => window.__amariQaNamespaced === true, null, { timeout: 2000 });

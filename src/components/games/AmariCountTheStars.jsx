@@ -322,7 +322,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
     <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-slate-950 via-indigo-950 to-violet-950 px-3 pb-8 pt-3 text-white sm:px-6 sm:pt-5">
       <header className="mx-auto flex max-w-5xl items-center justify-between gap-2 rounded-3xl border border-white/20 bg-white/10 p-3 shadow-xl">
         <button type="button" onClick={leaveGame} className="game-icon-button shrink-0 !bg-white/20 !text-white" aria-label="Back to Maths Missions"><Home /></button>
-        <div className="min-w-0 text-center"><h1 className="text-xl font-black sm:text-3xl">Count the Stars</h1><p className="text-xs font-bold text-indigo-100 sm:text-sm">{episode.name}{run && phase !== 'map' && phase !== 'collection' ? ` · Round ${roundIndex + 1} of 6` : ''}</p></div>
+        <div className="min-w-0 text-center"><h1 className="text-xl font-black sm:text-3xl">Count the Stars</h1><p className="text-xs font-bold text-indigo-100 sm:text-sm">{phase === 'collection' ? 'Constellation book' : phase === 'map' ? (COUNT_THE_STARS_EPISODES[selectedEpisode]?.name || episode.name) : episode.name}{run && phase !== 'map' && phase !== 'collection' ? ` · Round ${roundIndex + 1} of 6` : ''}</p></div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
 
