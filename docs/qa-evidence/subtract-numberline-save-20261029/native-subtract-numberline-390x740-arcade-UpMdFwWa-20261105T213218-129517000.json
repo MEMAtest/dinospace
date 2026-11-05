@@ -1,0 +1,4270 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "faultModeRequested": false,
+  "rows": [
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "There are 7 shells. Take away 4. How many are left?",
+      "visibleEquation": "7 minus 4 equals unknown",
+      "answerFromVisible": 3,
+      "questionIdentity": "take:shell:7:4",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/87e3d762-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/87e3d762-matilda.mp3",
+            "currentTime": 0.065638,
+            "duration": 1.346757,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1050.6999999955297
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1060.1999999955297
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1062.2999999970198
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 7,
+        "aria": "Starting group: 7 shells. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 7 shells. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9c77b975-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9c77b975-matilda.mp3",
+            "currentTime": 0.06999,
+            "duration": 1.160998,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1395.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1410.3999999985099
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1412.5999999940395
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "There are 6 shells. Take away 1. How many are left?",
+      "visibleEquation": "6 minus 1 equals unknown",
+      "answerFromVisible": 5,
+      "questionIdentity": "take:shell:6:1",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 6,
+        "aria": "Starting group: 6 shells. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 6 shells. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 112,
+            "right": 349,
+            "bottom": 431
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "There are 9 flowers. Take away 2. How many are left?",
+      "visibleEquation": "9 minus 2 equals unknown",
+      "answerFromVisible": 7,
+      "questionIdentity": "take:flower:9:2",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 9,
+        "aria": "Starting group: 9 flowers. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 9 flowers. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "There are 10 gems. Take away 6. How many are left?",
+      "visibleEquation": "10 minus 6 equals unknown",
+      "answerFromVisible": 4,
+      "questionIdentity": "take:gem:10:6",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 10,
+        "aria": "Starting group: 10 gems. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 10 gems. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "There are 9 apples. Take away 0. How many are left?",
+      "visibleEquation": "9 minus 0 equals unknown",
+      "answerFromVisible": 9,
+      "questionIdentity": "take:apple:9:0",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 9,
+        "aria": "Starting group: 9 apples. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 9 apples. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "There are 6 stars. Take away 3. How many are left?",
+      "visibleEquation": "6 minus 3 equals unknown",
+      "answerFromVisible": 3,
+      "questionIdentity": "take:star:6:3",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 6,
+        "aria": "Starting group: 6 stars. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 6 stars. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 112,
+            "right": 349,
+            "bottom": 431
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "There are 9 cookies. Take away 6. How many are left?",
+      "visibleEquation": "9 minus 6 equals unknown",
+      "answerFromVisible": 3,
+      "questionIdentity": "take:cookie:9:6",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 9,
+        "aria": "Starting group: 9 cookies. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 9 cookies. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "There are 8 shells. Take away 5. How many are left?",
+      "visibleEquation": "8 minus 5 equals unknown",
+      "answerFromVisible": 3,
+      "questionIdentity": "take:shell:8:5",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 8,
+        "aria": "Starting group: 8 shells. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 8 shells. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "There are 7 gems. Take away 7. How many are left?",
+      "visibleEquation": "7 minus 7 equals unknown",
+      "answerFromVisible": 0,
+      "questionIdentity": "take:gem:7:7",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 7,
+        "aria": "Starting group: 7 gems. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 7 gems. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "There are 9 cookies. Take away 5. How many are left?",
+      "visibleEquation": "9 minus 5 equals unknown",
+      "answerFromVisible": 4,
+      "questionIdentity": "take:cookie:9:5",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 9,
+        "aria": "Starting group: 9 cookies. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 9 cookies. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "There are 8 shells. Take away 7. How many are left?",
+      "visibleEquation": "8 minus 7 equals unknown",
+      "answerFromVisible": 1,
+      "questionIdentity": "take:shell:8:7",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 8,
+        "aria": "Starting group: 8 shells. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 8 shells. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 1,
+      "chapterId": "take-away",
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "There are 8 flowers. Take away 5. How many are left?",
+      "visibleEquation": "8 minus 5 equals unknown",
+      "answerFromVisible": 3,
+      "questionIdentity": "take:flower:8:5",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 8,
+        "aria": "Starting group: 8 flowers. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 8 flowers. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Group A has 9; Group B has 17. How many more are in the larger group?",
+      "visibleEquation": "9 and 17 → ? unpaired",
+      "answerFromVisible": 8,
+      "questionIdentity": "compare:9:17",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/55012c60-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/55012c60-matilda.mp3",
+            "currentTime": 0.076092,
+            "duration": 1.253878,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 5830.5999999940395
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 5844.19999999553
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 5846.5999999940395
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "model": {
+        "aria": "Aligned pairs: Group A has 9; Group B has 17",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 216,
+          "right": 351,
+          "bottom": 535.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/b61b9789-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/b61b9789-matilda.mp3",
+            "currentTime": 0.065802,
+            "duration": 1.532517,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 6012.19999999553
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 6027.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 6030
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Group A has 9; Group B has 4. How many more are in the larger group?",
+      "visibleEquation": "9 and 4 → ? unpaired",
+      "answerFromVisible": 5,
+      "questionIdentity": "compare:9:4",
+      "model": {
+        "aria": "Aligned pairs: Group A has 9; Group B has 4",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 128,
+          "right": 351,
+          "bottom": 447.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Group A has 14; Group B has 12. How many more are in the larger group?",
+      "visibleEquation": "14 and 12 → ? unpaired",
+      "answerFromVisible": 2,
+      "questionIdentity": "compare:14:12",
+      "model": {
+        "aria": "Aligned pairs: Group A has 14; Group B has 12",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 172,
+          "right": 351,
+          "bottom": 491.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Group A has 5; Group B has 2. How many more are in the larger group?",
+      "visibleEquation": "5 and 2 → ? unpaired",
+      "answerFromVisible": 3,
+      "questionIdentity": "compare:5:2",
+      "model": {
+        "aria": "Aligned pairs: Group A has 5; Group B has 2",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 84,
+          "right": 351,
+          "bottom": 403.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Group A has 0; Group B has 5. How many more are in the larger group?",
+      "visibleEquation": "0 and 5 → ? unpaired",
+      "answerFromVisible": 5,
+      "questionIdentity": "compare:0:5",
+      "model": {
+        "aria": "Aligned pairs: Group A has 0; Group B has 5",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 84,
+          "right": 351,
+          "bottom": 403.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Group A has 0; Group B has 4. How many more are in the larger group?",
+      "visibleEquation": "0 and 4 → ? unpaired",
+      "answerFromVisible": 4,
+      "questionIdentity": "compare:0:4",
+      "model": {
+        "aria": "Aligned pairs: Group A has 0; Group B has 4",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 40,
+          "right": 351,
+          "bottom": 359.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Group A has 12; Group B has 20. How many more are in the larger group?",
+      "visibleEquation": "12 and 20 → ? unpaired",
+      "answerFromVisible": 8,
+      "questionIdentity": "compare:12:20",
+      "model": {
+        "aria": "Aligned pairs: Group A has 12; Group B has 20",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 216,
+          "right": 351,
+          "bottom": 535.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Group A has 17; Group B has 6. How many more are in the larger group?",
+      "visibleEquation": "17 and 6 → ? unpaired",
+      "answerFromVisible": 11,
+      "questionIdentity": "compare:17:6",
+      "model": {
+        "aria": "Aligned pairs: Group A has 17; Group B has 6",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 216,
+          "right": 351,
+          "bottom": 535.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Group A has 19; Group B has 17. How many more are in the larger group?",
+      "visibleEquation": "19 and 17 → ? unpaired",
+      "answerFromVisible": 2,
+      "questionIdentity": "compare:19:17",
+      "model": {
+        "aria": "Aligned pairs: Group A has 19; Group B has 17",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 216,
+          "right": 351,
+          "bottom": 535.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Group A has 20; Group B has 15. How many more are in the larger group?",
+      "visibleEquation": "20 and 15 → ? unpaired",
+      "answerFromVisible": 5,
+      "questionIdentity": "compare:20:15",
+      "model": {
+        "aria": "Aligned pairs: Group A has 20; Group B has 15",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 216,
+          "right": 351,
+          "bottom": 535.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Group A has 3; Group B has 11. How many more are in the larger group?",
+      "visibleEquation": "3 and 11 → ? unpaired",
+      "answerFromVisible": 8,
+      "questionIdentity": "compare:3:11",
+      "model": {
+        "aria": "Aligned pairs: Group A has 3; Group B has 11",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 128,
+          "right": 351,
+          "bottom": 447.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 2,
+      "chapterId": "compare",
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Group A has 6; Group B has 16. How many more are in the larger group?",
+      "visibleEquation": "6 and 16 → ? unpaired",
+      "answerFromVisible": 10,
+      "questionIdentity": "compare:6:16",
+      "model": {
+        "aria": "Aligned pairs: Group A has 6; Group B has 16",
+        "rect": {
+          "x": 39,
+          "y": 319.5,
+          "width": 312,
+          "height": 172,
+          "right": 351,
+          "bottom": 491.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Noah has 18 apples and gives 0 apples away. How many are left?",
+      "visibleEquation": "18 minus 0 equals unknown",
+      "answerFromVisible": 18,
+      "questionIdentity": "story:0:4:18:0",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9e556e5c-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9e556e5c-matilda.mp3",
+            "currentTime": 0.097292,
+            "duration": 1.486077,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 8842.79999999702
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 8843.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 8850.09999999404
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 18,
+        "aria": "Starting group: 18 apples. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 18 apples. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 204,
+            "right": 349,
+            "bottom": 523
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/f52cdafe-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/f52cdafe-matilda.mp3",
+            "currentTime": 0.097474,
+            "duration": 1.625397,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 9265.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 9276.59999999404
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 9280.19999999553
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Ava has 14 gems and gives 7 gems away. How many are left?",
+      "visibleEquation": "14 minus 7 equals unknown",
+      "answerFromVisible": 7,
+      "questionIdentity": "story:4:2:14:7",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 14,
+        "aria": "Starting group: 14 gems. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 14 gems. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 204,
+            "right": 349,
+            "bottom": 523
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Leo has 15 stars and gives 14 stars away. How many are left?",
+      "visibleEquation": "15 minus 14 equals unknown",
+      "answerFromVisible": 1,
+      "questionIdentity": "story:2:1:15:14",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 15,
+        "aria": "Starting group: 15 stars. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 15 stars. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 339,
+            "width": 308,
+            "height": 204,
+            "right": 349,
+            "bottom": 543
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Mia has 18 cookies and gives 12 cookies away. How many are left?",
+      "visibleEquation": "18 minus 12 equals unknown",
+      "answerFromVisible": 6,
+      "questionIdentity": "story:5:0:18:12",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 18,
+        "aria": "Starting group: 18 cookies. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 18 cookies. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 339,
+            "width": 308,
+            "height": 204,
+            "right": 349,
+            "bottom": 543
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Leo has 7 cookies and gives 7 cookies away. How many are left?",
+      "visibleEquation": "7 minus 7 equals unknown",
+      "answerFromVisible": 0,
+      "questionIdentity": "story:5:1:7:7",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 7,
+        "aria": "Starting group: 7 cookies. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 7 cookies. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Ava has 12 gems and gives 9 gems away. How many are left?",
+      "visibleEquation": "12 minus 9 equals unknown",
+      "answerFromVisible": 3,
+      "questionIdentity": "story:4:2:12:9",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 12,
+        "aria": "Starting group: 12 gems. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 12 gems. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "answered": true
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Ava has 7 stars and gives 0 stars away. How many are left?",
+      "visibleEquation": "7 minus 0 equals unknown",
+      "answerFromVisible": 7,
+      "questionIdentity": "story:2:2:7:0",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 7,
+        "aria": "Starting group: 7 stars. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 7 stars. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 158,
+            "right": 349,
+            "bottom": 477
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Ava has 17 apples and gives 14 apples away. How many are left?",
+      "visibleEquation": "17 minus 14 equals unknown",
+      "answerFromVisible": 3,
+      "questionIdentity": "story:0:2:17:14",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 17,
+        "aria": "Starting group: 17 apples. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 17 apples. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 339,
+            "width": 308,
+            "height": 204,
+            "right": 349,
+            "bottom": 543
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Ava has 16 stars and gives 3 stars away. How many are left?",
+      "visibleEquation": "16 minus 3 equals unknown",
+      "answerFromVisible": 13,
+      "questionIdentity": "story:2:2:16:3",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 16,
+        "aria": "Starting group: 16 stars. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 16 stars. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 204,
+            "right": 349,
+            "bottom": 523
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Kai has 20 gems and gives 6 gems away. How many are left?",
+      "visibleEquation": "20 minus 6 equals unknown",
+      "answerFromVisible": 14,
+      "questionIdentity": "story:4:3:20:6",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 20,
+        "aria": "Starting group: 20 gems. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 20 gems. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 250,
+            "right": 349,
+            "bottom": 569
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Ava has 19 stars and gives 16 stars away. How many are left?",
+      "visibleEquation": "19 minus 16 equals unknown",
+      "answerFromVisible": 3,
+      "questionIdentity": "story:2:2:19:16",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 19,
+        "aria": "Starting group: 19 stars. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 19 stars. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 339,
+            "width": 308,
+            "height": 250,
+            "right": 349,
+            "bottom": 589
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "subtraction",
+      "chapter": 3,
+      "chapterId": "stories",
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Ava has 5 cookies and gives 5 cookies away. How many are left?",
+      "visibleEquation": "5 minus 5 equals unknown",
+      "answerFromVisible": 0,
+      "questionIdentity": "story:5:2:5:5",
+      "model": {
+        "kind": "take-away",
+        "visibleObjectCount": 5,
+        "aria": "Starting group: 5 cookies. 0 marked to take away.",
+        "geometry": {
+          "aria": "Starting group: 5 cookies. 0 marked to take away.",
+          "rect": {
+            "x": 41,
+            "y": 319,
+            "width": 308,
+            "height": 112,
+            "right": 349,
+            "bottom": 431
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Start at 0. Hop 2 forward. Where do you land?",
+      "answerFromVisible": 2,
+      "questionIdentity": "hop:0:1:2",
+      "missionType": "hop",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/6f6f60e5-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/6f6f60e5-matilda.mp3",
+            "currentTime": 0.070007,
+            "duration": 1.021678,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 15261.79999999702
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 15284.79999999702
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 15287.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "model": [
+        {
+          "aria": "0 of 2 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 0,
+        "figureStartLabel": 0,
+        "markerPosition": 0
+      },
+      "hopMarkerChecks": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        }
+      ],
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/4022ddc4-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/4022ddc4-matilda.mp3",
+            "currentTime": 0.057286,
+            "duration": 1.346757,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 15529
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 15570.79999999702
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 15573.39999999851
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Start at 10. Hop 1 back. Where do you land?",
+      "answerFromVisible": 9,
+      "questionIdentity": "hop:10:-1:1",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 1 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 10,
+        "figureStartLabel": 10,
+        "markerPosition": 10
+      },
+      "hopMarkerChecks": [
+        {
+          "from": 10,
+          "to": 9
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Start at 9. Hop 1 forward. Where do you land?",
+      "answerFromVisible": 10,
+      "questionIdentity": "hop:9:1:1",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 1 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 9,
+        "figureStartLabel": 9,
+        "markerPosition": 9
+      },
+      "hopMarkerChecks": [
+        {
+          "from": 9,
+          "to": 10
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Start at 2. Hop 4 forward. Where do you land?",
+      "answerFromVisible": 6,
+      "questionIdentity": "hop:2:1:4",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 4 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 2,
+        "figureStartLabel": 2,
+        "markerPosition": 2
+      },
+      "hopMarkerChecks": [
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Start at 3. Hop 5 forward. Where do you land?",
+      "answerFromVisible": 8,
+      "questionIdentity": "hop:3:1:5",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 5 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 3,
+        "figureStartLabel": 3,
+        "markerPosition": 3
+      },
+      "hopMarkerChecks": [
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 8
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Start at 3. Hop 3 back. Where do you land?",
+      "answerFromVisible": 0,
+      "questionIdentity": "hop:3:-1:3",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 3 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 3,
+        "figureStartLabel": 3,
+        "markerPosition": 3
+      },
+      "hopMarkerChecks": [
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Start at 4. Hop 4 back. Where do you land?",
+      "answerFromVisible": 0,
+      "questionIdentity": "hop:4:-1:4",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 4 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 4,
+        "figureStartLabel": 4,
+        "markerPosition": 4
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "hopMarkerChecks": [
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Start at 9. Hop 9 back. Where do you land?",
+      "answerFromVisible": 0,
+      "questionIdentity": "hop:9:-1:9",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 9 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 9,
+        "figureStartLabel": 9,
+        "markerPosition": 9
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "hopMarkerChecks": [
+        {
+          "from": 9,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 5
+        },
+        {
+          "from": 5,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 0
+        }
+      ],
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Start at 8. Hop 2 forward. Where do you land?",
+      "answerFromVisible": 10,
+      "questionIdentity": "hop:8:1:2",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 2 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 8,
+        "figureStartLabel": 8,
+        "markerPosition": 8
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "hopMarkerChecks": [
+        {
+          "from": 8,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 10
+        }
+      ],
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Start at 2. Hop 3 forward. Where do you land?",
+      "answerFromVisible": 5,
+      "questionIdentity": "hop:2:1:3",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 3 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 2,
+        "figureStartLabel": 2,
+        "markerPosition": 2
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "hopMarkerChecks": [
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        }
+      ],
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Start at 0. Hop 1 forward. Where do you land?",
+      "answerFromVisible": 1,
+      "questionIdentity": "hop:0:1:1",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 1 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 0,
+        "figureStartLabel": 0,
+        "markerPosition": 0
+      },
+      "hint": true,
+      "hopMarkerChecks": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 1,
+      "chapterId": "forward-back",
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Start at 5. Hop 5 forward. Where do you land?",
+      "answerFromVisible": 10,
+      "questionIdentity": "hop:5:1:5",
+      "missionType": "hop",
+      "model": [
+        {
+          "aria": "0 of 5 hops made",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "markerStart": {
+        "promptStart": 5,
+        "figureStartLabel": 5,
+        "markerPosition": 5
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "hopMarkerChecks": [
+        {
+          "from": 5,
+          "to": 6
+        },
+        {
+          "from": 6,
+          "to": 7
+        },
+        {
+          "from": 7,
+          "to": 8
+        },
+        {
+          "from": 8,
+          "to": 9
+        },
+        {
+          "from": 9,
+          "to": 10
+        }
+      ],
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "5 + ? = 20. How many hops?",
+      "answerFromVisible": 15,
+      "questionIdentity": "missing:5:15:1",
+      "missionType": "missing",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/72f446b0-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/72f446b0-matilda.mp3",
+            "currentTime": 0.041643,
+            "duration": 1.486077,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 26945.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 26996.89999999851
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 27002
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "model": [
+        {
+          "aria": "Count the spaces",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/933ae7dc-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/933ae7dc-matilda.mp3",
+            "currentTime": 0.081349,
+            "duration": 2.043356,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 27194.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 27209.79999999702
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 27212.09999999404
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "? + 15 = 18. Which number is the start?",
+      "answerFromVisible": 3,
+      "questionIdentity": "missing:3:15:0",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Find the start",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "8 + ? = 9. How many hops?",
+      "answerFromVisible": 1,
+      "questionIdentity": "missing:8:1:1",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Count the spaces",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "0 + ? = 12. How many hops?",
+      "answerFromVisible": 12,
+      "questionIdentity": "missing:0:12:1",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Count the spaces",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "19 + 1 = ?. Where do you land?",
+      "answerFromVisible": 20,
+      "questionIdentity": "missing:19:1:2",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Find the landing number",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "? + 15 = 17. Which number is the start?",
+      "answerFromVisible": 2,
+      "questionIdentity": "missing:2:15:0",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Find the start",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "3 + ? = 19. How many hops?",
+      "answerFromVisible": 16,
+      "questionIdentity": "missing:3:16:1",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Count the spaces",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "2 + 14 = ?. Where do you land?",
+      "answerFromVisible": 16,
+      "questionIdentity": "missing:2:14:2",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Find the landing number",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "10 + 1 = ?. Where do you land?",
+      "answerFromVisible": 11,
+      "questionIdentity": "missing:10:1:2",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Find the landing number",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "17 + ? = 20. How many hops?",
+      "answerFromVisible": 3,
+      "questionIdentity": "missing:17:3:1",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Count the spaces",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "5 + 15 = ?. Where do you land?",
+      "answerFromVisible": 20,
+      "questionIdentity": "missing:5:15:2",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Find the landing number",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 2,
+      "chapterId": "missing-numbers",
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "? + 4 = 16. Which number is the start?",
+      "answerFromVisible": 12,
+      "questionIdentity": "missing:12:4:0",
+      "missionType": "missing",
+      "model": [
+        {
+          "aria": "Find the start",
+          "rect": {
+            "x": 29,
+            "y": 206.5,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 332.25
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 0,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Which frog landed on the larger number: A (17 to 20) or B (5 to 15)?",
+      "answerFromVisible": "A",
+      "questionIdentity": "compare:larger:17:3:5:10",
+      "missionType": "compare",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/05b6b6c5-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/05b6b6c5-matilda.mp3",
+            "currentTime": 0.078549,
+            "duration": 1.346757,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 33829.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 33843.29999999702
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 33845.59999999404
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "model": [
+        {
+          "aria": "Frog A · 3 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 10 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/c58562c4-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/c58562c4-matilda.mp3",
+            "currentTime": 0.098231,
+            "duration": 2.786395,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 34079.59999999404
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 34093.09999999404
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 34095.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 1,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Which frog travelled farther: A (2 to 13) or B (11 to 20)?",
+      "answerFromVisible": "A",
+      "questionIdentity": "compare:farther:2:11:11:9",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 11 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 9 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 2,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Which frog travelled farther: A (7 to 20) or B (15 to 20)?",
+      "answerFromVisible": "A",
+      "questionIdentity": "compare:farther:7:13:15:5",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 13 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 5 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 3,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Which frog landed on the larger number: A (11 to 20) or B (19 to 20)?",
+      "answerFromVisible": "same",
+      "questionIdentity": "compare:larger:11:9:19:1",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 9 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 1 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 4,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Which frog landed on the larger number: A (2 to 12) or B (11 to 20)?",
+      "answerFromVisible": "B",
+      "questionIdentity": "compare:larger:2:10:11:9",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 10 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 9 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 5,
+      "replay": false,
+      "currentRunStars": 3,
+      "expectedRewardDelta": 0,
+      "prompt": "Which frog landed on the larger number: A (15 to 17) or B (2 to 9)?",
+      "answerFromVisible": "A",
+      "questionIdentity": "compare:larger:15:2:2:7",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 2 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 7 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "answered": true
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 0,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Which frog travelled farther: A (4 to 16) or B (13 to 20)?",
+      "answerFromVisible": "A",
+      "questionIdentity": "compare:farther:4:12:13:7",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 12 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 7 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 1,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Which frog travelled farther: A (1 to 11) or B (10 to 20)?",
+      "answerFromVisible": "same",
+      "questionIdentity": "compare:farther:1:10:10:10",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 10 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 10 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 2,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Which frog landed on the larger number: A (19 to 20) or B (8 to 20)?",
+      "answerFromVisible": "same",
+      "questionIdentity": "compare:larger:19:1:8:12",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 1 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 12 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 3,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Which frog travelled farther: A (19 to 20) or B (7 to 19)?",
+      "answerFromVisible": "B",
+      "questionIdentity": "compare:farther:19:1:7:12",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 1 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 12 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 4,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Which frog travelled farther: A (13 to 14) or B (1 to 7)?",
+      "answerFromVisible": "B",
+      "questionIdentity": "compare:farther:13:1:1:6",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 1 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 6 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "numberline",
+      "chapter": 3,
+      "chapterId": "compare-distances",
+      "index": 5,
+      "replay": true,
+      "currentRunStars": 1,
+      "prompt": "Which frog travelled farther: A (16 to 19) or B (3 to 11)?",
+      "answerFromVisible": "B",
+      "questionIdentity": "compare:farther:16:3:3:8",
+      "missionType": "compare",
+      "model": [
+        {
+          "aria": "Frog A · 3 hops",
+          "rect": {
+            "x": 29,
+            "y": 229,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 354.75
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        },
+        {
+          "aria": "Frog B · 8 hops",
+          "rect": {
+            "x": 29,
+            "y": 360.75,
+            "width": 332,
+            "height": 125.75,
+            "right": 361,
+            "bottom": 486.5
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          }
+        }
+      ],
+      "wrongRetry": true,
+      "hint": true,
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    }
+  ],
+  "games": {
+    "subtraction": {
+      "title": "Subtraction Station",
+      "key": "amari_subtraction_progress_v1",
+      "rows": 36,
+      "storage": {
+        "changed": [
+          "qa_rewards_20261024_amari_game_diagnostics_v1",
+          "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+          "qa_rewards_20261024_amari_learning_attempts_v1",
+          "qa_rewards_20261024_amari_skill_mastery_v1",
+          "qa_rewards_20261024_amari_subtraction_progress_v1"
+        ],
+        "unexpected": [],
+        "unchanged": [
+          "amari-sound-on",
+          "qa_rewards_20261024_amari_addition_progress_v1",
+          "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+          "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+          "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+          "qa_rewards_20261024_amari_challenge_done",
+          "qa_rewards_20261024_amari_challenge_progress",
+          "qa_rewards_20261024_amari_chapter_badges_v1",
+          "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+          "qa_rewards_20261024_amari_chess_game_v1",
+          "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+          "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+          "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+          "qa_rewards_20261024_amari_cosmic_tactics_v1",
+          "qa_rewards_20261024_amari_curriculum_badges_v1",
+          "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_preferences_v1",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_discovery_active_player",
+          "qa_rewards_20261024_amari_discovery_passport_v1",
+          "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+          "qa_rewards_20261024_amari_favourite_games",
+          "qa_rewards_20261024_amari_game_levels_v1",
+          "qa_rewards_20261024_amari_games_played",
+          "qa_rewards_20261024_amari_german_chapter_progress_v1",
+          "qa_rewards_20261024_amari_german_recent_targets_v1",
+          "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+          "qa_rewards_20261024_amari_lastplay",
+          "qa_rewards_20261024_amari_learning_migration_v1",
+          "qa_rewards_20261024_amari_letter_launch_progress_v1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+          "qa_rewards_20261024_amari_letter_trace_progress_v1",
+          "qa_rewards_20261024_amari_little_progress",
+          "qa_rewards_20261024_amari_memory_best",
+          "qa_rewards_20261024_amari_memory_completion_v1",
+          "qa_rewards_20261024_amari_memory_passport_v1",
+          "qa_rewards_20261024_amari_memory_resume_v1",
+          "qa_rewards_20261024_amari_monster_math_progress_v1",
+          "qa_rewards_20261024_amari_numberline_progress_v1",
+          "qa_rewards_20261024_amari_oddoneout_progress_v1",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+          "qa_rewards_20261024_amari_points",
+          "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+          "qa_rewards_20261024_amari_recent_games",
+          "qa_rewards_20261024_amari_rewards_v2",
+          "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+          "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+          "qa_rewards_20261024_amari_spelling_progress_v1",
+          "qa_rewards_20261024_amari_spelling_recent_v1",
+          "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+          "qa_rewards_20261024_amari_storybook_active_child_v1",
+          "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "qa_rewards_20261024_amari_storybook_profiles_v1",
+          "qa_rewards_20261024_amari_storybook_progress_v1",
+          "qa_rewards_20261024_amari_streak",
+          "qa_rewards_20261024_amari_timeteller_progress_v1",
+          "qa_rewards_20261024_amari_voice_mode_v4",
+          "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+          "qa_rewards_20261024_amari_writing_samples_v1",
+          "qa_rewards_20261024_askia_challenge_done",
+          "qa_rewards_20261024_askia_challenge_progress",
+          "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+          "qa_rewards_20261024_askia_favourite_games",
+          "qa_rewards_20261024_askia_game_levels_v1",
+          "qa_rewards_20261024_askia_games_played",
+          "qa_rewards_20261024_askia_lastplay",
+          "qa_rewards_20261024_askia_little_progress",
+          "qa_rewards_20261024_askia_points",
+          "qa_rewards_20261024_askia_recent_games",
+          "qa_rewards_20261024_askia_rewards_v2",
+          "qa_rewards_20261024_askia_streak",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+        ]
+      },
+      "initialProgress": {
+        "rawHash": "f812c1fd2e85e9a0d3b065830eea26cf0cc7684670e55cfa0e19295672824307",
+        "completed": [
+          "take-away",
+          "compare",
+          "stories"
+        ],
+        "bestStars": {
+          "take-away": 3,
+          "compare": 3,
+          "stories": 3
+        }
+      },
+      "finalProgress": {
+        "version": 1,
+        "completedChapterIds": [
+          "take-away",
+          "compare",
+          "stories"
+        ],
+        "bestStars": {
+          "take-away": 3,
+          "compare": 3,
+          "stories": 3
+        },
+        "recentQuestionIds": {
+          "0": [
+            "take:apple:9:0",
+            "take:star:6:3",
+            "take:cookie:9:6",
+            "take:shell:8:5",
+            "take:gem:7:7",
+            "take:cookie:9:5",
+            "take:shell:8:7",
+            "take:flower:8:5"
+          ],
+          "1": [
+            "compare:0:5",
+            "compare:0:4",
+            "compare:12:20",
+            "compare:17:6",
+            "compare:19:17",
+            "compare:20:15",
+            "compare:3:11",
+            "compare:6:16"
+          ],
+          "2": [
+            "story:5:1:7:7",
+            "story:4:2:12:9",
+            "story:2:2:7:0",
+            "story:0:2:17:14",
+            "story:2:2:16:3",
+            "story:4:3:20:6",
+            "story:2:2:19:16",
+            "story:5:2:5:5"
+          ]
+        },
+        "unlockedChapter": 2,
+        "rewardReceipts": {
+          "take-away:best:3": {
+            "id": "take-away:best:3",
+            "chapterId": "take-away",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          "compare:best:3": {
+            "id": "compare:best:3",
+            "chapterId": "compare",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          "stories:best:3": {
+            "id": "stories:best:3",
+            "chapterId": "stories",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          }
+        }
+      },
+      "rewardBefore": {
+        "points": 490,
+        "claims": {
+          "hangman:first-words-263186679": 2,
+          "hangman:four-letter-rescue-479170815": 6,
+          "hangman:five-letter-rescue-778843497": 6,
+          "hangman:long-word-rescue-2118663940": 6,
+          "dino:e3ee4326-ecf0-4a23-8978-edea989a9a66": 2,
+          "dino:55d8ed8c-26f4-4401-96b0-7722f01116d7": 2,
+          "dino:9abfd8f2-20df-431a-bc29-60c4f224eb74": 2,
+          "dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e": 2,
+          "dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69": 2,
+          "dino:67b3915e-0907-45a7-b377-5b0a7deaf32c": 2,
+          "dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002": 2,
+          "dino:2b17d237-c205-4da8-be4c-e1002930beb9": 2,
+          "dino:66425a33-97b7-4e9c-a72a-9077585472ae": 2,
+          "dino:65ff0aec-a712-4326-8d70-9427a12494e8": 2,
+          "dino:37ef2047-c60f-4f90-82b2-3c0009d36840": 2,
+          "dino:7d50c719-10cc-476a-b186-5352199b1640": 2,
+          "hangman:first-words-4170493800": 4,
+          "words:9e438403-ca0e-49d4-928c-ccf5d19d5424": 6,
+          "words:6692a9a7-b18b-4086-9dcf-bc853d253675": 6,
+          "words:1b7f23d6-222f-47a7-accf-0e1ef0938b0e": 6,
+          "words:b73674ad-596f-48ea-9415-0f387fc5fb7e": 6,
+          "words:2a03774e-87a3-469a-b620-67111c25775a": 6,
+          "words:14fc64e4-9840-4127-9cef-24bd71250557": 6,
+          "storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9": 1,
+          "storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c": 1,
+          "storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b": 1,
+          "storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3": 1,
+          "storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709": 1,
+          "storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640": 1,
+          "storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e": 1,
+          "dino:chess:e9c5097ef3d549b59e7be295e236dbcf": 1,
+          "dino:jigsaw:little:49823e6d-a0ec-4be7-aa09-318b22e7904a": 8,
+          "dino:jigsaw:little:38a608b1-3b9b-4924-8ee5-9747cb8d0e32": 8,
+          "dino:jigsaw:little:ee38a11d-8a2a-4822-a155-c1595ba03984": 8,
+          "dino:german:amari_0_15m62m2": 1,
+          "dino:german:amari_1_11yjxcp": 1,
+          "dino:german:amari_2_ruxrqz": 1,
+          "dino:curriculum:continents:starter": 1,
+          "dino:curriculum:continents:growing": 1,
+          "dino:curriculum:continents:challenge": 1,
+          "dino:curriculum:time-detectives:starter": 1,
+          "dino:curriculum:time-detectives:growing": 1,
+          "dino:curriculum:time-detectives:challenge": 1,
+          "dino:curriculum:nature-lab:starter": 1,
+          "dino:curriculum:nature-lab:growing": 1,
+          "dino:curriculum:nature-lab:challenge": 1,
+          "dino:letters:d59acd39-35b7-43fb-a4e4-0a0581501d7e": 1,
+          "dino:letters:9e545e2a-e752-4e11-b413-bd9acfcf0999": 1,
+          "dino:letters:afeed17c-9603-4da7-85f4-96eb9a8eaa46": 1,
+          "dino:letters:91f944b3-0ecc-48bb-a320-78cf6fdc7a55": 1,
+          "dino:puzzle:starter:complete": 2,
+          "dino:puzzle:growing:complete": 2,
+          "dino:puzzle:challenge:complete": 2,
+          "dino:spot:starter:complete": 2,
+          "dino:spot:growing:complete": 2,
+          "dino:spot:challenge:complete": 2,
+          "dino:jet:mission:sky-square:1337559867": 2,
+          "dino:jet:mission:sky-triangle:2652655757": 2,
+          "dino:jet:mission:sky-diamond:4203640201": 1,
+          "dino:jet:mission:sky-circle:1960829844": 1,
+          "dino:jet:episode:cloud-meadow:complete": 2,
+          "dino:math:count-garden:best:3": 3,
+          "dino:math:number-workshop:best:3": 3,
+          "dino:math:story-bridge:best:3": 3,
+          "dino:jet:mission:sky-diamond:3355711980": 1,
+          "dino:jet:mission:sky-circle:3355711980": 2,
+          "dino:jet:mission:sky-cloud:1506025748": 2,
+          "dino:jet:mission:sky-heart:1506025748": 2,
+          "dino:jet:mission:sky-star:1506025748": 2,
+          "dino:jet:mission:sky-house:1506025748": 2,
+          "dino:jet:episode:rainbow-ridge:complete": 2,
+          "dino:jet:mission:sky-rocket:1848604151": 2,
+          "dino:jet:mission:sky-castle:1848604151": 2,
+          "dino:jet:mission:sky-observatory:1848604151": 2,
+          "dino:jet:mission:sky-airplane:1848604151": 2,
+          "dino:jet:episode:aurora-station:complete": 2,
+          "dino:counting:star-garden:best:3": 3,
+          "dino:counting:constellation-workshop:best:3": 3,
+          "dino:counting:galaxy-survey:best:3": 3,
+          "dino:addition:groups:best:3": 3,
+          "dino:addition:bonds:best:3": 3,
+          "dino:addition:stories:best:3": 3,
+          "dino:subtraction:take-away:best:3": 3,
+          "dino:subtraction:compare:best:3": 3,
+          "dino:subtraction:stories:best:3": 3,
+          "dino:numberline:forward-back:best:3": 3,
+          "dino:numberline:missing-numbers:best:3": 3,
+          "dino:numberline:compare-distances:best:3": 3,
+          "dino:timeteller:clock-explorers:best:3": 3,
+          "dino:timeteller:past-and-to:best:3": 3,
+          "dino:timeteller:daily-routines:best:3": 3,
+          "dino:shadowmatch:shadowmatch:level-3:best-3": 8,
+          "dino:shadowmatch:shadowmatch:level-4:best-3": 8,
+          "dino:shadowmatch:shadowmatch:level-5:best-3": 8
+        }
+      },
+      "rewardAfter": {
+        "points": 490,
+        "claims": {
+          "hangman:first-words-263186679": 2,
+          "hangman:four-letter-rescue-479170815": 6,
+          "hangman:five-letter-rescue-778843497": 6,
+          "hangman:long-word-rescue-2118663940": 6,
+          "dino:e3ee4326-ecf0-4a23-8978-edea989a9a66": 2,
+          "dino:55d8ed8c-26f4-4401-96b0-7722f01116d7": 2,
+          "dino:9abfd8f2-20df-431a-bc29-60c4f224eb74": 2,
+          "dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e": 2,
+          "dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69": 2,
+          "dino:67b3915e-0907-45a7-b377-5b0a7deaf32c": 2,
+          "dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002": 2,
+          "dino:2b17d237-c205-4da8-be4c-e1002930beb9": 2,
+          "dino:66425a33-97b7-4e9c-a72a-9077585472ae": 2,
+          "dino:65ff0aec-a712-4326-8d70-9427a12494e8": 2,
+          "dino:37ef2047-c60f-4f90-82b2-3c0009d36840": 2,
+          "dino:7d50c719-10cc-476a-b186-5352199b1640": 2,
+          "hangman:first-words-4170493800": 4,
+          "words:9e438403-ca0e-49d4-928c-ccf5d19d5424": 6,
+          "words:6692a9a7-b18b-4086-9dcf-bc853d253675": 6,
+          "words:1b7f23d6-222f-47a7-accf-0e1ef0938b0e": 6,
+          "words:b73674ad-596f-48ea-9415-0f387fc5fb7e": 6,
+          "words:2a03774e-87a3-469a-b620-67111c25775a": 6,
+          "words:14fc64e4-9840-4127-9cef-24bd71250557": 6,
+          "storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9": 1,
+          "storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c": 1,
+          "storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b": 1,
+          "storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3": 1,
+          "storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709": 1,
+          "storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640": 1,
+          "storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e": 1,
+          "dino:chess:e9c5097ef3d549b59e7be295e236dbcf": 1,
+          "dino:jigsaw:little:49823e6d-a0ec-4be7-aa09-318b22e7904a": 8,
+          "dino:jigsaw:little:38a608b1-3b9b-4924-8ee5-9747cb8d0e32": 8,
+          "dino:jigsaw:little:ee38a11d-8a2a-4822-a155-c1595ba03984": 8,
+          "dino:german:amari_0_15m62m2": 1,
+          "dino:german:amari_1_11yjxcp": 1,
+          "dino:german:amari_2_ruxrqz": 1,
+          "dino:curriculum:continents:starter": 1,
+          "dino:curriculum:continents:growing": 1,
+          "dino:curriculum:continents:challenge": 1,
+          "dino:curriculum:time-detectives:starter": 1,
+          "dino:curriculum:time-detectives:growing": 1,
+          "dino:curriculum:time-detectives:challenge": 1,
+          "dino:curriculum:nature-lab:starter": 1,
+          "dino:curriculum:nature-lab:growing": 1,
+          "dino:curriculum:nature-lab:challenge": 1,
+          "dino:letters:d59acd39-35b7-43fb-a4e4-0a0581501d7e": 1,
+          "dino:letters:9e545e2a-e752-4e11-b413-bd9acfcf0999": 1,
+          "dino:letters:afeed17c-9603-4da7-85f4-96eb9a8eaa46": 1,
+          "dino:letters:91f944b3-0ecc-48bb-a320-78cf6fdc7a55": 1,
+          "dino:puzzle:starter:complete": 2,
+          "dino:puzzle:growing:complete": 2,
+          "dino:puzzle:challenge:complete": 2,
+          "dino:spot:starter:complete": 2,
+          "dino:spot:growing:complete": 2,
+          "dino:spot:challenge:complete": 2,
+          "dino:jet:mission:sky-square:1337559867": 2,
+          "dino:jet:mission:sky-triangle:2652655757": 2,
+          "dino:jet:mission:sky-diamond:4203640201": 1,
+          "dino:jet:mission:sky-circle:1960829844": 1,
+          "dino:jet:episode:cloud-meadow:complete": 2,
+          "dino:math:count-garden:best:3": 3,
+          "dino:math:number-workshop:best:3": 3,
+          "dino:math:story-bridge:best:3": 3,
+          "dino:jet:mission:sky-diamond:3355711980": 1,
+          "dino:jet:mission:sky-circle:3355711980": 2,
+          "dino:jet:mission:sky-cloud:1506025748": 2,
+          "dino:jet:mission:sky-heart:1506025748": 2,
+          "dino:jet:mission:sky-star:1506025748": 2,
+          "dino:jet:mission:sky-house:1506025748": 2,
+          "dino:jet:episode:rainbow-ridge:complete": 2,
+          "dino:jet:mission:sky-rocket:1848604151": 2,
+          "dino:jet:mission:sky-castle:1848604151": 2,
+          "dino:jet:mission:sky-observatory:1848604151": 2,
+          "dino:jet:mission:sky-airplane:1848604151": 2,
+          "dino:jet:episode:aurora-station:complete": 2,
+          "dino:counting:star-garden:best:3": 3,
+          "dino:counting:constellation-workshop:best:3": 3,
+          "dino:counting:galaxy-survey:best:3": 3,
+          "dino:addition:groups:best:3": 3,
+          "dino:addition:bonds:best:3": 3,
+          "dino:addition:stories:best:3": 3,
+          "dino:subtraction:take-away:best:3": 3,
+          "dino:subtraction:compare:best:3": 3,
+          "dino:subtraction:stories:best:3": 3,
+          "dino:numberline:forward-back:best:3": 3,
+          "dino:numberline:missing-numbers:best:3": 3,
+          "dino:numberline:compare-distances:best:3": 3,
+          "dino:timeteller:clock-explorers:best:3": 3,
+          "dino:timeteller:past-and-to:best:3": 3,
+          "dino:timeteller:daily-routines:best:3": 3,
+          "dino:shadowmatch:shadowmatch:level-3:best-3": 8,
+          "dino:shadowmatch:shadowmatch:level-4:best-3": 8,
+          "dino:shadowmatch:shadowmatch:level-5:best-3": 8
+        }
+      },
+      "receiptCheck": {
+        "count": 3,
+        "changedTokens": [],
+        "starDelta": 0
+      }
+    },
+    "numberline": {
+      "title": "Number Line Jump",
+      "key": "amari_numberline_progress_v1",
+      "rows": 36,
+      "storage": {
+        "changed": [
+          "qa_rewards_20261024_amari_game_diagnostics_v1",
+          "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+          "qa_rewards_20261024_amari_learning_attempts_v1",
+          "qa_rewards_20261024_amari_numberline_progress_v1",
+          "qa_rewards_20261024_amari_skill_mastery_v1"
+        ],
+        "unexpected": [],
+        "unchanged": [
+          "amari-sound-on",
+          "qa_rewards_20261024_amari_addition_progress_v1",
+          "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+          "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+          "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+          "qa_rewards_20261024_amari_challenge_done",
+          "qa_rewards_20261024_amari_challenge_progress",
+          "qa_rewards_20261024_amari_chapter_badges_v1",
+          "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+          "qa_rewards_20261024_amari_chess_game_v1",
+          "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+          "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+          "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+          "qa_rewards_20261024_amari_cosmic_tactics_v1",
+          "qa_rewards_20261024_amari_curriculum_badges_v1",
+          "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_preferences_v1",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_discovery_active_player",
+          "qa_rewards_20261024_amari_discovery_passport_v1",
+          "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+          "qa_rewards_20261024_amari_favourite_games",
+          "qa_rewards_20261024_amari_game_levels_v1",
+          "qa_rewards_20261024_amari_games_played",
+          "qa_rewards_20261024_amari_german_chapter_progress_v1",
+          "qa_rewards_20261024_amari_german_recent_targets_v1",
+          "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+          "qa_rewards_20261024_amari_lastplay",
+          "qa_rewards_20261024_amari_learning_migration_v1",
+          "qa_rewards_20261024_amari_letter_launch_progress_v1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+          "qa_rewards_20261024_amari_letter_trace_progress_v1",
+          "qa_rewards_20261024_amari_little_progress",
+          "qa_rewards_20261024_amari_memory_best",
+          "qa_rewards_20261024_amari_memory_completion_v1",
+          "qa_rewards_20261024_amari_memory_passport_v1",
+          "qa_rewards_20261024_amari_memory_resume_v1",
+          "qa_rewards_20261024_amari_monster_math_progress_v1",
+          "qa_rewards_20261024_amari_oddoneout_progress_v1",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+          "qa_rewards_20261024_amari_points",
+          "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+          "qa_rewards_20261024_amari_recent_games",
+          "qa_rewards_20261024_amari_rewards_v2",
+          "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+          "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+          "qa_rewards_20261024_amari_spelling_progress_v1",
+          "qa_rewards_20261024_amari_spelling_recent_v1",
+          "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+          "qa_rewards_20261024_amari_storybook_active_child_v1",
+          "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "qa_rewards_20261024_amari_storybook_profiles_v1",
+          "qa_rewards_20261024_amari_storybook_progress_v1",
+          "qa_rewards_20261024_amari_streak",
+          "qa_rewards_20261024_amari_subtraction_progress_v1",
+          "qa_rewards_20261024_amari_timeteller_progress_v1",
+          "qa_rewards_20261024_amari_voice_mode_v4",
+          "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+          "qa_rewards_20261024_amari_writing_samples_v1",
+          "qa_rewards_20261024_askia_challenge_done",
+          "qa_rewards_20261024_askia_challenge_progress",
+          "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+          "qa_rewards_20261024_askia_favourite_games",
+          "qa_rewards_20261024_askia_game_levels_v1",
+          "qa_rewards_20261024_askia_games_played",
+          "qa_rewards_20261024_askia_lastplay",
+          "qa_rewards_20261024_askia_little_progress",
+          "qa_rewards_20261024_askia_points",
+          "qa_rewards_20261024_askia_recent_games",
+          "qa_rewards_20261024_askia_rewards_v2",
+          "qa_rewards_20261024_askia_streak",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+        ]
+      },
+      "initialProgress": {
+        "rawHash": "647ed3ae9d303616762f08d8869ba61479ed4769f4edc8ede24b91346f696979",
+        "completed": [
+          "forward-back",
+          "missing-numbers",
+          "compare-distances"
+        ],
+        "bestStars": {
+          "forward-back": 3,
+          "missing-numbers": 3,
+          "compare-distances": 3
+        }
+      },
+      "finalProgress": {
+        "version": 1,
+        "completedChapterIds": [
+          "forward-back",
+          "missing-numbers",
+          "compare-distances"
+        ],
+        "bestStars": {
+          "forward-back": 3,
+          "missing-numbers": 3,
+          "compare-distances": 3
+        },
+        "recentQuestionIds": {
+          "0": [
+            "hop:3:1:5",
+            "hop:3:-1:3",
+            "hop:4:-1:4",
+            "hop:9:-1:9",
+            "hop:8:1:2",
+            "hop:2:1:3",
+            "hop:0:1:1",
+            "hop:5:1:5"
+          ],
+          "1": [
+            "missing:19:1:2",
+            "missing:2:15:0",
+            "missing:3:16:1",
+            "missing:2:14:2",
+            "missing:10:1:2",
+            "missing:17:3:1",
+            "missing:5:15:2",
+            "missing:12:4:0"
+          ],
+          "2": [
+            "compare:larger:2:10:11:9",
+            "compare:larger:15:2:2:7",
+            "compare:farther:4:12:13:7",
+            "compare:farther:1:10:10:10",
+            "compare:larger:19:1:8:12",
+            "compare:farther:19:1:7:12",
+            "compare:farther:13:1:1:6",
+            "compare:farther:16:3:3:8"
+          ]
+        },
+        "unlockedChapter": 2,
+        "rewardReceipts": {
+          "forward-back:best:3": {
+            "id": "forward-back:best:3",
+            "chapterId": "forward-back",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          "missing-numbers:best:3": {
+            "id": "missing-numbers:best:3",
+            "chapterId": "missing-numbers",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          "compare-distances:best:3": {
+            "id": "compare-distances:best:3",
+            "chapterId": "compare-distances",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          }
+        }
+      },
+      "rewardBefore": {
+        "points": 490,
+        "claims": {
+          "hangman:first-words-263186679": 2,
+          "hangman:four-letter-rescue-479170815": 6,
+          "hangman:five-letter-rescue-778843497": 6,
+          "hangman:long-word-rescue-2118663940": 6,
+          "dino:e3ee4326-ecf0-4a23-8978-edea989a9a66": 2,
+          "dino:55d8ed8c-26f4-4401-96b0-7722f01116d7": 2,
+          "dino:9abfd8f2-20df-431a-bc29-60c4f224eb74": 2,
+          "dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e": 2,
+          "dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69": 2,
+          "dino:67b3915e-0907-45a7-b377-5b0a7deaf32c": 2,
+          "dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002": 2,
+          "dino:2b17d237-c205-4da8-be4c-e1002930beb9": 2,
+          "dino:66425a33-97b7-4e9c-a72a-9077585472ae": 2,
+          "dino:65ff0aec-a712-4326-8d70-9427a12494e8": 2,
+          "dino:37ef2047-c60f-4f90-82b2-3c0009d36840": 2,
+          "dino:7d50c719-10cc-476a-b186-5352199b1640": 2,
+          "hangman:first-words-4170493800": 4,
+          "words:9e438403-ca0e-49d4-928c-ccf5d19d5424": 6,
+          "words:6692a9a7-b18b-4086-9dcf-bc853d253675": 6,
+          "words:1b7f23d6-222f-47a7-accf-0e1ef0938b0e": 6,
+          "words:b73674ad-596f-48ea-9415-0f387fc5fb7e": 6,
+          "words:2a03774e-87a3-469a-b620-67111c25775a": 6,
+          "words:14fc64e4-9840-4127-9cef-24bd71250557": 6,
+          "storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9": 1,
+          "storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c": 1,
+          "storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b": 1,
+          "storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3": 1,
+          "storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709": 1,
+          "storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640": 1,
+          "storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e": 1,
+          "dino:chess:e9c5097ef3d549b59e7be295e236dbcf": 1,
+          "dino:jigsaw:little:49823e6d-a0ec-4be7-aa09-318b22e7904a": 8,
+          "dino:jigsaw:little:38a608b1-3b9b-4924-8ee5-9747cb8d0e32": 8,
+          "dino:jigsaw:little:ee38a11d-8a2a-4822-a155-c1595ba03984": 8,
+          "dino:german:amari_0_15m62m2": 1,
+          "dino:german:amari_1_11yjxcp": 1,
+          "dino:german:amari_2_ruxrqz": 1,
+          "dino:curriculum:continents:starter": 1,
+          "dino:curriculum:continents:growing": 1,
+          "dino:curriculum:continents:challenge": 1,
+          "dino:curriculum:time-detectives:starter": 1,
+          "dino:curriculum:time-detectives:growing": 1,
+          "dino:curriculum:time-detectives:challenge": 1,
+          "dino:curriculum:nature-lab:starter": 1,
+          "dino:curriculum:nature-lab:growing": 1,
+          "dino:curriculum:nature-lab:challenge": 1,
+          "dino:letters:d59acd39-35b7-43fb-a4e4-0a0581501d7e": 1,
+          "dino:letters:9e545e2a-e752-4e11-b413-bd9acfcf0999": 1,
+          "dino:letters:afeed17c-9603-4da7-85f4-96eb9a8eaa46": 1,
+          "dino:letters:91f944b3-0ecc-48bb-a320-78cf6fdc7a55": 1,
+          "dino:puzzle:starter:complete": 2,
+          "dino:puzzle:growing:complete": 2,
+          "dino:puzzle:challenge:complete": 2,
+          "dino:spot:starter:complete": 2,
+          "dino:spot:growing:complete": 2,
+          "dino:spot:challenge:complete": 2,
+          "dino:jet:mission:sky-square:1337559867": 2,
+          "dino:jet:mission:sky-triangle:2652655757": 2,
+          "dino:jet:mission:sky-diamond:4203640201": 1,
+          "dino:jet:mission:sky-circle:1960829844": 1,
+          "dino:jet:episode:cloud-meadow:complete": 2,
+          "dino:math:count-garden:best:3": 3,
+          "dino:math:number-workshop:best:3": 3,
+          "dino:math:story-bridge:best:3": 3,
+          "dino:jet:mission:sky-diamond:3355711980": 1,
+          "dino:jet:mission:sky-circle:3355711980": 2,
+          "dino:jet:mission:sky-cloud:1506025748": 2,
+          "dino:jet:mission:sky-heart:1506025748": 2,
+          "dino:jet:mission:sky-star:1506025748": 2,
+          "dino:jet:mission:sky-house:1506025748": 2,
+          "dino:jet:episode:rainbow-ridge:complete": 2,
+          "dino:jet:mission:sky-rocket:1848604151": 2,
+          "dino:jet:mission:sky-castle:1848604151": 2,
+          "dino:jet:mission:sky-observatory:1848604151": 2,
+          "dino:jet:mission:sky-airplane:1848604151": 2,
+          "dino:jet:episode:aurora-station:complete": 2,
+          "dino:counting:star-garden:best:3": 3,
+          "dino:counting:constellation-workshop:best:3": 3,
+          "dino:counting:galaxy-survey:best:3": 3,
+          "dino:addition:groups:best:3": 3,
+          "dino:addition:bonds:best:3": 3,
+          "dino:addition:stories:best:3": 3,
+          "dino:subtraction:take-away:best:3": 3,
+          "dino:subtraction:compare:best:3": 3,
+          "dino:subtraction:stories:best:3": 3,
+          "dino:numberline:forward-back:best:3": 3,
+          "dino:numberline:missing-numbers:best:3": 3,
+          "dino:numberline:compare-distances:best:3": 3,
+          "dino:timeteller:clock-explorers:best:3": 3,
+          "dino:timeteller:past-and-to:best:3": 3,
+          "dino:timeteller:daily-routines:best:3": 3,
+          "dino:shadowmatch:shadowmatch:level-3:best-3": 8,
+          "dino:shadowmatch:shadowmatch:level-4:best-3": 8,
+          "dino:shadowmatch:shadowmatch:level-5:best-3": 8
+        }
+      },
+      "rewardAfter": {
+        "points": 490,
+        "claims": {
+          "hangman:first-words-263186679": 2,
+          "hangman:four-letter-rescue-479170815": 6,
+          "hangman:five-letter-rescue-778843497": 6,
+          "hangman:long-word-rescue-2118663940": 6,
+          "dino:e3ee4326-ecf0-4a23-8978-edea989a9a66": 2,
+          "dino:55d8ed8c-26f4-4401-96b0-7722f01116d7": 2,
+          "dino:9abfd8f2-20df-431a-bc29-60c4f224eb74": 2,
+          "dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e": 2,
+          "dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69": 2,
+          "dino:67b3915e-0907-45a7-b377-5b0a7deaf32c": 2,
+          "dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002": 2,
+          "dino:2b17d237-c205-4da8-be4c-e1002930beb9": 2,
+          "dino:66425a33-97b7-4e9c-a72a-9077585472ae": 2,
+          "dino:65ff0aec-a712-4326-8d70-9427a12494e8": 2,
+          "dino:37ef2047-c60f-4f90-82b2-3c0009d36840": 2,
+          "dino:7d50c719-10cc-476a-b186-5352199b1640": 2,
+          "hangman:first-words-4170493800": 4,
+          "words:9e438403-ca0e-49d4-928c-ccf5d19d5424": 6,
+          "words:6692a9a7-b18b-4086-9dcf-bc853d253675": 6,
+          "words:1b7f23d6-222f-47a7-accf-0e1ef0938b0e": 6,
+          "words:b73674ad-596f-48ea-9415-0f387fc5fb7e": 6,
+          "words:2a03774e-87a3-469a-b620-67111c25775a": 6,
+          "words:14fc64e4-9840-4127-9cef-24bd71250557": 6,
+          "storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9": 1,
+          "storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c": 1,
+          "storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b": 1,
+          "storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3": 1,
+          "storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709": 1,
+          "storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640": 1,
+          "storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e": 1,
+          "dino:chess:e9c5097ef3d549b59e7be295e236dbcf": 1,
+          "dino:jigsaw:little:49823e6d-a0ec-4be7-aa09-318b22e7904a": 8,
+          "dino:jigsaw:little:38a608b1-3b9b-4924-8ee5-9747cb8d0e32": 8,
+          "dino:jigsaw:little:ee38a11d-8a2a-4822-a155-c1595ba03984": 8,
+          "dino:german:amari_0_15m62m2": 1,
+          "dino:german:amari_1_11yjxcp": 1,
+          "dino:german:amari_2_ruxrqz": 1,
+          "dino:curriculum:continents:starter": 1,
+          "dino:curriculum:continents:growing": 1,
+          "dino:curriculum:continents:challenge": 1,
+          "dino:curriculum:time-detectives:starter": 1,
+          "dino:curriculum:time-detectives:growing": 1,
+          "dino:curriculum:time-detectives:challenge": 1,
+          "dino:curriculum:nature-lab:starter": 1,
+          "dino:curriculum:nature-lab:growing": 1,
+          "dino:curriculum:nature-lab:challenge": 1,
+          "dino:letters:d59acd39-35b7-43fb-a4e4-0a0581501d7e": 1,
+          "dino:letters:9e545e2a-e752-4e11-b413-bd9acfcf0999": 1,
+          "dino:letters:afeed17c-9603-4da7-85f4-96eb9a8eaa46": 1,
+          "dino:letters:91f944b3-0ecc-48bb-a320-78cf6fdc7a55": 1,
+          "dino:puzzle:starter:complete": 2,
+          "dino:puzzle:growing:complete": 2,
+          "dino:puzzle:challenge:complete": 2,
+          "dino:spot:starter:complete": 2,
+          "dino:spot:growing:complete": 2,
+          "dino:spot:challenge:complete": 2,
+          "dino:jet:mission:sky-square:1337559867": 2,
+          "dino:jet:mission:sky-triangle:2652655757": 2,
+          "dino:jet:mission:sky-diamond:4203640201": 1,
+          "dino:jet:mission:sky-circle:1960829844": 1,
+          "dino:jet:episode:cloud-meadow:complete": 2,
+          "dino:math:count-garden:best:3": 3,
+          "dino:math:number-workshop:best:3": 3,
+          "dino:math:story-bridge:best:3": 3,
+          "dino:jet:mission:sky-diamond:3355711980": 1,
+          "dino:jet:mission:sky-circle:3355711980": 2,
+          "dino:jet:mission:sky-cloud:1506025748": 2,
+          "dino:jet:mission:sky-heart:1506025748": 2,
+          "dino:jet:mission:sky-star:1506025748": 2,
+          "dino:jet:mission:sky-house:1506025748": 2,
+          "dino:jet:episode:rainbow-ridge:complete": 2,
+          "dino:jet:mission:sky-rocket:1848604151": 2,
+          "dino:jet:mission:sky-castle:1848604151": 2,
+          "dino:jet:mission:sky-observatory:1848604151": 2,
+          "dino:jet:mission:sky-airplane:1848604151": 2,
+          "dino:jet:episode:aurora-station:complete": 2,
+          "dino:counting:star-garden:best:3": 3,
+          "dino:counting:constellation-workshop:best:3": 3,
+          "dino:counting:galaxy-survey:best:3": 3,
+          "dino:addition:groups:best:3": 3,
+          "dino:addition:bonds:best:3": 3,
+          "dino:addition:stories:best:3": 3,
+          "dino:subtraction:take-away:best:3": 3,
+          "dino:subtraction:compare:best:3": 3,
+          "dino:subtraction:stories:best:3": 3,
+          "dino:numberline:forward-back:best:3": 3,
+          "dino:numberline:missing-numbers:best:3": 3,
+          "dino:numberline:compare-distances:best:3": 3,
+          "dino:timeteller:clock-explorers:best:3": 3,
+          "dino:timeteller:past-and-to:best:3": 3,
+          "dino:timeteller:daily-routines:best:3": 3,
+          "dino:shadowmatch:shadowmatch:level-3:best-3": 8,
+          "dino:shadowmatch:shadowmatch:level-4:best-3": 8,
+          "dino:shadowmatch:shadowmatch:level-5:best-3": 8
+        }
+      },
+      "receiptCheck": {
+        "count": 3,
+        "changedTokens": [],
+        "starDelta": 0
+      }
+    }
+  },
+  "providerAttempts": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-UpMdFwWa.js"
+  },
+  "soundOriginals": {
+    "subtraction": true,
+    "numberline": true
+  },
+  "faultEligibility": {
+    "subtraction": {
+      "key": "amari_subtraction_progress_v1",
+      "initial": {
+        "rawHash": "f812c1fd2e85e9a0d3b065830eea26cf0cc7684670e55cfa0e19295672824307",
+        "completed": [
+          "take-away",
+          "compare",
+          "stories"
+        ],
+        "bestStars": {
+          "take-away": 3,
+          "compare": 3,
+          "stories": 3
+        }
+      },
+      "material": [],
+      "completionIndex": null,
+      "pendingIndex": null
+    },
+    "numberline": {
+      "key": "amari_numberline_progress_v1",
+      "initial": {
+        "rawHash": "647ed3ae9d303616762f08d8869ba61479ed4769f4edc8ede24b91346f696979",
+        "completed": [
+          "forward-back",
+          "missing-numbers",
+          "compare-distances"
+        ],
+        "bestStars": {
+          "forward-back": 3,
+          "missing-numbers": 3,
+          "compare-distances": 3
+        }
+      },
+      "material": [],
+      "completionIndex": null,
+      "pendingIndex": null
+    }
+  },
+  "visibleCatalogueImagesBeforeReload": [
+    {
+      "src": "http://127.0.0.1:5180/art/catalog-v3/game-counting.webp",
+      "naturalWidth": 640
+    },
+    {
+      "src": "http://127.0.0.1:5180/art/catalog-v3/game-fuelup.webp",
+      "naturalWidth": 640
+    }
+  ],
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "controlAudit": {
+    "checked": 1018,
+    "minimumWidth": 44,
+    "minimumHeight": 44,
+    "allCenterHits": true,
+    "allInsideViewport": true
+  },
+  "stage": "native",
+  "runtimeSource": "61a8d746c4ea2d5dccb73a1a0d54fb2c2b4fbe0b",
+  "entry": "/assets/arcade-UpMdFwWa.js",
+  "sourceHead": "61a8d746c4ea2d5dccb73a1a0d54fb2c2b4fbe0b",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/arithmeticAdventure.js": "5e3dfd0f4d2de27262b89daf967f7942926601ab3354da7d6430d35d6aba93f7",
+    "src/data/arithmeticProgress.js": "697a21ae88249b6971eedcf46b01c78d1c44cb75b6beef79fbddd29b498cc4dd",
+    "src/data/timeLineAdventure.js": "d1f4eb687db00094019a580e76625bc3c526844659b46c085185149f5984b42c",
+    "src/data/timeLineProgress.js": "32fcdc6eceebdca607a158894d338ae453d4998d283a8283d9331443cf936400",
+    "src/data/batch4Narration.js": "88743fa76c2006ef369b3bbe7ec236e7b661f62996411f37d9c7ce6417bd790d",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/components/games/SubtractionStation.jsx": "596cb43048b8c1b26229df8c928af1667c4b2be8183e7a581ca3e66a339f9172",
+    "src/components/games/NumberLineJump.jsx": "7fc074d83e671bf5a1fc49b84b436e8e84dda6c433b95d5a628908d4cb5ea8c7",
+    "src/components/games/NumberLineJourney.jsx": "5321dfb00dbdc3c67a88e50ffc664fb3a3c1de8be66ceb9520ffc61a768874b2",
+    "src/components/games/TimeLineLearningUI.jsx": "3e4f96220a35b533810376bbacf2c8777edc547d126cefa62eeb093705f2ce94",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/subtract-numberline-save-20261029/protocol.md": "f0b971a05aef2c01dd9597444e9b7bb714a11b81c66966ec5690904e428a0e78",
+    "docs/qa-evidence/subtract-numberline-save-20261029/subtract-numberline-native.cjs": "93141da3580bc3cb1f14f5f9e1fadc7134468dd2dcee0690722a56699514d797"
+  },
+  "driverSHA256": "93141da3580bc3cb1f14f5f9e1fadc7134468dd2dcee0690722a56699514d797",
+  "runnerSHA256": "c3234438b41290525cba0b09fc74163f64703ea286ee45c7e1683865062d8dac",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1478063,
+    "entrySha256": "5ffeda240f621da62ab35ed9371c84fc65ca011cbc074d4c2b505b9bd24f0188",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "sky-monster-resolution",
+  "scope": "Full actual-visible-control Subtraction Station and Number Line Jump acceptance for three chapters, six normal questions and six lower-rated replay questions per chapter at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

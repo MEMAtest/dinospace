@@ -1,0 +1,86 @@
+{
+  "passed": false,
+  "resources": [
+    {
+      "path": "/",
+      "sha256": "31320afdaec00409bea0264a15acffacef35de6e4bf7395f4fdddf90288f9b50",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/sw.js",
+      "sha256": "630497e4e81ce48a29610394b23580fb45f29713d8201db5198344088a2372e0",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/arcade-UpMdFwWa.js",
+      "sha256": "5ffeda240f621da62ab35ed9371c84fc65ca011cbc074d4c2b505b9bd24f0188",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/DiscoveryHeader-F1MGveSx.js",
+      "sha256": "f4aefdbc9b84ad67406334ca192132d21f09d6a6a26a3650b65185a8cefb87b2",
+      "matchesBuild": [
+        false,
+        true
+      ]
+    },
+    {
+      "path": "/assets/codeProgress-vW73Y7vt.js",
+      "sha256": "d7f7f104283387c99bcf1636996789bb543e0b1721a21b8614a897b2310d8f70",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/writingProgress-BANozLWz.js",
+      "sha256": "9987d91600a121640f33aab91fe7395942b2d6a44a1cced8286b32a769e031dc",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/DiscoveryHeader-Dt86kjrx.css",
+      "sha256": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/arcade-F77KqWlw.css",
+      "sha256": "51ae55419d172eee759c753ca1840cda745f15acbaa5529d05a9b852e538b3c8",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/art/catalog-v3/game-subtraction.webp",
+      "sha256": "f5d207d7976ef9947fe00023978914515efc53138ba97d7079834ba3cfb2a3d6",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    },
+    {
+      "path": "/assets/isolated-frog-v1-card-89MVsj26.webp",
+      "sha256": "9a0cc2706b20109095fcb36852750aee0a9b8456d677e697d433eebc1bb3f622",
+      "matchesBuild": [
+        true,
+        true
+      ]
+    }
+  ],
+  "entry": "/assets/arcade-UpMdFwWa.js"
+}

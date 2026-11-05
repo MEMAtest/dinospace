@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T21:27:59.265122+00:00",
+  "updatedAt": "2026-11-05T21:38:49.997599+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1245,18 +1245,18 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": "Count the Stars and Addition Adventure visual/navigation correction",
-    "runtime": "f9d7c6f27d3a088df59521f600db8f40b21d1839",
-    "entry": "/assets/arcade-BBjJnjd-.js",
+    "pair": "Subtraction Station and Number Line Jump illustrated menu update",
+    "runtime": "61a8d746c4ea2d5dccb73a1a0d54fb2c2b4fbe0b",
+    "entry": "/assets/arcade-UpMdFwWa.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-bw47bh8jl-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_9jT8YGj6qVzsLsbZsXvDs2xjJF6W",
-    "netlifyGatewayDeploy": "6aecf3fe602cf5c1233a37ee",
-    "serviceWorkerCache": "amari-discovery-v65",
+    "backendUrl": "https://dinospace-o2h8akq47-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_7VETb6hu7YGJGKx6eRF36n2J9ev9",
+    "netlifyGatewayDeploy": "6aecf6b0ce4663b4d1b1d2a7",
+    "serviceWorkerCache": "amari-discovery-v66",
     "status": "live_verified_targeted",
-    "evidence": "docs/qa-evidence/count-add-visual-20261105/README.md",
-    "verifiedAt": "2026-11-05T21:27:59.265122+00:00",
-    "scope": "Correct counting header and add existing illustrated Addition chapter art; 72 live questions per viewport; no editorial or human listening score.",
+    "evidence": "docs/qa-evidence/subtract-numberline-visual-20261105/README.md",
+    "verifiedAt": "2026-11-05T21:38:49.997599+00:00",
+    "scope": "Illustrated chapter selection; 72 current live questions per viewport; no new editorial or listening score.",
     "sourceTests": {
       "passed": 760,
       "failed": 0,
@@ -1934,6 +1934,26 @@
     "evidence": "docs/qa-evidence/count-add-visual-20261105/README.md",
     "verifiedAt": "2026-11-05T21:27:59.265122+00:00",
     "scope": "Correct counting header and add existing illustrated Addition chapter art; 72 live questions per viewport; no editorial or human listening score.",
+    "sourceTests": {
+      "passed": 760,
+      "failed": 0,
+      "skipped": 0
+    },
+    "paidCalls": 0
+  },
+  "latestSubtractNumberLineVisualUpdate": {
+    "pair": "Subtraction Station and Number Line Jump illustrated menu update",
+    "runtime": "61a8d746c4ea2d5dccb73a1a0d54fb2c2b4fbe0b",
+    "entry": "/assets/arcade-UpMdFwWa.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-o2h8akq47-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_7VETb6hu7YGJGKx6eRF36n2J9ev9",
+    "netlifyGatewayDeploy": "6aecf6b0ce4663b4d1b1d2a7",
+    "serviceWorkerCache": "amari-discovery-v66",
+    "status": "live_verified_targeted",
+    "evidence": "docs/qa-evidence/subtract-numberline-visual-20261105/README.md",
+    "verifiedAt": "2026-11-05T21:38:49.997599+00:00",
+    "scope": "Illustrated chapter selection; 72 current live questions per viewport; no new editorial or listening score.",
     "sourceTests": {
       "passed": 760,
       "failed": 0,

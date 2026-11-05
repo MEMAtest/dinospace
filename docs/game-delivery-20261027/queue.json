@@ -7,11 +7,11 @@
   "batchSize": 2,
   "activePair": {
     "games": [
-      "Subtraction Station",
-      "Number Line Jump"
+      "Time Teller",
+      "Sound Safari"
     ],
     "status": "audit_in_progress",
-    "scope": "Review the next pair on the current public runtime."
+    "scope": "Review next pair against current public release."
   },
   "pairs": [
     {
@@ -455,6 +455,25 @@
       "entry": "/assets/arcade-BBjJnjd-.js",
       "openGate": null,
       "scope": "Correct counting header and add existing illustrated Addition chapter art; 72 live questions per viewport; no editorial or human listening score."
+    },
+    {
+      "number": 22,
+      "games": [
+        {
+          "id": "subtraction",
+          "name": "Subtraction Station"
+        },
+        {
+          "id": "numberline",
+          "name": "Number Line Jump"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/subtract-numberline-visual-20261105/README.md",
+      "runtime": "61a8d746c4ea2d5dccb73a1a0d54fb2c2b4fbe0b",
+      "entry": "/assets/arcade-UpMdFwWa.js",
+      "openGate": null,
+      "scope": "Illustrated chapter selection; 72 current live questions per viewport; no new editorial or listening score."
     }
   ],
   "retainedReleasedScopes": [
@@ -629,7 +648,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "f9d7c6f27d3a088df59521f600db8f40b21d1839",
+  "currentRuntime": "61a8d746c4ea2d5dccb73a1a0d54fb2c2b4fbe0b",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {
