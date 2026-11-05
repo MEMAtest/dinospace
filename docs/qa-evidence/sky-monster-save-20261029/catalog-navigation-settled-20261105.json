@@ -1,0 +1,26 @@
+{
+  "passed": false,
+  "before": [
+    {
+      "url": "https://dinospace.netlify.app/art/catalog-v3/game-codecadets.webp",
+      "ok": true
+    },
+    {
+      "url": "https://dinospace.netlify.app/art/catalog-v3/game-writingdesk.webp",
+      "ok": true
+    }
+  ],
+  "after": [
+    {
+      "url": "",
+      "ok": false
+    },
+    {
+      "url": "",
+      "ok": false
+    }
+  ],
+  "failures": [],
+  "responses": [],
+  "provider": []
+}

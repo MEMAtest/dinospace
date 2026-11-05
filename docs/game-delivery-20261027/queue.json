@@ -5,7 +5,15 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": null,
+  "activePair": {
+    "games": [
+      "Sky Shapes",
+      "Monster Math"
+    ],
+    "status": "current_release_full_journey_gate_open",
+    "scope": "All questions and flights completed, but full mobile and desktop reports failed on aborted catalogue image requests; investigate before acceptance.",
+    "evidence": "docs/qa-evidence/sky-monster-current-audit-20261105/README.md"
+  },
   "pairs": [
     {
       "number": 1,
