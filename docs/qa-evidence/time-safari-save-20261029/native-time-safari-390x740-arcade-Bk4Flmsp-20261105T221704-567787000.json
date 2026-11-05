@@ -1,0 +1,585 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "faultModeRequested": false,
+  "rows": [
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 0,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "questionAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/1ea0e4b5-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/1ea0e4b5-matilda.mp3",
+            "currentTime": 0.065088,
+            "duration": 1.671837,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 844.1000000014901
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 860.6000000014901
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 862.8000000044703
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 15,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(15 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "half past 12",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 12 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/947ed4c4-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/947ed4c4-matilda.mp3",
+            "currentTime": 0.064992,
+            "duration": 2.972154,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1035.9000000059605
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1036.4000000059605
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1038.7000000029802
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "signature": "read:half past 12",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 1,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 120,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(120 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "4 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 4 o’clock means the minute hand points to 12, and the hour hand is on the hour number. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:4 o’clock",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 2,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 255,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(255 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "half past 8",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 8 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 8",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 3,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 240,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(240 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "8 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 8 o’clock means the minute hand points to 12, and the hour hand is on the hour number. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:8 o’clock",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 4,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 315,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(315 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "half past 10",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 10 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 10",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 5,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 135,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(135 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "half past 4",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 4 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Finish chapter →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 4",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 0,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?"
+    }
+  ],
+  "games": {},
+  "eligibility": {
+    "timeteller": {
+      "completed": [
+        "clock-explorers",
+        "past-and-to",
+        "daily-routines"
+      ],
+      "bestStars": {
+        "clock-explorers": 3,
+        "past-and-to": 3,
+        "daily-routines": 3
+      },
+      "material": [],
+      "completionIndex": null,
+      "pendingIndex": null
+    }
+  },
+  "faultCases": {},
+  "soundOriginals": {
+    "timeteller": true
+  },
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-Bk4Flmsp.js"
+  },
+  "providerAttempts": [],
+  "failure": {
+    "message": "Time Teller packaged question audio did not play and advance within the bounded window",
+    "stack": "Error: Time Teller packaged question audio did not play and advance within the bounded window\n    at Object.observePackagedPlayback (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:236:11)\n    at async runTimeQuestion (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:41:531)\n    at async runTimeGame (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:73:165)\n    at async runPair17 (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:139:772)\n    at async evalmachine.<anonymous>:4:8\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:70028:13"
+  },
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "controlAudit": {
+    "checked": 51
+  },
+  "stage": "native",
+  "runtimeSource": "deae8ac2e23c5c2889de2b52f6ea11374110a06c",
+  "entry": "/assets/arcade-Bk4Flmsp.js",
+  "sourceHead": "deae8ac2e23c5c2889de2b52f6ea11374110a06c",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/timeLineAdventure.js": "d1f4eb687db00094019a580e76625bc3c526844659b46c085185149f5984b42c",
+    "src/data/timeLineProgress.js": "32fcdc6eceebdca607a158894d338ae453d4998d283a8283d9331443cf936400",
+    "src/data/timeLineInteraction.js": "9213bd2a1cb63ff93bec27951a589c1799d15d134859cf0c48b4843509ef3a0c",
+    "src/data/batch4Narration.js": "88743fa76c2006ef369b3bbe7ec236e7b661f62996411f37d9c7ce6417bd790d",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/data/offlineVoice.js": "8ee6e48db9a73a1a064803e92b3152105d40b2c90a5251c68d80e61547e19697",
+    "src/data/literacy.js": "3665da245342ddf8ff585933ad644a33f08fd7c538aec72bf8ba0ec4e0b65ec0",
+    "src/data/soundSafariAdventure.js": "6abfa185cf9f364d3c5d9893e3d5502f423ef83c3513a8df5ca68f6940c53eff",
+    "src/data/soundSafariProgress.js": "fdb4eb9c82d5c4cc338e469942482d7375c32553bcc4308090f164582b840126",
+    "src/components/games/TimeTeller.jsx": "88d0897e8d7069742b031e0eefb78566a24480a13bfb0618740d6d15cb15a8f2",
+    "src/components/games/TimeLineLearningUI.jsx": "3e4f96220a35b533810376bbacf2c8777edc547d126cefa62eeb093705f2ce94",
+    "src/components/games/SoundSafari.jsx": "a9f46069670b9514d5348130fc9e16ecc331e46f3d80a38c29e5f82be86400aa",
+    "src/components/games/amariScenes.css": "28d6a96160ce465d367a51df2c3fa10f6448ed32159f8620de3e039ac89c0d50",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/time-safari-save-20261029/protocol.md": "9e13f50bdf8f99126d9e4b29b92846323328a8077e5a046a0ba7d60078a0f02b",
+    "docs/qa-evidence/time-safari-save-20261029/time-safari-native.cjs": "990f50baf4b199e4f26520cc703e9ed9a378784e419c10d4e4108d2dc88ab237"
+  },
+  "driverSHA256": "990f50baf4b199e4f26520cc703e9ed9a378784e419c10d4e4108d2dc88ab237",
+  "runnerSHA256": "7e8873e9416b2f9d7e222e7a15c40be66d7a4234b03bf7afd614a29e06186055",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1470968,
+    "entrySha256": "f9777eff53e58bdb0899f8406710b82e5a55b34a981a7a99a61aef9634e28cf6",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "sound-safari-consistency",
+  "scope": "Full actual-visible-control Time Teller and Sound Safari acceptance: three chapters, six normal questions and six lower-rated replay questions per game at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

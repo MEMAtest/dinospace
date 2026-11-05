@@ -686,7 +686,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "da163fe0cf9ea5e45832426f5190d2639ed4154a",
+  "currentRuntime": "b82eaadada1c11230cc75e1648db6f9130800584",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {
@@ -694,5 +694,10 @@
     "evidence": "docs/qa-evidence/sky-monster-resolution-20261105/README.md",
     "runtime": "72ce4a32ee6cf4ca69ffe3276161818b71870efd",
     "scope": "QA reload race fixed; production application unchanged; full visible-control phone and desktop journeys pass."
+  },
+  "soundSafariVoiceIssue": {
+    "status": "awaiting_recording_authorisation",
+    "evidence": "docs/qa-evidence/safari-consistency-20261105/README.md",
+    "scope": "Daniel phonemes and Matilda words/instruction use different voices; 19 matching Daniel clips proposed."
   }
 }

@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "entry": "/assets/arcade-BPePf-qQ.js",
+  "details": [
+    {
+      "label": "Picture choice 1: snap",
+      "bg": "url(\"https://dinospace.netlify.app/assets/word-pictures-v1-BY6VORzV.webp\")",
+      "position": "100% 80%"
+    },
+    {
+      "label": "Picture choice 2: snip",
+      "bg": "url(\"https://dinospace.netlify.app/assets/word-pictures-v1-BY6VORzV.webp\")",
+      "position": "50% 80%"
+    },
+    {
+      "label": "Picture choice 3: pants",
+      "bg": "url(\"https://dinospace.netlify.app/assets/word-pictures-v1-BY6VORzV.webp\")",
+      "position": "50% 100%"
+    },
+    {
+      "label": "Picture choice 4: spin",
+      "bg": "url(\"https://dinospace.netlify.app/assets/word-pictures-v1-BY6VORzV.webp\")",
+      "position": "0% 100%"
+    }
+  ],
+  "decoded": true,
+  "overflow": false,
+  "errors": [],
+  "failures": [],
+  "provider": []
+}

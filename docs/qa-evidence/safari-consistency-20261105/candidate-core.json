@@ -1,0 +1,36 @@
+{
+  "backend": "https://dinospace-pc9enmspl-memas-projects-23a0001d.vercel.app",
+  "deploymentId": "dpl_DzhDJfQMCjrozD2ThFczRZ6gYkp2",
+  "ready": "READY",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "match": true,
+      "bytes": 1441,
+      "sha256": "757422fe18bf5da6febdafbca26404e557d2d57bc0264712db8e7c29c53925e4"
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "match": true,
+      "bytes": 16575,
+      "sha256": "e3bcb36b70a8fbd8e224c28fd4e7b40b9f45e4447430fbdc9bbe43ef6b0fefae"
+    },
+    {
+      "path": "/assets/arcade-BPePf-qQ.js",
+      "status": 200,
+      "match": true,
+      "bytes": 1470968,
+      "sha256": "bd7a47bfbae01c2959e1d7fa6fc820c385f0a1cfb00d369843234754e247cf67"
+    },
+    {
+      "path": "/assets/word-pictures-v1-BY6VORzV.webp",
+      "status": 200,
+      "match": true,
+      "bytes": 177380,
+      "sha256": "433ee65eb09f270f221133e9740e4fbfd38da7d894bd4bdc67abbe974a9e7645"
+    }
+  ],
+  "passed": true
+}
