@@ -17,3 +17,5 @@ Desktop 1440x844: the same 36 questions and 12 flights passed, including keyboar
 After the Count/Addition release, `production-v65-sample.json` verified the current public module `/assets/arcade-BBjJnjd-.js`: Monster Math started a visible question and Sky Shapes opened a visible tracing board at 390px, with no page, console, HTTP or provider errors. This sample does not replace the full earlier v64 phone/desktop runs.
 
 Following the Subtraction/Number Line release, `production-v66-sample.json` confirms the current module `/assets/arcade-UpMdFwWa.js` opens a Monster Math question and a Sky Shapes tracing board at 390px without page, console, HTTP or provider errors. This is a representative entry sample, not a replacement for the full v64 matrix.
+
+On the later v68 live entry, `production-v68-sample.json` confirmed the Monster Math question and Sky Shapes tracing board open without captured errors; this is a small smoke sample, not a repeat of the full v64 acceptance journeys.

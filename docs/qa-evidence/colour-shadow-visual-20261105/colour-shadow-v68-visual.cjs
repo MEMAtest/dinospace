@@ -1,0 +1,11 @@
+async page => {
+ await page.setViewportSize({width:390,height:740});
+ if(!await page.getByRole('heading',{name:'Shadow Match',exact:true}).count()){const card=page.locator('.catalogue-game-card').filter({hasText:'Shadow Match'});await card.scrollIntoViewIfNeeded();await card.click();}
+ const group=page.getByRole('group',{name:'Unlocked practice levels'});await group.waitFor();const text=await group.innerText(),values=(await group.getByRole('button').allTextContents()).map(x=>Number(x.trim())).filter(Number.isInteger);const expected=values.length===1?`Your available level: ${values[0]}.`:`Your available levels: ${values[0]}–${values[values.length-1]}.`;if(!text.includes(expected))throw Error('Shadow level range does not match its buttons');await page.screenshot({path:'/tmp/amari-shadow-v68.png'});
+ const play=page.getByRole('button',{name:'Play Shadow Match',exact:true});const a=await play.evaluate(el=>{const r=el.getBoundingClientRect();return{height:r.height,bottom:r.bottom,hit:el.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2)),overflow:document.documentElement.scrollWidth>innerWidth}});
+ await page.getByRole('button',{name:'Go home'}).last().click();const home=page.getByRole('button',{name:'Back to home'});if(await home.count())await home.click();
+ const world=page.locator('.discovery-world-card').filter({hasText:'Creative Lab'});await world.scrollIntoViewIfNeeded();await world.click();const colour=page.locator('.catalogue-game-card').filter({hasText:'Colour Mixing Lab'});await colour.scrollIntoViewIfNeeded();await colour.click();
+ const art=page.locator('img[src="/art/catalog-v3/game-colormix.webp"]');await art.waitFor();await page.waitForFunction(()=>{const i=document.querySelector('img[src="/art/catalog-v3/game-colormix.webp"]');return i?.complete&&i.naturalWidth>0});await page.screenshot({path:'/tmp/amari-colour-v68.png'});
+ const b=await page.locator('[data-colour-lab-start]').evaluate(el=>{const r=el.getBoundingClientRect();return{height:r.height,bottom:r.bottom,hit:el.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2)),overflow:document.documentElement.scrollWidth>innerWidth}});
+ return {passed:[a,b].every(x=>x.height>=44&&x.hit&&!x.overflow&&x.bottom<=740),levels:values,range:expected,shadow:a,colour:b};
+}

@@ -493,6 +493,25 @@
       "entry": "/assets/arcade-FCGeHFcT.js",
       "openGate": null,
       "scope": "Illustrated mission selection; 72 current live questions per viewport; existing phonemes unchanged, no new editorial or listening score."
+    },
+    {
+      "number": 24,
+      "games": [
+        {
+          "id": "colormix",
+          "name": "Colour Mixing Lab"
+        },
+        {
+          "id": "shadowmatch",
+          "name": "Shadow Match"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/colour-shadow-visual-20261105/README.md",
+      "runtime": "da163fe0cf9ea5e45832426f5190d2639ed4154a",
+      "entry": "/assets/arcade-0RsuEuFR.js",
+      "openGate": null,
+      "scope": "103 actual interactions per viewport; menu illustration and accurate available-level range; no new editorial or listening score."
     }
   ],
   "retainedReleasedScopes": [
@@ -667,7 +686,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "ab2b64ab7f3c64324d7d781f76140fbf67528c4c",
+  "currentRuntime": "da163fe0cf9ea5e45832426f5190d2639ed4154a",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {

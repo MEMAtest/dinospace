@@ -1,0 +1,573 @@
+{
+  "passed": true,
+  "resources": [
+    {
+      "path": "/",
+      "sha256": "1019b037db33ae2a5521e3c546c6d057ee9d2d91246be14cdf565ecc6ece1c3d",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "encoding": null,
+          "bytes": 1441,
+          "sha256": "1019b037db33ae2a5521e3c546c6d057ee9d2d91246be14cdf565ecc6ece1c3d",
+          "prefixHex": "3c21646f6374797065206874",
+          "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Age": "21",
+            "Cache-Control": "public,max-age=0,must-revalidate",
+            "Cache-Status": "\"Netlify Edge\"; fwd=stale; fwd-status=200; ttl=-4151; stored",
+            "Content-Disposition": "inline",
+            "Content-Type": "text/html; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:05 GMT",
+            "Etag": "W/\"68329388aed1896da5a970839076cc19\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:03:44 GMT",
+            "Netlify-Vary": "query",
+            "Server": "Netlify",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Vary": "Accept-Encoding",
+            "X-Nf-Request-Id": "01M6PVV5F722G9JNB0P4FN3DWE",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "HIT",
+            "X-Vercel-Id": "fra1::f8fk9-1793916245686-8c74ac47a8a4",
+            "Connection": "close",
+            "Transfer-Encoding": "chunked"
+          }
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "encoding": null,
+          "bytes": 1441,
+          "sha256": "1019b037db33ae2a5521e3c546c6d057ee9d2d91246be14cdf565ecc6ece1c3d",
+          "prefixHex": "3c21646f6374797065206874",
+          "headers": {
+            "Accept-Ranges": "bytes",
+            "Access-Control-Allow-Origin": "*",
+            "Age": "44",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Disposition": "inline",
+            "Content-Length": "1441",
+            "Content-Type": "text/html; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:05 GMT",
+            "Etag": "\"68329388aed1896da5a970839076cc19\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:03:21 GMT",
+            "Server": "Vercel",
+            "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "HIT",
+            "X-Vercel-Id": "lhr1::n7tmz-1793916245919-a249f3691f9e",
+            "Connection": "close"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/sw.js",
+      "sha256": "3be4aaf0a2a0aa67637afa59f0cc504888683df5cca2450671f63ae52ea24d4f",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 16534,
+          "sha256": "3be4aaf0a2a0aa67637afa59f0cc504888683df5cca2450671f63ae52ea24d4f",
+          "prefixHex": "2f2f2042756d702074686520",
+          "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "no-cache,no-store,must-revalidate",
+            "Cache-Status": "\"Netlify Edge\"; fwd=miss; fwd-status=200",
+            "Content-Disposition": "inline; filename=\"sw.js\"",
+            "Content-Type": "application/javascript; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:06 GMT",
+            "Etag": "W/\"ee2917270ae6a01e2c8a8c2fc5ab506f\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:06 GMT",
+            "Netlify-Vary": "query",
+            "Server": "Netlify",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Vary": "Accept-Encoding",
+            "X-Nf-Request-Id": "01M6PVV615Y0R8AP9CVT79B6NE",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "fra1::46sbc-1793916246472-0ccba86d5dd1",
+            "Connection": "close",
+            "Transfer-Encoding": "chunked"
+          }
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 16534,
+          "sha256": "3be4aaf0a2a0aa67637afa59f0cc504888683df5cca2450671f63ae52ea24d4f",
+          "prefixHex": "2f2f2042756d702074686520",
+          "headers": {
+            "Accept-Ranges": "bytes",
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Content-Disposition": "inline; filename=\"sw.js\"",
+            "Content-Length": "16534",
+            "Content-Type": "application/javascript; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:07 GMT",
+            "Etag": "\"ee2917270ae6a01e2c8a8c2fc5ab506f\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:07 GMT",
+            "Server": "Vercel",
+            "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "lhr1::z5hh8-1793916246999-86d8e8d4ced2",
+            "Connection": "close"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/assets/arcade-0RsuEuFR.js",
+      "sha256": "71ac6c231c5cba652495691eb54599d79ad96a615dbec06855f04184a84b9e95",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 1478979,
+          "sha256": "71ac6c231c5cba652495691eb54599d79ad96a615dbec06855f04184a84b9e95",
+          "prefixHex": "636f6e7374205f5f76697465",
+          "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Age": "1",
+            "Cache-Control": "public,max-age=0,must-revalidate",
+            "Cache-Status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+            "Content-Disposition": "inline; filename=\"arcade-0RsuEuFR.js\"",
+            "Content-Type": "application/javascript; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:08 GMT",
+            "Etag": "W/\"dc94ad2623f2f63e8e2b839c89eadd3b\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:07 GMT",
+            "Netlify-Vary": "query",
+            "Server": "Netlify",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Vary": "Accept-Encoding",
+            "X-Nf-Request-Id": "01M6PVV7E2JFGPGZB7QPGJ3QC9",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "fra1::478xt-1793916247684-bde08444412e",
+            "Connection": "close",
+            "Transfer-Encoding": "chunked"
+          }
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 1478979,
+          "sha256": "71ac6c231c5cba652495691eb54599d79ad96a615dbec06855f04184a84b9e95",
+          "prefixHex": "636f6e7374205f5f76697465",
+          "headers": {
+            "Accept-Ranges": "bytes",
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Disposition": "inline; filename=\"arcade-0RsuEuFR.js\"",
+            "Content-Length": "1478979",
+            "Content-Type": "application/javascript; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:08 GMT",
+            "Etag": "\"dc94ad2623f2f63e8e2b839c89eadd3b\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:08 GMT",
+            "Server": "Vercel",
+            "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "lhr1::cpg7d-1793916248440-67c604d99524",
+            "Connection": "close"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/assets/DiscoveryHeader-F1MGveSx.js",
+      "sha256": "f4aefdbc9b84ad67406334ca192132d21f09d6a6a26a3650b65185a8cefb87b2",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 197968,
+          "sha256": "f4aefdbc9b84ad67406334ca192132d21f09d6a6a26a3650b65185a8cefb87b2",
+          "prefixHex": "2866756e6374696f6e28297b",
+          "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public,max-age=0,must-revalidate",
+            "Cache-Status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+            "Content-Disposition": "inline; filename=\"DiscoveryHeader-F1MGveSx.js\"",
+            "Content-Type": "application/javascript; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:09 GMT",
+            "Etag": "W/\"e4cd4ac5e2dd94bd9e2be2332aecc1a0\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:09 GMT",
+            "Netlify-Vary": "query",
+            "Server": "Netlify",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Vary": "Accept-Encoding",
+            "X-Nf-Request-Id": "01M6PVV8YVST7DJEFNP3DJFAED",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "fra1::pn5nd-1793916249217-acae2e6150e7",
+            "Connection": "close",
+            "Transfer-Encoding": "chunked"
+          }
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 197968,
+          "sha256": "f4aefdbc9b84ad67406334ca192132d21f09d6a6a26a3650b65185a8cefb87b2",
+          "prefixHex": "2866756e6374696f6e28297b",
+          "headers": {
+            "Accept-Ranges": "bytes",
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Disposition": "inline; filename=\"DiscoveryHeader-F1MGveSx.js\"",
+            "Content-Length": "197968",
+            "Content-Type": "application/javascript; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:10 GMT",
+            "Etag": "\"e4cd4ac5e2dd94bd9e2be2332aecc1a0\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:10 GMT",
+            "Server": "Vercel",
+            "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "lhr1::gfrvd-1793916249912-fb90ac41872b",
+            "Connection": "close"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/assets/codeProgress-vW73Y7vt.js",
+      "sha256": "d7f7f104283387c99bcf1636996789bb543e0b1721a21b8614a897b2310d8f70",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 496168,
+          "sha256": "d7f7f104283387c99bcf1636996789bb543e0b1721a21b8614a897b2310d8f70",
+          "prefixHex": "696d706f72747b6320617320",
+          "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public,max-age=0,must-revalidate",
+            "Cache-Status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+            "Content-Disposition": "inline; filename=\"codeProgress-vW73Y7vt.js\"",
+            "Content-Type": "application/javascript; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:10 GMT",
+            "Etag": "W/\"bfb76ea17c25e4ab16b838b9faa5e595\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:10 GMT",
+            "Netlify-Vary": "query",
+            "Server": "Netlify",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Vary": "Accept-Encoding",
+            "X-Nf-Request-Id": "01M6PVVA9T406WC2XCK4RHTY7X",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "fra1::k4krf-1793916250609-f03d26e2dc59",
+            "Connection": "close",
+            "Transfer-Encoding": "chunked"
+          }
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 496168,
+          "sha256": "d7f7f104283387c99bcf1636996789bb543e0b1721a21b8614a897b2310d8f70",
+          "prefixHex": "696d706f72747b6320617320",
+          "headers": {
+            "Accept-Ranges": "bytes",
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Disposition": "inline; filename=\"codeProgress-vW73Y7vt.js\"",
+            "Content-Length": "496168",
+            "Content-Type": "application/javascript; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:11 GMT",
+            "Etag": "\"bfb76ea17c25e4ab16b838b9faa5e595\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:11 GMT",
+            "Server": "Vercel",
+            "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "lhr1::grqqx-1793916251274-1561460fcfc5",
+            "Connection": "close"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/assets/writingProgress-BANozLWz.js",
+      "sha256": "9987d91600a121640f33aab91fe7395942b2d6a44a1cced8286b32a769e031dc",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 9445,
+          "sha256": "9987d91600a121640f33aab91fe7395942b2d6a44a1cced8286b32a769e031dc",
+          "prefixHex": "636f6e737420503d4f626a65",
+          "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Age": "1",
+            "Cache-Control": "public,max-age=0,must-revalidate",
+            "Cache-Status": "\"Netlify Edge\"; fwd=stale; fwd-status=200; ttl=-2372; stored",
+            "Content-Disposition": "inline; filename=\"writingProgress-BANozLWz.js\"",
+            "Content-Type": "application/javascript; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:12 GMT",
+            "Etag": "W/\"c95489ce61c84b42869c0a9e1c104839\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:12 GMT",
+            "Netlify-Vary": "query",
+            "Server": "Netlify",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Vary": "Accept-Encoding",
+            "X-Nf-Request-Id": "01M6PVVBJ32VYTHH7Q1EGZZRCJ",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "fra1::fffqg-1793916252063-0933350d32be",
+            "Connection": "close",
+            "Transfer-Encoding": "chunked"
+          }
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "application/javascript; charset=utf-8",
+          "encoding": null,
+          "bytes": 9445,
+          "sha256": "9987d91600a121640f33aab91fe7395942b2d6a44a1cced8286b32a769e031dc",
+          "prefixHex": "636f6e737420503d4f626a65",
+          "headers": {
+            "Accept-Ranges": "bytes",
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Disposition": "inline; filename=\"writingProgress-BANozLWz.js\"",
+            "Content-Length": "9445",
+            "Content-Type": "application/javascript; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:12 GMT",
+            "Etag": "\"c95489ce61c84b42869c0a9e1c104839\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:12 GMT",
+            "Server": "Vercel",
+            "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "lhr1::wwdrd-1793916252328-fe047d1405d1",
+            "Connection": "close"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/assets/DiscoveryHeader-Dt86kjrx.css",
+      "sha256": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/css; charset=utf-8",
+          "encoding": null,
+          "bytes": 25695,
+          "sha256": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+          "prefixHex": "3a726f6f747b2d2d64697363",
+          "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public,max-age=0,must-revalidate",
+            "Cache-Status": "\"Netlify Edge\"; fwd=stale; fwd-status=200; ttl=-2349; stored",
+            "Content-Disposition": "inline; filename=\"DiscoveryHeader-Dt86kjrx.css\"",
+            "Content-Type": "text/css; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:12 GMT",
+            "Etag": "W/\"69dacbf669084c00d7752ad452686a3c\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:12 GMT",
+            "Netlify-Vary": "query",
+            "Server": "Netlify",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Vary": "Accept-Encoding",
+            "X-Nf-Request-Id": "01M6PVVCCJF30AKBWJQRAJ5R3Q",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "fra1::mwbmx-1793916252751-e9dcda20a21a",
+            "Connection": "close",
+            "Transfer-Encoding": "chunked"
+          }
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/css; charset=utf-8",
+          "encoding": null,
+          "bytes": 25695,
+          "sha256": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+          "prefixHex": "3a726f6f747b2d2d64697363",
+          "headers": {
+            "Accept-Ranges": "bytes",
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Disposition": "inline; filename=\"DiscoveryHeader-Dt86kjrx.css\"",
+            "Content-Length": "25695",
+            "Content-Type": "text/css; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:13 GMT",
+            "Etag": "\"69dacbf669084c00d7752ad452686a3c\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:13 GMT",
+            "Server": "Vercel",
+            "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "lhr1::ww97q-1793916253007-b29a9a26977e",
+            "Connection": "close"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/assets/arcade-F77KqWlw.css",
+      "sha256": "51ae55419d172eee759c753ca1840cda745f15acbaa5529d05a9b852e538b3c8",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/css; charset=utf-8",
+          "encoding": null,
+          "bytes": 297317,
+          "sha256": "51ae55419d172eee759c753ca1840cda745f15acbaa5529d05a9b852e538b3c8",
+          "prefixHex": "2a2c3a6265666f72652c3a61",
+          "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Age": "1",
+            "Cache-Control": "public,max-age=0,must-revalidate",
+            "Cache-Status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+            "Content-Disposition": "inline; filename=\"arcade-F77KqWlw.css\"",
+            "Content-Type": "text/css; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:14 GMT",
+            "Etag": "W/\"15fbd6374440d92843525585f81bff85\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:14 GMT",
+            "Netlify-Vary": "query",
+            "Server": "Netlify",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "Vary": "Accept-Encoding",
+            "X-Nf-Request-Id": "01M6PVVD1TQZEJ0A0DJDAADF4T",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "fra1::46bfg-1793916253849-a3ad2f957857",
+            "Connection": "close",
+            "Transfer-Encoding": "chunked"
+          }
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "text/css; charset=utf-8",
+          "encoding": null,
+          "bytes": 297317,
+          "sha256": "51ae55419d172eee759c753ca1840cda745f15acbaa5529d05a9b852e538b3c8",
+          "prefixHex": "2a2c3a6265666f72652c3a61",
+          "headers": {
+            "Accept-Ranges": "bytes",
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Disposition": "inline; filename=\"arcade-F77KqWlw.css\"",
+            "Content-Length": "297317",
+            "Content-Type": "text/css; charset=utf-8",
+            "Date": "Thu, 05 Nov 2026 22:04:14 GMT",
+            "Etag": "\"15fbd6374440d92843525585f81bff85\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:14 GMT",
+            "Server": "Vercel",
+            "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "lhr1::k4z8x-1793916254368-34fb8aa89da6",
+            "Connection": "close"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/art/catalog-v3/game-colormix.webp",
+      "sha256": "0ae052feca38c51f4e4dccb7f1604f477b1296d5c58f73f4e95fb19d6082f3cb",
+      "checks": [
+        {
+          "match": true,
+          "status": 200,
+          "type": "image/webp",
+          "encoding": null,
+          "bytes": 64010,
+          "sha256": "0ae052feca38c51f4e4dccb7f1604f477b1296d5c58f73f4e95fb19d6082f3cb",
+          "prefixHex": "5249464602fa000057454250",
+          "headers": {
+            "Accept-Ranges": "bytes",
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public,max-age=0,must-revalidate",
+            "Cache-Status": "\"Netlify Edge\"; fwd=stale; fwd-status=200; ttl=-2956; stored",
+            "Content-Disposition": "inline; filename=\"game-colormix.webp\"",
+            "Content-Length": "64010",
+            "Content-Type": "image/webp",
+            "Date": "Thu, 05 Nov 2026 22:04:14 GMT",
+            "Etag": "\"c035575bbf5f56b2935a2cfc90cb4ce4\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:14 GMT",
+            "Netlify-Vary": "query",
+            "Server": "Netlify",
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+            "X-Nf-Request-Id": "01M6PVVEJSVFN6R2F3DSRBA922",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "fra1::ckqd9-1793916254824-9c29b41653a5",
+            "Connection": "close"
+          }
+        },
+        {
+          "match": true,
+          "status": 200,
+          "type": "image/webp",
+          "encoding": null,
+          "bytes": 64010,
+          "sha256": "0ae052feca38c51f4e4dccb7f1604f477b1296d5c58f73f4e95fb19d6082f3cb",
+          "prefixHex": "5249464602fa000057454250",
+          "headers": {
+            "Accept-Ranges": "bytes",
+            "Access-Control-Allow-Origin": "*",
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Disposition": "inline; filename=\"game-colormix.webp\"",
+            "Content-Length": "64010",
+            "Content-Type": "image/webp",
+            "Date": "Thu, 05 Nov 2026 22:04:15 GMT",
+            "Etag": "\"c035575bbf5f56b2935a2cfc90cb4ce4\"",
+            "Last-Modified": "Thu, 05 Nov 2026 22:04:15 GMT",
+            "Server": "Vercel",
+            "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+            "X-Robots-Tag": "noindex",
+            "X-Vercel-Cache": "MISS",
+            "X-Vercel-Id": "lhr1::rqvsb-1793916255138-a2e659d53d3e",
+            "Connection": "close"
+          }
+        }
+      ]
+    }
+  ],
+  "entry": "/assets/arcade-0RsuEuFR.js"
+}
