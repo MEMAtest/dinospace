@@ -1,0 +1,84 @@
+{
+  "passed": false,
+  "origin": "https://dinospace.netlify.app",
+  "viewport": "390x740",
+  "lanes": [],
+  "errors": [],
+  "runtime": {
+    "origin": "https://dinospace.netlify.app",
+    "namespaced": true,
+    "entry": "/assets/arcade-C5jqYKfV.js",
+    "initialSurface": "player-chooser"
+  },
+  "networkTrace": [
+    {
+      "kind": "navigation",
+      "route": "https://dinospace.netlify.app/?qa_pair14_sky_monster=1793912065256#/home",
+      "at": 1793912065711
+    },
+    {
+      "kind": "navigation",
+      "route": "https://dinospace.netlify.app/?qa_pair14_sky_monster=1793912065256#/",
+      "at": 1793912065810
+    },
+    {
+      "kind": "navigation",
+      "route": "https://dinospace.netlify.app/?qa_pair14_sky_monster=1793912065256#/home",
+      "at": 1793912066246
+    },
+    {
+      "kind": "navigation",
+      "route": "https://dinospace.netlify.app/?qa_pair14_sky_monster=1793912065256#/world/maths",
+      "at": 1793912072722
+    }
+  ],
+  "failure": {
+    "message": "locator.click: Timeout 2000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.catalogue-game-card').filter({ hasText: 'Monster Math' })\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"↵      w-full catalogue-game-card relative group min-h-[330px] overflow-hidden rounded-[1.75rem] border-2 border-white/50 p-5 text-left transition-all duration-300↵      bg-gradient-to-br from-orange-400 to-red-500 shadow-[0_9px_0_rgba(15,23,42,0.14),0_18px_35px_rgba(15,23,42,0.12)] hover:shadow-[0_13px_0_rgba(15,23,42,0.13),0_24px_44px_rgba(15,23,42,0.18)]↵      hover:-translate-y-1 active:translate-y-2 active:shadow-none tap-highlight-none↵    \">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n",
+    "stack": [
+      "locator.click: Timeout 2000ms exceeded.",
+      "Call log:",
+      "\u001b[2m  - waiting for locator('.catalogue-game-card').filter({ hasText: 'Monster Math' })\u001b[22m",
+      "\u001b[2m    - locator resolved to <button class=\"↵      w-full catalogue-game-card relative group min-h-[330px] overflow-hidden rounded-[1.75rem] border-2 border-white/50 p-5 text-left transition-all duration-300↵      bg-gradient-to-br from-orange-400 to-red-500 shadow-[0_9px_0_rgba(15,23,42,0.14),0_18px_35px_rgba(15,23,42,0.12)] hover:shadow-[0_13px_0_rgba(15,23,42,0.13),0_24px_44px_rgba(15,23,42,0.18)]↵      hover:-translate-y-1 active:translate-y-2 active:shadow-none tap-highlight-none↵    \">…</button>\u001b[22m",
+      "\u001b[2m  - attempting click action\u001b[22m",
+      "\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m",
+      "",
+      "    at Object.clickControl (<anonymous>:157:19)"
+    ]
+  },
+  "failureScreenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/sky-monster-save-20261029/failure-390x740-arcade-C5jqYKfV-20261105T205423-617186000.jpg",
+  "stage": "production",
+  "runtimeSource": "72ce4a32ee6cf4ca69ffe3276161818b71870efd",
+  "entry": "/assets/arcade-C5jqYKfV.js",
+  "sourceHead": "d7e1b0850462ea95db9f9c2789e49fbaff527777",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/skyShapes.js": "b491170b8275afe2aa55bf1f82a01f275c58f2c0079ac20fd2c9e1c2025a0f51",
+    "src/data/skyShapesProgress.js": "8484f3a6f4e2e11b7600e97bfd0110c33e9b7d06a8d0cf0db249b78b87e73904",
+    "src/data/monsterMathEpisodes.js": "c77fd67c2fc3ed4e5c7442c1bebb0c94cb13b9d6f15306e97fa0eb3435c54c95",
+    "src/data/monsterMathProgress.js": "d3985cfc9789b3880e3c1277d781b951e9529bd8a7654a030c23bcd593b78a06",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/data/batch2Narration.js": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14",
+    "src/components/games/JetSkyShapes.jsx": "bd6d4c1da541d7e13c1abebf89cea236619f632520cfcc17570df160d9ce4c96",
+    "src/components/games/MonsterMath.jsx": "91ea50d60547ff2c70068f276994cd19da7e7be36ef72bcd585543ea55ba8675",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/sky-monster-save-20261029/protocol.md": "02ee46bae466687e43e6c46f48f09db34aa07a6820634eb9c527390368ada6b4",
+    "docs/qa-evidence/sky-monster-save-20261029/sky-monster-native.cjs": "75ed154fde60a08f4bac4fa8df9177cd70937ef843a1cd2b8b4449ce5026f78e"
+  },
+  "driverSHA256": "b51ebb73e64fadc75556311d357ddb7ee815e6acb3c15ea9c064505da696d4ce",
+  "runnerSHA256": "72edb55118cbdff3601cd5e301e7c0e911717c5bf30471c1ec171a9d270bbaf2",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "application/javascript; charset=utf-8",
+    "entryBytes": 1477523,
+    "entrySha256": "2525e0613588391d4bc4c4f6963cc2bab5c81f0f1f9bab1a0bcb2c42083b8fd0",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "sky-monster-resolution",
+  "mode": "full",
+  "scope": "Full actual-visible-control acceptance of all three Monster Math episodes and all three Sky Shapes queues at one viewport. No reset, data injection, provider call, hidden state, or automatic primary-task scrolling.",
+  "faultModeRequested": false
+}

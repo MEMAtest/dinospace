@@ -1914,5 +1914,11 @@
       "skipped": 0
     },
     "paidCalls": 0
+  },
+  "latestSkyMonsterAcceptanceResolution": {
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/sky-monster-resolution-20261105/README.md",
+    "runtime": "72ce4a32ee6cf4ca69ffe3276161818b71870efd",
+    "scope": "QA driver waits for visible catalogue imagery before reload; no product change, no new editorial or listening score."
   }
 }

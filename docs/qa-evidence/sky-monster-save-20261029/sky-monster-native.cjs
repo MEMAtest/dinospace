@@ -1201,6 +1201,19 @@ module.exports.prepareSkyPendingReload = async function prepareSkyPendingReload(
 
 async function reloadAndVerify(page, helper, expectedEntry, mathAfter, skyAfter) {
   const url = page.url();
+  // Returning to the catalogue starts lazy image requests asynchronously.
+  // Wait for actual visible images and the remaining started requests before
+  // an intentional reload; otherwise the reload itself aborts those requests.
+  const imageReadiness = await page.waitForFunction(() => {
+    const visible = [...document.images].filter(image => {
+      const rect = image.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < innerHeight;
+    });
+    if (!visible.length || visible.some(image => !image.complete || image.naturalWidth === 0)) return false;
+    return visible.map(image => ({ src: image.currentSrc, naturalWidth: image.naturalWidth }));
+  }, null, { timeout: 15000 });
+  const visibleCatalogueImages = await imageReadiness.jsonValue();
+  await page.waitForLoadState('networkidle', { timeout: 15000 });
   await page.reload({ waitUntil: 'domcontentloaded', timeout: 15000 });
   await selectAmariAtHome(page, helper);
   const result = await page.evaluate(({ mathRaw, skyRaw }) => ({
@@ -1210,5 +1223,5 @@ async function reloadAndVerify(page, helper, expectedEntry, mathAfter, skyAfter)
     skyBytes: new TextEncoder().encode(localStorage.getItem('amari_sky_shapes_progress_v1') || '').length,
   }), { mathRaw: mathAfter.raw, skyRaw: skyAfter.raw });
   if (!result.mathMatches || !result.skyMatches) throw new Error('Earned game records did not survive full reload');
-  return { ...result, urlAfterReload: url, runtime: await helper.assertRuntime() };
+  return { ...result, visibleCatalogueImagesBeforeReload: visibleCatalogueImages, urlAfterReload: url, runtime: await helper.assertRuntime() };
 }

@@ -7,12 +7,11 @@
   "batchSize": 2,
   "activePair": {
     "games": [
-      "Sky Shapes",
-      "Monster Math"
+      "Count the Stars",
+      "Addition Adventure"
     ],
-    "status": "current_release_full_journey_gate_open",
-    "scope": "All questions and flights completed, but full mobile and desktop reports failed on aborted catalogue image requests; investigate before acceptance.",
-    "evidence": "docs/qa-evidence/sky-monster-current-audit-20261105/README.md"
+    "status": "audit_in_progress",
+    "scope": "Review and verify the next maths pair on the current public runtime."
   },
   "pairs": [
     {
@@ -613,5 +612,11 @@
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
   "currentRuntime": "72ce4a32ee6cf4ca69ffe3276161818b71870efd",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
-  "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json"
+  "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
+  "skyMonsterCurrentResolution": {
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/sky-monster-resolution-20261105/README.md",
+    "runtime": "72ce4a32ee6cf4ca69ffe3276161818b71870efd",
+    "scope": "QA reload race fixed; production application unchanged; full visible-control phone and desktop journeys pass."
+  }
 }
