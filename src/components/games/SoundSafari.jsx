@@ -445,8 +445,11 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     </header>
     <main className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-start px-2 py-2 sm:justify-center sm:px-8 sm:py-5">
       {chapterIndex === null && !chapterResult && <section className={`${panel} mx-auto w-full max-w-2xl p-4 sm:p-7`}>
-        <h1 className="text-xl font-black text-emerald-950 sm:text-2xl">Choose a sound mission</h1>
-        <p className="mt-1 text-sm text-slate-600">Each mission has six short challenges. New missions open as you finish them.</p>
+        <div className="flex items-center gap-3">
+          <img src="/art/catalog-v3/game-phonics.webp" alt="" aria-hidden="true" className="h-16 w-20 shrink-0 object-contain sm:h-20 sm:w-24" />
+          <div className="min-w-0"><h1 className="text-xl font-black text-emerald-950 sm:text-2xl">Choose a sound mission</h1>
+          <p className="mt-1 text-sm text-slate-600">Each mission has six short challenges. New missions open as you finish them.</p></div>
+        </div>
         {!progressState.ok && <div role="alert" className="mt-3 rounded-xl border border-rose-300 bg-rose-50 p-3 text-sm font-bold text-rose-950"><p>Saved chapter progress could not be checked, so missions stay locked.</p><button type="button" onClick={retryProgressRead} disabled={rewardDrainPending} className={`${button} mt-2 border-rose-700 bg-white text-rose-950`}>{rewardDrainPending ? 'Checking saved progress…' : 'Retry saved progress'}</button></div>}
         {progressState.ok && (rewardDrainError || pendingSoundSafariRewardReceipts(progress.rewardReceipts ? progress : null).length > 0) && <div role="alert" className="mt-3 rounded-xl border border-amber-300 bg-amber-50 p-3 text-sm font-bold text-amber-950"><p>{rewardDrainError || 'A chapter reward still needs confirmation before continuing.'}</p><button type="button" onClick={retryProgressRead} disabled={rewardDrainPending} className={`${button} mt-2 border-amber-700 bg-white text-amber-950`}>{rewardDrainPending ? 'Checking chapter rewards…' : 'Retry reward confirmation'}</button></div>}
         {startError && <p role="alert" className="mt-3 rounded-xl border border-rose-300 bg-rose-50 p-3 text-sm font-bold text-rose-950">{startError}</p>}

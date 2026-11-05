@@ -347,9 +347,12 @@ export default function TimeTeller({
       {rewardClaimError && <section role="alert" className="mb-2 rounded-2xl border-2 border-amber-600 bg-white p-3 text-center font-bold"><p>A saved chapter reward still needs confirmation.</p><button type="button" onClick={() => void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry reward confirmation</button></section>}
       {startError && <p role="alert" className="mb-2 rounded-xl border-2 border-rose-500 bg-white p-3 text-center font-bold">{startError}</p>}
       <section className="rounded-3xl border-2 border-sky-200 bg-white p-3 text-center shadow-md sm:p-5" aria-label="Selected clock chapter">
-        <p className="text-xs font-black uppercase tracking-wide text-sky-800">Selected · Chapter {chapterIndex + 1} of 3</p>
-        <h2 className="mt-1 text-xl font-black text-sky-950">{chapter.title}</h2>
-        <p className="text-sm font-semibold text-slate-600">{chapter.skill} · six missions</p>
+        <div className="flex items-center justify-center gap-2">
+          <img src="/art/catalog-v3/game-timeteller.webp" alt="" aria-hidden="true" className="h-14 w-16 shrink-0 object-contain" />
+          <div className="min-w-0"><p className="text-xs font-black uppercase tracking-wide text-sky-800">Selected · Chapter {chapterIndex + 1} of 3</p>
+          <h2 className="mt-1 text-xl font-black text-sky-950">{chapter.title}</h2>
+          <p className="text-sm font-semibold text-slate-600">{chapter.skill} · six missions</p></div>
+        </div>
         <button type="button" data-timeteller-start disabled={!canStart || chapterIndex > progress.unlockedChapter} onClick={() => start(chapterIndex, Boolean(pendingStart))} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-800 px-5 text-lg font-black text-white shadow-md disabled:opacity-50">
           {pendingStart ? 'Retry saving this same six-mission run' : progress.completedChapterIds.includes(chapter.id) ? `Replay ${chapter.title}` : `Start ${chapter.title} →`}
         </button>
