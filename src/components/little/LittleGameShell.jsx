@@ -58,7 +58,7 @@ export const LevelDots = ({ level, total, className = '' }) => (
   </div>
 );
 
-const PairLevelSelector = ({ enabled, level, highestLevel, minimumLevel, onSelect, compact = false }) => {
+const PairLevelSelector = ({ enabled, level, highestLevel, minimumLevel, onSelect, compact = false, showRange = false }) => {
   if (!enabled) return null;
   return (
     <div role="group" aria-label="Unlocked practice levels" className={`w-full max-w-md rounded-2xl bg-white/80 shadow ${compact ? 'p-2' : 'p-3'}`}>
@@ -80,7 +80,7 @@ const PairLevelSelector = ({ enabled, level, highestLevel, minimumLevel, onSelec
           );
         })}
       </div>
-      {!compact && <p className="mt-2 text-sm font-bold text-slate-700">Available through Level {highestLevel + 1}.</p>}
+      {!compact && <p className="mt-2 text-sm font-bold text-slate-700">{showRange ? (minimumLevel === highestLevel ? `Your available level: ${minimumLevel + 1}.` : `Your available levels: ${minimumLevel + 1}–${highestLevel + 1}.`) : `Available through Level ${highestLevel + 1}.`}</p>}
     </div>
   );
 };
@@ -470,7 +470,7 @@ const LittleGameShell = ({
           {pairSafeProgress && gameId === 'shadowmatch' && pairSaveWarning && <button type="button" onClick={() => void drainShadowReceipts()} disabled={shadowRewardPending} className="min-h-12 rounded-full border-2 border-white bg-amber-100 px-5 font-black text-amber-950">{shadowRewardPending ? 'Checking rewards…' : 'Retry reward confirmation'}</button>}
           {restoredDinoReward && <button type="button" onClick={restoreDinoReward} className="min-h-12 rounded-full border-4 border-white bg-lime-500 px-5 font-black text-slate-950">{gameId === 'dinojigsaw' ? 'Retry saved puzzle rewards' : 'Retry saved dinosaur rewards'}</button>}
           <div className={`pair-compact-start-hero w-full animate-bounce-slow ${compactStart ? 'relative h-40 max-w-[18rem]' : 'max-w-md'}`}>{startArt}</div>
-          <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} />
+          <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} showRange={gameId === 'shadowmatch'} onSelect={setLevel} />
           <LevelDots level={level} total={levels.length} />
           <p className="max-w-md rounded-2xl bg-white/90 px-5 py-2 text-lg font-black text-slate-800 shadow-lg">{level < highestLevel ? 'Practice ' : ''}Level {level + 1} of {levels.length}: {LITTLE_LEVEL_GOALS[gameId]?.[level]}{pairSafeProgress && !compactStart ? `. Available through Level ${highestLevel + 1}.` : ''}</p>
           <button
@@ -563,7 +563,7 @@ const LittleGameShell = ({
               ))}
             </div>
           )}
-          <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} compact={compactDone} />
+          <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} showRange={gameId === 'shadowmatch'} onSelect={setLevel} compact={compactDone} />
           <div className={`flex items-end ${compactDone ? 'gap-3' : 'mt-2 gap-5'}`}>
             <div className="flex flex-col items-center gap-1">
               <BigRoundButton

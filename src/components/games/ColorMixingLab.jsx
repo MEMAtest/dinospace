@@ -247,8 +247,11 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
           {rewardClaimError && <section role="alert" className="mb-3 rounded-2xl border-2 border-amber-500 bg-white p-3 font-bold"><p>A saved paint star still needs confirmation.</p><button type="button" onClick={() => void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry saved stars</button></section>}
           {saveError && <p role="alert" className="mb-3 rounded-xl border-2 border-rose-400 bg-white p-3 font-bold">{saveError}</p>}
           <section className="rounded-[28px] border border-[#e2e7df] bg-white p-4 text-center shadow-sm sm:p-10" aria-label="Selected paint lab">
-            <p className="text-xs font-black uppercase tracking-widest" style={{color:labInfo.accent}}>Selected · Lab {labPosition + 1} of 3</p><h2 className="mt-1 text-2xl font-black sm:mt-2 sm:text-3xl">{labInfo.title}</h2>
-            <p className="mt-1 font-extrabold">Six paint missions</p>
+            <div className="flex items-center justify-center gap-3">
+              <img src="/art/catalog-v3/game-colormix.webp" alt="" aria-hidden="true" className="h-16 w-20 shrink-0 object-contain" />
+              <div className="min-w-0"><p className="text-xs font-black uppercase tracking-widest" style={{color:labInfo.accent}}>Selected · Lab {labPosition + 1} of 3</p><h2 className="mt-1 text-2xl font-black sm:mt-2 sm:text-3xl">{labInfo.title}</h2>
+              <p className="mt-1 font-extrabold">Six paint missions</p></div>
+            </div>
             <button type="button" data-colour-lab-start disabled={!canStartLab || !labUnlocked(activeLab)} onClick={() => startLab()} className="mt-3 min-h-14 w-full max-w-md rounded-2xl px-6 text-lg font-black text-white shadow disabled:opacity-50" style={{backgroundColor:labInfo.accent}}>Start {labInfo.title}<ArrowRight className="ml-2 inline" size={20}/></button>
             <p className="mx-auto mt-2 max-w-xl text-sm font-semibold leading-5 text-[#647677]">{labInfo.lesson}</p>
           </section>
