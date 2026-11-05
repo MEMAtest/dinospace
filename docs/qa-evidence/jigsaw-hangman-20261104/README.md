@@ -18,3 +18,5 @@ Jigsaw production reports for this exact release:
 - `docs/qa-evidence/chess-jigsaw-20261029/production-askia-L4-390x740-20261104T235418-106194000.json`
 - `docs/qa-evidence/chess-jigsaw-20261029/production-askia-L5-390x740-20261104T235432-393373000.json`
 - `docs/qa-evidence/chess-jigsaw-20261029/production-askia-L5-390x740-20261104T235456-156788000.json`
+
+After the subsequent literacy release, representative canonical v64 checks also passed: `production-hangman-v64-challenge-390.json` and `docs/qa-evidence/chess-jigsaw-20261029/production-askia-L5-390x740-20261105T001601-344352000.json` (12-piece emulated touch). The full v62 matrix above remains bound to its actual tested entry.
