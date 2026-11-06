@@ -1,0 +1,97 @@
+{
+  "files": [
+    {
+      "id": "sit",
+      "duration": 0.510839,
+      "hashMatches": true
+    },
+    {
+      "id": "sip",
+      "duration": 0.557279,
+      "hashMatches": true
+    },
+    {
+      "id": "tip",
+      "duration": 0.557279,
+      "hashMatches": true
+    },
+    {
+      "id": "pit",
+      "duration": 0.557279,
+      "hashMatches": true
+    },
+    {
+      "id": "pin",
+      "duration": 0.510839,
+      "hashMatches": true
+    },
+    {
+      "id": "tin",
+      "duration": 0.510839,
+      "hashMatches": true
+    },
+    {
+      "id": "tap",
+      "duration": 0.603719,
+      "hashMatches": true
+    },
+    {
+      "id": "nap",
+      "duration": 0.557279,
+      "hashMatches": true
+    },
+    {
+      "id": "pan",
+      "duration": 0.650159,
+      "hashMatches": true
+    },
+    {
+      "id": "pat",
+      "duration": 0.603719,
+      "hashMatches": true
+    },
+    {
+      "id": "sap",
+      "duration": 0.650159,
+      "hashMatches": true
+    },
+    {
+      "id": "pip",
+      "duration": 0.557279,
+      "hashMatches": true
+    },
+    {
+      "id": "snip",
+      "duration": 0.557279,
+      "hashMatches": true
+    },
+    {
+      "id": "snap",
+      "duration": 0.603719,
+      "hashMatches": true
+    },
+    {
+      "id": "spin",
+      "duration": 0.650159,
+      "hashMatches": true
+    },
+    {
+      "id": "pants",
+      "duration": 0.650159,
+      "hashMatches": true
+    },
+    {
+      "id": "insect",
+      "duration": 0.696599,
+      "hashMatches": true
+    },
+    {
+      "id": "blend-instruction",
+      "duration": 4.643991,
+      "hashMatches": true
+    }
+  ],
+  "count": 18,
+  "passed": true,
+  "scope": "18 recordings; ant absent after HTTP 401, no listening assessment"
+}

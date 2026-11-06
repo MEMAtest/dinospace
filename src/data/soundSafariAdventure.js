@@ -33,6 +33,14 @@ export const SOUND_SAFARI_NARRATION_INVENTORY = Object.freeze([
   ...SOUND_SAFARI_WORDS.map(({ word }) => word),
 ]);
 
+// These clips match the voice used for the six individually recorded sounds.
+export const getSoundSafariVoiceClip = (text) => {
+  const value = String(text || '').trim().toLowerCase();
+  if (value === SOUND_SAFARI_BLEND_PROMPT.toLowerCase()) return '/audio/sound-safari/daniel/blend-instruction.mp3';
+  const word = SOUND_SAFARI_WORDS.find((item) => item.word.toLowerCase() === value);
+  return word ? `/audio/sound-safari/daniel/${word.id}.mp3` : null;
+};
+
 export const SOUND_SAFARI_CHAPTERS = Object.freeze([
   { id: 'listen', title: 'Listen for a sound', skill: 'phoneme-recognition', intro: 'Listen to the sound. Choose the picture that begins the same way.' },
   { id: 'blend', title: 'Blend the sounds', skill: 'oral-blending', intro: 'Tap each sound, then slide the sounds together to make a word.' },
