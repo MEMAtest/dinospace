@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1441,
+      "sha256": "f4103a06fd47f75ff8e518d21ed9c48816ca3b81393a247cfda74a2d3deb3d30",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "bytes": 16575,
+      "sha256": "75ef5a2207c7bf04fa544adea749f6e31da942bdcad116ba31c49b46769b8369",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/assets/arcade-DTw2uC-a.js",
+      "status": 200,
+      "bytes": 1471486,
+      "sha256": "d5398ec2243bfb74d46c479b395fcb34a89a9b6693af1427258590bfe44d5bf2",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/assets/DiscoveryHeader-F1MGveSx.js",
+      "status": 200,
+      "bytes": 197968,
+      "sha256": "f4aefdbc9b84ad67406334ca192132d21f09d6a6a26a3650b65185a8cefb87b2",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/assets/codeProgress-vW73Y7vt.js",
+      "status": 200,
+      "bytes": 496168,
+      "sha256": "d7f7f104283387c99bcf1636996789bb543e0b1721a21b8614a897b2310d8f70",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/assets/writingProgress-BANozLWz.js",
+      "status": 200,
+      "bytes": 9445,
+      "sha256": "9987d91600a121640f33aab91fe7395942b2d6a44a1cced8286b32a769e031dc",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/assets/DiscoveryHeader-Dt86kjrx.css",
+      "status": 200,
+      "bytes": 25695,
+      "sha256": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/assets/arcade-Bry8rzD4.css",
+      "status": 200,
+      "bytes": 297288,
+      "sha256": "0217c672463e770fc8bcd0288f51b53e04e7b79947db91fef79dfaac08706e90",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/art/catalog-v3/game-puzzle.webp",
+      "status": 200,
+      "bytes": 71080,
+      "sha256": "b3e57a432e510e36da1f0a520e2ce68b749c07988a328265564c29e1a5c33632",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/art/catalog-v3/game-spot.webp",
+      "status": 200,
+      "bytes": 68034,
+      "sha256": "fc8eea0d85e83956609efbb99e6b2d4b32ead62377bc581a1cb52eb2b40208b5",
+      "match": true,
+      "encoding": null
+    }
+  ]
+}

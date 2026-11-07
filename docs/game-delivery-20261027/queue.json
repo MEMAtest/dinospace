@@ -512,6 +512,25 @@
       "entry": "/assets/arcade-0RsuEuFR.js",
       "openGate": null,
       "scope": "103 actual interactions per viewport; menu illustration and accurate available-level range; no new editorial or listening score."
+    },
+    {
+      "number": 25,
+      "games": [
+        {
+          "id": "puzzle",
+          "name": "Puzzle Pop"
+        },
+        {
+          "id": "spot",
+          "name": "Spot the Difference"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/puzzle-spot-uplift-20261107/README.md",
+      "runtime": "c6f87e8681bfa725f0a54080f7f55836057ddb66",
+      "entry": "/assets/arcade-DTw2uC-a.js",
+      "openGate": null,
+      "scope": "Illustrated chapter screens and visible Spot progress; full 12-scene/12-pair journeys on each viewport, no new editorial or listening score."
     }
   ],
   "retainedReleasedScopes": [
@@ -686,7 +705,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "3156525648283dc8747c58ac4709d5528665c5c9",
+  "currentRuntime": "c6f87e8681bfa725f0a54080f7f55836057ddb66",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {

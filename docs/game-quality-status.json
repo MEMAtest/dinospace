@@ -1245,25 +1245,24 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": "Sound Safari Daniel voice consistency",
-    "runtime": "3156525648283dc8747c58ac4709d5528665c5c9",
-    "entry": "/assets/arcade-D_qRocaF.js",
+    "pair": "Puzzle Pop and Spot the Difference chapter presentation and progress",
+    "runtime": "c6f87e8681bfa725f0a54080f7f55836057ddb66",
+    "entry": "/assets/arcade-DTw2uC-a.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-lj22ib5gf-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_Ab5xx6qNVT5KexYMfFteUzT35TU1",
-    "netlifyGatewayDeploy": "6aee6c207c24d587c81975aa",
-    "serviceWorkerCache": "amari-discovery-v70",
+    "backendUrl": "https://dinospace-okarv4nae-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_GJfzGbT1njTyzbWadvgHJrasBvFx",
+    "netlifyGatewayDeploy": "6aee77b5d0c7c4ec1123b332",
+    "serviceWorkerCache": "amari-discovery-v71",
     "status": "live_verified_targeted",
-    "evidence": "docs/qa-evidence/safari-daniel-20261106/README.md",
-    "verifiedAt": "2026-11-07T00:12:40.306433+00:00",
-    "scope": "Daniel word, instruction and explanation clips, actual playback and full 72-question journeys per viewport; no human pronunciation review.",
+    "evidence": "docs/qa-evidence/puzzle-spot-uplift-20261107/README.md",
+    "verifiedAt": "2026-11-07T01:04:15.148694+00:00",
+    "scope": "Illustrated chapter screens and visible Spot progress; full 12-scene/12-pair journeys on each viewport, no new editorial or listening score.",
     "sourceTests": {
       "passed": 760,
       "failed": 0,
       "skipped": 0
     },
-    "providerAttempts": 20,
-    "savedRecordings": 19
+    "paidCalls": 0
   },
   "latestDinoHangmanUplift": {
     "pair": 7,
@@ -2042,5 +2041,25 @@
     },
     "providerAttempts": 20,
     "savedRecordings": 19
+  },
+  "latestPuzzleSpotPresentationUpdate": {
+    "pair": "Puzzle Pop and Spot the Difference chapter presentation and progress",
+    "runtime": "c6f87e8681bfa725f0a54080f7f55836057ddb66",
+    "entry": "/assets/arcade-DTw2uC-a.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-okarv4nae-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_GJfzGbT1njTyzbWadvgHJrasBvFx",
+    "netlifyGatewayDeploy": "6aee77b5d0c7c4ec1123b332",
+    "serviceWorkerCache": "amari-discovery-v71",
+    "status": "live_verified_targeted",
+    "evidence": "docs/qa-evidence/puzzle-spot-uplift-20261107/README.md",
+    "verifiedAt": "2026-11-07T01:04:15.148694+00:00",
+    "scope": "Illustrated chapter screens and visible Spot progress; full 12-scene/12-pair journeys on each viewport, no new editorial or listening score.",
+    "sourceTests": {
+      "passed": 760,
+      "failed": 0,
+      "skipped": 0
+    },
+    "paidCalls": 0
   }
 }

@@ -1,0 +1,4288 @@
+{
+  "origin": "https://dinospace.netlify.app",
+  "expectedEntry": "/assets/arcade-DTw2uC-a.js",
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "faultsEnabled": false,
+  "passed": true,
+  "lanes": [
+    {
+      "id": "puzzle",
+      "taskIdentity": "Puzzle Pop: all 3 chapters and 12 visible scene titles",
+      "wrongRetryRetained": true,
+      "transition": "held",
+      "heldExplanation": "Final picture facts were visible on each scene-complete surface.",
+      "heldNextGeometry": [
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 863,
+            "y": 471,
+            "width": 161.75,
+            "height": 48,
+            "right": 1024.75,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 863,
+            "y": 471,
+            "width": 161.75,
+            "height": 48,
+            "right": 1024.75,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 863,
+            "y": 471,
+            "width": 161.75,
+            "height": 48,
+            "right": 1024.75,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next chapter",
+          "rect": {
+            "x": 760.6875,
+            "y": 471,
+            "width": 166.703125,
+            "height": 48,
+            "right": 927.390625,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 863,
+            "y": 471,
+            "width": 161.75,
+            "height": 48,
+            "right": 1024.75,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 863,
+            "y": 471,
+            "width": 161.75,
+            "height": 48,
+            "right": 1024.75,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 863,
+            "y": 471,
+            "width": 161.75,
+            "height": 48,
+            "right": 1024.75,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next chapter",
+          "rect": {
+            "x": 760.6875,
+            "y": 471,
+            "width": 166.703125,
+            "height": 48,
+            "right": 927.390625,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 863,
+            "y": 471,
+            "width": 161.75,
+            "height": 48,
+            "right": 1024.75,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 863,
+            "y": 471,
+            "width": 161.75,
+            "height": 48,
+            "right": 1024.75,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 863,
+            "y": 471,
+            "width": 161.75,
+            "height": 48,
+            "right": 1024.75,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "See chapter reward",
+          "rect": {
+            "x": 734.15625,
+            "y": 471,
+            "width": 219.75,
+            "height": 48,
+            "right": 953.90625,
+            "bottom": 519
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "puzzleRows": [
+        {
+          "chapter": "Picture Pioneers",
+          "scene": 1,
+          "title": "River Valley",
+          "pieces": 9,
+          "wrongRetry": true,
+          "heldFact": "River Valley complete!\n\nPicture fact: Rivers carry fresh water across the land and create homes for plants and animals.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 863,
+              "y": 471,
+              "width": 161.75,
+              "height": 48,
+              "right": 1024.75,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": {
+            "checked": true,
+            "packaged": true,
+            "events": [
+              {
+                "src": "https://dinospace.netlify.app/audio/en/81e4111d-matilda.mp3",
+                "origin": "https://dinospace.netlify.app",
+                "pathname": "/audio/en/81e4111d-matilda.mp3",
+                "currentTime": 0,
+                "duration": 6.176508,
+                "paused": true,
+                "ended": false,
+                "events": [
+                  {
+                    "type": "play-call",
+                    "time": 0,
+                    "at": 12339.40000000596
+                  },
+                  {
+                    "type": "play",
+                    "time": 0,
+                    "at": 12393.09999999404
+                  },
+                  {
+                    "type": "playing",
+                    "time": 0,
+                    "at": 12397.5
+                  },
+                  {
+                    "type": "timeupdate",
+                    "time": 0.237122,
+                    "at": 12662.40000000596
+                  },
+                  {
+                    "type": "timeupdate",
+                    "time": 0.49204,
+                    "at": 12927.59999999404
+                  },
+                  {
+                    "type": "timeupdate",
+                    "time": 0.768928,
+                    "at": 13193.40000000596
+                  }
+                ],
+                "packaged": true
+              }
+            ]
+          }
+        },
+        {
+          "chapter": "Picture Pioneers",
+          "scene": 2,
+          "title": "Dino Park",
+          "pieces": 9,
+          "wrongRetry": false,
+          "heldFact": "Dino Park complete!\n\nPicture fact: Some dinosaurs ate plants, and some ate meat. Their teeth helped scientists learn what they ate.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 863,
+              "y": 471,
+              "width": 161.75,
+              "height": 48,
+              "right": 1024.75,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": null
+        },
+        {
+          "chapter": "Picture Pioneers",
+          "scene": 3,
+          "title": "Robin’s Tree",
+          "pieces": 9,
+          "wrongRetry": false,
+          "heldFact": "Robin’s Tree complete!\n\nPicture fact: Robins use their beaks to find small insects and worms in the soil.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 863,
+              "y": 471,
+              "width": 161.75,
+              "height": 48,
+              "right": 1024.75,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": null
+        },
+        {
+          "chapter": "Picture Pioneers",
+          "scene": 4,
+          "title": "Moon Camp",
+          "pieces": 9,
+          "wrongRetry": false,
+          "heldFact": "Picture Pioneers complete!\n\nPicture fact: The Moon shines because sunlight bounces off its rocky surface.\n\nHear fact again\nNext chapter\nReplay pictures",
+          "next": "Next chapter",
+          "nextGeometry": {
+            "text": "Next chapter",
+            "rect": {
+              "x": 760.6875,
+              "y": 471,
+              "width": 166.703125,
+              "height": 48,
+              "right": 927.390625,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": null
+        },
+        {
+          "chapter": "Curious Constructors",
+          "scene": 1,
+          "title": "Hero City Helpers",
+          "pieces": 16,
+          "wrongRetry": true,
+          "heldFact": "Hero City Helpers complete!\n\nPicture fact: People in a community share places such as roads, parks, shops and homes.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 863,
+              "y": 471,
+              "width": 161.75,
+              "height": 48,
+              "right": 1024.75,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": {
+            "checked": true,
+            "packaged": true,
+            "events": [
+              {
+                "src": "https://dinospace.netlify.app/audio/en/0641d5d3-matilda.mp3",
+                "origin": "https://dinospace.netlify.app",
+                "pathname": "/audio/en/0641d5d3-matilda.mp3",
+                "currentTime": 0,
+                "duration": 7.105306,
+                "paused": true,
+                "ended": false,
+                "events": [
+                  {
+                    "type": "play-call",
+                    "time": 0,
+                    "at": 43885.40000000596
+                  },
+                  {
+                    "type": "play",
+                    "time": 0,
+                    "at": 43938.80000001192
+                  },
+                  {
+                    "type": "playing",
+                    "time": 0,
+                    "at": 43942.59999999404
+                  },
+                  {
+                    "type": "timeupdate",
+                    "time": 0.214145,
+                    "at": 44193.30000001192
+                  }
+                ],
+                "packaged": true
+              }
+            ]
+          }
+        },
+        {
+          "chapter": "Curious Constructors",
+          "scene": 2,
+          "title": "Treehouse Robots",
+          "pieces": 16,
+          "wrongRetry": false,
+          "heldFact": "Treehouse Robots complete!\n\nPicture fact: A clear set of steps helps a robot know what to do next.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 863,
+              "y": 471,
+              "width": 161.75,
+              "height": 48,
+              "right": 1024.75,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": null
+        },
+        {
+          "chapter": "Curious Constructors",
+          "scene": 3,
+          "title": "Sound Safari",
+          "pieces": 16,
+          "wrongRetry": false,
+          "heldFact": "Sound Safari complete!\n\nPicture fact: Listening carefully helps us tell the difference between sounds that are alike.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 863,
+              "y": 471,
+              "width": 161.75,
+              "height": 48,
+              "right": 1024.75,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": null
+        },
+        {
+          "chapter": "Curious Constructors",
+          "scene": 4,
+          "title": "Pattern Festival",
+          "pieces": 16,
+          "wrongRetry": false,
+          "heldFact": "Curious Constructors complete!\n\nPicture fact: A pattern repeats a rule. Finding the rule helps you know what comes next.\n\nHear fact again\nNext chapter\nReplay pictures",
+          "next": "Next chapter",
+          "nextGeometry": {
+            "text": "Next chapter",
+            "rect": {
+              "x": 760.6875,
+              "y": 471,
+              "width": 166.703125,
+              "height": 48,
+              "right": 927.390625,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": null
+        },
+        {
+          "chapter": "Detail Detectives",
+          "scene": 1,
+          "title": "History Hall",
+          "pieces": 25,
+          "wrongRetry": true,
+          "heldFact": "History Hall complete!\n\nPicture fact: Historians use objects, pictures and stories as clues about the past.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 863,
+              "y": 471,
+              "width": 161.75,
+              "height": 48,
+              "right": 1024.75,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": {
+            "checked": true,
+            "packaged": true,
+            "events": [
+              {
+                "src": "https://dinospace.netlify.app/audio/en/7d096273-matilda.mp3",
+                "origin": "https://dinospace.netlify.app",
+                "pathname": "/audio/en/7d096273-matilda.mp3",
+                "currentTime": 0.075509,
+                "duration": 6.222948,
+                "paused": false,
+                "ended": false,
+                "events": [
+                  {
+                    "type": "play-call",
+                    "time": 0,
+                    "at": 92677.80000001192
+                  },
+                  {
+                    "type": "play",
+                    "time": 0,
+                    "at": 92729.59999999404
+                  },
+                  {
+                    "type": "playing",
+                    "time": 0,
+                    "at": 92733.59999999404
+                  }
+                ],
+                "packaged": true
+              }
+            ]
+          }
+        },
+        {
+          "chapter": "Detail Detectives",
+          "scene": 2,
+          "title": "Time Observatory",
+          "pieces": 25,
+          "wrongRetry": false,
+          "heldFact": "Time Observatory complete!\n\nPicture fact: Earth spins once each day. That spin gives us day and night.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 863,
+              "y": 471,
+              "width": 161.75,
+              "height": 48,
+              "right": 1024.75,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": null
+        },
+        {
+          "chapter": "Detail Detectives",
+          "scene": 3,
+          "title": "Nature Lab",
+          "pieces": 25,
+          "wrongRetry": false,
+          "heldFact": "Nature Lab complete!\n\nPicture fact: Leaves can have different shapes, but they all help plants use sunlight.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 863,
+              "y": 471,
+              "width": 161.75,
+              "height": 48,
+              "right": 1024.75,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": null
+        },
+        {
+          "chapter": "Detail Detectives",
+          "scene": 4,
+          "title": "World Explorer",
+          "pieces": 25,
+          "wrongRetry": false,
+          "heldFact": "Detail Detectives complete!\n\nPicture fact: Maps use symbols and pictures to help us understand places.\n\nHear fact again\nSee chapter reward\nReplay pictures",
+          "next": "See chapter reward",
+          "nextGeometry": {
+            "text": "See chapter reward",
+            "rect": {
+              "x": 734.15625,
+              "y": 471,
+              "width": 219.75,
+              "height": 48,
+              "right": 953.90625,
+              "bottom": 519
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "audio": null
+        }
+      ],
+      "uniqueSceneTitles": {
+        "Picture Pioneers": [
+          "River Valley",
+          "Dino Park",
+          "Robin’s Tree",
+          "Moon Camp"
+        ],
+        "Curious Constructors": [
+          "Hero City Helpers",
+          "Treehouse Robots",
+          "Sound Safari",
+          "Pattern Festival"
+        ],
+        "Detail Detectives": [
+          "History Hall",
+          "Time Observatory",
+          "Nature Lab",
+          "World Explorer"
+        ]
+      },
+      "placements": 200,
+      "faultChecks": {
+        "enabled": false,
+        "localProgress": {
+          "exercised": false,
+          "reason": "The local 9-piece first scene was not reached."
+        },
+        "parentRewardEligibility": {
+          "index": null,
+          "reason": "Fault mode disabled."
+        },
+        "parentReward": {
+          "exercised": false,
+          "reason": "Fault mode disabled."
+        }
+      },
+      "allowedKeys": [
+        "amari_puzzle_pop_batch2_v1"
+      ],
+      "storage": {
+        "changed": [
+          "qa_rewards_20261024_amari_game_diagnostics_v1",
+          "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+          "qa_rewards_20261024_amari_learning_attempts_v1",
+          "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+          "qa_rewards_20261024_amari_recent_games",
+          "qa_rewards_20261024_amari_skill_mastery_v1"
+        ],
+        "unexpected": [],
+        "unchanged": [
+          "amari-sound-on",
+          "qa_rewards_20261024_amari_addition_progress_v1",
+          "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+          "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+          "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+          "qa_rewards_20261024_amari_challenge_done",
+          "qa_rewards_20261024_amari_challenge_progress",
+          "qa_rewards_20261024_amari_chapter_badges_v1",
+          "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+          "qa_rewards_20261024_amari_chess_game_v1",
+          "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+          "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+          "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+          "qa_rewards_20261024_amari_cosmic_tactics_v1",
+          "qa_rewards_20261024_amari_curriculum_badges_v1",
+          "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_preferences_v1",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_discovery_active_player",
+          "qa_rewards_20261024_amari_discovery_passport_v1",
+          "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+          "qa_rewards_20261024_amari_favourite_games",
+          "qa_rewards_20261024_amari_game_levels_v1",
+          "qa_rewards_20261024_amari_games_played",
+          "qa_rewards_20261024_amari_german_chapter_progress_v1",
+          "qa_rewards_20261024_amari_german_recent_targets_v1",
+          "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+          "qa_rewards_20261024_amari_lastplay",
+          "qa_rewards_20261024_amari_learning_migration_v1",
+          "qa_rewards_20261024_amari_letter_launch_progress_v1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+          "qa_rewards_20261024_amari_letter_trace_progress_v1",
+          "qa_rewards_20261024_amari_little_progress",
+          "qa_rewards_20261024_amari_memory_best",
+          "qa_rewards_20261024_amari_memory_completion_v1",
+          "qa_rewards_20261024_amari_memory_passport_v1",
+          "qa_rewards_20261024_amari_memory_resume_v1",
+          "qa_rewards_20261024_amari_monster_math_progress_v1",
+          "qa_rewards_20261024_amari_numberline_progress_v1",
+          "qa_rewards_20261024_amari_oddoneout_progress_v1",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+          "qa_rewards_20261024_amari_points",
+          "qa_rewards_20261024_amari_rewards_v2",
+          "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+          "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+          "qa_rewards_20261024_amari_spelling_progress_v1",
+          "qa_rewards_20261024_amari_spelling_recent_v1",
+          "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+          "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "qa_rewards_20261024_amari_storybook_progress_v1",
+          "qa_rewards_20261024_amari_streak",
+          "qa_rewards_20261024_amari_subtraction_progress_v1",
+          "qa_rewards_20261024_amari_timeteller_progress_v1",
+          "qa_rewards_20261024_amari_voice_mode_v4",
+          "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+          "qa_rewards_20261024_amari_writing_samples_v1",
+          "qa_rewards_20261024_askia_challenge_done",
+          "qa_rewards_20261024_askia_challenge_progress",
+          "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+          "qa_rewards_20261024_askia_favourite_games",
+          "qa_rewards_20261024_askia_games_played",
+          "qa_rewards_20261024_askia_lastplay",
+          "qa_rewards_20261024_askia_little_progress",
+          "qa_rewards_20261024_askia_points",
+          "qa_rewards_20261024_askia_recent_games",
+          "qa_rewards_20261024_askia_rewards_v2",
+          "qa_rewards_20261024_askia_streak",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+        ]
+      },
+      "parentReturned": true
+    },
+    {
+      "id": "spot",
+      "taskIdentity": "Spot the Difference: all 3 chapters and 12 visible pair titles",
+      "wrongRetryRetained": true,
+      "transition": "held",
+      "heldExplanation": "Final pair facts remained on screen with the explicit replay action.",
+      "heldNextGeometry": [
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 639.625,
+            "y": 467,
+            "width": 160.75,
+            "height": 48,
+            "right": 800.375,
+            "bottom": 515
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 639.625,
+            "y": 443,
+            "width": 160.75,
+            "height": 48,
+            "right": 800.375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 639.625,
+            "y": 443,
+            "width": 160.75,
+            "height": 48,
+            "right": 800.375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next chapter",
+          "rect": {
+            "x": 541.65625,
+            "y": 443,
+            "width": 165.703125,
+            "height": 48,
+            "right": 707.359375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 639.625,
+            "y": 443,
+            "width": 160.75,
+            "height": 48,
+            "right": 800.375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 639.625,
+            "y": 443,
+            "width": 160.75,
+            "height": 48,
+            "right": 800.375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 639.625,
+            "y": 443,
+            "width": 160.75,
+            "height": 48,
+            "right": 800.375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next chapter",
+          "rect": {
+            "x": 541.65625,
+            "y": 443,
+            "width": 165.703125,
+            "height": 48,
+            "right": 707.359375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 639.625,
+            "y": 443,
+            "width": 160.75,
+            "height": 48,
+            "right": 800.375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 639.625,
+            "y": 443,
+            "width": 160.75,
+            "height": 48,
+            "right": 800.375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Next picture",
+          "rect": {
+            "x": 639.625,
+            "y": 443,
+            "width": 160.75,
+            "height": 48,
+            "right": 800.375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Replay chapter",
+          "rect": {
+            "x": 628.515625,
+            "y": 443,
+            "width": 182.96875,
+            "height": 48,
+            "right": 811.484375,
+            "bottom": 491
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "spotRows": [
+        {
+          "chapter": "Bright-Eyed Beginners",
+          "pair": 1,
+          "title": "Superhero City",
+          "changes": 3,
+          "wrongRetry": true,
+          "usedHints": 2,
+          "fact": "🏆\n\nSuperhero City pair complete!\n\nPicture fact: People help their community by sharing and caring for the places where they live.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 639.625,
+              "y": 467,
+              "width": 160.75,
+              "height": 48,
+              "right": 800.375,
+              "bottom": 515
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check left top detail",
+              "rect": {
+                "x": 809.75,
+                "y": 395.25,
+                "width": 48,
+                "height": 48,
+                "right": 857.75,
+                "bottom": 443.25
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right bottom detail",
+              "rect": {
+                "x": 1009.671875,
+                "y": 563.546875,
+                "width": 48,
+                "height": 48,
+                "right": 1057.671875,
+                "bottom": 611.546875
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right top detail",
+              "rect": {
+                "x": 1005.59375,
+                "y": 386.078125,
+                "width": 48,
+                "height": 48,
+                "right": 1053.59375,
+                "bottom": 434.078125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "tabsVisible": false
+          },
+          "audio": {
+            "checked": true,
+            "packaged": true,
+            "events": [
+              {
+                "src": "https://dinospace.netlify.app/audio/en/2f2b4a34-matilda.mp3",
+                "origin": "https://dinospace.netlify.app",
+                "pathname": "/audio/en/2f2b4a34-matilda.mp3",
+                "currentTime": 0.051635,
+                "duration": 5.851429,
+                "paused": false,
+                "ended": false,
+                "events": [
+                  {
+                    "type": "play-call",
+                    "time": 0,
+                    "at": 139109.40000000596
+                  },
+                  {
+                    "type": "play",
+                    "time": 0,
+                    "at": 139161.69999998808
+                  },
+                  {
+                    "type": "playing",
+                    "time": 0,
+                    "at": 139164.59999999404
+                  }
+                ],
+                "packaged": true
+              }
+            ]
+          },
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Bright-Eyed Beginners",
+          "pair": 2,
+          "title": "Dino Park",
+          "changes": 3,
+          "wrongRetry": false,
+          "usedHints": 2,
+          "fact": "🏆\n\nDino Park pair complete!\n\nPicture fact: Fossils are clues that help scientists learn about dinosaurs.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 639.625,
+              "y": 443,
+              "width": 160.75,
+              "height": 48,
+              "right": 800.375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check left middle detail",
+              "rect": {
+                "x": 834.234375,
+                "y": 529.890625,
+                "width": 48,
+                "height": 48,
+                "right": 882.234375,
+                "bottom": 577.890625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left bottom detail",
+              "rect": {
+                "x": 785.265625,
+                "y": 594.15625,
+                "width": 48,
+                "height": 48,
+                "right": 833.265625,
+                "bottom": 642.15625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right top detail",
+              "rect": {
+                "x": 1070.875,
+                "y": 373.828125,
+                "width": 48,
+                "height": 48,
+                "right": 1118.875,
+                "bottom": 421.828125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "tabsVisible": false
+          },
+          "audio": null,
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Bright-Eyed Beginners",
+          "pair": 3,
+          "title": "River Valley",
+          "changes": 3,
+          "wrongRetry": false,
+          "usedHints": 2,
+          "fact": "🏆\n\nRiver Valley pair complete!\n\nPicture fact: A clean river gives plants and animals a place to find fresh water.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 639.625,
+              "y": 443,
+              "width": 160.75,
+              "height": 48,
+              "right": 800.375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check left bottom detail",
+              "rect": {
+                "x": 773.03125,
+                "y": 594.15625,
+                "width": 48,
+                "height": 48,
+                "right": 821.03125,
+                "bottom": 642.15625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right top detail",
+              "rect": {
+                "x": 1074.953125,
+                "y": 373.828125,
+                "width": 48,
+                "height": 48,
+                "right": 1122.953125,
+                "bottom": 421.828125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle middle detail",
+              "rect": {
+                "x": 887.265625,
+                "y": 480.9375,
+                "width": 48,
+                "height": 48,
+                "right": 935.265625,
+                "bottom": 528.9375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "tabsVisible": false
+          },
+          "audio": null,
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Bright-Eyed Beginners",
+          "pair": 4,
+          "title": "Moon Camp",
+          "changes": 3,
+          "wrongRetry": false,
+          "usedHints": 2,
+          "fact": "🏆\n\nBright-Eyed Beginners complete!\n\nPicture fact: The Moon is a rocky world that travels around Earth.\n\nHear fact again\nNext chapter\nReplay chapter",
+          "next": "Next chapter",
+          "nextGeometry": {
+            "text": "Next chapter",
+            "rect": {
+              "x": 541.65625,
+              "y": 443,
+              "width": 165.703125,
+              "height": 48,
+              "right": 707.359375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check right middle detail",
+              "rect": {
+                "x": 1074.953125,
+                "y": 502.359375,
+                "width": 48,
+                "height": 48,
+                "right": 1122.953125,
+                "bottom": 550.359375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left top detail",
+              "rect": {
+                "x": 785.265625,
+                "y": 395.25,
+                "width": 48,
+                "height": 48,
+                "right": 833.265625,
+                "bottom": 443.25
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle middle detail",
+              "rect": {
+                "x": 956.625,
+                "y": 529.890625,
+                "width": 48,
+                "height": 48,
+                "right": 1004.625,
+                "bottom": 577.890625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "tabsVisible": false
+          },
+          "audio": null,
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Curious Comparers",
+          "pair": 1,
+          "title": "Sound Safari",
+          "changes": 5,
+          "wrongRetry": true,
+          "usedHints": 2,
+          "fact": "🏆\n\nSound Safari pair complete!\n\nPicture fact: Animals use different sounds to communicate with one another.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 639.625,
+              "y": 443,
+              "width": 160.75,
+              "height": 48,
+              "right": 800.375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check right bottom detail",
+              "rect": {
+                "x": 1054.546875,
+                "y": 645.15625,
+                "width": 48,
+                "height": 48,
+                "right": 1102.546875,
+                "bottom": 693.15625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right top detail",
+              "rect": {
+                "x": 993.359375,
+                "y": 388.109375,
+                "width": 48,
+                "height": 48,
+                "right": 1041.359375,
+                "bottom": 436.109375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right middle detail",
+              "rect": {
+                "x": 1046.390625,
+                "y": 514.59375,
+                "width": 48,
+                "height": 48,
+                "right": 1094.390625,
+                "bottom": 562.59375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle bottom detail",
+              "rect": {
+                "x": 862.796875,
+                "y": 649.234375,
+                "width": 48,
+                "height": 48,
+                "right": 910.796875,
+                "bottom": 697.234375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left middle detail",
+              "rect": {
+                "x": 789.359375,
+                "y": 535,
+                "width": 48,
+                "height": 48,
+                "right": 837.359375,
+                "bottom": 583
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 408
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 408
+            },
+            "tabsVisible": false
+          },
+          "audio": {
+            "checked": true,
+            "packaged": true,
+            "events": [
+              {
+                "src": "https://dinospace.netlify.app/audio/en/748417fe-matilda.mp3",
+                "origin": "https://dinospace.netlify.app",
+                "pathname": "/audio/en/748417fe-matilda.mp3",
+                "currentTime": 0.052343,
+                "duration": 4.829751,
+                "paused": false,
+                "ended": false,
+                "events": [
+                  {
+                    "type": "play-call",
+                    "time": 0,
+                    "at": 144275.09999999404
+                  },
+                  {
+                    "type": "play",
+                    "time": 0,
+                    "at": 144327.30000001192
+                  },
+                  {
+                    "type": "playing",
+                    "time": 0,
+                    "at": 144329.59999999404
+                  }
+                ],
+                "packaged": true
+              }
+            ]
+          },
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Curious Comparers",
+          "pair": 2,
+          "title": "Treehouse Team",
+          "changes": 5,
+          "wrongRetry": false,
+          "usedHints": 2,
+          "fact": "🏆\n\nTreehouse Team pair complete!\n\nPicture fact: Taking turns helps everyone share a game or a job.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 639.625,
+              "y": 443,
+              "width": 160.75,
+              "height": 48,
+              "right": 800.375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check left bottom detail",
+              "rect": {
+                "x": 854.625,
+                "y": 560.5,
+                "width": 48,
+                "height": 48,
+                "right": 902.625,
+                "bottom": 608.5
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle middle detail",
+              "rect": {
+                "x": 970.90625,
+                "y": 447.265625,
+                "width": 48,
+                "height": 48,
+                "right": 1018.90625,
+                "bottom": 495.265625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle bottom detail",
+              "rect": {
+                "x": 977.03125,
+                "y": 542.125,
+                "width": 48,
+                "height": 48,
+                "right": 1025.03125,
+                "bottom": 590.125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right top detail",
+              "rect": {
+                "x": 1058.625,
+                "y": 379.953125,
+                "width": 48,
+                "height": 48,
+                "right": 1106.625,
+                "bottom": 427.953125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right middle detail",
+              "rect": {
+                "x": 1087.1875,
+                "y": 496.234375,
+                "width": 48,
+                "height": 48,
+                "right": 1135.1875,
+                "bottom": 544.234375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "tabsVisible": false
+          },
+          "audio": null,
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Curious Comparers",
+          "pair": 3,
+          "title": "Time Observatory",
+          "changes": 5,
+          "wrongRetry": false,
+          "usedHints": 2,
+          "fact": "🏆\n\nTime Observatory pair complete!\n\nPicture fact: Earth turns once each day, bringing daylight and darkness.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 639.625,
+              "y": 443,
+              "width": 160.75,
+              "height": 48,
+              "right": 800.375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check left middle detail",
+              "rect": {
+                "x": 822,
+                "y": 523.765625,
+                "width": 48,
+                "height": 48,
+                "right": 870,
+                "bottom": 571.765625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right middle detail",
+              "rect": {
+                "x": 1001.515625,
+                "y": 453.390625,
+                "width": 48,
+                "height": 48,
+                "right": 1049.515625,
+                "bottom": 501.390625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left top detail",
+              "rect": {
+                "x": 834.234375,
+                "y": 389.125,
+                "width": 48,
+                "height": 48,
+                "right": 882.234375,
+                "bottom": 437.125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle bottom detail",
+              "rect": {
+                "x": 928.078125,
+                "y": 560.5,
+                "width": 48,
+                "height": 48,
+                "right": 976.078125,
+                "bottom": 608.5
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right bottom detail",
+              "rect": {
+                "x": 1066.796875,
+                "y": 554.375,
+                "width": 48,
+                "height": 48,
+                "right": 1114.796875,
+                "bottom": 602.375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "tabsVisible": false
+          },
+          "audio": null,
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Curious Comparers",
+          "pair": 4,
+          "title": "Pattern Parade",
+          "changes": 5,
+          "wrongRetry": false,
+          "usedHints": 2,
+          "fact": "🏆\n\nCurious Comparers complete!\n\nPicture fact: Repeating patterns follow a rule that we can describe.\n\nHear fact again\nNext chapter\nReplay chapter",
+          "next": "Next chapter",
+          "nextGeometry": {
+            "text": "Next chapter",
+            "rect": {
+              "x": 541.65625,
+              "y": 443,
+              "width": 165.703125,
+              "height": 48,
+              "right": 707.359375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check middle bottom detail",
+              "rect": {
+                "x": 952.546875,
+                "y": 578.859375,
+                "width": 48,
+                "height": 48,
+                "right": 1000.546875,
+                "bottom": 626.859375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left top detail",
+              "rect": {
+                "x": 785.265625,
+                "y": 428.90625,
+                "width": 48,
+                "height": 48,
+                "right": 833.265625,
+                "bottom": 476.90625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right middle detail",
+              "rect": {
+                "x": 1050.46875,
+                "y": 493.171875,
+                "width": 48,
+                "height": 48,
+                "right": 1098.46875,
+                "bottom": 541.171875
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right top detail",
+              "rect": {
+                "x": 1087.1875,
+                "y": 407.5,
+                "width": 48,
+                "height": 48,
+                "right": 1135.1875,
+                "bottom": 455.5
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle top detail",
+              "rect": {
+                "x": 928.078125,
+                "y": 419.734375,
+                "width": 48,
+                "height": 48,
+                "right": 976.078125,
+                "bottom": 467.734375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "tabsVisible": false
+          },
+          "audio": null,
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Super Spotters",
+          "pair": 1,
+          "title": "World Explorer",
+          "changes": 7,
+          "wrongRetry": true,
+          "usedHints": 2,
+          "fact": "🏆\n\nWorld Explorer pair complete!\n\nPicture fact: Maps use symbols and labels to show useful information about places.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 639.625,
+              "y": 443,
+              "width": 160.75,
+              "height": 48,
+              "right": 800.375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check right middle detail",
+              "rect": {
+                "x": 1046.390625,
+                "y": 486.03125,
+                "width": 48,
+                "height": 48,
+                "right": 1094.390625,
+                "bottom": 534.03125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle top detail",
+              "rect": {
+                "x": 866.875,
+                "y": 441.15625,
+                "width": 48,
+                "height": 48,
+                "right": 914.875,
+                "bottom": 489.15625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right middle detail",
+              "rect": {
+                "x": 1087.1875,
+                "y": 571.71875,
+                "width": 48,
+                "height": 48,
+                "right": 1135.1875,
+                "bottom": 619.71875
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left bottom detail",
+              "rect": {
+                "x": 813.828125,
+                "y": 624.75,
+                "width": 48,
+                "height": 48,
+                "right": 861.828125,
+                "bottom": 672.75
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right bottom detail",
+              "rect": {
+                "x": 1001.515625,
+                "y": 614.546875,
+                "width": 48,
+                "height": 48,
+                "right": 1049.515625,
+                "bottom": 662.546875
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle middle detail",
+              "rect": {
+                "x": 907.671875,
+                "y": 592.109375,
+                "width": 48,
+                "height": 48,
+                "right": 955.671875,
+                "bottom": 640.109375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right bottom detail",
+              "rect": {
+                "x": 1001.515625,
+                "y": 698.1875,
+                "width": 48,
+                "height": 48,
+                "right": 1049.515625,
+                "bottom": 746.1875
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 408
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 408
+            },
+            "tabsVisible": false
+          },
+          "audio": {
+            "checked": true,
+            "packaged": true,
+            "events": [
+              {
+                "src": "https://dinospace.netlify.app/audio/en/a45c82d6-matilda.mp3",
+                "origin": "https://dinospace.netlify.app",
+                "pathname": "/audio/en/a45c82d6-matilda.mp3",
+                "currentTime": 0.05234,
+                "duration": 5.619229,
+                "paused": false,
+                "ended": false,
+                "events": [
+                  {
+                    "type": "play-call",
+                    "time": 0,
+                    "at": 150675.30000001192
+                  },
+                  {
+                    "type": "play",
+                    "time": 0,
+                    "at": 150727.59999999404
+                  },
+                  {
+                    "type": "playing",
+                    "time": 0,
+                    "at": 150730.5
+                  }
+                ],
+                "packaged": true
+              }
+            ]
+          },
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Super Spotters",
+          "pair": 2,
+          "title": "Nature Lab",
+          "changes": 7,
+          "wrongRetry": false,
+          "usedHints": 2,
+          "fact": "🏆\n\nNature Lab pair complete!\n\nPicture fact: Plants need light and water to grow.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 639.625,
+              "y": 443,
+              "width": 160.75,
+              "height": 48,
+              "right": 800.375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check right middle detail",
+              "rect": {
+                "x": 1087.1875,
+                "y": 559.46875,
+                "width": 48,
+                "height": 48,
+                "right": 1135.1875,
+                "bottom": 607.46875
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left bottom detail",
+              "rect": {
+                "x": 854.625,
+                "y": 694.109375,
+                "width": 48,
+                "height": 48,
+                "right": 902.625,
+                "bottom": 742.109375
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right bottom detail",
+              "rect": {
+                "x": 1038.234375,
+                "y": 641.078125,
+                "width": 48,
+                "height": 48,
+                "right": 1086.234375,
+                "bottom": 689.078125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle top detail",
+              "rect": {
+                "x": 891.359375,
+                "y": 396.265625,
+                "width": 48,
+                "height": 48,
+                "right": 939.359375,
+                "bottom": 444.265625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle middle detail",
+              "rect": {
+                "x": 964.796875,
+                "y": 526.828125,
+                "width": 48,
+                "height": 48,
+                "right": 1012.796875,
+                "bottom": 574.828125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left bottom detail",
+              "rect": {
+                "x": 773.03125,
+                "y": 665.546875,
+                "width": 48,
+                "height": 48,
+                "right": 821.03125,
+                "bottom": 713.546875
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left middle detail",
+              "rect": {
+                "x": 809.75,
+                "y": 575.796875,
+                "width": 48,
+                "height": 48,
+                "right": 857.75,
+                "bottom": 623.796875
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 408
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 408
+            },
+            "tabsVisible": false
+          },
+          "audio": null,
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Super Spotters",
+          "pair": 3,
+          "title": "Robin’s Woodland",
+          "changes": 7,
+          "wrongRetry": false,
+          "usedHints": 2,
+          "fact": "🏆\n\nRobin’s Woodland pair complete!\n\nPicture fact: Robins use their beaks to find food and build safe nests.\n\nHear fact again\nNext picture",
+          "next": "Next picture",
+          "nextGeometry": {
+            "text": "Next picture",
+            "rect": {
+              "x": 639.625,
+              "y": 443,
+              "width": 160.75,
+              "height": 48,
+              "right": 800.375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check right bottom detail",
+              "rect": {
+                "x": 1070.875,
+                "y": 637,
+                "width": 48,
+                "height": 48,
+                "right": 1118.875,
+                "bottom": 685
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left top detail",
+              "rect": {
+                "x": 760.796875,
+                "y": 437.078125,
+                "width": 48,
+                "height": 48,
+                "right": 808.796875,
+                "bottom": 485.078125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle bottom detail",
+              "rect": {
+                "x": 981.109375,
+                "y": 665.546875,
+                "width": 48,
+                "height": 48,
+                "right": 1029.109375,
+                "bottom": 713.546875
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle top detail",
+              "rect": {
+                "x": 899.515625,
+                "y": 384.03125,
+                "width": 48,
+                "height": 48,
+                "right": 947.515625,
+                "bottom": 432.03125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left middle detail",
+              "rect": {
+                "x": 809.75,
+                "y": 526.828125,
+                "width": 48,
+                "height": 48,
+                "right": 857.75,
+                "bottom": 574.828125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left bottom detail",
+              "rect": {
+                "x": 834.234375,
+                "y": 632.90625,
+                "width": 48,
+                "height": 48,
+                "right": 882.234375,
+                "bottom": 680.90625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right middle detail",
+              "rect": {
+                "x": 1087.1875,
+                "y": 551.3125,
+                "width": 48,
+                "height": 48,
+                "right": 1135.1875,
+                "bottom": 599.3125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 408
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 408
+            },
+            "tabsVisible": false
+          },
+          "audio": null,
+          "faultEvidence": null
+        },
+        {
+          "chapter": "Super Spotters",
+          "pair": 4,
+          "title": "History Hall",
+          "changes": 7,
+          "wrongRetry": false,
+          "usedHints": 2,
+          "fact": "🏆\n\nSuper Spotters complete!\n\nPicture fact: Old objects can be clues about how people lived long ago.\n\nHear fact again\nReplay chapter",
+          "next": "Replay chapter",
+          "nextGeometry": {
+            "text": "Replay chapter",
+            "rect": {
+              "x": 628.515625,
+              "y": 443,
+              "width": 182.96875,
+              "height": 48,
+              "right": 811.484375,
+              "bottom": 491
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          "targetGeometry": [
+            {
+              "text": "Check left bottom detail",
+              "rect": {
+                "x": 773.03125,
+                "y": 542.125,
+                "width": 48,
+                "height": 48,
+                "right": 821.03125,
+                "bottom": 590.125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle middle detail",
+              "rect": {
+                "x": 932.15625,
+                "y": 450.328125,
+                "width": 48,
+                "height": 48,
+                "right": 980.15625,
+                "bottom": 498.328125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right bottom detail",
+              "rect": {
+                "x": 1087.1875,
+                "y": 542.125,
+                "width": 48,
+                "height": 48,
+                "right": 1135.1875,
+                "bottom": 590.125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check right middle detail",
+              "rect": {
+                "x": 1054.546875,
+                "y": 450.328125,
+                "width": 48,
+                "height": 48,
+                "right": 1102.546875,
+                "bottom": 498.328125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left bottom detail",
+              "rect": {
+                "x": 858.71875,
+                "y": 542.125,
+                "width": 48,
+                "height": 48,
+                "right": 906.71875,
+                "bottom": 590.125
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check middle bottom detail",
+              "rect": {
+                "x": 972.953125,
+                "y": 548.25,
+                "width": 48,
+                "height": 48,
+                "right": 1020.953125,
+                "bottom": 596.25
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            },
+            {
+              "text": "Check left middle detail",
+              "rect": {
+                "x": 801.59375,
+                "y": 459.515625,
+                "width": 48,
+                "height": 48,
+                "right": 849.59375,
+                "bottom": 507.515625
+              },
+              "viewport": {
+                "width": 1440,
+                "height": 844
+              },
+              "centerHit": true,
+              "pointerEvents": "auto"
+            }
+          ],
+          "imageLayout": {
+            "mode": "desktop-side-by-side",
+            "aRect": {
+              "x": 288,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "bRect": {
+              "x": 744,
+              "y": 355,
+              "width": 408,
+              "height": 306
+            },
+            "tabsVisible": false
+          },
+          "audio": null,
+          "faultEvidence": null
+        }
+      ],
+      "uniquePairTitles": {
+        "Bright-Eyed Beginners": [
+          "Superhero City",
+          "Dino Park",
+          "River Valley",
+          "Moon Camp"
+        ],
+        "Curious Comparers": [
+          "Sound Safari",
+          "Treehouse Team",
+          "Time Observatory",
+          "Pattern Parade"
+        ],
+        "Super Spotters": [
+          "World Explorer",
+          "Nature Lab",
+          "Robin’s Woodland",
+          "History Hall"
+        ]
+      },
+      "foundChanges": 60,
+      "faultChecks": {
+        "enabled": false,
+        "localProgress": {
+          "exercised": false,
+          "reason": "The first 3-difference pair was not reached."
+        },
+        "parentRewardEligibility": {
+          "index": null,
+          "reason": "Fault mode disabled."
+        },
+        "parentReward": {
+          "exercised": false,
+          "reason": "Fault mode disabled."
+        }
+      },
+      "allowedKeys": [
+        "amari_spot_difference_batch2_v1"
+      ],
+      "storage": {
+        "changed": [
+          "qa_rewards_20261024_amari_game_diagnostics_v1",
+          "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+          "qa_rewards_20261024_amari_learning_attempts_v1",
+          "qa_rewards_20261024_amari_recent_games",
+          "qa_rewards_20261024_amari_skill_mastery_v1",
+          "qa_rewards_20261024_amari_spot_difference_batch2_v1"
+        ],
+        "unexpected": [],
+        "unchanged": [
+          "amari-sound-on",
+          "qa_rewards_20261024_amari_addition_progress_v1",
+          "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+          "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+          "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+          "qa_rewards_20261024_amari_challenge_done",
+          "qa_rewards_20261024_amari_challenge_progress",
+          "qa_rewards_20261024_amari_chapter_badges_v1",
+          "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+          "qa_rewards_20261024_amari_chess_game_v1",
+          "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+          "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+          "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+          "qa_rewards_20261024_amari_cosmic_tactics_v1",
+          "qa_rewards_20261024_amari_curriculum_badges_v1",
+          "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_preferences_v1",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_discovery_active_player",
+          "qa_rewards_20261024_amari_discovery_passport_v1",
+          "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+          "qa_rewards_20261024_amari_favourite_games",
+          "qa_rewards_20261024_amari_game_levels_v1",
+          "qa_rewards_20261024_amari_games_played",
+          "qa_rewards_20261024_amari_german_chapter_progress_v1",
+          "qa_rewards_20261024_amari_german_recent_targets_v1",
+          "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+          "qa_rewards_20261024_amari_lastplay",
+          "qa_rewards_20261024_amari_learning_migration_v1",
+          "qa_rewards_20261024_amari_letter_launch_progress_v1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+          "qa_rewards_20261024_amari_letter_trace_progress_v1",
+          "qa_rewards_20261024_amari_little_progress",
+          "qa_rewards_20261024_amari_memory_best",
+          "qa_rewards_20261024_amari_memory_completion_v1",
+          "qa_rewards_20261024_amari_memory_passport_v1",
+          "qa_rewards_20261024_amari_memory_resume_v1",
+          "qa_rewards_20261024_amari_monster_math_progress_v1",
+          "qa_rewards_20261024_amari_numberline_progress_v1",
+          "qa_rewards_20261024_amari_oddoneout_progress_v1",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+          "qa_rewards_20261024_amari_points",
+          "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+          "qa_rewards_20261024_amari_rewards_v2",
+          "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+          "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+          "qa_rewards_20261024_amari_spelling_progress_v1",
+          "qa_rewards_20261024_amari_spelling_recent_v1",
+          "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "qa_rewards_20261024_amari_storybook_progress_v1",
+          "qa_rewards_20261024_amari_streak",
+          "qa_rewards_20261024_amari_subtraction_progress_v1",
+          "qa_rewards_20261024_amari_timeteller_progress_v1",
+          "qa_rewards_20261024_amari_voice_mode_v4",
+          "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+          "qa_rewards_20261024_amari_writing_samples_v1",
+          "qa_rewards_20261024_askia_challenge_done",
+          "qa_rewards_20261024_askia_challenge_progress",
+          "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+          "qa_rewards_20261024_askia_favourite_games",
+          "qa_rewards_20261024_askia_games_played",
+          "qa_rewards_20261024_askia_lastplay",
+          "qa_rewards_20261024_askia_little_progress",
+          "qa_rewards_20261024_askia_points",
+          "qa_rewards_20261024_askia_recent_games",
+          "qa_rewards_20261024_askia_rewards_v2",
+          "qa_rewards_20261024_askia_streak",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+        ]
+      },
+      "parentReturned": true
+    }
+  ],
+  "failures": [],
+  "runtime": {
+    "origin": "https://dinospace.netlify.app",
+    "namespaced": true,
+    "entry": "/assets/arcade-DTw2uC-a.js"
+  },
+  "originalSound": true,
+  "baselineStorage": {
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code": {
+      "sha256": "adb5b3727ae2d4b2c8e5cba9f376d9c3f511aea7ef0b21dc2fc0f71f1518f200",
+      "bytes": 125
+    },
+    "qa_rewards_20261024_amari_rewards_v2": {
+      "sha256": "a3152d17eff7e6749a6e80460542caef308e046ab1bd4d63611fafd416c68ebf",
+      "bytes": 4651
+    },
+    "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1": {
+      "sha256": "52818933561142f00177f09945157335ec79f18cb1e836e3efa0c014665c85dc",
+      "bytes": 9552
+    },
+    "qa_rewards_20261024_amari_sound_safari_adventure_v1": {
+      "sha256": "295123080a8f16466f8a4236f21a91ca53ff56d2ff31fa83a06b2f04ddfa287d",
+      "bytes": 415
+    },
+    "qa_rewards_20261024_amari_monster_math_progress_v1": {
+      "sha256": "8dc731ca038bff605ebf5be3990ff8165bba20719d0339fbbe5cf0c1c9a94b60",
+      "bytes": 1097
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing": {
+      "sha256": "a6fe46ca93298ffb7820151834a97d7a6aa984ac825fb5aa104fa3cf8fbff72d",
+      "bytes": 476
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing": {
+      "sha256": "a07b429a52ca026912b4060e3bc323aed2c5aa776db686c759db950ef2e08d63",
+      "bytes": 179
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good": {
+      "sha256": "e487301d17292d79dbe59ee4c4f6f554c5af1b043b31453af4e81063be1ddecf",
+      "bytes": 126760
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter": {
+      "sha256": "af4fb66309c244c4de4c9af028937b83fe3469165e67a3a87840f4f17a7553a7",
+      "bytes": 425
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge": {
+      "sha256": "c84acab72a5370cfb979b464c399187eb9a725adf31c2730a7949226b6a87aa7",
+      "bytes": 436
+    },
+    "qa_rewards_20261024_askia_favourite_games": {
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:amari": {
+      "sha256": "4f5b18ff20d0e068369e402a51d433024e952e6aaa75be38b81f2fcd2e38cd43",
+      "bytes": 278
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge": {
+      "sha256": "a5bce1316bd914796a045a14be7b77d8ea071a3f0ea196de62dab93e110d6abb",
+      "bytes": 138
+    },
+    "qa_rewards_20261024_amari_cosmic_freeplay_v1": {
+      "sha256": "b75c9cb3f20422d9a645093be50cde7bf7d923ca2ca1ff801b099f2060c975d6",
+      "bytes": 183
+    },
+    "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_german_chapter_progress_v1": {
+      "sha256": "f299e189cf880494b64a907fedc109e75b267ad584294356ac25b6b188b70fe5",
+      "bytes": 531
+    },
+    "qa_rewards_20261024_amari_writing_samples_v1": {
+      "sha256": "0b7b59c17a8efdd1423bde769353d1c3a1f23828b36d5b3745038f72f4477c19",
+      "bytes": 585
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter": {
+      "sha256": "aad9e3c397e5fd1f6a93e290c0aa5b7e81be1f8e06e540930d9a3176caf27835",
+      "bytes": 154
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge": {
+      "sha256": "fd8d395476c99f0333b062d46ed2c3d8e3867878ada9750768210a791e59638b",
+      "bytes": 172
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard": {
+      "sha256": "38acb3b5cda24fbd4b0be4b969f8e1910afe11ed020247fcdad5c5e8e44736d1",
+      "bytes": 154271
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter": {
+      "sha256": "04309c5306d944c5782cee4a445deb349e7b55ac885a816e1033ea331f8c48cd",
+      "bytes": 367
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing": {
+      "sha256": "8ae3e3c08d53874ce8bc4446090fbb3e09f0ac1b9005b98d8eaaf13a2f31c466",
+      "bytes": 158
+    },
+    "qa_rewards_20261024_amari_german_recent_targets_v1": {
+      "sha256": "9f8d1b6063b01d4edaa25d545f20fcebd79a72db8f4e692427b916e68acc77aa",
+      "bytes": 380
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing": {
+      "sha256": "9c1ac5d8e9c840c8c2c62e7b94a81ad707bf26622f1b222b8a60abc04433dad8",
+      "bytes": 394
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge": {
+      "sha256": "31c4befee0b5643da663193ff57281ecbc774424aaa8c7ebbe2473b3cdbfb568",
+      "bytes": 190
+    },
+    "qa_rewards_20261024_amari_challenge_done": {
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "bytes": 5
+    },
+    "qa_rewards_20261024_amari_letter_launch_progress_v1": {
+      "sha256": "86ad888da8c07164424cf3c57c69d51696a36f8a225338ddf4fc6ab9d8ee316a",
+      "bytes": 710
+    },
+    "qa_rewards_20261024_askia_earned_sticker_ids_v1": {
+      "sha256": "644b835b593cc79e46412ad6f913c5aec0335b09c392365d3261763482106ba4",
+      "bytes": 83
+    },
+    "qa_rewards_20261024_amari_voice_mode_v4": {
+      "sha256": "870dc23d21836b97b58a7753922edc8512764e83c02586f3d8f14c11f760550b",
+      "bytes": 7
+    },
+    "qa_rewards_20261024_amari_astronaut_academy_progress_v1": {
+      "sha256": "ecf2983df506da9e1dc9e7f5dda82f9a293cb7bc1a0e355580909b51fa095541",
+      "bytes": 798
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge": {
+      "sha256": "d3bf94c41b13412c7b6ccd1d8303a6fa2c8fc692ea0c1cda6d83a5a2c5b3ac9e",
+      "bytes": 339
+    },
+    "qa_rewards_20261024_amari_writing_desk_progress_v1:amari": {
+      "sha256": "4180f5dcce988b24d87a526bb94ec4115adf9985b84d7bd4e890471c8bbf061c",
+      "bytes": 96
+    },
+    "qa_rewards_20261024_askia_streak": {
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_askia_challenge_done": {
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "bytes": 5
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter": {
+      "sha256": "61b7d671f076276b51394960b4ae47b2cfd64e9e4f30fff171c43eaf5af3ae07",
+      "bytes": 392
+    },
+    "qa_rewards_20261024_amari_cosmic_tactics_v1": {
+      "sha256": "8b4d4123fca4bdb562b092e40e22d816d44ca0e2fe61cdd793e69c74da8aab5e",
+      "bytes": 130
+    },
+    "qa_rewards_20261024_amari_favourite_games": {
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter": {
+      "sha256": "a711a548f527ccdfd4f805775a09d9838dff9b12e525c83b5abfe3171845ef5f",
+      "bytes": 146
+    },
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing": {
+      "sha256": "5f47f87d123f3e48ef71a8b9f176d90f3d1863e42747233917cb4c6a1b75626b",
+      "bytes": 153714
+    },
+    "qa_rewards_20261024_amari_curriculum_completion_receipts_v1": {
+      "sha256": "fe1c8f34ed96e6ea09c10fd087d304d2ca322f52ca374b915e3516fb2aef1268",
+      "bytes": 1296
+    },
+    "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report": {
+      "sha256": "af50d4bf3e5af18fae31df3c38326e2a2e79b41e149ab9880a59dbb152a501a9",
+      "bytes": 102984
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing": {
+      "sha256": "713c52079fea43216bcda3ee3cd8add99a7cfa0a0204b2548c76dd36b55054f5",
+      "bytes": 485
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter": {
+      "sha256": "9f79f4aa73acfa90ec2581a2fdddcf0ca934e64171c03d12b4363ac37deb1c71",
+      "bytes": 454
+    },
+    "qa_rewards_20261024_amari_spelling_recent_v1": {
+      "sha256": "856475ac9b4664209a2b27ef92683556706fcae4b1d969105b43b5df079ac0a6",
+      "bytes": 59
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge": {
+      "sha256": "8f64ed3954f3c7ab29ccc187290b1339c90694082ec05332f694760f66f9b66c",
+      "bytes": 407
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter": {
+      "sha256": "ae7027e5398f152607643c82d9a186ae4950d7c1a3c7309f02102b782383476a",
+      "bytes": 360
+    },
+    "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari": {
+      "sha256": "0d8648eae61ba15771315a90ccecf934dce45ea323055b9da6445aa3ce4eaede",
+      "bytes": 252
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes": {
+      "sha256": "7cf8670af95384b5169d32a10bc520fe42a0d974443b48d96e3feacdddde844f",
+      "bytes": 126724
+    },
+    "qa_rewards_20261024_amari_curriculum_preferences_v1": {
+      "sha256": "a40d8a1b1f663a3199fe23297c152d46c587328779d05e0fb1f7c304d2c3482c",
+      "bytes": 132
+    },
+    "qa_rewards_20261024_amari_hangman_progress_v1:amari": {
+      "sha256": "305acf4d56a937c1d651cab71dcbb61d899648b05c7b460403da3bd2ce0e705f",
+      "bytes": 900
+    },
+    "qa_rewards_20261024_amari_oddoneout_progress_v1": {
+      "sha256": "f31ab7820bfb9634fe0b859db77195e2ce4f1c70552340af8787a74a848cb2f3",
+      "bytes": 1212
+    },
+    "qa_rewards_20261024_amari_numberline_progress_v1": {
+      "sha256": "720386f85fce18a7e5bb9e78e060a90059932170d49146f53b3d7e6505b5fb19",
+      "bytes": 698
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge": {
+      "sha256": "00533d2a5d328e7b696bd672528a510cce3ab0af3befad6052b774f7f92bc892",
+      "bytes": 414
+    },
+    "qa_rewards_20261024_amari_earned_sticker_ids_v1": {
+      "sha256": "24bc5e4ed0d9923aa5b73b74e618362d7d0a38332a952c604c39f6fd6d985ddc",
+      "bytes": 101
+    },
+    "qa_rewards_20261024_amari_timeteller_progress_v1": {
+      "sha256": "5c2c2ffca2d27e1080fd8da2d3feb9a34284644fc43018aad4f01cf187ecfd89",
+      "bytes": 564
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_0": {
+      "sha256": "b4da7e1a9e8252c99ff3b80abe85ef3f162ee80dce857b67dd1bd457f6c9ae5c",
+      "bytes": 33
+    },
+    "amari-sound-on": {
+      "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "bytes": 4
+    },
+    "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari": {
+      "sha256": "176bea07c78604cfd2829ff73e6de375db86807e7a046c407171bbcf4ac0360a",
+      "bytes": 387
+    },
+    "qa_rewards_20261024_amari_memory_resume_v1": {
+      "sha256": "3ebad643deb9b1a2a98b072d44fde2f970b75d7397ef06e9e770a97ddc9fc3ba",
+      "bytes": 17
+    },
+    "qa_rewards_20261024_askia_games_played": {
+      "sha256": "e01fe61834a3c4a819aac201b30d9d5d350d3b7083b3282856dcccb8953601af",
+      "bytes": 108
+    },
+    "qa_rewards_20261024_amari_memory_completion_v1": {
+      "sha256": "089869ec33e2c6ddeb26b4e613c6a7ba86410a8aea3abbc36d328f79e122ffad",
+      "bytes": 577
+    },
+    "qa_rewards_20261024_amari_streak": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_addition_progress_v1": {
+      "sha256": "5335145ef889992e48d6bd2146fa444b328993e1b13ab7c476235f6b3a4bad21",
+      "bytes": 881
+    },
+    "qa_rewards_20261024_amari_words_session_progress_v1:amari": {
+      "sha256": "1c06da905083bc19f6e01c2b4b82aa2eff840b13490132961a564e6f0462af35",
+      "bytes": 2506
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_1": {
+      "sha256": "4ecef27aba3b87f82183b09d92f3a5f8a3ef20b6ff022a689e16040b694d7832",
+      "bytes": 49
+    },
+    "qa_rewards_20261024_amari_challenge_progress": {
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing": {
+      "sha256": "1daa53118c325657cd2170c7d21a0464ffe9dc5909c9d9bb2110c306dbeae2ce",
+      "bytes": 401
+    },
+    "qa_rewards_20261024_amari_chess_game_v1": {
+      "sha256": "181c199474e3445b965f4dd0e25d3117c254283e8c74d5f1584b2484c16a94b7",
+      "bytes": 790
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:askia": {
+      "sha256": "bb15ef838559d75c4ca4235fbe65a8b4411bbf44454f95eff7ef266a9b6de7c0",
+      "bytes": 278
+    },
+    "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge": {
+      "sha256": "b9c6ccdf9b6e87642d5d876b889d0be324ca4e7cd9048deec55530cd112da924",
+      "bytes": 395
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good": {
+      "sha256": "3ce69a0c25e34ee6cceed6cb3dfe7346b43326d1eaa6b00d5267e945ff568e7c",
+      "bytes": 102413
+    },
+    "qa_rewards_20261024_amari_games_played": {
+      "sha256": "ff7c462e56f1a13076215ccd2dfb262a985a732d8441a5d7c8365d442c659c72",
+      "bytes": 436
+    },
+    "qa_rewards_20261024_amari_little_progress": {
+      "sha256": "303d47297abaa09174048cebb9c386bffe7c316522b24287ed92edfd9ba1694b",
+      "bytes": 1756
+    },
+    "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1": {
+      "sha256": "fb3c58c33db416a7eda29eece3fabca299739deda5f66ce91399d1cc7952e818",
+      "bytes": 1161
+    },
+    "qa_rewards_20261024_amari_discovery_active_player": {
+      "sha256": "203225186ef5ddc9cda0bb3dfe73ced878f5271e184c54a70efb4056dda8a6ad",
+      "bytes": 7
+    },
+    "qa_rewards_20261024_amari_sky_shapes_progress_v1": {
+      "sha256": "d6913f193f499281c8a43cab5aaa0745937435278451e151e50cbcf05a2ff55a",
+      "bytes": 3528
+    },
+    "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1": {
+      "sha256": "9ca9b314a2f356a2ed3aa1ab7080e68b4a0791c7b31fdf844bd7861b8989afc8",
+      "bytes": 12555
+    },
+    "qa_rewards_20261024_askia_lastplay": {
+      "sha256": "5fcb572b528519139e2387488eb3b6ebaf08e890f45e59c93ac2161bba96e0e4",
+      "bytes": 12
+    },
+    "qa_rewards_20261024_amari_code_cadets_progress_v1:amari": {
+      "sha256": "3627839f3dee281d9bb2d15790e9abeb9131c0062efd906511ca24690e3d564a",
+      "bytes": 2102
+    },
+    "qa_rewards_20261024_amari_learning_attempts_v1": {
+      "sha256": "a8ec911592dc7de818e704090c4cd0fb630e8607674dc20526448a0958552fac",
+      "bytes": 325908
+    },
+    "qa_rewards_20261024_amari_chapter_badges_v1": {
+      "sha256": "579c51460dec184e146a63f47cb2106f2f990a64348c2f82e4da616adb8b1320",
+      "bytes": 180
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_2": {
+      "sha256": "a4682548827d3e386159eb44c781573a11c6ef06a1778efb5d2a241ed923884b",
+      "bytes": 33
+    },
+    "qa_rewards_20261024_amari_memory_passport_v1": {
+      "sha256": "d62250dfa3db49e5fc55dbd4750deade0f6d7176834e982aa211cfb23fe12e39",
+      "bytes": 518
+    },
+    "qa_rewards_20261024_askia_challenge_progress": {
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_points": {
+      "sha256": "227445a988500528d7826c6921d2e3b4a79ccf3a94cc3bcf7b667e3ae4990b36",
+      "bytes": 3
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter": {
+      "sha256": "d23cd7c01f5945781e3e7f6c31ae4368f98bb5a4c4c9622996093c906ce6b87d",
+      "bytes": 161
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good": {
+      "sha256": "347a216d45c48475252b8084ab381e9651263f591621dbf06d64a8cc0d995f3e",
+      "bytes": 154246
+    },
+    "qa_rewards_20261024_amari_storybook_progress_v1": {
+      "sha256": "ea776387693888771d06d46534aee66a2ca9b35a3f23a6d88123dbf99b8f61eb",
+      "bytes": 2469
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge": {
+      "sha256": "79061e0277c0f3a5d09c412475cf85e7bc263aab7e6e5b71918a3da86816dc94",
+      "bytes": 488
+    },
+    "qa_rewards_20261024_amari_game_levels_v1": {
+      "sha256": "bbc1b662a80313ac767e30b9f91531308f398aada913dd1bf378ddddcde56e1b",
+      "bytes": 188
+    },
+    "qa_rewards_20261024_amari_memory_best": {
+      "sha256": "565eb06fd6cf24850203bef035675d12993600ec6d275e2549c1174edb3a653f",
+      "bytes": 128
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_3": {
+      "sha256": "3d024624725559750b543adfdf8c6e8b494883e59c699fe6363261d38fe5c801",
+      "bytes": 49
+    },
+    "qa_rewards_20261024_amari_spelling_progress_v1": {
+      "sha256": "5fc7808766b63d96a222fe5a49413e0faaaf10b620313042293f7fde80e4ea9e",
+      "bytes": 12262
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter": {
+      "sha256": "1fe6fe8db508490d6c9d85e3d36f7e18e36fe11d622c4d24f1b869e5ee868845",
+      "bytes": 343
+    },
+    "qa_rewards_20261024_amari_lastplay": {
+      "sha256": "f528027a3840eeb8e5a67bd8b2f9d8b99c9e6bd4a435112b045cef46a5b252b5",
+      "bytes": 12
+    },
+    "qa_rewards_20261024_amari_puzzle_pop_batch2_v1": {
+      "sha256": "1ec12ae9a875fdc52281af3393d78da53c79cadcd2288f55544b0e9dbdc74498",
+      "bytes": 605
+    },
+    "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_askia_little_progress": {
+      "sha256": "5db10dff42a98a49ed24d008c14cd6985ef484cb60b111a4e19085b0e2dca310",
+      "bytes": 2236
+    },
+    "qa_rewards_20261024_askia_recent_games": {
+      "sha256": "274263cfd9e5b2ee90f284d8624789189f890b96e643dafc24c95595fc003344",
+      "bytes": 47
+    },
+    "qa_rewards_20261024_amari_curriculum_badges_v1": {
+      "sha256": "9734fae3202dfbc90c594cbb21b803f1a044173534cdcd66a2e97ad41383353d",
+      "bytes": 211
+    },
+    "qa_rewards_20261024_amari_spot_difference_batch2_v1": {
+      "sha256": "dabb7b113e34a6b3e13017cd723f12135da86dbbe247789d1a01296b8fbc4fb1",
+      "bytes": 499
+    },
+    "qa_rewards_20261024_amari_game_diagnostics_v1": {
+      "sha256": "b849b44ffd1327ab72d542098aa9b090dde3dc0ffd456249d8fcb39da1c9d80e",
+      "bytes": 40470
+    },
+    "qa_rewards_20261024_askia_rewards_v2": {
+      "sha256": "dcaf92553e05d060292a442a23851f11d8205b3bfb9c7f886049c0d23ca43ca7",
+      "bytes": 1074
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing": {
+      "sha256": "c485f92dec80ad07f015661d7cbcd491eed2cccb9bf82fea9113641fa95a066f",
+      "bytes": 365
+    },
+    "qa_rewards_20261024_askia_points": {
+      "sha256": "00328ce57bbc14b33bd6695bc8eb32cdf2fb5f3a7d89ec14a42825e15d39df60",
+      "bytes": 3
+    },
+    "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_skill_mastery_v1": {
+      "sha256": "69350899d87dc58d868e2cc6fd7c60e44e3cdfcfa8c30420acd5a031a628ad4a",
+      "bytes": 343250
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing": {
+      "sha256": "635d9dfdd3b56c6852fc0fab7bbdb90465b2b20b5ab7f4178a8a57b7623b5a01",
+      "bytes": 441
+    },
+    "qa_rewards_20261024_amari_subtraction_progress_v1": {
+      "sha256": "96d322c8371051b73659292124cc974ab41aae554a3faf537a9d0b86cdb011ec",
+      "bytes": 928
+    },
+    "qa_rewards_20261024_amari_letter_trace_progress_v1": {
+      "sha256": "f13b8fe4b572a5ba2ad9663d15443786550369f5c061f5a0fc3a9f359e6a7689",
+      "bytes": 278
+    },
+    "qa_rewards_20261024_amari_learning_migration_v1": {
+      "sha256": "de8dba63a51409d81bd95b7577f34f6c749ebb607c67846919fed941d01d8a27",
+      "bytes": 41
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing": {
+      "sha256": "b94f3f9a2f21a5244e0457a70281b1450d53fed70f3beec461021a56369ed36e",
+      "bytes": 173
+    },
+    "qa_rewards_20261024_amari_discovery_passport_v1": {
+      "sha256": "7c8c4aa18386bb549125ac65dd4ff00d9b8ae40cc6fd94227eb6b54d8b49a0aa",
+      "bytes": 573
+    },
+    "qa_rewards_20261024_amari_recent_games": {
+      "sha256": "517667c3e0e616fb1ca88cb3ada52ae5684e550c9690c244ff606c2a6c20a858",
+      "bytes": 40
+    }
+  },
+  "rewardsBefore": {
+    "present": true,
+    "points": 491,
+    "gamesPlayed": {
+      "counting": 4,
+      "timeteller": 3,
+      "numberline": 3,
+      "trace": 20,
+      "tictactoe": 10,
+      "shadowmatch": 5,
+      "phonics": 3,
+      "colormix": 18,
+      "oddoneout": 3,
+      "pattern": 3,
+      "astronaut": 4,
+      "chess": 4,
+      "codecadets": 3,
+      "writingdesk": 3,
+      "memory": 10,
+      "solar": 18,
+      "rocketbuilder": 3,
+      "fuelup": 3,
+      "firerescue": 3,
+      "ladder": 3,
+      "dino": 12,
+      "hangman": 5,
+      "words": 6,
+      "storybooks": 7,
+      "dinojigsaw": 3,
+      "german": 3,
+      "worldmap": 9,
+      "letters": 4,
+      "puzzle": 3,
+      "spot": 3,
+      "jet": 16,
+      "math": 3,
+      "addition": 3,
+      "subtraction": 3
+    },
+    "rewardClaims": {
+      "dino:d9f31f2d-d0cb-4fa9-903d-f8201744c31d": 2,
+      "dino:919e0a95-3539-444e-ad14-26890f0be5c2": 2,
+      "dino:9eed4660-8986-45b4-8a73-20627083bcb2": 2,
+      "dino:8cb33bef-e05c-4074-a8df-c3d3d2365a0f": 2,
+      "dino:3ead6ff8-4823-4fd1-835b-c876a28baac5": 2,
+      "dino:36d521ec-ebd8-4866-a355-7fb0136d28f5": 2,
+      "dino:01d2e675-1c0d-4e40-8dc4-e531b453af0b": 2,
+      "dino:a717da8d-59bd-4602-95e6-d6efffa67142": 2,
+      "dino:392ac3c5-b2fc-4d85-a815-513b39de05a2": 2,
+      "dino:2355b9f3-dbcb-4b7a-b293-31221c336b9f": 2,
+      "dino:7591be3f-e9ba-48c7-b1c6-bb77ab061e03": 2,
+      "dino:34078fec-348c-40d9-9608-e61910520d20": 2,
+      "hangman:first-words-876964074": 2,
+      "hangman:four-letter-rescue-1015050138": 6,
+      "hangman:five-letter-rescue-186878005": 6,
+      "hangman:long-word-rescue-4077150665": 6,
+      "hangman:first-words-2939227976": 4,
+      "words:36f8b49d-e872-49d6-bf38-b0f5d92ea847": 6,
+      "words:859d0b5c-8188-44f1-8d0f-b594dd07736f": 6,
+      "words:3088c47c-59eb-4a00-bb55-60a1d038ebd2": 6,
+      "words:2419242a-c1fa-450c-8be6-d66d96055c8e": 6,
+      "words:ff9f3414-8849-40d4-96cf-f2b588e1d485": 6,
+      "words:bd1ae71d-9d60-4aa0-acaf-c68faeb371d4": 6,
+      "storybooks:storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8": 1,
+      "storybooks:storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00": 1,
+      "storybooks:storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324": 1,
+      "storybooks:storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28": 1,
+      "storybooks:storybook-amari-sami-night-light-parade-275033aa-b11b-4374-b1d3-b52f2c8bc662": 1,
+      "storybooks:storybook-amari-mina-mountain-seed-286c94f5-90f2-47a6-921a-0357e078c971": 1,
+      "storybooks:storybook-amari-kai-lost-library-book-d8a296d9-0105-42f1-bb98-cbe98f2ad395": 1,
+      "dino:chess:4ad9d58cbd9e490b8c4fa810f2d747c3": 1,
+      "dino:jigsaw:little:c3e0f339-f730-4074-bb9c-432d8df29346": 8,
+      "dino:jigsaw:little:c83c0b5f-433e-42f1-9724-edb8fd03a034": 8,
+      "dino:jigsaw:little:a4153a03-9b1f-47bc-acc9-c61fa78ff2ec": 8,
+      "dino:german:amari_0_127o47w": 1,
+      "dino:german:amari_1_xpcr4k": 1,
+      "dino:german:amari_2_homuc": 1,
+      "dino:curriculum:continents:starter": 1,
+      "dino:curriculum:continents:growing": 1,
+      "dino:curriculum:continents:challenge": 1,
+      "dino:curriculum:time-detectives:starter": 1,
+      "dino:curriculum:time-detectives:growing": 1,
+      "dino:curriculum:time-detectives:challenge": 1,
+      "dino:curriculum:nature-lab:starter": 1,
+      "dino:curriculum:nature-lab:growing": 1,
+      "dino:curriculum:nature-lab:challenge": 1,
+      "dino:letters:878a0f5c-8e44-4977-a138-7163702eb64f": 1,
+      "dino:letters:ff15103a-93a7-4cf3-b754-bb622e54c96f": 1,
+      "dino:letters:dc4a6674-ccbb-475c-9e44-a9d137deac91": 1,
+      "dino:letters:5d4db99e-db5b-4e33-b240-d220237ae241": 1,
+      "dino:puzzle:starter:complete": 2,
+      "dino:puzzle:growing:complete": 2,
+      "dino:puzzle:challenge:complete": 2,
+      "dino:spot:starter:complete": 2,
+      "dino:spot:growing:complete": 2,
+      "dino:spot:challenge:complete": 2,
+      "dino:jet:mission:sky-triangle:2239455042": 1,
+      "dino:math:count-garden:best:3": 3,
+      "dino:math:number-workshop:best:3": 3,
+      "dino:math:story-bridge:best:3": 3,
+      "dino:jet:mission:sky-square:1046708459": 2,
+      "dino:jet:mission:sky-diamond:1046708459": 2,
+      "dino:jet:mission:sky-circle:1046708459": 3,
+      "dino:jet:episode:cloud-meadow:complete": 2,
+      "dino:jet:mission:sky-triangle:1812842887": 1,
+      "dino:jet:mission:sky-cloud:4087101910": 2,
+      "dino:jet:mission:sky-star:4087101910": 2,
+      "dino:jet:mission:sky-house:4087101910": 2,
+      "dino:jet:mission:sky-heart:4087101910": 2,
+      "dino:jet:episode:rainbow-ridge:complete": 2,
+      "dino:jet:mission:sky-rocket:2157104997": 2,
+      "dino:jet:mission:sky-observatory:2157104997": 2,
+      "dino:jet:mission:sky-castle:2157104997": 2,
+      "dino:jet:mission:sky-airplane:2157104997": 2,
+      "dino:jet:episode:aurora-station:complete": 2,
+      "dino:counting:star-garden:best:3": 1,
+      "dino:counting:constellation-workshop:best:3": 3,
+      "dino:counting:galaxy-survey:best:3": 3,
+      "dino:addition:groups:best:3": 3,
+      "dino:addition:bonds:best:3": 3,
+      "dino:addition:stories:best:3": 3,
+      "dino:subtraction:take-away:best:3": 3,
+      "dino:subtraction:compare:best:3": 3,
+      "dino:subtraction:stories:best:3": 3,
+      "dino:shadowmatch:shadowmatch:level-3:best-3": 8,
+      "dino:shadowmatch:shadowmatch:level-4:best-3": 8,
+      "dino:shadowmatch:shadowmatch:level-5:best-3": 8
+    },
+    "earnedStickerCount": 12
+  },
+  "rewardsAfterPuzzle": {
+    "present": true,
+    "points": 491,
+    "gamesPlayed": {
+      "counting": 4,
+      "timeteller": 3,
+      "numberline": 3,
+      "trace": 20,
+      "tictactoe": 10,
+      "shadowmatch": 5,
+      "phonics": 3,
+      "colormix": 18,
+      "oddoneout": 3,
+      "pattern": 3,
+      "astronaut": 4,
+      "chess": 4,
+      "codecadets": 3,
+      "writingdesk": 3,
+      "memory": 10,
+      "solar": 18,
+      "rocketbuilder": 3,
+      "fuelup": 3,
+      "firerescue": 3,
+      "ladder": 3,
+      "dino": 12,
+      "hangman": 5,
+      "words": 6,
+      "storybooks": 7,
+      "dinojigsaw": 3,
+      "german": 3,
+      "worldmap": 9,
+      "letters": 4,
+      "puzzle": 3,
+      "spot": 3,
+      "jet": 16,
+      "math": 3,
+      "addition": 3,
+      "subtraction": 3
+    },
+    "rewardClaims": {
+      "dino:d9f31f2d-d0cb-4fa9-903d-f8201744c31d": 2,
+      "dino:919e0a95-3539-444e-ad14-26890f0be5c2": 2,
+      "dino:9eed4660-8986-45b4-8a73-20627083bcb2": 2,
+      "dino:8cb33bef-e05c-4074-a8df-c3d3d2365a0f": 2,
+      "dino:3ead6ff8-4823-4fd1-835b-c876a28baac5": 2,
+      "dino:36d521ec-ebd8-4866-a355-7fb0136d28f5": 2,
+      "dino:01d2e675-1c0d-4e40-8dc4-e531b453af0b": 2,
+      "dino:a717da8d-59bd-4602-95e6-d6efffa67142": 2,
+      "dino:392ac3c5-b2fc-4d85-a815-513b39de05a2": 2,
+      "dino:2355b9f3-dbcb-4b7a-b293-31221c336b9f": 2,
+      "dino:7591be3f-e9ba-48c7-b1c6-bb77ab061e03": 2,
+      "dino:34078fec-348c-40d9-9608-e61910520d20": 2,
+      "hangman:first-words-876964074": 2,
+      "hangman:four-letter-rescue-1015050138": 6,
+      "hangman:five-letter-rescue-186878005": 6,
+      "hangman:long-word-rescue-4077150665": 6,
+      "hangman:first-words-2939227976": 4,
+      "words:36f8b49d-e872-49d6-bf38-b0f5d92ea847": 6,
+      "words:859d0b5c-8188-44f1-8d0f-b594dd07736f": 6,
+      "words:3088c47c-59eb-4a00-bb55-60a1d038ebd2": 6,
+      "words:2419242a-c1fa-450c-8be6-d66d96055c8e": 6,
+      "words:ff9f3414-8849-40d4-96cf-f2b588e1d485": 6,
+      "words:bd1ae71d-9d60-4aa0-acaf-c68faeb371d4": 6,
+      "storybooks:storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8": 1,
+      "storybooks:storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00": 1,
+      "storybooks:storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324": 1,
+      "storybooks:storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28": 1,
+      "storybooks:storybook-amari-sami-night-light-parade-275033aa-b11b-4374-b1d3-b52f2c8bc662": 1,
+      "storybooks:storybook-amari-mina-mountain-seed-286c94f5-90f2-47a6-921a-0357e078c971": 1,
+      "storybooks:storybook-amari-kai-lost-library-book-d8a296d9-0105-42f1-bb98-cbe98f2ad395": 1,
+      "dino:chess:4ad9d58cbd9e490b8c4fa810f2d747c3": 1,
+      "dino:jigsaw:little:c3e0f339-f730-4074-bb9c-432d8df29346": 8,
+      "dino:jigsaw:little:c83c0b5f-433e-42f1-9724-edb8fd03a034": 8,
+      "dino:jigsaw:little:a4153a03-9b1f-47bc-acc9-c61fa78ff2ec": 8,
+      "dino:german:amari_0_127o47w": 1,
+      "dino:german:amari_1_xpcr4k": 1,
+      "dino:german:amari_2_homuc": 1,
+      "dino:curriculum:continents:starter": 1,
+      "dino:curriculum:continents:growing": 1,
+      "dino:curriculum:continents:challenge": 1,
+      "dino:curriculum:time-detectives:starter": 1,
+      "dino:curriculum:time-detectives:growing": 1,
+      "dino:curriculum:time-detectives:challenge": 1,
+      "dino:curriculum:nature-lab:starter": 1,
+      "dino:curriculum:nature-lab:growing": 1,
+      "dino:curriculum:nature-lab:challenge": 1,
+      "dino:letters:878a0f5c-8e44-4977-a138-7163702eb64f": 1,
+      "dino:letters:ff15103a-93a7-4cf3-b754-bb622e54c96f": 1,
+      "dino:letters:dc4a6674-ccbb-475c-9e44-a9d137deac91": 1,
+      "dino:letters:5d4db99e-db5b-4e33-b240-d220237ae241": 1,
+      "dino:puzzle:starter:complete": 2,
+      "dino:puzzle:growing:complete": 2,
+      "dino:puzzle:challenge:complete": 2,
+      "dino:spot:starter:complete": 2,
+      "dino:spot:growing:complete": 2,
+      "dino:spot:challenge:complete": 2,
+      "dino:jet:mission:sky-triangle:2239455042": 1,
+      "dino:math:count-garden:best:3": 3,
+      "dino:math:number-workshop:best:3": 3,
+      "dino:math:story-bridge:best:3": 3,
+      "dino:jet:mission:sky-square:1046708459": 2,
+      "dino:jet:mission:sky-diamond:1046708459": 2,
+      "dino:jet:mission:sky-circle:1046708459": 3,
+      "dino:jet:episode:cloud-meadow:complete": 2,
+      "dino:jet:mission:sky-triangle:1812842887": 1,
+      "dino:jet:mission:sky-cloud:4087101910": 2,
+      "dino:jet:mission:sky-star:4087101910": 2,
+      "dino:jet:mission:sky-house:4087101910": 2,
+      "dino:jet:mission:sky-heart:4087101910": 2,
+      "dino:jet:episode:rainbow-ridge:complete": 2,
+      "dino:jet:mission:sky-rocket:2157104997": 2,
+      "dino:jet:mission:sky-observatory:2157104997": 2,
+      "dino:jet:mission:sky-castle:2157104997": 2,
+      "dino:jet:mission:sky-airplane:2157104997": 2,
+      "dino:jet:episode:aurora-station:complete": 2,
+      "dino:counting:star-garden:best:3": 1,
+      "dino:counting:constellation-workshop:best:3": 3,
+      "dino:counting:galaxy-survey:best:3": 3,
+      "dino:addition:groups:best:3": 3,
+      "dino:addition:bonds:best:3": 3,
+      "dino:addition:stories:best:3": 3,
+      "dino:subtraction:take-away:best:3": 3,
+      "dino:subtraction:compare:best:3": 3,
+      "dino:subtraction:stories:best:3": 3,
+      "dino:shadowmatch:shadowmatch:level-3:best-3": 8,
+      "dino:shadowmatch:shadowmatch:level-4:best-3": 8,
+      "dino:shadowmatch:shadowmatch:level-5:best-3": 8
+    },
+    "earnedStickerCount": 12
+  },
+  "rewardsAfterSpot": {
+    "present": true,
+    "points": 491,
+    "gamesPlayed": {
+      "counting": 4,
+      "timeteller": 3,
+      "numberline": 3,
+      "trace": 20,
+      "tictactoe": 10,
+      "shadowmatch": 5,
+      "phonics": 3,
+      "colormix": 18,
+      "oddoneout": 3,
+      "pattern": 3,
+      "astronaut": 4,
+      "chess": 4,
+      "codecadets": 3,
+      "writingdesk": 3,
+      "memory": 10,
+      "solar": 18,
+      "rocketbuilder": 3,
+      "fuelup": 3,
+      "firerescue": 3,
+      "ladder": 3,
+      "dino": 12,
+      "hangman": 5,
+      "words": 6,
+      "storybooks": 7,
+      "dinojigsaw": 3,
+      "german": 3,
+      "worldmap": 9,
+      "letters": 4,
+      "puzzle": 3,
+      "spot": 3,
+      "jet": 16,
+      "math": 3,
+      "addition": 3,
+      "subtraction": 3
+    },
+    "rewardClaims": {
+      "dino:d9f31f2d-d0cb-4fa9-903d-f8201744c31d": 2,
+      "dino:919e0a95-3539-444e-ad14-26890f0be5c2": 2,
+      "dino:9eed4660-8986-45b4-8a73-20627083bcb2": 2,
+      "dino:8cb33bef-e05c-4074-a8df-c3d3d2365a0f": 2,
+      "dino:3ead6ff8-4823-4fd1-835b-c876a28baac5": 2,
+      "dino:36d521ec-ebd8-4866-a355-7fb0136d28f5": 2,
+      "dino:01d2e675-1c0d-4e40-8dc4-e531b453af0b": 2,
+      "dino:a717da8d-59bd-4602-95e6-d6efffa67142": 2,
+      "dino:392ac3c5-b2fc-4d85-a815-513b39de05a2": 2,
+      "dino:2355b9f3-dbcb-4b7a-b293-31221c336b9f": 2,
+      "dino:7591be3f-e9ba-48c7-b1c6-bb77ab061e03": 2,
+      "dino:34078fec-348c-40d9-9608-e61910520d20": 2,
+      "hangman:first-words-876964074": 2,
+      "hangman:four-letter-rescue-1015050138": 6,
+      "hangman:five-letter-rescue-186878005": 6,
+      "hangman:long-word-rescue-4077150665": 6,
+      "hangman:first-words-2939227976": 4,
+      "words:36f8b49d-e872-49d6-bf38-b0f5d92ea847": 6,
+      "words:859d0b5c-8188-44f1-8d0f-b594dd07736f": 6,
+      "words:3088c47c-59eb-4a00-bb55-60a1d038ebd2": 6,
+      "words:2419242a-c1fa-450c-8be6-d66d96055c8e": 6,
+      "words:ff9f3414-8849-40d4-96cf-f2b588e1d485": 6,
+      "words:bd1ae71d-9d60-4aa0-acaf-c68faeb371d4": 6,
+      "storybooks:storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8": 1,
+      "storybooks:storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00": 1,
+      "storybooks:storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324": 1,
+      "storybooks:storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28": 1,
+      "storybooks:storybook-amari-sami-night-light-parade-275033aa-b11b-4374-b1d3-b52f2c8bc662": 1,
+      "storybooks:storybook-amari-mina-mountain-seed-286c94f5-90f2-47a6-921a-0357e078c971": 1,
+      "storybooks:storybook-amari-kai-lost-library-book-d8a296d9-0105-42f1-bb98-cbe98f2ad395": 1,
+      "dino:chess:4ad9d58cbd9e490b8c4fa810f2d747c3": 1,
+      "dino:jigsaw:little:c3e0f339-f730-4074-bb9c-432d8df29346": 8,
+      "dino:jigsaw:little:c83c0b5f-433e-42f1-9724-edb8fd03a034": 8,
+      "dino:jigsaw:little:a4153a03-9b1f-47bc-acc9-c61fa78ff2ec": 8,
+      "dino:german:amari_0_127o47w": 1,
+      "dino:german:amari_1_xpcr4k": 1,
+      "dino:german:amari_2_homuc": 1,
+      "dino:curriculum:continents:starter": 1,
+      "dino:curriculum:continents:growing": 1,
+      "dino:curriculum:continents:challenge": 1,
+      "dino:curriculum:time-detectives:starter": 1,
+      "dino:curriculum:time-detectives:growing": 1,
+      "dino:curriculum:time-detectives:challenge": 1,
+      "dino:curriculum:nature-lab:starter": 1,
+      "dino:curriculum:nature-lab:growing": 1,
+      "dino:curriculum:nature-lab:challenge": 1,
+      "dino:letters:878a0f5c-8e44-4977-a138-7163702eb64f": 1,
+      "dino:letters:ff15103a-93a7-4cf3-b754-bb622e54c96f": 1,
+      "dino:letters:dc4a6674-ccbb-475c-9e44-a9d137deac91": 1,
+      "dino:letters:5d4db99e-db5b-4e33-b240-d220237ae241": 1,
+      "dino:puzzle:starter:complete": 2,
+      "dino:puzzle:growing:complete": 2,
+      "dino:puzzle:challenge:complete": 2,
+      "dino:spot:starter:complete": 2,
+      "dino:spot:growing:complete": 2,
+      "dino:spot:challenge:complete": 2,
+      "dino:jet:mission:sky-triangle:2239455042": 1,
+      "dino:math:count-garden:best:3": 3,
+      "dino:math:number-workshop:best:3": 3,
+      "dino:math:story-bridge:best:3": 3,
+      "dino:jet:mission:sky-square:1046708459": 2,
+      "dino:jet:mission:sky-diamond:1046708459": 2,
+      "dino:jet:mission:sky-circle:1046708459": 3,
+      "dino:jet:episode:cloud-meadow:complete": 2,
+      "dino:jet:mission:sky-triangle:1812842887": 1,
+      "dino:jet:mission:sky-cloud:4087101910": 2,
+      "dino:jet:mission:sky-star:4087101910": 2,
+      "dino:jet:mission:sky-house:4087101910": 2,
+      "dino:jet:mission:sky-heart:4087101910": 2,
+      "dino:jet:episode:rainbow-ridge:complete": 2,
+      "dino:jet:mission:sky-rocket:2157104997": 2,
+      "dino:jet:mission:sky-observatory:2157104997": 2,
+      "dino:jet:mission:sky-castle:2157104997": 2,
+      "dino:jet:mission:sky-airplane:2157104997": 2,
+      "dino:jet:episode:aurora-station:complete": 2,
+      "dino:counting:star-garden:best:3": 1,
+      "dino:counting:constellation-workshop:best:3": 3,
+      "dino:counting:galaxy-survey:best:3": 3,
+      "dino:addition:groups:best:3": 3,
+      "dino:addition:bonds:best:3": 3,
+      "dino:addition:stories:best:3": 3,
+      "dino:subtraction:take-away:best:3": 3,
+      "dino:subtraction:compare:best:3": 3,
+      "dino:subtraction:stories:best:3": 3,
+      "dino:shadowmatch:shadowmatch:level-3:best-3": 8,
+      "dino:shadowmatch:shadowmatch:level-4:best-3": 8,
+      "dino:shadowmatch:shadowmatch:level-5:best-3": 8
+    },
+    "earnedStickerCount": 12
+  },
+  "rewardDeltas": {
+    "puzzle": {
+      "points": 0,
+      "gamesPlayed": 0,
+      "claimCount": 0
+    },
+    "spot": {
+      "points": 0,
+      "gamesPlayed": 0,
+      "claimCount": 0
+    }
+  },
+  "finalStorage": {
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code": {
+      "sha256": "adb5b3727ae2d4b2c8e5cba9f376d9c3f511aea7ef0b21dc2fc0f71f1518f200",
+      "bytes": 125
+    },
+    "qa_rewards_20261024_amari_rewards_v2": {
+      "sha256": "a3152d17eff7e6749a6e80460542caef308e046ab1bd4d63611fafd416c68ebf",
+      "bytes": 4651
+    },
+    "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1": {
+      "sha256": "52818933561142f00177f09945157335ec79f18cb1e836e3efa0c014665c85dc",
+      "bytes": 9552
+    },
+    "qa_rewards_20261024_amari_sound_safari_adventure_v1": {
+      "sha256": "295123080a8f16466f8a4236f21a91ca53ff56d2ff31fa83a06b2f04ddfa287d",
+      "bytes": 415
+    },
+    "qa_rewards_20261024_amari_monster_math_progress_v1": {
+      "sha256": "8dc731ca038bff605ebf5be3990ff8165bba20719d0339fbbe5cf0c1c9a94b60",
+      "bytes": 1097
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing": {
+      "sha256": "a6fe46ca93298ffb7820151834a97d7a6aa984ac825fb5aa104fa3cf8fbff72d",
+      "bytes": 476
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing": {
+      "sha256": "a07b429a52ca026912b4060e3bc323aed2c5aa776db686c759db950ef2e08d63",
+      "bytes": 179
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good": {
+      "sha256": "e487301d17292d79dbe59ee4c4f6f554c5af1b043b31453af4e81063be1ddecf",
+      "bytes": 126760
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter": {
+      "sha256": "af4fb66309c244c4de4c9af028937b83fe3469165e67a3a87840f4f17a7553a7",
+      "bytes": 425
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge": {
+      "sha256": "c84acab72a5370cfb979b464c399187eb9a725adf31c2730a7949226b6a87aa7",
+      "bytes": 436
+    },
+    "qa_rewards_20261024_askia_favourite_games": {
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:amari": {
+      "sha256": "4f5b18ff20d0e068369e402a51d433024e952e6aaa75be38b81f2fcd2e38cd43",
+      "bytes": 278
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge": {
+      "sha256": "a5bce1316bd914796a045a14be7b77d8ea071a3f0ea196de62dab93e110d6abb",
+      "bytes": 138
+    },
+    "qa_rewards_20261024_amari_cosmic_freeplay_v1": {
+      "sha256": "b75c9cb3f20422d9a645093be50cde7bf7d923ca2ca1ff801b099f2060c975d6",
+      "bytes": 183
+    },
+    "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_german_chapter_progress_v1": {
+      "sha256": "f299e189cf880494b64a907fedc109e75b267ad584294356ac25b6b188b70fe5",
+      "bytes": 531
+    },
+    "qa_rewards_20261024_amari_writing_samples_v1": {
+      "sha256": "0b7b59c17a8efdd1423bde769353d1c3a1f23828b36d5b3745038f72f4477c19",
+      "bytes": 585
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter": {
+      "sha256": "aad9e3c397e5fd1f6a93e290c0aa5b7e81be1f8e06e540930d9a3176caf27835",
+      "bytes": 154
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge": {
+      "sha256": "fd8d395476c99f0333b062d46ed2c3d8e3867878ada9750768210a791e59638b",
+      "bytes": 172
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard": {
+      "sha256": "38acb3b5cda24fbd4b0be4b969f8e1910afe11ed020247fcdad5c5e8e44736d1",
+      "bytes": 154271
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter": {
+      "sha256": "04309c5306d944c5782cee4a445deb349e7b55ac885a816e1033ea331f8c48cd",
+      "bytes": 367
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing": {
+      "sha256": "8ae3e3c08d53874ce8bc4446090fbb3e09f0ac1b9005b98d8eaaf13a2f31c466",
+      "bytes": 158
+    },
+    "qa_rewards_20261024_amari_german_recent_targets_v1": {
+      "sha256": "9f8d1b6063b01d4edaa25d545f20fcebd79a72db8f4e692427b916e68acc77aa",
+      "bytes": 380
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing": {
+      "sha256": "9c1ac5d8e9c840c8c2c62e7b94a81ad707bf26622f1b222b8a60abc04433dad8",
+      "bytes": 394
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge": {
+      "sha256": "31c4befee0b5643da663193ff57281ecbc774424aaa8c7ebbe2473b3cdbfb568",
+      "bytes": 190
+    },
+    "qa_rewards_20261024_amari_challenge_done": {
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "bytes": 5
+    },
+    "qa_rewards_20261024_amari_letter_launch_progress_v1": {
+      "sha256": "86ad888da8c07164424cf3c57c69d51696a36f8a225338ddf4fc6ab9d8ee316a",
+      "bytes": 710
+    },
+    "qa_rewards_20261024_askia_earned_sticker_ids_v1": {
+      "sha256": "644b835b593cc79e46412ad6f913c5aec0335b09c392365d3261763482106ba4",
+      "bytes": 83
+    },
+    "qa_rewards_20261024_amari_voice_mode_v4": {
+      "sha256": "870dc23d21836b97b58a7753922edc8512764e83c02586f3d8f14c11f760550b",
+      "bytes": 7
+    },
+    "qa_rewards_20261024_amari_astronaut_academy_progress_v1": {
+      "sha256": "ecf2983df506da9e1dc9e7f5dda82f9a293cb7bc1a0e355580909b51fa095541",
+      "bytes": 798
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge": {
+      "sha256": "d3bf94c41b13412c7b6ccd1d8303a6fa2c8fc692ea0c1cda6d83a5a2c5b3ac9e",
+      "bytes": 339
+    },
+    "qa_rewards_20261024_amari_writing_desk_progress_v1:amari": {
+      "sha256": "4180f5dcce988b24d87a526bb94ec4115adf9985b84d7bd4e890471c8bbf061c",
+      "bytes": 96
+    },
+    "qa_rewards_20261024_askia_streak": {
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_askia_challenge_done": {
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "bytes": 5
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter": {
+      "sha256": "61b7d671f076276b51394960b4ae47b2cfd64e9e4f30fff171c43eaf5af3ae07",
+      "bytes": 392
+    },
+    "qa_rewards_20261024_amari_cosmic_tactics_v1": {
+      "sha256": "8b4d4123fca4bdb562b092e40e22d816d44ca0e2fe61cdd793e69c74da8aab5e",
+      "bytes": 130
+    },
+    "qa_rewards_20261024_amari_favourite_games": {
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter": {
+      "sha256": "a711a548f527ccdfd4f805775a09d9838dff9b12e525c83b5abfe3171845ef5f",
+      "bytes": 146
+    },
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing": {
+      "sha256": "5f47f87d123f3e48ef71a8b9f176d90f3d1863e42747233917cb4c6a1b75626b",
+      "bytes": 153714
+    },
+    "qa_rewards_20261024_amari_curriculum_completion_receipts_v1": {
+      "sha256": "fe1c8f34ed96e6ea09c10fd087d304d2ca322f52ca374b915e3516fb2aef1268",
+      "bytes": 1296
+    },
+    "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report": {
+      "sha256": "af50d4bf3e5af18fae31df3c38326e2a2e79b41e149ab9880a59dbb152a501a9",
+      "bytes": 102984
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing": {
+      "sha256": "713c52079fea43216bcda3ee3cd8add99a7cfa0a0204b2548c76dd36b55054f5",
+      "bytes": 485
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter": {
+      "sha256": "9f79f4aa73acfa90ec2581a2fdddcf0ca934e64171c03d12b4363ac37deb1c71",
+      "bytes": 454
+    },
+    "qa_rewards_20261024_amari_spelling_recent_v1": {
+      "sha256": "856475ac9b4664209a2b27ef92683556706fcae4b1d969105b43b5df079ac0a6",
+      "bytes": 59
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge": {
+      "sha256": "8f64ed3954f3c7ab29ccc187290b1339c90694082ec05332f694760f66f9b66c",
+      "bytes": 407
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter": {
+      "sha256": "ae7027e5398f152607643c82d9a186ae4950d7c1a3c7309f02102b782383476a",
+      "bytes": 360
+    },
+    "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari": {
+      "sha256": "0d8648eae61ba15771315a90ccecf934dce45ea323055b9da6445aa3ce4eaede",
+      "bytes": 252
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes": {
+      "sha256": "7cf8670af95384b5169d32a10bc520fe42a0d974443b48d96e3feacdddde844f",
+      "bytes": 126724
+    },
+    "qa_rewards_20261024_amari_curriculum_preferences_v1": {
+      "sha256": "a40d8a1b1f663a3199fe23297c152d46c587328779d05e0fb1f7c304d2c3482c",
+      "bytes": 132
+    },
+    "qa_rewards_20261024_amari_hangman_progress_v1:amari": {
+      "sha256": "305acf4d56a937c1d651cab71dcbb61d899648b05c7b460403da3bd2ce0e705f",
+      "bytes": 900
+    },
+    "qa_rewards_20261024_amari_oddoneout_progress_v1": {
+      "sha256": "f31ab7820bfb9634fe0b859db77195e2ce4f1c70552340af8787a74a848cb2f3",
+      "bytes": 1212
+    },
+    "qa_rewards_20261024_amari_numberline_progress_v1": {
+      "sha256": "720386f85fce18a7e5bb9e78e060a90059932170d49146f53b3d7e6505b5fb19",
+      "bytes": 698
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge": {
+      "sha256": "00533d2a5d328e7b696bd672528a510cce3ab0af3befad6052b774f7f92bc892",
+      "bytes": 414
+    },
+    "qa_rewards_20261024_amari_earned_sticker_ids_v1": {
+      "sha256": "24bc5e4ed0d9923aa5b73b74e618362d7d0a38332a952c604c39f6fd6d985ddc",
+      "bytes": 101
+    },
+    "qa_rewards_20261024_amari_timeteller_progress_v1": {
+      "sha256": "5c2c2ffca2d27e1080fd8da2d3feb9a34284644fc43018aad4f01cf187ecfd89",
+      "bytes": 564
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_0": {
+      "sha256": "b4da7e1a9e8252c99ff3b80abe85ef3f162ee80dce857b67dd1bd457f6c9ae5c",
+      "bytes": 33
+    },
+    "amari-sound-on": {
+      "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "bytes": 4
+    },
+    "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari": {
+      "sha256": "176bea07c78604cfd2829ff73e6de375db86807e7a046c407171bbcf4ac0360a",
+      "bytes": 387
+    },
+    "qa_rewards_20261024_amari_memory_resume_v1": {
+      "sha256": "3ebad643deb9b1a2a98b072d44fde2f970b75d7397ef06e9e770a97ddc9fc3ba",
+      "bytes": 17
+    },
+    "qa_rewards_20261024_askia_games_played": {
+      "sha256": "e01fe61834a3c4a819aac201b30d9d5d350d3b7083b3282856dcccb8953601af",
+      "bytes": 108
+    },
+    "qa_rewards_20261024_amari_memory_completion_v1": {
+      "sha256": "089869ec33e2c6ddeb26b4e613c6a7ba86410a8aea3abbc36d328f79e122ffad",
+      "bytes": 577
+    },
+    "qa_rewards_20261024_amari_streak": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_addition_progress_v1": {
+      "sha256": "5335145ef889992e48d6bd2146fa444b328993e1b13ab7c476235f6b3a4bad21",
+      "bytes": 881
+    },
+    "qa_rewards_20261024_amari_words_session_progress_v1:amari": {
+      "sha256": "1c06da905083bc19f6e01c2b4b82aa2eff840b13490132961a564e6f0462af35",
+      "bytes": 2506
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_1": {
+      "sha256": "4ecef27aba3b87f82183b09d92f3a5f8a3ef20b6ff022a689e16040b694d7832",
+      "bytes": 49
+    },
+    "qa_rewards_20261024_amari_challenge_progress": {
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing": {
+      "sha256": "1daa53118c325657cd2170c7d21a0464ffe9dc5909c9d9bb2110c306dbeae2ce",
+      "bytes": 401
+    },
+    "qa_rewards_20261024_amari_chess_game_v1": {
+      "sha256": "181c199474e3445b965f4dd0e25d3117c254283e8c74d5f1584b2484c16a94b7",
+      "bytes": 790
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:askia": {
+      "sha256": "bb15ef838559d75c4ca4235fbe65a8b4411bbf44454f95eff7ef266a9b6de7c0",
+      "bytes": 278
+    },
+    "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge": {
+      "sha256": "b9c6ccdf9b6e87642d5d876b889d0be324ca4e7cd9048deec55530cd112da924",
+      "bytes": 395
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good": {
+      "sha256": "3ce69a0c25e34ee6cceed6cb3dfe7346b43326d1eaa6b00d5267e945ff568e7c",
+      "bytes": 102413
+    },
+    "qa_rewards_20261024_amari_games_played": {
+      "sha256": "ff7c462e56f1a13076215ccd2dfb262a985a732d8441a5d7c8365d442c659c72",
+      "bytes": 436
+    },
+    "qa_rewards_20261024_amari_little_progress": {
+      "sha256": "303d47297abaa09174048cebb9c386bffe7c316522b24287ed92edfd9ba1694b",
+      "bytes": 1756
+    },
+    "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1": {
+      "sha256": "fb3c58c33db416a7eda29eece3fabca299739deda5f66ce91399d1cc7952e818",
+      "bytes": 1161
+    },
+    "qa_rewards_20261024_amari_discovery_active_player": {
+      "sha256": "203225186ef5ddc9cda0bb3dfe73ced878f5271e184c54a70efb4056dda8a6ad",
+      "bytes": 7
+    },
+    "qa_rewards_20261024_amari_sky_shapes_progress_v1": {
+      "sha256": "d6913f193f499281c8a43cab5aaa0745937435278451e151e50cbcf05a2ff55a",
+      "bytes": 3528
+    },
+    "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1": {
+      "sha256": "48413fe8dbef2b526d89d5096b3d9e087927fa48c14bec3e59c70e0be7d09360",
+      "bytes": 12688
+    },
+    "qa_rewards_20261024_askia_lastplay": {
+      "sha256": "5fcb572b528519139e2387488eb3b6ebaf08e890f45e59c93ac2161bba96e0e4",
+      "bytes": 12
+    },
+    "qa_rewards_20261024_amari_code_cadets_progress_v1:amari": {
+      "sha256": "3627839f3dee281d9bb2d15790e9abeb9131c0062efd906511ca24690e3d564a",
+      "bytes": 2102
+    },
+    "qa_rewards_20261024_amari_learning_attempts_v1": {
+      "sha256": "5ca887d5fed8692360eda801ccad549712a39cc6d41d55eeaa94fa7644f1c02d",
+      "bytes": 323051
+    },
+    "qa_rewards_20261024_amari_chapter_badges_v1": {
+      "sha256": "579c51460dec184e146a63f47cb2106f2f990a64348c2f82e4da616adb8b1320",
+      "bytes": 180
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_2": {
+      "sha256": "a4682548827d3e386159eb44c781573a11c6ef06a1778efb5d2a241ed923884b",
+      "bytes": 33
+    },
+    "qa_rewards_20261024_amari_memory_passport_v1": {
+      "sha256": "d62250dfa3db49e5fc55dbd4750deade0f6d7176834e982aa211cfb23fe12e39",
+      "bytes": 518
+    },
+    "qa_rewards_20261024_askia_challenge_progress": {
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_points": {
+      "sha256": "227445a988500528d7826c6921d2e3b4a79ccf3a94cc3bcf7b667e3ae4990b36",
+      "bytes": 3
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter": {
+      "sha256": "d23cd7c01f5945781e3e7f6c31ae4368f98bb5a4c4c9622996093c906ce6b87d",
+      "bytes": 161
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good": {
+      "sha256": "347a216d45c48475252b8084ab381e9651263f591621dbf06d64a8cc0d995f3e",
+      "bytes": 154246
+    },
+    "qa_rewards_20261024_amari_storybook_progress_v1": {
+      "sha256": "ea776387693888771d06d46534aee66a2ca9b35a3f23a6d88123dbf99b8f61eb",
+      "bytes": 2469
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge": {
+      "sha256": "79061e0277c0f3a5d09c412475cf85e7bc263aab7e6e5b71918a3da86816dc94",
+      "bytes": 488
+    },
+    "qa_rewards_20261024_amari_game_levels_v1": {
+      "sha256": "bbc1b662a80313ac767e30b9f91531308f398aada913dd1bf378ddddcde56e1b",
+      "bytes": 188
+    },
+    "qa_rewards_20261024_amari_memory_best": {
+      "sha256": "565eb06fd6cf24850203bef035675d12993600ec6d275e2549c1174edb3a653f",
+      "bytes": 128
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_3": {
+      "sha256": "3d024624725559750b543adfdf8c6e8b494883e59c699fe6363261d38fe5c801",
+      "bytes": 49
+    },
+    "qa_rewards_20261024_amari_spelling_progress_v1": {
+      "sha256": "5fc7808766b63d96a222fe5a49413e0faaaf10b620313042293f7fde80e4ea9e",
+      "bytes": 12262
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter": {
+      "sha256": "1fe6fe8db508490d6c9d85e3d36f7e18e36fe11d622c4d24f1b869e5ee868845",
+      "bytes": 343
+    },
+    "qa_rewards_20261024_amari_lastplay": {
+      "sha256": "f528027a3840eeb8e5a67bd8b2f9d8b99c9e6bd4a435112b045cef46a5b252b5",
+      "bytes": 12
+    },
+    "qa_rewards_20261024_amari_puzzle_pop_batch2_v1": {
+      "sha256": "9dcc800b3f5ffa3a69f569c23419376ba95a7bce7dffede851d65f69a2be01a1",
+      "bytes": 607
+    },
+    "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_askia_little_progress": {
+      "sha256": "5db10dff42a98a49ed24d008c14cd6985ef484cb60b111a4e19085b0e2dca310",
+      "bytes": 2236
+    },
+    "qa_rewards_20261024_askia_recent_games": {
+      "sha256": "274263cfd9e5b2ee90f284d8624789189f890b96e643dafc24c95595fc003344",
+      "bytes": 47
+    },
+    "qa_rewards_20261024_amari_curriculum_badges_v1": {
+      "sha256": "9734fae3202dfbc90c594cbb21b803f1a044173534cdcd66a2e97ad41383353d",
+      "bytes": 211
+    },
+    "qa_rewards_20261024_amari_spot_difference_batch2_v1": {
+      "sha256": "548cb3c96af0ddcebe80ef4398820117c554120a915419f32137287bb1c15770",
+      "bytes": 500
+    },
+    "qa_rewards_20261024_amari_game_diagnostics_v1": {
+      "sha256": "2ba1140dc8e175eef059f19aa0cad9591097ecd8b0ab54e8e72ff941a47193e4",
+      "bytes": 40378
+    },
+    "qa_rewards_20261024_askia_rewards_v2": {
+      "sha256": "dcaf92553e05d060292a442a23851f11d8205b3bfb9c7f886049c0d23ca43ca7",
+      "bytes": 1074
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing": {
+      "sha256": "c485f92dec80ad07f015661d7cbcd491eed2cccb9bf82fea9113641fa95a066f",
+      "bytes": 365
+    },
+    "qa_rewards_20261024_askia_points": {
+      "sha256": "00328ce57bbc14b33bd6695bc8eb32cdf2fb5f3a7d89ec14a42825e15d39df60",
+      "bytes": 3
+    },
+    "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey": {
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "bytes": 1
+    },
+    "qa_rewards_20261024_amari_skill_mastery_v1": {
+      "sha256": "d61b03a64dab5d098365afa189ab5983427fb5ae77962d4d82d4720abe29b33b",
+      "bytes": 343040
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing": {
+      "sha256": "635d9dfdd3b56c6852fc0fab7bbdb90465b2b20b5ab7f4178a8a57b7623b5a01",
+      "bytes": 441
+    },
+    "qa_rewards_20261024_amari_subtraction_progress_v1": {
+      "sha256": "96d322c8371051b73659292124cc974ab41aae554a3faf537a9d0b86cdb011ec",
+      "bytes": 928
+    },
+    "qa_rewards_20261024_amari_letter_trace_progress_v1": {
+      "sha256": "f13b8fe4b572a5ba2ad9663d15443786550369f5c061f5a0fc3a9f359e6a7689",
+      "bytes": 278
+    },
+    "qa_rewards_20261024_amari_learning_migration_v1": {
+      "sha256": "de8dba63a51409d81bd95b7577f34f6c749ebb607c67846919fed941d01d8a27",
+      "bytes": 41
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing": {
+      "sha256": "b94f3f9a2f21a5244e0457a70281b1450d53fed70f3beec461021a56369ed36e",
+      "bytes": 173
+    },
+    "qa_rewards_20261024_amari_discovery_passport_v1": {
+      "sha256": "7c8c4aa18386bb549125ac65dd4ff00d9b8ae40cc6fd94227eb6b54d8b49a0aa",
+      "bytes": 573
+    },
+    "qa_rewards_20261024_amari_recent_games": {
+      "sha256": "517667c3e0e616fb1ca88cb3ada52ae5684e550c9690c244ff606c2a6c20a858",
+      "bytes": 40
+    }
+  },
+  "providerAttempts": [],
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "stage": "production",
+  "runtimeSource": "c6f87e8681bfa725f0a54080f7f55836057ddb66",
+  "entry": "/assets/arcade-DTw2uC-a.js",
+  "sourceHead": "c6f87e8681bfa725f0a54080f7f55836057ddb66",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/puzzlePopBatch2.js": "5ec2e97c3f615786bc507e5d5235a1a5eed21baca9cf473194c880845220ed98",
+    "src/data/spotDifferenceBatch2.js": "cbd1e2c2a865901688ab3f73eac012a4778724fb4ee673fa642ddc5238d225bf",
+    "src/data/batch2Narration.js": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14",
+    "src/components/games/PuzzlePlay.jsx": "53ac0ac848abb9890a8fedc72f8560f02a821047dfedc0f092ea5904f819818f",
+    "src/components/games/PuzzlePlay.css": "00fe0b4df32f11facb47b37c426fddc9cdd47876efe891331d22d7b25dacdffe",
+    "src/components/games/SpotDifference.jsx": "0a58feee64e37304e0765d688f17a84626d14ff9211382fd315ad80b50e7266d",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/discoveryPremium.css": "1cb23026e325df0b7c08d42443957c83d56ebf239052f7198bcec2ac0d100851",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/puzzle-spot-fit-20261029/puzzle-spot-fit-native.cjs": "cc3afe4e28c101637149a9621d21202b42c362aa979280e2b4e4d964612a279d"
+  },
+  "driverSHA256": "cc3afe4e28c101637149a9621d21202b42c362aa979280e2b4e4d964612a279d",
+  "cliReturnCode": 0,
+  "scope": "Full visible-control layout matrix for 12 Puzzle Pop scenes and 12 Spot pairs. Prior batch2 functional acceptance remains historical evidence; this run measures the current compiled release at 390x740 or 1440x844. No reset, state injection, or hidden-answer inspection.",
+  "faultMode": false,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "application/javascript; charset=utf-8",
+    "entryBytes": 1471486,
+    "entrySha256": "d5398ec2243bfb74d46c479b395fcb34a89a9b6693af1427258590bfe44d5bf2",
+    "cacheControl": "no-cache request"
+  },
+  "runnerSHA256": "5b07fd41366ad0a9245551ff7db9b635fade9bcd2c2be791c7a02d5136fb0764"
+}
