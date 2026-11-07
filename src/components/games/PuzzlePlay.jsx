@@ -378,10 +378,13 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
       {phase === 'intro' ? (
         <main className="puzzle-intro-main mx-auto grid w-full max-w-3xl gap-4 px-4 pb-8 pt-4">
           <section className="puzzle-intro-card rounded-3xl border-4 border-white bg-white/90 p-5 text-center shadow-xl sm:p-7" aria-labelledby="puzzle-intro-chapter">
-            <div className="puzzle-intro-selected">
-              <p className="puzzle-intro-kicker">Chapter {chapterIndex + 1} of {PUZZLE_POP_CHAPTERS.length} · {chapter.grid}×{chapter.grid} · {completedInChapter}/4 pictures</p>
-              <h2 id="puzzle-intro-chapter" className="puzzle-intro-title font-black text-orange-800">{chapter.name}</h2>
-              <p className="puzzle-intro-skill font-bold text-slate-700">{chapter.skill}</p>
+            <div className="puzzle-intro-selected flex w-full items-center gap-2 text-left sm:gap-4">
+              <img src="/art/catalog-v3/game-puzzle.webp" alt="" aria-hidden="true" className="h-20 w-24 shrink-0 object-contain sm:h-24 sm:w-28" />
+              <div className="min-w-0">
+                <p className="puzzle-intro-kicker">Chapter {chapterIndex + 1} of {PUZZLE_POP_CHAPTERS.length} · {chapter.grid}×{chapter.grid} · {completedInChapter}/4 pictures</p>
+                <h2 id="puzzle-intro-chapter" className="puzzle-intro-title font-black text-orange-800">{chapter.name}</h2>
+                <p className="puzzle-intro-skill font-bold text-slate-700">{chapter.skill}</p>
+              </div>
             </div>
             <p className="puzzle-intro-tip rounded-2xl bg-amber-50 px-4 py-3 text-sm font-bold text-orange-900"><strong>Picture tip: </strong>{chapter.visualTip}</p>
             {(progressState.error || pendingStart) && <div className="puzzle-save-notice" role="status" aria-live="polite">

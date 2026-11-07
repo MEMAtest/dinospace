@@ -658,6 +658,8 @@ async function spotPair(page, helper, chapter, chapterIndex, pairIndex, rows, mo
       const match = header?.innerText?.match(/Pair \d+ of 4 · (\d+)\/(\d+)/);
       return match && Number(match[1]) !== prior;
     }, priorFound, { timeout: 2000 }).catch(() => null);
+    const progressVisible = await page.locator('[data-spot-progress]').evaluate(el => ({ clipped: el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight, ellipsis: getComputedStyle(el).textOverflow === 'ellipsis' }));
+    if (progressVisible.clipped || progressVisible.ellipsis) throw new Error(`${title}: chapter/pair progress text is visually clipped`);
     const header = (await spotGameHeader(page).innerText()).trim();
     const match = header.match(/Pair \d+ of 4 · (\d+)\/(\d+)/);
     const afterFound = match ? Number(match[1]) : null;
@@ -748,6 +750,7 @@ module.exports = async function runPuzzleSpotFit(page, { origin, expectedEntry, 
     await setSound(page, helper, true);
 
     await enterGame(page, helper, 'Puzzle Pop', 'Creative Lab');
+    await page.waitForFunction(() => { const img = document.querySelector('img[src="/art/catalog-v3/game-puzzle.webp"]'); return img?.complete && img.naturalWidth > 0; }, null, { timeout: 10000 });
     const puzzleRows = await runPuzzle(page, helper, { faults });
     await leaveGame(page, helper, 'Puzzle Pop', 'Creative Lab');
     const puzzleAfter = await helper.snapshotStorage();
@@ -757,6 +760,7 @@ module.exports = async function runPuzzleSpotFit(page, { origin, expectedEntry, 
     result.rewardsAfterPuzzle = await rewardSnapshot(page);
 
     await enterGame(page, helper, 'Spot the Difference', 'Thinking & Play');
+    await page.waitForFunction(() => { const img = document.querySelector('img[src="/art/catalog-v3/game-spot.webp"]'); return img?.complete && img.naturalWidth > 0; }, null, { timeout: 10000 });
     const spotRows = await runSpot(page, helper, mobile, { faults });
     const spotStorage = helper.assertStorageChanges(puzzleAfter, await helper.snapshotStorage(), { allowedKeys: ['amari_spot_difference_batch2_v1', 'amari_recent_games', 'amari_rewards_v2', 'amari_points', 'amari_earned_sticker_ids_v1', 'amari_games_played', 'amari_game_diagnostics_v1', 'amari_game_lifecycle_diagnostics_v1', 'amari_learning_attempts_v1', 'amari_skill_mastery_v1'] });
     if (spotStorage.unexpected.length) throw new Error(`Spot the Difference changed out-of-scope records: ${JSON.stringify(spotStorage.unexpected)}`);
