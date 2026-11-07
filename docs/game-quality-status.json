@@ -1245,24 +1245,25 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": "Sound Safari artwork consistency; voice mismatch remains open",
-    "runtime": "b82eaadada1c11230cc75e1648db6f9130800584",
-    "entry": "/assets/arcade-BPePf-qQ.js",
+    "pair": "Sound Safari Daniel voice consistency",
+    "runtime": "3156525648283dc8747c58ac4709d5528665c5c9",
+    "entry": "/assets/arcade-D_qRocaF.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-pc9enmspl-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_DzhDJfQMCjrozD2ThFczRZ6gYkp2",
-    "netlifyGatewayDeploy": "6aed01fda0f56cf9110a83bc",
-    "serviceWorkerCache": "amari-discovery-v69",
-    "status": "live_verified_graphics_voice_open",
-    "evidence": "docs/qa-evidence/safari-consistency-20261105/README.md",
-    "verifiedAt": "2026-11-05T22:27:52.908265+00:00",
-    "scope": "Consistent picture clues; full 72-interaction live journeys per viewport. Voice mismatch remains unresolved; no new editorial or listening score.",
+    "backendUrl": "https://dinospace-lj22ib5gf-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_Ab5xx6qNVT5KexYMfFteUzT35TU1",
+    "netlifyGatewayDeploy": "6aee6c207c24d587c81975aa",
+    "serviceWorkerCache": "amari-discovery-v70",
+    "status": "live_verified_targeted",
+    "evidence": "docs/qa-evidence/safari-daniel-20261106/README.md",
+    "verifiedAt": "2026-11-07T00:12:40.306433+00:00",
+    "scope": "Daniel word, instruction and explanation clips, actual playback and full 72-question journeys per viewport; no human pronunciation review.",
     "sourceTests": {
       "passed": 760,
       "failed": 0,
       "skipped": 0
     },
-    "paidCalls": 0
+    "providerAttempts": 20,
+    "savedRecordings": 19
   },
   "latestDinoHangmanUplift": {
     "pair": 7,
@@ -2020,5 +2021,26 @@
       "skipped": 0
     },
     "paidCalls": 0
+  },
+  "latestSoundSafariVoiceConsistency": {
+    "pair": "Sound Safari Daniel voice consistency",
+    "runtime": "3156525648283dc8747c58ac4709d5528665c5c9",
+    "entry": "/assets/arcade-D_qRocaF.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-lj22ib5gf-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_Ab5xx6qNVT5KexYMfFteUzT35TU1",
+    "netlifyGatewayDeploy": "6aee6c207c24d587c81975aa",
+    "serviceWorkerCache": "amari-discovery-v70",
+    "status": "live_verified_targeted",
+    "evidence": "docs/qa-evidence/safari-daniel-20261106/README.md",
+    "verifiedAt": "2026-11-07T00:12:40.306433+00:00",
+    "scope": "Daniel word, instruction and explanation clips, actual playback and full 72-question journeys per viewport; no human pronunciation review.",
+    "sourceTests": {
+      "passed": 760,
+      "failed": 0,
+      "skipped": 0
+    },
+    "providerAttempts": 20,
+    "savedRecordings": 19
   }
 }

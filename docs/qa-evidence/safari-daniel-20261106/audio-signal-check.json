@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "scope": "Audio signal is non-silent; not listening or pronunciation verification",
+  "files": [
+    {
+      "id": "sit",
+      "decoded": true,
+      "meanDb": -22.0
+    },
+    {
+      "id": "sip",
+      "decoded": true,
+      "meanDb": -24.1
+    },
+    {
+      "id": "tip",
+      "decoded": true,
+      "meanDb": -24.3
+    },
+    {
+      "id": "pit",
+      "decoded": true,
+      "meanDb": -22.8
+    },
+    {
+      "id": "pin",
+      "decoded": true,
+      "meanDb": -23.5
+    },
+    {
+      "id": "tin",
+      "decoded": true,
+      "meanDb": -21.0
+    },
+    {
+      "id": "tap",
+      "decoded": true,
+      "meanDb": -23.2
+    },
+    {
+      "id": "nap",
+      "decoded": true,
+      "meanDb": -21.9
+    },
+    {
+      "id": "pan",
+      "decoded": true,
+      "meanDb": -23.4
+    },
+    {
+      "id": "pat",
+      "decoded": true,
+      "meanDb": -23.5
+    },
+    {
+      "id": "sap",
+      "decoded": true,
+      "meanDb": -23.4
+    },
+    {
+      "id": "pip",
+      "decoded": true,
+      "meanDb": -21.7
+    },
+    {
+      "id": "snip",
+      "decoded": true,
+      "meanDb": -20.9
+    },
+    {
+      "id": "snap",
+      "decoded": true,
+      "meanDb": -23.8
+    },
+    {
+      "id": "spin",
+      "decoded": true,
+      "meanDb": -22.6
+    },
+    {
+      "id": "pants",
+      "decoded": true,
+      "meanDb": -24.4
+    },
+    {
+      "id": "insect",
+      "decoded": true,
+      "meanDb": -23.0
+    },
+    {
+      "id": "blend-instruction",
+      "decoded": true,
+      "meanDb": -23.1
+    },
+    {
+      "id": "ant",
+      "decoded": true,
+      "meanDb": -23.6
+    }
+  ]
+}

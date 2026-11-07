@@ -1,0 +1,181 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1441,
+      "sha256": "84751fd315c05980eb5a8fb5dc42a511cdd828690e4e9df1d8e348a3b2de1872",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "bytes": 16575,
+      "sha256": "57f13e42dd95d28e22128ab68c617adef1643c179e956fd5aaec83a4dcbf6f74",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/assets/arcade-D_qRocaF.js",
+      "status": 200,
+      "bytes": 1471071,
+      "sha256": "edfe87324c48aeeeef3f10d7f6d652ccc55f05728789255c883604280baa71d3",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/sit.mp3",
+      "status": 200,
+      "bytes": 9238,
+      "sha256": "2dd598a1cd372a39b9ab2ac9db76df9751dcb58f51665510f3c4efe99c763458",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/sip.mp3",
+      "status": 200,
+      "bytes": 10074,
+      "sha256": "cb9a03972d94ce59ada100a707ba7ab9f30cbdd4f9f265dc1b49d67c0a3bb76d",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/tip.mp3",
+      "status": 200,
+      "bytes": 10074,
+      "sha256": "f22a11f62439aa53f1a04797959d20727656f653e404803c2eb2b9d4a1b60bf1",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/pit.mp3",
+      "status": 200,
+      "bytes": 10074,
+      "sha256": "44a99cf0ddb9d0ed49093a7b51e441ed68556edd81c8b6ff6b2f6b7aed44cd1a",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/pin.mp3",
+      "status": 200,
+      "bytes": 9238,
+      "sha256": "2f0f3526070480b55fd1923be6677e6d337b24941fa0d1bdeadb6d2010f2f1f0",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/tin.mp3",
+      "status": 200,
+      "bytes": 9238,
+      "sha256": "fb7049526f5f365587b7618b1cd447426b5e9cd085ffd95c9e71789277dc2cd1",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/tap.mp3",
+      "status": 200,
+      "bytes": 10910,
+      "sha256": "05ba4228f746087f12c5f6dbe44aea13e0f70f8630b2262fbdd24e44a274f822",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/nap.mp3",
+      "status": 200,
+      "bytes": 10074,
+      "sha256": "1936cab221111eb793088aae93350cd4be1a2f74ac07c36d0e3b1e53eaca56b5",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/pan.mp3",
+      "status": 200,
+      "bytes": 11327,
+      "sha256": "8890f2e1146d0fd436c05d72fdcfe21a50c97b6ed783a3a75d9e566bf5a27a98",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/pat.mp3",
+      "status": 200,
+      "bytes": 10910,
+      "sha256": "48e018340555a9e52ea1138ff41cb5322d7b49588e0a61bcd3b09c6d008f6b36",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/sap.mp3",
+      "status": 200,
+      "bytes": 11327,
+      "sha256": "fc5417af12314f0d310a9fb1330bc44500eb502c80a275673deefcf21f573ef0",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/pip.mp3",
+      "status": 200,
+      "bytes": 10074,
+      "sha256": "d1f751a0b16dec43a59b4d5ebc967e8c981c5fb283f23b43924ba43ca30eeac1",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/snip.mp3",
+      "status": 200,
+      "bytes": 10074,
+      "sha256": "f370863f95a4e4092cd980c279c5c7f5d861518fb5f57ead161691f3e859bc17",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/snap.mp3",
+      "status": 200,
+      "bytes": 10910,
+      "sha256": "4a4fcdff3c4982dcc49b2f308d27e67fc8613ba2bebec5d879357d2cecc24711",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/spin.mp3",
+      "status": 200,
+      "bytes": 11327,
+      "sha256": "cb17fe3ee2754317b33546b7ea93b0fafdcce35be214e9c27e140eaf82bbefe2",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/pants.mp3",
+      "status": 200,
+      "bytes": 11327,
+      "sha256": "059a3c28821b64985244eb1f87ef38645cecc5c12c42e3c0cb8fc51d2af8b44d",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/insect.mp3",
+      "status": 200,
+      "bytes": 12163,
+      "sha256": "c971410af4f0a4308bd2af4f9b9b24753e5385fcbde9042370fd53b39a3c654e",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/blend-instruction.mp3",
+      "status": 200,
+      "bytes": 75275,
+      "sha256": "98f0cb4cdb99520dc7ab458eccdc511abbc47f5cdb800a4acbf634086a25782d",
+      "match": true,
+      "encoding": null
+    },
+    {
+      "path": "/audio/sound-safari/daniel/ant.mp3",
+      "status": 200,
+      "bytes": 10074,
+      "sha256": "945cdac25faa31acf75ec5c98262f2394f2ffd45283e1edaafc5f281e5eeaafd",
+      "match": true,
+      "encoding": null
+    }
+  ]
+}

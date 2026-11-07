@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-07T00:05:22.869572+00:00",
+  "symptom": "Full native run stopped returning; concurrent read-only snapshot timed out; no acceptance result",
+  "action": "Interrupted only the stalled task and closed/reopened the same named headless Chromium session through the helper, retaining its persistent synthetic profile",
+  "session": "amari-targeted-contained",
+  "profile": "tmp/amari-production-qa-profile",
+  "newProfile": false,
+  "userDataTouched": false
+}

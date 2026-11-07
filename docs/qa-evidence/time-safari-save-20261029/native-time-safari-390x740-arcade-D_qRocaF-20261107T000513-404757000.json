@@ -1,0 +1,66 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "faultModeRequested": false,
+  "rows": [],
+  "games": {},
+  "eligibility": {},
+  "faultCases": {},
+  "soundOriginals": {},
+  "runtime": null,
+  "providerAttempts": [],
+  "failure": {
+    "message": "locator.click: Timeout 2000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Age 6\\+.*Amari/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" class=\"discovery-intro-card discovery-intro-card--amari group relative flex flex-col items-center overflow-hidden rounded-[2.2rem] border-4 bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 px-5 pb-6 pt-5 transition hover:-translate-y-1 active:translate-y-2 active:shadow-none border-white\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n",
+    "stack": "locator.click: Timeout 2000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Age 6\\+.*Amari/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" class=\"discovery-intro-card discovery-intro-card--amari group relative flex flex-col items-center overflow-hidden rounded-[2.2rem] border-4 bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 px-5 pb-6 pt-5 transition hover:-translate-y-1 active:translate-y-2 active:shadow-none border-white\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m"
+  },
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "controlAudit": {
+    "checked": 0
+  },
+  "stage": "native",
+  "runtimeSource": "3156525648283dc8747c58ac4709d5528665c5c9",
+  "entry": "/assets/arcade-D_qRocaF.js",
+  "sourceHead": "3156525648283dc8747c58ac4709d5528665c5c9",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/timeLineAdventure.js": "d1f4eb687db00094019a580e76625bc3c526844659b46c085185149f5984b42c",
+    "src/data/timeLineProgress.js": "32fcdc6eceebdca607a158894d338ae453d4998d283a8283d9331443cf936400",
+    "src/data/timeLineInteraction.js": "9213bd2a1cb63ff93bec27951a589c1799d15d134859cf0c48b4843509ef3a0c",
+    "src/data/batch4Narration.js": "88743fa76c2006ef369b3bbe7ec236e7b661f62996411f37d9c7ce6417bd790d",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/data/offlineVoice.js": "8ee6e48db9a73a1a064803e92b3152105d40b2c90a5251c68d80e61547e19697",
+    "src/data/literacy.js": "3665da245342ddf8ff585933ad644a33f08fd7c538aec72bf8ba0ec4e0b65ec0",
+    "src/data/soundSafariAdventure.js": "f20d17bee619653c122ce8078c4488040046989c991307c86eb609bf8d33b266",
+    "src/data/soundSafariProgress.js": "fdb4eb9c82d5c4cc338e469942482d7375c32553bcc4308090f164582b840126",
+    "src/components/games/TimeTeller.jsx": "88d0897e8d7069742b031e0eefb78566a24480a13bfb0618740d6d15cb15a8f2",
+    "src/components/games/TimeLineLearningUI.jsx": "3e4f96220a35b533810376bbacf2c8777edc547d126cefa62eeb093705f2ce94",
+    "src/components/games/SoundSafari.jsx": "6ff96cb35e6fe95043e1679d32fe44f866f761447c97a73645152e860b478bbb",
+    "src/components/games/amariScenes.css": "28d6a96160ce465d367a51df2c3fa10f6448ed32159f8620de3e039ac89c0d50",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/time-safari-save-20261029/protocol.md": "9e13f50bdf8f99126d9e4b29b92846323328a8077e5a046a0ba7d60078a0f02b",
+    "docs/qa-evidence/time-safari-save-20261029/time-safari-native.cjs": "cff40e19fa18b527719586936f66cc411161df9638380bd52ba7b2a78a8ec48c"
+  },
+  "driverSHA256": "cff40e19fa18b527719586936f66cc411161df9638380bd52ba7b2a78a8ec48c",
+  "runnerSHA256": "7e8873e9416b2f9d7e222e7a15c40be66d7a4234b03bf7afd614a29e06186055",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1471071,
+    "entrySha256": "edfe87324c48aeeeef3f10d7f6d652ccc55f05728789255c883604280baa71d3",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "safari-daniel-voice",
+  "scope": "Full actual-visible-control Time Teller and Sound Safari acceptance: three chapters, six normal questions and six lower-rated replay questions per game at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}
