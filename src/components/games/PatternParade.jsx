@@ -208,6 +208,8 @@ const PatternParade = ({ onBack = noop, playSfx = noop, speak = noop, soundOn, o
     {phase === 'intro' && <main className="z-10 mx-auto w-full max-w-5xl px-3 pb-8 pt-5 sm:px-6">
       <section className="rounded-[2rem] bg-white/95 p-5 shadow-xl sm:p-7">
         <p className="text-center text-lg font-bold text-slate-700">Find what repeats or grows. Each chapter has six clues. Your choice stays here until you press Next.</p>
+        <button type="button" disabled={!isPatternChapterUnlocked(progress, selectedChapter)} onClick={() => startChapter(selectedChapter)} className="mt-4 min-h-14 w-full rounded-2xl bg-indigo-700 px-5 text-lg font-black text-white shadow-lg hover:bg-indigo-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-amber-500 disabled:cursor-not-allowed disabled:opacity-60">Start {chapter?.title}</button>
+        <p className="mt-2 text-center text-sm font-bold text-slate-600">Choose a different chapter below.</p>
         <div className="mx-auto mt-4 max-w-3xl rounded-2xl border-2 border-indigo-100 bg-indigo-50 p-4 text-center">
           <p className="font-black text-indigo-950">A pattern follows a rule.</p>
           <p className="mt-1">Look for a group of shapes that comes back in the same order.</p>
@@ -217,7 +219,6 @@ const PatternParade = ({ onBack = noop, playSfx = noop, speak = noop, soundOn, o
         </div>
         {!littleMode && <div className="mt-5 grid gap-3 sm:grid-cols-3">{PATTERN_CHAPTERS.map((item, index) => <ChapterCard key={item.id} chapter={item} index={index} selected={selectedChapter === index} done={progress.completedChapterIds.includes(item.id)} locked={!isPatternChapterUnlocked(progress, index)} onClick={() => { setSelectedChapter(index); playSfx('click'); }} />)}</div>}
         {littleMode && <div className="mt-5 rounded-2xl bg-amber-50 p-4 text-center"><p className="font-black">{chapter.title}</p><p>{chapter.skill}</p><p className="mt-2 text-sm">Six short clues, one at a time.</p><div className="mt-3 grid grid-cols-3 gap-2">{PATTERN_CHAPTERS.map((item, index) => <button type="button" key={item.id} disabled={!isPatternChapterUnlocked(progress, index)} aria-pressed={selectedChapter === index} aria-label={`Chapter ${index + 1}: ${item.title}`} onClick={() => { setSelectedChapter(index); playSfx('click'); }} className={`flex min-h-20 min-w-0 flex-col items-center justify-center rounded-2xl border-2 px-1 py-2 font-black disabled:opacity-40 ${selectedChapter === index ? 'border-indigo-700 bg-indigo-50' : 'border-white bg-white'}`}><PatternShape token={['coral', 'gold', 'drum'][index]} size={32} /><span className="mt-1 text-xs">{index + 1} {progress.completedChapterIds.includes(item.id) ? '✓' : ''}</span></button>)}</div></div>}
-        <button type="button" disabled={!isPatternChapterUnlocked(progress, selectedChapter)} onClick={() => startChapter(selectedChapter)} className="mt-5 min-h-14 w-full rounded-2xl bg-indigo-700 px-5 text-lg font-black text-white shadow-lg hover:bg-indigo-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-amber-500 disabled:cursor-not-allowed disabled:opacity-60">Start {chapter?.title}</button>
       </section>
     </main>}
 

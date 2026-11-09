@@ -230,6 +230,8 @@ export default function OddOneOut({ onBack, playSfx, soundOn, onToggleSound, spe
         <p className="text-xs font-black uppercase tracking-[.18em] text-[#577c70]">Three sorting chapters</p>
         <h2 className="mt-2 text-2xl font-black sm:text-4xl">Spot the rule. Find what does not fit.</h2>
         <p className="mt-3 max-w-3xl text-base font-semibold leading-7 text-[#63777b]">Read the rule first, compare all four picture cards, then choose the one that does not belong. After that, choose a “because” reason to show what you noticed.</p>
+        <button type="button" onClick={() => startChapter(progress.unlockedChapter)} className={`${buttonBase} mt-4 w-full bg-[#2f776c] text-white sm:w-auto sm:px-7 sm:text-lg`}>Start {ODD_ONE_OUT_CHAPTERS.find(({ id }) => id === progress.unlockedChapter)?.title}<ArrowRight size={20}/></button>
+        <p className="mt-3 text-sm font-bold text-[#55796c]">Or choose another unlocked chapter below.</p>
         <div className="mt-6 grid gap-3 md:grid-cols-3">
           {ODD_ONE_OUT_CHAPTERS.map((entry, index) => {
             const currentIndex = ODD_ONE_OUT_CHAPTERS.findIndex(({ id }) => id === progress.unlockedChapter);
@@ -243,7 +245,6 @@ export default function OddOneOut({ onBack, playSfx, soundOn, onToggleSound, spe
             </button>;
           })}
         </div>
-        <button type="button" onClick={() => startChapter(progress.unlockedChapter)} className={`${buttonBase} mt-6 bg-[#2f776c] text-white sm:px-7 sm:text-lg`}>Start {ODD_ONE_OUT_CHAPTERS.find(({ id }) => id === progress.unlockedChapter)?.title}<ArrowRight size={20}/></button>
       </section>}
 
       {phase === 'play' && round && <section data-odd-round={round.id} className="overflow-hidden rounded-[28px] border border-[#e0e6dd] bg-white shadow-[0_14px_40px_rgba(39,67,73,.08)]">
