@@ -1,0 +1,13 @@
+# Astronaut Academy and Chess Explorers — 9 November 2026
+
+Live at https://dinospace.netlify.app: runtime `9f639438b7a39b3c59ed289df53c1d74861541c8`, entry `/assets/arcade-B6UWOptu.js`, worker `amari-discovery-v76`, immutable backend `dpl_2RyxCWnrtDCbswwSPmYakdz8rD1b`, Netlify gateway `6af241e14d9f1fa1ddf3acb7`.
+
+The friendly illustrated chess pieces from the full game now also appear in the piece guide, practice controls and six-by-six lesson boards, with light and dark sides distinguished. Astronaut Academy now labels general number questions “Numbers & counting” instead of the misleading name of the separate Count the Stars game. The puzzle and question data and chess rules were not changed.
+
+Build, scoped lint and 760 source tests passed. Native and live visible-control journeys passed at 390x740 and 1440x844: each Chess run covered 45 lesson puzzles, all six reference pieces and 30 practice moves; each Astronaut run covered 36 mission/replay tasks, including transfer projects and missed-concept review. Chess assertions check the moved illustrated piece and its type, and the six reference controls contain illustrations; Astronaut asserts the corrected number label when that category appears. The adapted Chess harness used an empty optional `rays` map, so earlier hand-specified intermediate defender-ray assertions were not repeated; illegal and unsafe move, clue and goal checks remained active. Zero page, console, provider or failed-media errors were captured.
+
+`production-fullgame-sample.json` records one actual legal move and a saved computer reply at each viewport, continuing the existing synthetic match from 9 to 13 plies without starting a new match. Native also recorded a saved computer reply. The live phone and desktop lesson images show the final pieces. This is synthetic Chromium and technical playback evidence, not a physical-device or human listening/editorial assessment.
+
+The public entry, stylesheets, module and worker matched the built candidate (`production-assets.json`). An actual Refresh games click retained all 117 synthetic local-storage record hashes and the synthetic Storybook database (`cutover-before.json`, `cutover-after.json`); this does not establish recovery of the family's historical data.
+
+`run-pair.py` assembles the retained `../astronaut-chess-20261028/` rehearsals with current authored source data, adds visual and label assertions, and records the assembled callback hash. The temporary content file is generated from existing source, not a new corpus. `fullgame-sample.cjs` is the public computer-reply check. Eight final reports are named `{native,production}-{astro,chess}-{390,1440}.json`. No paid calls, new checkout, browser profile or dependency installation were made.

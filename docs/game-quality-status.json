@@ -2121,5 +2121,25 @@
       "skipped": 0
     },
     "paidCalls": 0
+  },
+  "latestAstronautChessConsistencyUpdate": {
+    "pair": "Astronaut Academy and Chess Explorers",
+    "runtime": "9f639438b7a39b3c59ed289df53c1d74861541c8",
+    "entry": "/assets/arcade-B6UWOptu.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-4s8yb5xpd-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_2RyxCWnrtDCbswwSPmYakdz8rD1b",
+    "netlifyGatewayDeploy": "6af241e14d9f1fa1ddf3acb7",
+    "serviceWorkerCache": "amari-discovery-v76",
+    "status": "live_verified_targeted",
+    "evidence": "docs/qa-evidence/astronaut-chess-audit-20261109/README.md",
+    "verifiedAt": "2026-11-09T22:04:21.682269+00:00",
+    "scope": "Friendly piece illustrations in lessons and practice and clearer number category. 45 chess puzzles, 36 Astronaut mission tasks and one saved computer reply per viewport; no new editorial or listening score.",
+    "sourceTests": {
+      "passed": 760,
+      "failed": 0,
+      "skipped": 0
+    },
+    "paidCalls": 0
   }
 }
