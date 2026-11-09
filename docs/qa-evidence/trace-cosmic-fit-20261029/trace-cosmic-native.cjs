@@ -129,6 +129,16 @@ async page => {
     await openWorldAndGameFromVisibleNavigation();
     const title = game === 'trace' ? 'Make letters come to life' : 'Think one move ahead';
     await page.getByRole('heading', { name: title, exact: true }).waitFor({ timeout: 10000 });
+    if (game === 'trace') {
+      const art = page.locator('main.trace-intro-main img[src="/art/catalog-v3/game-trace.webp"]');
+      await art.waitFor({ state: 'visible', timeout: 10000 });
+      await art.evaluate(async element => { await element.decode(); if (!element.naturalWidth) throw new Error('Trace intro artwork did not decode'); });
+    } else {
+      const choices = page.getByRole('region', { name: 'Play a whole game' });
+      if (await choices.count() !== 1 || !await choices.isVisible()) throw new Error('Whole-game choices must be visible on the map');
+      await helper.measureControl(choices.getByRole('button', { name: 'Play Nova Bot' }), 'Visible Nova Bot choice');
+      await helper.measureControl(choices.getByRole('button', { name: 'Two players' }), 'Visible two-player choice');
+    }
     const runtime = await assertGameSurface();
     initialSound = await soundStatus();
     if (!initialSound) await setSound(true);
