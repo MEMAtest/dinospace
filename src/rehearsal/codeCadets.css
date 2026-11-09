@@ -110,6 +110,12 @@
 .studio-shell .cc-save-status { margin: 10px 0 0; font-weight: 700; }
 .studio-shell .cc-open-saved { display: block; margin: 5px auto; }
 .studio-shell .code-cadets-welcome { max-width: 760px; }
+@media (max-width: 600px) {
+  .studio-shell .code-cadets-welcome .welcome-scene { max-width: 180px; margin-bottom: 8px; padding: 4px; }
+  .studio-shell .code-cadets-welcome .welcome-scene svg { width: 112px; }
+  .studio-shell .code-cadets-welcome .orbit-dot { right: 14px; top: 12px; font-size: 38px; }
+  .studio-shell .code-cadets-welcome .start-button { margin: 8px 0; }
+}
 
 @media (max-width: 760px) {
   .studio-shell .code-cadets { gap: 13px; }

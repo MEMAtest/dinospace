@@ -44,6 +44,7 @@ export default function WritingDesk({ player = 'amari', playerId = player, regis
   const liveRef = useRef({ dirty: false, snapshot: null });
   const lastDocumentRef = useRef(null);
   const editFrameRef = useRef(null);
+  const projectGridRef = useRef(null);
   const extensions = useMemo(() => [
     StarterKit.configure({ heading: { levels: [1] }, bulletList: false, orderedList: false, blockquote: false, codeBlock: false, horizontalRule: false, link: false }),
     TextAlign.configure({ types: ['heading', 'paragraph'] }),
@@ -462,9 +463,9 @@ export default function WritingDesk({ player = 'amari', playerId = player, regis
 
   if (screen === 'map') return <section className="writing-desk writing-map" aria-labelledby="writing-map-title" data-writing-screen="map" data-writing-stage="project-map" data-writing-project="" data-writing-save-status={saveState}>
     <div className="section-heading"><div><p className="eyebrow">Type · Edit · Save · Share</p><h1 id="writing-map-title">My Writing Desk</h1></div><span className="skill-pill">{progress.completedProjectIds.length} of 3 projects complete</span></div>
-    <div className="writing-project-intro"><p>Choose a project. Your draft saves for this explorer on this device.</p></div>
+    <div className="writing-project-intro"><p>Choose a project. Your draft saves for this explorer on this device.</p><button type="button" className="writing-button primary" onClick={() => { projectGridRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' }); projectGridRef.current?.focus({ preventScroll: true }); }}>Show projects</button></div>
     {legacyDraft && <aside className="writing-legacy-notice" role="status"><strong>An older saved postcard is available.</strong><span>Its original manual copy remains separate and unchanged.</span>{!savedProjects['space-postcard'].ok && <button type="button" className="writing-button secondary" onClick={importLegacy}>Import legacy postcard</button>}<button type="button" className="writing-button secondary" onClick={() => applyRecord({ ...legacyDraft, playerId: String(playerId), projectId: 'space-postcard', milestones: { saved: false, reopened: false, exported: false } }, { readOnly: true })}>Open older copy read-only to export</button></aside>}
-    <div className="writing-project-grid">
+    <div className="writing-project-grid" ref={projectGridRef} tabIndex={-1} aria-label="Writing projects">
       {WRITING_PROJECTS.map((project, index) => {
         const saved = savedProjects[project.id];
         const unlocked = index <= progress.unlockedProjectIndex || progress.completedProjectIds.includes(project.id);

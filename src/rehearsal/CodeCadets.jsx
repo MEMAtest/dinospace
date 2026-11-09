@@ -236,9 +236,9 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
   if (!started) return <section className="activity-welcome code-cadets-welcome" aria-labelledby="cc-welcome-title">
     <div className="welcome-scene"><RoverArt/><span className="orbit-dot" aria-hidden="true">⚑</span></div>
     <p className="eyebrow">Your first coding adventure</p><h1 id="cc-welcome-title">Meet Pip, your Mars rover!</h1>
+    <button className="primary start-button" onClick={() => { setStarted(true); setToolsOpen(false); }}>Start {chapter.title} · {mission.title} →</button>
     <p>A program is a list of instructions. Build, test, and improve it. The three chapters move from sequences to debugging and Repeat blocks.</p>
     <div className="mini-demo"><span>Forward</span><span aria-hidden="true">→</span><span>Move one square</span></div>
-    <button className="primary start-button" onClick={() => { setStarted(true); setToolsOpen(false); }}>Start {chapter.title} · {mission.title} →</button>
     {legacySaved && <button className="cc-open-saved" onClick={openLegacySlot}>Open original saved program</button>}
     <p className="quiet">No typing needed. Add blocks, then Run or Step through them. Each child's mission drafts save separately.</p>
   </section>;
