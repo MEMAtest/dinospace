@@ -19,7 +19,7 @@ const newMatchId = () => {
   catch { return `game_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`; }
 };
 
-function PieceMark({ piece }) {
+export function PieceMark({ piece }) {
   if (!piece) return null;
   const white = piece.color === 'w';
   const ink = white ? '#513427' : '#122347';

@@ -400,7 +400,7 @@ const AstronautAcademy = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, 
         <section className="astro-question-stage" aria-live="polite">
           <div className={`astro-question-card ${feedback?.kind === 'correct' ? 'is-solved' : ''}`} data-astro-question={question.questionId} data-astro-mission={mission.id} data-run-seed={seed}>
             <div className="astro-question-meta">
-              <span className="astro-question-tag"><MissionIcon mission={mission} /> {category.name}</span>
+              <span className="astro-question-tag"><MissionIcon mission={mission} /> {category.id === 'numbers' ? 'Numbers & counting' : category.name}</span>
               <span className="astro-star-count"><Star size={16} fill="currentColor" /> {score}</span>
             </div>
             {feedback?.kind !== 'correct' && <div className="astro-question-illustration"><QuestionVisual question={question} category={category} /></div>}
