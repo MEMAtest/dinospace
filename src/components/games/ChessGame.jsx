@@ -32,7 +32,7 @@ export function PieceMark({ piece }) {
     q: <><path d="m11 12 6 6 5.5-11 5.5 11 6-6-4 14H15z" /><circle cx="11" cy="10" r="2.5" /><circle cx="22.5" cy="6" r="2.5" /><circle cx="34" cy="10" r="2.5" /><path d="M17 26h11l3 8H14z" /></>,
     k: <><path d="M22.5 4v11m-4-7h8" fill="none" strokeWidth="3.2" /><path d="M16 15h13l3 6-6 7 3 6H16l3-6-6-7z" /><path d="M16 24h13" fill="none" /></>,
   };
-  return <svg className={`chess-play-piece ${white ? 'chess-play-piece--white' : 'chess-play-piece--black'}`} viewBox="0 0 45 45" aria-hidden="true" focusable="false">
+  return <svg className={`chess-play-piece ${white ? 'chess-play-piece--white' : 'chess-play-piece--black'}`} data-piece-type={piece.type} data-piece-color={piece.color} viewBox="0 0 45 45" aria-hidden="true" focusable="false">
     <g fill={fill} stroke={ink} strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round">
       {shapes[piece.type]}
       <path d="M12 34h21l3 5H9z" />
