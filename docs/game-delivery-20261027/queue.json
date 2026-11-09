@@ -7,11 +7,11 @@
   "batchSize": 2,
   "activePair": {
     "games": [
-      "Letter Trace",
-      "Cosmic Tic-Tac-Toe"
+      "Odd One Out",
+      "Pattern Parade"
     ],
     "status": "audit_in_progress",
-    "scope": "Review actual current gameplay and visual gaps for the next pair."
+    "scope": "Review current gameplay and visual gaps for the next pair."
   },
   "pairs": [
     {
@@ -550,6 +550,25 @@
       "entry": "/assets/arcade-UPS9q7yk.js",
       "verifiedAt": "2026-11-09T21:13:23.929008+00:00",
       "scope": "Two recognisable ten frames, illustrated selection, unclipped headings; full 36-question/12-flight journeys per viewport, no new editorial or listening score."
+    },
+    {
+      "number": 27,
+      "games": [
+        {
+          "id": "trace",
+          "name": "Letter Trace"
+        },
+        {
+          "id": "tictactoe",
+          "name": "Cosmic Tic-Tac-Toe"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/trace-cosmic-audit-20261109/README.md",
+      "runtime": "bda283e9a4855dfd6d6628d13c8c32b8283e95ee",
+      "entry": "/assets/arcade-wlQI2LHO.js",
+      "verifiedAt": "2026-11-09T21:29:32.890253+00:00",
+      "scope": "Illustrated Trace intro and directly visible Cosmic whole-game choices; full actual-control chapters and replay per viewport, no new editorial or listening score."
     }
   ],
   "retainedReleasedScopes": [
@@ -724,7 +743,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "0e85c3d372bf9d0a38f28f7563a6b26634006bbd",
+  "currentRuntime": "bda283e9a4855dfd6d6628d13c8c32b8283e95ee",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {

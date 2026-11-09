@@ -2081,5 +2081,25 @@
       "skipped": 0
     },
     "paidCalls": 0
+  },
+  "latestTraceCosmicPresentationUpdate": {
+    "pair": "Letter Trace and Cosmic Tic-Tac-Toe",
+    "runtime": "bda283e9a4855dfd6d6628d13c8c32b8283e95ee",
+    "entry": "/assets/arcade-wlQI2LHO.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-252vv7ls9-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_8SZ2go4eDuuwW1zjd2BR8MUESBVT",
+    "netlifyGatewayDeploy": "6af239e173686dde36f3aa6e",
+    "serviceWorkerCache": "amari-discovery-v74",
+    "status": "live_verified_targeted",
+    "evidence": "docs/qa-evidence/trace-cosmic-audit-20261109/README.md",
+    "verifiedAt": "2026-11-09T21:29:32.890253+00:00",
+    "scope": "Illustrated Trace intro and visible Cosmic whole-game controls; 32 trace activities and 9 tactics per viewport plus a bot move, no new editorial or listening score.",
+    "sourceTests": {
+      "passed": 760,
+      "failed": 0,
+      "skipped": 0
+    },
+    "paidCalls": 0
   }
 }

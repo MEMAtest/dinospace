@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "game": "trace",
+      "url": "http://127.0.0.1:5180/#/play/trace",
+      "title": "Amari Discovery",
+      "text": "Discovery HQ\nAmari\n\nONE STROKE AT A TIME\n\nLetter Trace\n\nMake letters come to life\n\nStart at the green number. Follow one stroke, then lift.\n\nCHAPTER 3 \u00b7 BADGE EARNED\n\nTrace and read\n\nTrace a letter, then find a word that starts with its sound.\n\nStart Trace and read \u2192\n\n3 of 3 chapter badges \u00b7 19 letters mastered\n\nChoose another chapter\nFor grown-ups: practice and mastery",
+      "entry": "/assets/arcade-wlQI2LHO.js",
+      "overflow": false,
+      "images": [
+        {
+          "src": "http://127.0.0.1:5180/models/solar-v1/saturn.png",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/art/catalog-v3/game-trace.webp",
+          "loaded": true
+        }
+      ]
+    },
+    {
+      "game": "tictactoe",
+      "url": "http://127.0.0.1:5180/#/play/tictactoe",
+      "title": "Amari Discovery",
+      "text": "Discovery HQ\nAmari\n\nDINO SPACE ARENA\n\nCosmic Tic-Tac-Toe\n\nThink one move ahead\n\nLearn three little tricks, then play a whole game.\n\nPractise Find a fork \u2192\n1 \u00b7\nMake a line\n3/3\nBadge earned boards solved\n2 \u00b7\nBlock the Rocket\n3/3\nBadge earned boards solved\n3 \u00b7\nFind a fork\n3/3\nBadge earned boards solved\nPlay a whole game\nPlay Nova Bot\nTwo players",
+      "entry": "/assets/arcade-wlQI2LHO.js",
+      "overflow": false,
+      "images": [
+        {
+          "src": "http://127.0.0.1:5180/models/solar-v1/saturn.png",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+          "loaded": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

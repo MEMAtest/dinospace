@@ -1,0 +1,32 @@
+{
+  "entry": {
+    "status": 200,
+    "origin": "https://dinospace.netlify.app/",
+    "expected": true
+  },
+  "/assets/arcade-wlQI2LHO.js": {
+    "status": 200,
+    "sha256": "ea3393485f48e8030d24aaff854b5f24227e7323495b5d6a3e8dfd8155b68616",
+    "matchesBuild": true
+  },
+  "/sw.js": {
+    "status": 200,
+    "sha256": "d2e3e2d5d7f14ec966e87d32afae27d538b2c87d1e7e15ef53f5f2057d7d2ad1",
+    "matchesBuild": true
+  },
+  "/art/catalog-v3/game-trace.webp": {
+    "status": 200,
+    "sha256": "e9ce17a7612b1c61fd3996a1cd16ca20ee3f64f437526182a431a6ed5a4f9f3e",
+    "matchesBuild": true
+  },
+  "/assets/DiscoveryHeader-Dt86kjrx.css": {
+    "status": 200,
+    "sha256": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+    "matchesBuild": true
+  },
+  "/assets/arcade-C5wGjR5g.css": {
+    "status": 200,
+    "sha256": "983cfe190a457531f467750c48c865aaa091753bd06ab4c2dad67a8c794a9d0c",
+    "matchesBuild": true
+  }
+}
