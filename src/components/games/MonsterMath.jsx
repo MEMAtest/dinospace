@@ -47,11 +47,12 @@ const CounterModel = ({ question, locked, animationCount, showHint, clueShown, g
     return (
       <div className="rounded-2xl border-2 border-orange-200 bg-white p-2 shadow-md sm:rounded-3xl sm:border-4 sm:p-4">
         <p className="mb-1.5 text-center text-xs font-black uppercase tracking-widest text-orange-700 sm:mb-2 sm:text-sm">Two ten frames · count the counters</p>
-        <div className="mx-auto grid max-w-[34rem] grid-cols-10 gap-0.5 rounded-xl bg-orange-100 p-1.5 sm:gap-1 sm:rounded-2xl sm:p-2" aria-label={tenFrameAccessibleLabel(model, locked)}>
-          {cells.map((cell) => {
+        <div role="img" className="mx-auto grid max-w-[34rem] grid-cols-2 gap-2" aria-label={tenFrameAccessibleLabel(model, locked)}>
+          {[0, 1].map((frame) => <div key={frame} aria-hidden="true" className="grid grid-cols-5 gap-0.5 rounded-xl bg-orange-100 p-1.5 sm:gap-1 sm:p-2">
+          {cells.slice(frame * 10, frame * 10 + 10).map((cell) => {
             const color = cell.group === 'more' ? tokenColors[1] : tokenColors[0];
             return <span key={cell.index} className={`grid aspect-square min-h-5 place-items-center rounded-full border-2 border-white ${cell.visible ? color : 'bg-white'} ${cell.removed ? 'scale-75 opacity-35' : ''} ${cell.counted && !cell.removed ? 'ring-2 ring-emerald-400' : ''}`} aria-hidden="true">{cell.removed ? <span className="text-xs font-black text-white">✓</span> : null}</span>;
-          })}
+          })}</div>)}
         </div>
         <p className="mt-1 text-center text-base font-black text-slate-800 sm:mt-2 sm:text-lg" aria-live="polite">{model.first} {model.operation === 'add' ? '+' : '−'} {model.second} = {locked ? model.answer : '?'}</p>
         {tenFrameModelTeaching(model, locked, clueShown) && <p className="text-center text-sm font-bold text-emerald-700">{tenFrameModelTeaching(model, locked, clueShown)}</p>}
@@ -435,7 +436,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
           {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <section className="mb-3 rounded-2xl border-2 border-amber-300 bg-amber-50 p-3 text-center font-bold text-amber-950" role="status" aria-live="polite"><p>{rewardClaimError ? 'A saved episode reward still needs confirmation.' : 'Checking saved episode rewards…'}</p>{rewardClaimError && <button type="button" onClick={() => { void drainPendingRewards(); }} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry reward confirmation</button>}</section>}
           {startStorageError && <p className="mb-3 rounded-2xl bg-sky-50 p-3 text-center font-bold text-sky-900" role="status">{startStorageError}</p>}
           <section className="rounded-2xl border-2 border-white/80 bg-white/90 p-3 shadow-xl sm:mt-5 sm:rounded-[2rem] sm:border-4 sm:p-6">
-            <p className="text-[10px] font-black uppercase tracking-widest text-orange-700 sm:text-xs">Episode {episodeIndex + 1} · {episode.band}</p>
+            <div className="flex items-center gap-3"><img src="/art/catalog-v3/game-math.webp" alt="" className="h-14 w-14 shrink-0 rounded-xl object-cover sm:h-20 sm:w-20" /><p className="text-[10px] font-black uppercase tracking-widest text-orange-700 sm:text-xs">Episode {episodeIndex + 1} · {episode.band}</p></div>
             <div className="mt-0.5 flex items-start justify-between gap-2"><h2 className="text-xl font-black leading-tight sm:text-3xl">{episode.title}</h2><span className="shrink-0 rounded-full bg-amber-100 px-2 py-1 text-xs font-black text-amber-950 sm:px-3 sm:text-sm">{progress.bestStars[episode.id] ? `${'★'.repeat(progress.bestStars[episode.id])} best` : progress.completedEpisodeIds.includes(episode.id) ? 'Completed' : 'Ready'}</span></div>
             <p className="mt-1 text-sm font-bold leading-snug text-slate-700 sm:mt-2">{episode.subtitle}</p>
             <button type="button" disabled={!canStartEpisode} onClick={() => startEpisode(episodeIndex)} className="mt-2 inline-flex min-h-14 w-full items-center justify-center rounded-xl bg-orange-700 px-5 py-2 text-base font-black text-white shadow-[0_4px_0_#9a3412] hover:bg-orange-800 active:translate-y-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50 sm:mt-5 sm:min-h-16 sm:rounded-2xl sm:px-6 sm:py-3 sm:text-lg sm:shadow-[0_6px_0_#9a3412]">{pendingStartRef.current?.episodeIndex === episodeIndex ? 'Retry saving this episode' : progress.completedEpisodeIds.includes(episode.id) ? 'Replay this episode' : 'Start six questions'}</button>
