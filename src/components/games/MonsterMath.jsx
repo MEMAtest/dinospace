@@ -476,7 +476,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-orange-100 via-amber-50 to-red-100 px-2 pb-4 pt-2 text-slate-900 sm:px-5 sm:pt-4">
       <header className="mx-auto flex max-w-5xl flex-nowrap items-center justify-between gap-1 rounded-2xl border-2 border-white/80 bg-white/90 p-2 shadow-lg sm:gap-4 sm:rounded-3xl sm:p-3">
         <button type="button" onClick={leaveGame} className="game-icon-button shrink-0 !bg-orange-700 !text-white" aria-label="Back to learning world"><ArrowLeft /></button>
-        <div className="min-w-0 flex-1 text-center"><p className="truncate text-[9px] font-black uppercase leading-snug tracking-widest text-orange-700 sm:text-xs">Episode {episodeIndex + 1} · {episode.title}</p><h1 className="text-lg font-black leading-tight sm:text-2xl">Monster Math</h1></div>
+        <div className="min-w-0 flex-1 text-center"><p className="text-[9px] font-black uppercase leading-snug tracking-normal text-orange-700 sm:text-xs sm:tracking-widest">Episode {episodeIndex + 1} · {episode.title}</p><h1 className="text-lg font-black leading-tight sm:text-2xl">Monster Math</h1></div>
         <span className="shrink-0 rounded-full bg-orange-100 px-2 py-1 text-xs font-black sm:px-3 sm:text-sm">Question {roundIndex + 1}/6</span>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
