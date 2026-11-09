@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "width": 1440,
+  "height": 844,
+  "entry": "/assets/arcade-DseZwEB9.js",
+  "missionId": "first-route",
+  "codeStep": {
+    "available": true,
+    "before": "Pip at column 1, row 3, facing east. Flag at column 4, row 3. Rock walls are blocked cells.",
+    "after": "Pip at column 2, row 3, facing east. Flag at column 4, row 3. Rock walls are blocked cells."
+  },
+  "geometry": {
+    "x": 518.78125,
+    "y": 584,
+    "right": 913.21875,
+    "bottom": 646.5,
+    "w": 394.4375,
+    "h": 62.5,
+    "hit": true,
+    "vw": 1440,
+    "vh": 844
+  },
+  "showGeometry": {
+    "x": 282,
+    "y": 371,
+    "right": 424.765625,
+    "bottom": 419,
+    "h": 48,
+    "hit": true
+  },
+  "gridInfo": {
+    "focused": true,
+    "top": 100,
+    "first": 100,
+    "children": 3
+  },
+  "olderCopyNotice": true,
+  "protectedKeys": 10,
+  "errors": [],
+  "responses": [],
+  "requests": [],
+  "driverSha256": "261408076adbacea538f66fc6e16537cf6fe6dc9dc85d95e6588fa9274b4022a",
+  "sourceHead": "2c94981bf6ae64934da1c60f795180edaef16db8"
+}

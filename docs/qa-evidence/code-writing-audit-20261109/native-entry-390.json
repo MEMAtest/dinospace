@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "width": 390,
+  "height": 740,
+  "entry": "/assets/arcade-DseZwEB9.js",
+  "missionId": "first-route",
+  "codeStep": {
+    "available": true,
+    "before": "Pip at column 1, row 3, facing east. Flag at column 4, row 3. Rock walls are blocked cells.",
+    "after": "Pip at column 2, row 3, facing east. Flag at column 4, row 3. Rock walls are blocked cells."
+  },
+  "geometry": {
+    "x": 41,
+    "y": 560.59375,
+    "right": 349,
+    "bottom": 651.59375,
+    "w": 308,
+    "h": 91,
+    "hit": true,
+    "vw": 390,
+    "vh": 740
+  },
+  "showGeometry": {
+    "x": 45,
+    "y": 405.5,
+    "right": 187.765625,
+    "bottom": 453.5,
+    "h": 48,
+    "hit": true
+  },
+  "gridInfo": {
+    "focused": true,
+    "top": -0.5,
+    "first": -0.5,
+    "children": 3
+  },
+  "olderCopyNotice": true,
+  "protectedKeys": 10,
+  "errors": [],
+  "responses": [],
+  "requests": [],
+  "driverSha256": "1c08a888713dfc66f87bf81fd0beb56d9baf1ad3c593966d8fa0735f96229bac",
+  "sourceHead": "2c94981bf6ae64934da1c60f795180edaef16db8"
+}

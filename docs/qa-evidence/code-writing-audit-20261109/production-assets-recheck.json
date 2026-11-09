@@ -1,0 +1,31 @@
+{
+  "entry": {
+    "status": 200,
+    "origin": "https://dinospace.netlify.app/",
+    "expected": true
+  },
+  "/assets/arcade-DseZwEB9.js": {
+    "status": 200,
+    "bytes": 1472502,
+    "sha256": "6b9faa55c4e23c09fbfab54c022ee78944011cdb61441e3427406aefb735dca9",
+    "matchesBuild": true
+  },
+  "/sw.js": {
+    "status": 200,
+    "bytes": 16575,
+    "sha256": "ff8c62aa9332851f4c648d9c511a1c8d80dafbb6c50fd7680c53a476403d0e8f",
+    "matchesBuild": true
+  },
+  "/assets/DiscoveryHeader-Dt86kjrx.css": {
+    "status": 200,
+    "bytes": 25695,
+    "sha256": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+    "matchesBuild": true
+  },
+  "/assets/arcade-C5wGjR5g.css": {
+    "status": 200,
+    "bytes": 297263,
+    "sha256": "983cfe190a457531f467750c48c865aaa091753bd06ab4c2dad67a8c794a9d0c",
+    "matchesBuild": true
+  }
+}

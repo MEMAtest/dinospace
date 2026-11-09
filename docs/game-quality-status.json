@@ -2141,5 +2141,25 @@
       "skipped": 0
     },
     "paidCalls": 0
+  },
+  "latestCodeWritingNavigationUpdate": {
+    "pair": "Code Cadets and My Writing Desk",
+    "runtime": "2c94981bf6ae64934da1c60f795180edaef16db8",
+    "entry": "/assets/arcade-DseZwEB9.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-ky4rkob2w-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_8dUzkNgEH7k4J39XPM4CXTfcDALo",
+    "netlifyGatewayDeploy": "6af2452454b501340127f6b9",
+    "serviceWorkerCache": "amari-discovery-v77",
+    "status": "live_verified_targeted",
+    "evidence": "docs/qa-evidence/code-writing-audit-20261109/README.md",
+    "verifiedAt": "2026-11-09T22:13:55.649539+00:00",
+    "scope": "Coding Start and Step and writing project focus at phone/desktop, protected existing drafts, no full editing/export or new editorial/listening score. Initial CSS byte mismatch; subsequent repeated identity-encoding checks matched.",
+    "sourceTests": {
+      "passed": 760,
+      "failed": 0,
+      "skipped": 0
+    },
+    "paidCalls": 0
   }
 }

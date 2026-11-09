@@ -7,8 +7,8 @@
   "batchSize": 2,
   "activePair": {
     "games": [
-      "Code Cadets",
-      "My Writing Desk"
+      "Solar System",
+      "Memory Match"
     ],
     "status": "audit_in_progress",
     "scope": "Review current gameplay and visual gaps for the next pair."
@@ -607,6 +607,25 @@
       "entry": "/assets/arcade-B6UWOptu.js",
       "verifiedAt": "2026-11-09T22:04:21.682269+00:00",
       "scope": "Friendly illustrated pieces across chess lessons and practice; clearer Astronaut number category; full chapters and sampled saved computer replies per viewport, no new editorial or listening score."
+    },
+    {
+      "number": 30,
+      "games": [
+        {
+          "id": "codecadets",
+          "name": "Code Cadets"
+        },
+        {
+          "id": "writingdesk",
+          "name": "My Writing Desk"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/code-writing-audit-20261109/README.md",
+      "runtime": "2c94981bf6ae64934da1c60f795180edaef16db8",
+      "entry": "/assets/arcade-DseZwEB9.js",
+      "verifiedAt": "2026-11-09T22:13:55.649539+00:00",
+      "scope": "Coding Start visible and writing-project shortcut focused; targeted actual controls and protected draft bytes per viewport, no full editing/export or editorial score."
     }
   ],
   "retainedReleasedScopes": [
@@ -781,7 +800,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "9f639438b7a39b3c59ed289df53c1d74861541c8",
+  "currentRuntime": "2c94981bf6ae64934da1c60f795180edaef16db8",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {
