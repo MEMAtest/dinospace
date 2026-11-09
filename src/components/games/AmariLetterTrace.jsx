@@ -555,7 +555,7 @@ const AmariLetterTrace = ({
   const renderIntro = () => (
     <main className="trace-intro-main mx-auto w-full max-w-4xl">
       <section className="trace-intro-hero rounded-3xl border-2 border-white bg-white/95 text-center shadow-md">
-        <span aria-hidden="true" className="trace-intro-mark grid place-items-center rounded-2xl border-2 border-sky-200 bg-sky-50 text-5xl font-black text-sky-800">Aa</span>
+        <img src="/art/catalog-v3/game-trace.webp" alt="" className="trace-intro-mark rounded-2xl border-2 border-sky-200 bg-sky-50 object-cover" />
         <div><h1 className="font-black text-blue-950">Make letters come to life</h1>
         <p className="font-semibold text-slate-600">Start at the green number. Follow one stroke, then lift.</p></div>
       </section>

@@ -497,8 +497,8 @@ async page => {
     const mapSummary = await page.getByRole('heading', { name: 'Think one move ahead', exact: true }).innerText();
     if (!mapSummary) throw new Error('Cosmic chapter map did not return after lessons');
     const map = page.locator('main').filter({ has: page.getByRole('heading', { name: 'Think one move ahead', exact: true }) });
-    const gameOptions = map.locator('details').filter({ hasText: 'Play a whole game' });
-    await visibleNavClick(gameOptions.locator('summary'), 'Open optional Cosmic whole-game mode');
+    const gameOptions = map.getByRole('region', { name: 'Play a whole game' });
+    if (await gameOptions.count() !== 1 || !await gameOptions.isVisible()) throw new Error('Whole-game choices are not directly visible');
     await helper.clickControl(exactButton('Play Nova Bot'), { label: 'Start one optional free-play turn against Nova Bot' });
     const grid = page.getByRole('grid', { name: 'Cosmic three by three board', exact: true });
     await grid.waitFor({ state: 'visible' });
