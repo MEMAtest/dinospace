@@ -1,0 +1,142 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "lanes": [],
+  "errors": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-UPS9q7yk.js",
+    "initialSurface": "player-chooser"
+  },
+  "soundPreference": {
+    "original": true,
+    "enabledForAudio": true
+  },
+  "initialMonsterMath": {
+    "present": true,
+    "unlockedEpisode": 2,
+    "completedEpisodeIds": [
+      "count-garden",
+      "number-workshop",
+      "story-bridge"
+    ],
+    "bestStars": {
+      "count-garden": 3,
+      "number-workshop": 3,
+      "story-bridge": 3
+    },
+    "pendingBeforeIntroDrain": 0,
+    "rewardReceipts": {
+      "count-garden:best:3": {
+        "id": "count-garden:best:3",
+        "episodeId": "count-garden",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      },
+      "number-workshop:best:3": {
+        "id": "number-workshop:best:3",
+        "episodeId": "number-workshop",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      },
+      "story-bridge:best:3": {
+        "id": "story-bridge:best:3",
+        "episodeId": "story-bridge",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      }
+    }
+  },
+  "monsterMathRows": [
+    {
+      "episode": 1,
+      "question": 1,
+      "partial": true,
+      "failure": "evidence is not defined"
+    }
+  ],
+  "monsterFaultEligibility": {
+    "naturallyMaterialEpisodes": [],
+    "localAndParentFaultEpisode": null,
+    "pendingReloadEpisode": null
+  },
+  "episodeHeaders": [
+    {
+      "text": "Episode 1 · Count to 10",
+      "width": 135,
+      "scrollWidth": 135,
+      "height": 12,
+      "scrollHeight": 12,
+      "overflow": "clip",
+      "rect": {
+        "x": 81,
+        "y": 93.5625,
+        "right": 215.96875,
+        "bottom": 105.9375
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      }
+    }
+  ],
+  "failure": {
+    "message": "evidence is not defined",
+    "stack": [
+      "ReferenceError: evidence is not defined",
+      "    at mathTaskIdentity (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:324:3)",
+      "    at async exerciseMonsterQuestion (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:357:20)",
+      "    at async runAndRetainQuestion (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:552:19)",
+      "    at async runMonster (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:587:27)",
+      "    at async runSkyMonster (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:1022:18)",
+      "    at async evalmachine.<anonymous>:5:8",
+      "    at async evalmachine.<anonymous>:3:20"
+    ]
+  },
+  "failureScreenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/sky-monster-save-20261029/failure-390x740-arcade-UPS9q7yk-20261109T205404-777649000.jpg",
+  "soundRestorationOnFailure": {
+    "original": true,
+    "restored": true,
+    "viaVisibleControl": true
+  },
+  "stage": "native",
+  "runtimeSource": "0e85c3d372bf9d0a38f28f7563a6b26634006bbd",
+  "entry": "/assets/arcade-UPS9q7yk.js",
+  "sourceHead": "0e85c3d372bf9d0a38f28f7563a6b26634006bbd",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/skyShapes.js": "b491170b8275afe2aa55bf1f82a01f275c58f2c0079ac20fd2c9e1c2025a0f51",
+    "src/data/skyShapesProgress.js": "8484f3a6f4e2e11b7600e97bfd0110c33e9b7d06a8d0cf0db249b78b87e73904",
+    "src/data/monsterMathEpisodes.js": "c77fd67c2fc3ed4e5c7442c1bebb0c94cb13b9d6f15306e97fa0eb3435c54c95",
+    "src/data/monsterMathProgress.js": "d3985cfc9789b3880e3c1277d781b951e9529bd8a7654a030c23bcd593b78a06",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/data/batch2Narration.js": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14",
+    "src/components/games/JetSkyShapes.jsx": "36a7ea018aeda91d6ce7798e746308ee74c61b6854bd5bf4cbb35b8ae8a188b2",
+    "src/components/games/MonsterMath.jsx": "43806b8186b8305a3e2723adc17ea7c12e83a730bd24f6c162c969caa2f8ea03",
+    "docs/game-delivery-20261027/integration-native.cjs": "976df0d3b5c930657b40f2ac8b204e99620f1564e44d2961d148659913220c38",
+    "docs/qa-evidence/sky-monster-save-20261029/protocol.md": "02ee46bae466687e43e6c46f48f09db34aa07a6820634eb9c527390368ada6b4",
+    "docs/qa-evidence/sky-monster-save-20261029/sky-monster-native.cjs": "8dc74bb77a91d5a8bdc7c9461c5127c3979a97f516753e0102b985860107b425"
+  },
+  "driverSHA256": "8dc74bb77a91d5a8bdc7c9461c5127c3979a97f516753e0102b985860107b425",
+  "runnerSHA256": "164f138309f6de0b63f735191c30c71c5c6b639ec8f0df6f05b0e862685362f9",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1472010,
+    "entrySha256": "10e091ef7acda6a2371b7312dd4618e11bfa2134ab5a70309ebf0fb79c55d139",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "sky-monster-repair",
+  "mode": "full",
+  "scope": "Full actual-visible-control acceptance of all three Monster Math episodes and all three Sky Shapes queues at one viewport. No reset, data injection, provider call, hidden state, or automatic primary-task scrolling.",
+  "faultModeRequested": false
+}

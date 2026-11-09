@@ -7,11 +7,11 @@
   "batchSize": 2,
   "activePair": {
     "games": [
-      "Colour Mixing Lab",
-      "Shadow Match"
+      "Letter Trace",
+      "Cosmic Tic-Tac-Toe"
     ],
     "status": "audit_in_progress",
-    "scope": "Review next pair against current public release."
+    "scope": "Review actual current gameplay and visual gaps for the next pair."
   },
   "pairs": [
     {
@@ -531,6 +531,25 @@
       "entry": "/assets/arcade-DTw2uC-a.js",
       "openGate": null,
       "scope": "Illustrated chapter screens and visible Spot progress; full 12-scene/12-pair journeys on each viewport, no new editorial or listening score."
+    },
+    {
+      "number": 26,
+      "games": [
+        {
+          "id": "jet",
+          "name": "Sky Shapes"
+        },
+        {
+          "id": "math",
+          "name": "Monster Math"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/sky-monster-uplift-20261109/README.md",
+      "runtime": "0e85c3d372bf9d0a38f28f7563a6b26634006bbd",
+      "entry": "/assets/arcade-UPS9q7yk.js",
+      "verifiedAt": "2026-11-09T21:13:23.929008+00:00",
+      "scope": "Two recognisable ten frames, illustrated selection, unclipped headings; full 36-question/12-flight journeys per viewport, no new editorial or listening score."
     }
   ],
   "retainedReleasedScopes": [
@@ -705,7 +724,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "c6f87e8681bfa725f0a54080f7f55836057ddb66",
+  "currentRuntime": "0e85c3d372bf9d0a38f28f7563a6b26634006bbd",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {

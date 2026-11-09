@@ -1,0 +1,56 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "lanes": [],
+  "errors": [],
+  "failure": {
+    "message": "locator.click: Timeout 2000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Age 6\\+.*Amari/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" class=\"discovery-intro-card discovery-intro-card--amari group relative flex flex-col items-center overflow-hidden rounded-[2.2rem] border-4 bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 px-5 pb-6 pt-5 transition hover:-translate-y-1 active:translate-y-2 active:shadow-none border-white\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n",
+    "stack": [
+      "locator.click: Timeout 2000ms exceeded.",
+      "Call log:",
+      "\u001b[2m  - waiting for getByRole('button', { name: /Age 6\\+.*Amari/ }).first()\u001b[22m",
+      "\u001b[2m    - locator resolved to <button type=\"button\" class=\"discovery-intro-card discovery-intro-card--amari group relative flex flex-col items-center overflow-hidden rounded-[2.2rem] border-4 bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 px-5 pb-6 pt-5 transition hover:-translate-y-1 active:translate-y-2 active:shadow-none border-white\">…</button>\u001b[22m",
+      "\u001b[2m  - attempting click action\u001b[22m",
+      "\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m",
+      "\u001b[2m    - element is visible, enabled and stable\u001b[22m",
+      "\u001b[2m    - scrolling into view if needed\u001b[22m"
+    ]
+  },
+  "failureScreenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/sky-monster-save-20261029/failure-390x740-arcade-CeW2X1n8-20261109T181726-980277000.jpg",
+  "stage": "native",
+  "runtimeSource": "6a359c172e068817c3a28884d713ac54734b1e34",
+  "entry": "/assets/arcade-CeW2X1n8.js",
+  "sourceHead": "6a359c172e068817c3a28884d713ac54734b1e34",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/skyShapes.js": "b491170b8275afe2aa55bf1f82a01f275c58f2c0079ac20fd2c9e1c2025a0f51",
+    "src/data/skyShapesProgress.js": "8484f3a6f4e2e11b7600e97bfd0110c33e9b7d06a8d0cf0db249b78b87e73904",
+    "src/data/monsterMathEpisodes.js": "c77fd67c2fc3ed4e5c7442c1bebb0c94cb13b9d6f15306e97fa0eb3435c54c95",
+    "src/data/monsterMathProgress.js": "d3985cfc9789b3880e3c1277d781b951e9529bd8a7654a030c23bcd593b78a06",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/data/batch2Narration.js": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14",
+    "src/components/games/JetSkyShapes.jsx": "36a7ea018aeda91d6ce7798e746308ee74c61b6854bd5bf4cbb35b8ae8a188b2",
+    "src/components/games/MonsterMath.jsx": "f9902d43a3f44b602cde85fea5f232dcaf4f8efd78cc78c8ce14804b28f101f9",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/sky-monster-save-20261029/protocol.md": "02ee46bae466687e43e6c46f48f09db34aa07a6820634eb9c527390368ada6b4",
+    "docs/qa-evidence/sky-monster-save-20261029/sky-monster-native.cjs": "8dc74bb77a91d5a8bdc7c9461c5127c3979a97f516753e0102b985860107b425"
+  },
+  "driverSHA256": "8dc74bb77a91d5a8bdc7c9461c5127c3979a97f516753e0102b985860107b425",
+  "runnerSHA256": "a460b27ef647969d97f3ec1f734f8e0ef289151eea7e3c3cb9bfbd80fa847554",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1472000,
+    "entrySha256": "fb45def702be39873fee3c5323771d411e3ef6034ba773df8bc2ed46e8e55057",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "sky-monster-uplift",
+  "mode": "full",
+  "scope": "Full actual-visible-control acceptance of all three Monster Math episodes and all three Sky Shapes queues at one viewport. No reset, data injection, provider call, hidden state, or automatic primary-task scrolling.",
+  "faultModeRequested": false
+}

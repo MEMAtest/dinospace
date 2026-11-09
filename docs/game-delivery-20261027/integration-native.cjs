@@ -152,7 +152,7 @@ module.exports = function createIntegrationNative(page, {
 
   async function clickControl(locator, { label = 'control', heading, url, timeout = 10000 } = {}) {
     const geometry = await measureControl(locator, label);
-    await locator.click();
+    await locator.click({ timeout });
     if (heading) await page.getByRole('heading', { name: heading, exact: true }).waitFor({ timeout });
     if (url) await page.waitForURL(url, { timeout });
     return { geometry, heading: heading || null, url: page.url() };
