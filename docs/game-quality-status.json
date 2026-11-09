@@ -2101,5 +2101,25 @@
       "skipped": 0
     },
     "paidCalls": 0
+  },
+  "latestOddPatternNavigationUpdate": {
+    "pair": "Odd One Out and Pattern Parade",
+    "runtime": "7b7a49220301f71ebaeb32a8ec3612d6afe27186",
+    "entry": "/assets/arcade-DbfQ8eAy.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-fcn862pag-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_HqXRw7khdmPBVbuMxgy6ygzLNCJ6",
+    "netlifyGatewayDeploy": "6af23cedd7e0f4a7bf5c27eb",
+    "serviceWorkerCache": "amari-discovery-v75",
+    "status": "live_verified_targeted",
+    "evidence": "docs/qa-evidence/odd-pattern-audit-20261109/README.md",
+    "verifiedAt": "2026-11-09T21:40:30.812071+00:00",
+    "scope": "Selected chapter Start visible and hit-tested at 390x740 and 1440x844; 18 sorting and 36 pattern rounds per viewport, no new editorial or listening score.",
+    "sourceTests": {
+      "passed": 760,
+      "failed": 0,
+      "skipped": 0
+    },
+    "paidCalls": 0
   }
 }

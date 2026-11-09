@@ -7,8 +7,8 @@
   "batchSize": 2,
   "activePair": {
     "games": [
-      "Odd One Out",
-      "Pattern Parade"
+      "Astronaut Academy",
+      "Chess Explorers"
     ],
     "status": "audit_in_progress",
     "scope": "Review current gameplay and visual gaps for the next pair."
@@ -569,6 +569,25 @@
       "entry": "/assets/arcade-wlQI2LHO.js",
       "verifiedAt": "2026-11-09T21:29:32.890253+00:00",
       "scope": "Illustrated Trace intro and directly visible Cosmic whole-game choices; full actual-control chapters and replay per viewport, no new editorial or listening score."
+    },
+    {
+      "number": 28,
+      "games": [
+        {
+          "id": "oddoneout",
+          "name": "Odd One Out"
+        },
+        {
+          "id": "pattern",
+          "name": "Pattern Parade"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/odd-pattern-audit-20261109/README.md",
+      "runtime": "7b7a49220301f71ebaeb32a8ec3612d6afe27186",
+      "entry": "/assets/arcade-DbfQ8eAy.js",
+      "verifiedAt": "2026-11-09T21:40:30.812071+00:00",
+      "scope": "Selected chapter Start moved into view; full 18 sorting rounds and 36 pattern normal/replay rounds per viewport, no new editorial or listening score."
     }
   ],
   "retainedReleasedScopes": [
@@ -743,7 +762,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "bda283e9a4855dfd6d6628d13c8c32b8283e95ee",
+  "currentRuntime": "7b7a49220301f71ebaeb32a8ec3612d6afe27186",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {
