@@ -5,14 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": {
-    "games": [
-      "Solar System",
-      "Memory Match"
-    ],
-    "status": "audit_in_progress",
-    "scope": "Review current gameplay and visual gaps for the next pair."
-  },
+  "activePair": null,
   "pairs": [
     {
       "number": 1,
@@ -626,6 +619,29 @@
       "entry": "/assets/arcade-DseZwEB9.js",
       "verifiedAt": "2026-11-09T22:13:55.649539+00:00",
       "scope": "Coding Start visible and writing-project shortcut focused; targeted actual controls and protected draft bytes per viewport, no full editing/export or editorial score."
+    },
+    {
+      "number": 31,
+      "games": [
+        {
+          "id": "solar",
+          "name": "Solar System Explorer"
+        },
+        {
+          "id": "memory",
+          "name": "Memory Match"
+        },
+        {
+          "id": "rocketbuilder",
+          "name": "Rocket Builder"
+        }
+      ],
+      "status": "live_verified_targeted",
+      "evidence": "docs/qa-evidence/solar-memory-rocket-20261112/README.md",
+      "runtime": "91937722a2be02ff01d486207d058c13c0ce7b1d",
+      "entry": "/assets/arcade-BxpGsHYt.js",
+      "verifiedAt": "2026-11-12T23:53:57Z",
+      "scope": "Solar mission shortcut; Memory focus scroll; compact Rocket start. Targeted Earth mission, two card flips and wrong/correct rocket part per viewport; progress reload and cutover retention. Not full catalogue, full Rocket/Memory journeys, physical device or editorial listening acceptance."
     }
   ],
   "retainedReleasedScopes": [
@@ -800,7 +816,7 @@
   ],
   "completionStatus": "additional_visual_uplifts_in_progress",
   "completedAt": "2026-10-29T21:46:50.701596+00:00",
-  "currentRuntime": "2c94981bf6ae64934da1c60f795180edaef16db8",
+  "currentRuntime": "91937722a2be02ff01d486207d058c13c0ce7b1d",
   "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
   "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
   "skyMonsterCurrentResolution": {
