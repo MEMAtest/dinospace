@@ -264,6 +264,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
   const timerRef = useRef(null);
   const mismatchRef = useRef(null);
   const completePanelRef = useRef(null);
+  const playAreaRef = useRef(null);
   const completedRef = useRef(false);
   const committedCompletionRef = useRef(false);
   const hintCountRef = useRef(0);
@@ -294,6 +295,13 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
   useEffect(() => {
     if (showLevelComplete) completePanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, [showLevelComplete]);
+
+  useEffect(() => {
+    if (focusMode) {
+      playAreaRef.current?.scrollIntoView({ behavior: 'auto', block: 'start' });
+      playAreaRef.current?.focus({ preventScroll: true });
+    }
+  }, [focusMode]);
 
   const matches = deck.filter((card) => card.matched).length / 2;
   const handleBack = () => onBack?.();
@@ -582,7 +590,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
           {soundOn && getOfflineVoiceClip(strategy) && <button type="button" onClick={() => { hintCountRef.current += 1; recordGameDiagnostic('memory', 'hint', { ...diagnosticsRef.current, hintType: 'instructions', hints: hintCountRef.current }); speakMemory(speak, strategy, soundOn); }} className="memory-repeat-button" aria-label="Repeat the memory tip"><Volume2 size={21} aria-hidden="true" /></button>}
         </section>
 
-        <section id="memory-play-area" className="memory-play-area" aria-label={`${level.name} memory board`}>
+        <section ref={playAreaRef} id="memory-play-area" tabIndex={-1} className="memory-play-area" aria-label={`${level.name} memory board`}>
           <div className="memory-play-heading">
             <div className="memory-level-picker">
               <p className="memory-level-picker-hint" id="memory-level-picker-hint">{levelIndex < resumeIndex ? `Replay Level ${levelIndex + 1}. Progress remains at Level ${resumeIndex + 1}; select that number to continue.` : resumeIndex === 0 ? 'Complete a board to unlock the next level.' : `Resume point: Level ${resumeIndex + 1}. Choose an earlier number to replay.`}</p>

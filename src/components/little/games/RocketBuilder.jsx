@@ -203,10 +203,11 @@ const RocketBuilder = (props) => {
       gameId="rocketbuilder"
       title="Rocket Builder"
       pairSafeProgress
+      compactStart
       speak={speakExact}
       intro={LITTLE_LINES.rocketIntro}
       background="from-indigo-500 via-sky-400 to-cyan-200"
-      startArt={<Rocket colour={ROCKET_COLOURS[0].hex} illustrated className="mx-auto h-64 w-auto -rotate-12" title="A rocket" />}
+      startArt={<Rocket colour={ROCKET_COLOURS[0].hex} illustrated className="mx-auto h-full max-h-full w-auto -rotate-12" title="A rocket" />}
       renderUnlock={(config) => (config.unlock === 'colour'
         ? <Rocket colour={ROCKET_COLOURS[config.colours - 1].hex} illustrated className="mx-auto h-full w-auto" />
         : null)}

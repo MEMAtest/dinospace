@@ -642,6 +642,7 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
   const [pendingSave, setPendingSave] = useState(null);
   const pendingSaveRef = useRef(null);
   const stripRef = useRef(null);
+  const missionRef = useRef(null);
   const storePassport = (next, afterPersist = () => {}) => {
     const saved = saveDiscoveryPassport(playerId, PLANETS, next);
     if (saved?.persisted) {
@@ -818,6 +819,7 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
           <button type="button" className="min-h-12 rounded-xl border border-white/30 px-3 font-bold" aria-label="More planets in strip" onClick={() => stripRef.current?.scrollBy({ left: 250, behavior: 'smooth' })}>More →</button>
         </div>
         <p className="w-full text-xs text-cyan-100">Choose a world, then open its discovery facts. Planet details and challenges are optional.</p>
+        <button type="button" onClick={() => { missionRef.current?.scrollIntoView({ behavior: 'auto', block: 'start' }); missionRef.current?.focus({ preventScroll: true }); }} className="min-h-12 rounded-xl bg-cyan-200 px-4 font-black text-slate-950">Go to {selectedPlanet.name} mission ↓</button>
         {saveWarning && <div className="w-full rounded-xl border border-amber-200/50 bg-amber-950/50 p-3 text-sm text-amber-100" role="alert"><p>{saveWarning}</p><button type="button" className="mt-2 min-h-12 rounded-lg bg-amber-100 px-4 font-black text-amber-950" onClick={retryPassportSave}>Retry save</button></div>}
       </section>
       <nav ref={stripRef} className="flex snap-x gap-2 overflow-x-auto border-b border-cyan-200/15 bg-[#061642] px-3 py-3 no-scrollbar" aria-label="Choose a planet">
@@ -878,7 +880,7 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
             <p className="mt-1 text-sm font-bold text-cyan-100">{discoveredForPlanet} of 3 discoveries found</p>
           </div>
 
-          <section className="mt-4 rounded-2xl border border-cyan-200/25 bg-cyan-300/10 p-4" aria-label={`${selectedPlanet.name} mission`}>
+          <section ref={missionRef} tabIndex={-1} className="mt-4 rounded-2xl border border-cyan-200/25 bg-cyan-300/10 p-4" aria-label={`${selectedPlanet.name} mission`}>
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h4 className="font-black">{selectedPlanet.name} mission</h4>
               <span className="rounded-full bg-cyan-200/15 px-3 py-1 text-xs font-black uppercase tracking-wide text-cyan-100">{currentMissionStage ? `Step ${({ discover: 1, compare: 2, challenge: 3, complete: 3 })[currentMissionStage]} of 3` : 'Discover → Compare → Challenge'}</span>
