@@ -204,12 +204,13 @@ const FuelUp = (props) => {
       gameId="fuelup"
       title="Fuel Up"
       pairSafeProgress
+      compactStart
       intro={LITTLE_LINES.fuelIntro}
       background="from-sky-500 via-indigo-300 to-violet-200"
       playFullBleed
       manualNext
       speak={speakPackaged}
-      startArt={<img src={ROCKET_ART} alt="Rocket" className="mx-auto h-64 w-auto object-contain drop-shadow-2xl" />}
+      startArt={<img src={ROCKET_ART} alt="Rocket" className="mx-auto h-full max-h-full w-auto object-contain drop-shadow-2xl" />}
       renderUnlock={(config) => (
         <div className="grid h-full w-full place-items-center rounded-xl bg-indigo-100 text-5xl font-black text-indigo-700">{Math.max(...config.numbers)}</div>
       )}

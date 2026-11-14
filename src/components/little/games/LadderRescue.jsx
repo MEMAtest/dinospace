@@ -182,6 +182,7 @@ const LadderRound = ({ animals, targetFloor, byFloorNumber, complete, mistake, s
         disabled={rescueStarted}
       >
         <span aria-hidden="true">🔊</span>
+        <span className="text-left text-sm leading-tight sm:text-lg">{byFloorNumber ? 'Tap floor' : `Find the ${target.name}`}</span>
         {byFloorNumber ? <span className="text-4xl text-rose-600">{targetFloor}</span> : <Animal animal={target} fixed className="h-12 w-12" />}
       </button>
       <div className="relative mx-auto w-full overflow-hidden rounded-[2rem] border-[6px] border-white bg-gradient-to-b from-sky-300 to-sky-100 shadow-2xl" style={{ aspectRatio: '4 / 5', maxWidth: 'calc((100dvh - var(--rescue-ladder-chrome, 12rem)) * 0.8)' }}>
@@ -301,6 +302,7 @@ const LadderRescue = (props) => {
       manualNextReviewLabel="Ladder rescue review"
       intro={LITTLE_LINES.ladderIntro}
       background="from-red-400 via-rose-300 to-sky-200"
+      backgroundArtName="fire-house"
       speak={speakPackaged}
       onToggleSound={toggleSound}
       startArt={<div className="relative mx-auto h-full w-full max-w-sm"><LadderTruckArt className="h-full w-full object-contain" title="Fire truck" /><span className="absolute right-6 top-0 h-16 w-16" aria-hidden="true"><Animal animal={RESCUE_ANIMALS[0]} fixed /></span></div>}

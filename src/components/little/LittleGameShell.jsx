@@ -457,7 +457,7 @@ const LittleGameShell = ({
         </BigRoundButton>
         {phase === 'play'
           ? <RoundTrack total={rounds} done={round} />
-          : <h1 className="min-w-0 flex-1 truncate text-center text-2xl font-black text-white drop-shadow-[0_3px_0_rgba(15,23,42,.35)] sm:text-4xl">{title}</h1>}
+          : <h1 className={`min-w-0 flex-1 truncate text-center font-black text-white drop-shadow-[0_3px_0_rgba(15,23,42,.35)] ${['firerescue', 'ladder'].includes(gameId) ? 'rounded-2xl bg-slate-950/80 px-2 py-2 text-lg sm:text-3xl' : 'text-2xl sm:text-4xl'}`}>{title}</h1>}
         <BigRoundButton onClick={onToggleSound} label={soundOn ? 'Turn sound off' : 'Turn sound on'}>
           {soundOn ? <Volume2 size={28} strokeWidth={2.6} /> : <VolumeX size={28} strokeWidth={2.6} />}
         </BigRoundButton>
