@@ -1,0 +1,26 @@
+async page=>{
+ const origin=QA_ORIGIN,width=QA_WIDTH,height=width===390?740:844,rows=[],errors=[],providers=[];
+ const pe=e=>errors.push(e.message), ce=m=>{if(m.type()==='error')errors.push(m.text())};page.on('pageerror',pe);page.on('console',ce);
+ await page.unroute('**/api/**');await page.route('**/api/**',r=>{providers.push(r.request().url());return r.fulfill({status:403,body:'Synthetic QA guard'})});
+ try{
+ await page.setViewportSize({width,height});
+ async function go(game,title){
+  await page.goto(`${origin}/?qa_review=${Date.now()}#/play/${game}`,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.__amariQaNamespaced===true,null,{timeout:15000});await page.waitForTimeout(1000);
+  const pick=page.getByRole('button',{name:/Age 6\+.*Amari/});if(await pick.isVisible().catch(()=>false)){await pick.click();await page.evaluate(game=>{location.hash='/play/'+game},game)}
+  const br=page.getByRole('button',{name:'5 More Minutes'});if(await br.isVisible().catch(()=>false))await br.click();
+  const head=page.getByRole('heading',{name:title,exact:true});await head.waitFor();const hm=await head.evaluate(x=>({scroll:x.scrollWidth,client:x.clientWidth,bg:getComputedStyle(x).backgroundColor}));if(hm.scroll>hm.client+1)throw Error('Truncated title '+title+' '+JSON.stringify(hm));
+  const play=page.getByRole('button',{name:`Play ${title}`});const b=await play.boundingBox();const hit=await play.evaluate(x=>{const z=x.getBoundingClientRect(),q=document.elementFromPoint(z.x+z.width/2,z.y+z.height/2);return q===x||x.contains(q)});if(!b||b.y<0||b.y+b.height>height||!hit)throw Error('Play not fully visible '+title+' '+JSON.stringify({b,hit}));await play.click();return {head:hm,play:b};
+ }
+ const fuel=await go('fuelup','Fuel Up');const prompt=await page.getByRole('button',{name:/Hear again: put \d+ in the rocket/}).getAttribute('aria-label');const target=Number(prompt.match(/put (\d+)/)[1]);await page.getByRole('button',{name:'Fuel can 1',exact:true}).click();await page.getByRole('button',{name:'Launch the rocket'}).click();await page.getByRole('alert').waitFor();await page.getByRole('button',{name:'Undo last fuel can'}).click();await page.getByText(`Count: 0 of ${target}`).waitFor();for(let i=1;i<=target;i++)await page.getByRole('button',{name:`Fuel can ${i}`,exact:true}).click();await page.getByRole('button',{name:'Launch the rocket'}).click();await page.getByRole('group',{name:'Fuel count review'}).waitFor({timeout:15000});rows.push({game:'fuelup',...fuel,target,underfillUndo:true,review:true});
+ const fire=await go('firerescue','Fire Truck Rescue');const initial=await page.locator('[data-fire="burning"]').count();if(!initial)throw Error('No fires');for(let i=1;i<=initial;i++){const btn=page.getByRole('button',{name:`Hold Space or Enter to spray fire ${i}`,exact:true});await btn.focus();await page.keyboard.down('Space');try{await page.waitForFunction(n=>[...document.querySelectorAll('[data-fire="out"] [role="progressbar"]')].some(x=>x.getAttribute('aria-label')===`Fire ${n} spray progress`),i,{timeout:5000})}finally{await page.keyboard.up('Space')}}await page.getByRole('group',{name:'Fire rescue review'}).waitFor({timeout:15000});rows.push({game:'fire',...fire,fires:initial,review:true});
+ const ladder=await go('ladder','Ladder Rescue');const prompts=[];
+ for(let round=0;round<2;round++){
+  const promptButton=page.getByRole('button',{name:/^Hear again: Rescue/});const label=await promptButton.getAttribute('aria-label');const visual=(await promptButton.innerText()).replace(/\s+/g,' ').trim();const floors=page.locator('main button[aria-label^="Floor "]');await floors.first().waitFor();const labels=await floors.evaluateAll(xs=>xs.map(x=>x.getAttribute('aria-label')));const nm=label.match(/floor\s+(one|two|three|four|five)/i);let number;
+  if(nm){number=({one:1,two:2,three:3,four:4,five:5})[nm[1].toLowerCase()];if(!visual.includes(`Tap floor ${number}`))throw Error('Floor prompt missing '+visual)}else{const animal=label.match(/rescue the\s+([a-z]+)/i)?.[1];number=Number(labels.find(x=>x.toLowerCase().includes(`the ${animal}`))?.match(/\d+/)?.[0]);if(!animal||!visual.toLowerCase().includes(`find the ${animal}`))throw Error('Animal prompt missing '+visual)}
+  if(!number)throw Error('Target not found '+label);const wrong=labels.find(x=>Number(x.match(/\d+/)[0])!==number);await page.getByRole('button',{name:wrong,exact:true}).click();await page.getByRole('alert').waitFor();const correct=labels.find(x=>Number(x.match(/\d+/)[0])===number);await page.getByRole('button',{name:correct,exact:true}).click();await page.getByRole('group',{name:'Ladder rescue review'}).waitFor({timeout:15000});prompts.push({label,visual,wrongRetry:true});if(round===0)await page.getByRole('button',{name:'Next round'}).click();
+ }
+ rows.push({game:'ladder',...ladder,prompts,background:await page.locator('[data-little-game="ladder"]').evaluate(x=>getComputedStyle(x).backgroundImage)});
+ if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Overflow');
+ return {width,rows,errors,providers,entry:await page.evaluate(()=>document.querySelector('script[type=module][src]')?.getAttribute('src'))};
+ }finally{page.off('pageerror',pe);page.off('console',ce)}
+}
