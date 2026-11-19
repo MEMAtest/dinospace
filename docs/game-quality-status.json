@@ -2182,5 +2182,14 @@
     "gatewayDeployment": "6aff5a8bbfb02c64891c0537",
     "evidence": "docs/qa-evidence/dinosaur-discovery-shadow-20261119/README.md",
     "scope": "Dinosaur Discovery World and Shadow Match comparison tools, sampled on the live site at 390x740 and 1440x844."
+  },
+  "latestDinoDetectiveExpedition": {
+    "runtime": "4396b77f955654b7ec596be85b7b86d0d86d16b3",
+    "entry": "/assets/arcade-CRtuP5MF.js",
+    "worker": "amari-discovery-v81",
+    "backendDeployment": "dpl_1uCsd2udUekWww5Ehr4uun7vzqkY",
+    "gatewayDeployment": "6aff65c7e49068677816ce23",
+    "evidence": "docs/qa-evidence/dino-detective-expedition-20261119/README.md",
+    "scope": "Askia\u2019s 12-creature roster, three habitats and optional field games. All five levels rehearsed live at 390x740 and 1440x844."
   }
 }

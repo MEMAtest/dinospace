@@ -1,0 +1,286 @@
+{
+  "runtimeOnMain": "4396b77f955654b7ec596be85b7b86d0d86d16b3",
+  "entry": "/assets/arcade-CRtuP5MF.js",
+  "worker": "amari-discovery-v81",
+  "backend": {
+    "id": "dpl_1uCsd2udUekWww5Ehr4uun7vzqkY",
+    "url": "https://dinospace-7hzyrfj4f-memas-projects-23a0001d.vercel.app"
+  },
+  "netlify": {
+    "site": "https://dinospace.netlify.app",
+    "deploy": "6aff65c7e49068677816ce23",
+    "draft": "https://6aff65a1fc14a75c331bf70d--dinospace.netlify.app"
+  },
+  "matchingAssets": {
+    "/": "085963778ccb979bee0ed69a951922dce818d435bc7c1bcce54d9def005ad955",
+    "/index.html": "085963778ccb979bee0ed69a951922dce818d435bc7c1bcce54d9def005ad955",
+    "/sw.js": "e76fb6c071a5454508e34d9996763e93db46b5f71b5b13deca6b1f8898889448",
+    "/assets/arcade-CRtuP5MF.js": "f815c88874eefda3643b6630b5212e58b98262e6719ff36fd1b1146361cac4fb",
+    "/assets/DiscoveryHeader-Dt86kjrx.css": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+    "/art/shadow-match-v2/spino.webp": "afc5c4591f9bfc66015f60ef598ceba71b4ff0ff7cb26736f362ca06236556d9",
+    "/assets/jigsaw-lake-v1-DzZXWTSY.webp": "bd2f14b5b8b75165bae2791f9c56efc582867b50bfacf87ebe5810ec08728563",
+    "/assets/jigsaw-canyon-v1-D4zKFJQF.webp": "98627e91192c8c6ce9f45e5c027478f9ac8aba33ce3028c4bb3ccb727ca1b178"
+  },
+  "unitSuite": {
+    "passed": 764,
+    "failed": 0,
+    "skipped": 0
+  },
+  "localPhone": {
+    "origin": "http://127.0.0.1:4198",
+    "width": 390,
+    "height": 740,
+    "entry": "/assets/arcade-CRtuP5MF.js",
+    "levels": [
+      {
+        "level": 1,
+        "hunts": 5,
+        "stars": "3 of 3 stars"
+      },
+      {
+        "level": 2,
+        "hunts": 5,
+        "stars": "3 of 3 stars"
+      },
+      {
+        "level": 3,
+        "hunts": 6,
+        "stars": "3 of 3 stars"
+      },
+      {
+        "level": 4,
+        "hunts": 6,
+        "stars": "3 of 3 stars"
+      },
+      {
+        "level": 5,
+        "hunts": 7,
+        "stars": "3 of 3 stars"
+      }
+    ],
+    "habitats": [
+      "forest",
+      "river",
+      "canyon"
+    ],
+    "creatures": [
+      "Stegosaurus",
+      "Brachiosaurus",
+      "Pterodactyl",
+      "Ankylosaurus",
+      "Corythosaurus",
+      "Dilophosaurus",
+      "Parasaurolophus",
+      "Allosaurus",
+      "Carnotaurus",
+      "Triceratops",
+      "Spinosaurus"
+    ],
+    "trackGames": 10,
+    "featureGames": 10,
+    "cluePrompts": [
+      "Which creature has a club tail?",
+      "Which creature has a sail on its back?",
+      "Which creature has a long neck?",
+      "Which creature has plates on its back?",
+      "Which creature has wings?",
+      "Which creature has three horns?"
+    ],
+    "skipped": 19,
+    "retryCount": 5,
+    "clearer": 3,
+    "touch": true,
+    "persisted": true,
+    "deviceSpeechStarted": 104,
+    "packagedClips": 9,
+    "errors": [],
+    "network": [],
+    "provider": []
+  },
+  "live": [
+    {
+      "origin": "https://dinospace.netlify.app",
+      "width": 390,
+      "height": 740,
+      "entry": "/assets/arcade-CRtuP5MF.js",
+      "levels": [
+        {
+          "level": 1,
+          "hunts": 5,
+          "stars": "3 of 3 stars"
+        },
+        {
+          "level": 2,
+          "hunts": 5,
+          "stars": "3 of 3 stars"
+        },
+        {
+          "level": 3,
+          "hunts": 6,
+          "stars": "3 of 3 stars"
+        },
+        {
+          "level": 4,
+          "hunts": 6,
+          "stars": "3 of 3 stars"
+        },
+        {
+          "level": 5,
+          "hunts": 7,
+          "stars": "3 of 3 stars"
+        }
+      ],
+      "habitats": [
+        "forest",
+        "river",
+        "canyon"
+      ],
+      "creatures": [
+        "Stegosaurus",
+        "Brachiosaurus",
+        "Pterodactyl",
+        "Ankylosaurus",
+        "Corythosaurus",
+        "Dilophosaurus",
+        "Parasaurolophus",
+        "Allosaurus",
+        "Carnotaurus",
+        "Triceratops",
+        "Spinosaurus"
+      ],
+      "trackGames": 10,
+      "featureGames": 10,
+      "cluePrompts": [
+        "Which creature has a club tail?",
+        "Which creature has a sail on its back?",
+        "Which creature has a long neck?",
+        "Which creature has plates on its back?",
+        "Which creature has wings?",
+        "Which creature has three horns?"
+      ],
+      "skipped": 19,
+      "retryCount": 5,
+      "clearer": 3,
+      "touch": true,
+      "persisted": true,
+      "deviceSpeechStarted": 104,
+      "packagedClips": 9,
+      "errors": [],
+      "network": [],
+      "provider": []
+    },
+    {
+      "origin": "https://dinospace.netlify.app",
+      "width": 1440,
+      "height": 844,
+      "entry": "/assets/arcade-CRtuP5MF.js",
+      "levels": [
+        {
+          "level": 1,
+          "hunts": 5,
+          "stars": "3 of 3 stars"
+        },
+        {
+          "level": 2,
+          "hunts": 5,
+          "stars": "3 of 3 stars"
+        },
+        {
+          "level": 3,
+          "hunts": 6,
+          "stars": "3 of 3 stars"
+        },
+        {
+          "level": 4,
+          "hunts": 6,
+          "stars": "3 of 3 stars"
+        },
+        {
+          "level": 5,
+          "hunts": 7,
+          "stars": "3 of 3 stars"
+        }
+      ],
+      "habitats": [
+        "canyon",
+        "forest",
+        "river"
+      ],
+      "creatures": [
+        "Dilophosaurus",
+        "Parasaurolophus",
+        "Allosaurus",
+        "Carnotaurus",
+        "Triceratops",
+        "Spinosaurus",
+        "T-rex",
+        "Stegosaurus",
+        "Brachiosaurus",
+        "Pterodactyl",
+        "Ankylosaurus"
+      ],
+      "trackGames": 10,
+      "featureGames": 10,
+      "cluePrompts": [
+        "Which creature has plates on its back?",
+        "Which creature has three horns?",
+        "Which creature has a club tail?",
+        "Which creature has a sail on its back?",
+        "Which creature has a long neck?",
+        "Which creature has wings?"
+      ],
+      "skipped": 19,
+      "retryCount": 5,
+      "clearer": 3,
+      "touch": false,
+      "persisted": true,
+      "deviceSpeechStarted": 97,
+      "packagedClips": 11,
+      "errors": [],
+      "network": [],
+      "provider": []
+    }
+  ],
+  "creaturesSeenLive": [
+    "Allosaurus",
+    "Ankylosaurus",
+    "Brachiosaurus",
+    "Carnotaurus",
+    "Corythosaurus",
+    "Dilophosaurus",
+    "Parasaurolophus",
+    "Pterodactyl",
+    "Spinosaurus",
+    "Stegosaurus",
+    "T-rex",
+    "Triceratops"
+  ],
+  "update": {
+    "method": "focus observer event then actual Refresh games click",
+    "recordsRetained": 118,
+    "recordsSha256": "63538ed03f218600b0c84460b3f5647c3bfab63c9a32f9ac3fae4872cccbfd1a",
+    "storybookStores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "freshWorkerCache": [
+      "amari-discovery-media-v1",
+      "amari-discovery-v81"
+    ],
+    "updateNoticeAfterRefresh": false
+  }
+}
