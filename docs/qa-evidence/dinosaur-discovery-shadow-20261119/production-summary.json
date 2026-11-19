@@ -1,0 +1,205 @@
+{
+  "runtime": "03229e62c00a650f444124851051372301afab6c",
+  "publicUrl": "https://dinospace.netlify.app",
+  "worker": "amari-discovery-v80",
+  "backend": {
+    "deployment": "dpl_3zNKWJNYfq8338A6jRwb2MzcaTvM",
+    "url": "https://dinospace-lffpapzxb-memas-projects-23a0001d.vercel.app"
+  },
+  "gateway": {
+    "deployment": "6aff5a8bbfb02c64891c0537",
+    "draft": "https://6aff5a6423fe0fe846f47077--dinospace.netlify.app"
+  },
+  "entry": "/assets/arcade-CU4MqZVs.js",
+  "legacyRedirect": {
+    "paths": [
+      "/",
+      "/index.html"
+    ],
+    "status": 307,
+    "location": "https://dinospace.netlify.app/"
+  },
+  "matchingAssets": {
+    "/": {
+      "sha256": "06c72538f7d29b83e7a9d89b45c254ecd274f82a254d3d4f9e53cf6aca22098f",
+      "status": 200,
+      "bytes": 1441
+    },
+    "/index.html": {
+      "sha256": "06c72538f7d29b83e7a9d89b45c254ecd274f82a254d3d4f9e53cf6aca22098f",
+      "status": 200,
+      "bytes": 1441
+    },
+    "/sw.js": {
+      "sha256": "380eb5707553eb396890da23af5ecc254b4f0896819cec0c228739d6f3105288",
+      "status": 200,
+      "bytes": 16575
+    },
+    "/assets/arcade-CU4MqZVs.js": {
+      "sha256": "bce4932a46fe4965c795ed5067ce9850f207388b5af5e5317c6225722db83694",
+      "status": 200,
+      "bytes": 1486163
+    },
+    "/assets/DiscoveryHeader-Dt86kjrx.css": {
+      "sha256": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+      "status": 200,
+      "bytes": 25695
+    },
+    "/art/dinosaur-discovery-v1/pteranodon.webp": {
+      "sha256": "8a1bd00c987e4fb4ca3b0e03bcbeef4c498709a5f8e9fab2a15097fedb6847d1",
+      "status": 200,
+      "bytes": 72022
+    },
+    "/art/dinosaur-discovery-v1/ichthyosaurus.webp": {
+      "sha256": "4ee0b9a3d2d4131fbc508ed9451f5e7aaaf0c16989be41d851757ebfdaa91fa0",
+      "status": 200,
+      "bytes": 46082
+    },
+    "/art/shadow-match-v2/spino.webp": {
+      "sha256": "afc5c4591f9bfc66015f60ef598ceba71b4ff0ff7cb26736f362ca06236556d9",
+      "status": 200,
+      "bytes": 70558
+    }
+  },
+  "unitSuite": {
+    "passed": 762,
+    "failed": 0,
+    "skipped": 0
+  },
+  "local": [
+    {
+      "width": 390,
+      "height": 740,
+      "roster": 24,
+      "artDecodes": 24,
+      "pictureRetry": true,
+      "foodRetry": true,
+      "savedStickers": [
+        "spino",
+        "elasmo"
+      ],
+      "returnedToDinoWorld": true,
+      "mirrored": true,
+      "hadLevel5": false,
+      "levelsPlayed": [
+        "Completed Level 1. Progress saved; Level 2 is available.",
+        "Completed Level 2. Progress saved; Level 3 is available.",
+        "Completed Level 3. Progress saved; Level 4 is available.",
+        "Completed Level 4. Progress saved; Level 5 is available."
+      ],
+      "markedHint": true,
+      "shadowHeldFact": true,
+      "errors": [],
+      "providers": [],
+      "received": [],
+      "entry": "/assets/arcade-CU4MqZVs.js"
+    },
+    {
+      "width": 1440,
+      "height": 844,
+      "roster": 24,
+      "artDecodes": 24,
+      "pictureRetry": true,
+      "foodRetry": true,
+      "savedStickers": [
+        "spino",
+        "elasmo"
+      ],
+      "returnedToDinoWorld": true,
+      "mirrored": true,
+      "hadLevel5": true,
+      "levelsPlayed": [],
+      "markedHint": true,
+      "shadowHeldFact": true,
+      "errors": [],
+      "providers": [],
+      "received": [],
+      "entry": "/assets/arcade-CU4MqZVs.js"
+    }
+  ],
+  "live": [
+    {
+      "width": 390,
+      "height": 740,
+      "roster": 24,
+      "artDecodes": 24,
+      "pictureRetry": true,
+      "foodRetry": true,
+      "deviceSpeechInvocation": true,
+      "mutedSpeech": true,
+      "savedStickers": [
+        "spino",
+        "elasmo"
+      ],
+      "returnedToDinoWorld": true,
+      "mirrored": true,
+      "hadLevel5": true,
+      "levelsPlayed": [],
+      "markedHint": true,
+      "shadowHeldFact": true,
+      "errors": [],
+      "providers": [],
+      "received": [],
+      "entry": "/assets/arcade-CU4MqZVs.js"
+    },
+    {
+      "width": 1440,
+      "height": 844,
+      "roster": 24,
+      "artDecodes": 24,
+      "pictureRetry": true,
+      "foodRetry": true,
+      "deviceSpeechInvocation": true,
+      "mutedSpeech": true,
+      "savedStickers": [
+        "spino",
+        "elasmo"
+      ],
+      "returnedToDinoWorld": true,
+      "mirrored": true,
+      "hadLevel5": true,
+      "levelsPlayed": [],
+      "markedHint": true,
+      "shadowHeldFact": true,
+      "errors": [],
+      "providers": [],
+      "received": [],
+      "entry": "/assets/arcade-CU4MqZVs.js"
+    }
+  ],
+  "cutover": {
+    "method": "focus observer event then actual Refresh games click",
+    "oldEntry": "/assets/arcade-BBlB6Mm5.js",
+    "oldCaches": [
+      "amari-discovery-media-v1",
+      "amari-discovery-v79"
+    ],
+    "newCaches": [
+      "amari-discovery-media-v1",
+      "amari-discovery-v80"
+    ],
+    "noticeAfterRefresh": false,
+    "syntheticLocalStorageRecords": 117,
+    "localStorageCombinedSha256Before": "b94c3d9b6e520e609c78be14a57571ee94cad7e4520ba4cd4ece43266f731897",
+    "localStorageCombinedSha256After": "b94c3d9b6e520e609c78be14a57571ee94cad7e4520ba4cd4ece43266f731897",
+    "unchangedStorybookStores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "storyBlobBytes": 3729264
+  }
+}

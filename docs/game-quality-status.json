@@ -2173,5 +2173,14 @@
     "entry": "/assets/arcade-BBlB6Mm5.js",
     "evidence": "docs/qa-evidence/fuel-rescue-uplift-20261114/README.md",
     "scope": "Targeted navigation, readable clue and sampled gameplay at 390x740 and 1440x844; no editorial or listening score."
+  },
+  "latestDinosaurDiscoveryShadowMatch": {
+    "runtime": "03229e62c00a650f444124851051372301afab6c",
+    "entry": "/assets/arcade-CU4MqZVs.js",
+    "worker": "amari-discovery-v80",
+    "backendDeployment": "dpl_3zNKWJNYfq8338A6jRwb2MzcaTvM",
+    "gatewayDeployment": "6aff5a8bbfb02c64891c0537",
+    "evidence": "docs/qa-evidence/dinosaur-discovery-shadow-20261119/README.md",
+    "scope": "Dinosaur Discovery World and Shadow Match comparison tools, sampled on the live site at 390x740 and 1440x844."
   }
 }
