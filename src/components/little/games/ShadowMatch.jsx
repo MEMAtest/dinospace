@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { RotateCcw, Search } from 'lucide-react';
 import LittleGameShell from '../LittleGameShell.jsx';
 import DragItem from '../DragItem.jsx';
 import HandHint from '../HandHint.jsx';
@@ -13,6 +14,8 @@ const ShadowRound = ({ target, kinds, count, mirror, similar, complete, mistake,
   const [matched, setMatched] = useState(false);
   const [wrong, setWrong] = useState(null);
   const [manualHint, setManualHint] = useState(false);
+  const [flipped, setFlipped] = useState(false);
+  const [usedTurn, setUsedTurn] = useState(false);
   const shadowRefs = useRef({});
   const dinoRef = useRef(null);
   const wrongTimer = useRef(null);
@@ -44,7 +47,8 @@ const ShadowRound = ({ target, kinds, count, mirror, similar, complete, mistake,
     sayCreature();
     return true;
   };
-  const next = () => complete({ praise: false, delay: 0, firstAttempt: hint.mistakes === 0 && !manualHint, independent: hint.mistakes === 0 && !manualHint, hints: manualHint || hint.strongHint ? 1 : 0, art: <Dino kind={target} className="mx-auto w-4/5" />, review: <div className="rounded-2xl bg-sky-50 p-3 text-left"><h3 className="font-black text-indigo-950">{SHADOW_DINO_NAMES[target]}</h3><p className="mt-1 text-sm font-bold text-indigo-950">{SHADOW_FACTS[target]}</p><button type="button" onClick={sayCreature} className="mt-2 min-h-12 rounded-full bg-white px-4 font-black text-sky-950">Hear the fact again</button></div> });
+  const assisted = manualHint || usedTurn;
+  const next = () => complete({ praise: false, delay: 0, firstAttempt: hint.mistakes === 0 && !assisted, independent: hint.mistakes === 0 && !assisted, hints: assisted || hint.strongHint ? 1 : 0, art: <Dino kind={target} className="mx-auto w-4/5" />, review: <div className="rounded-2xl bg-sky-50 p-3 text-left"><h3 className="font-black text-indigo-950">{SHADOW_DINO_NAMES[target]}</h3><p className="mt-1 text-sm font-bold text-indigo-950">{SHADOW_FACTS[target]}</p><button type="button" onClick={sayCreature} className="mt-2 min-h-12 rounded-full bg-white px-4 font-black text-sky-950">Hear the fact again</button></div> });
   const shadowAt = point => shadows.find(kind => pointInRect(point, shadowRefs.current[kind]?.getBoundingClientRect(), 0));
 
   return (
@@ -54,17 +58,25 @@ const ShadowRound = ({ target, kinds, count, mirror, similar, complete, mistake,
         <p className="text-center font-black leading-tight text-indigo-950">Match the shape. {SHADOW_FEATURES[target]}</p>
         <div ref={dinoRef}>
           <DragItem label={`${SHADOW_DINO_NAMES[target]} — drag to its shadow`} data={{ kind: target }} onPickUp={hint.touch} onTap={sayCreature} onDrop={point => { const kind = shadowAt(point); return kind ? choose(kind) : false; }} className="w-40 max-w-[60vw] rounded-[1.5rem] bg-white/60 p-2 shadow-xl sm:w-48 sm:rounded-[2rem] sm:p-3">
-            <Dino kind={target} className="pointer-events-none w-full" />
+            <Dino kind={target} flip={flipped} className="pointer-events-none w-full" />
           </DragItem>
         </div>
         <p className="text-center font-black leading-tight text-indigo-950">{SHADOW_DINO_NAMES[target]}{target === 'ptero' ? ' · flying reptile' : ''}</p>
-        <p className="min-h-6 text-center text-sm font-bold leading-tight text-indigo-950 sm:leading-normal" role="status">{wrong ? 'Not this one yet. Compare the head and tail, then try again.' : 'Tap the matching shadow, or drag the creature to it.'}</p>
+        <p className="min-h-6 text-center text-sm font-bold leading-tight text-indigo-950 sm:leading-normal" role="status">{wrong ? 'Try again. Look at the head and tail.' : manualHint ? 'Compare the creature with the marked shadow.' : 'Tap the matching shadow, or drag the creature to it.'}</p>
         <div className={`grid w-full gap-2 ${count >= 5 ? 'grid-cols-3' : count === 4 ? 'grid-cols-2 sm:grid-cols-4' : count === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
-          {shadows.map((kind, index) => <button key={kind} type="button" ref={el => { shadowRefs.current[kind] = el; }} data-kind={kind} onClick={() => choose(kind)} aria-label={`Shadow option ${index + 1}`} className={`grid h-24 min-h-12 min-w-12 place-items-center rounded-[1.1rem] border-4 bg-white/40 p-1 shadow-lg transition focus-visible:outline focus-visible:outline-4 focus-visible:outline-indigo-800 sm:h-28 sm:rounded-[1.3rem] ${wrong === kind ? 'animate-shake bg-rose-200/70' : hint.strongHint && kind === target ? 'animate-cell-pulse border-amber-300 bg-amber-100/80' : 'border-white/80'}`}>
+          {shadows.map((kind, index) => <button key={kind} type="button" ref={el => { shadowRefs.current[kind] = el; }} data-kind={kind} onClick={() => choose(kind)} aria-label={`Shadow option ${index + 1}`} className={`grid h-24 min-h-12 min-w-12 place-items-center rounded-[1.1rem] border-4 bg-white/40 p-1 shadow-lg transition focus-visible:outline focus-visible:outline-4 focus-visible:outline-indigo-800 relative sm:h-28 sm:rounded-[1.3rem] ${wrong === kind ? 'animate-shake bg-rose-200/70' : (manualHint || hint.strongHint) && kind === target ? 'border-amber-600 bg-amber-100/90 ring-2 ring-amber-500' : 'border-white/80'}`}>
             <Dino kind={kind} silhouette flip={mirror} className="pointer-events-none max-h-full w-full" />
+            {manualHint && kind === target && <span aria-hidden="true" className="absolute right-1 top-1 grid h-7 w-7 place-items-center rounded-full bg-amber-200 text-amber-950"><Search size={18} /></span>}
           </button>)}
         </div>
-        <button type="button" onClick={() => { setManualHint(true); hint.touch(); }} className="min-h-12 rounded-full border-2 border-white bg-white/80 px-5 font-black text-indigo-950">Show me a clue</button>
+        <div className="flex flex-wrap justify-center gap-2">
+          {mirror && <button type="button" aria-pressed={flipped} onClick={() => { setFlipped(value => !value); setUsedTurn(true); hint.touch(); }} className="inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-white bg-white/80 px-4 font-black text-indigo-950 aria-pressed:bg-indigo-800 aria-pressed:text-white">
+            <RotateCcw size={20} aria-hidden="true" /> Turn picture
+          </button>}
+          <button type="button" aria-pressed={manualHint} onClick={() => { setManualHint(true); hint.touch(); }} className="inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-white bg-white/80 px-4 font-black text-indigo-950">
+            <Search size={20} aria-hidden="true" /> Show me a clue
+          </button>
+        </div>
         <HandHint show={(hint.showHint && (!similar || hint.mistakes >= 2) || manualHint) && !matched} from={() => dinoRef.current} to={() => shadowRefs.current[target]} mode="drag" />
       </> : <section className="flex w-full max-w-xl flex-col items-center gap-3 rounded-3xl border-4 border-white bg-white/90 p-4 text-center" aria-live="polite">
         <Dino kind={target} className="w-48 animate-dino-hop sm:w-64" />

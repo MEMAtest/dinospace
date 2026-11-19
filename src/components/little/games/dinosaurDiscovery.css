@@ -1,0 +1,179 @@
+.dinosaur-discovery {
+  --ink: #173b2d;
+  --strong: #1e6241;
+  --light: #e6f5bb;
+  --wash: #fbf5d8;
+  min-height: 100dvh;
+  padding: clamp(10px, 2.5vw, 28px);
+  color: var(--ink);
+  background: radial-gradient(ellipse at top, #fff5b9 0%, transparent 52%), linear-gradient(155deg, var(--light), var(--wash));
+}
+
+.dinosaur-discovery[data-habitat="sea"] {
+  --ink: #113e59;
+  --strong: #17637e;
+  --light: #b6e8ed;
+  --wash: #e7f5ff;
+}
+
+.dinosaur-discovery[data-habitat="sky"] {
+  --ink: #302952;
+  --strong: #524180;
+  --light: #dfd7fa;
+  --wash: #f5edff;
+}
+
+.dinosaur-discovery__inner { max-width: 1040px; margin: auto; }
+.dinosaur-discovery__header, .dinosaur-discovery__toolbar, .dinosaur-discovery__pages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dinosaur-discovery :where(button) {
+  min-height: 48px;
+  min-width: 48px;
+  touch-action: manipulation;
+  font-weight: 800;
+  transition: background-color 150ms, transform 150ms;
+}
+
+.dinosaur-discovery button:hover:not(:disabled) { transform: translateY(-2px); }
+.dinosaur-discovery button:active:not(:disabled) { transform: translateY(1px); }
+.dinosaur-discovery :where(button, summary, a):focus-visible { outline: 3px solid #af4f09; outline-offset: 3px; }
+.dinosaur-discovery button:disabled { opacity: .42; }
+.dinosaur-discovery :where(header, .dinosaur-discovery__actions, .dinosaur-discovery__toolbar, .dinosaur-discovery__pages, .dinosaur-discovery__win) button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #173b2d22;
+  border-radius: 999px;
+  background: #fffefa;
+  padding: 6px 12px;
+}
+
+.dinosaur-discovery h1 { text-align: center; font-weight: 900; font-size: clamp(1.08rem, 4.1vw, 2.15rem); line-height: 1.12; }
+.dinosaur-discovery h2 { margin-block: 10px 14px; font-weight: 900; font-size: clamp(1.55rem, 5vw, 2.55rem); line-height: 1.12; overflow-wrap: anywhere; }
+.dinosaur-discovery h3 { font-weight: 900; font-size: clamp(1.05rem, 3vw, 1.28rem); }
+.dinosaur-discovery__body {
+  margin-top: 14px;
+  padding: clamp(12px, 3vw, 28px);
+  border: 2px solid #fffefa;
+  border-radius: 24px;
+  background: #fffefa9c;
+  box-shadow: 0 12px 24px #23463a1c;
+}
+
+.dinosaur-discovery__habitats, .dinosaur-discovery__grid {
+  display: grid;
+  gap: clamp(8px, 2vw, 16px);
+}
+
+.dinosaur-discovery__habitats { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-block: 12px 18px; }
+.dinosaur-discovery__habitats button {
+  display: grid;
+  justify-items: center;
+  min-height: 74px;
+  padding: 7px 3px;
+  border: 2px solid #fffefa;
+  border-radius: 18px;
+  background: #ffffffa8;
+}
+
+.dinosaur-discovery__habitats button > span { font-size: clamp(1.45rem, 4vw, 2rem); line-height: 1.15; }
+.dinosaur-discovery__habitats button[aria-pressed="true"] { background: var(--strong); color: white; }
+.dinosaur-discovery__toolbar--catalogue { margin-bottom: 10px; }
+.dinosaur-discovery__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.dinosaur-discovery__tile {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 5px;
+  padding: 8px 3px;
+  border: 2px solid white;
+  border-radius: 20px;
+  background: #fffefa;
+  box-shadow: 0 4px 0 #22433422, 0 7px 14px #19392d10;
+  font-size: clamp(.82rem, 3.5vw, 1.1rem);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.dinosaur-discovery__art {
+  display: grid;
+  place-items: center;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  width: 100%;
+  height: clamp(82px, 23vw, 156px);
+  pointer-events: none;
+}
+
+.dinosaur-discovery__art img { width: 100%; height: 100%; object-fit: contain; max-height: inherit; }
+.dinosaur-discovery__art--large { height: clamp(200px, 55vw, 352px); max-height: 352px; }
+.dinosaur-discovery__stamp {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #ffeb9f;
+  color: #704400;
+}
+
+.dinosaur-discovery__pages { justify-content: center; margin-block: 14px 6px; font-size: .9rem; font-weight: 800; }
+.dinosaur-discovery__credits { margin-top: 14px; font-size: .85rem; }
+.dinosaur-discovery__credits summary { cursor: pointer; padding-block: 8px; }
+.dinosaur-discovery__credits a { text-decoration: underline; }
+.dinosaur-discovery__toolbar button { font-size: .9rem; }
+.dinosaur-discovery__visit { display: grid; gap: 16px; }
+.dinosaur-discovery__portrait {
+  position: relative;
+  width: 100%;
+  border: 2px solid white;
+  border-radius: 24px;
+  background: radial-gradient(ellipse at 50% 44%, #fffefa, var(--light));
+  padding: 10px;
+}
+
+.dinosaur-discovery__portrait-label { display: inline-flex; gap: 6px; align-items: center; margin: 2px auto 3px; background: #fffefa; border-radius: 999px; padding: 6px 10px; }
+.dinosaur-discovery__portrait.is-revealed { border-color: var(--strong); }
+.dinosaur-discovery__portrait.is-revealed .dinosaur-discovery__art { animation: discovery-wiggle 480ms ease-out; }
+
+@keyframes discovery-wiggle {
+  30% { transform: rotate(-3deg) scale(1.035); }
+  60% { transform: rotate(2deg) scale(1.025); }
+}
+.dinosaur-discovery__fact { margin-top: 10px; padding: 10px; background: #fffefa; border-radius: 14px; font-weight: 700; }
+.dinosaur-discovery__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+.dinosaur-discovery__activity, .dinosaur-discovery__win { display: grid; gap: 10px; }
+.dinosaur-discovery__activity {
+  align-self: start;
+  padding: 12px;
+  border-radius: 20px;
+  border: 2px solid white;
+  background: var(--light);
+}
+
+.dinosaur-discovery__activity > .dinosaur-discovery__art { height: 90px; }
+.dinosaur-discovery__activity .dinosaur-discovery__art { max-height: 112px; }
+.dinosaur-discovery__food { font-size: 2.5rem; }
+.dinosaur-discovery__win { justify-items: start; }
+.dinosaur-discovery__win strong { display: flex; align-items: center; gap: 8px; font-size: 1.4rem; }
+.dinosaur-discovery__win button:last-child { background: var(--strong); color: white; }
+
+@media (min-width: 700px) {
+  .dinosaur-discovery__catalogue { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .dinosaur-discovery__visit:has(.dinosaur-discovery__activity) { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dinosaur-discovery button { transition: none; }
+  .dinosaur-discovery__portrait.is-revealed .dinosaur-discovery__art { animation: none; }
+  .dinosaur-discovery button:hover:not(:disabled), .dinosaur-discovery button:active:not(:disabled) { transform: none; }
+}

@@ -32,6 +32,7 @@ import DinoHangman from './components/games/Hangman.jsx';
 import StorybookStudio from './components/games/StorybookStudio.jsx';
 import DinoJigsaw from './components/little/games/DinoJigsaw.jsx';
 import ShadowMatch from './components/little/games/ShadowMatch.jsx';
+import DinosaurDiscovery from './components/little/games/DinosaurDiscovery.jsx';
 import RocketBuilder from './components/little/games/RocketBuilder.jsx';
 import FuelUp from './components/little/games/FuelUp.jsx';
 import FireRescue from './components/little/games/FireRescue.jsx';
@@ -85,6 +86,7 @@ const GAME_MENU_DEFINITIONS = [
 // Games built for little explorers (ages 3–5). They are also open to older
 // players, who get more pieces, bigger numbers and more floors.
 const LITTLE_GAME_DEFINITIONS = [
+  { id: 'dinodiscovery', title: 'Dinosaur Discovery World', desc: 'Meet creatures from Land, Sea and Sky', color: 'bg-gradient-to-br from-green-500 to-emerald-700', category: 'Discover', component: DinosaurDiscovery, little: true, catalogueArt: '/art/shadow-match-v2/spino.webp' },
   { id: 'dinojigsaw', icon: <ArtIcon gameId="dinojigsaw" label="Dino jigsaw"><Dino kind="trex" /></ArtIcon>, title: 'Dino Jigsaw', desc: 'Drag the pieces!', color: 'bg-gradient-to-br from-lime-400 to-green-600', category: 'Dino puzzles', component: DinoJigsaw, little: true },
   { id: 'shadowmatch', icon: <ArtIcon gameId="shadowmatch" label="Dino shadow"><Dino kind="stego" silhouette /></ArtIcon>, title: 'Shadow Match', desc: 'Whose shadow is it?', color: 'bg-gradient-to-br from-violet-500 to-indigo-600', category: 'Dino puzzles', component: ShadowMatch, little: true },
   { id: 'rocketbuilder', icon: <ArtIcon gameId="rocketbuilder" label="Half-built rocket"><RocketBlueprint colour="#ef4444" /></ArtIcon>, title: 'Rocket Builder', desc: 'Build it, then blast off!', color: 'bg-gradient-to-br from-indigo-600 to-sky-500', category: 'Rockets', component: RocketBuilder, little: true },
@@ -97,7 +99,7 @@ const LITTLE_GAME_DEFINITIONS = [
 // Names stay as live HTML; bitmap artwork contains no controls.
 const withCatalogueArtwork = (game) => ({
   ...game,
-  icon: <img className="catalogue-game-art" src={`/art/catalog-v3/game-${game.id}.webp`} alt={`${game.title} illustration`} width="640" height="426" loading="lazy" decoding="async" draggable={false} />,
+  icon: <img className="catalogue-game-art" src={game.catalogueArt ?? `/art/catalog-v3/game-${game.id}.webp`} alt={`${game.title} illustration`} width="640" height="426" loading="lazy" decoding="async" draggable={false} />,
 });
 export const GAME_MENU_ITEMS = GAME_MENU_DEFINITIONS.map(withCatalogueArtwork);
 export const LITTLE_GAME_ITEMS = LITTLE_GAME_DEFINITIONS.map(withCatalogueArtwork);

@@ -8,14 +8,14 @@ import fireScene from '../../assets/little/fire-house.webp';
 import './discoveryVisuals.css';
 
 const WORLDS = [
-  { id: 'dino', title: 'Dino World', gameIds: ['dinojigsaw', 'shadowmatch', 'dino'], scene: jungleScene, art: 'detective-trike', tone: 'green' },
+  { id: 'dino', title: 'Dino World', gameIds: ['dinodiscovery', 'dinojigsaw', 'shadowmatch', 'dino'], scene: jungleScene, art: 'detective-trike', tone: 'green' },
   { id: 'rocket', title: 'Rocket World', gameIds: ['rocketbuilder', 'fuelup', 'counting'], scene: rocketScene, art: 'fuel-rocket', tone: 'blue' },
   { id: 'rescue', title: 'Rescue World', gameIds: ['firerescue', 'ladder'], scene: fireScene, art: 'rescue-firetruck', tone: 'red' },
   { id: 'thinkers', title: 'Little Thinkers', gameIds: ['memory', 'pattern'], scene: memoryScene, art: 'detective-ankylo', tone: 'purple' },
 ];
 const TODAY_GAMES = ['fuelup', 'dino', 'memory'];
 const GAME_ART = {
-  dinojigsaw: 'detective-ankylo', shadowmatch: 'detective-stego', dino: 'askia-detective',
+  dinodiscovery: 'detective-trike', dinojigsaw: 'detective-ankylo', shadowmatch: 'detective-stego', dino: 'askia-detective',
   rocketbuilder: 'fuel-rocket', fuelup: 'fuel-can', firerescue: 'rescue-firetruck', ladder: 'fire-house',
 };
 
