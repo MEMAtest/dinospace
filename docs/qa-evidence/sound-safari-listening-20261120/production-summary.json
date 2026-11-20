@@ -1,0 +1,416 @@
+{
+  "runtime": "8cb968027d69d4bcbe6a9b33820a4e9b274c055c",
+  "entry": "/assets/arcade-Cu9SKvq9.js",
+  "worker": "amari-discovery-v84",
+  "backendUrl": "https://dinospace-8e5kv5tjh-memas-projects-23a0001d.vercel.app",
+  "backendDeployment": "dpl_Ec8f3Wq21tdVQGMeNFAirWaaDUbx",
+  "gatewayDeployment": "6affa22149c9ff74b3670317",
+  "evidence": "docs/qa-evidence/sound-safari-listening-20261120/README.md",
+  "scope": "18 first-run challenges and six replayed challenges per viewport. Audio-first prompts, muted and failed-audio fallback, held retries, save recovery and reward retention.",
+  "checkedAt": "2026-11-20T01:29:44.063615+00:00",
+  "repositoryTests": 765,
+  "assetHashes": {
+    "/": "7b25cfca190c5c692e439739d099641f232fef425547ee3de10b5e45661b9b3e",
+    "/index.html": "7b25cfca190c5c692e439739d099641f232fef425547ee3de10b5e45661b9b3e",
+    "/sw.js": "a2bb63eec6d5aa16452e0226c82042858b46efb890524a2eee3e8254e1324c9d",
+    "/assets/arcade-Cu9SKvq9.js": "c7bb82c20e604d5bb7fe756da1e2d1bd3ca57c3c3da7f3c6d140397665e5f307",
+    "/assets/DiscoveryHeader-Dt86kjrx.css": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+    "/art/catalog-v3/game-phonics.webp": "aa6dc44f8ec5688afd1b8b2580d7c45d0cab5dab994d0de4d74f7ab9711827be",
+    "/audio/phonemes/en/s-daniel-v1.mp3": "5a274aac2b50f6b64cc4ad0b8035fcec15ee8e4602a70c83134d8d4b4a61c988",
+    "/audio/sound-safari/daniel/blend-instruction.mp3": "98f0cb4cdb99520dc7ab458eccdc511abbc47f5cdb800a4acbf634086a25782d",
+    "/assets/arcade-Deh_19iT.css": "5dc2e4d04d874c7543385c2afb8b64277a29b2b46384c8d8bd45c84c44168405"
+  },
+  "cutover": {
+    "syntheticRecordsPreserved": 118,
+    "storybookFixturePreserved": true,
+    "usedRefreshGames": true
+  },
+  "playthroughs": [
+    {
+      "width": 390,
+      "entry": "/assets/arcade-Cu9SKvq9.js",
+      "passed": true,
+      "answers": [
+        {
+          "chapter": 1,
+          "index": 1,
+          "wrongRetry": true,
+          "audio": true,
+          "hint": true,
+          "held": true,
+          "explanationPlayer": true
+        },
+        {
+          "chapter": 1,
+          "index": 2,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 1,
+          "index": 3,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 1,
+          "index": 4,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 1,
+          "index": 5,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 1,
+          "index": 6,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 2,
+          "index": 1,
+          "wrongRetry": true,
+          "audio": true,
+          "hint": false,
+          "held": true,
+          "explanationPlayer": true
+        },
+        {
+          "chapter": 2,
+          "index": 2,
+          "wrongRetry": false,
+          "audio": false,
+          "hint": false,
+          "mutedFallback": true,
+          "held": true
+        },
+        {
+          "chapter": 2,
+          "index": 3,
+          "wrongRetry": false,
+          "audio": false,
+          "hint": false,
+          "failedAudioFallback": true,
+          "held": true
+        },
+        {
+          "chapter": 2,
+          "index": 4,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 2,
+          "index": 5,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 2,
+          "index": 6,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 3,
+          "index": 1,
+          "wrongRetry": true,
+          "audio": true,
+          "hint": false,
+          "held": true,
+          "explanationPlayer": true
+        },
+        {
+          "chapter": 3,
+          "index": 2,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "failedWordFallback": true,
+          "held": true
+        },
+        {
+          "chapter": 3,
+          "index": 3,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 3,
+          "index": 4,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 3,
+          "index": 5,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 3,
+          "index": 6,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        }
+      ],
+      "replayAnswers": 6,
+      "playedAudio": 47,
+      "faults": [
+        "chapter result held on denied write; retry saved the result"
+      ],
+      "reload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "width": 1440,
+      "entry": "/assets/arcade-Cu9SKvq9.js",
+      "passed": true,
+      "answers": [
+        {
+          "chapter": 1,
+          "index": 1,
+          "wrongRetry": true,
+          "audio": true,
+          "hint": true,
+          "held": true,
+          "explanationPlayer": true
+        },
+        {
+          "chapter": 1,
+          "index": 2,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 1,
+          "index": 3,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 1,
+          "index": 4,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 1,
+          "index": 5,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 1,
+          "index": 6,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 2,
+          "index": 1,
+          "wrongRetry": true,
+          "audio": true,
+          "hint": false,
+          "held": true,
+          "explanationPlayer": true
+        },
+        {
+          "chapter": 2,
+          "index": 2,
+          "wrongRetry": false,
+          "audio": false,
+          "hint": false,
+          "mutedFallback": true,
+          "held": true
+        },
+        {
+          "chapter": 2,
+          "index": 3,
+          "wrongRetry": false,
+          "audio": false,
+          "hint": false,
+          "failedAudioFallback": true,
+          "held": true
+        },
+        {
+          "chapter": 2,
+          "index": 4,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 2,
+          "index": 5,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 2,
+          "index": 6,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 3,
+          "index": 1,
+          "wrongRetry": true,
+          "audio": true,
+          "hint": false,
+          "held": true,
+          "explanationPlayer": true
+        },
+        {
+          "chapter": 3,
+          "index": 2,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "failedWordFallback": true,
+          "held": true
+        },
+        {
+          "chapter": 3,
+          "index": 3,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 3,
+          "index": 4,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 3,
+          "index": 5,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        },
+        {
+          "chapter": 3,
+          "index": 6,
+          "wrongRetry": false,
+          "audio": true,
+          "hint": false,
+          "held": true
+        }
+      ],
+      "replayAnswers": 6,
+      "playedAudio": 50,
+      "faults": [
+        "chapter result held on denied write; retry saved the result"
+      ],
+      "reload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "puzzleRegressionSample": [
+    {
+      "width": 390,
+      "entry": "/assets/arcade-Cu9SKvq9.js",
+      "passed": true,
+      "boards": [
+        {
+          "grid": 3,
+          "number": 1,
+          "label": "Dino Park",
+          "placements": 9,
+          "edgeDrop": true,
+          "gutterIgnored": true,
+          "outsideIgnored": true,
+          "wrongDrop": true,
+          "arrowBoundary": false,
+          "hintChanged": true,
+          "focusCompletion": false
+        }
+      ],
+      "faults": [
+        "blocked completion write retained screen and recovered once"
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "width": 1440,
+      "entry": "/assets/arcade-Cu9SKvq9.js",
+      "passed": true,
+      "boards": [
+        {
+          "grid": 3,
+          "number": 1,
+          "label": "River Valley",
+          "placements": 9,
+          "edgeDrop": false,
+          "gutterIgnored": false,
+          "outsideIgnored": false,
+          "wrongDrop": false,
+          "arrowBoundary": true,
+          "hintChanged": true,
+          "focusCompletion": true
+        }
+      ],
+      "faults": [
+        "blocked completion write retained screen and recovered once"
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ]
+}

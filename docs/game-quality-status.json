@@ -2210,5 +2210,15 @@
     "gatewayDeployment": "6affa095cebca0f67e040c59",
     "evidence": "docs/qa-evidence/puzzle-input-20261120/README.md",
     "scope": "All 12 boards and replay of all three grid sizes at 390\u00d7740 touch and 1440\u00d7844 keyboard. Edge drops, hints, fault recovery, reload, and reward retention."
+  },
+  "latestSoundSafariListeningRehearsal": {
+    "runtime": "8cb968027d69d4bcbe6a9b33820a4e9b274c055c",
+    "entry": "/assets/arcade-Cu9SKvq9.js",
+    "worker": "amari-discovery-v84",
+    "backendUrl": "https://dinospace-8e5kv5tjh-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_Ec8f3Wq21tdVQGMeNFAirWaaDUbx",
+    "gatewayDeployment": "6affa22149c9ff74b3670317",
+    "evidence": "docs/qa-evidence/sound-safari-listening-20261120/README.md",
+    "scope": "18 first-run challenges and six replayed challenges per viewport. Audio-first prompts, muted and failed-audio fallback, held retries, save recovery and reward retention."
   }
 }
