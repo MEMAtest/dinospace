@@ -2191,5 +2191,14 @@
     "gatewayDeployment": "6aff65c7e49068677816ce23",
     "evidence": "docs/qa-evidence/dino-detective-expedition-20261119/README.md",
     "scope": "Askia\u2019s 12-creature roster, three habitats and optional field games. All five levels rehearsed live at 390x740 and 1440x844."
+  },
+  "latestSpotVisualMobileRehearsal": {
+    "runtime": "8b47339d366c01f8f0c24cf307a2ea1ae9b0bf7b",
+    "entry": "/assets/arcade-CoKs_M19.js",
+    "worker": "amari-discovery-v82",
+    "backendDeployment": "dpl_9TLMouMHqu5QZhTJ5wR2Y8V6qjtc",
+    "gatewayDeployment": "6aff9d635abfa318ee4bd023",
+    "evidence": "docs/qa-evidence/spot-visual-review-20261120/README.md",
+    "scope": "All 12 pairs and 60 differences through image-coordinate play at 390x740 and 1440x844. Mobile hint activation and persistence, two contrast corrections, and cutover save retention."
   }
 }

@@ -1,0 +1,2578 @@
+{
+  "productionUrl": "https://dinospace.netlify.app",
+  "sourceOnMain": "8b47339d366c01f8f0c24cf307a2ea1ae9b0bf7b",
+  "worker": "amari-discovery-v82",
+  "entry": "/assets/arcade-CoKs_M19.js",
+  "backend": {
+    "id": "dpl_9TLMouMHqu5QZhTJ5wR2Y8V6qjtc",
+    "url": "https://dinospace-bw464aohm-memas-projects-23a0001d.vercel.app"
+  },
+  "netlifyDeploy": "6aff9d635abfa318ee4bd023",
+  "matchedBuildAssets": {
+    "/": "276de4b96844e8fd166582aba8c6c159cb421fd4346a2683cc5d5677112c119d",
+    "/index.html": "276de4b96844e8fd166582aba8c6c159cb421fd4346a2683cc5d5677112c119d",
+    "/sw.js": "5ca304784dd37958cc1e20c3572ef9e2022009d435a615bc85774e4b6cb15a7e",
+    "/assets/arcade-CoKs_M19.js": "cf3ca2c509bd6761ce1d433a07be08567253e2ef68a180105a17b71c329eb3f7",
+    "/assets/DiscoveryHeader-Dt86kjrx.css": "4bcbb19c1ded92b9846948f1eb35278a313882a9f4d3ec47ce017282b7467263",
+    "/art/catalog-v3/game-spot.webp": "fc8eea0d85e83956609efbb99e6b2d4b32ead62377bc581a1cb52eb2b40208b5",
+    "/assets/sound-safari-animals-3d-DxBjyDMU.webp": "dad91b003b2810eaf0b6c4577caf27c8090daaa503bf9b2013172a46cb68e3bf",
+    "/assets/robin-tree-3d-C6X3IbOn.webp": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932",
+    "/assets/robin-physical-b-v1-BTnMGf7t.webp": "ae3305296bb3627b115d7cd5516e90c878356bae299c6899fb3095c2611c1eab"
+  },
+  "testSuite": {
+    "pass": 764,
+    "fail": 0,
+    "skip": 0
+  },
+  "method": "First runs in fresh disposable storage. Touch and mouse coordinates chosen by comparing clean screenshots of A and B and, where needed, inspecting visible objects in the captured images. No answer selectors or hidden hotspots used to choose clicks.",
+  "preReleaseMobile": {
+    "width": 390,
+    "entry": "/assets/arcade-CRtuP5MF.js",
+    "reloadAllChaptersSaved": true,
+    "pageErrors": [],
+    "httpFailures": [],
+    "providerAttempts": [],
+    "pairs": [
+      {
+        "chapter": 1,
+        "pair": 1,
+        "title": "River Valley",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            305,
+            23
+          ],
+          [
+            32,
+            230
+          ],
+          [
+            140,
+            119
+          ]
+        ],
+        "coordinateAttempts": 20,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              308,
+              23
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              122,
+              137
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": false
+      },
+      {
+        "chapter": 1,
+        "pair": 2,
+        "title": "Dino Park",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            56,
+            236
+          ],
+          [
+            74,
+            146
+          ],
+          [
+            290,
+            44
+          ]
+        ],
+        "coordinateAttempts": 40,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              275,
+              20
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              107,
+              179
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": false
+      },
+      {
+        "chapter": 1,
+        "pair": 3,
+        "title": "Moon Camp",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            53,
+            47
+          ],
+          [
+            194,
+            164
+          ],
+          [
+            293,
+            140
+          ]
+        ],
+        "coordinateAttempts": 7,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              308,
+              149
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              50,
+              50
+            ],
+            "withinVisualChange": true
+          }
+        ]
+      },
+      {
+        "chapter": 1,
+        "pair": 4,
+        "title": "Superhero City",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            74,
+            50
+          ],
+          [
+            230,
+            191
+          ],
+          [
+            233,
+            50
+          ]
+        ],
+        "coordinateAttempts": 5,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              224,
+              59
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              56,
+              53
+            ],
+            "withinVisualChange": true
+          }
+        ]
+      },
+      {
+        "chapter": 2,
+        "pair": 1,
+        "title": "Treehouse Team",
+        "found": 5,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            311,
+            125
+          ],
+          [
+            224,
+            173
+          ],
+          [
+            98,
+            182
+          ],
+          [
+            272,
+            35
+          ],
+          [
+            197,
+            95
+          ]
+        ],
+        "coordinateAttempts": 20,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              191,
+              104
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              296,
+              119
+            ],
+            "withinVisualChange": true
+          }
+        ]
+      },
+      {
+        "chapter": 2,
+        "pair": 2,
+        "title": "Sound Safari",
+        "found": 5,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            122,
+            262
+          ],
+          [
+            281,
+            263
+          ],
+          [
+            218,
+            38
+          ],
+          [
+            269,
+            152
+          ],
+          [
+            44,
+            155
+          ]
+        ],
+        "coordinateAttempts": 14,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              62,
+              149
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              107,
+              248
+            ],
+            "withinVisualChange": true
+          }
+        ]
+      },
+      {
+        "chapter": 2,
+        "pair": 3,
+        "title": "Time Observatory",
+        "found": 5,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            95,
+            41
+          ],
+          [
+            89,
+            143
+          ],
+          [
+            287,
+            203
+          ],
+          [
+            173,
+            188
+          ],
+          [
+            230,
+            98
+          ]
+        ],
+        "coordinateAttempts": 35,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              287,
+              167
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              248,
+              107
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": false
+      },
+      {
+        "chapter": 2,
+        "pair": 4,
+        "title": "Pattern Parade",
+        "found": 5,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            203,
+            212
+          ],
+          [
+            269,
+            119
+          ],
+          [
+            59,
+            101
+          ],
+          [
+            320,
+            62
+          ],
+          [
+            167,
+            71
+          ]
+        ],
+        "coordinateAttempts": 35,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              179,
+              212
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              281,
+              149
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": false
+      },
+      {
+        "chapter": 3,
+        "pair": 1,
+        "title": "World Explorer",
+        "found": 7,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            128,
+            83
+          ],
+          [
+            320,
+            206
+          ],
+          [
+            278,
+            152
+          ],
+          [
+            56,
+            257
+          ],
+          [
+            257,
+            239
+          ],
+          [
+            236,
+            290
+          ],
+          [
+            167,
+            218
+          ]
+        ],
+        "coordinateAttempts": 66,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              137,
+              209
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              215,
+              293
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": false
+      },
+      {
+        "chapter": 3,
+        "pair": 2,
+        "title": "Robin\u2019s Woodland",
+        "found": 7,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            280,
+            245
+          ],
+          [
+            149,
+            50
+          ],
+          [
+            209,
+            260
+          ],
+          [
+            14,
+            92
+          ],
+          [
+            104,
+            245
+          ],
+          [
+            320,
+            197
+          ],
+          [
+            71,
+            179
+          ]
+        ],
+        "coordinateAttempts": 17,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              56,
+              164
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              149,
+              62
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": false
+      },
+      {
+        "chapter": 3,
+        "pair": 3,
+        "title": "History Hall",
+        "found": 7,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            303,
+            164
+          ],
+          [
+            43,
+            174
+          ],
+          [
+            276,
+            99
+          ],
+          [
+            50,
+            95
+          ],
+          [
+            203,
+            164
+          ],
+          [
+            116,
+            167
+          ],
+          [
+            167,
+            92
+          ]
+        ],
+        "coordinateAttempts": 43,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              62,
+              122
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              272,
+              98
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": false
+      },
+      {
+        "chapter": 3,
+        "pair": 4,
+        "title": "Nature Lab",
+        "found": 7,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            317,
+            182
+          ],
+          [
+            125,
+            44
+          ],
+          [
+            71,
+            272
+          ],
+          [
+            104,
+            293
+          ],
+          [
+            224,
+            179
+          ],
+          [
+            68,
+            203
+          ],
+          [
+            266,
+            236
+          ]
+        ],
+        "coordinateAttempts": 43,
+        "visibleHints": [
+          {
+            "opened": false,
+            "point": [
+              95,
+              290
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": false,
+            "point": [
+              140,
+              35
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": false
+      }
+    ]
+  },
+  "candidateMobile": {
+    "width": 390,
+    "entry": "/assets/arcade-CoKs_M19.js",
+    "reloadAllChaptersSaved": true,
+    "pageErrors": [],
+    "httpFailures": [],
+    "providerAttempts": [],
+    "pairs": [
+      {
+        "chapter": 1,
+        "pair": 1,
+        "title": "Moon Camp",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            53,
+            47
+          ],
+          [
+            194,
+            164
+          ],
+          [
+            293,
+            140
+          ]
+        ],
+        "coordinateAttempts": 7,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              50,
+              50
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              308,
+              149
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 1,
+        "pair": 2,
+        "title": "River Valley",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            305,
+            23
+          ],
+          [
+            32,
+            230
+          ],
+          [
+            140,
+            119
+          ]
+        ],
+        "coordinateAttempts": 20,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              62,
+              215
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              308,
+              23
+            ],
+            "withinVisualChange": true
+          }
+        ]
+      },
+      {
+        "chapter": 1,
+        "pair": 3,
+        "title": "Dino Park",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            56,
+            236
+          ],
+          [
+            74,
+            146
+          ],
+          [
+            290,
+            44
+          ]
+        ],
+        "coordinateAttempts": 40,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              56,
+              236
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              275,
+              20
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 1,
+        "pair": 4,
+        "title": "Superhero City",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            74,
+            50
+          ],
+          [
+            230,
+            191
+          ],
+          [
+            233,
+            50
+          ]
+        ],
+        "coordinateAttempts": 5,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              251,
+              206
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              224,
+              59
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 2,
+        "pair": 1,
+        "title": "Time Observatory",
+        "found": 5,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            95,
+            41
+          ],
+          [
+            89,
+            143
+          ],
+          [
+            287,
+            203
+          ],
+          [
+            173,
+            188
+          ],
+          [
+            230,
+            98
+          ]
+        ],
+        "coordinateAttempts": 35,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              287,
+              167
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              248,
+              107
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 2,
+        "pair": 2,
+        "title": "Treehouse Team",
+        "found": 5,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            311,
+            125
+          ],
+          [
+            224,
+            173
+          ],
+          [
+            98,
+            182
+          ],
+          [
+            272,
+            35
+          ],
+          [
+            197,
+            95
+          ]
+        ],
+        "coordinateAttempts": 20,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              191,
+              104
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              230,
+              179
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 2,
+        "pair": 3,
+        "title": "Pattern Parade",
+        "found": 5,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            203,
+            212
+          ],
+          [
+            269,
+            119
+          ],
+          [
+            59,
+            101
+          ],
+          [
+            320,
+            62
+          ],
+          [
+            167,
+            71
+          ]
+        ],
+        "coordinateAttempts": 35,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              41,
+              92
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              161,
+              56
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 2,
+        "pair": 4,
+        "title": "Sound Safari",
+        "found": 5,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            35,
+            305
+          ],
+          [
+            281,
+            263
+          ],
+          [
+            218,
+            38
+          ],
+          [
+            269,
+            152
+          ],
+          [
+            44,
+            155
+          ]
+        ],
+        "coordinateAttempts": 20,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              62,
+              149
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              275,
+              149
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 1,
+        "title": "World Explorer",
+        "found": 7,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            128,
+            83
+          ],
+          [
+            320,
+            206
+          ],
+          [
+            278,
+            152
+          ],
+          [
+            56,
+            257
+          ],
+          [
+            257,
+            239
+          ],
+          [
+            236,
+            290
+          ],
+          [
+            167,
+            218
+          ]
+        ],
+        "coordinateAttempts": 66,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              77,
+              260
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              140,
+              92
+            ],
+            "withinVisualChange": true
+          }
+        ]
+      },
+      {
+        "chapter": 3,
+        "pair": 2,
+        "title": "Nature Lab",
+        "found": 7,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            317,
+            182
+          ],
+          [
+            125,
+            44
+          ],
+          [
+            71,
+            272
+          ],
+          [
+            104,
+            293
+          ],
+          [
+            224,
+            179
+          ],
+          [
+            68,
+            203
+          ],
+          [
+            266,
+            236
+          ]
+        ],
+        "coordinateAttempts": 43,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              62,
+              275
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              203,
+              179
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 3,
+        "title": "Robin\u2019s Woodland",
+        "found": 7,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            149,
+            50
+          ],
+          [
+            281,
+            242
+          ],
+          [
+            209,
+            260
+          ],
+          [
+            14,
+            92
+          ],
+          [
+            104,
+            245
+          ],
+          [
+            320,
+            197
+          ],
+          [
+            71,
+            179
+          ]
+        ],
+        "coordinateAttempts": 17,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              233,
+              275
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              83,
+              266
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 4,
+        "title": "History Hall",
+        "found": 7,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            303,
+            164
+          ],
+          [
+            43,
+            174
+          ],
+          [
+            276,
+            99
+          ],
+          [
+            50,
+            95
+          ],
+          [
+            203,
+            164
+          ],
+          [
+            116,
+            167
+          ],
+          [
+            167,
+            92
+          ]
+        ],
+        "coordinateAttempts": 43,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              38,
+              191
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              287,
+              161
+            ],
+            "withinVisualChange": true
+          }
+        ]
+      }
+    ]
+  },
+  "productionMobile": {
+    "width": 390,
+    "entry": "/assets/arcade-CoKs_M19.js",
+    "reloadAllChaptersSaved": true,
+    "pageErrors": [],
+    "httpFailures": [],
+    "providerAttempts": [],
+    "pairs": [
+      {
+        "chapter": 1,
+        "pair": 1,
+        "title": "Superhero City",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            74,
+            50
+          ],
+          [
+            230,
+            191
+          ],
+          [
+            233,
+            50
+          ]
+        ],
+        "coordinateAttempts": 5,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              56,
+              53
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              251,
+              206
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 1,
+        "pair": 2,
+        "title": "Moon Camp",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            53,
+            47
+          ],
+          [
+            194,
+            164
+          ],
+          [
+            293,
+            140
+          ]
+        ],
+        "coordinateAttempts": 7,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              50,
+              50
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              308,
+              149
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 1,
+        "pair": 3,
+        "title": "Dino Park",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            56,
+            236
+          ],
+          [
+            74,
+            146
+          ],
+          [
+            290,
+            44
+          ]
+        ],
+        "coordinateAttempts": 40,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              107,
+              179
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              275,
+              20
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 1,
+        "pair": 4,
+        "title": "River Valley",
+        "found": 3,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            305,
+            23
+          ],
+          [
+            32,
+            230
+          ],
+          [
+            140,
+            119
+          ]
+        ],
+        "coordinateAttempts": 20,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              62,
+              215
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              122,
+              137
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 2,
+        "pair": 1,
+        "title": "Treehouse Team",
+        "found": 5,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            311,
+            125
+          ],
+          [
+            224,
+            173
+          ],
+          [
+            98,
+            182
+          ],
+          [
+            272,
+            35
+          ],
+          [
+            197,
+            95
+          ]
+        ],
+        "coordinateAttempts": 20,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              296,
+              119
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              230,
+              179
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 2,
+        "pair": 2,
+        "title": "Time Observatory",
+        "found": 5,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            95,
+            41
+          ],
+          [
+            89,
+            143
+          ],
+          [
+            287,
+            203
+          ],
+          [
+            173,
+            188
+          ],
+          [
+            230,
+            98
+          ]
+        ],
+        "coordinateAttempts": 35,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              176,
+              206
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              95,
+              53
+            ],
+            "withinVisualChange": true
+          }
+        ]
+      },
+      {
+        "chapter": 2,
+        "pair": 3,
+        "title": "Sound Safari",
+        "found": 5,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            35,
+            305
+          ],
+          [
+            281,
+            263
+          ],
+          [
+            218,
+            38
+          ],
+          [
+            269,
+            152
+          ],
+          [
+            44,
+            155
+          ]
+        ],
+        "coordinateAttempts": 20,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              275,
+              149
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              62,
+              149
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 2,
+        "pair": 4,
+        "title": "Pattern Parade",
+        "found": 5,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            203,
+            212
+          ],
+          [
+            269,
+            119
+          ],
+          [
+            59,
+            101
+          ],
+          [
+            320,
+            62
+          ],
+          [
+            167,
+            71
+          ]
+        ],
+        "coordinateAttempts": 35,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              161,
+              56
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              281,
+              149
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 1,
+        "title": "Nature Lab",
+        "found": 7,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            317,
+            182
+          ],
+          [
+            125,
+            44
+          ],
+          [
+            71,
+            272
+          ],
+          [
+            104,
+            293
+          ],
+          [
+            224,
+            179
+          ],
+          [
+            68,
+            203
+          ],
+          [
+            266,
+            236
+          ]
+        ],
+        "coordinateAttempts": 43,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              95,
+              290
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              203,
+              179
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 2,
+        "title": "Robin\u2019s Woodland",
+        "found": 7,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            149,
+            50
+          ],
+          [
+            281,
+            242
+          ],
+          [
+            209,
+            260
+          ],
+          [
+            14,
+            92
+          ],
+          [
+            104,
+            245
+          ],
+          [
+            320,
+            197
+          ],
+          [
+            71,
+            179
+          ]
+        ],
+        "coordinateAttempts": 17,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              233,
+              275
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              83,
+              266
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 3,
+        "title": "History Hall",
+        "found": 7,
+        "pictureSize": [
+          336,
+          252
+        ],
+        "acceptedVisualTaps": [
+          [
+            303,
+            164
+          ],
+          [
+            43,
+            174
+          ],
+          [
+            276,
+            99
+          ],
+          [
+            50,
+            95
+          ],
+          [
+            203,
+            164
+          ],
+          [
+            116,
+            167
+          ],
+          [
+            167,
+            92
+          ]
+        ],
+        "coordinateAttempts": 43,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              206,
+              161
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              107,
+              191
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 4,
+        "title": "World Explorer",
+        "found": 7,
+        "pictureSize": [
+          336,
+          336
+        ],
+        "acceptedVisualTaps": [
+          [
+            128,
+            83
+          ],
+          [
+            320,
+            206
+          ],
+          [
+            278,
+            152
+          ],
+          [
+            56,
+            257
+          ],
+          [
+            257,
+            239
+          ],
+          [
+            236,
+            290
+          ],
+          [
+            167,
+            218
+          ]
+        ],
+        "coordinateAttempts": 66,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              140,
+              92
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              284,
+              194
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      }
+    ]
+  },
+  "productionDesktop": {
+    "width": 1440,
+    "entry": "/assets/arcade-CoKs_M19.js",
+    "reloadAllChaptersSaved": true,
+    "pageErrors": [],
+    "httpFailures": [],
+    "providerAttempts": [],
+    "pairs": [
+      {
+        "chapter": 1,
+        "pair": 1,
+        "title": "Superhero City",
+        "found": 3,
+        "pictureSize": [
+          408,
+          306
+        ],
+        "acceptedVisualTaps": [
+          [
+            92,
+            62
+          ],
+          [
+            278,
+            233
+          ],
+          [
+            284,
+            62
+          ]
+        ],
+        "coordinateAttempts": 7,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              272,
+              233
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              275,
+              71
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 1,
+        "pair": 2,
+        "title": "Dino Park",
+        "found": 3,
+        "pictureSize": [
+          408,
+          306
+        ],
+        "acceptedVisualTaps": [
+          [
+            65,
+            278
+          ],
+          [
+            98,
+            173
+          ],
+          [
+            347,
+            53
+          ]
+        ],
+        "coordinateAttempts": 55,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              122,
+              215
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              335,
+              29
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 1,
+        "pair": 3,
+        "title": "River Valley",
+        "found": 3,
+        "pictureSize": [
+          408,
+          306
+        ],
+        "acceptedVisualTaps": [
+          [
+            371,
+            29
+          ],
+          [
+            38,
+            281
+          ],
+          [
+            167,
+            149
+          ]
+        ],
+        "coordinateAttempts": 23,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              71,
+              260
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              152,
+              164
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 1,
+        "pair": 4,
+        "title": "Moon Camp",
+        "found": 3,
+        "pictureSize": [
+          408,
+          306
+        ],
+        "acceptedVisualTaps": [
+          [
+            68,
+            59
+          ],
+          [
+            233,
+            200
+          ],
+          [
+            356,
+            170
+          ]
+        ],
+        "coordinateAttempts": 7,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              350,
+              188
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              59,
+              62
+            ],
+            "withinVisualChange": true
+          }
+        ]
+      },
+      {
+        "chapter": 2,
+        "pair": 1,
+        "title": "Sound Safari",
+        "found": 5,
+        "pictureSize": [
+          408,
+          408
+        ],
+        "acceptedVisualTaps": [
+          [
+            38,
+            371
+          ],
+          [
+            341,
+            320
+          ],
+          [
+            263,
+            44
+          ],
+          [
+            326,
+            185
+          ],
+          [
+            53,
+            179
+          ]
+        ],
+        "coordinateAttempts": 28,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              353,
+              320
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              269,
+              38
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 2,
+        "pair": 2,
+        "title": "Treehouse Team",
+        "found": 5,
+        "pictureSize": [
+          408,
+          306
+        ],
+        "acceptedVisualTaps": [
+          [
+            380,
+            149
+          ],
+          [
+            272,
+            206
+          ],
+          [
+            329,
+            44
+          ],
+          [
+            113,
+            221
+          ],
+          [
+            239,
+            113
+          ]
+        ],
+        "coordinateAttempts": 23,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              134,
+              248
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              233,
+              122
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 2,
+        "pair": 3,
+        "title": "Time Observatory",
+        "found": 5,
+        "pictureSize": [
+          408,
+          306
+        ],
+        "acceptedVisualTaps": [
+          [
+            116,
+            47
+          ],
+          [
+            110,
+            170
+          ],
+          [
+            347,
+            245
+          ],
+          [
+            191,
+            227
+          ],
+          [
+            278,
+            119
+          ]
+        ],
+        "coordinateAttempts": 44,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              299,
+              128
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              92,
+              209
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 2,
+        "pair": 4,
+        "title": "Pattern Parade",
+        "found": 5,
+        "pictureSize": [
+          408,
+          306
+        ],
+        "acceptedVisualTaps": [
+          [
+            326,
+            146
+          ],
+          [
+            248,
+            257
+          ],
+          [
+            71,
+            122
+          ],
+          [
+            386,
+            77
+          ],
+          [
+            212,
+            95
+          ]
+        ],
+        "coordinateAttempts": 46,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              215,
+              251
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              350,
+              71
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 1,
+        "title": "History Hall",
+        "found": 7,
+        "pictureSize": [
+          408,
+          306
+        ],
+        "acceptedVisualTaps": [
+          [
+            368,
+            199
+          ],
+          [
+            52,
+            211
+          ],
+          [
+            335,
+            120
+          ],
+          [
+            59,
+            116
+          ],
+          [
+            263,
+            236
+          ],
+          [
+            143,
+            206
+          ],
+          [
+            200,
+            113
+          ]
+        ],
+        "coordinateAttempts": 50,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              329,
+              122
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              77,
+              146
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 2,
+        "title": "Robin\u2019s Woodland",
+        "found": 7,
+        "pictureSize": [
+          408,
+          408
+        ],
+        "acceptedVisualTaps": [
+          [
+            182,
+            62
+          ],
+          [
+            341,
+            296
+          ],
+          [
+            254,
+            317
+          ],
+          [
+            14,
+            104
+          ],
+          [
+            128,
+            299
+          ],
+          [
+            380,
+            242
+          ],
+          [
+            89,
+            218
+          ]
+        ],
+        "coordinateAttempts": 28,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              341,
+              293
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              23,
+              110
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 3,
+        "title": "Nature Lab",
+        "found": 7,
+        "pictureSize": [
+          408,
+          408
+        ],
+        "acceptedVisualTaps": [
+          [
+            386,
+            224
+          ],
+          [
+            149,
+            56
+          ],
+          [
+            98,
+            347
+          ],
+          [
+            86,
+            329
+          ],
+          [
+            272,
+            218
+          ],
+          [
+            80,
+            248
+          ],
+          [
+            332,
+            290
+          ]
+        ],
+        "coordinateAttempts": 59,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              71,
+              335
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              248,
+              215
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      },
+      {
+        "chapter": 3,
+        "pair": 4,
+        "title": "World Explorer",
+        "found": 7,
+        "pictureSize": [
+          408,
+          408
+        ],
+        "acceptedVisualTaps": [
+          [
+            155,
+            101
+          ],
+          [
+            389,
+            248
+          ],
+          [
+            335,
+            185
+          ],
+          [
+            68,
+            311
+          ],
+          [
+            311,
+            293
+          ],
+          [
+            203,
+            263
+          ],
+          [
+            287,
+            350
+          ]
+        ],
+        "coordinateAttempts": 82,
+        "visibleHints": [
+          {
+            "opened": true,
+            "point": [
+              323,
+              137
+            ],
+            "withinVisualChange": true
+          },
+          {
+            "opened": true,
+            "point": [
+              86,
+              278
+            ],
+            "withinVisualChange": true
+          }
+        ],
+        "hintStayedAfterUnrelatedFind": true
+      }
+    ]
+  },
+  "update": {
+    "recordsRetained": 118,
+    "hash": "776e264f76ce6cb912f2ce37efce7d3bf086580027ca14d9c3033b472e0125e1",
+    "storybookStores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "updateNoticeAfterRefresh": false
+  }
+}
