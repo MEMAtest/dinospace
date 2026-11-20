@@ -316,3 +316,22 @@
  .puzzle-completed-picture-row h2 { font-size: 1rem; line-height: 1.15; }
  .puzzle-completed-picture-row .puzzle-completion-fact { margin-top: .3rem; padding: .35rem; font-size: .8rem; line-height: 1.25; }
 }
+
+.puzzle-tray-piece {
+  touch-action: pan-x pinch-zoom;
+  cursor: grab;
+}
+
+.puzzle-drag-preview {
+  position: fixed;
+  z-index: 30;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border: 2px solid #fb923c;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px #43140755;
+  opacity: 0.85;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}

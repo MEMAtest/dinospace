@@ -18,6 +18,8 @@ import {
   markPuzzlePopChapterReceiptClaimedStrict,
 } from '../../data/puzzlePopBatch2.js';
 
+const DRAG_THRESHOLD = 8;
+
 const createSeed = () => Math.floor(Math.random() * 0xffffffff) || 1;
 
 // eslint-disable-next-line react-refresh/only-export-components -- exported for focused navigation regression coverage.
@@ -40,6 +42,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   const [previousTrayOrder, setPreviousTrayOrder] = useState([]);
   const [placed, setPlaced] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [dragPreview, setDragPreview] = useState(null);
   const [focusedSlot, setFocusedSlot] = useState(0);
   const [moves, setMoves] = useState(0);
   const [message, setMessage] = useState('Start a chapter to build a picture.');
@@ -58,6 +61,9 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   const trayPieceRefs = useRef({});
   const feedbackRef = useRef(null);
   const boardRef = useRef(null);
+  const completionHeadingRef = useRef(null);
+  const pointerRef = useRef(null);
+  const suppressPieceClickRef = useRef(false);
   const chapterPickerRef = useRef(null);
   const claimedReceiptsRef = useRef(new Set());
   const claimingReceiptsRef = useRef(new Set());
@@ -152,11 +158,14 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     return undefined;
   }, [drainPendingRewards, progressState.ready]);
 
-  const prepareScene = (nextScene, runSeed, layoutOrder = previousTrayOrder) => {
-    const nextTray = createPuzzlePopPieceTray(chapter.grid, runSeed, layoutOrder);
+  const prepareScene = (runSeed, grid, layoutOrder = previousTrayOrder) => {
+    const nextTray = createPuzzlePopPieceTray(grid, runSeed, layoutOrder);
+    clearTimeout(wrongTimeoutRef.current);
+    pointerRef.current = null;
+    setDragPreview(null);
     setTray(nextTray);
     setPreviousTrayOrder(nextTray.map(({ correctSlot }) => correctSlot));
-    setPlaced(Array(chapter.grid ** 2).fill(null));
+    setPlaced(Array(grid ** 2).fill(null));
     setSelected(null);
     setFocusedSlot(0);
     setMoves(0);
@@ -164,7 +173,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     setWrongSlot(null);
     setHadMistake(false);
     setHintsUsed(0);
-    setMessage(`Look at the ${nextScene.title} preview. Choose a piece to begin.`);
+    setMessage('Drag a piece into place, or tap a piece and then a space.');
   };
 
   const beginChapterRun = (nextChapterIndex, nextSeed, nextQueue, queueProgress) => {
@@ -176,7 +185,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     setQueue(nextQueue);
     setSceneIndex(0);
     setPhase('play');
-    prepareScene(nextQueue[0], nextSeed, []);
+    prepareScene(nextSeed, nextChapter.grid, []);
     onGameEvent?.('puzzle', 'start', { level: nextChapterIndex, round: 0, seed: nextSeed });
     onGameEvent?.('puzzle', 'scene', { level: nextChapterIndex, round: 1, seed: nextSeed });
     speakPackagedBatch2Line(speak, puzzlePopNarration.start(nextChapter, nextQueue[0]));
@@ -215,8 +224,9 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
 
   const retryStartSave = () => { if (pendingStart) saveQueueAndStart(pendingStart); };
 
-  const confirmSceneSave = () => {
+  const confirmSceneSave = (focusCompletion) => {
     if (!scene) return;
+    if (focusCompletion) window.requestAnimationFrame(() => completionHeadingRef.current?.focus());
     const result = completePuzzlePopSceneStrict(playerId, chapterIndex, scene.id);
     if (!result.ok) {
       setPendingSceneSave(true);
@@ -275,22 +285,27 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   };
 
   const choosePiece = (piece, event) => {
+    if (event.detail > 0 && suppressPieceClickRef.current) {
+      suppressPieceClickRef.current = false;
+      return;
+    }
     if (solved) return;
     setSelected(piece);
+    if (hintSlot !== piece.correctSlot) setHintSlot(null);
     setMessage('Piece selected. Compare its colours and edges with the preview.');
     if (event.detail === 0) window.requestAnimationFrame(() => boardSlotRefs.current[focusedSlot]?.focus());
     else window.requestAnimationFrame(scrollBoardContextIntoViewIfNeeded);
     playSfx('click');
   };
 
-  const placePiece = (slotIndex, event) => {
-    if (!scene || solved) return;
-    if (!selected) {
+  const placePiece = (slotIndex, piece, withKeyboard) => {
+    if (!scene || solved || placed[slotIndex]) return;
+    if (!piece) {
       setMessage('Choose one picture piece first.');
       return;
     }
     setMoves((value) => value + 1);
-    if (selected.correctSlot !== slotIndex) {
+    if (piece.correctSlot !== slotIndex) {
       setWrongSlot(slotIndex);
       setHadMistake(true);
       setMessage(`Not there yet. Compare the ${scene.title} preview and the edges of your piece.`);
@@ -302,8 +317,8 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     }
 
     const nextPlaced = [...placed];
-    nextPlaced[slotIndex] = selected;
-    const nextTray = tray.filter((piece) => piece.id !== selected.id);
+    nextPlaced[slotIndex] = piece;
+    const nextTray = tray.filter(({ id }) => id !== piece.id);
     setPlaced(nextPlaced);
     setTray(nextTray);
     setSelected(null);
@@ -312,13 +327,53 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     onGameEvent?.('puzzle', 'answer_correct', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake });
 
     if (nextPlaced.every(Boolean)) {
-      confirmSceneSave();
+      confirmSceneSave(withKeyboard);
     } else {
       setMessage(`Great fit! ${nextPlaced.filter(Boolean).length} of ${nextPlaced.length} pieces are in place.`);
-      if (event.detail === 0 && nextTray.length) window.requestAnimationFrame(() => trayPieceRefs.current[nextTray[0].id]?.focus());
+      if (withKeyboard && nextTray.length) window.requestAnimationFrame(() => trayPieceRefs.current[nextTray[0].id]?.focus());
       else if (nextTray.length) window.requestAnimationFrame(() => scrollTrayIntoViewIfNeeded(nextTray));
       playSfx('sparkle');
     }
+  };
+
+  const beginPiecePointer = (event, piece) => {
+    if (event.button !== 0 || event.isPrimary === false || pointerRef.current) return;
+    suppressPieceClickRef.current = false;
+    pointerRef.current = {
+      id: event.pointerId,
+      piece,
+      x: event.clientX,
+      y: event.clientY,
+      moved: false,
+    };
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+  };
+
+  const movePiecePointer = (event) => {
+    const pointer = pointerRef.current;
+    if (!pointer || pointer.id !== event.pointerId) return;
+    if (!pointer.moved && Math.hypot(event.clientX - pointer.x, event.clientY - pointer.y) < DRAG_THRESHOLD) return;
+    pointer.moved = true;
+    setDragPreview({ piece: pointer.piece, x: event.clientX, y: event.clientY });
+  };
+
+  const finishPiecePointer = (event, cancelled = false) => {
+    const pointer = pointerRef.current;
+    if (!pointer || pointer.id !== event.pointerId) return;
+    pointerRef.current = null;
+    setDragPreview(null);
+    if (!pointer.moved || cancelled) return;
+    suppressPieceClickRef.current = true;
+
+    const target = document.elementFromPoint(event.clientX, event.clientY)?.closest('[data-puzzle-slot]');
+    if (!target || !boardRef.current?.contains(target) || placed[Number(target.dataset.puzzleSlot)]) {
+      setMessage('Drop on an empty puzzle space or tap a piece and then a space.');
+      return;
+    }
+
+    setSelected(pointer.piece);
+    if (hintSlot !== pointer.piece.correctSlot) setHintSlot(null);
+    placePiece(Number(target.dataset.puzzleSlot), pointer.piece, false);
   };
 
   const showHint = (event) => {
@@ -329,6 +384,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     setHintsUsed((value) => value + 1);
     setMessage(`Hint: piece ${nextPiece.correctSlot + 1} fits the glowing space. ${chapter.visualTip}`);
     if (event.detail === 0) window.requestAnimationFrame(() => focusBoardSlot(nextPiece.correctSlot));
+    else window.requestAnimationFrame(scrollBoardContextIntoViewIfNeeded);
     onGameEvent?.('puzzle', 'hint', { level: chapterIndex, round: sceneIndex + 1, seed, hintType: 'next_piece' });
     speakPackagedBatch2Line(speak, puzzlePopNarration.hint(nextPiece.correctSlot + 1));
     playSfx('chime');
@@ -341,7 +397,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
       const nextScene = queue[nextIndex];
       setSceneIndex(nextIndex);
       setPhase('play');
-      prepareScene(nextScene, seed + nextIndex + 1);
+      prepareScene(seed + nextIndex + 1, chapter.grid);
       setMessage(`Picture ${nextIndex + 1} of ${queue.length}. ${nextScene.title}.`);
       onGameEvent?.('puzzle', 'scene', { level: chapterIndex, round: nextIndex + 1, seed });
       speakPackagedBatch2Line(speak, puzzlePopNarration.next(nextScene));
@@ -359,7 +415,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   };
 
   const replayChapter = () => startChapter(chapterIndex);
-  const canAdvanceSavedScene = !pendingSceneSave && !pendingRewardReceipt && !rewardClaimError && !rewardDrainBusy && claimingReceiptsRef.current.size === 0;
+  const canAdvanceSavedScene = !pendingStart && !pendingSceneSave && !pendingRewardReceipt && !rewardClaimError && !rewardDrainBusy && claimingReceiptsRef.current.size === 0;
 
   return (
     <div ref={rootRef} className="puzzle-pop-root min-h-[100dvh] overflow-y-auto bg-gradient-to-br from-amber-100 via-yellow-50 to-emerald-100 text-slate-800">
@@ -447,7 +503,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                       </div>
                       {tray.length > 10 && <p className="puzzle-tray-swipe-cue text-xs font-bold text-orange-900 sm:hidden">Swipe sideways for more pieces ↔</p>}
                       <div className="puzzle-piece-tray grid gap-1.5 sm:gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(48px, 1fr))' }} role="group" aria-label="Picture piece tray">
-                        {tray.map((piece, trayIndex) => <button type="button" key={piece.id} ref={(element) => { trayPieceRefs.current[piece.id] = element; }} onClick={(event) => choosePiece(piece, event)} aria-pressed={selected?.id === piece.id} aria-label={`Choose loose piece ${trayIndex + 1}`} className={`relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-xl border-2 bg-white shadow-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-orange-400 ${selected?.id === piece.id ? 'border-orange-600 ring-4 ring-orange-200' : 'border-white'}`}><span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(piece.correctSlot, chapter.grid)} /></span></button>)}
+                        {tray.map((piece, trayIndex) => <button type="button" key={piece.id} ref={(element) => { trayPieceRefs.current[piece.id] = element; }} onPointerDown={(event) => beginPiecePointer(event, piece)} onPointerMove={movePiecePointer} onPointerUp={finishPiecePointer} onPointerCancel={(event) => finishPiecePointer(event, true)} onLostPointerCapture={(event) => finishPiecePointer(event, true)} onClick={(event) => choosePiece(piece, event)} aria-pressed={selected?.id === piece.id} aria-label={`Choose loose piece ${trayIndex + 1}`} className={`puzzle-tray-piece relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-xl border-2 bg-white shadow-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-orange-400 ${selected?.id === piece.id ? 'border-orange-600 ring-4 ring-orange-200' : 'border-white'}`}><span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(piece.correctSlot, chapter.grid)} /></span></button>)}
                       </div>
                       {showMappingDemo && <p className="text-center text-sm font-bold text-orange-900">Try a piece mapping: compare its highlighted preview square with the glowing board space.</p>}
                     </div>
@@ -463,7 +519,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                                 event.preventDefault();
                                 const target = movePuzzlePopBoardFocus(slotIndex, event.key, chapter.grid);
                                 if (target !== slotIndex) focusBoardSlot(target);
-                              }} onClick={(event) => placePiece(slotIndex, event)} aria-label={`Puzzle space ${slotIndex + 1}, ${piece ? 'piece in place' : 'empty'}${hintSlot === slotIndex ? ', hint space' : ''}`} className={`relative h-full w-full min-h-12 min-w-12 overflow-hidden rounded-md border border-white/80 focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-400 ${wrongSlot === slotIndex ? 'animate-shake bg-rose-100' : piece ? 'bg-white' : hintSlot === slotIndex ? 'bg-yellow-200 ring-4 ring-yellow-400' : 'bg-emerald-50'}`}>
+                              }} data-puzzle-slot={slotIndex} onClick={(event) => placePiece(slotIndex, selected, event.detail === 0)} aria-label={`Puzzle space ${slotIndex + 1}, ${piece ? 'piece in place' : 'empty'}${hintSlot === slotIndex ? ', hint space' : ''}`} className={`relative h-full w-full min-h-12 min-w-12 overflow-hidden rounded-md border border-white/80 focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-400 ${wrongSlot === slotIndex ? 'animate-shake bg-rose-100' : piece ? 'bg-white' : hintSlot === slotIndex ? 'bg-yellow-200 ring-4 ring-yellow-400' : 'bg-emerald-50'}`}>
                                 {piece && <span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(slotIndex, chapter.grid)} /><span className="absolute inset-0 border border-white/15" /></span>}
                                 {!piece && hintSlot === slotIndex && <Lightbulb className="absolute inset-0 m-auto text-orange-600" aria-hidden="true" />}
                                 {piece && <Check className="absolute right-0.5 top-0.5 rounded-full bg-emerald-600 p-0.5 text-white" size={20} aria-hidden="true" />}
@@ -478,12 +534,16 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                   <section className="puzzle-completion-panel rounded-3xl border-4 border-emerald-200 bg-white p-4 text-center shadow-xl sm:p-6" aria-live="polite">
                     <div className="puzzle-completed-picture-row">
                       <img src={scene.image} alt={`Completed puzzle: ${scene.alt}`} className="puzzle-completed-picture" />
-                      <div><h2 className="text-xl font-black text-emerald-900">{pendingSceneSave ? `${scene.title} is ready to save` : phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} complete!`}</h2>
+                      <div><h2 ref={completionHeadingRef} tabIndex={-1} className="text-xl font-black text-emerald-900">{pendingSceneSave ? `${scene.title} is ready to save` : phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} complete!`}</h2>
                       <p className="puzzle-completion-fact mt-2 rounded-2xl bg-emerald-50 p-4 text-left font-bold leading-relaxed text-emerald-950"><strong>Picture fact:</strong> {scene.fact}</p></div>
                     </div>
                     {pendingSceneSave && <div className="puzzle-save-notice" role="status" aria-live="polite">
                       <p>The picture is complete, but its progress has not been saved yet.</p>
-                      <button type="button" onClick={confirmSceneSave}>Retry saving this picture</button>
+                      <button type="button" onClick={(event) => confirmSceneSave(event.detail === 0)}>Retry saving this picture</button>
+                    </div>}
+                    {pendingStart && <div className="puzzle-save-notice" role="status" aria-live="polite">
+                      <p>The replay chapter could not be saved yet.</p>
+                      <button type="button" onClick={retryStartSave}>Retry saving to replay</button>
                     </div>}
                     {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <div className="puzzle-save-notice" role="status" aria-live="polite"><p>{rewardClaimError ? 'Your stars could not be saved yet.' : 'Saving your stars…'}</p>{rewardClaimError && <button type="button" onClick={retryPendingReward}>Retry saving stars</button>}</div>}
                     <button type="button" onClick={() => speakPackagedBatch2Line(speak, puzzlePopNarration.completed(scene))} className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={19} /> Hear fact again</button>
@@ -499,6 +559,11 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
             </>
           )}
         </main>
+      )}
+      {dragPreview && scene && (
+        <span aria-hidden="true" className="puzzle-drag-preview" style={{ left: dragPreview.x, top: dragPreview.y }}>
+          <img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(dragPreview.piece.correctSlot, chapter.grid)} />
+        </span>
       )}
     </div>
   );
