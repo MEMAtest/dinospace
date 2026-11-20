@@ -79,6 +79,16 @@ test('clues, muted practice, and missing target-word audio are assisted attempts
   assert.deepEqual(getSoundSafariAttemptQuality({ ...base, firstAttempt: false }), { assisted: false, independent: false });
 });
 
+test('restoring sound and hearing the target does not undo visual practice', () => {
+  assert.deepEqual(getSoundSafariAttemptQuality({
+    firstAttempt: true,
+    usedClue: false,
+    soundOn: true,
+    visualPractice: true,
+    audioReady: true,
+  }), { assisted: true, independent: false });
+});
+
 test('narration inventory stays finite and within the shared 40-line budget', () => {
   assert.equal(SOUND_SAFARI_NARRATION_INVENTORY[0], SOUND_SAFARI_BLEND_PROMPT);
   assert.equal(SOUND_SAFARI_NARRATION_INVENTORY.length, 19);

@@ -66,7 +66,8 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
   const round = chapter?.rounds[roundIndex] ?? null;
   const options = useMemo(() => round && chapter?.id !== 'segment' ? buildRoundOptions(round, chapter, runNumber * 79 + roundIndex, taughtGraphemes, supportedKeys) : [], [round, chapter, runNumber, roundIndex, taughtGraphemes, supportedKeys]);
   const segmentChoices = useMemo(() => round && chapter?.id === 'segment' ? buildSegmentChoices(round.word, runNumber * 89 + roundIndex, taughtGraphemes, supportedKeys) : [], [round, chapter, runNumber, roundIndex, taughtGraphemes, supportedKeys]);
-  const promptClipText = chapter?.id === 'blend' ? SOUND_SAFARI_BLEND_PROMPT : chapter?.id === 'segment' ? round?.word.word : '';
+  const promptClip = getSoundSafariVoiceClip(chapter?.id === 'blend' ? SOUND_SAFARI_BLEND_PROMPT : chapter?.id === 'segment' ? round?.word.word : '');
+  const showVisualPrompt = visualPractice || !soundOn;
 
   onCelebrateRef.current = onCelebrate;
   cancelNarrationRef.current = cancelNarration;
@@ -125,19 +126,20 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
   }, [claimReceipt, playerId]);
 
   const stopPhonemeAudio = useCallback(() => {
-    phonemeAudioRef.current?.pause();
+    const audio = phonemeAudioRef.current;
     phonemeAudioRef.current = null;
+    audio?.pause();
   }, []);
-  const reportPhonemeAudioFailure = (audio, error) => {
-    const aborted = error?.name === 'AbortError' || audio.error?.code === 1;
-    if (phonemeAudioRef.current !== audio || aborted) return;
-    phonemeAudioRef.current = null;
-    setVisualPractice(true);
-  };
   const phase = chapterResult ? 'finish' : chapterIndex === null ? 'intro' : 'play';
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
-  useEffect(() => () => { cancelNarration(); stopPhonemeAudio(); }, [cancelNarration, stopPhonemeAudio]);
-  useEffect(() => { if (!soundOn) { cancelNarration(); stopPhonemeAudio(); } }, [soundOn, cancelNarration, stopPhonemeAudio]);
+  useEffect(() => () => { cancelNarrationRef.current(); stopPhonemeAudio(); }, [stopPhonemeAudio]);
+  useEffect(() => {
+    if (soundOn) return;
+    cancelNarrationRef.current();
+    stopPhonemeAudio();
+    // Keep the visual disclosure for the rest of the unanswered round.
+    if (round && feedback?.kind !== 'correct') setVisualPractice(true);
+  }, [soundOn, round, feedback?.kind, stopPhonemeAudio]);
   useEffect(() => {
     lifecycleRef.current += 1;
     const generation = lifecycleRef.current;
@@ -161,65 +163,70 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
     };
   }, [drainPendingRewards, playerId, stopPhonemeAudio]);
 
-  const playPhoneme = (sound) => {
-    const source = phonemeAudio?.[sound];
+  const playClip = (source, { heardKey, onEnded, onFailure } = {}) => {
+    const reportFailure = onFailure || (() => setVisualPractice(true));
     if (!source || !soundOn) {
-      if (!source || !soundOn) setVisualPractice(true);
+      reportFailure();
       return;
     }
-    cancelNarration();
-    stopPhonemeAudio();
-    const audio = new Audio(source);
-    phonemeAudioRef.current = audio;
-    audio.ontimeupdate = () => { if (phonemeAudioRef.current === audio && audio.currentTime >= 0.05) heardRoundRef.current.add(`${round.id}:${sound}`); };
-    audio.onended = () => { if (phonemeAudioRef.current === audio) phonemeAudioRef.current = null; };
-    audio.onerror = () => reportPhonemeAudioFailure(audio);
-    audio.play().catch((error) => reportPhonemeAudioFailure(audio, error));
+    let audio;
+    const fail = () => {
+      if (audio && phonemeAudioRef.current !== audio) return;
+      stopPhonemeAudio();
+      reportFailure();
+    };
+    try {
+      audio = new Audio(source);
+      phonemeAudioRef.current = audio;
+      audio.ontimeupdate = () => {
+        if (heardKey && phonemeAudioRef.current === audio && audio.currentTime >= 0.05) heardRoundRef.current.add(heardKey);
+      };
+      audio.onended = () => {
+        if (phonemeAudioRef.current !== audio) return;
+        if (heardKey) heardRoundRef.current.add(heardKey);
+        phonemeAudioRef.current = null;
+        onEnded?.();
+      };
+      audio.onerror = fail;
+      audio.play().catch(fail);
+    } catch {
+      fail();
+    }
   };
 
-  const playExplanation = () => {
-    if (!round || !chapter || !soundOn) { setVisualPractice(true); return; }
-    const answerWord = chapter.id === 'listen' ? round.pictureWord : round.word;
-    const wordClip = getSoundSafariVoiceClip(answerWord.word);
-    const phonemeClips = (chapter.id === 'listen' ? [round.target.sound] : round.word.phonemes).map((sound) => phonemeAudio?.[sound]).filter(Boolean);
-    if (!wordClip || phonemeClips.length !== (chapter.id === 'listen' ? 1 : round.word.phonemes.length)) { setVisualPractice(true); return; }
-    const sequence = chapter.id === 'segment' ? [wordClip, ...phonemeClips] : [...phonemeClips, wordClip];
+  const startClip = (source, options) => {
     cancelNarration();
     stopPhonemeAudio();
-    let index = 0;
-    const playNext = () => {
-      if (index >= sequence.length) return;
-      const audio = new Audio(sequence[index]);
-      index += 1;
-      phonemeAudioRef.current = audio;
-      audio.onended = () => { if (phonemeAudioRef.current === audio) { phonemeAudioRef.current = null; playNext(); } };
-      audio.onerror = () => reportPhonemeAudioFailure(audio);
-      audio.play().catch((error) => reportPhonemeAudioFailure(audio, error));
-    };
-    playNext();
+    playClip(source, options);
   };
+
+  const playPhoneme = (sound) => startClip(phonemeAudio?.[sound], { heardKey: `${round.id}:${sound}` });
+
   const explanationWord = chapter?.id === 'listen' ? round?.pictureWord : round?.word;
   const explanationAudioReady = Boolean(soundOn && chapter && round && getSoundSafariVoiceClip(explanationWord.word)
     && (chapter.id === 'listen' ? phonemeAudio?.[round.target.sound] : round.word.phonemes.every((sound) => phonemeAudio?.[sound])));
-  const masteryAudioReady = Boolean(soundOn && chapter && round && getSoundSafariVoiceClip(explanationWord.word)
-    && (chapter.id === 'listen' ? phonemeAudio?.[round.target.sound] : round.word.phonemes.every((sound) => phonemeAudio?.[sound])));
+  const playExplanation = () => {
+    if (!explanationAudioReady) return;
+    const wordClip = getSoundSafariVoiceClip(explanationWord.word);
+    const sounds = chapter.id === 'listen' ? [round.target.sound] : round.word.phonemes;
+    const phonemeClips = sounds.map((sound) => phonemeAudio[sound]);
+    const sequence = chapter.id === 'segment' ? [wordClip, ...phonemeClips] : [...phonemeClips, wordClip];
+    const playNext = (index) => {
+      if (index >= sequence.length) return;
+      playClip(sequence[index], {
+        onEnded: () => playNext(index + 1),
+        onFailure: () => setShowReplay(true),
+      });
+    };
+    cancelNarration();
+    stopPhonemeAudio();
+    playNext(0);
+  };
   const hasHeardTarget = () => chapter.id === 'segment'
     ? heardRoundRef.current.has(`${round.id}:word`)
     : (chapter.id === 'listen' ? [round.target.sound] : round.word.phonemes).every((sound) => heardRoundRef.current.has(`${round.id}:${sound}`));
 
-  const playWordPrompt = () => {
-    if (!soundOn || !promptClipText) { setVisualPractice(true); return; }
-    cancelNarration();
-    stopPhonemeAudio();
-    const source = getSoundSafariVoiceClip(promptClipText);
-    if (!source) { setVisualPractice(true); return; }
-    const audio = new Audio(source);
-    phonemeAudioRef.current = audio;
-    audio.ontimeupdate = () => { if (chapter.id === 'segment' && phonemeAudioRef.current === audio && audio.currentTime >= 0.05) heardRoundRef.current.add(`${round.id}:word`); };
-    audio.onended = () => { if (phonemeAudioRef.current === audio) phonemeAudioRef.current = null; };
-    audio.onerror = () => reportPhonemeAudioFailure(audio);
-    audio.play().catch((error) => reportPhonemeAudioFailure(audio, error));
-  };
+  const playWordPrompt = () => startClip(promptClip, { heardKey: chapter.id === 'segment' ? `${round.id}:word` : undefined });
 
   const startChapter = async (index) => {
     if (startBusyRef.current || rewardDrainError || rewardDrainPending) return;
@@ -364,7 +371,7 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
     if (roundIndex === 5) pendingCompletionRef.current = {
       chapter, roundIds: chapter.rounds.map((item) => item.id), newlyCompleted: false,
     };
-    const quality = getSoundSafariAttemptQuality({ firstAttempt: !wrong, usedClue, soundOn, visualPractice, audioReady: masteryAudioReady && hasHeardTarget() });
+    const quality = getSoundSafariAttemptQuality({ firstAttempt: !wrong, usedClue, soundOn, visualPractice, audioReady: explanationAudioReady && hasHeardTarget() });
     onGameEvent?.('phonics', 'answer_correct', { skill: chapter.skill, item: round.id, response: option.id, expected: chapter.id === 'listen' ? round.target.sound : round.word.id, correct: true, firstAttempt: !wrong, independent: quality.independent, assisted: quality.assisted, deferFinish: sessionTarget > 0 && roundIndex + 1 >= sessionTarget });
     onGameEvent?.('phonics', 'learning_attempt', makeLearningEvent({ skill: chapter.skill, item: round.id, response: option.id, correct: true, firstTry: quality.independent, hints: usedClue ? 1 : 0, extra: { assisted: quality.assisted } }));
   };
@@ -376,7 +383,7 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
       setFeedback({ kind: 'wrong', text: 'Nearly! Say the word slowly and listen for each sound.' });
       playSfx('oops');
       onGameEvent?.('phonics', 'answer_incorrect', { skill: chapter.skill, item: round.id, response: sounds.join(' '), expected: expected.join(' '), correct: false });
-      const quality = getSoundSafariAttemptQuality({ firstAttempt: !wrong, usedClue, soundOn, visualPractice, audioReady: masteryAudioReady && hasHeardTarget() });
+      const quality = getSoundSafariAttemptQuality({ firstAttempt: !wrong, usedClue, soundOn, visualPractice, audioReady: explanationAudioReady && hasHeardTarget() });
       onGameEvent?.('phonics', 'learning_attempt', makeLearningEvent({ skill: chapter.skill, item: round.id, response: sounds.join(' '), correct: false, firstTry: !wrong, hints: usedClue ? 1 : 0, extra: { assisted: quality.assisted } }));
       return;
     }
@@ -391,7 +398,6 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
   const chooseBlendTile = (index, sound) => {
     if (feedback || index > blendStep) return;
     playPhoneme(sound);
-    if (!soundOn || !phonemeAudio?.[sound]) setVisualPractice(true);
     if (index === blendStep) setBlendStep((current) => current + 1);
   };
   const useClue = () => {
@@ -399,8 +405,7 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
     setUsedClue(true);
     const first = chapter.id === 'listen' ? round.target.sound : round.word.phonemes[0];
     setClueText(`The first sound is /${first}/.`);
-    if (!soundOn || !phonemeAudio?.[first]) setVisualPractice(true);
-    else playPhoneme(first);
+    if (soundOn) playPhoneme(first);
   };
 
   const panel = 'rounded-3xl border border-emerald-100 bg-white/95 shadow-lg';
@@ -440,17 +445,39 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
           <div><p className="text-xs font-black uppercase tracking-wide text-emerald-700">Chapter {chapterIndex + 1} · Challenge {roundIndex + 1} of 6</p><h1 className="mt-1 text-xl font-black text-slate-900 sm:text-2xl">{chapter.title}</h1></div>
           <div className="flex gap-1" aria-label={`${roundIndex + 1} of 6 challenges`} role="status">{chapter.rounds.map((item, index) => <span key={item.id} className={`h-2 w-5 rounded-full ${index <= roundIndex ? 'bg-emerald-500' : 'bg-slate-200'}`} />)}</div>
         </div>
-        {roundIndex === 0 && feedback?.kind !== 'correct' && <p className="mt-2 hidden rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-950 sm:block">{chapter.intro}</p>}
-        {(visualPractice || !soundOn) && <p role="status" className="mt-1 rounded-xl bg-amber-50 px-2 py-0.5 text-xs font-semibold leading-tight text-amber-900 sm:mt-3 sm:px-3 sm:py-2 sm:text-sm"><span className="sm:hidden">Visual practice · assisted</span><span className="hidden sm:inline">Visual practice: sound was muted or unavailable, so this answer will be marked assisted.</span></p>}
+        {roundIndex === 0 && !showVisualPrompt && feedback?.kind !== 'correct' && <p className="mt-2 hidden rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-950 sm:block">{chapter.intro}</p>}
+        {showVisualPrompt && feedback?.kind !== 'correct' && <p role="status" className="mt-1 rounded-xl bg-amber-50 px-2 py-0.5 text-xs font-semibold leading-tight text-amber-900 sm:mt-3 sm:px-3 sm:py-2 sm:text-sm"><span className="sm:hidden">Visual practice · assisted</span><span className="hidden sm:inline">Visual practice is on for this challenge. Your answer will be marked assisted.</span></p>}
         {feedback?.kind !== 'correct' && <><div className="mt-2 flex flex-wrap items-center justify-center gap-1 rounded-2xl bg-slate-50 p-2 text-center sm:mt-4 sm:gap-2 sm:p-4">
-          {chapter.id === 'listen' && <><p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">Which picture begins with this sound?</p><button type="button" disabled={!phonemeAudio?.[round.target.sound] || !soundOn} onClick={() => playPhoneme(round.target.sound)} className={`${button} border-emerald-200 bg-white text-emerald-800`}>Hear /{round.target.sound}/</button> {!feedback && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 text-amber-900`}><Lightbulb size={18} className="mr-2 inline" />{usedClue ? 'Clue used' : 'Use one clue'}</button>}</>}
-          {chapter.id === 'blend' && <><p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">Tap each sound from left to right. Then choose the matching picture.</p><div className="flex flex-wrap justify-center gap-1 sm:gap-2">{round.word.phonemes.map((sound, index) => <button type="button" disabled={Boolean(feedback) || index > blendStep} onClick={() => chooseBlendTile(index, sound)} aria-label={`Hear sound ${index + 1}`} aria-pressed={index < blendStep} className={`${button} min-h-12 min-w-12 border-emerald-300 bg-white px-3 py-2 text-lg text-emerald-800 sm:min-h-14 sm:min-w-14 sm:text-xl ${index === blendStep ? 'ring-2 ring-emerald-400' : ''}`} key={`${sound}-${index}`}>{index + 1}</button>)}</div> {!feedback && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 text-amber-900`}><Lightbulb size={18} className="mr-2 inline" />{usedClue ? 'Clue used' : 'Use one clue'}</button>}</>}
-          {chapter.id === 'segment' && <><p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">Listen to the picture word. Tap its sounds from first to last.</p><figure className="w-full" aria-label={`Picture clue for ${round.word.word.toLowerCase()}`}><SvgWordPicture item={round.word} /><figcaption className="text-xs font-bold text-slate-700 sm:text-sm">{round.word.word.toLowerCase()}</figcaption></figure><div className="flex min-h-12 items-center gap-1" aria-live="polite">{selectedSounds.map((id) => { const sound = segmentChoices.find((item) => item.id === id)?.sound; return <span className="rounded-xl bg-emerald-100 px-2 py-1 text-lg font-black text-emerald-800 sm:px-4 sm:py-2 sm:text-xl" key={id}>{sound}</span>; })}</div>{!feedback && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900 sm:px-4 sm:py-3 sm:text-base`}><Lightbulb size={18} className="mr-1 inline" />{usedClue ? <span role="status" className="text-sm">First sound: /{round.word.phonemes[0]}/</span> : 'Use one clue'}</button>}</>}
-          {promptClipText && <button type="button" disabled={!getSoundSafariVoiceClip(promptClipText)} onClick={playWordPrompt} className={`${button} mt-1 border-blue-200 bg-white text-blue-800`}><Volume2 size={19} className="mr-2 inline" />Hear {chapter.id === 'blend' ? 'instructions' : 'the word again'}</button>}
+          {chapter.id === 'listen' && <>
+            <p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">
+              {showVisualPrompt ? `Which picture begins with /${round.target.sound}/?` : 'Which picture begins with this sound?'}
+            </p>
+            <button type="button" disabled={!phonemeAudio?.[round.target.sound] || !soundOn} onClick={() => playPhoneme(round.target.sound)} className={`${button} border-emerald-200 bg-white text-emerald-800`}><Volume2 size={19} className="mr-2 inline" />Hear the sound</button>
+            {!feedback && !showVisualPrompt && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 text-amber-900`}><Lightbulb size={18} className="mr-2 inline" />{usedClue ? 'Clue used' : 'Use one clue'}</button>}
+          </>}
+          {chapter.id === 'blend' && <>
+            <p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">
+              {showVisualPrompt ? 'Tap and read each sound from left to right. Then choose the matching picture.' : 'Tap each sound from left to right. Then choose the matching picture.'}
+            </p>
+            <div className="flex flex-wrap justify-center gap-1 sm:gap-2">
+              {round.word.phonemes.map((sound, index) => <button type="button" disabled={Boolean(feedback) || index > blendStep} onClick={() => chooseBlendTile(index, sound)} aria-label={showVisualPrompt ? `Sound ${index + 1}: ${sound}` : `Hear sound ${index + 1}`} aria-pressed={index < blendStep} className={`${button} min-h-12 min-w-12 border-emerald-300 bg-white px-3 py-2 text-lg text-emerald-800 sm:min-h-14 sm:min-w-14 sm:text-xl ${index === blendStep ? 'ring-2 ring-emerald-400' : ''}`} key={`${sound}-${index}`}>{showVisualPrompt ? sound : index + 1}</button>)}
+            </div>
+            {!feedback && !showVisualPrompt && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 text-amber-900`}><Lightbulb size={18} className="mr-2 inline" />{usedClue ? 'Clue used' : 'Use one clue'}</button>}
+          </>}
+          {chapter.id === 'segment' && <>
+            <p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">{showVisualPrompt ? 'Look at the word. Tap its sounds from first to last.' : 'Hear the word. Tap its sounds from first to last.'}</p>
+            <figure className="w-full" aria-label={showVisualPrompt ? 'Picture and word for this challenge' : 'Picture for this challenge'}>
+              <SvgWordPicture item={round.word} />
+              {showVisualPrompt && <figcaption className="text-xs font-bold text-slate-700 sm:text-sm">{round.word.word.toLowerCase()}</figcaption>}
+            </figure>
+            <div className="flex min-h-12 items-center gap-1" aria-live="polite">{selectedSounds.map((id) => { const sound = segmentChoices.find((item) => item.id === id)?.sound; return <span className="rounded-xl bg-emerald-100 px-2 py-1 text-lg font-black text-emerald-800 sm:px-4 sm:py-2 sm:text-xl" key={id}>{sound}</span>; })}</div>
+            {!feedback && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900 sm:px-4 sm:py-3 sm:text-base`}><Lightbulb size={18} className="mr-1 inline" />{usedClue ? <span role="status" className="text-sm">First sound: /${round.word.phonemes[0]}/</span> : 'Use one clue'}</button>}
+          </>}
+          {chapter.id !== 'listen' && <button type="button" disabled={!promptClip || !soundOn} onClick={playWordPrompt} className={`${button} mt-1 border-blue-200 bg-white text-blue-800`}><Volume2 size={19} className="mr-2 inline" />Hear {chapter.id === 'blend' ? 'instructions' : 'the word'}</button>}
           {clueText && chapter.id !== 'segment' && <p className="w-full rounded-xl bg-amber-50 p-2 text-center text-sm font-bold text-amber-950 sm:p-3" role="status">{clueText}</p>}
         </div>
         {chapter.id === 'segment' ? <>
-          <div className="mt-2 grid grid-cols-3 gap-1 sm:mt-4 sm:grid-cols-3 sm:gap-3">{segmentChoices.map((choice) => <button type="button" key={choice.id} disabled={Boolean(feedback)} onClick={() => chooseSound(choice)} aria-pressed={selectedSounds.includes(choice.id)} aria-label={`Hear /${choice.sound}/ and add it`} className={`${button} min-h-12 border-slate-200 bg-white px-2 py-2 text-sm text-slate-800 hover:border-emerald-300 sm:text-base ${selectedSounds.includes(choice.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-900' : ''}`}>/{choice.sound}/</button>)}</div>
+          <div className="mt-2 grid grid-cols-3 gap-1 sm:mt-4 sm:grid-cols-3 sm:gap-3">{segmentChoices.map((choice) => <button type="button" key={choice.id} disabled={Boolean(feedback)} onClick={() => chooseSound(choice)} aria-pressed={selectedSounds.includes(choice.id)} aria-label={soundOn ? `Hear /${choice.sound}/ and add it` : `Add /${choice.sound}/`} className={`${button} min-h-12 border-slate-200 bg-white px-2 py-2 text-sm text-slate-800 hover:border-emerald-300 sm:text-base ${selectedSounds.includes(choice.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-900' : ''}`}>/{choice.sound}/</button>)}</div>
           {!feedback && <button type="button" disabled={selectedSounds.length !== round.word.phonemes.length} onClick={submitSegments} className={`${button} mt-2 w-full border-emerald-700 bg-emerald-700 text-white sm:mt-3`}>Check sounds</button>}
         </> : (chapter.id === 'blend' ? blendStep === round.word.phonemes.length : true) && <div className="mt-2 grid grid-cols-2 gap-2 sm:mt-4 sm:grid-cols-4 sm:gap-3">{options.map((option, index) => <button type="button" key={option.id} disabled={Boolean(feedback)} onClick={() => answer(option)} data-word={option.id} aria-label={`Picture choice ${index + 1}: ${option.word.toLowerCase()}`} className={`${button} min-h-[5.5rem] border-emerald-200 bg-white px-1 py-1 text-left hover:border-emerald-500 hover:bg-emerald-50 sm:min-h-32 sm:px-4 sm:py-3`}><SvgWordPicture item={option} /></button>)}</div>}
         </>}
