@@ -205,14 +205,16 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
       { shape: 'path', d: 'M780 80 C786 71 796 80 807 91 L837 120 L870 136 L881 159 L905 168 L911 213 L890 231 L872 216 L858 231 L842 219 L831 222 L822 207 L808 207 L801 192 L787 184 L790 169 L778 161 L784 147 L774 143 L779 128 L792 132 L784 116 Z', transform: 'scale(0.07974481659)', hue: 100, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
       { shape: 'ellipse', cx: 1012, cy: 566, rx: 39, ry: 42, transform: 'scale(0.07974481659)', hue: 170 },
       { shape: 'path', d: 'M917 895 Q924 877 941 872 Q938 855 951 848 Q970 842 982 865 L994 871 Q1003 858 1019 859 Q1045 865 1046 897 Q1072 914 1076 940 Q1110 943 1125 970 Q1143 1000 1128 1047 L1124 1068 L1104 1075 L1089 1078 L1063 1073 L1050 1059 L1027 1068 L1008 1079 L992 1074 L996 1055 L1005 1035 L995 1006 L967 1006 L956 1039 L943 1058 L914 1065 L909 1058 L916 1045 L927 1034 L927 984 L925 944 Q911 934 909 920 L908 905 Z', transform: 'scale(0.07974481659)', hue: 140, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -3 5 -2 0 -0.5' },
-      { shape: 'path', d: 'M202 976 a11 14 0 1 0 22 0 a11 14 0 1 0 -22 0 M228 981 a17 15 0 1 0 34 0 a17 15 0 1 0 -34 0 M262 982 a18 15 0 1 0 36 0 a18 15 0 1 0 -36 0 M299 972 a9 14 0 1 0 18 0 a9 14 0 1 0 -18 0 M390 972 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0 M424 973 a17 14 0 1 0 34 0 a17 14 0 1 0 -34 0 M464 969 a16 13 0 1 0 32 0 a16 13 0 1 0 -32 0', transform: 'scale(0.07974481659)', hue: 100 },
+      // The petals read clearly at phone size. Narrow colour selection
+      // leaves the green foliage and flower centre in their original colours.
+      { shape: 'ellipse', cx: 9.6, cy: 86.8, rx: 10.5, ry: 9, hue: 214, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 5 -4 -1 0 -0.45' },
     ],
     differences: [
       Object.freeze({ id: 'safari-ear', label: 'the elephant inner ear changed colour', normalVisual: 'scene:pink-ear', visual: 'scene:cyan-ear', x: 17, y: 50, radius: 8 }),
       Object.freeze({ id: 'safari-wing', label: 'the parrot left wing feathers changed colour', normalVisual: 'scene:blue-wing', visual: 'scene:purple-wing', x: 67, y: 14, radius: 8 }),
       Object.freeze({ id: 'safari-belly', label: 'the monkey tummy changed colour', normalVisual: 'scene:cream-belly', visual: 'scene:cyan-belly', x: 80, y: 45, radius: 8 }),
       Object.freeze({ id: 'safari-frog', label: 'the frog skin changed colour', normalVisual: 'scene:green-frog', visual: 'scene:purple-frog', x: 82, y: 77, radius: 8 }),
-      Object.freeze({ id: 'safari-toes', label: 'the elephant toenails changed colour', normalVisual: 'scene:cream-toes', visual: 'scene:green-toes', x: 35, y: 78, radius: 8 }),
+      Object.freeze({ id: 'safari-flower', label: 'the large flower changed colour', normalVisual: 'scene:red-flower', visual: 'scene:violet-flower', x: 10, y: 87, radius: 8 }),
     ],
   }),
   makeScene(1, 6, 'Pattern Parade', patternParade, 'A sunny festival courtyard with star pennants, an arch, balloons, a parade drum and a shop canopy', 'Repeating patterns follow a rule that we can describe.', {
@@ -256,10 +258,12 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
       { x: 37, y: 3, width: 16, height: 17, feather: 0.35 },
       { x: 17, y: 68, width: 23, height: 15, feather: 0.35 },
       { x: 90, y: 51, width: 10, height: 12, feather: 0.35 },
-      { x: 79, y: 69, width: 8, height: 7, feather: 0.25 },
       { x: 56, y: 72, width: 22, height: 12, feather: 0.35 },
     ],
     colorEdits: [
+      // A whole-shell colour change is legible on a phone; the tiny
+      // additional spot was obscured by the ladybird's existing markings.
+      { shape: 'ellipse', cx: 83.5, cy: 72.5, rx: 4, ry: 2.8, hue: 110, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 5 -4 -1 0 -0.45' },
       { shape: 'rect', x: 0, y: 235, width: 225, height: 203, transform: 'scale(0.07974481659)', hue: -60, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 -4 3 0 -0.4' },
       { shape: 'path', d: 'M146 505 L195 505 Q205 481 192 451 Q157 426 130 465 L113 452 Q135 411 182 420 Q238 413 267 463 L277 510 L315 510 L314 583 L385 518 Q372 465 391 446 Q415 421 450 445 Q483 468 479 499 Q464 525 429 534 L325 700 L326 761 Q230 783 145 755 Z', transform: 'scale(0.07974481659)', hue: 65, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -4 2 2 0 -0.3' },
     ],
@@ -269,7 +273,7 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
       { id: 'robin-canopy-leaf', label: 'the hanging leaf has a broad heart shape instead of a pointed shape', normalVisual: 'scene:pointed-canopy-leaf', visual: 'scene:heart-canopy-leaf', x: 44, y: 13, radius: 8 },
       { id: 'robin-fallen-leaf', label: 'the fallen brown leaf has a different outline', normalVisual: 'scene:lobed-brown-leaf', visual: 'scene:rounded-brown-leaf', x: 28, y: 74, radius: 8 },
       { id: 'robin-daisy', label: 'the right white flower has fewer broader petals', normalVisual: 'scene:narrow-daisy-petals', visual: 'scene:broad-daisy-petals', x: 90, y: 54, radius: 8 },
-      { id: 'robin-ladybird', label: 'the ladybird has one more black spot', normalVisual: 'scene:three-ladybird-spots', visual: 'scene:four-ladybird-spots', x: 86, y: 75, radius: 8 },
+      { id: 'robin-ladybird', label: 'the ladybird shell changed colour', normalVisual: 'scene:red-ladybird', visual: 'scene:gold-ladybird', x: 86, y: 75, radius: 8 },
       { id: 'robin-worm', label: 'the worm bends the opposite way', normalVisual: 'scene:worm-bend-right', visual: 'scene:worm-bend-left', x: 64, y: 82, radius: 8 },
     ],
   }),

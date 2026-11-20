@@ -310,7 +310,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     if (!scene || found.includes(difference.id) || complete || phase !== 'play') return;
     const nextFound = [...found, difference.id];
     setFound(nextFound);
-    setHintTarget(null);
+    setHintTarget((current) => current === difference.id ? null : current);
     setFeedback(`You found a change! ${nextFound.length} of ${scene.differences.length}.`);
     onGameEvent?.('spot', 'answer_attempt', { level: chapterIndex, round: sceneIndex + 1, seed, correct: true, firstAttempt: !hadMistake });
     onGameEvent?.('spot', 'answer_correct', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake });
@@ -360,6 +360,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     if (!scene || hintCount >= chapter.hintTokens || complete || phase !== 'play') return;
     const target = getNextSpotDifferenceHint(scene.differences, found, hintedTargets);
     if (!target) return;
+    setMobilePicture('B');
     setHintCount((value) => value + 1);
     setHintTarget(target.id);
     setHintedTargets((value) => [...value, target.id]);
