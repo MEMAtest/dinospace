@@ -2440,5 +2440,15 @@
     "gatewayDeployment": "6b021789b8acf931ccb8315a",
     "evidence": "docs/qa-evidence/garage-quest-focus-20261121/README.md",
     "scope": "German Garage shows one chapter action and a large car. Curriculum Quest opens on a wide map with one Start round action. Options hold topics, levels, lesson notes and badges."
+  },
+  "latestDetectiveDiscoveryFocusRehearsal": {
+    "runtime": "158b16f61f073d5ccd5f3db9234fa8dffdc6e0ee",
+    "entry": "/assets/arcade-C5Kd3OFL.js",
+    "worker": "amari-discovery-v108",
+    "backendUrl": "https://dinospace-8qpbh2z0a-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_GNp7nC8e7yz2HnyXUQKL9Dy5whzE",
+    "gatewayDeployment": "6b02197dd0fe51c08ff378e3",
+    "evidence": "docs/qa-evidence/detective-discovery-focus-20261121/README.md",
+    "scope": "Dino Detective opens on the next unlocked world with a wide search scene and held facts. Dinosaur Discovery gives each creature a large portrait, one picture-matching action, and a habitat picker. Askia\u2019s detective edition also has simpler controls and a selectable follow-up activity."
   }
 }

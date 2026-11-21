@@ -1,0 +1,910 @@
+{
+  "release": {
+    "runtime": "158b16f61f073d5ccd5f3db9234fa8dffdc6e0ee",
+    "entry": "/assets/arcade-C5Kd3OFL.js",
+    "worker": "amari-discovery-v108",
+    "backendUrl": "https://dinospace-8qpbh2z0a-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_GNp7nC8e7yz2HnyXUQKL9Dy5whzE",
+    "gatewayDeployment": "6b02197dd0fe51c08ff378e3",
+    "evidence": "docs/qa-evidence/detective-discovery-focus-20261121/README.md",
+    "scope": "Dino Detective opens on the next unlocked world with a wide search scene and held facts. Dinosaur Discovery gives each creature a large portrait, one picture-matching action, and a habitat picker. Askia\u2019s detective edition also has simpler controls and a selectable follow-up activity."
+  },
+  "live": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "name": "Jungle Jive",
+      "bounds": {
+        "x": 18.390625,
+        "y": 93.140625,
+        "width": 353.21875,
+        "height": 444
+      },
+      "artBounds": {
+        "x": 10.390625,
+        "y": 66.921875,
+        "width": 369.21875,
+        "height": 377.390625
+      },
+      "checks": [
+        {
+          "label": "Dino Detective start",
+          "buttons": [
+            "Explore: Jungle Jive",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Search scene 1",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 1",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 2",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 2",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 3",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 3",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 4",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 4",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 5",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 5",
+          "buttons": [
+            "Finish world",
+            "Options"
+          ]
+        },
+        {
+          "label": "World complete",
+          "buttons": [
+            "Next: Volcano Valley",
+            "Options",
+            "Back to worlds"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay world",
+            "Back"
+          ]
+        },
+        {
+          "label": "Habitat shelf",
+          "buttons": [
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spinosaurus portrait",
+          "buttons": [
+            "Match picture",
+            "Look closer",
+            "Options"
+          ]
+        },
+        {
+          "label": "Matching pictures",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Find food",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "My sticker book",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sticker book",
+          "buttons": [
+            "Options",
+            "Back to habitats"
+          ]
+        },
+        {
+          "label": "Askia start",
+          "buttons": [
+            "Options",
+            "Play level 1"
+          ]
+        },
+        {
+          "label": "Askia found dinosaur",
+          "buttons": [
+            "Options",
+            "Hear the name",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "name": "Jungle Jive",
+      "bounds": {
+        "x": 218,
+        "y": 123.984375,
+        "width": 1004,
+        "height": 540
+      },
+      "artBounds": {
+        "x": 320,
+        "y": 95.71875,
+        "width": 800,
+        "height": 459
+      },
+      "checks": [
+        {
+          "label": "Dino Detective start",
+          "buttons": [
+            "Explore: Jungle Jive",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Search scene 1",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 1",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 2",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 2",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 3",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 3",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 4",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 4",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 5",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 5",
+          "buttons": [
+            "Finish world",
+            "Options"
+          ]
+        },
+        {
+          "label": "World complete",
+          "buttons": [
+            "Next: Volcano Valley",
+            "Options",
+            "Back to worlds"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay world",
+            "Back"
+          ]
+        },
+        {
+          "label": "Habitat shelf",
+          "buttons": [
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spinosaurus portrait",
+          "buttons": [
+            "Match picture",
+            "Look closer",
+            "Options"
+          ]
+        },
+        {
+          "label": "Matching pictures",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Find food",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "My sticker book",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sticker book",
+          "buttons": [
+            "Options",
+            "Back to habitats"
+          ]
+        },
+        {
+          "label": "Askia start",
+          "buttons": [
+            "Options",
+            "Play level 1"
+          ]
+        },
+        {
+          "label": "Askia found dinosaur",
+          "buttons": [
+            "Options",
+            "Hear the name",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        }
+      ]
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "name": "Jungle Jive",
+      "bounds": {
+        "x": 18.390625,
+        "y": 93.140625,
+        "width": 353.21875,
+        "height": 444
+      },
+      "artBounds": {
+        "x": 10.390625,
+        "y": 66.921875,
+        "width": 369.21875,
+        "height": 377.390625
+      },
+      "checks": [
+        {
+          "label": "Dino Detective start",
+          "buttons": [
+            "Explore: Jungle Jive",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Search scene 1",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 1",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 2",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 2",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 3",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 3",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 4",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 4",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 5",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 5",
+          "buttons": [
+            "Finish world",
+            "Options"
+          ]
+        },
+        {
+          "label": "World complete",
+          "buttons": [
+            "Next: Volcano Valley",
+            "Options",
+            "Back to worlds"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay world",
+            "Back"
+          ]
+        },
+        {
+          "label": "Habitat shelf",
+          "buttons": [
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spinosaurus portrait",
+          "buttons": [
+            "Match picture",
+            "Look closer",
+            "Options"
+          ]
+        },
+        {
+          "label": "Matching pictures",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Find food",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "My sticker book",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sticker book",
+          "buttons": [
+            "Options",
+            "Back to habitats"
+          ]
+        },
+        {
+          "label": "Askia start",
+          "buttons": [
+            "Options",
+            "Play level 1"
+          ]
+        },
+        {
+          "label": "Askia found dinosaur",
+          "buttons": [
+            "Options",
+            "Hear the name",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "name": "Jungle Jive",
+      "bounds": {
+        "x": 218,
+        "y": 123.984375,
+        "width": 1004,
+        "height": 540
+      },
+      "artBounds": {
+        "x": 320,
+        "y": 95.71875,
+        "width": 800,
+        "height": 459
+      },
+      "checks": [
+        {
+          "label": "Dino Detective start",
+          "buttons": [
+            "Explore: Jungle Jive",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Search scene 1",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 1",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 2",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 2",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 3",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 3",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 4",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 4",
+          "buttons": [
+            "Next find",
+            "Options"
+          ]
+        },
+        {
+          "label": "Search scene 5",
+          "buttons": [
+            "Show a clue",
+            "Options"
+          ]
+        },
+        {
+          "label": "Found dinosaur 5",
+          "buttons": [
+            "Finish world",
+            "Options"
+          ]
+        },
+        {
+          "label": "World complete",
+          "buttons": [
+            "Next: Volcano Valley",
+            "Options",
+            "Back to worlds"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay world",
+            "Back"
+          ]
+        },
+        {
+          "label": "Habitat shelf",
+          "buttons": [
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spinosaurus portrait",
+          "buttons": [
+            "Match picture",
+            "Look closer",
+            "Options"
+          ]
+        },
+        {
+          "label": "Matching pictures",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Find food",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "My sticker book",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sticker book",
+          "buttons": [
+            "Options",
+            "Back to habitats"
+          ]
+        },
+        {
+          "label": "Askia start",
+          "buttons": [
+            "Options",
+            "Play level 1"
+          ]
+        },
+        {
+          "label": "Askia found dinosaur",
+          "buttons": [
+            "Options",
+            "Hear the name",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-8qpbh2z0a-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "0d36b7b7cad5424d166062f7199ba405f2de947d3331bc126f113a4f1849d36b"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "0d36b7b7cad5424d166062f7199ba405f2de947d3331bc126f113a4f1849d36b"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16459,
+          "sha256": "253fb3fad53809ec3082e217a594e3f9a03d9e015584d47ae38b07e416a1a64e"
+        },
+        {
+          "path": "/art/catalog-v3/game-dino.webp",
+          "bytes": 78438,
+          "sha256": "fb3e262f65e91bbe8dc809bca65fdcb5e903db9aee82ef209a707925e0253c2a"
+        },
+        {
+          "path": "/art/shadow-match-v2/spino.webp",
+          "bytes": 70558,
+          "sha256": "afc5c4591f9bfc66015f60ef598ceba71b4ff0ff7cb26736f362ca06236556d9"
+        },
+        {
+          "path": "/art/dinosaur-discovery-v1/pteranodon.webp",
+          "bytes": 72022,
+          "sha256": "8a1bd00c987e4fb4ca3b0e03bcbeef4c498709a5f8e9fab2a15097fedb6847d1"
+        },
+        {
+          "path": "/assets/arcade-C5Kd3OFL.js",
+          "bytes": 2018963,
+          "sha256": "e5c193aefc63a1f9a536c0a245c1ede4924fb5a34c5614f3e0a59e8e54d91b60"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DQ62b-Wx.css",
+          "bytes": 39858,
+          "sha256": "1340495d995e35e8aa0710c3b28f68d7adb7e4811cb38370d026255922f423e9"
+        },
+        {
+          "path": "/assets/arcade-CvEjLqDX.css",
+          "bytes": 244607,
+          "sha256": "6d9888f68dc6dba78733c3c4760c8b89281824bfe4a9c8fe93d1f49ad228e959"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b0218f91d64e0fa84292ada--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "0d36b7b7cad5424d166062f7199ba405f2de947d3331bc126f113a4f1849d36b"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "0d36b7b7cad5424d166062f7199ba405f2de947d3331bc126f113a4f1849d36b"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16459,
+          "sha256": "253fb3fad53809ec3082e217a594e3f9a03d9e015584d47ae38b07e416a1a64e"
+        },
+        {
+          "path": "/art/catalog-v3/game-dino.webp",
+          "bytes": 78438,
+          "sha256": "fb3e262f65e91bbe8dc809bca65fdcb5e903db9aee82ef209a707925e0253c2a"
+        },
+        {
+          "path": "/art/shadow-match-v2/spino.webp",
+          "bytes": 70558,
+          "sha256": "afc5c4591f9bfc66015f60ef598ceba71b4ff0ff7cb26736f362ca06236556d9"
+        },
+        {
+          "path": "/art/dinosaur-discovery-v1/pteranodon.webp",
+          "bytes": 72022,
+          "sha256": "8a1bd00c987e4fb4ca3b0e03bcbeef4c498709a5f8e9fab2a15097fedb6847d1"
+        },
+        {
+          "path": "/assets/arcade-C5Kd3OFL.js",
+          "bytes": 2018963,
+          "sha256": "e5c193aefc63a1f9a536c0a245c1ede4924fb5a34c5614f3e0a59e8e54d91b60"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DQ62b-Wx.css",
+          "bytes": 39858,
+          "sha256": "1340495d995e35e8aa0710c3b28f68d7adb7e4811cb38370d026255922f423e9"
+        },
+        {
+          "path": "/assets/arcade-CvEjLqDX.css",
+          "bytes": 244607,
+          "sha256": "6d9888f68dc6dba78733c3c4760c8b89281824bfe4a9c8fe93d1f49ad228e959"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "0d36b7b7cad5424d166062f7199ba405f2de947d3331bc126f113a4f1849d36b"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "0d36b7b7cad5424d166062f7199ba405f2de947d3331bc126f113a4f1849d36b"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16459,
+          "sha256": "253fb3fad53809ec3082e217a594e3f9a03d9e015584d47ae38b07e416a1a64e"
+        },
+        {
+          "path": "/art/catalog-v3/game-dino.webp",
+          "bytes": 78438,
+          "sha256": "fb3e262f65e91bbe8dc809bca65fdcb5e903db9aee82ef209a707925e0253c2a"
+        },
+        {
+          "path": "/art/shadow-match-v2/spino.webp",
+          "bytes": 70558,
+          "sha256": "afc5c4591f9bfc66015f60ef598ceba71b4ff0ff7cb26736f362ca06236556d9"
+        },
+        {
+          "path": "/art/dinosaur-discovery-v1/pteranodon.webp",
+          "bytes": 72022,
+          "sha256": "8a1bd00c987e4fb4ca3b0e03bcbeef4c498709a5f8e9fab2a15097fedb6847d1"
+        },
+        {
+          "path": "/assets/arcade-C5Kd3OFL.js",
+          "bytes": 2018963,
+          "sha256": "e5c193aefc63a1f9a536c0a245c1ede4924fb5a34c5614f3e0a59e8e54d91b60"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DQ62b-Wx.css",
+          "bytes": 39858,
+          "sha256": "1340495d995e35e8aa0710c3b28f68d7adb7e4811cb38370d026255922f423e9"
+        },
+        {
+          "path": "/assets/arcade-CvEjLqDX.css",
+          "bytes": 244607,
+          "sha256": "6d9888f68dc6dba78733c3c4760c8b89281824bfe4a9c8fe93d1f49ad228e959"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 2,
+        "sha256": "519711d1e83a1f76e8df55619ca9fd5bc82993dc1edf6ed6e80d50800cb49500"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 771
+}
