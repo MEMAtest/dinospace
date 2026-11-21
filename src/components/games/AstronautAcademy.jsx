@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ArrowLeft, ArrowRight, Bird, Brain, Bug, Calendar, CalendarDays, Car,
+  Bird, Brain, Bug, Calendar, CalendarDays, Car,
   Cat, Check, CircleHelp, Dog, Ear, Eye, Fish, Footprints, Globe2, Hand,
   Heart, Magnet, Moon, Orbit, PawPrint, PersonStanding, Rabbit,
-  Rocket, Shapes, Shield, Sparkles, Star, Sun, Telescope, TreePine, Trophy,
-  UserRound, Volume2, Waves,
+  Rocket, Shapes, Shield, Sun, TreePine,
+  UserRound, Waves,
 } from 'lucide-react';
 import { ASTRONAUT_CATEGORIES, ASTRONAUT_PROFILES } from '../../data/index.js';
 import { getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { readAstronautProgress, saveAstronautRun, recordAstronautResult, completeAstronautChapter } from '../../data/astronautProgress.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
@@ -16,13 +16,7 @@ import { buildAstronautMissions, createAstronautOptions, createAstronautRun, cre
 import dolphinCard from '../../assets/memory-match/dolphin-v1-card.webp';
 import './astronautAcademy.css';
 
-const MISSION_ART = '/art/catalog-v3/game-astronaut.webp';
 const MISSIONS = buildAstronautMissions(ASTRONAUT_CATEGORIES);
-
-const MissionIcon = ({ mission }) => {
-  const Icon = mission.id === 'earth-life' ? Sparkles : mission.id === 'space-explorers' ? Telescope : Rocket;
-  return <Icon aria-hidden="true" size={22} strokeWidth={2.2} />;
-};
 
 const DINO_LABELS = new Set(['t-rex', 'stegosaurus', 'triceratops', 'brachiosaurus', 'pterodactyl', 'raptor']);
 
@@ -153,6 +147,7 @@ const AstronautAcademy = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, 
   // next mission so choices never move or multiply during feedback.
   const [runDifficulty, setRunDifficulty] = useState(difficulty);
   const [mission, setMission] = useState(null);
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [qIndex, setQIndex] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [hadMistake, setHadMistake] = useState(false);
@@ -307,105 +302,55 @@ const AstronautAcademy = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, 
     playSfx('levelup-big');
   };
 
-  if (!mission) {
-    return (
-      <main className="astronaut-academy">
-        <div className="astro-shell astro-home">
-          <header className="astro-topbar">
-            <button className="astro-icon-button" onClick={leaveAcademy} aria-label="Back to learning world"><ArrowLeft size={20} /></button>
-            <div className="astro-brand"><span>DISCOVERY HQ</span><strong>Astronaut Academy</strong></div>
-            <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="astro-sound-toggle" />
-          </header>
+  const closeOptions = () => setOptionsOpen(false);
+  const soundChoice = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound?.(); closeOptions(); } };
+  const startSelected = item => { closeOptions(); startMission(item); };
+  const canStart = (item, index) => index <= progress.unlockedChapterIndex || progress.completedChapterIds.includes(item.id);
+  const currentMissionIndex = Math.min(progress.unlockedChapterIndex, MISSIONS.length - 1);
+  const nextMission = mission ? MISSIONS[MISSIONS.findIndex(item => item.id === mission.id) + 1] : MISSIONS[currentMissionIndex];
+  const audioChoice = (label, line) => ({ label, action: () => { closeOptions(); say(line); } });
+  const options = [
+    ...(!mission || complete ? MISSIONS.map((item, index) => ({
+      label: item.title, description: progress.completedChapterIds.includes(item.id) ? 'Badge earned. Replay for practice.' : item.description,
+      disabled: !canStart(item, index), button: 'Start mission', action: () => startSelected(item),
+    })) : []),
+    ...(mission && !complete ? [
+      ...(soundOn && getOfflineVoiceClip(question.q) ? [audioChoice('Hear the question', question.q)] : []),
+      ...(soundOn && feedback?.kind === 'correct' && getOfflineVoiceClip(`The answer is ${question.answer}!`) ? [audioChoice('Hear the answer', `The answer is ${question.answer}!`)] : []),
+      ...(soundOn && feedback?.fact && getOfflineVoiceClip(feedback.fact) ? [audioChoice('Hear this fact', feedback.fact)] : []),
+      { label: 'Back to missions', action: () => { closeOptions(); returnToMissions(); } },
+    ] : []),
+    soundChoice, { label: 'Back to Explore & Languages', action: leaveAcademy },
+  ];
 
-          <section className="astro-welcome" aria-labelledby="astro-welcome-title">
-            <div className="astro-welcome-copy">
-              <span className="astro-kicker"><Star size={14} fill="currentColor" /> YOUR NEXT ADVENTURE</span>
-              <h1 id="astro-welcome-title">Ready for a mission?</h1>
-              <p>Choose one place to explore. Every answer brings you a little further.</p>
-            </div>
-            <img src={MISSION_ART} alt="A friendly astronaut ready for a space mission" />
-          </section>
-
-          <section className="astro-mission-list" aria-label="Choose a mission">
-            {MISSIONS.map((item, index) => (
-              <button
-                key={item.id}
-                className={`astro-mission-card ${item.recommended ? 'is-recommended' : ''}`}
-                onClick={() => startMission(item)}
-                disabled={index > progress.unlockedChapterIndex && !progress.completedChapterIds.includes(item.id)}
-              >
-                <span className="astro-mission-number">0{index + 1}</span>
-                <span className="astro-mission-icon"><MissionIcon mission={item} /></span>
-                <span className="astro-mission-copy">
-                  <span className="astro-mission-eyebrow">{item.recommended ? 'A GREAT FIRST MISSION' : item.eyebrow}</span>
-                  <strong>{item.title}</strong>
-                  <span className="astro-mission-description">{item.description}</span>
-                  <span className="astro-mission-count">{progress.completedChapterIds.includes(item.id) ? '✓ Badge earned · Replay' : index > progress.unlockedChapterIndex ? 'Complete the earlier mission to unlock' : '6 discoveries · Finish a project'}</span>
-                </span>
-                <span className="astro-mission-arrow" aria-hidden="true"><ArrowRight size={21} /></span>
-              </button>
-            ))}
-          </section>
-          <p className="astro-footer-note">Choose a short mission, then explore another when you’re ready.</p>
+  if (optionsOpen || !mission || complete) return <div className="focus-game astronaut-focus" data-board-focus="">
+    <main className="focus-game-body is-menu">
+      <header className="focus-game-heading"><h1>{complete && !optionsOpen ? `${mission.title} complete!` : 'Astronaut Academy'}</h1></header>
+      {optionsOpen ? <FocusMenu choices={options} onBack={closeOptions} /> : <>
+        <p className="focus-game-message">{complete ? `${score} of ${mission.questions.length} discoveries made. ${rewardGranted ? 'Your mission badge is saved.' : 'Your saved badge is ready to review.'}` : 'Look closely at each picture to find the answer.'}</p>
+        <div className="focus-game-actions">
+          {nextMission && <button type="button" className="focus-game-button is-primary" onClick={() => startSelected(nextMission)}>{complete ? 'Next' : 'Start'}: {nextMission.title}</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={leaveAcademy}>{complete ? 'Finish' : 'Back'}</button>
         </div>
-      </main>
-    );
-  }
+      </>}
+    </main>
+  </div>;
 
-  if (complete) {
-    return (
-      <main className="astronaut-academy">
-        <div className="astro-shell astro-complete">
-          <header className="astro-topbar">
-            <button className="astro-icon-button" onClick={returnToMissions} aria-label="Back to missions"><ArrowLeft size={20} /></button>
-            <div className="astro-brand"><span>MISSION DEBRIEF</span><strong>{mission.title}</strong></div>
-            <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="astro-sound-toggle" />
-          </header>
-          <section className="astro-complete-card" aria-live="polite">
-            <div className="astro-trophy"><Trophy size={38} /></div>
-            <span className="astro-kicker">MISSION COMPLETE</span>
-            <h1>Look how far you went!</h1>
-            <p className="astro-score"><strong>{score}</strong><span> / {mission.questions.length} questions answered</span></p>
-            <p className="astro-complete-copy">{rewardGranted ? 'Your mission badge is saved.' : 'Your mission badge is saved. Choose the next unlocked mission or replay this one.'}</p>
-            <div className="astro-complete-actions">
-              <button autoFocus className="astro-primary-button" onClick={returnToMissions}>Choose another mission <ArrowRight size={18} /></button>
-              <button className="astro-secondary-button" onClick={() => startMission(mission)}>Replay {mission.title}</button>
-              <button className="astro-secondary-button" onClick={leaveAcademy}>Back to games</button>
-            </div>
-          </section>
-        </div>
-      </main>
-    );
-  }
-
-  const progressFraction = qIndex / mission.questions.length;
   const answerLocked = Boolean(feedback);
   const lastQuestion = qIndex === mission.questions.length - 1;
   const project = question.transferProject ?? null;
 
-  return (
-    <main className="astronaut-academy">
-      <div className="astro-shell astro-play">
-        <header className="astro-topbar astro-play-topbar">
-          <button className="astro-icon-button" onClick={returnToMissions} aria-label="Back to missions"><ArrowLeft size={20} /></button>
-          <div className="astro-progress-block">
-            <div className="astro-progress-heading"><span>{mission.title}</span><span>Question {qIndex + 1} of {mission.questions.length}</span></div>
-            <div className="astro-progress-track" role="progressbar" aria-label="Mission progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(progressFraction * 100)}>
-              <span style={{ width: `${progressFraction * 100}%` }} />
-            </div>
-          </div>
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="astro-sound-toggle" />
-        </header>
-
+  return <div className="focus-game astronaut-focus" data-board-focus="">
+    <main className="focus-game-body">
+      <header className="focus-game-heading">
+        <p>Astronaut Academy · {mission.title} · {qIndex + 1} of {mission.questions.length}</p>
+        <h1>{question.q}</h1>
+      </header>
         <section className="astro-question-stage" aria-live="polite">
           <div className={`astro-question-card ${feedback?.kind === 'correct' ? 'is-solved' : ''}`} data-astro-question={question.questionId} data-astro-mission={mission.id} data-run-seed={seed}>
-            <div className="astro-question-meta">
-              <span className="astro-question-tag"><MissionIcon mission={mission} /> {category.id === 'numbers' ? 'Numbers & counting' : category.name}</span>
-              <span className="astro-star-count"><Star size={16} fill="currentColor" /> {score}</span>
-            </div>
             {feedback?.kind !== 'correct' && <div className="astro-question-illustration"><QuestionVisual question={question} category={category} /></div>}
-            <h1>{question.q}</h1>
-            {feedback?.kind !== 'correct' && <p className="astro-prompt">{project ? project.prompt : 'Look closely at the details, then choose the answer that fits.'}</p>}
+            {feedback?.kind !== 'correct' && <p className="astro-prompt">{project ? project.prompt : 'Choose an answer.'}</p>}
 
             {project && <section className="astro-transfer-project" data-project={project.id} aria-label={project.name}>
               <div><span className="astro-project-context" aria-hidden="true">{project.id === 'rocket-window' ? <Rocket size={38} /> : project.id === 'sea-research-map' ? <Waves size={38} /> : <UserRound size={38} />}</span><span className="astro-project-eyebrow">YOUR PROJECT</span><strong>{project.name}</strong><span>{project.slotLabel}</span></div>
@@ -431,30 +376,28 @@ const AstronautAcademy = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, 
               ))}
             </div>}
 
-            {project && feedback?.kind !== 'correct' && <button type="button" className="astro-primary-button astro-project-place" disabled={!projectSelection || answerLocked} onClick={() => handlePick(questionOptions.find((option) => option.text === projectSelection))}>{project.actionLabel}</button>}
+            {project && projectSelection && !feedback && <button type="button" className="astro-primary-button astro-project-place" disabled={!projectSelection || answerLocked} onClick={() => handlePick(questionOptions.find((option) => option.text === projectSelection))}>{project.actionLabel}</button>}
 
             {feedback && (
               <div className={`astro-feedback ${feedback.kind === 'correct' ? 'is-correct' : 'is-retry'}`} role="status">
                 <div className="astro-feedback-copy">
                   <span className="astro-feedback-icon">{feedback.kind === 'correct' ? <Check size={18} /> : <CircleHelp size={18} />}</span>
                   <div><strong>{feedback.message}</strong>
-                    {feedback.fact && <><p><b>Did you know?</b> {feedback.fact}</p>{getOfflineVoiceClip(feedback.fact) && <button type="button" className="astro-secondary-button" disabled={!soundOn} onClick={() => say(feedback.fact)}>Hear this fact again</button>}</>}
+                    {feedback.fact && <p>{feedback.fact}</p>}
                     {feedback.kind === 'retry' && <p>Take your time, then choose another answer.</p>}
                   </div>
                 </div>
-                <button ref={feedbackActionRef} className={feedback.kind === 'correct' ? 'astro-primary-button' : 'astro-retry-button'} onClick={feedback.kind === 'correct' && lastQuestion ? finishMission : advance} disabled={feedback.kind === 'correct' && lastQuestion && !chapterSaved}>
+                {!saveError && <button ref={feedbackActionRef} className={feedback.kind === 'correct' ? 'astro-primary-button' : 'astro-retry-button'} onClick={feedback.kind === 'correct' && lastQuestion ? finishMission : advance} disabled={feedback.kind === 'correct' && lastQuestion && !chapterSaved}>
                   {feedback.kind === 'correct' ? (lastQuestion ? 'Finish mission' : 'Next question') : 'Try again'}
-                  {feedback.kind === 'correct' && <ArrowRight size={17} />}
-                </button>
+                </button>}
               </div>
             )}
           </div>
         {saveError && <div className="astro-feedback is-retry" role="alert"><div><strong>Badge not saved yet.</strong><p>Your solved answer and explanation are still here. Retry saving, then Finish.</p></div><button ref={retrySaveRef} className="astro-retry-button" onClick={saveFinalChapter}>Retry save</button></div>}
-        <div className="astro-play-hint"><Volume2 size={15} /> {feedback?.kind === 'correct' ? (!soundOn ? 'Sound is off. Read your discovery, then continue.' : 'Replay the question or answer, then continue.') : !soundOn ? 'Sound is off. Read the question and compare the pictures.' : project ? `Choose an item, then press ${project.actionLabel}.` : combo >= 2 ? `${combo} answers in a row! Keep exploring.` : 'Listen to the question, then tap an answer.'} <button type="button" disabled={!soundOn || !getOfflineVoiceClip(question.q)} onClick={() => say(question.q)}>Replay question</button>{feedback?.kind === 'correct' && <button type="button" disabled={!soundOn || !getOfflineVoiceClip(`The answer is ${question.answer}!`)} onClick={() => say(`The answer is ${question.answer}!`)}>Replay answer</button>}</div>
-        </section>
-      </div>
+        <button type="button" className="focus-game-button w-full mt-3" onClick={() => setOptionsOpen(true)}>Options</button>
+      </section>
     </main>
-  );
+  </div>;
 };
 
 export default AstronautAcademy;

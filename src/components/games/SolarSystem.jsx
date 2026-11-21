@@ -2,10 +2,9 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useSta
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { ArrowLeft, Sparkles, Volume2 } from 'lucide-react';
 import { PLANETS } from '../../data/index.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { readDiscoveryPassport, saveDiscoveryPassport, seededPlanetOptions, discoveredPlanetBadges, solarPassportAwardTransitions } from '../../data/solarDiscoveryPassport.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
 
@@ -617,7 +616,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
         <div className="max-w-sm rounded-3xl border border-cyan-200/30 bg-slate-950/80 p-6 shadow-2xl">
           <div className="text-6xl" aria-hidden="true">🪐</div>
           <h3 className="mt-3 text-xl font-black text-cyan-200">3D view unavailable</h3>
-          <p className="mt-2 text-sm font-bold text-white/70">Choose a world in the planet strip to explore its facts and challenge.</p>
+          <p className="mt-2 text-sm font-bold text-white/70">Choose a world below to explore its facts and challenge.</p>
         </div>
       </div>
     );
@@ -641,8 +640,7 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
   const [saveWarning, setSaveWarning] = useState('');
   const [pendingSave, setPendingSave] = useState(null);
   const pendingSaveRef = useRef(null);
-  const stripRef = useRef(null);
-  const missionRef = useRef(null);
+  const [panel, setPanel] = useState('play');
   const storePassport = (next, afterPersist = () => {}) => {
     const saved = saveDiscoveryPassport(playerId, PLANETS, next);
     if (saved?.persisted) {
@@ -770,9 +768,6 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
     playSfx('click');
   };
 
-  const discoveredForPlanet = Math.min(3, selectedPlanet.facts.filter(
-    (_fact, index) => discoveredFacts[`${selectedPlanet.name}-${index}`],
-  ).length);
   const currentMissionStage = mission?.planet === selectedPlanet.name ? mission.stage : null;
   const activeSeed = mission?.planet === selectedPlanet.name ? mission.seed : exploreSeed;
   const activeDifficulty = mission?.planet === selectedPlanet.name ? mission.difficulty : difficulty;
@@ -782,209 +777,96 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
   const quizOptions = seededPlanetOptions(availableOptions, activeSeed + PLANETS.indexOf(selectedPlanet));
 
   const rehearsalJourney = new URLSearchParams(window.location.search).get('journey') === 'discovery';
-  return (
-    <div className="solar-premium min-h-screen bg-[#030712] text-white">
-      <header className="relative z-30 flex items-center justify-between gap-2 border-b border-white/10 bg-slate-950/80 px-3 py-3 backdrop-blur-xl sm:px-4">
-        <button onClick={() => { cancelNarration(); onBack?.(); }} className="game-icon-button !h-12 !w-12 shrink-0 !bg-white/10 !text-white sm:!h-12 sm:!w-12" aria-label="Back to Explore and Languages"><ArrowLeft /></button>
-        <div className="text-center">
-          <p className="text-[9px] font-black uppercase tracking-[0.18em] text-cyan-300 sm:text-xs sm:tracking-[0.25em]">Interactive 3D mission</p>
-          <h2 className="whitespace-nowrap text-base font-black text-white sm:text-3xl">Solar System Explorer</h2>
-        </div>
-        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!h-12 !w-12 !bg-white/10 !text-white sm:!h-12 sm:!w-12" />
-        </div>
+  const inMission = Boolean(currentMissionStage);
+  const showScene = panel === 'play' && !inMission;
+  const closeOptions = () => setPanel('play');
+  const leave = () => { cancelNarration(); onBack?.(); };
+  const orbitAction = action => { action(); closeOptions(); };
+  const toggleOverview = () => {
+    if (overview) orreryRef.current?.focusPlanet(selectedPlanet.name);
+    else orreryRef.current?.resetView();
+    setOverview(value => !value);
+  };
+  const options = [
+    ...(!inMission ? [
+      { label: overview ? `Inspect ${selectedPlanet.name}` : 'Show all planets', action: () => orbitAction(toggleOverview) },
+      { label: 'Turn left', action: () => orbitAction(() => orreryRef.current?.rotate('y',-.35)) },
+      { label: 'Turn right', action: () => orbitAction(() => orreryRef.current?.rotate('y',.35)) },
+      { label: 'Tilt up', action: () => orbitAction(() => orreryRef.current?.rotate('x',.25)) },
+      { label: 'Tilt down', action: () => orbitAction(() => orreryRef.current?.rotate('x',-.25)) },
+      { label: 'Zoom in', action: () => orbitAction(() => handleZoom('zoomIn')) },
+      { label: 'Zoom out', action: () => orbitAction(() => handleZoom('zoomOut')) },
+      { label: paused ? 'Resume rotation' : 'Pause rotation', action: () => orbitAction(() => setPaused(value => !value)) },
+    ] : [{ label: 'Back to the planets', disabled: Boolean(pendingSave), action: () => { cancelNarration(); setMission(null); closeOptions(); } }]),
+    { label: `About ${selectedPlanet.name}`, action: () => setPanel('details') },
+    ...(soundOn && getOfflineVoiceClip(selectedPlanet.facts[activeFact], 'en-US') ? [{ label: 'Hear the fact', action: () => orbitAction(() => sayPackaged(selectedPlanet.facts[activeFact])) }] : []),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => orbitAction(() => onToggleSound?.()) },
+    { label: 'Back to Explore & Languages', action: leave },
+  ];
+
+  return <div className="focus-game solar-focus" data-board-focus="">
+    <main className={`focus-game-body${panel !== 'play' ? ' is-menu' : ''}`}>
+      <header className="focus-game-heading">
+        {inMission && panel === 'play' && <p>Solar System Explorer · {selectedPlanet.name}</p>}
+        <h1>{panel === 'details' ? `About ${selectedPlanet.name}` : inMission && panel === 'play' ? currentMissionStage === 'complete' ? 'Mission saved!' : `${selectedPlanet.name} mission` : 'Solar System Explorer'}</h1>
       </header>
-
-      {rehearsalJourney && <nav aria-label="Continue your discovery" className="flex flex-wrap items-center justify-center gap-3 bg-[#061642] px-3 py-2 text-sm"><a href="#/play/codecadets" onClick={e=>{e.preventDefault();onLaunchGame?.('codecadets');}} className="inline-flex min-h-12 items-center rounded-xl border border-cyan-200/40 px-4 font-bold text-cyan-100">Next: Code Cadets →</a><a href="#/play/writingdesk" onClick={e=>{e.preventDefault();onLaunchGame?.('writingdesk');}} className="inline-flex min-h-12 items-center rounded-xl border border-cyan-200/40 px-4 font-bold text-cyan-100">Write a discovery report →</a></nav>}
-      <div className="solar-view-tabs" role="group" aria-label="Solar System view">
-        <button
-          type="button"
-          className="solar-view-switch"
-          onClick={() => {
-            if (overview) {
-              setOverview(false);
-              orreryRef.current?.focusPlanet(selectedPlanet.name);
-            } else {
-              setOverview(true);
-              orreryRef.current?.resetView();
-            }
-          }}
-        >{overview ? `🔎 Inspect ${selectedPlanet.name}` : '🪐 Show all planets'}</button>
-        <span className="solar-view-description" aria-live="polite">{overview ? 'All worlds in view' : `${selectedPlanet.name} up close`}</span>
+      <div className={showScene ? 'solar-focus-model' : 'hidden'} data-solar-view={overview ? 'overview' : selectedPlanet.name}>
+        <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} />
       </div>
-      <section className="flex flex-wrap items-center justify-between gap-2 bg-[#061642] px-3 pt-3" aria-label="Discovery passport">
-        <p className="text-sm font-bold">Passport: {Object.keys(discoveredFacts).length}/{PLANETS.reduce((count, planet) => count + planet.facts.length, 0)} discoveries · {Object.keys(completedQuizzes).length}/9 challenges</p>
-        <div className="flex gap-2">
-          <button type="button" className="min-h-12 rounded-xl border border-white/30 px-3 font-bold" aria-label="Previous planets in strip" onClick={() => stripRef.current?.scrollBy({ left: -250, behavior: 'smooth' })}>← Planets</button>
-          <button type="button" className="min-h-12 rounded-xl border border-white/30 px-3 font-bold" aria-label="More planets in strip" onClick={() => stripRef.current?.scrollBy({ left: 250, behavior: 'smooth' })}>More →</button>
-        </div>
-        <p className="w-full text-xs text-cyan-100">Choose a world, then open its discovery facts. Planet details and challenges are optional.</p>
-        <button type="button" onClick={() => { missionRef.current?.scrollIntoView({ behavior: 'auto', block: 'start' }); missionRef.current?.focus({ preventScroll: true }); }} className="min-h-12 rounded-xl bg-cyan-200 px-4 font-black text-slate-950">Go to {selectedPlanet.name} mission ↓</button>
-        {saveWarning && <div className="w-full rounded-xl border border-amber-200/50 bg-amber-950/50 p-3 text-sm text-amber-100" role="alert"><p>{saveWarning}</p><button type="button" className="mt-2 min-h-12 rounded-lg bg-amber-100 px-4 font-black text-amber-950" onClick={retryPassportSave}>Retry save</button></div>}
-      </section>
-      <nav ref={stripRef} className="flex snap-x gap-2 overflow-x-auto border-b border-cyan-200/15 bg-[#061642] px-3 py-3 no-scrollbar" aria-label="Choose a planet">
-        {PLANETS.map((planet) => (
-          <button key={planet.name} type="button" disabled={Boolean(pendingSave)} aria-current={selectedPlanet.name === planet.name ? 'true' : undefined} aria-label={planet.name === 'Pluto' ? 'Pluto, dwarf planet' : planet.name}
-            onClick={() => selectPlanet(planet.name)}
-            className={`flex min-w-[108px] flex-none snap-start flex-col items-center gap-1 rounded-2xl border-2 px-3 py-2 text-sm font-black transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200 ${selectedPlanet.name === planet.name ? 'border-cyan-300 text-white shadow-[0_0_15px_#30d5ff80]' : 'border-white/25 text-cyan-100 hover:brightness-125'}`}
-            style={{ background: `linear-gradient(145deg, ${planet.surface}bb, #142c77 52%, #081747)` }}>
-            <span className="relative block h-16 w-20" style={{ backgroundImage: `url(/models/${planet.name==='Earth'?'solar-v2':'solar-v1'}/${planet.name.toLowerCase()}.png)`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} aria-hidden="true">
-            </span>
-            <span>{planet.name}{badges.includes(planet.name) ? ' ★' : ''}</span>
-            {planet.name === 'Pluto' && <span className="text-[10px] font-bold uppercase tracking-wide">Dwarf planet</span>}
-          </button>
-        ))}
-      </nav>
-
-      <main className="grid items-start lg:grid-cols-[minmax(0,1.4fr)_minmax(340px,1fr)]">
-        <section className="relative min-w-0 border-b border-cyan-100/10 bg-[#020617] lg:sticky lg:top-0 lg:border-r">
-          <div className="bg-cyan-950 px-4 py-3 text-center"><h3 className="text-xl font-black">{overview?'Our Solar System':`Meet ${selectedPlanet.name} up close`}</h3><p className="text-sm text-cyan-100">Drag with a mouse · use two fingers to turn · scroll vertically to move the page</p><p className="text-xs text-cyan-100/75">Sizes, distances and motion are simplified.</p></div>
-          <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} />
-          <div className="solar-control-dock" role="group" aria-label="Planet view controls">
-            <button type="button" aria-label="Turn left" title="Turn left" onClick={()=>orreryRef.current?.rotate('y',-0.35)}><span aria-hidden="true">↶</span><span>Turn left</span></button>
-            <button type="button" aria-label="Turn right" title="Turn right" onClick={()=>orreryRef.current?.rotate('y',0.35)}><span aria-hidden="true">↷</span><span>Turn right</span></button>
-            <button type="button" aria-label="Tilt up" title="Tilt up" onClick={()=>orreryRef.current?.rotate('x',0.25)}><span aria-hidden="true">↑</span><span>Tilt up</span></button>
-            <button type="button" aria-label="Tilt down" title="Tilt down" onClick={()=>orreryRef.current?.rotate('x',-0.25)}><span aria-hidden="true">↓</span><span>Tilt down</span></button>
-            <button type="button" aria-label="Zoom in" title="Zoom in" onClick={()=>handleZoom('zoomIn')}><span aria-hidden="true">＋</span><span>Zoom in</span></button>
-            <button type="button" aria-label="Zoom out" title="Zoom out" onClick={()=>handleZoom('zoomOut')}><span aria-hidden="true">−</span><span>Zoom out</span></button>
-            <button type="button" className="solar-rotation-control" aria-pressed={!paused} aria-label={paused ? 'Resume rotation' : 'Pause rotation'} onClick={()=>setPaused(v=>!v)}><span aria-hidden="true">{paused ? '▶' : 'Ⅱ'}</span><span>{paused ? 'Resume' : 'Pause'}</span></button>
+      {panel === 'options' ? <FocusMenu choices={options} onBack={closeOptions} /> : panel === 'details' ? <>
+        <p className="focus-game-message">{selectedPlanet.subtitle}</p>
+        <p>{selectedPlanet.mission}</p>
+        <dl className="solar-focus-stats">{selectedPlanet.stats.map(stat => <div key={stat.label}><dt>{stat.label}</dt><dd>{stat.value}</dd></div>)}<div><dt>Temperature</dt><dd>{selectedPlanet.temperature}</dd></div></dl>
+        <p>{selectedPlanet.compare}</p>
+        <button type="button" className="focus-game-button mt-3" onClick={closeOptions}>Back to exploration</button>
+      </> : <>
+        {!inMission ? <>
+          <label className="focus-game-menu solar-focus-world">Choose a world
+            <select value={selectedPlanet.name} disabled={Boolean(pendingSave)} onChange={event => selectPlanet(event.target.value)}>
+              {PLANETS.map(planet => <option key={planet.name} value={planet.name}>{planet.name}{planet.name === 'Pluto' ? ' (dwarf planet)' : ''}{badges.includes(planet.name) ? ' ★' : ''}</option>)}
+            </select>
+          </label>
+          <p className="focus-game-message">Drag to turn the model. Sizes and distances are simplified.</p>
+          <div className="focus-game-actions">
+            <button type="button" className="focus-game-button is-primary" disabled={Boolean(pendingSave)} onClick={startMission}>{completedQuizzes[selectedPlanet.name] ? 'Replay' : 'Start'} {selectedPlanet.name} mission</button>
+            <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
+            <button type="button" className="focus-game-button" onClick={leave}>Back</button>
           </div>
-        </section>
-
-        <aside className="min-w-0 bg-gradient-to-b from-[#0a1830] via-[#081326] to-[#050b18] p-4 pb-24 md:pb-16">
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="relative grid h-14 w-14 shrink-0 place-items-center rounded-full border-4 border-white/15 shadow-lg" style={{ backgroundColor: selectedPlanet.surface }} aria-hidden="true">
-                <span className="h-5 w-5 rounded-full bg-white/25" />
-                {selectedPlanet.ring && <span className="absolute h-5 w-12 rotate-[-18deg] rounded-full border-2 border-white/70" />}
-              </div>
-              <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-300">Mission control</p>
-                <h3 className="text-3xl font-black">{selectedPlanet.name}</h3>
-              </div>
+        </> : <>
+          {currentMissionStage === 'discover' && <>
+            <p className="focus-game-message">Choose three discoveries · {mission.factsSeen.length} of 3 seen</p>
+            <div className="solar-focus-facts" aria-label="Discovery facts">
+              {selectedPlanet.facts.map((fact,index) => <button key={fact} type="button" className="focus-game-button" disabled={Boolean(pendingSave)} onClick={() => handleFact(index)} aria-pressed={mission.factsSeen.includes(index)}>
+                {mission.factsSeen.includes(index) ? '✓ ' : ''}{fact}
+              </button>)}
             </div>
-            <div className="rounded-2xl border border-cyan-200/15 bg-cyan-300/10 px-3 py-2 text-center">
-              <div className="text-xl font-black text-cyan-300">{discoveredForPlanet}/3</div>
-              <div className="text-[10px] font-black uppercase text-cyan-100/55">badge</div>
+          </>}
+          {currentMissionStage === 'compare' && <p className="pattern-focus-explanation">{selectedPlanet.compare}</p>}
+          {currentMissionStage === 'challenge' && <>
+            <p className="focus-game-message">{selectedPlanet.quiz.question}</p>
+            <div className="solar-focus-facts" aria-label="Choose your answer">
+              {quizOptions.map(option => <button key={option} type="button" className="focus-game-button" disabled={Boolean(pendingSave)} onClick={() => handleQuiz(option)}>{option}</button>)}
             </div>
+            {quizFeedback && <p role="status" className="focus-game-message">{quizFeedback}</p>}
+          </>}
+          {currentMissionStage === 'complete' && <p role="status" className="pattern-focus-explanation">Your {selectedPlanet.name} mission is saved in the discovery passport.</p>}
+          {saveWarning && <p role="alert" className="focus-game-message">{saveWarning}</p>}
+          <div className="focus-game-actions mt-3">
+            {saveWarning && pendingSave
+              ? <button type="button" className="focus-game-button is-primary" onClick={retryPassportSave}>Retry save</button>
+              : currentMissionStage === 'compare' ? <button type="button" className="focus-game-button is-primary" onClick={() => continueMission('challenge')}>Next: Challenge</button>
+                : currentMissionStage === 'complete' && <button type="button" className="focus-game-button is-primary" onClick={() => setMission(null)}>Explore another world</button>}
+            <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
           </div>
-          <p className="mt-2 pl-[4.25rem] font-bold text-white/55">{selectedPlanet.subtitle}</p>
-          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10" aria-label={`${discoveredForPlanet} of 3 discoveries found`}>
-            <div className="h-full rounded-full bg-gradient-to-r from-cyan-300 to-violet-300 transition-all" style={{ width: `${Math.max(8, (discoveredForPlanet / 3) * 100)}%` }} />
-          </div>
-          <p className="mt-1 text-right text-[10px] font-black uppercase tracking-wide text-cyan-100/45">{discoveredForPlanet >= 3 ? 'World badge collected — explore more discoveries below' : 'Find 3 discoveries to earn the badge'}</p>
-
-          <div className="mt-5 rounded-2xl border border-violet-200/20 bg-gradient-to-br from-violet-300/15 to-cyan-300/5 p-4 shadow-lg">
-            <div className="flex items-center gap-2 text-sm font-black text-violet-200"><Sparkles size={17} /> Your discovery goal</div>
-            <p className="mt-1 font-bold text-white/80">Choose any three of {selectedPlanet.facts.length} discovery facts to earn this world’s badge.</p>
-            <p className="mt-1 text-sm font-bold text-cyan-100">{discoveredForPlanet} of 3 discoveries found</p>
-          </div>
-
-          <section ref={missionRef} tabIndex={-1} className="mt-4 rounded-2xl border border-cyan-200/25 bg-cyan-300/10 p-4" aria-label={`${selectedPlanet.name} mission`}>
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <h4 className="font-black">{selectedPlanet.name} mission</h4>
-              <span className="rounded-full bg-cyan-200/15 px-3 py-1 text-xs font-black uppercase tracking-wide text-cyan-100">{currentMissionStage ? `Step ${({ discover: 1, compare: 2, challenge: 3, complete: 3 })[currentMissionStage]} of 3` : 'Discover → Compare → Challenge'}</span>
-            </div>
-            {!currentMissionStage && <><p className="mt-2 text-sm text-white/80">Explore three facts, compare this world, then solve its mission challenge.</p><button type="button" disabled={Boolean(pendingSave)} onClick={startMission} className="mt-3 min-h-12 rounded-xl bg-cyan-200 px-4 font-black text-slate-950">{completedQuizzes[selectedPlanet.name] ? `Replay ${selectedPlanet.name} mission` : `Start ${selectedPlanet.name} mission`}</button></>}
-            {currentMissionStage === 'discover' && <p className="mt-2 text-sm font-bold text-cyan-50">Step 1: Choose any three facts in the Discovery deck below. Your mission answers stay fixed while you explore.</p>}
-            {currentMissionStage === 'compare' && <div className="mt-3 rounded-xl bg-slate-950/45 p-3"><p className="text-xs font-black uppercase tracking-wide text-cyan-200">Step 2: Compare</p><p className="mt-1 font-bold">{selectedPlanet.compare}</p><p className="mt-1 text-sm text-white/75">Use that comparison with the three facts you just explored.</p><button type="button" disabled={Boolean(pendingSave)} onClick={() => continueMission('challenge')} className="mt-3 min-h-12 rounded-xl bg-cyan-200 px-4 font-black text-slate-950">Continue to the challenge</button></div>}
-            {currentMissionStage === 'challenge' && <div className="mt-3 rounded-xl bg-slate-950/45 p-3"><p className="text-xs font-black uppercase tracking-wide text-cyan-200">Step 3: Challenge</p><p className="mt-1 text-sm font-bold text-white/80">{selectedPlanet.quiz.question}</p><div className="mt-3 flex flex-wrap gap-2">{quizOptions.map((option) => <button key={option} type="button" disabled={Boolean(pendingSave)} onClick={() => handleQuiz(option)} className="min-h-12 rounded-xl bg-white/10 px-4 py-2 text-sm font-black text-white hover:bg-cyan-200 hover:text-slate-950 disabled:opacity-55">{option}</button>)}</div>{quizFeedback && <p role="status" className="mt-3 text-sm font-black text-amber-200">{quizFeedback}</p>}</div>}
-            {currentMissionStage === 'complete' && <div className="mt-3 rounded-xl bg-emerald-300/15 p-3" role="status"><p className="font-black text-emerald-100">Mission complete — saved in your discovery passport.</p><p className="mt-1 text-sm text-white/80">You can keep exploring or replay this world’s facts.</p><button type="button" onClick={startMission} className="mt-3 min-h-12 rounded-xl bg-emerald-100 px-4 font-black text-emerald-950">Replay {selectedPlanet.name} mission</button></div>}
-          </section>
-
-          <details className="solar-optional-details mt-4">
-            <summary>Optional planet details and challenge</summary>
-            <div className="mt-3 grid grid-cols-2 gap-2">
-            {selectedPlanet.stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                <div className="text-xl">{stat.emoji}</div>
-                <div className="text-[10px] font-black uppercase tracking-wide text-white/35">{stat.label}</div>
-                <div className="font-black text-white/85">{stat.value}</div>
-              </div>
-            ))}
-            <div className="col-span-2 rounded-2xl border border-orange-300/15 bg-orange-300/10 p-3">
-              <div className="text-[10px] font-black uppercase tracking-wide text-orange-200/65">Temperature</div>
-              <div className="font-black text-orange-100">{selectedPlanet.temperature}</div>
-            </div>
-            </div>
-            <div className="mt-3 rounded-2xl border border-violet-200/20 bg-violet-300/10 p-4">
-              <p className="font-black">About {selectedPlanet.name}</p>
-              <p className="mt-1 font-bold">{selectedPlanet.mission}</p>
-              <p className="mt-2 text-sm">{selectedPlanet.compare}</p>
-            </div>
-            {currentMissionStage === null && <div className="mt-3 rounded-2xl border border-white/10 bg-white/5 p-4">
-              <div className="flex items-center justify-between gap-3">
-                <h4 className="font-black">Optional Captain’s challenge</h4>
-                <span className="rounded-full bg-cyan-300/15 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-cyan-200">{difficulty}</span>
-              </div>
-              <p className="mt-1 text-sm font-bold text-white/70">{selectedPlanet.quiz.question}</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {quizOptions.map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    onClick={() => handleQuiz(option)}
-                    disabled={Boolean(pendingSave || completedQuizzes[selectedPlanet.name])}
-                    className="min-h-12 rounded-xl bg-white/10 px-3 py-2 text-sm font-black text-white/80 transition hover:bg-cyan-300 hover:text-slate-950 disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:bg-white/10 disabled:hover:text-white/80"
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-              {quizFeedback && (
-                <p role="status" className={`mt-3 text-sm font-black ${quizFeedback.startsWith('Correct') ? 'text-emerald-300' : 'text-amber-300'}`}>
-                  {quizFeedback}
-                </p>
-              )}
-            </div>}
-          </details>
-
-          <div className="mt-5">
-            <div className="flex items-center justify-between">
-              <h4 className="font-black">Discovery deck</h4>
-              {getOfflineVoiceClip(selectedPlanet.facts[activeFact], 'en-US') && <button
-                type="button"
-                disabled={!soundOn}
-                onClick={() => sayPackaged(selectedPlanet.facts[activeFact])}
-                className="flex min-h-12 items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/70"
-              >
-                <Volume2 size={14} /> Listen
-              </button>}
-            </div>
-            <div className="mt-2 grid grid-cols-3 gap-2">
-              {selectedPlanet.facts.map((fact, index) => (
-                <button
-                  key={fact}
-                  disabled={Boolean(pendingSave)}
-                  onClick={() => handleFact(index)}
-                  className={`relative min-h-12 rounded-xl border p-2 text-left text-xs font-black transition ${
-                    activeFact === index
-                      ? 'border-cyan-300 bg-cyan-300 text-slate-950'
-                      : 'border-white/10 bg-white/5 text-white/65 hover:bg-white/10'
-                  }`}
-                  aria-label={`Discovery ${index + 1}: ${fact}`}
-                >
-                  {discoveredFacts[`${selectedPlanet.name}-${index}`] && (
-                    <span className="absolute right-1 top-1 text-[10px]">★</span>
-                  )}
-                  Fact {index + 1}
-                </button>
-              ))}
-            </div>
-            <div className="mt-2 min-h-24 rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4">
-              <p className="text-sm font-black text-cyan-200">Did you know?</p>
-              <p className="mt-1 font-bold leading-snug text-white/85">{selectedPlanet.facts[activeFact]}</p>
-            </div>
-          </div>
-
-          <div className="mt-5 text-center text-xs font-bold text-white/35">
-            World badges collected: {badges.length}/{PLANETS.length}
-          </div>
-        </aside>
-      </main>
-    </div>
-  );
+        </>}
+        <p className="mt-3 text-sm font-bold" aria-label="Discovery passport">Passport · {Object.keys(discoveredFacts).length} facts · {Object.keys(completedQuizzes).length} missions · {badges.length} badges</p>
+        {rehearsalJourney && <nav aria-label="Continue your discovery" className="mt-3 flex flex-wrap gap-3">
+          <a href="#/play/codecadets" onClick={event => { event.preventDefault(); onLaunchGame?.('codecadets'); }}>Next: Code Cadets</a>
+          <a href="#/play/writingdesk" onClick={event => { event.preventDefault(); onLaunchGame?.('writingdesk'); }}>Write a discovery report</a>
+        </nav>}
+      </>}
+    </main>
+  </div>;
 };
 
-export { SolarOrrery };
 export default SolarSystem;

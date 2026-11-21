@@ -1036,3 +1036,8 @@
 .astro-play-hint { flex-wrap:wrap; justify-content:center; gap:8px; text-align:center; }
 .astro-play-hint button { display:inline-flex; min-width:86px; align-items:center; justify-content:center; border:1px solid #c9d3e8; border-radius:12px; padding:7px 10px; background:#fff; color:#44528f; font-size:12px; font-weight:800; }
 .astro-play-hint button:disabled { opacity:.45; cursor:not-allowed; }
+
+.astronaut-focus .astro-question-stage { min-height: 0; justify-content: flex-start; padding: 0; }
+.astronaut-focus .astro-question-card { width: 100%; box-shadow: none; border-radius: .9rem; }
+.astronaut-focus .astro-question-illustration { width: 105px; height: 105px; }
+.astronaut-focus .astro-question-illustration :is(.astro-hero-portrait-wrap, .astro-hero-portrait) { width: 100%; height: 100%; }
