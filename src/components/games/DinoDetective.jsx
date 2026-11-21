@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { dinoFoundNarration } from '../../data/batch3Narration.js';
-import { ArrowLeft, BookOpen, Lightbulb } from 'lucide-react';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import DinoIcon from '../shared/DinoIcon.jsx';
 import { DinoSticker } from '../shared/StickerArt.jsx';
 import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
 import {
-  DINO_DETECTIVE_BANDS, DINO_DETECTIVE_NARRATION, DINO_DETECTIVE_WORLDS,
+  DINO_DETECTIVE_NARRATION, DINO_DETECTIVE_WORLDS,
   DINO_SEARCH_SPOTS, createDinoDetectiveRun, createDinoRunSeed, getDinoCluePlan,
 } from '../../data/dinoDetectiveBatch3.js';
 import {
@@ -64,6 +63,7 @@ const DinoDetective = ({ onBack, playSfx = () => {}, speak = () => {}, cancelNar
   const [result, setResult] = useState(null);
   const [saveError, setSaveError] = useState('');
   const [pendingRewardReceipt, setPendingRewardReceipt] = useState(null);
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [savingProgress, setSavingProgress] = useState(false);
   const [mistakes, setMistakes] = useState(0);
   const [hints, setHints] = useState(0);
@@ -227,38 +227,70 @@ const DinoDetective = ({ onBack, playSfx = () => {}, speak = () => {}, cancelNar
     onBack?.();
   };
 
-  const compactActivePhone = phase === 'active' && !found;
+  const closeOptions = () => setOptionsOpen(false);
+  const showMap = () => { cancelNarration(); closeOptions(); setPhase('map'); };
+  const showCollection = () => { cancelNarration(); closeOptions(); setPhase('collection'); };
+  const startSelected = index => { closeOptions(); startWorld(index); };
+  const sayInstruction = () => speak(DINO_DETECTIVE_NARRATION.instruction, { premium: false, segments: [DINO_DETECTIVE_NARRATION.instruction] });
+  const showWrittenClue = () => { setFeedback(world.hint); speak(world.hint, { premium: false, segments: [world.hint] }); };
+  const readFoundFacts = () => { const narration = dinoFoundNarration(world); speak(narration.text, { premium: false, segments: narration.segments }); };
+  const newestWorld = DINO_DETECTIVE_WORLDS[progress.unlockedWorldIndex];
+  const firstAction = phase === 'complete' && DINO_DETECTIVE_WORLDS[worldIndex + 1]?.index <= progress.unlockedWorldIndex
+    ? DINO_DETECTIVE_WORLDS[worldIndex + 1] : newestWorld;
+  const options = [
+    ...(phase === 'active' ? [
+      ...(!found && soundOn ? [{ label: 'Hear instructions', action: () => { closeOptions(); sayInstruction(); } }] : []),
+      ...(!found ? [{ label: 'Read a clue', action: () => { closeOptions(); showWrittenClue(); } }] : []),
+      { label: 'Back to worlds', disabled: found && Boolean(saveError), action: showMap },
+    ] : DINO_DETECTIVE_WORLDS.map(entry => ({
+      label: entry.name, description: entry.targetName, disabled: entry.index > progress.unlockedWorldIndex,
+      button: isCompleted(progress, entry) ? 'Replay world' : 'Explore world', action: () => startSelected(entry.index),
+    }))),
+    { label: 'World sticker book', disabled: found && phase === 'active' && Boolean(saveError), action: showCollection },
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { if (soundOn) cancelNarration(); onToggleSound?.(); closeOptions(); } },
+    { label: 'Back to Explore & Languages', action: back },
+  ];
 
-  return <div className={`relative flex flex-col overflow-hidden bg-gradient-to-b from-emerald-100 via-green-100 to-teal-200 text-emerald-950 ${compactActivePhone ? 'h-[calc(100dvh-12rem)] min-h-[32rem] px-2 pb-1 pt-2' : 'min-h-[100dvh] px-3 pb-5 pt-3'} sm:h-auto sm:min-h-[100dvh] sm:px-6 sm:pb-5 sm:pt-5`}>
-    <header className="z-10 mx-auto flex w-full max-w-5xl items-center justify-between gap-2 rounded-3xl border border-emerald-900/15 bg-white/75 p-3 shadow-lg">
-      <button type="button" onClick={back} className="game-icon-button shrink-0" aria-label="Back to learning world"><ArrowLeft /></button>
-      <div className="min-w-0 text-center"><h1 className="truncate text-lg font-black sm:text-2xl">Dino Detective</h1><p className="text-xs font-bold sm:text-sm">{phase === 'active' ? `${world.name} · Find ${roundIndex + 1} of 5` : 'Twelve worlds · Three bands'}</p></div>
-      <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-    </header>
+  if (optionsOpen || phase !== 'active') return <div className="focus-game dino-focus" data-board-focus="">
+    <main className={`focus-game-body${phase === 'collection' && !optionsOpen ? '' : ' is-menu'}`}>
+      <header className="focus-game-heading"><h1>{optionsOpen ? 'Dino Detective' : phase === 'collection' ? 'World sticker book' : phase === 'complete' ? `${world.name} complete!` : 'Dino Detective'}</h1></header>
+      {optionsOpen ? <FocusMenu choices={options} onBack={closeOptions} /> : phase === 'collection' ? <>
+        <p className="focus-game-message">{progress.earnedWorldStickerIds.length} of {DINO_DETECTIVE_WORLDS.length} world stickers</p>
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">{DINO_DETECTIVE_WORLDS.map(entry => {
+          const earned = progress.earnedWorldStickerIds.includes(entry.stickerId);
+          return <div key={entry.stickerId} className="rounded-xl bg-white p-3 text-center">
+            <div className="flex h-[60px] items-center justify-center">{earned ? <DinoSticker species={entry.targetSpecies} size={56} /> : <span aria-hidden="true">🔒</span>}</div>
+            <p className="font-bold">{entry.stickerName}</p><p className="text-sm">{earned ? 'Earned' : 'Locked'}</p>
+          </div>;
+        })}</div>
+        <button type="button" className="focus-game-button mt-3" onClick={showMap}>Back to worlds</button>
+      </> : <>
+        <div className="dino-focus-hero"><DinoSticker species={phase === 'complete' ? world.targetSpecies : firstAction.targetSpecies} size={160} /></div>
+        <p className="focus-game-message">{phase === 'complete' ? result?.newlyEarnedSticker ? `Sticker earned: ${world.stickerName}.` : 'Your best result is saved.' : `Find ${firstAction.targetName} five times to earn a sticker.`}</p>
+        {!progressState.ok && <p className="focus-game-message" role="alert">Saved progress could not be read. You can practise the first world.</p>}
+        {pendingRewardReceipt && <p className="focus-game-message" role="alert">A saved world reward needs confirmation.</p>}
+        <div className="focus-game-actions">
+          {pendingRewardReceipt
+            ? <button type="button" className="focus-game-button is-primary" onClick={() => claimRewardReceipt(pendingRewardReceipt, true)}>Retry reward</button>
+            : <button type="button" className="focus-game-button is-primary" onClick={() => startSelected(firstAction.index)}>{isCompleted(progress, firstAction) ? 'Replay' : phase === 'complete' ? 'Next' : 'Explore'}: {firstAction.name}</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={phase === 'complete' ? showMap : back}>{phase === 'complete' ? 'Back to worlds' : 'Back'}</button>
+        </div>
+      </>}
+    </main>
+  </div>;
 
-    {phase === 'map' && <main className="z-10 mx-auto mt-4 w-full max-w-5xl rounded-[2rem] border border-white/60 bg-white/80 p-4 shadow-xl sm:p-6">
-      <p className="text-center text-sm font-bold sm:text-base">Explore one world at a time. Find the featured animal in five places to earn its sticker.</p>
-      {!progressState.ok && <p className="mx-auto mt-3 max-w-2xl rounded-xl border-2 border-amber-500 bg-amber-50 px-4 py-3 text-center font-bold text-amber-950" role="status">Saved world progress could not be read safely. You can practise the first world, but saved unlocks and rewards stay unavailable until storage can be read.</p>}
-      {pendingRewardReceipt && <div className="mx-auto mt-3 flex max-w-2xl flex-wrap items-center justify-center gap-3 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 py-3 text-center font-bold text-amber-950" role="status"><span>The saved dinosaur world reward is waiting for confirmation.</span><button type="button" onClick={() => claimRewardReceipt(pendingRewardReceipt, true)} className="min-h-12 rounded-xl bg-amber-700 px-4 font-black text-white">Retry reward</button></div>}
-      {DINO_DETECTIVE_BANDS.map((band) => <section key={band.id} className="mt-4"><h2 className="font-black">{band.name}</h2><div className="mt-2 grid grid-cols-2 gap-2 md:grid-cols-4">{DINO_DETECTIVE_WORLDS.filter((entry) => entry.bandId === band.id).map((entry) => {
-        const unlocked = entry.index <= progress.unlockedWorldIndex; const complete = isCompleted(progress, entry);
-        return <article key={entry.id} className={`rounded-2xl border-2 p-3 ${unlocked ? 'border-emerald-800/20 bg-emerald-50' : 'border-slate-300 bg-slate-100 opacity-65'}`}>
-          <div className="flex h-11 items-center">{unlocked ? <DinoIcon species={entry.targetSpecies} size={48} /> : <span aria-hidden="true" className="text-3xl">🔒</span>}</div><h3 className="mt-1 font-black">{entry.name}</h3>
-          <p className="text-xs font-semibold">{entry.targetName} · {complete ? 'Complete' : unlocked ? 'Ready' : 'Locked'}</p>
-          <button type="button" disabled={!unlocked} onClick={() => startWorld(entry.index)} className="mt-2 min-h-12 w-full rounded-xl bg-emerald-800 px-2 text-sm font-black text-white disabled:bg-slate-400">{complete ? 'Replay' : unlocked ? 'Explore' : 'Locked'}</button>
-        </article>;
-      })}</div></section>)}
-      <button type="button" onClick={() => { cancelNarration(); setPhase('collection'); }} className="mx-auto mt-4 flex min-h-12 items-center gap-2 rounded-xl bg-emerald-900 px-4 font-black text-white"><BookOpen size={18} /> World stickers ({progress.earnedWorldStickerIds.length}/12)</button>
-    </main>}
-
-    {phase === 'collection' && <main className="z-10 mx-auto mt-5 w-full max-w-4xl rounded-[2rem] bg-white/85 p-5 shadow-xl"><h2 className="text-center text-2xl font-black">World sticker book</h2><p className="mt-1 text-center font-semibold">Stickers appear after all five finds in a world.</p><div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">{DINO_DETECTIVE_WORLDS.map((entry) => { const earned = progress.earnedWorldStickerIds.includes(entry.stickerId); return <div key={entry.stickerId} className="rounded-2xl border bg-emerald-50 p-3 text-center"><div className="flex h-[60px] items-center justify-center">{earned ? <DinoSticker species={entry.targetSpecies} size={56} /> : <span aria-hidden="true" className="text-3xl">🔒</span>}</div><p className="font-black">{entry.stickerName}</p><p className="text-xs">{earned ? 'Earned' : 'Locked'}</p></div>; })}</div><button type="button" onClick={() => { cancelNarration(); setPhase('map'); }} className="mx-auto mt-4 block min-h-12 rounded-xl bg-emerald-900 px-5 font-black text-white">Back to worlds</button></main>}
-
-    {phase === 'active' && run && <main className="z-10 mx-auto mt-2 flex w-full max-w-5xl flex-1 flex-col sm:mt-4">
-      <section className={`relative ${found ? 'flex min-h-0 flex-1 flex-col justify-center overflow-y-auto rounded-[2rem] border-4 border-white/80 bg-emerald-950 p-3 text-white shadow-2xl sm:p-5' : `min-h-[360px] flex-1 overflow-hidden rounded-[2rem] border-4 border-white/80 bg-gradient-to-br ${ambientStyles[world.ambientId]} p-3 text-white shadow-2xl sm:min-h-[460px] sm:p-6`}`}>
+  return <div className="focus-game dino-focus" data-board-focus="" data-dino-world={world.id}>
+    <main className="focus-game-body">
+      <header className="focus-game-heading">
+        <p>Dino Detective · {world.name} · Find {roundIndex + 1} of 5</p>
+        <h1>{found ? `You found ${world.targetName}!` : `Find ${world.targetName}`}</h1>
+      </header>
+      <section className={`relative ${found ? 'flex min-h-0 flex-1 flex-col justify-center overflow-y-auto rounded-[2rem] border-4 border-white/80 bg-emerald-950 p-3 text-white shadow-2xl sm:p-5' : `flex-1 overflow-hidden rounded-xl border-2 border-white/80 bg-gradient-to-br ${ambientStyles[world.ambientId]} p-1.5 text-white sm:p-3`}`}>
         {!found && <>
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-50"><div className="absolute left-[8%] top-[17%] h-16 w-16 rounded-full bg-lime-200/35 blur-xl"/><div className="absolute right-[10%] top-[32%] h-24 w-24 rounded-full bg-cyan-200/25 blur-2xl"/><div className="absolute bottom-[8%] left-[42%] h-20 w-32 rounded-full bg-amber-100/20 blur-2xl"/></div>
-        <div className="relative z-10 flex flex-nowrap items-start justify-between gap-1 sm:gap-2"><div className="min-w-0 flex-1"><p className="text-[10px] font-black uppercase tracking-[.1em] text-white/80 sm:text-xs sm:tracking-widest">{world.bandId} band · {world.name}</p><h2 className="text-xl font-black leading-tight sm:text-3xl">Find {world.targetName}</h2><p className="mt-1 hidden max-w-xl font-semibold text-white/90 sm:block">{world.hint}</p>{cluePlan?.baselineText && <p className="mt-1 w-fit rounded-xl border border-white/70 bg-slate-950/80 px-2 py-1 text-sm font-black leading-tight text-white shadow sm:mt-2 sm:px-3 sm:py-2 sm:text-base" aria-label="Spatial clue">{cluePlan.baselineText}</p>}</div><span className="shrink-0 text-3xl leading-none sm:text-5xl" aria-hidden="true">{world.mark}</span></div>
-        <div className={`relative z-10 mx-auto mt-2 min-h-[212px] max-w-3xl overflow-hidden rounded-3xl border border-white/25 ${world.bandIndex === 2 ? 'bg-black/30' : 'bg-black/15'} sm:mt-4 sm:min-h-[300px]`} role="group" aria-label={`${world.name} search area`}>
+        {cluePlan?.baselineText && <p className="relative z-10 font-black text-white" aria-label="Spatial clue">{cluePlan.baselineText}</p>}
+        <div className={`dino-focus-search relative z-10 mt-2 overflow-hidden rounded-xl ${world.bandIndex === 2 ? 'bg-black/30' : 'bg-black/15'}`} role="group" aria-label={`${world.name} search area`} data-dino-search="">
           <img src={dinoPark} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35" />
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/25 via-transparent to-slate-950/50" />
           <SceneAmbience id={world.ambientId} />
@@ -282,7 +314,7 @@ const DinoDetective = ({ onBack, playSfx = () => {}, speak = () => {}, cancelNar
           })}
           {cluePlan?.revealTarget && targetSpot && <div aria-hidden="true" className="pointer-events-none absolute z-20 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-yellow-200/80" style={{ left: `${targetSpot.x}%`, top: `${targetSpot.y}%`, width: 78, height: 78 }} />}
         </div>
-        <div className="relative z-10 mt-2 flex flex-col gap-1 sm:mt-3 sm:flex-row sm:items-center sm:justify-between sm:gap-2"><p aria-live="polite" role="status" className={`min-h-6 font-black ${feedback === DINO_DETECTIVE_NARRATION.instruction ? 'hidden sm:block' : ''}`}>{feedback}</p><div className="grid w-full grid-cols-3 gap-1 sm:flex sm:w-auto sm:gap-2"><button type="button" aria-label="Hear instructions" onClick={() => speak(DINO_DETECTIVE_NARRATION.instruction, { premium: false, segments: [DINO_DETECTIVE_NARRATION.instruction] })} className="inline-flex min-h-12 items-center justify-center gap-1 rounded-xl bg-white/15 px-1 text-xs font-black sm:gap-2 sm:px-3 sm:text-base"><span className="sm:hidden">Hear</span><span className="hidden sm:inline">Hear instructions</span></button><button type="button" aria-label="Read clue" onClick={() => { setFeedback(world.hint); speak(world.hint, { premium: false, segments: [world.hint] }); }} className="inline-flex min-h-12 items-center justify-center gap-1 rounded-xl bg-white/15 px-1 text-xs font-black sm:gap-2 sm:px-3 sm:text-base"><BookOpen size={17}/> Read clue</button><button type="button" disabled={!cluePlan || cluePlan.step >= cluePlan.maxStep || found} onClick={showClue} aria-label={cluePlan?.buttonLabel || 'Show a clue'} className="inline-flex min-h-12 items-center justify-center gap-1 rounded-xl bg-amber-300 px-1 text-xs font-black text-emerald-950 disabled:opacity-55 sm:gap-2 sm:px-3 sm:text-base"><Lightbulb size={17}/><span className="sm:hidden">More clue</span><span className="hidden sm:inline">{cluePlan?.buttonLabel || 'Clue shown'}</span></button></div></div>
+        <p aria-live="polite" role="status" className="relative z-10 mt-2 font-bold">{feedback}</p>
         {saveError && <p role="status" className="relative z-20 mt-2 rounded-xl border-2 border-amber-200 bg-amber-50 px-3 py-2 text-sm font-black text-amber-950">{saveError}</p>}
         </>}
         {found && <div className="relative z-10 mx-auto flex w-full max-w-2xl flex-col gap-2 rounded-2xl border-2 border-emerald-100 bg-emerald-950/95 p-3 shadow-xl sm:gap-3 sm:p-4" role="status" aria-live="polite">
@@ -290,14 +322,18 @@ const DinoDetective = ({ onBack, playSfx = () => {}, speak = () => {}, cancelNar
           <p className="rounded-xl bg-white/10 px-3 py-2 text-sm font-semibold sm:text-base">{world.targetFact}</p>
           <p className="rounded-xl border-t border-white/20 bg-white/10 px-3 py-2 text-sm font-bold sm:text-base">World fact: {world.sceneFact}</p>
           {saveError && <p className="rounded-xl border-2 border-amber-200 bg-amber-50 px-3 py-2 text-sm font-black text-amber-950">{saveError}</p>}
-          <button type="button" onClick={() => { const narration = dinoFoundNarration(world); speak(narration.text, { premium: false, segments: narration.segments }); }} className="min-h-11 w-full rounded-xl bg-white/15 px-4 font-black">Read facts again</button>
-          <button type="button" onClick={next} disabled={savingProgress} className="min-h-12 w-full rounded-xl bg-amber-300 px-5 font-black text-emerald-950 disabled:opacity-60">{savingProgress ? 'Saving world…' : pendingRewardReceipt ? 'Retry reward' : saveError ? 'Retry saving world' : roundIndex < 4 ? 'Next find' : 'Finish world'}</button>
         </div>}
       </section>
-      {!found && <p className="mx-auto mt-2 hidden max-w-4xl text-sm font-bold sm:block">Five numbered hiding places. {world.bandIndex === 0 ? 'A bright footprint trail leads to the target.' : world.bandIndex === 1 ? 'Look for the trail as it bends between places.' : 'Follow the faint trail; use Show a clue whenever you need it.'}</p>}
-    </main>}
-
-    {phase === 'complete' && <main className="z-10 mx-auto mt-8 w-full max-w-xl rounded-[2rem] border-2 border-amber-200 bg-emerald-950 p-6 text-center text-white shadow-2xl"><div className="text-6xl" aria-hidden="true">{result?.newlyEarnedSticker ? world.mark : '🏆'}</div><h2 className="mt-2 text-3xl font-black">{world.name} complete</h2><p className="mt-2 font-semibold">{DINO_DETECTIVE_NARRATION.complete}</p>{result?.newlyEarnedSticker && <p className="mt-3 rounded-xl bg-amber-200 p-3 font-black text-emerald-950">Sticker earned: {world.stickerName}</p>}<p className="mt-2 font-bold">Best: {progress.bestStars[world.id] || 0} stars</p><div className="mt-5 flex flex-wrap justify-center gap-3"><button type="button" onClick={() => { cancelNarration(); setPhase('map'); }} className="min-h-12 rounded-xl bg-white px-5 font-black text-emerald-950">World map</button><button type="button" onClick={() => { cancelNarration(); setPhase('collection'); }} className="min-h-12 rounded-xl bg-amber-300 px-5 font-black text-emerald-950">Sticker book</button></div></main>}
+      <div className="focus-game-actions mt-3">
+        {found
+          ? <>
+            <button type="button" onClick={next} disabled={savingProgress} className="focus-game-button is-primary">{savingProgress ? 'Saving world…' : pendingRewardReceipt ? 'Retry reward' : saveError ? 'Retry saving world' : roundIndex < 4 ? 'Next find' : 'Finish world'}</button>
+            {soundOn && <button type="button" className="focus-game-button" onClick={readFoundFacts}>Hear the facts</button>}
+          </>
+          : <button type="button" className="focus-game-button is-primary" disabled={!cluePlan || cluePlan.step >= cluePlan.maxStep} onClick={showClue}>{cluePlan?.buttonLabel || 'Show a clue'}</button>}
+        <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+      </div>
+    </main>
   </div>;
 };
 

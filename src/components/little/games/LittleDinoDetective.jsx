@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Search, Volume2 } from 'lucide-react';
+import { Volume2 } from 'lucide-react';
 import { SHADOW_DINO_ART } from '../../../data/shadowMatchArt.js';
 import LittleGameShell from '../LittleGameShell.jsx';
 import { Dino } from '../DinoArt.jsx';
@@ -74,14 +74,13 @@ const DetectiveFieldNotes = ({ species, field, helped, sayFound, sayDevice, play
     <button type="button" onClick={sayFound} className="mx-auto flex min-h-12 items-center gap-2 rounded-xl bg-white px-3 font-black">
       <Volume2 size={19} aria-hidden="true" /> Hear the name
     </button>
-    <div className="grid grid-cols-2 gap-2" role="group" aria-label="Detective activities">
-      <button type="button" aria-pressed={activity === 'tracks'} onClick={() => start('tracks')} className="flex min-h-12 items-center justify-center gap-1 rounded-xl bg-amber-100 px-2 font-black text-amber-950 aria-pressed:ring-2 aria-pressed:ring-amber-700">
-        <Footprint className="h-6 w-6 shrink-0" /> Count tracks
-      </button>
-      <button type="button" aria-pressed={activity === 'feature'} onClick={() => start('feature')} className="flex min-h-12 items-center justify-center gap-1 rounded-xl bg-sky-100 px-2 font-black text-sky-950 aria-pressed:ring-2 aria-pressed:ring-sky-700">
-        <Search size={19} className="shrink-0" aria-hidden="true" /> Spot the feature
-      </button>
-    </div>
+    <label className="focus-game-menu mx-auto text-left">Detective activity
+      <select value={activity || ''} onChange={event => start(event.target.value)}>
+        <option value="" disabled>Choose an activity</option>
+        <option value="tracks">Count tracks</option>
+        <option value="feature">Spot the feature</option>
+      </select>
+    </label>
     {activity && <section className="space-y-2 rounded-xl bg-white p-2" aria-label={activity === 'tracks' ? 'Count tracks activity' : 'Spot the feature activity'}>
       <h3 className="font-black">{activity === 'tracks' ? 'How many tracks?' : cluePrompt}</h3>
       {activity === 'tracks' && <div data-detective-count><TrackRow count={field.tracks} /></div>}
@@ -228,7 +227,7 @@ const LittleDinoDetective = (props) => {
     window.speechSynthesis.speak(utterance);
   };
   return (
-    <LittleGameShell {...props} gameId="dino" title="Dino Detective" intro={LITTLE_LINES.dinoIntro} finishLine={LITTLE_LINES.dinoFound} background="from-sky-400 via-emerald-300 to-lime-300" backgroundArtPortrait={PORTRAIT_SCENE} playFullBleed pairSafeProgress manualNext compactStart compactDone manualNextPrompt="Ready to search for the next dinosaur?" manualNextReviewLabel="Dinosaur find" startArt={<img src={ASKIA} alt="Askia ready to look for dinosaurs" className="pointer-events-none mx-auto h-full max-h-full w-full object-contain drop-shadow-2xl" />} renderUnlock={() => <DetectiveDino kind="trike" className="h-full w-full" />}>
+    <LittleGameShell {...props} gameId="dino" title="Dino Detective" intro={LITTLE_LINES.dinoIntro} finishLine={LITTLE_LINES.dinoFound} background="from-sky-400 via-emerald-300 to-lime-300" backgroundArtPortrait={PORTRAIT_SCENE} playFullBleed pairSafeProgress manualNext compactStart compactDone focusedControls manualNextPrompt="Find another dinosaur" manualNextReviewLabel="Dinosaur find" startArt={<img src={ASKIA} alt="Askia ready to look for dinosaurs" className="pointer-events-none mx-auto h-full max-h-full w-full object-contain drop-shadow-2xl" />} renderUnlock={() => <DetectiveDino kind="trike" className="h-full w-full" />}>
       {({ round, playId, config, complete, mistake }) => (
         <DetectiveRound key={`${playId}-${round}`} round={round} playId={playId} runSeed={visitSeed} config={config} complete={complete} mistake={mistake} speak={speakOffline} sayDevice={sayDevice} playSfx={props.playSfx} />
       )}

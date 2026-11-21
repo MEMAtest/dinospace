@@ -497,3 +497,9 @@
 .german-focus-word { color: #17497a; font-size: clamp(1.75rem, 7vw, 2.6rem); font-weight: 850; line-height: 1.08; }
 .german-focus-scene { position: relative; height: clamp(13rem, 37vh, 27rem); overflow: hidden; border-radius: .8rem; background: #ffe5a8; }
 .german-focus-drive { display: grid; gap: .65rem; width: min(100%, 25rem); margin-inline: auto; }
+
+.dino-focus { background: #eaf6e8; }
+.dino-focus .focus-game-body:not(.is-menu) { width: min(100%, 67rem); padding: clamp(.65rem, 2vw, 1.25rem); }
+.dino-focus-hero { display: grid; min-height: 9rem; place-items: center; }
+.dino-focus-search { min-height: clamp(23rem, 60svh, 35rem); }
+.dino-focus-search button { min-width: 56px; min-height: 56px; }

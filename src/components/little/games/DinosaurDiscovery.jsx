@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, BookOpen, Check, Search, Volume2, VolumeX } from 'lucide-react';
+import { FocusMenu } from '../../shared/FocusMenu.jsx';
 import { collectDiscoverySticker, DISCOVERY_CREATURES, DISCOVERY_HABITATS, readDiscoveryStickers } from '../../../data/dinosaurDiscovery.js';
 import { DinoSticker } from '../../shared/StickerArt.jsx';
 import ShadowDino from '../ShadowDino.jsx';
@@ -38,22 +38,23 @@ function getActivityOptions(creature) {
   };
 }
 
-const CreatureVisit = ({ creature, collected, collect, say, onReturn }) => {
+const CreatureVisit = ({ creature, collected, collect, say, onReturn, returnLabel, showStickers, onBack, backLabel, soundOn, toggleSound }) => {
   const [feature, setFeature] = useState(false);
   const [activity, setActivity] = useState(null);
   const [retry, setRetry] = useState(false);
   const [won, setWon] = useState(false);
   const [saveFailed, setSaveFailed] = useState(false);
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const activityRef = useRef(null);
   const name = creature.spokenName || creature.name;
   const options = getActivityOptions(creature);
   const prompt = activity === 'food' ? `What did ${creature.name} eat?` : `Find the other picture of ${creature.name}.`;
 
   useEffect(() => {
-    if (!activity) return;
+    if (!activity || optionsOpen) return;
     activityRef.current?.focus();
     activityRef.current?.scrollIntoView({ block: 'nearest' });
-  }, [activity]);
+  }, [activity, optionsOpen]);
 
   const reveal = () => {
     setFeature(true);
@@ -61,6 +62,7 @@ const CreatureVisit = ({ creature, collected, collect, say, onReturn }) => {
   };
 
   const start = kind => {
+    setOptionsOpen(false);
     setRetry(false);
     setWon(false);
     setActivity(kind);
@@ -80,44 +82,59 @@ const CreatureVisit = ({ creature, collected, collect, say, onReturn }) => {
     say(saved ? `You found ${name}! There is a sticker in your book.` : `You found ${name}!`);
   };
 
-  return (
-    <div className="dinosaur-discovery__visit">
-      <div>
-        <button type="button" className={`dinosaur-discovery__portrait${feature ? ' is-revealed' : ''}`} onClick={reveal} aria-label={`Look closer at ${creature.name}`}>
-          <CreatureArt creature={creature} large />
-          <span className="dinosaur-discovery__portrait-label"><Search size={18} aria-hidden="true" /> Look closer</span>
-        </button>
-        {feature && <p className="dinosaur-discovery__fact" role="status">{creature.feature}</p>}
-        <div className="dinosaur-discovery__actions">
-          <button type="button" onClick={() => say(name)}><Volume2 size={20} aria-hidden="true" /> Hear name</button>
-          <button type="button" onClick={() => start('picture')}><span aria-hidden="true">🧩</span> Match picture</button>
-          {creature.food && <button type="button" onClick={() => start('food')}><span aria-hidden="true">🍽️</span> Find food</button>}
-        </div>
+  const closeOptions = () => setOptionsOpen(false);
+  const optionsMenu = [
+    ...(soundOn ? [{ label: 'Hear the name', action: () => { closeOptions(); say(name); } }] : []),
+    ...(creature.food && activity !== 'food' && !saveFailed ? [{ label: 'Find food', action: () => start('food') }] : []),
+    ...(activity && !saveFailed ? [{
+      label: 'Back to the portrait', action: () => { setActivity(null); setWon(false); closeOptions(); },
+    }] : []),
+    { label: returnLabel, disabled: saveFailed, action: onReturn },
+    { label: 'My sticker book', disabled: saveFailed, action: showStickers },
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { toggleSound?.(); closeOptions(); } },
+    { label: backLabel, action: onBack },
+  ];
+
+  if (optionsOpen) return <FocusMenu choices={optionsMenu} onBack={closeOptions} />;
+
+  return <div className="discovery-focus-visit">
+    {!activity ? <>
+      <div className="dinosaur-discovery__portrait discovery-focus-portrait">
+        <CreatureArt creature={creature} large />
       </div>
-      {activity && <section className="dinosaur-discovery__activity" ref={activityRef} tabIndex={-1} aria-label={prompt}>
-        {won ? <div className="dinosaur-discovery__win" role="status">
-          <strong><Check aria-hidden="true" /> Well done!</strong>
-          {activity === 'food' && <p>{creature.name} ate {FOODS[creature.food].name.toLowerCase()}.</p>}
-          {saveFailed ? <>
-            <p>Your browser couldn’t save the sticker.</p>
-            <button type="button" onClick={() => setSaveFailed(!collect(creature.id))}>Try saving again</button>
-          </> : <p>★ {creature.name} is in your sticker book.</p>}
-          <button type="button" onClick={onReturn}>Meet another <ArrowRight size={19} aria-hidden="true" /></button>
-        </div> : <>
-          <h3>{prompt}</h3>
-          {activity === 'picture' && <CreatureArt creature={creature} />}
-          <div className="dinosaur-discovery__grid">
-            {activity === 'picture' ? options.pictures.map(option => <CreatureTile key={option.id} creature={option} onClick={() => choose(option === creature)} />)
-              : options.foods.map(food => <button key={food} type="button" className="dinosaur-discovery__tile" onClick={() => choose(food === creature.food)}>
-                <span className="dinosaur-discovery__food" aria-hidden="true">{FOODS[food].icon}</span>{FOODS[food].name}
-              </button>)}
-          </div>
-          {retry && <p role="status">Try the other one.</p>}
-        </>}
-      </section>}
-      {!activity && collected && <p className="dinosaur-discovery__fact">★ Sticker collected</p>}
-    </div>
-  );
+      {feature && <p className="pattern-focus-explanation" role="status">{creature.feature}</p>}
+      {collected && <p className="focus-game-message">★ Sticker collected</p>}
+      <div className="focus-game-actions mt-3">
+        <button type="button" className="focus-game-button is-primary" onClick={() => start('picture')}>Match picture</button>
+        <button type="button" className="focus-game-button" onClick={reveal}>Look closer</button>
+        <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+      </div>
+    </> : <section ref={activityRef} tabIndex={-1} aria-label={prompt}>
+      {won ? <>
+        <h2 className="text-xl font-extrabold">You found {creature.name}!</h2>
+        {activity === 'food' && <p className="focus-game-message">{creature.name} ate {FOODS[creature.food].name.toLowerCase()}.</p>}
+        <p className="focus-game-message" role={saveFailed ? 'alert' : 'status'}>{saveFailed ? 'This sticker has not saved yet.' : `★ ${creature.name} is in your sticker book.`}</p>
+        <div className="focus-game-actions">
+          {saveFailed
+            ? <button type="button" className="focus-game-button is-primary" onClick={() => setSaveFailed(!collect(creature.id))}>Retry save</button>
+            : <button type="button" className="focus-game-button is-primary" onClick={onReturn}>Meet another</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+        </div>
+      </> : <>
+        <h2 className="text-xl font-extrabold">{prompt}</h2>
+        {activity === 'picture' && <div className="discovery-focus-reference"><CreatureArt creature={creature} large /></div>}
+        <div className="dinosaur-discovery__grid" aria-label="Creature activity choices">
+          {activity === 'picture' ? options.pictures.map(option => <CreatureTile key={option.id} creature={option} onClick={() => choose(option === creature)} />)
+            : options.foods.map(food => <button key={food} type="button" className="dinosaur-discovery__tile" onClick={() => choose(food === creature.food)}>
+              <span className="dinosaur-discovery__food" aria-hidden="true">{FOODS[food].icon}</span>{FOODS[food].name}
+            </button>)}
+        </div>
+        {retry && <p className="focus-game-message" role="status">Try the other one.</p>}
+        <button type="button" className="focus-game-button mt-3" onClick={() => setOptionsOpen(true)}>Options</button>
+      </>}
+    </section>}
+  </div>;
+
 };
 
 function getAlbum(playerId) {
@@ -128,11 +145,12 @@ function getAlbum(playerId) {
   }
 }
 
-export default function DinosaurDiscovery({ playerId, onBack, soundOn, onToggleSound, playSfx, cancelNarration }) {
+export default function DinosaurDiscovery({ playerId, bigKid, onBack, soundOn, onToggleSound, playSfx, cancelNarration }) {
   const [habitatId, setHabitatId] = useState('land');
   const [page, setPage] = useState(0);
   const [creature, setCreature] = useState(null);
   const [showAlbum, setShowAlbum] = useState(false);
+  const [panel, setPanel] = useState(null);
   const [album, setAlbum] = useState(() => getAlbum(playerId));
   const titleRef = useRef(null);
   const moveFocus = useRef(false);
@@ -180,6 +198,7 @@ export default function DinosaurDiscovery({ playerId, onBack, soundOn, onToggleS
     setAlbum(getAlbum(playerId));
     setCreature(null);
     setShowAlbum(true);
+    setPanel(null);
     say('Your sticker book.');
   };
 
@@ -207,64 +226,60 @@ export default function DinosaurDiscovery({ playerId, onBack, soundOn, onToggleS
     setCreature(null);
   };
 
-  return (
-    <div className="dinosaur-discovery" data-habitat={habitatId}>
-      <div className="dinosaur-discovery__inner">
-        <header className="dinosaur-discovery__header">
-          <button type="button" onClick={onBack}><ArrowLeft aria-hidden="true" size={22} /> Back</button>
-          <h1>Dinosaur Discovery World</h1>
-          <button type="button" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'} onClick={onToggleSound}>
-            {soundOn ? <Volume2 aria-hidden="true" size={24} /> : <VolumeX aria-hidden="true" size={24} />}
-          </button>
-        </header>
-        <main className="dinosaur-discovery__body">
-          {creature || showAlbum ? <div className="dinosaur-discovery__toolbar">
-            <button type="button" onClick={creature ? leaveVisit : returnToHabitats}><ArrowLeft size={20} aria-hidden="true" /> {creature && showAlbum ? 'Sticker book' : 'Habitats'}</button>
-            {!showAlbum && <button type="button" onClick={showStickers}><BookOpen size={20} aria-hidden="true" /> Sticker book</button>}
-          </div> : null}
-          {creature ? <>
-            <h2 tabIndex={-1} ref={titleRef}>{creature.name}</h2>
-            <CreatureVisit key={creature.id} creature={creature} collected={album.stickers.includes(creature.id)} collect={collect} say={say} onReturn={leaveVisit} />
-          </> : showAlbum ? <>
-            <h2 tabIndex={-1} ref={titleRef}>My sticker book</h2>
-            {album.unavailable ? <p role="status">This browser couldn’t read the sticker book.</p>
-              : <><p role="status">{collected.length} of {DISCOVERY_CREATURES.length} stickers</p>
-                {collected.length ? <div className="dinosaur-discovery__grid dinosaur-discovery__catalogue">
-                  {collected.map(item => <CreatureTile key={item.id} creature={item} onClick={() => visit(item)} collected />)}
-                </div> : <p>Match a creature’s picture to collect your first sticker.</p>}
-              </>}
-          </> : <>
-            <h2 tabIndex={-1} ref={titleRef}>Where shall we explore?</h2>
-            <div className="dinosaur-discovery__habitats" role="group" aria-label="Habitats">
-              {DISCOVERY_HABITATS.map(item => <button key={item.id} type="button" data-habitat-choice={item.id} aria-pressed={habitatId === item.id} onClick={() => selectHabitat(item)}>
-                <span aria-hidden="true">{item.icon}</span>{item.name}
-              </button>)}
-            </div>
-            <div className="dinosaur-discovery__toolbar dinosaur-discovery__toolbar--catalogue">
-              <h3>{habitat.group}</h3>
-              <button type="button" onClick={showStickers}><BookOpen size={19} aria-hidden="true" /> Sticker book</button>
-            </div>
-            <div className="dinosaur-discovery__grid dinosaur-discovery__catalogue">
-              {habitat.creatures.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE).map(item => <CreatureTile key={item.id} creature={item} onClick={() => visit(item)} collected={album.stickers.includes(item.id)} />)}
-            </div>
-            {maxPage > 0 && <div className="dinosaur-discovery__pages">
-              <button type="button" disabled={page === 0} onClick={() => setPage(page - 1)} aria-label="Previous creatures"><ArrowLeft aria-hidden="true" /></button>
-              <span aria-live="polite">Page {page + 1} of {maxPage + 1}</span>
-              <button type="button" disabled={page === maxPage} onClick={() => setPage(page + 1)} aria-label="More creatures"><ArrowRight aria-hidden="true" /></button>
-            </div>}
-            <details className="dinosaur-discovery__credits">
-              <summary>Facts and picture credits</summary>
-              <p>Original Dino Space illustrations. Creature facts are based on museum references.</p>
-              <ul>
-                <li><a href="https://www.nhm.ac.uk/discover/dino-directory.html" target="_blank" rel="noreferrer">Natural History Museum dinosaur directory</a></li>
-                <li><a href="https://www.nhm.ac.uk/discover/what-is-a-plesiosaur.html" target="_blank" rel="noreferrer">Natural History Museum guide to plesiosaurs</a></li>
-                <li><a href="https://www.nhm.ac.uk/discover/what-is-an-ichthyosaur.html" target="_blank" rel="noreferrer">Natural History Museum guide to ichthyosaurs</a></li>
-                <li><a href="https://www.amnh.org/explore/ology/ology-cards/358-pteranodon-longiceps" target="_blank" rel="noreferrer">American Museum of Natural History Pteranodon card</a></li>
-              </ul>
-            </details>
-          </>}
-        </main>
-      </div>
-    </div>
-  );
+  const leave = () => { speech?.cancel(); onBack?.(); };
+  const backLabel = bigKid ? 'Back to Explore & Languages' : 'Go home';
+  const shelfOptions = [
+    ...(showAlbum ? [{ label: 'Back to habitats', action: () => { setPanel(null); returnToHabitats(); } }]
+      : [{ label: 'My sticker book', action: showStickers }]),
+    { label: 'Facts and picture credits', action: () => setPanel('credits') },
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound?.(); setPanel(null); } },
+    { label: backLabel, action: leave },
+  ];
+
+  return <div className="focus-game dinosaur-discovery discovery-focus" data-board-focus="" data-habitat={habitatId}>
+    <main className={`focus-game-body${panel ? ' is-menu' : ''}`}>
+      <header className="focus-game-heading">
+        {creature && <p>Dinosaur Discovery World · {habitat.name}</p>}
+        <h1 tabIndex={-1} ref={titleRef}>{creature ? creature.name : panel === 'credits' ? 'Facts and picture credits' : showAlbum ? 'My sticker book' : 'Dinosaur Discovery World'}</h1>
+      </header>
+      {creature ? <CreatureVisit key={creature.id} creature={creature} collected={album.stickers.includes(creature.id)} collect={collect} say={say} onReturn={leaveVisit}
+        returnLabel={showAlbum ? 'Back to stickers' : 'Back to habitats'} showStickers={showStickers} onBack={leave} backLabel={backLabel} soundOn={soundOn} toggleSound={onToggleSound} />
+      : panel === 'options' ? <FocusMenu choices={shelfOptions} onBack={() => setPanel(null)} /> : panel === 'credits' ? <>
+        <p className="focus-game-message">Original Dino Space illustrations. Creature facts are based on museum references.</p>
+        <ul className="space-y-2 underline">
+          <li><a href="https://www.nhm.ac.uk/discover/dino-directory.html" target="_blank" rel="noreferrer">Natural History Museum dinosaur directory</a></li>
+          <li><a href="https://www.nhm.ac.uk/discover/what-is-a-plesiosaur.html" target="_blank" rel="noreferrer">Natural History Museum guide to plesiosaurs</a></li>
+          <li><a href="https://www.nhm.ac.uk/discover/what-is-an-ichthyosaur.html" target="_blank" rel="noreferrer">Natural History Museum guide to ichthyosaurs</a></li>
+          <li><a href="https://www.amnh.org/explore/ology/ology-cards/358-pteranodon-longiceps" target="_blank" rel="noreferrer">American Museum of Natural History Pteranodon card</a></li>
+        </ul>
+        <button type="button" className="focus-game-button mt-3" onClick={() => setPanel(null)}>Back to discovery</button>
+      </> : <>
+        {showAlbum ? <>
+          <p className="focus-game-message" role="status">{album.unavailable ? 'This browser could not read your sticker book.' : `${collected.length} of ${DISCOVERY_CREATURES.length} stickers`}</p>
+          {collected.length > 0 && <div className="dinosaur-discovery__grid dinosaur-discovery__catalogue" aria-label="Collected creatures">
+            {collected.map(item => <CreatureTile key={item.id} creature={item} onClick={() => visit(item)} collected />)}
+          </div>}
+        </> : <>
+          <label className="focus-game-menu mb-3">Choose a habitat
+            <select value={habitatId} onChange={event => selectHabitat(DISCOVERY_HABITATS.find(item => item.id === event.target.value))}>
+              {DISCOVERY_HABITATS.map(item => <option key={item.id} value={item.id}>{item.icon} {item.name} · {item.group}</option>)}
+            </select>
+          </label>
+          <p className="focus-game-message">Choose a creature to meet.</p>
+          <div className="dinosaur-discovery__grid dinosaur-discovery__catalogue" aria-label="Creatures in this habitat">
+            {habitat.creatures.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE).map(item => <CreatureTile key={item.id} creature={item} onClick={() => visit(item)} collected={album.stickers.includes(item.id)} />)}
+          </div>
+          {maxPage > 0 && <label className="focus-game-menu mt-3">More creatures
+            <select value={page} onChange={event => setPage(Number(event.target.value))}>
+              {Array.from({ length: maxPage + 1 }, (_, index) => <option key={index} value={index}>{habitat.creatures.slice(index * PAGE_SIZE, (index + 1) * PAGE_SIZE).map(item => item.name).join(' · ')}</option>)}
+            </select>
+          </label>}
+        </>}
+        <div className="focus-game-actions mt-3">
+          <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
+          <button type="button" className="focus-game-button" onClick={showAlbum ? returnToHabitats : leave}>{showAlbum ? 'Back to habitats' : 'Back'}</button>
+        </div>
+      </>}
+    </main>
+  </div>;
 }
