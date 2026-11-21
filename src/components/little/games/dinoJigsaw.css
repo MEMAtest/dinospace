@@ -68,3 +68,12 @@
  [data-little-game="dinojigsaw"][data-little-phase="save-error"]>main h2{font-size:1.3rem;line-height:1.2}
  [data-little-game="dinojigsaw"][data-little-phase="save-error"]>main button{min-height:48px}
 }
+
+.dino-jigsaw-heading{margin:0 0 .35rem;color:#462313;text-align:center;font-size:clamp(1rem,3vw,1.3rem);font-weight:850}
+[data-little-game="dinojigsaw"][data-board-focus] .dino-jigsaw-stage{max-width:75rem}
+[data-little-game="dinojigsaw"][data-board-focus] .dino-jigsaw-feedback{
+ min-height:0;padding:.5rem .75rem;border-width:0;border-radius:8px;box-shadow:none
+}
+@media(max-width:560px){
+ [data-little-game="dinojigsaw"][data-board-focus] :is(.dino-jigsaw-board-column,.dino-jigsaw-tray){max-width:100%!important}
+}

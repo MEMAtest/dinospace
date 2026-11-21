@@ -22,8 +22,9 @@ const BuildRound = ({ missing, colour, complete, mistake, speak, playSfx, firstR
   const [placed, setPlaced] = useState(() => ROCKET_PARTS.map((p) => p.id).filter((id) => !missing.includes(id)));
   const [tray] = useState(() => shuffled(missing));
   const [selected, setSelected] = useState(null);
+  const [targetKey, setTargetKey] = useState('');
   const [wrong, setWrong] = useState(false);
-  const [feedback, setFeedback] = useState({ kind: 'instruction', text: 'Drag a rocket part to its matching outline, or select a part and tap its outline.' });
+  const [feedback, setFeedback] = useState({ kind: 'instruction', text: 'Choose a rocket part, then tap or drag it to its outline.' });
   const [count, setCount] = useState(null);
   const [launched, setLaunched] = useState(false);
   const boardRef = useRef(null);
@@ -93,11 +94,12 @@ const BuildRound = ({ missing, colour, complete, mistake, speak, playSfx, firstR
     hint.touch();
     setPlaced((current) => [...current, partId]);
     setSelected(null);
+    setTargetKey('');
     const label = ROCKET_PARTS.find((part) => part.id === partId).label;
     const completesBuild = missing.every((id) => placed.includes(id) || id === partId);
     setFeedback({
       kind: 'correct',
-      text: completesBuild ? `${label} is in place. All parts are ready for the launch countdown!` : `${label} is in its outline. Keep adding the remaining parts.`,
+      text: completesBuild ? `${label} is in place. Get ready for launch!` : `${label} is in place. Choose the next part.`,
     });
     return true;
   };
@@ -109,23 +111,22 @@ const BuildRound = ({ missing, colour, complete, mistake, speak, playSfx, firstR
     const name = targetId === 'fins' ? `${zoneIndex === 0 ? 'left' : 'right'} fin` : part.label;
     return { targetId, zone, key: `${targetId}-${zoneIndex}`, name };
   }));
+  const selectedTarget = targetControls.find(item => item.key === targetKey);
   const ghostOf = (partId) => svgRef.current?.querySelector(`[data-ghost="${partId}"]`);
 
   const countdownText = count == null ? null : ['3', '2', '1', 'Blast off!'][count];
 
   return (
-    <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col items-center gap-3 px-3 pb-5 sm:flex-row sm:items-start sm:justify-center">
+    <div className="rocket-focus-stage">
       <div
         ref={boardRef}
         onClick={(event) => { if (selected) place(selected, { x: event.clientX, y: event.clientY }); }}
         role="presentation"
-        className={`relative flex w-[72vw] max-w-xs flex-none aspect-[2/3] items-end justify-center overflow-hidden rounded-[2rem] border-4 border-white/60 bg-gradient-to-b from-indigo-950 via-indigo-800 to-sky-700 p-4 shadow-2xl ${wrong ? 'animate-shake' : ''}`}
+        data-rocket-board
+        className={`relative flex items-end justify-center overflow-hidden rounded-2xl border-2 border-white/60 bg-gradient-to-b from-indigo-950 via-indigo-800 to-sky-700 p-2 shadow-xl ${wrong ? 'animate-shake' : ''}`}
       >
         <Stars />
-        <p role={feedback.kind === 'wrong' ? 'alert' : 'status'} aria-live="polite" className={`absolute left-3 right-3 top-3 z-30 rounded-xl border-2 px-3 py-2 text-center text-xs font-black leading-tight shadow sm:text-sm ${feedback.kind === 'wrong' ? 'border-rose-200 bg-rose-50/95 text-rose-900' : 'border-white/80 bg-white/95 text-indigo-950'}`}>
-          {feedback.text}
-        </p>
-        <div className={`relative z-10 w-48 transition-transform ease-in sm:w-56 ${launched ? '-translate-y-[120vh] duration-[1800ms]' : 'duration-300'}`}>
+        <div className={`rocket-focus-outline relative z-10 transition-transform ease-in ${launched ? '-translate-y-[120vh] duration-[1800ms]' : 'duration-300'}`}>
           <svg ref={svgRef} viewBox="0 0 200 300" className="w-full overflow-visible" role="img" aria-label="Your rocket assembly outline">
             {ROCKET_PARTS.map((part) => (placed.includes(part.id)
               ? <g key={part.id} className="animate-pop-in" style={{ transformOrigin: 'center', transformBox: 'fill-box' }}><RocketPart part={part.id} colour={colour.hex} illustrated /></g>
@@ -141,7 +142,7 @@ const BuildRound = ({ missing, colour, complete, mistake, speak, playSfx, firstR
         {countdownText && <div key={count} className={`absolute inset-0 z-20 grid place-items-center font-black text-amber-300 drop-shadow-[0_4px_0_rgba(0,0,0,.4)] animate-count-up ${count === 3 ? 'text-6xl' : 'text-8xl'}`}>{countdownText}</div>}
       </div>
 
-      <div ref={trayRef} className="grid max-h-[36dvh] w-full max-w-xs grid-cols-3 gap-3 overflow-y-auto rounded-[1.6rem] bg-white/50 p-3 shadow-inner sm:max-h-[72dvh] sm:w-80 sm:grid-cols-2">
+      <div ref={trayRef} className="rocket-focus-tray" aria-label="Rocket parts">
         {tray.filter((id) => !placed.includes(id)).map((id) => (
           <DragItem
             key={id}
@@ -149,37 +150,29 @@ const BuildRound = ({ missing, colour, complete, mistake, speak, playSfx, firstR
             selected={selected === id}
             data={{ part: id }}
             onPickUp={hint.touch}
-            onTap={() => { playSfx?.('tap'); setSelected(id); }}
+            onTap={() => { playSfx?.('tap'); setSelected(id); setTargetKey(''); setFeedback({ kind: 'instruction', text: 'Tap this part’s outline on the rocket.' }); }}
             onDrop={(point) => place(id, point)}
             className={`grid aspect-square place-items-center rounded-2xl border-4 bg-white p-2 shadow-lg ${selected === id ? 'border-amber-400 ring-4 ring-amber-300' : 'border-white'}`}
           >
             <RocketPartIcon part={id} colour={colour.hex} illustrated className="pointer-events-none h-full max-h-24 w-full" />
           </DragItem>
         ))}
-        {done && <div className="col-span-3 grid place-items-center py-4 text-5xl sm:col-span-1" aria-hidden="true">✨</div>}
-        {!done && <details className="col-span-3 rounded-xl border-2 border-indigo-300 bg-white/75 p-2 sm:col-span-2">
-          <summary className="min-h-11 cursor-pointer px-2 py-2 text-center font-black text-indigo-950">Choose an outline target</summary>
-          <div role="group" aria-label="Rocket outline targets" className="grid grid-cols-2 gap-2">
-            {targetControls.map(({ targetId, zone, key, name }) => (
-              <button
-                key={key}
-                type="button"
-                disabled={!selected}
-                aria-label={selected ? `Place ${selectedLabel} on the ${name} target` : `Target: ${name}; select a rocket part first`}
-                onClick={() => {
-                  const point = rocketPartCenter(zone, svgRef.current?.getBoundingClientRect());
-                  if (selected && point) place(selected, point, targetId);
-                }}
-                className="min-h-12 rounded-xl border-2 border-indigo-800 bg-white px-2 py-2 text-sm font-black text-indigo-950 shadow disabled:border-slate-400 disabled:bg-slate-100 disabled:text-slate-500"
-              >
-                Try the {name} target
-              </button>
-            ))}
-          </div>
-        </details>}
-        <p className="col-span-3 text-center text-sm font-bold text-indigo-950 sm:col-span-2">
-          Drag a part, or select one and try a matching outline.
-        </p>
+        {done && <p className="font-black text-indigo-950">{launched ? 'Rocket launched!' : 'Get ready for launch!'}</p>}
+      </div>
+      <div className="rocket-focus-feedback">
+        <p role={feedback.kind === 'wrong' ? 'alert' : 'status'} aria-live="polite" className="font-bold text-indigo-950">{feedback.text}</p>
+        {!done && selected && <div className="rocket-focus-targets" data-rocket-target-controls>
+          <label htmlFor="rocket-outline-target">Choose an outline for the {selectedLabel}</label>
+          <select id="rocket-outline-target" value={targetKey} onChange={event => setTargetKey(event.target.value)}>
+            <option value="">Choose a target</option>
+            {targetControls.map(({ key, name }) => <option key={key} value={key}>{name}</option>)}
+          </select>
+          <button type="button" className="focus-game-button" disabled={!selectedTarget} onClick={() => {
+            if (!selectedTarget) return;
+            const point = rocketPartCenter(selectedTarget.zone, svgRef.current?.getBoundingClientRect());
+            if (point) place(selected, point, selectedTarget.targetId);
+          }}>Try this outline</button>
+        </div>}
       </div>
       <HandHint
         show={hint.showHint && !done && Boolean(nextPart)}
@@ -204,6 +197,10 @@ const RocketBuilder = (props) => {
       title="Rocket Builder"
       pairSafeProgress
       compactStart
+      compactDone
+      focusedControls
+      manualNext
+      manualNextPrompt="Rocket launched!"
       speak={speakExact}
       intro={LITTLE_LINES.rocketIntro}
       background="from-indigo-500 via-sky-400 to-cyan-200"

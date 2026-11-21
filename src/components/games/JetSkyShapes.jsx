@@ -51,7 +51,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   const [missionAccuracy, setMissionAccuracy] = useState(0);
   const [keyboardCompletion, setKeyboardCompletion] = useState(false);
   const [missionStars, setMissionStars] = useState(1);
-  const [feedback, setFeedback] = useState('Choose a sky, then follow each glowing outline.');
+  const [feedback, setFeedback] = useState('');
   const [hadHint, setHadHint] = useState(false);
   const [hadMiss, setHadMiss] = useState(false);
   const [episodeBadge, setEpisodeBadge] = useState(false);
@@ -248,7 +248,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     setNewMissionStars(0);
     setHadHint(false);
     setHadMiss(false);
-    setFeedback(`Start at the green 1. Trace the ${mission.shape} outline.`);
+    setFeedback('');
   }, [mission?.id, phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const startSky = (selectedEpisode = episodeIndex) => {
@@ -670,7 +670,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
 
       {!traceReady && <>
         <progress className="sky-focus-progress" aria-label="Tracing progress" value={overallProgress} max={100} />
-        <p className="focus-game-message" role="status">{feedback}</p>
+        {feedback && <p className="focus-game-message" role="status">{feedback}</p>}
       </>}
       {traceReady && <>
         <p className="focus-game-message" role="status">{keyboardCompletion ? 'Keyboard-guided completion · 1 participation star.' : `${missionAccuracy}% accuracy · ${missionStars} of 3 stars.`}</p>

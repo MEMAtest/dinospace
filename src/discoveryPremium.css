@@ -331,3 +331,30 @@
 .colour-scoop { width: 2.4rem; height: 2.4rem; }
 .colour-focus-palette { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .5rem; margin-bottom: .75rem; }
 .colour-focus-palette li { display: flex; align-items: center; gap: .5rem; }
+
+.rocket-focus-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+  align-items: start;
+  align-content: start;
+  gap: .6rem;
+  width: min(100%, 57rem);
+  margin-inline: auto;
+  padding: .5rem .6rem 1rem;
+}
+.rocket-focus-stage [data-rocket-board] { aspect-ratio: 4 / 5; min-width: 0; }
+.rocket-focus-outline { width: min(78%, 19rem); }
+.rocket-focus-tray {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: .55rem;
+  align-content: start;
+}
+.rocket-focus-feedback { grid-column: 1/-1; padding: .6rem; border-radius: .55rem; background: #f2f9ff; }
+.rocket-focus-targets { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; margin-top: .5rem; }
+.rocket-focus-targets select { min-height: 48px; min-width: 8rem; border-radius: .5rem; padding: .3rem; border: 1px solid #a3b6cc; background: white; }
+.rocket-focus-targets label { font-weight: 800; }
+@media(max-width:620px) {
+  .rocket-focus-tray { grid-template-columns: minmax(0,1fr); gap: .35rem; }
+  .rocket-focus-tray [data-part] { width: min(100%, 5rem); min-height: 48px; }
+}

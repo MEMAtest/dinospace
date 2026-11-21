@@ -33,7 +33,7 @@ const PuzzlePicture = ({ scene, cols = 1, rows = 1, index = 0, className = '' })
   </div>;
 };
 
-const JigsawRound = ({ scene, grid: [cols, rows], complete, mistake, speak, playSfx, firstRound, bigKid, level, round, rounds }) => {
+const JigsawRound = ({ scene, grid: [cols, rows], complete, mistake, speak, playSfx, firstRound, bigKid, level }) => {
   const pieces = useMemo(() => Array.from({ length: cols * rows }, (_, id) => ({ id })), [cols, rows]);
   const [tray, setTray] = useState(() => shuffledOutOfOrder(pieces.map((piece) => piece.id)));
   const [placed, setPlaced] = useState([]);
@@ -116,7 +116,7 @@ const JigsawRound = ({ scene, grid: [cols, rows], complete, mistake, speak, play
   return (
     <div className={`dino-jigsaw-stage mx-auto flex w-full max-w-3xl flex-1 flex-col items-center gap-4 px-3 pb-6 lg:max-w-5xl lg:flex-row lg:items-start ${bigKid ? 'text-lg' : ''}`}>
       <div className={`dino-jigsaw-board-column relative w-full ${bigKid ? 'max-w-xl' : 'max-w-lg'} overflow-visible lg:flex-1`}>
-        <div className="dino-jigsaw-task" aria-live="polite"><strong>{jigsawTaskLine(scene)}</strong><span className="dino-jigsaw-round-meta">Round {round + 1}/{rounds} · {cols * rows} pieces</span><span className="dino-jigsaw-instruction">Choose a piece, then its matching space.</span></div>
+        <h2 className="dino-jigsaw-heading">{jigsawTaskLine(scene)}</h2>
         <div className="dino-jigsaw-board-controls"><p className="dino-jigsaw-progress" aria-live="polite">{placed.length} of {cols * rows} in place</p>
         {guideMode === 'on-demand' && <button type="button" className="dino-jigsaw-clue-toggle" aria-expanded={showPictureClue} onClick={() => { const next = !showPictureClue; setShowPictureClue(next); if (next) usedPictureClue.current = true; }}>{showPictureClue ? 'Hide picture clue' : 'Show picture clue'}</button>}</div>
         <div className={`dino-jigsaw-board relative overflow-hidden rounded-[1.6rem] border-[9px] border-amber-700 bg-white/60 shadow-2xl ${solved ? 'ring-8 ring-amber-300' : ''}`} style={{ aspectRatio: '4 / 3' }}>
@@ -194,6 +194,7 @@ const DinoJigsaw = (props) => {
       title="Dino Jigsaw"
       intro={LITTLE_LINES.jigsawIntro}
       pairSafeProgress
+      focusedControls
       manualNext
       compactStart
       compactDone
@@ -205,7 +206,7 @@ const DinoJigsaw = (props) => {
         ? <div className="dino-jigsaw-preview"><PuzzlePicture scene={JIGSAW_SCENES[config.scenes - 1]} /></div>
         : null)}
     >
-      {({ round, rounds, complete, mistake, playId, config, level }) => {
+      {({ round, complete, mistake, playId, config, level }) => {
         // Show newly unlocked pictures first; rotate otherwise to keep replays fresh.
         const newlyUnlocked = level === 0 || config.scenes > (JIGSAW_LEVELS[level - 1]?.scenes ?? 0);
         const scene = jigsawSceneForRound(JIGSAW_SCENES, order, config.scenes, round, playId, newlyUnlocked);
@@ -221,8 +222,6 @@ const DinoJigsaw = (props) => {
             firstRound={round === 0}
             bigKid={props.bigKid}
             level={level}
-            round={round}
-            rounds={rounds}
           />
         );
       }}

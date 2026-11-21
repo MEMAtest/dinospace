@@ -475,7 +475,7 @@ const LittleGameShell = ({
       <div className={optionsOpen ? 'hidden' : 'contents'}>
       {focusedControls ? <header className="little-focus-header">
         <h1>{title}</h1>
-        {phase === 'play' && <p>Match {round + 1} of {rounds}</p>}
+        {phase === 'play' && <p>{gameId === 'shadowmatch' ? 'Match' : 'Round'} {round + 1} of {rounds}</p>}
         {phase !== 'save-error' && <button type="button" className="focus-game-button" onClick={openOptions}>Options</button>}
       </header> : <header className="relative z-30 flex items-center gap-2 px-3 pb-2 pt-3 sm:gap-4 sm:px-6 sm:pt-4">
         <BigRoundButton onClick={onBack} label="Go home">
