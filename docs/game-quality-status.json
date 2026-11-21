@@ -2340,5 +2340,15 @@
     "gatewayDeployment": "6b02066cc313142afa4cffc7",
     "evidence": "docs/qa-evidence/board-menu-focus-20261121/README.md",
     "scope": "Cosmic Tic-Tac-Toe and Puzzle Pop now use the large play areas without the surrounding menu cards. The main action names the next lesson, match or picture. Mode selection and secondary controls are available through Options."
+  },
+  "latestChessMemoryFocusRehearsal": {
+    "runtime": "735aacf7d53edfa33faa1fde720cf538f58132f6",
+    "entry": "/assets/arcade-BoxOoj7g.js",
+    "worker": "amari-discovery-v97",
+    "backendUrl": "https://dinospace-hrps7j37j-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_5NCjhzV8kas7Gs9pM6HQNBcMx1Vo",
+    "gatewayDeployment": "6b0208660d00d5a03ebd4dc9",
+    "evidence": "docs/qa-evidence/chess-memory-focus-20261121/README.md",
+    "scope": "Chess Explorers and computer chess use a simpler entry, a large board and one place for settings. Amari Memory Match starts at the saved board, with options only when playing and a named next board after saving."
   }
 }

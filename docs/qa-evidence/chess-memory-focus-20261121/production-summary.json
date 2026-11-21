@@ -1,0 +1,771 @@
+{
+  "release": {
+    "runtime": "735aacf7d53edfa33faa1fde720cf538f58132f6",
+    "entry": "/assets/arcade-BoxOoj7g.js",
+    "worker": "amari-discovery-v97",
+    "backendUrl": "https://dinospace-hrps7j37j-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_5NCjhzV8kas7Gs9pM6HQNBcMx1Vo",
+    "gatewayDeployment": "6b0208660d00d5a03ebd4dc9",
+    "evidence": "docs/qa-evidence/chess-memory-focus-20261121/README.md",
+    "scope": "Chess Explorers and computer chess use a simpler entry, a large board and one place for settings. Amari Memory Match starts at the saved board, with options only when playing and a named next board after saving."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-BoxOoj7g.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Chess entry",
+          "buttons": [
+            "Play vs computer",
+            "Piece movement",
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess setup",
+          "buttons": [
+            "Start game",
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess active board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess turn with undo",
+          "buttons": [
+            "Undo turn",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess move history",
+          "buttons": [
+            "Back to board"
+          ]
+        },
+        {
+          "label": "Chess saved setup",
+          "buttons": [
+            "Resume saved game",
+            "New game",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess replaces saved match",
+          "buttons": [
+            "Keep saved game",
+            "Start new game"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess lesson board",
+          "buttons": [
+            "",
+            "Show clue"
+          ]
+        },
+        {
+          "label": "Chess solved lesson",
+          "buttons": [
+            "",
+            "Next puzzle"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Piece movement",
+            "Back"
+          ]
+        },
+        {
+          "label": "Memory active board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Memory completed board",
+          "buttons": [
+            "Next: Ocean Splash",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay: Forest Friends",
+            "Back"
+          ]
+        }
+      ],
+      "chessSize": {
+        "x": 12,
+        "y": 106.53125,
+        "width": 366,
+        "height": 366
+      },
+      "memorySize": {
+        "x": 10,
+        "y": 89.390625,
+        "width": 370,
+        "height": 183
+      },
+      "turns": [
+        "1. e2\u2013e4",
+        "1\u2026 a7\u2013a5"
+      ],
+      "chessResumeAndUndo": true,
+      "chessLessonRetryAndNext": true,
+      "memoryPairs": 4,
+      "memoryMismatches": 2,
+      "first": "Memory Match \u00b7 Forest Friends \u00b7 1 of 10\n\nFind the matching pairs\n\n0 of 4 pairs \u00b7 0 moves",
+      "nextName": "Ocean Splash",
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-BoxOoj7g.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Chess entry",
+          "buttons": [
+            "Play vs computer",
+            "Piece movement",
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess setup",
+          "buttons": [
+            "Start game",
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess active board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess turn with undo",
+          "buttons": [
+            "Undo turn",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess move history",
+          "buttons": [
+            "Back to board"
+          ]
+        },
+        {
+          "label": "Chess saved setup",
+          "buttons": [
+            "Resume saved game",
+            "New game",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess replaces saved match",
+          "buttons": [
+            "Keep saved game",
+            "Start new game"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess lesson board",
+          "buttons": [
+            "",
+            "Show clue"
+          ]
+        },
+        {
+          "label": "Chess solved lesson",
+          "buttons": [
+            "",
+            "Next puzzle"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Piece movement",
+            "Back"
+          ]
+        },
+        {
+          "label": "Memory active board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Memory completed board",
+          "buttons": [
+            "Next: Ocean Splash",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay: Forest Friends",
+            "Back"
+          ]
+        }
+      ],
+      "chessSize": {
+        "x": 186,
+        "y": 68.375,
+        "width": 748,
+        "height": 748
+      },
+      "memorySize": {
+        "x": 440,
+        "y": 93.390625,
+        "width": 560,
+        "height": 278
+      },
+      "turns": [
+        "1. e2\u2013e4",
+        "1\u2026 a7\u2013a5"
+      ],
+      "chessResumeAndUndo": true,
+      "chessLessonRetryAndNext": true,
+      "memoryPairs": 4,
+      "memoryMismatches": 2,
+      "first": "Memory Match \u00b7 Forest Friends \u00b7 1 of 10\n\nFind the matching pairs\n\n0 of 4 pairs \u00b7 0 moves",
+      "nextName": "Ocean Splash",
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-BoxOoj7g.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Chess entry",
+          "buttons": [
+            "Play vs computer",
+            "Piece movement",
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess setup",
+          "buttons": [
+            "Start game",
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess active board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess turn with undo",
+          "buttons": [
+            "Undo turn",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess move history",
+          "buttons": [
+            "Back to board"
+          ]
+        },
+        {
+          "label": "Chess saved setup",
+          "buttons": [
+            "Resume saved game",
+            "New game",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess replaces saved match",
+          "buttons": [
+            "Keep saved game",
+            "Start new game"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess lesson board",
+          "buttons": [
+            "",
+            "Show clue"
+          ]
+        },
+        {
+          "label": "Chess solved lesson",
+          "buttons": [
+            "",
+            "Next puzzle"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Piece movement",
+            "Back"
+          ]
+        },
+        {
+          "label": "Memory active board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Memory completed board",
+          "buttons": [
+            "Next: Ocean Splash",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay: Forest Friends",
+            "Back"
+          ]
+        }
+      ],
+      "chessSize": {
+        "x": 12,
+        "y": 106.53125,
+        "width": 366,
+        "height": 366
+      },
+      "memorySize": {
+        "x": 10,
+        "y": 89.390625,
+        "width": 370,
+        "height": 183
+      },
+      "turns": [
+        "1. e2\u2013e4",
+        "1\u2026 a7\u2013a5"
+      ],
+      "chessResumeAndUndo": true,
+      "chessLessonRetryAndNext": true,
+      "memoryPairs": 4,
+      "memoryMismatches": 2,
+      "first": "Memory Match \u00b7 Forest Friends \u00b7 1 of 10\n\nFind the matching pairs\n\n0 of 4 pairs \u00b7 0 moves",
+      "nextName": "Ocean Splash",
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-BoxOoj7g.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Chess entry",
+          "buttons": [
+            "Play vs computer",
+            "Piece movement",
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess setup",
+          "buttons": [
+            "Start game",
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess active board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Chess turn with undo",
+          "buttons": [
+            "Undo turn",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess move history",
+          "buttons": [
+            "Back to board"
+          ]
+        },
+        {
+          "label": "Chess saved setup",
+          "buttons": [
+            "Resume saved game",
+            "New game",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess replaces saved match",
+          "buttons": [
+            "Keep saved game",
+            "Start new game"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Move history",
+            "Back"
+          ]
+        },
+        {
+          "label": "Chess lesson board",
+          "buttons": [
+            "",
+            "Show clue"
+          ]
+        },
+        {
+          "label": "Chess solved lesson",
+          "buttons": [
+            "",
+            "Next puzzle"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Piece movement",
+            "Back"
+          ]
+        },
+        {
+          "label": "Memory active board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Memory completed board",
+          "buttons": [
+            "Next: Ocean Splash",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay: Forest Friends",
+            "Back"
+          ]
+        }
+      ],
+      "chessSize": {
+        "x": 186,
+        "y": 68.375,
+        "width": 748,
+        "height": 748
+      },
+      "memorySize": {
+        "x": 440,
+        "y": 93.390625,
+        "width": 560,
+        "height": 278
+      },
+      "turns": [
+        "1. e2\u2013e4",
+        "1\u2026 a7\u2013a5"
+      ],
+      "chessResumeAndUndo": true,
+      "chessLessonRetryAndNext": true,
+      "memoryPairs": 4,
+      "memoryMismatches": 2,
+      "first": "Memory Match \u00b7 Forest Friends \u00b7 1 of 10\n\nFind the matching pairs\n\n0 of 4 pairs \u00b7 0 moves",
+      "nextName": "Ocean Splash",
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-hrps7j37j-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "03fbe6b7dfd8866c7cf208619dd6efdf1f0296c897eed8b55ce68e66e0ab0c19"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "03fbe6b7dfd8866c7cf208619dd6efdf1f0296c897eed8b55ce68e66e0ab0c19"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "8da3fa0494c15d2f3e124fa26b586a0fd8858e9686e945900a5fe368391fb379"
+        },
+        {
+          "path": "/art/catalog-v3/game-chess.webp",
+          "bytes": 54424,
+          "sha256": "7326fab1757cd07399052205b8b14d12ffc22cbb893fc983d0d305fef458587b"
+        },
+        {
+          "path": "/art/catalog-v3/game-memory.webp",
+          "bytes": 48778,
+          "sha256": "b5a32b04a743de79ecc04fbe9cc9f053074fc38d20a37d0dd6f88299c4cb3a96"
+        },
+        {
+          "path": "/assets/arcade-BoxOoj7g.js",
+          "bytes": 2125619,
+          "sha256": "62f59e6f77d9ca7aedd7852197c2ead4ee6231d4cec16a47864f232dd9c6c637"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BMMutH9Q.css",
+          "bytes": 28104,
+          "sha256": "a8c2f4756cc5c99489f39f481c2b687fbb5f06942f99d51b4d8cecc5799c63a7"
+        },
+        {
+          "path": "/assets/arcade-KF8560rI.css",
+          "bytes": 282801,
+          "sha256": "63092c7ccb8b20e920c12916f37552812affa7e0efa5d0710263072fba5c6b6a"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b0208567b6c575a44bd699a--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "03fbe6b7dfd8866c7cf208619dd6efdf1f0296c897eed8b55ce68e66e0ab0c19"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "03fbe6b7dfd8866c7cf208619dd6efdf1f0296c897eed8b55ce68e66e0ab0c19"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "8da3fa0494c15d2f3e124fa26b586a0fd8858e9686e945900a5fe368391fb379"
+        },
+        {
+          "path": "/art/catalog-v3/game-chess.webp",
+          "bytes": 54424,
+          "sha256": "7326fab1757cd07399052205b8b14d12ffc22cbb893fc983d0d305fef458587b"
+        },
+        {
+          "path": "/art/catalog-v3/game-memory.webp",
+          "bytes": 48778,
+          "sha256": "b5a32b04a743de79ecc04fbe9cc9f053074fc38d20a37d0dd6f88299c4cb3a96"
+        },
+        {
+          "path": "/assets/arcade-BoxOoj7g.js",
+          "bytes": 2125619,
+          "sha256": "62f59e6f77d9ca7aedd7852197c2ead4ee6231d4cec16a47864f232dd9c6c637"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BMMutH9Q.css",
+          "bytes": 28104,
+          "sha256": "a8c2f4756cc5c99489f39f481c2b687fbb5f06942f99d51b4d8cecc5799c63a7"
+        },
+        {
+          "path": "/assets/arcade-KF8560rI.css",
+          "bytes": 282801,
+          "sha256": "63092c7ccb8b20e920c12916f37552812affa7e0efa5d0710263072fba5c6b6a"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "03fbe6b7dfd8866c7cf208619dd6efdf1f0296c897eed8b55ce68e66e0ab0c19"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "03fbe6b7dfd8866c7cf208619dd6efdf1f0296c897eed8b55ce68e66e0ab0c19"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "8da3fa0494c15d2f3e124fa26b586a0fd8858e9686e945900a5fe368391fb379"
+        },
+        {
+          "path": "/art/catalog-v3/game-chess.webp",
+          "bytes": 54424,
+          "sha256": "7326fab1757cd07399052205b8b14d12ffc22cbb893fc983d0d305fef458587b"
+        },
+        {
+          "path": "/art/catalog-v3/game-memory.webp",
+          "bytes": 48778,
+          "sha256": "b5a32b04a743de79ecc04fbe9cc9f053074fc38d20a37d0dd6f88299c4cb3a96"
+        },
+        {
+          "path": "/assets/arcade-BoxOoj7g.js",
+          "bytes": 2125619,
+          "sha256": "62f59e6f77d9ca7aedd7852197c2ead4ee6231d4cec16a47864f232dd9c6c637"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BMMutH9Q.css",
+          "bytes": 28104,
+          "sha256": "a8c2f4756cc5c99489f39f481c2b687fbb5f06942f99d51b4d8cecc5799c63a7"
+        },
+        {
+          "path": "/assets/arcade-KF8560rI.css",
+          "bytes": 282801,
+          "sha256": "63092c7ccb8b20e920c12916f37552812affa7e0efa5d0710263072fba5c6b6a"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}
