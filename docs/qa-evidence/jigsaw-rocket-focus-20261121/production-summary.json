@@ -1,0 +1,767 @@
+{
+  "release": {
+    "runtime": "09dca591bdc41cbdec573e1ebf0268c907d186ca",
+    "entry": "/assets/arcade-TTjUMnko.js",
+    "worker": "amari-discovery-v101",
+    "backendUrl": "https://dinospace-4d56q4g35-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_49CryjDAxkw3PF8Yh4vg1eEFNgqw",
+    "gatewayDeployment": "6b020e71c83bb056c1fa3953",
+    "evidence": "docs/qa-evidence/jigsaw-rocket-focus-20261121/README.md",
+    "scope": "Dino Jigsaw uses nearly the full phone width for its puzzle, with only the picture clue and Options outside the pieces. Rocket Builder puts the parts alongside a larger launch pad and holds the result after launch until the player chooses Next."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-TTjUMnko.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Jigsaw entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Jigsaw active",
+          "buttons": [
+            "Options",
+            "Show picture clue"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Jigsaw saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Rocket Builder entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Rocket Builder play",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Rocket Builder saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Shape lessons",
+            "Back"
+          ]
+        }
+      ],
+      "jigsawSize": {
+        "x": 4,
+        "y": 139.1875,
+        "width": 382,
+        "height": 286.5
+      },
+      "rocketSize": {
+        "x": 9.59375,
+        "y": 65.59375,
+        "width": 244.6875,
+        "height": 305.859375
+      },
+      "jigsawRounds": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "rocketRounds": [
+        3,
+        4,
+        4
+      ],
+      "wrongPlacements": true,
+      "realDrag": true,
+      "level4AfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-TTjUMnko.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Jigsaw entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Jigsaw active",
+          "buttons": [
+            "Options",
+            "Show picture clue"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Jigsaw saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Rocket Builder entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Rocket Builder play",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Rocket Builder saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Shape lessons",
+            "Back"
+          ]
+        }
+      ],
+      "jigsawSize": {
+        "x": 132,
+        "y": 156.1875,
+        "width": 667,
+        "height": 500.25
+      },
+      "rocketSize": {
+        "x": 273.59375,
+        "y": 65.59375,
+        "width": 598.296875,
+        "height": 747.859375
+      },
+      "jigsawRounds": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "rocketRounds": [
+        3,
+        4,
+        4
+      ],
+      "wrongPlacements": true,
+      "realDrag": true,
+      "level4AfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-TTjUMnko.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Jigsaw entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Jigsaw active",
+          "buttons": [
+            "Options",
+            "Show picture clue"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Jigsaw saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Rocket Builder entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Rocket Builder play",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Rocket Builder saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Shape lessons",
+            "Back"
+          ]
+        }
+      ],
+      "jigsawSize": {
+        "x": 4,
+        "y": 139.1875,
+        "width": 382,
+        "height": 286.5
+      },
+      "rocketSize": {
+        "x": 9.59375,
+        "y": 65.59375,
+        "width": 244.6875,
+        "height": 305.859375
+      },
+      "jigsawRounds": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "rocketRounds": [
+        3,
+        4,
+        4
+      ],
+      "wrongPlacements": true,
+      "realDrag": true,
+      "level4AfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-TTjUMnko.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Jigsaw entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Jigsaw active",
+          "buttons": [
+            "Options",
+            "Show picture clue"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Jigsaw held result",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Jigsaw saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Rocket Builder entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Rocket Builder play",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Rocket Builder held launch",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Rocket Builder saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Shape lessons",
+            "Back"
+          ]
+        }
+      ],
+      "jigsawSize": {
+        "x": 132,
+        "y": 156.1875,
+        "width": 667,
+        "height": 500.25
+      },
+      "rocketSize": {
+        "x": 273.59375,
+        "y": 65.59375,
+        "width": 598.296875,
+        "height": 747.859375
+      },
+      "jigsawRounds": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "rocketRounds": [
+        3,
+        4,
+        4
+      ],
+      "wrongPlacements": true,
+      "realDrag": true,
+      "level4AfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-4d56q4g35-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "54fdeb460f8ba6a393ddca31b063f556213d8a67c82dd3e192827fade976cb6e"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "54fdeb460f8ba6a393ddca31b063f556213d8a67c82dd3e192827fade976cb6e"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16576,
+          "sha256": "51fce81477896b878be5cc25fc6d8703b31880d3dce68e23830dccf8e0751feb"
+        },
+        {
+          "path": "/art/catalog-v3/game-dinojigsaw.webp",
+          "bytes": 52588,
+          "sha256": "a5aa565a986fb9604766d36b56d43c6ff259b9b052d5c2a56e2f9ad8312ff158"
+        },
+        {
+          "path": "/art/catalog-v3/game-rocketbuilder.webp",
+          "bytes": 46880,
+          "sha256": "76590b9f7b08eb404464deef8d4f226efd6adfb1671d50ca28a933b09126fbe7"
+        },
+        {
+          "path": "/assets/arcade-TTjUMnko.js",
+          "bytes": 2074808,
+          "sha256": "dd8b29ffa3cdfae2f65027e8dff5bbf8897060854d6e911fe0f946054551e7ea"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-B4J91SPG.css",
+          "bytes": 33907,
+          "sha256": "1154f89f77cedf3ac815e4751ee7fd1c98751cd815d5ba7e1e27bb0be8ead059"
+        },
+        {
+          "path": "/assets/arcade-DXSwYHA0.css",
+          "bytes": 266158,
+          "sha256": "8138259f0c9446530bfb3d656f570651c69ad9aadf09e283812f586b6710eda4"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b020e62ee250fbe00b06dd5--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "54fdeb460f8ba6a393ddca31b063f556213d8a67c82dd3e192827fade976cb6e"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "54fdeb460f8ba6a393ddca31b063f556213d8a67c82dd3e192827fade976cb6e"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16576,
+          "sha256": "51fce81477896b878be5cc25fc6d8703b31880d3dce68e23830dccf8e0751feb"
+        },
+        {
+          "path": "/art/catalog-v3/game-dinojigsaw.webp",
+          "bytes": 52588,
+          "sha256": "a5aa565a986fb9604766d36b56d43c6ff259b9b052d5c2a56e2f9ad8312ff158"
+        },
+        {
+          "path": "/art/catalog-v3/game-rocketbuilder.webp",
+          "bytes": 46880,
+          "sha256": "76590b9f7b08eb404464deef8d4f226efd6adfb1671d50ca28a933b09126fbe7"
+        },
+        {
+          "path": "/assets/arcade-TTjUMnko.js",
+          "bytes": 2074808,
+          "sha256": "dd8b29ffa3cdfae2f65027e8dff5bbf8897060854d6e911fe0f946054551e7ea"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-B4J91SPG.css",
+          "bytes": 33907,
+          "sha256": "1154f89f77cedf3ac815e4751ee7fd1c98751cd815d5ba7e1e27bb0be8ead059"
+        },
+        {
+          "path": "/assets/arcade-DXSwYHA0.css",
+          "bytes": 266158,
+          "sha256": "8138259f0c9446530bfb3d656f570651c69ad9aadf09e283812f586b6710eda4"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "54fdeb460f8ba6a393ddca31b063f556213d8a67c82dd3e192827fade976cb6e"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "54fdeb460f8ba6a393ddca31b063f556213d8a67c82dd3e192827fade976cb6e"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16576,
+          "sha256": "51fce81477896b878be5cc25fc6d8703b31880d3dce68e23830dccf8e0751feb"
+        },
+        {
+          "path": "/art/catalog-v3/game-dinojigsaw.webp",
+          "bytes": 52588,
+          "sha256": "a5aa565a986fb9604766d36b56d43c6ff259b9b052d5c2a56e2f9ad8312ff158"
+        },
+        {
+          "path": "/art/catalog-v3/game-rocketbuilder.webp",
+          "bytes": 46880,
+          "sha256": "76590b9f7b08eb404464deef8d4f226efd6adfb1671d50ca28a933b09126fbe7"
+        },
+        {
+          "path": "/assets/arcade-TTjUMnko.js",
+          "bytes": 2074808,
+          "sha256": "dd8b29ffa3cdfae2f65027e8dff5bbf8897060854d6e911fe0f946054551e7ea"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-B4J91SPG.css",
+          "bytes": 33907,
+          "sha256": "1154f89f77cedf3ac815e4751ee7fd1c98751cd815d5ba7e1e27bb0be8ead059"
+        },
+        {
+          "path": "/assets/arcade-DXSwYHA0.css",
+          "bytes": 266158,
+          "sha256": "8138259f0c9446530bfb3d656f570651c69ad9aadf09e283812f586b6710eda4"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}
