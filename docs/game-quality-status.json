@@ -2360,5 +2360,15 @@
     "gatewayDeployment": "6b0209892606e72bba9fb5d2",
     "evidence": "docs/qa-evidence/pattern-odd-focus-20261121/README.md",
     "scope": "Pattern Parade gives the sequence and answer pictures the main play area. Odd One Out shows the rule and four pictures, then shows a separate reason task. Both start the current chapter directly, with optional tools in Options."
+  },
+  "latestSpotShadowFocusRehearsal": {
+    "runtime": "1e73ad2ccd00edecfdf2811e48815f9cc5e5380c",
+    "entry": "/assets/arcade-CAhQS5pR.js",
+    "worker": "amari-discovery-v99",
+    "backendUrl": "https://dinospace-mw8ateb00-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_FhXiwG8DoKVisUtxKz21fdvTvq7j",
+    "gatewayDeployment": "6b020aa28204b75a30134c3a",
+    "evidence": "docs/qa-evidence/spot-shadow-focus-20261121/README.md",
+    "scope": "Spot the Difference has a full-width picture on phones, side-by-side comparison on desktop, one comparison switch and a named next picture or chapter. Shadow Match puts the creature and silhouettes first and places level selection in Options."
   }
 }

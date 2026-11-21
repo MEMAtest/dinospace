@@ -1,0 +1,1179 @@
+{
+  "release": {
+    "runtime": "1e73ad2ccd00edecfdf2811e48815f9cc5e5380c",
+    "entry": "/assets/arcade-CAhQS5pR.js",
+    "worker": "amari-discovery-v99",
+    "backendUrl": "https://dinospace-mw8ateb00-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_FhXiwG8DoKVisUtxKz21fdvTvq7j",
+    "gatewayDeployment": "6b020aa28204b75a30134c3a",
+    "evidence": "docs/qa-evidence/spot-shadow-focus-20261121/README.md",
+    "scope": "Spot the Difference has a full-width picture on phones, side-by-side comparison on desktop, one comparison switch and a named next picture or chapter. Shadow Match puts the creature and silhouettes first and places level selection in Options."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-CAhQS5pR.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Spot the Difference entry",
+          "buttons": [
+            "Start: Bright-Eyed Beginners",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spot the Difference picture view",
+          "buttons": [
+            "Compare Picture A",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show me a change",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spot reveal action",
+          "buttons": [
+            "Mark this change",
+            "Compare Picture A",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot save failure",
+          "buttons": [
+            "Retry save",
+            "Keep playing without saving",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next: Curious Comparers",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next: Super Spotters",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Finish",
+            "Options"
+          ]
+        },
+        {
+          "label": "Shadow Match entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Shadow Match play",
+          "buttons": [
+            "Options",
+            "Show me a clue"
+          ]
+        },
+        {
+          "label": "Shadow Match options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        }
+      ],
+      "spotWidth": 360,
+      "shadowWidth": 390,
+      "scenes": [
+        "Dino Park",
+        "Moon Camp",
+        "Superhero City",
+        "River Valley",
+        "Treehouse Team",
+        "Time Observatory",
+        "Pattern Parade",
+        "Sound Safari",
+        "History Hall",
+        "Robin\u2019s Woodland",
+        "Nature Lab",
+        "World Explorer"
+      ],
+      "foundByMark": [
+        "left: 28%; top: 65%;"
+      ],
+      "allPairsCompleted": true,
+      "spotSaveRecovery": true,
+      "shadowRoundCount": 6,
+      "shadowReload": "Play level 4",
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-CAhQS5pR.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Spot the Difference entry",
+          "buttons": [
+            "Start: Bright-Eyed Beginners",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spot the Difference picture view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show me a change",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spot reveal action",
+          "buttons": [
+            "Mark this change",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot save failure",
+          "buttons": [
+            "Retry save",
+            "Keep playing without saving",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next: Curious Comparers",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next: Super Spotters",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Finish",
+            "Options"
+          ]
+        },
+        {
+          "label": "Shadow Match entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Shadow Match play",
+          "buttons": [
+            "Options",
+            "Show me a clue"
+          ]
+        },
+        {
+          "label": "Shadow Match options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        }
+      ],
+      "spotWidth": 544,
+      "shadowWidth": 1024,
+      "scenes": [
+        "River Valley",
+        "Superhero City",
+        "Dino Park",
+        "Moon Camp",
+        "Time Observatory",
+        "Sound Safari",
+        "Treehouse Team",
+        "Pattern Parade",
+        "History Hall",
+        "Robin\u2019s Woodland",
+        "World Explorer",
+        "Nature Lab"
+      ],
+      "foundByMark": [
+        "left: 13%; top: 86%;"
+      ],
+      "allPairsCompleted": true,
+      "spotSaveRecovery": true,
+      "shadowRoundCount": 6,
+      "shadowReload": "Play level 4",
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-CAhQS5pR.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Spot the Difference entry",
+          "buttons": [
+            "Start: Bright-Eyed Beginners",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spot the Difference picture view",
+          "buttons": [
+            "Compare Picture A",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show me a change",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spot reveal action",
+          "buttons": [
+            "Mark this change",
+            "Compare Picture A",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot save failure",
+          "buttons": [
+            "Retry save",
+            "Keep playing without saving",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next: Curious Comparers",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next: Super Spotters",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Finish",
+            "Options"
+          ]
+        },
+        {
+          "label": "Shadow Match entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Shadow Match play",
+          "buttons": [
+            "Options",
+            "Show me a clue"
+          ]
+        },
+        {
+          "label": "Shadow Match options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the name again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        }
+      ],
+      "spotWidth": 360,
+      "shadowWidth": 390,
+      "scenes": [
+        "Superhero City",
+        "River Valley",
+        "Dino Park",
+        "Moon Camp",
+        "Treehouse Team",
+        "Time Observatory",
+        "Pattern Parade",
+        "Sound Safari",
+        "World Explorer",
+        "Robin\u2019s Woodland",
+        "History Hall",
+        "Nature Lab"
+      ],
+      "foundByMark": [
+        "left: 70%; top: 18%;"
+      ],
+      "allPairsCompleted": true,
+      "spotSaveRecovery": true,
+      "shadowRoundCount": 6,
+      "shadowReload": "Play level 4",
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-CAhQS5pR.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Spot the Difference entry",
+          "buttons": [
+            "Start: Bright-Eyed Beginners",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spot the Difference picture view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show me a change",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spot reveal action",
+          "buttons": [
+            "Mark this change",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot save failure",
+          "buttons": [
+            "Retry save",
+            "Keep playing without saving",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next: Curious Comparers",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next: Super Spotters",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Next picture",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spot result",
+          "buttons": [
+            "Finish",
+            "Options"
+          ]
+        },
+        {
+          "label": "Shadow Match entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Shadow Match play",
+          "buttons": [
+            "Options",
+            "Show me a clue"
+          ]
+        },
+        {
+          "label": "Shadow Match options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match held fact",
+          "buttons": [
+            "Options",
+            "Hear the fact again",
+            "Next match \u2192"
+          ]
+        },
+        {
+          "label": "Shadow Match saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        }
+      ],
+      "spotWidth": 544,
+      "shadowWidth": 1024,
+      "scenes": [
+        "River Valley",
+        "Dino Park",
+        "Moon Camp",
+        "Superhero City",
+        "Treehouse Team",
+        "Sound Safari",
+        "Time Observatory",
+        "Pattern Parade",
+        "World Explorer",
+        "History Hall",
+        "Nature Lab",
+        "Robin\u2019s Woodland"
+      ],
+      "foundByMark": [
+        "left: 13%; top: 86%;"
+      ],
+      "allPairsCompleted": true,
+      "spotSaveRecovery": true,
+      "shadowRoundCount": 6,
+      "shadowReload": "Play level 4",
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-mw8ateb00-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "96876c014f23be3e9cac415fe6f3399e3d51051544156e3cbd55fdcf3f3f6d9e"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "96876c014f23be3e9cac415fe6f3399e3d51051544156e3cbd55fdcf3f3f6d9e"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "723278b98ce0944a14d297dbbcfa268e59d1625832b99696b835a90d09be0f7e"
+        },
+        {
+          "path": "/art/catalog-v3/game-spot.webp",
+          "bytes": 68034,
+          "sha256": "fc8eea0d85e83956609efbb99e6b2d4b32ead62377bc581a1cb52eb2b40208b5"
+        },
+        {
+          "path": "/art/catalog-v3/game-shadowmatch.webp",
+          "bytes": 51814,
+          "sha256": "d9b5562cd36ec237a1c77d8f24367daecdb4c172b0942f582ca11df89eb830cc"
+        },
+        {
+          "path": "/assets/arcade-CAhQS5pR.js",
+          "bytes": 2104932,
+          "sha256": "295250aa67955dd6f304389a5f350e683d3514df275049586b6c7fc6de122d1c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BEvdkvjx.css",
+          "bytes": 30851,
+          "sha256": "5fb17f3d8fef22a8b2b26ecf88c9c2e2d670c8dfed30011bcacc1723908a0c28"
+        },
+        {
+          "path": "/assets/arcade-CCtnf7Pb.css",
+          "bytes": 276884,
+          "sha256": "c568e134b5b8f2b4d12b7c2cc7499fbbe052279d6bdaa9d2dfdfdb0cbb0f5579"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b020a99c37534dc9a567130--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "96876c014f23be3e9cac415fe6f3399e3d51051544156e3cbd55fdcf3f3f6d9e"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "96876c014f23be3e9cac415fe6f3399e3d51051544156e3cbd55fdcf3f3f6d9e"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "723278b98ce0944a14d297dbbcfa268e59d1625832b99696b835a90d09be0f7e"
+        },
+        {
+          "path": "/art/catalog-v3/game-spot.webp",
+          "bytes": 68034,
+          "sha256": "fc8eea0d85e83956609efbb99e6b2d4b32ead62377bc581a1cb52eb2b40208b5"
+        },
+        {
+          "path": "/art/catalog-v3/game-shadowmatch.webp",
+          "bytes": 51814,
+          "sha256": "d9b5562cd36ec237a1c77d8f24367daecdb4c172b0942f582ca11df89eb830cc"
+        },
+        {
+          "path": "/assets/arcade-CAhQS5pR.js",
+          "bytes": 2104932,
+          "sha256": "295250aa67955dd6f304389a5f350e683d3514df275049586b6c7fc6de122d1c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BEvdkvjx.css",
+          "bytes": 30851,
+          "sha256": "5fb17f3d8fef22a8b2b26ecf88c9c2e2d670c8dfed30011bcacc1723908a0c28"
+        },
+        {
+          "path": "/assets/arcade-CCtnf7Pb.css",
+          "bytes": 276884,
+          "sha256": "c568e134b5b8f2b4d12b7c2cc7499fbbe052279d6bdaa9d2dfdfdb0cbb0f5579"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "96876c014f23be3e9cac415fe6f3399e3d51051544156e3cbd55fdcf3f3f6d9e"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "96876c014f23be3e9cac415fe6f3399e3d51051544156e3cbd55fdcf3f3f6d9e"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "723278b98ce0944a14d297dbbcfa268e59d1625832b99696b835a90d09be0f7e"
+        },
+        {
+          "path": "/art/catalog-v3/game-spot.webp",
+          "bytes": 68034,
+          "sha256": "fc8eea0d85e83956609efbb99e6b2d4b32ead62377bc581a1cb52eb2b40208b5"
+        },
+        {
+          "path": "/art/catalog-v3/game-shadowmatch.webp",
+          "bytes": 51814,
+          "sha256": "d9b5562cd36ec237a1c77d8f24367daecdb4c172b0942f582ca11df89eb830cc"
+        },
+        {
+          "path": "/assets/arcade-CAhQS5pR.js",
+          "bytes": 2104932,
+          "sha256": "295250aa67955dd6f304389a5f350e683d3514df275049586b6c7fc6de122d1c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BEvdkvjx.css",
+          "bytes": 30851,
+          "sha256": "5fb17f3d8fef22a8b2b26ecf88c9c2e2d670c8dfed30011bcacc1723908a0c28"
+        },
+        {
+          "path": "/assets/arcade-CCtnf7Pb.css",
+          "bytes": 276884,
+          "sha256": "c568e134b5b8f2b4d12b7c2cc7499fbbe052279d6bdaa9d2dfdfdb0cbb0f5579"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}
