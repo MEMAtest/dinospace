@@ -1,0 +1,385 @@
+{
+  "release": {
+    "runtime": "2f7acd896e85ab931677f667a8d38c8b08f13b9b",
+    "entry": "/assets/arcade-Brofo_4n.js",
+    "worker": "amari-discovery-v90",
+    "backendUrl": "https://dinospace-75s7fp6a1-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_5d6c8HZFew7cRuQp8tih129bQ8ZB",
+    "gatewayDeployment": "6b01f20e378d43877421f23d",
+    "evidence": "docs/qa-evidence/cosmic-board-focus-20261121/README.md",
+    "scope": "Focused boards in Cosmic Tic-Tac-Toe, full Chess matches and Puzzle Pop, with accurate Cosmic win highlights, a blocking tip and immediate rematch."
+  },
+  "cosmicBaseline390": {
+    "width": 273,
+    "top": 461,
+    "bottom": 734,
+    "siteHeader": "flex"
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-Brofo_4n.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium CDP touch",
+      "cosmic": {
+        "width": 374,
+        "height": 374,
+        "top": 134,
+        "bottom": 508,
+        "tile": 108.65625,
+        "viewport": 390,
+        "siteHeaderHidden": true,
+        "overflow": false
+      },
+      "mission": {
+        "width": 374,
+        "height": 374,
+        "top": 251,
+        "bottom": 625,
+        "tile": 108.65625,
+        "viewport": 390,
+        "siteHeaderHidden": true,
+        "overflow": false
+      },
+      "rocketWinningSquares": [
+        4,
+        5,
+        6
+      ],
+      "winDrawRematchAndPersistence": true,
+      "captainBotResponse": true,
+      "tacticWrongHintNext": true,
+      "chess": {
+        "width": 374,
+        "height": 374,
+        "top": 161.28125,
+        "bottom": 535.28125,
+        "tile": 46.75,
+        "viewport": 390,
+        "siteHeaderHidden": true,
+        "overflow": false
+      },
+      "chessSavedMoves": 2,
+      "puzzle": {
+        "width": 366,
+        "height": 366,
+        "top": 149.265625,
+        "bottom": 515.265625,
+        "tile": 112.65625,
+        "viewport": 390,
+        "siteHeaderHidden": true,
+        "overflow": false
+      },
+      "puzzlePieces": 9,
+      "puzzleNext": true,
+      "worldReturn": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "networkErrors": [],
+      "providerCalls": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-Brofo_4n.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "desktop mouse and keyboard",
+      "cosmic": {
+        "width": 608,
+        "height": 608,
+        "top": 64,
+        "bottom": 672,
+        "tile": 186.65625,
+        "viewport": 1440,
+        "siteHeaderHidden": true,
+        "overflow": false
+      },
+      "mission": {
+        "width": 608,
+        "height": 608,
+        "top": 64,
+        "bottom": 672,
+        "tile": 186.65625,
+        "viewport": 1440,
+        "siteHeaderHidden": true,
+        "overflow": false
+      },
+      "rocketWinningSquares": [
+        4,
+        5,
+        6
+      ],
+      "winDrawRematchAndPersistence": true,
+      "captainBotResponse": true,
+      "tacticWrongHintNext": true,
+      "chess": {
+        "width": 748,
+        "height": 748,
+        "top": 79.59375,
+        "bottom": 827.59375,
+        "tile": 93.5,
+        "viewport": 1440,
+        "siteHeaderHidden": true,
+        "overflow": false
+      },
+      "chessSavedMoves": 2,
+      "puzzle": {
+        "width": 544,
+        "height": 544,
+        "top": 120,
+        "bottom": 664,
+        "tile": 172,
+        "viewport": 1440,
+        "siteHeaderHidden": true,
+        "overflow": false
+      },
+      "puzzlePieces": 9,
+      "puzzleNext": true,
+      "worldReturn": true,
+      "pageErrors": [],
+      "consoleErrors": [],
+      "networkErrors": [],
+      "providerCalls": []
+    }
+  ],
+  "candidateNarrow": {
+    "passed": true,
+    "origin": "http://127.0.0.1:4199",
+    "viewport": [
+      320,
+      740
+    ],
+    "input": "Chromium CDP touch",
+    "cosmic": {
+      "width": 304,
+      "height": 304,
+      "top": 146,
+      "bottom": 450,
+      "tile": 85.328125,
+      "viewport": 320,
+      "siteHeaderHidden": true,
+      "overflow": false
+    },
+    "mission": {
+      "width": 304,
+      "height": 304,
+      "top": 307,
+      "bottom": 611,
+      "tile": 85.328125,
+      "viewport": 320,
+      "siteHeaderHidden": true,
+      "overflow": false
+    },
+    "rocketWinningSquares": [
+      4,
+      5,
+      6
+    ],
+    "winDrawRematchAndPersistence": true,
+    "captainBotResponse": true,
+    "tacticWrongHintNext": true,
+    "chess": {
+      "width": 304,
+      "height": 304,
+      "top": 189.96875,
+      "bottom": 493.96875,
+      "tile": 38,
+      "viewport": 320,
+      "siteHeaderHidden": true,
+      "overflow": false
+    },
+    "chessSavedMoves": 2,
+    "puzzle": {
+      "width": 296,
+      "height": 296,
+      "top": 172.203125,
+      "bottom": 468.203125,
+      "tile": 89.328125,
+      "viewport": 320,
+      "siteHeaderHidden": true,
+      "overflow": false
+    },
+    "puzzlePieces": 9,
+    "puzzleNext": true,
+    "worldReturn": true,
+    "pageErrors": [],
+    "consoleErrors": [],
+    "networkErrors": [],
+    "providerCalls": []
+  },
+  "matchedAssets": {
+    "backend": {
+      "origin": "https://dinospace-75s7fp6a1-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "8b45c7ba01e4d416779799dff765c254ef1ebf70aa000fa34aee87d1b77c7858"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "8b45c7ba01e4d416779799dff765c254ef1ebf70aa000fa34aee87d1b77c7858"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "cfd457fa4031e141c19cd72a4af1436d5803bf89bce36ef67fec5d8b7b62427a"
+        },
+        {
+          "path": "/art/catalog-v3/game-tictactoe.webp",
+          "bytes": 63732,
+          "sha256": "935f864071f0e3b98d1d5030b020cb26b6ad98532b11d765711a3295d789667a"
+        },
+        {
+          "path": "/art/catalog-v3/game-puzzle.webp",
+          "bytes": 71080,
+          "sha256": "b3e57a432e510e36da1f0a520e2ce68b749c07988a328265564c29e1a5c33632"
+        },
+        {
+          "path": "/assets/arcade-Brofo_4n.js",
+          "bytes": 2190839,
+          "sha256": "8c39ef5d156f65b9f6d38b0bc28ef07145fe3ee67eb9f615eeb6d2dac01de983"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-Fhoy3uqw.css",
+          "bytes": 27012,
+          "sha256": "2f2c81213f1254867f5f7db6a154f8450c34a63184e78f97aa6852903ea7ded1"
+        },
+        {
+          "path": "/assets/arcade-BUZnY-KS.css",
+          "bytes": 305543,
+          "sha256": "295805d03610aa095be99bc4d4cb76e5d6c4396c13a248c0dc0be7bc86513b2e"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b01f1e4d2f5076d384331d2--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "8b45c7ba01e4d416779799dff765c254ef1ebf70aa000fa34aee87d1b77c7858"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "8b45c7ba01e4d416779799dff765c254ef1ebf70aa000fa34aee87d1b77c7858"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "cfd457fa4031e141c19cd72a4af1436d5803bf89bce36ef67fec5d8b7b62427a"
+        },
+        {
+          "path": "/art/catalog-v3/game-tictactoe.webp",
+          "bytes": 63732,
+          "sha256": "935f864071f0e3b98d1d5030b020cb26b6ad98532b11d765711a3295d789667a"
+        },
+        {
+          "path": "/art/catalog-v3/game-puzzle.webp",
+          "bytes": 71080,
+          "sha256": "b3e57a432e510e36da1f0a520e2ce68b749c07988a328265564c29e1a5c33632"
+        },
+        {
+          "path": "/assets/arcade-Brofo_4n.js",
+          "bytes": 2190839,
+          "sha256": "8c39ef5d156f65b9f6d38b0bc28ef07145fe3ee67eb9f615eeb6d2dac01de983"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-Fhoy3uqw.css",
+          "bytes": 27012,
+          "sha256": "2f2c81213f1254867f5f7db6a154f8450c34a63184e78f97aa6852903ea7ded1"
+        },
+        {
+          "path": "/assets/arcade-BUZnY-KS.css",
+          "bytes": 305543,
+          "sha256": "295805d03610aa095be99bc4d4cb76e5d6c4396c13a248c0dc0be7bc86513b2e"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "8b45c7ba01e4d416779799dff765c254ef1ebf70aa000fa34aee87d1b77c7858"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "8b45c7ba01e4d416779799dff765c254ef1ebf70aa000fa34aee87d1b77c7858"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "cfd457fa4031e141c19cd72a4af1436d5803bf89bce36ef67fec5d8b7b62427a"
+        },
+        {
+          "path": "/art/catalog-v3/game-tictactoe.webp",
+          "bytes": 63732,
+          "sha256": "935f864071f0e3b98d1d5030b020cb26b6ad98532b11d765711a3295d789667a"
+        },
+        {
+          "path": "/art/catalog-v3/game-puzzle.webp",
+          "bytes": 71080,
+          "sha256": "b3e57a432e510e36da1f0a520e2ce68b749c07988a328265564c29e1a5c33632"
+        },
+        {
+          "path": "/assets/arcade-Brofo_4n.js",
+          "bytes": 2190839,
+          "sha256": "8c39ef5d156f65b9f6d38b0bc28ef07145fe3ee67eb9f615eeb6d2dac01de983"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-Fhoy3uqw.css",
+          "bytes": 27012,
+          "sha256": "2f2c81213f1254867f5f7db6a154f8450c34a63184e78f97aa6852903ea7ded1"
+        },
+        {
+          "path": "/assets/arcade-BUZnY-KS.css",
+          "bytes": 305543,
+          "sha256": "295805d03610aa095be99bc4d4cb76e5d6c4396c13a248c0dc0be7bc86513b2e"
+        }
+      ]
+    }
+  },
+  "storageCutover": {
+    "actualRefreshGamesClick": true,
+    "unchangedSyntheticStorageRecords": 118,
+    "unchangedStorybookFixture": {
+      "present": true,
+      "version": 2,
+      "stores": {
+        "assets": {
+          "count": 14,
+          "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+        },
+        "books": {
+          "count": 1,
+          "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+        },
+        "profiles": {
+          "count": 1,
+          "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+        },
+        "series": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      },
+      "blobBytes": 3729264
+    },
+    "updateNoticeCleared": true
+  },
+  "repositoryTestsPassed": 770,
+  "precacheAssets": 171,
+  "precacheBytes": 31444123
+}

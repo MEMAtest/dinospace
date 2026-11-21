@@ -2270,5 +2270,15 @@
     "gatewayDeployment": "6b01ef40048a5e7a423ba0ea",
     "evidence": "docs/qa-evidence/art-studio-relief-20261121/README.md",
     "scope": "Region-bounded brush, 18 picture options, saved texture and stamps, and live rotating painted WebGL relief on both Creative Lab routes."
+  },
+  "latestCosmicBoardFocusRehearsal": {
+    "runtime": "2f7acd896e85ab931677f667a8d38c8b08f13b9b",
+    "entry": "/assets/arcade-Brofo_4n.js",
+    "worker": "amari-discovery-v90",
+    "backendUrl": "https://dinospace-75s7fp6a1-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_5d6c8HZFew7cRuQp8tih129bQ8ZB",
+    "gatewayDeployment": "6b01f20e378d43877421f23d",
+    "evidence": "docs/qa-evidence/cosmic-board-focus-20261121/README.md",
+    "scope": "Focused boards in Cosmic Tic-Tac-Toe, full Chess matches and Puzzle Pop, with accurate Cosmic win highlights, a blocking tip and immediate rematch."
   }
 }
