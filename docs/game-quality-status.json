@@ -2420,5 +2420,15 @@
     "gatewayDeployment": "6b02147576b0fa37cc926794",
     "evidence": "docs/qa-evidence/hangman-books-focus-20261121/README.md",
     "scope": "Dino Hangman starts the current rescue and keeps the clue and letter keyboard in view. Storybook Studio has a clear My stories shelf, one button per book and a large clear reader with Next page, read-aloud when enabled and Options."
+  },
+  "latestSolarAstroFocusRehearsal": {
+    "runtime": "5564f2c656fe9b4f82917ae8cc59915ee8f518e4",
+    "entry": "/assets/arcade-vLvJefoX.js",
+    "worker": "amari-discovery-v106",
+    "backendUrl": "https://dinospace-axxsu9ys0-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_2LPCBtxHQX8NoXBcxXEXGJjUt1tx",
+    "gatewayDeployment": "6b0216252eeb468e05354ded",
+    "evidence": "docs/qa-evidence/solar-astro-focus-20261121/README.md",
+    "scope": "Solar now opens on a large, rotatable 3D model with a world picker and one mission action. Astronaut Academy offers one mission at a time, large answer illustrations and a held explanation."
   }
 }

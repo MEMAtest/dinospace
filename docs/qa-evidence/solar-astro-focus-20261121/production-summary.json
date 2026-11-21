@@ -1,0 +1,931 @@
+{
+  "release": {
+    "runtime": "5564f2c656fe9b4f82917ae8cc59915ee8f518e4",
+    "entry": "/assets/arcade-vLvJefoX.js",
+    "worker": "amari-discovery-v106",
+    "backendUrl": "https://dinospace-axxsu9ys0-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_2LPCBtxHQX8NoXBcxXEXGJjUt1tx",
+    "gatewayDeployment": "6b0216252eeb468e05354ded",
+    "evidence": "docs/qa-evidence/solar-astro-focus-20261121/README.md",
+    "scope": "Solar now opens on a large, rotatable 3D model with a world picker and one mission action. Astronaut Academy offers one mission at a time, large answer illustrations and a held explanation."
+  },
+  "live": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "bounds": {
+        "x": 10.390625,
+        "y": 52.75,
+        "width": 369.21875,
+        "height": 399.59375
+      },
+      "answered": [
+        "numbers:3",
+        "body:4",
+        "shapes:4",
+        "body:3",
+        "numbers:5",
+        "shapes:1"
+      ],
+      "checks": [
+        {
+          "label": "Solar exploration",
+          "buttons": [
+            "Start Earth mission",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show all planets",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Inspect Saturn",
+            "Back"
+          ]
+        },
+        {
+          "label": "Solar discoveries",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Solar unsaved discovery",
+          "buttons": [
+            "Retry save",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solar comparison",
+          "buttons": [
+            "Next: Challenge",
+            "Options"
+          ]
+        },
+        {
+          "label": "Saved Earth mission",
+          "buttons": [
+            "Explore another world",
+            "Options"
+          ]
+        },
+        {
+          "label": "Astronaut start",
+          "buttons": [
+            "Start: Launch Lab",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Launch Lab question 1",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab retry",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 1",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 2",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 2",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 3",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 3",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 4",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 4",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 5",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 5",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 6",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab transfer selected",
+          "buttons": [
+            "Place in rocket window",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 6",
+          "buttons": [
+            "Finish mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab complete",
+          "buttons": [
+            "Next: Earth & Life",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Saved Earth & Life unlock",
+          "buttons": [
+            "Start: Earth & Life",
+            "Options",
+            "Back"
+          ]
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "bounds": {
+        "x": 140,
+        "y": 77.59375,
+        "width": 1160,
+        "height": 580
+      },
+      "answered": [
+        "numbers:3",
+        "numbers:4",
+        "shapes:0",
+        "body:0",
+        "body:5",
+        "shapes:1"
+      ],
+      "checks": [
+        {
+          "label": "Solar exploration",
+          "buttons": [
+            "Start Earth mission",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show all planets",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Inspect Saturn",
+            "Back"
+          ]
+        },
+        {
+          "label": "Solar discoveries",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Solar unsaved discovery",
+          "buttons": [
+            "Retry save",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solar comparison",
+          "buttons": [
+            "Next: Challenge",
+            "Options"
+          ]
+        },
+        {
+          "label": "Saved Earth mission",
+          "buttons": [
+            "Explore another world",
+            "Options"
+          ]
+        },
+        {
+          "label": "Astronaut start",
+          "buttons": [
+            "Start: Launch Lab",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Launch Lab question 1",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab retry",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 1",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 2",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 2",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 3",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 3",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 4",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 4",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 5",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 5",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 6",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab transfer selected",
+          "buttons": [
+            "Place in rocket window",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 6",
+          "buttons": [
+            "Finish mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab complete",
+          "buttons": [
+            "Next: Earth & Life",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Saved Earth & Life unlock",
+          "buttons": [
+            "Start: Earth & Life",
+            "Options",
+            "Back"
+          ]
+        }
+      ]
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "bounds": {
+        "x": 10.390625,
+        "y": 52.75,
+        "width": 369.21875,
+        "height": 399.59375
+      },
+      "answered": [
+        "shapes:0",
+        "numbers:2",
+        "numbers:3",
+        "body:1",
+        "body:3",
+        "shapes:1"
+      ],
+      "checks": [
+        {
+          "label": "Solar exploration",
+          "buttons": [
+            "Start Earth mission",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show all planets",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Inspect Saturn",
+            "Back"
+          ]
+        },
+        {
+          "label": "Solar discoveries",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Solar unsaved discovery",
+          "buttons": [
+            "Retry save",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solar comparison",
+          "buttons": [
+            "Next: Challenge",
+            "Options"
+          ]
+        },
+        {
+          "label": "Saved Earth mission",
+          "buttons": [
+            "Explore another world",
+            "Options"
+          ]
+        },
+        {
+          "label": "Astronaut start",
+          "buttons": [
+            "Start: Launch Lab",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Launch Lab question 1",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab retry",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 1",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 2",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 2",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 3",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 3",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 4",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 4",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 5",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 5",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 6",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab transfer selected",
+          "buttons": [
+            "Place in rocket window",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 6",
+          "buttons": [
+            "Finish mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab complete",
+          "buttons": [
+            "Next: Earth & Life",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Saved Earth & Life unlock",
+          "buttons": [
+            "Start: Earth & Life",
+            "Options",
+            "Back"
+          ]
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "bounds": {
+        "x": 140,
+        "y": 77.59375,
+        "width": 1160,
+        "height": 580
+      },
+      "answered": [
+        "body:1",
+        "shapes:0",
+        "numbers:1",
+        "body:3",
+        "numbers:4",
+        "shapes:1"
+      ],
+      "checks": [
+        {
+          "label": "Solar exploration",
+          "buttons": [
+            "Start Earth mission",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show all planets",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Inspect Saturn",
+            "Back"
+          ]
+        },
+        {
+          "label": "Solar discoveries",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Solar unsaved discovery",
+          "buttons": [
+            "Retry save",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solar comparison",
+          "buttons": [
+            "Next: Challenge",
+            "Options"
+          ]
+        },
+        {
+          "label": "Saved Earth mission",
+          "buttons": [
+            "Explore another world",
+            "Options"
+          ]
+        },
+        {
+          "label": "Astronaut start",
+          "buttons": [
+            "Start: Launch Lab",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Launch Lab question 1",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab retry",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 1",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 2",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 2",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 3",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 3",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 4",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 4",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 5",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 5",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab question 6",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab transfer selected",
+          "buttons": [
+            "Place in rocket window",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab held result 6",
+          "buttons": [
+            "Finish mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Launch Lab complete",
+          "buttons": [
+            "Next: Earth & Life",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Saved Earth & Life unlock",
+          "buttons": [
+            "Start: Earth & Life",
+            "Options",
+            "Back"
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-axxsu9ys0-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "6675f3c82000bea1b77ab6944863eaeee6ed46481a030149f498975cc68906a6"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "6675f3c82000bea1b77ab6944863eaeee6ed46481a030149f498975cc68906a6"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16536,
+          "sha256": "c59819d1edfbc481eb19532268cd0888bb51ce61e9d18cf36616d9d2d09e18ce"
+        },
+        {
+          "path": "/art/catalog-v3/game-solar.webp",
+          "bytes": 70526,
+          "sha256": "525032706cfcc6eb5db907cdf94ad2d2c945f406a25bf2617c579b94b28a1de9"
+        },
+        {
+          "path": "/art/catalog-v3/game-astronaut.webp",
+          "bytes": 66554,
+          "sha256": "c52bc40400727e8aa4319acefc5c20c359ac825f287df2a256a84c0156d47615"
+        },
+        {
+          "path": "/assets/arcade-vLvJefoX.js",
+          "bytes": 2030243,
+          "sha256": "53d6cc67cf8f2f25061863c28b58c06bccd046d8239b10b1143c56b48345ff48"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-D47Cb08P.css",
+          "bytes": 39064,
+          "sha256": "c19e889961949d393292c4f72b54175f2f1d55d8290d183cfb725c14c13151a0"
+        },
+        {
+          "path": "/assets/arcade-G0baw54w.css",
+          "bytes": 245645,
+          "sha256": "d31c1bc0bbb1b07d5babf852097bc1d0b37ec182e26bd6b18bcf0378ee2aa061"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b021616b3790cbde29022b3--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "6675f3c82000bea1b77ab6944863eaeee6ed46481a030149f498975cc68906a6"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "6675f3c82000bea1b77ab6944863eaeee6ed46481a030149f498975cc68906a6"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16536,
+          "sha256": "c59819d1edfbc481eb19532268cd0888bb51ce61e9d18cf36616d9d2d09e18ce"
+        },
+        {
+          "path": "/art/catalog-v3/game-solar.webp",
+          "bytes": 70526,
+          "sha256": "525032706cfcc6eb5db907cdf94ad2d2c945f406a25bf2617c579b94b28a1de9"
+        },
+        {
+          "path": "/art/catalog-v3/game-astronaut.webp",
+          "bytes": 66554,
+          "sha256": "c52bc40400727e8aa4319acefc5c20c359ac825f287df2a256a84c0156d47615"
+        },
+        {
+          "path": "/assets/arcade-vLvJefoX.js",
+          "bytes": 2030243,
+          "sha256": "53d6cc67cf8f2f25061863c28b58c06bccd046d8239b10b1143c56b48345ff48"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-D47Cb08P.css",
+          "bytes": 39064,
+          "sha256": "c19e889961949d393292c4f72b54175f2f1d55d8290d183cfb725c14c13151a0"
+        },
+        {
+          "path": "/assets/arcade-G0baw54w.css",
+          "bytes": 245645,
+          "sha256": "d31c1bc0bbb1b07d5babf852097bc1d0b37ec182e26bd6b18bcf0378ee2aa061"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "6675f3c82000bea1b77ab6944863eaeee6ed46481a030149f498975cc68906a6"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "6675f3c82000bea1b77ab6944863eaeee6ed46481a030149f498975cc68906a6"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16536,
+          "sha256": "c59819d1edfbc481eb19532268cd0888bb51ce61e9d18cf36616d9d2d09e18ce"
+        },
+        {
+          "path": "/art/catalog-v3/game-solar.webp",
+          "bytes": 70526,
+          "sha256": "525032706cfcc6eb5db907cdf94ad2d2c945f406a25bf2617c579b94b28a1de9"
+        },
+        {
+          "path": "/art/catalog-v3/game-astronaut.webp",
+          "bytes": 66554,
+          "sha256": "c52bc40400727e8aa4319acefc5c20c359ac825f287df2a256a84c0156d47615"
+        },
+        {
+          "path": "/assets/arcade-vLvJefoX.js",
+          "bytes": 2030243,
+          "sha256": "53d6cc67cf8f2f25061863c28b58c06bccd046d8239b10b1143c56b48345ff48"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-D47Cb08P.css",
+          "bytes": 39064,
+          "sha256": "c19e889961949d393292c4f72b54175f2f1d55d8290d183cfb725c14c13151a0"
+        },
+        {
+          "path": "/assets/arcade-G0baw54w.css",
+          "bytes": 245645,
+          "sha256": "d31c1bc0bbb1b07d5babf852097bc1d0b37ec182e26bd6b18bcf0378ee2aa061"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 2,
+        "sha256": "519711d1e83a1f76e8df55619ca9fd5bc82993dc1edf6ed6e80d50800cb49500"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 771
+}
