@@ -2300,5 +2300,15 @@
     "gatewayDeployment": "6b02013a360b594c3419016f",
     "evidence": "docs/qa-evidence/reading-focus-20261121/README.md",
     "scope": "Letter Launch and Sound Safari use one recommended chapter action, a focused play area and a maximum of three navigation and tool buttons."
+  },
+  "latestArithmeticFocusRehearsal": {
+    "runtime": "6fc95ccb03eb19ed3ca5020ca604967a7b2f092e",
+    "entry": "/assets/arcade-C3gRyWt1.js",
+    "worker": "amari-discovery-v93",
+    "backendUrl": "https://dinospace-9h4hcarq4-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_68Uxn3iLC892Ebj6u8syth8SsMMR",
+    "gatewayDeployment": "6b020253d11f85dc6cea0741",
+    "evidence": "docs/qa-evidence/arithmetic-focus-20261121/README.md",
+    "scope": "Addition Adventure and Subtraction Station give counters and answers the main play area, with at most three navigation and tool controls per view."
   }
 }

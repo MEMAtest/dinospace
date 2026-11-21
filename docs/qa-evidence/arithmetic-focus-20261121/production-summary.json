@@ -1,0 +1,783 @@
+{
+  "release": {
+    "runtime": "6fc95ccb03eb19ed3ca5020ca604967a7b2f092e",
+    "entry": "/assets/arcade-C3gRyWt1.js",
+    "worker": "amari-discovery-v93",
+    "backendUrl": "https://dinospace-9h4hcarq4-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_68Uxn3iLC892Ebj6u8syth8SsMMR",
+    "gatewayDeployment": "6b020253d11f85dc6cea0741",
+    "evidence": "docs/qa-evidence/arithmetic-focus-20261121/README.md",
+    "scope": "Addition Adventure and Subtraction Station give counters and answers the main play area, with at most three navigation and tool controls per view."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-C3gRyWt1.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Addition Adventure entry",
+          "buttons": [
+            "Start: Put Groups Together",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Addition Adventure options",
+          "buttons": [
+            "Start: Put Groups Together",
+            "Back"
+          ]
+        },
+        {
+          "label": "Addition Adventure task",
+          "buttons": [
+            "Bring the groups together",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Addition Adventure held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Addition Adventure save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Addition Adventure chapter saved",
+          "buttons": [
+            "Next: Number Bonds",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Subtraction Station entry",
+          "buttons": [
+            "Start: Take Away",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Subtraction Station options",
+          "buttons": [
+            "Start: Take Away",
+            "Back"
+          ]
+        },
+        {
+          "label": "Subtraction Station task",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo marked object",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo marked object",
+            "Back"
+          ]
+        },
+        {
+          "label": "Subtraction Station held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Subtraction Station save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Subtraction Station chapter saved",
+          "buttons": [
+            "Next: Compare Groups",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Addition Adventure",
+          "modelWidth": 358.8125,
+          "completedQuestions": 6,
+          "askedHint": true,
+          "wrongRetry": true,
+          "heldFeedback": true,
+          "saveRetry": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Subtraction Station",
+          "modelWidth": 358.8125,
+          "completedQuestions": 6,
+          "askedHint": true,
+          "wrongRetry": true,
+          "heldFeedback": true,
+          "saveRetry": true,
+          "unlockedAfterReload": true,
+          "markUndoReset": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-C3gRyWt1.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Addition Adventure entry",
+          "buttons": [
+            "Start: Put Groups Together",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Addition Adventure options",
+          "buttons": [
+            "Start: Put Groups Together",
+            "Back"
+          ]
+        },
+        {
+          "label": "Addition Adventure task",
+          "buttons": [
+            "Bring the groups together",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Addition Adventure held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Addition Adventure save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Addition Adventure chapter saved",
+          "buttons": [
+            "Next: Number Bonds",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Subtraction Station entry",
+          "buttons": [
+            "Start: Take Away",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Subtraction Station options",
+          "buttons": [
+            "Start: Take Away",
+            "Back"
+          ]
+        },
+        {
+          "label": "Subtraction Station task",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo marked object",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo marked object",
+            "Back"
+          ]
+        },
+        {
+          "label": "Subtraction Station held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Subtraction Station save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Subtraction Station chapter saved",
+          "buttons": [
+            "Next: Compare Groups",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Addition Adventure",
+          "modelWidth": 816,
+          "completedQuestions": 6,
+          "askedHint": true,
+          "wrongRetry": true,
+          "heldFeedback": true,
+          "saveRetry": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Subtraction Station",
+          "modelWidth": 816,
+          "completedQuestions": 6,
+          "askedHint": true,
+          "wrongRetry": true,
+          "heldFeedback": true,
+          "saveRetry": true,
+          "unlockedAfterReload": true,
+          "markUndoReset": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4204",
+      "entry": "/assets/arcade-C3gRyWt1.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Addition Adventure entry",
+          "buttons": [
+            "Start: Put Groups Together",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Addition Adventure options",
+          "buttons": [
+            "Start: Put Groups Together",
+            "Back"
+          ]
+        },
+        {
+          "label": "Addition Adventure task",
+          "buttons": [
+            "Bring the groups together",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Addition Adventure held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Addition Adventure save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Addition Adventure chapter saved",
+          "buttons": [
+            "Next: Number Bonds",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Subtraction Station entry",
+          "buttons": [
+            "Start: Take Away",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Subtraction Station options",
+          "buttons": [
+            "Start: Take Away",
+            "Back"
+          ]
+        },
+        {
+          "label": "Subtraction Station task",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Subtraction Station held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Subtraction Station save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Subtraction Station chapter saved",
+          "buttons": [
+            "Next: Compare Groups",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Addition Adventure",
+          "modelWidth": 358.8125,
+          "completedQuestions": 6,
+          "askedHint": true,
+          "wrongRetry": true,
+          "heldFeedback": true,
+          "saveRetry": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Subtraction Station",
+          "modelWidth": 358.8125,
+          "completedQuestions": 6,
+          "askedHint": true,
+          "wrongRetry": true,
+          "heldFeedback": true,
+          "saveRetry": true,
+          "unlockedAfterReload": true,
+          "markUndoReset": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4204",
+      "entry": "/assets/arcade-C3gRyWt1.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Addition Adventure entry",
+          "buttons": [
+            "Start: Put Groups Together",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Addition Adventure options",
+          "buttons": [
+            "Start: Put Groups Together",
+            "Back"
+          ]
+        },
+        {
+          "label": "Addition Adventure task",
+          "buttons": [
+            "Bring the groups together",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Addition Adventure held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Addition Adventure save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Addition Adventure chapter saved",
+          "buttons": [
+            "Next: Number Bonds",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Subtraction Station entry",
+          "buttons": [
+            "Start: Take Away",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Subtraction Station options",
+          "buttons": [
+            "Start: Take Away",
+            "Back"
+          ]
+        },
+        {
+          "label": "Subtraction Station task",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo marked object",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo marked object",
+            "Back"
+          ]
+        },
+        {
+          "label": "Subtraction Station held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Subtraction Station save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Subtraction Station chapter saved",
+          "buttons": [
+            "Next: Compare Groups",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Addition Adventure",
+          "modelWidth": 816,
+          "completedQuestions": 6,
+          "askedHint": true,
+          "wrongRetry": true,
+          "heldFeedback": true,
+          "saveRetry": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Subtraction Station",
+          "modelWidth": 816,
+          "completedQuestions": 6,
+          "askedHint": true,
+          "wrongRetry": true,
+          "heldFeedback": true,
+          "saveRetry": true,
+          "unlockedAfterReload": true,
+          "markUndoReset": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-9h4hcarq4-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "08d508a2a9169b1ac5b202a52ffa10bcf7f975403231e3f8eea7b97af7e19634"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "08d508a2a9169b1ac5b202a52ffa10bcf7f975403231e3f8eea7b97af7e19634"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "4487a82f76cf1679857d14fbfeaa6414d2789094ee69da8fdeef5afd4210ba09"
+        },
+        {
+          "path": "/art/catalog-v3/game-addition.webp",
+          "bytes": 65612,
+          "sha256": "7a995ad4260e644b6e812681cf7669cc3ca5fc1c2dc73a11ad1fcf2c63714297"
+        },
+        {
+          "path": "/art/catalog-v3/game-subtraction.webp",
+          "bytes": 64196,
+          "sha256": "f5d207d7976ef9947fe00023978914515efc53138ba97d7079834ba3cfb2a3d6"
+        },
+        {
+          "path": "/assets/arcade-C3gRyWt1.js",
+          "bytes": 2164959,
+          "sha256": "0cc76c85f3d0ee7be556b815fc54941f08c7a25c0e5307432b27ca2cae94c36c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-DoZK6oGk.css",
+          "bytes": 292480,
+          "sha256": "1d702298dc64535529143029c8676374fe61c725ad1fc03afaa36a8f4774065a"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b020240f9f4883c0d92df78--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "08d508a2a9169b1ac5b202a52ffa10bcf7f975403231e3f8eea7b97af7e19634"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "08d508a2a9169b1ac5b202a52ffa10bcf7f975403231e3f8eea7b97af7e19634"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "4487a82f76cf1679857d14fbfeaa6414d2789094ee69da8fdeef5afd4210ba09"
+        },
+        {
+          "path": "/art/catalog-v3/game-addition.webp",
+          "bytes": 65612,
+          "sha256": "7a995ad4260e644b6e812681cf7669cc3ca5fc1c2dc73a11ad1fcf2c63714297"
+        },
+        {
+          "path": "/art/catalog-v3/game-subtraction.webp",
+          "bytes": 64196,
+          "sha256": "f5d207d7976ef9947fe00023978914515efc53138ba97d7079834ba3cfb2a3d6"
+        },
+        {
+          "path": "/assets/arcade-C3gRyWt1.js",
+          "bytes": 2164959,
+          "sha256": "0cc76c85f3d0ee7be556b815fc54941f08c7a25c0e5307432b27ca2cae94c36c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-DoZK6oGk.css",
+          "bytes": 292480,
+          "sha256": "1d702298dc64535529143029c8676374fe61c725ad1fc03afaa36a8f4774065a"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "08d508a2a9169b1ac5b202a52ffa10bcf7f975403231e3f8eea7b97af7e19634"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "08d508a2a9169b1ac5b202a52ffa10bcf7f975403231e3f8eea7b97af7e19634"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "4487a82f76cf1679857d14fbfeaa6414d2789094ee69da8fdeef5afd4210ba09"
+        },
+        {
+          "path": "/art/catalog-v3/game-addition.webp",
+          "bytes": 65612,
+          "sha256": "7a995ad4260e644b6e812681cf7669cc3ca5fc1c2dc73a11ad1fcf2c63714297"
+        },
+        {
+          "path": "/art/catalog-v3/game-subtraction.webp",
+          "bytes": 64196,
+          "sha256": "f5d207d7976ef9947fe00023978914515efc53138ba97d7079834ba3cfb2a3d6"
+        },
+        {
+          "path": "/assets/arcade-C3gRyWt1.js",
+          "bytes": 2164959,
+          "sha256": "0cc76c85f3d0ee7be556b815fc54941f08c7a25c0e5307432b27ca2cae94c36c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-DoZK6oGk.css",
+          "bytes": 292480,
+          "sha256": "1d702298dc64535529143029c8676374fe61c725ad1fc03afaa36a8f4774065a"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}
