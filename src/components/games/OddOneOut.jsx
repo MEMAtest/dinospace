@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Check, Home, Lightbulb, RotateCcw, Sparkles, Volume2 } from 'lucide-react';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
 import {
-  ODD_ONE_OUT_CHAPTERS, ODD_ONE_OUT_ROUNDS_BY_CHAPTER,
+  ODD_ONE_OUT_CHAPTERS,
   seededOddOneOutRun,
 } from '../../data/oddOneOutAdventure.js';
 import {
@@ -85,6 +84,7 @@ export default function OddOneOut({ onBack, playSfx, soundOn, onToggleSound, spe
   const [progress, setProgress] = useState(initialProgress);
   const rewardedChapters = useRef(new Set(initialProgress.completedChapterIds));
   const [phase, setPhase] = useState('intro');
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [chapterId, setChapterId] = useState(ODD_ONE_OUT_CHAPTERS[0].id);
   const [run, setRun] = useState([]);
   const [roundIndex, setRoundIndex] = useState(0);
@@ -105,7 +105,6 @@ export default function OddOneOut({ onBack, playSfx, soundOn, onToggleSound, spe
   const round = run[roundIndex];
   const hasRuleAudio = Boolean(round && getOfflineVoiceClip(round.prompt));
   const hasExplanationAudio = Boolean(round && getOfflineVoiceClip(round.explanation));
-  const completedInChapter = (progress.completedRoundIds || []).filter((id) => ODD_ONE_OUT_ROUNDS_BY_CHAPTER[chapterId].some((entry) => entry.id === id)).length;
   const isFinalChapter = ODD_ONE_OUT_CHAPTERS.at(-1).id === chapterId;
   const allAdventureComplete = ODD_ONE_OUT_CHAPTERS.every(({ id }) => progress.completedChapterIds.includes(id));
 
@@ -143,6 +142,7 @@ export default function OddOneOut({ onBack, playSfx, soundOn, onToggleSound, spe
     const seed = createRunSeed() + runSerial.current;
     runSeed.current = seed;
     const frozenRun = seededOddOneOutRun(id, seed, recent);
+    setOptionsOpen(false);
     setChapterId(id); setRun(frozenRun); setRoundIndex(0); clearRound(); setPhase('play');
     const level = ODD_ONE_OUT_CHAPTERS.findIndex(({ id: chapterKey }) => chapterKey === id);
     onGameEvent?.('oddoneout', replay ? 'replay' : 'start', { level, round: 0, seed });
@@ -216,113 +216,96 @@ export default function OddOneOut({ onBack, playSfx, soundOn, onToggleSound, spe
   };
   const replayChapter = () => startChapter(chapterId, true);
   const finish = () => { cancelNarration?.(); if (onReviewComplete) onReviewComplete(); else onBack?.(); };
-  const toggleSound = () => { cancelNarration?.(); onToggleSound?.(); };
+  const openOptions = () => { cancelNarration?.(); setOptionsOpen(true); };
+  const closeOptions = () => setOptionsOpen(false);
+  const unlockedIndex = ODD_ONE_OUT_CHAPTERS.findIndex(entry => entry.id === progress.unlockedChapter);
+  const nextChapter = ODD_ONE_OUT_CHAPTERS[ODD_ONE_OUT_CHAPTERS.findIndex(entry => entry.id === chapterId) + 1];
+  const canContinue = nextChapter && unlockedIndex >= ODD_ONE_OUT_CHAPTERS.indexOf(nextChapter);
+  const isPlaying = phase === 'play' && round;
+  const chosenItem = round?.items.find(item => item.id === selectedId);
+  const options = [
+    ...(phase === 'intro' ? ODD_ONE_OUT_CHAPTERS.map((entry, index) => ({
+      label: entry.title,
+      description: progress.completedChapterIds.includes(entry.id) ? 'Chapter saved. Replay for practice.' : entry.shortLesson,
+      disabled: index > unlockedIndex,
+      button: 'Start chapter',
+      action: () => startChapter(entry.id),
+    })) : []),
+    ...(isPlaying && !answerSaved ? [
+      ...(!clueUsed ? [{ label: 'Show clue', action: () => { closeOptions(); showClue(); } }] : []),
+      ...(soundOn && hasRuleAudio ? [{ label: 'Hear the rule', action: () => { closeOptions(); speakLine(round.prompt); } }] : []),
+    ] : []),
+    ...(isPlaying && answerSaved && soundOn && hasExplanationAudio ? [{
+      label: 'Hear the explanation', action: () => { closeOptions(); speakLine(round.explanation); },
+    }] : []),
+    ...(phase === 'chapter-results' || phase === 'finish' ? [
+      { label: 'Replay chapter', action: replayChapter },
+      { label: 'Choose a chapter', action: () => setPhase('intro') },
+    ] : []),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { cancelNarration?.(); closeOptions(); onToggleSound?.(); } },
+    { label: 'Back to Thinking & Play', action: leave },
+  ];
 
-  const buttonBase = 'inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-4 py-3 font-extrabold transition focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#243f4b] disabled:cursor-not-allowed disabled:opacity-50';
-  return <main className="min-h-screen bg-[#f5f4ed] text-[#253b46]">
-    <header className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-7">
-      <button type="button" onClick={leave} aria-label="Back to home" className="grid min-h-12 min-w-12 place-items-center rounded-2xl bg-white text-[#304b59] shadow-sm ring-1 ring-[#d8e2df]"><Home size={22}/></button>
-      <div className="text-center"><p className="text-[11px] font-black uppercase tracking-[.2em] text-[#6b8279]">Discovery HQ · Sorting trail</p><h1 className="text-xl font-black sm:text-3xl">Odd One Out</h1></div>
-      <SoundToggle soundOn={soundOn} onToggle={toggleSound}/>
-    </header>
-    <div className="mx-auto max-w-6xl px-4 pb-8 sm:px-7">
-      {phase === 'intro' && <section className="rounded-[28px] border border-[#e0e6dd] bg-white p-5 shadow-sm sm:p-9">
-        <p className="text-xs font-black uppercase tracking-[.18em] text-[#577c70]">Three sorting chapters</p>
-        <h2 className="mt-2 text-2xl font-black sm:text-4xl">Spot the rule. Find what does not fit.</h2>
-        <p className="mt-3 max-w-3xl text-base font-semibold leading-7 text-[#63777b]">Read the rule first, compare all four picture cards, then choose the one that does not belong. After that, choose a “because” reason to show what you noticed.</p>
-        <button type="button" onClick={() => startChapter(progress.unlockedChapter)} className={`${buttonBase} mt-4 w-full bg-[#2f776c] text-white sm:w-auto sm:px-7 sm:text-lg`}>Start {ODD_ONE_OUT_CHAPTERS.find(({ id }) => id === progress.unlockedChapter)?.title}<ArrowRight size={20}/></button>
-        <p className="mt-3 text-sm font-bold text-[#55796c]">Or choose another unlocked chapter below.</p>
-        <div className="mt-6 grid gap-3 md:grid-cols-3">
-          {ODD_ONE_OUT_CHAPTERS.map((entry, index) => {
-            const currentIndex = ODD_ONE_OUT_CHAPTERS.findIndex(({ id }) => id === progress.unlockedChapter);
-            const unlocked = index <= currentIndex;
-            const done = progress.completedChapterIds.includes(entry.id);
-            return <button key={entry.id} type="button" disabled={!unlocked} onClick={() => { setChapterId(entry.id); startChapter(entry.id); }} className={`min-h-36 rounded-3xl border-2 p-4 text-left transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-45 ${done ? 'bg-[#f1f8f2]' : 'bg-[#fffefa]'}`} style={{ borderColor: done ? '#9ec7aa' : `${entry.accent}55` }}>
-              <span className="text-xs font-black uppercase tracking-widest" style={{ color: entry.accent }}>Chapter {index + 1} · Six rounds</span>
-              <span className="mt-1 block text-xl font-black">{entry.title}</span>
-              <span className="mt-2 block text-sm font-semibold leading-5 text-[#667a7d]">{entry.shortLesson}</span>
-              <span className="mt-3 block text-xs font-black text-[#55796c]">{done ? 'Completed · replay' : unlocked ? 'Ready to explore →' : 'Complete the chapter before this one'}</span>
-            </button>;
-          })}
-        </div>
-      </section>}
-
-      {phase === 'play' && round && <section data-odd-round={round.id} className="overflow-hidden rounded-[28px] border border-[#e0e6dd] bg-white shadow-[0_14px_40px_rgba(39,67,73,.08)]">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#edf0eb] px-4 py-4 sm:px-7">
-          <div><p className="text-xs font-black uppercase tracking-[.18em]" style={{ color: chapter.accent }}>{chapter.title} · Round {roundIndex + 1} of 6</p><h2 className="mt-1 text-xl font-black sm:text-2xl">{round.title}</h2></div>
-          <div className="rounded-full bg-[#f2f6f2] px-3 py-2 text-xs font-extrabold text-[#526a70]">{completedInChapter} of 6 saved</div>
-        </div>
-        <div className="p-4 sm:p-7">
-          {!answerSaved && <>
-          <div className="rounded-2xl bg-[#f7f5e9] px-4 py-4 sm:px-6">
-            <p className="text-xs font-black uppercase tracking-[.16em] text-[#768477]">The rule</p>
-            <p className="mt-1 text-lg font-black leading-7 sm:text-2xl">{round.property}</p>
+  return <div className="focus-game odd-focused" data-board-focus="">
+    <main className={`focus-game-body${optionsOpen || !isPlaying ? ' is-menu' : ''}`} data-odd-round={isPlaying ? round.id : undefined}>
+      <header className="focus-game-heading">
+        {isPlaying && !optionsOpen && <p>Odd One Out · {chapter.title} · {roundIndex + 1} of {run.length}</p>}
+        <h1>{isPlaying && !optionsOpen ? answerSaved ? 'You found it!' : step === 'pick' ? 'Which one is different?' : 'Why is it different?' : 'Odd One Out'}</h1>
+      </header>
+      {optionsOpen ? <FocusMenu key={phase} choices={options} onBack={closeOptions} /> : <>
+        {phase === 'intro' && <>
+          <p className="focus-game-message">Read the rule. Pick the picture that doesn’t fit.</p>
+          <div className="focus-game-actions">
+            <button type="button" className="focus-game-button is-primary" onClick={() => startChapter(progress.unlockedChapter)}>Start: {ODD_ONE_OUT_CHAPTERS[unlockedIndex]?.title}</button>
+            <button type="button" className="focus-game-button" onClick={openOptions}>Options</button>
+            <button type="button" className="focus-game-button" onClick={leave}>Back</button>
           </div>
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-            <p className="text-base font-bold text-[#586c73]">{step === 'reason' ? 'Now choose the reason that fits.' : 'Compare all four. Which one does not fit?'}</p>
-            <div className="flex flex-wrap gap-2">
-              <button type="button" onClick={() => speakLine(round.prompt)} disabled={!soundOn || !hasRuleAudio} title={!soundOn ? 'Sound is off.' : !hasRuleAudio ? 'No packaged recording is available for this rule yet.' : undefined} className={`${buttonBase} border-2 border-[#dce6df] bg-white text-[#49666b]`}><Volume2 size={19}/>Hear the rule</button>
-              {!clueVisible && <button type="button" onClick={showClue} disabled={clueUsed || answerSaved} className={`${buttonBase} border-2 border-[#e4c982] bg-[#fff9e8] text-[#705b2b]`}><Lightbulb size={19}/>Use a clue</button>}
+        </>}
+        {isPlaying && <>
+          {!answerSaved && <p className="odd-focus-rule">{round.property}</p>}
+          {clueVisible && !answerSaved && <p className="focus-game-message" role="note">{round.clue}</p>}
+          {!answerSaved && step === 'pick' && <>
+            {round.id === 'rule-pattern' && <div className="odd-focus-reference" aria-label="Reference pattern: circle, square, circle, square">
+              {['circle', 'square', 'circle', 'square'].map((art, index) => <span key={index}><PictureArt entry={{ art }} /></span>)}
+            </div>}
+            <div className="odd-focus-pictures" role="group" aria-label="Choose a picture">
+              {round.options.map(entry => <button key={entry.id} type="button" aria-label={`Choose ${entry.label}`} onClick={() => chooseItem(entry)}>
+                <PictureArt entry={entry} /><span>{entry.label}</span>
+              </button>)}
             </div>
-          </div>
-          {!soundOn && <p className="mt-2 text-sm font-semibold text-[#718084]">Sound is off. Read the rule and clue on screen.</p>}
-          {clueVisible && <p className="mt-3 rounded-2xl border border-[#e9d699] bg-[#fff9e8] p-3 font-bold text-[#6c5b31]" role="note"><Lightbulb className="mr-2 inline" size={18}/>{round.clue}</p>}
-          {round.id === 'rule-pattern' && <div className="mt-3 rounded-2xl border border-[#dce6df] bg-[#f8faf6] p-3" aria-label="Reference pattern: circle, square, circle, square">
-            <p className="text-sm font-bold">Our repeating pattern</p>
-            <div className="mx-auto flex max-w-sm items-center" aria-hidden="true">{['circle', 'square', 'circle', 'square'].map((art, index) => <span className="min-w-0 flex-1" key={index}><PictureArt entry={{ art }} /></span>)}</div>
-          </div>}
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {round.options.map((entry, index) => {
-              const selected = selectedId === entry.id;
-              const color = entry.color === 'red' ? '#df6558' : entry.color === 'blue' ? '#4c91c6' : '#739c82';
-              return <button key={`${entry.id}-${index}`} type="button" onClick={() => chooseItem(entry)} disabled={step !== 'pick' || answerSaved} aria-label={`Choose ${entry.label}`} aria-pressed={selected} className={`flex min-h-[142px] flex-col items-center justify-center rounded-3xl border-2 px-2 py-2 text-center shadow-sm transition hover:-translate-y-1 active:translate-y-0 sm:min-h-[168px] ${selected ? 'border-[#43846f] bg-[#edf7ef]' : wrong && step === 'pick' ? 'border-[#efd2c5] bg-[#fff9f5]' : 'border-[#e4e9df] bg-[#fffefa]'}`}>
-                <span className="grid h-[92px] w-full place-items-center sm:h-[112px]"><PictureArt entry={entry}/></span>
-                <span className="mt-1 text-sm font-black sm:text-base" style={{ color: entry.color ? color : '#314d56' }}>{entry.label}</span>
-              </button>;
-            })}
-          </div>
-          {step === 'reason' && !answerSaved && <div className="mt-5 rounded-3xl border border-[#dde7df] bg-[#f8faf6] p-4 sm:p-5">
-            <p className="font-black">{round.items.find(({ id }) => id === selectedId)?.label} does not fit. Why?</p>
-            <div className="mt-3 grid gap-2 md:grid-cols-3" aria-label="Choose why this item does not belong">
-              {round.choices.map((choice) => <button key={choice.id} type="button" aria-label={choice.text} onClick={() => chooseReason(choice)} className={`${buttonBase} min-h-14 border-2 border-[#dce6df] bg-white text-left leading-5 text-[#36515a] hover:border-[#7aa58e]`}><span>{choice.text}</span></button>)}
-            </div>
-          </div>}
-          {wrong && !answerSaved && <p role="status" className="mt-4 rounded-2xl bg-[#fff1e9] px-4 py-3 font-extrabold text-[#965b49]">{step === 'reason' ? 'That reason does not match the rule. Look again and try a different reason.' : 'Good try. Check the rule again, then compare the cards and try once more.'}</p>}
           </>}
-          {saveError && <div role="alert" className="mt-4 rounded-2xl border border-[#e6b7a9] bg-[#fff3ee] p-4 font-bold text-[#8e4e3e]">{saveError}<button type="button" onClick={recordCorrectAnswer} className={`${buttonBase} ml-2 mt-2 bg-[#8d5547] text-white`}>Retry save</button></div>}
-          {answerSaved && <div role="status" className="mt-5 rounded-3xl border border-[#cce2ce] bg-[#eff8ef] p-4 sm:p-5">
-            <div className="mx-auto mb-3 max-w-44 rounded-2xl bg-white p-3 text-center"><PictureArt entry={round.items.find(({ id }) => id === round.oddItemId)} /><strong className="block">{round.items.find(({ id }) => id === round.oddItemId)?.label}</strong></div>
-            <p className="flex items-center gap-2 text-lg font-black text-[#3d795d]"><Check size={22}/>That is it!</p>
-            <p className="mt-2 text-base font-bold leading-7 text-[#344e56]">{resultMessage}</p>
-            <p className="mt-2 text-sm font-extrabold text-[#607978]">{roundHadSaveError ? 'Saved after a retry.' : clueUsed ? 'Clue used · this round is saved as assisted practice.' : hadMistake ? 'You tried again · this round is saved.' : 'Independent answer · this round is saved.'}</p>
-            <button type="button" onClick={() => speakLine(round.explanation)} disabled={!soundOn || !hasExplanationAudio} title={!soundOn ? 'Sound is off.' : !hasExplanationAudio ? 'No packaged recording is available for this explanation yet.' : undefined} className={`${buttonBase} mt-3 border-2 border-[#dce6df] bg-white text-[#49666b]`}><Volume2 size={19}/>Hear explanation again</button>
-            {!hasExplanationAudio && <p className="mt-2 text-sm font-semibold text-[#718084]">No recorded explanation is available; read the explanation above.</p>}
-            <button ref={advanceRef} type="button" onClick={nextRound} className={`${buttonBase} mt-4 bg-[#337d72] text-white sm:px-7`}>{roundIndex === run.length - 1 ? 'See chapter results' : 'Next round'}<ArrowRight size={20}/></button>
+          {chosenItem && step === 'reason' && <div className="odd-focus-chosen">
+            <PictureArt entry={chosenItem} /><strong>{chosenItem.label}</strong>
           </div>}
-        </div>
-      </section>}
-
-      {phase === 'chapter-results' && <section className="rounded-[28px] border border-[#e0e6dd] bg-white p-5 shadow-sm sm:p-9">
-        <p className="text-xs font-black uppercase tracking-[.18em] text-[#53826d]">Chapter complete · 6 rounds saved</p>
-        <h2 className="mt-2 text-2xl font-black sm:text-4xl">{chapter.title} sorted!</h2>
-        <p className="mt-3 max-w-2xl font-semibold leading-7 text-[#63777b]">You practised {chapter.shortLesson.toLowerCase()} Your completed rounds are saved for this player.</p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          {!isFinalChapter && progress.unlockedChapter !== chapterId && <button type="button" onClick={() => { setPhase('intro'); setChapterId(progress.unlockedChapter); }} className={`${buttonBase} bg-[#337d72] text-white`}>Continue to {ODD_ONE_OUT_CHAPTERS[ODD_ONE_OUT_CHAPTERS.findIndex(({ id }) => id === chapterId) + 1]?.title}<ArrowRight size={20}/></button>}
-          {isFinalChapter && allAdventureComplete && <button type="button" onClick={() => setPhase('finish')} className={`${buttonBase} bg-[#337d72] text-white`}>Adventure complete <Sparkles size={19}/></button>}
-          <button type="button" onClick={() => setPhase('intro')} className={`${buttonBase} border-2 border-[#dce6df] bg-white`}><ArrowLeft size={18}/>Chapter map</button>
-          <button type="button" onClick={replayChapter} className={`${buttonBase} border-2 border-[#dce6df] bg-white`}><RotateCcw size={18}/>Replay chapter</button>
-        </div>
-      </section>}
-
-      {phase === 'finish' && <section className="rounded-[28px] border border-[#e0e6dd] bg-white p-6 text-center shadow-sm sm:p-10">
-        <div className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-[#edf5e8] text-[#5d8c68]"><Sparkles size={38}/></div>
-        <p className="mt-4 text-xs font-black uppercase tracking-[.18em] text-[#53826d]">Sorting adventure complete</p>
-        <h2 className="mt-2 text-3xl font-black">Three chapters. Eighteen rules.</h2>
-        <p className="mx-auto mt-3 max-w-xl font-semibold leading-7 text-[#63777b]">You sorted by meaning, picture features, and simple rules. Your chapter progress is saved.</p>
-        <button type="button" onClick={finish} className={`${buttonBase} mt-6 bg-[#337d72] px-8 text-white`}><Home size={19}/>Finish</button>
-        <button type="button" onClick={() => setPhase('intro')} className={`${buttonBase} mt-6 border-2 border-[#dce6df] bg-white`}><ArrowLeft size={18}/>Back to chapter map</button>
-      </section>}
-      <p className="sr-only" aria-live="polite">{phase === 'play' ? `${chapter.title}, round ${roundIndex + 1} of 6` : ''}</p>
-    </div>
-  </main>;
+          {step === 'reason' && !answerSaved && !saveError && <div className="odd-focus-reasons" role="group" aria-label="Choose why this item does not belong">
+            {round.choices.map(choice => <button key={choice.id} type="button" className="focus-game-button" onClick={() => chooseReason(choice)}>{choice.text}</button>)}
+          </div>}
+          {wrong && !answerSaved && <p className="focus-game-message" role="status">{step === 'reason' ? 'Try another reason. Read the rule again.' : 'Try another picture. Check the rule again.'}</p>}
+          {saveError && <p className="focus-game-message" role="alert">{saveError}</p>}
+          {answerSaved && <div className="pattern-focus-explanation" role="status">
+            <p>{resultMessage}</p>
+            <p className="mt-1 text-sm">{roundHadSaveError ? 'Saved after a retry.' : clueUsed ? 'Clue used · assisted practice.' : hadMistake ? 'Saved after another try.' : 'Independent answer saved.'}</p>
+          </div>}
+          <div className="focus-game-actions mt-4">
+            {saveError
+              ? <button type="button" className="focus-game-button is-primary" onClick={recordCorrectAnswer}>Retry save</button>
+              : <>
+                {answerSaved && <button ref={advanceRef} type="button" className="focus-game-button is-primary" onClick={nextRound}>{roundIndex === run.length - 1 ? 'Finish chapter' : 'Next round'}</button>}
+                <button type="button" className="focus-game-button" onClick={openOptions}>Options</button>
+              </>}
+          </div>
+        </>}
+        {(phase === 'chapter-results' || phase === 'finish') && <>
+          <h2 className="text-xl font-black">{phase === 'finish' ? 'Sorting adventure complete' : `${chapter.title} sorted!`}</h2>
+          <p className="focus-game-message" role="status">Your answers are saved.</p>
+          <div className="focus-game-actions">
+            {phase === 'chapter-results' && canContinue && <button type="button" className="focus-game-button is-primary" onClick={() => startChapter(nextChapter.id)}>Next: {nextChapter.title}</button>}
+            {phase === 'chapter-results' && isFinalChapter && allAdventureComplete && <button type="button" className="focus-game-button is-primary" onClick={() => setPhase('finish')}>See adventure results</button>}
+            <button type="button" className="focus-game-button" onClick={openOptions}>Options</button>
+            <button type="button" className="focus-game-button" onClick={finish}>Finish</button>
+          </div>
+        </>}
+      </>}
+    </main>
+  </div>;
 }
