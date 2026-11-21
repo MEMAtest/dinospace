@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, BookOpen, Home, Lightbulb, Volume2 } from 'lucide-react';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { countAnswerNarration, countCorrectNarration } from '../../data/batch3Narration.js';
 import {
   COUNT_CONSTELLATION_PAGES, COUNT_THE_STARS_EPISODES, COUNT_THE_STARS_NARRATION,
@@ -73,7 +72,9 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
     const initial = getCountTheStarsProgressStrict(playerId);
     return initial.ok ? initial.progress.unlockedEpisode : 0;
   });
-  const [selectedEpisodeDetails, setSelectedEpisodeDetails] = useState(false);
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const headingRef = useRef(null);
+  const nextRef = useRef(null);
   const [receiptBusy, setReceiptBusy] = useState(false);
   const [receiptError, setReceiptError] = useState('');
   const receiptBusyRef = useRef(false);
@@ -157,6 +158,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
   };
 
   const prepareEpisode = (index, preserved = null) => {
+    setOptionsOpen(false);
     if (index > progress.unlockedEpisode) return;
     cancelNarration();
     const currentProgress = refreshProgress();
@@ -316,64 +318,75 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
     onBack?.();
   };
 
-  const openCollection = () => { cancelNarration(); setPhase('collection'); };
+  const openCollection = () => { cancelNarration(); setOptionsOpen(false); setPhase('collection'); };
 
-  return (
-    <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-slate-950 via-indigo-950 to-violet-950 px-3 pb-8 pt-3 text-white sm:px-6 sm:pt-5">
-      <header className="mx-auto flex max-w-5xl items-center justify-between gap-2 rounded-3xl border border-white/20 bg-white/10 p-3 shadow-xl">
-        <button type="button" onClick={leaveGame} className="game-icon-button shrink-0 !bg-white/20 !text-white" aria-label="Back to Maths Missions"><Home /></button>
-        <div className="min-w-0 text-center"><h1 className="text-xl font-black sm:text-3xl">Count the Stars</h1><p className="text-xs font-bold text-indigo-100 sm:text-sm">{phase === 'collection' ? 'Constellation book' : phase === 'map' ? (COUNT_THE_STARS_EPISODES[selectedEpisode]?.name || episode.name) : episode.name}{run && phase !== 'map' && phase !== 'collection' ? ` · Round ${roundIndex + 1} of 6` : ''}</p></div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+  useEffect(() => { if (!optionsOpen) headingRef.current?.focus({ preventScroll: true }); }, [phase, optionsOpen, roundIndex]);
+  useEffect(() => { if (phase === 'fact') nextRef.current?.focus({ preventScroll: true }); }, [phase, completionReady]);
+
+
+
+  const closeOptions = () => setOptionsOpen(false);
+  const menu = phase === 'map' || phase === 'complete' || phase === 'collection';
+  const nextIndex = pendingStart?.index ?? Math.min(progress.unlockedEpisode, Math.max(selectedEpisode, progress.completedEpisodeIds.length));
+  const recommended = COUNT_THE_STARS_EPISODES[nextIndex];
+  const replay = progress.completedEpisodeIds.includes(recommended.id);
+  const nextLabel = replay ? `Replay: ${recommended.name}` : phase === 'complete' ? `Next: ${recommended.name}` : `Start: ${recommended.name}`;
+  const soundChoice = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } };
+  const canStart = progressState.ok && !receiptBusy && !receiptError;
+  const surveys = COUNT_THE_STARS_EPISODES.map((item, index) => {
+    const complete = progress.completedEpisodeIds.includes(item.id);
+    return {
+      label: `${item.name}${index > progress.unlockedEpisode ? ' · Locked' : complete ? ' · Complete' : ''}`,
+      description: item.skill,
+      button: `${complete ? 'Replay' : 'Start'}: ${item.name}`,
+      disabled: !canStart || Boolean(pendingStart) || index > progress.unlockedEpisode,
+      action: () => startEpisode(index),
+    };
+  });
+  const playChoices = [
+    ...(!roundHadHint && phase === 'count' ? [{ label: 'Show a clue', action: () => { closeOptions(); showCountingClue(); } }] : []),
+    ...(phase === 'answer' ? [{ label: 'Recount from 1', description: 'Recounting uses a clue.', action: () => { closeOptions(); restartCount(); } }] : []),
+    soundChoice,
+    { label: 'Back to Maths Missions', action: leaveGame },
+  ];
+  const needsCompletion = phase === 'fact' && roundIndex === run.rounds.length - 1 && !completionReady;
+  const heading = phase === 'map' ? 'Count the Stars' : phase === 'collection' ? 'Constellation book' : phase === 'complete' ? 'Survey saved!'
+    : phase === 'count' ? 'Tap each object once.' : phase === 'answer' ? `How many ${pluralOf(round.scene.noun)} did you count?` : 'Count complete!';
+  const readAgain = () => speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] });
+
+  return <div data-board-focus="" className="focus-game" data-count-phase={phase}>
+    <main className={`focus-game-body ${menu || optionsOpen ? 'is-menu' : ''}`}>
+      <header className="focus-game-heading">
+        {!menu && <p>Count the Stars · {episode.name} · {roundIndex + 1} of {run.rounds.length}</p>}
+        <h1 ref={headingRef} tabIndex={-1}>{heading}</h1>
       </header>
-
-      {phase === 'map' && <main className="mx-auto mt-3 max-w-5xl rounded-[2rem] border border-white/20 bg-white/10 p-3 shadow-2xl sm:mt-5 sm:p-7">
-        <section className="rounded-3xl border-2 border-amber-200 bg-indigo-900/90 p-4 text-center shadow-xl sm:p-6">
-          <p className="text-xs font-black uppercase tracking-widest text-amber-200">Your next survey</p>
-          <h2 className="mt-1 text-2xl font-black sm:text-3xl">{COUNT_THE_STARS_EPISODES[selectedEpisode]?.name}</h2>
-          <p className="mt-1 text-sm font-bold text-indigo-100">Count {COUNT_THE_STARS_EPISODES[selectedEpisode]?.min} to {COUNT_THE_STARS_EPISODES[selectedEpisode]?.max} objects in six star scenes.</p>
-          <p className="mt-2 text-sm font-bold text-amber-100">{COUNT_THE_STARS_EPISODES[selectedEpisode]?.skill}</p>
-          <button type="button" disabled={selectedEpisode > progress.unlockedEpisode || !progressState.ok || receiptBusy || Boolean(pendingStart)} onClick={() => startEpisode(selectedEpisode)} className="mt-3 min-h-14 w-full rounded-2xl bg-amber-300 px-4 py-3 font-black text-indigo-950 disabled:opacity-50">{progress.completedEpisodeIds.includes(COUNT_THE_STARS_EPISODES[selectedEpisode]?.id) ? 'Replay selected survey' : 'Start selected survey'}</button>
-          {pendingStart && <button type="button" onClick={retryStart} className="mt-2 min-h-12 w-full rounded-2xl bg-white px-4 font-black text-indigo-950">Retry saving survey</button>}
-          {(saveMessage || receiptError || !progressState.ok) && <p role="status" className="mt-3 rounded-xl border border-amber-200/50 bg-black/25 p-3 text-sm font-bold text-amber-100">{saveMessage || receiptError || 'Saved progress could not be checked.'}</p>}
-          {receiptError && <button type="button" disabled={receiptBusy} onClick={() => void drainReceipts()} className="mt-2 min-h-12 w-full rounded-2xl bg-white px-4 font-black text-indigo-950 disabled:opacity-50">Retry saved stars</button>}
-          {!progressState.ok && <button type="button" onClick={() => { const refreshed = refreshProgress(); if (refreshed.ok) { setSaveMessage(''); setReceiptError(''); } }} className="mt-2 min-h-12 w-full rounded-2xl bg-white/15 px-4 font-black">Retry reading saved surveys</button>}
-        </section>
-        <details className="mt-3 rounded-2xl border border-white/20 bg-black/20 p-3" open={selectedEpisodeDetails} onToggle={(event) => setSelectedEpisodeDetails(event.currentTarget.open)}>
-          <summary className="min-h-12 cursor-pointer content-center font-black">Choose another survey</summary>
-          <div className="mt-2 grid gap-2 sm:grid-cols-3">
-            {COUNT_THE_STARS_EPISODES.map((entry, index) => {
-              const unlocked = index <= progress.unlockedEpisode;
-              const complete = progress.completedEpisodeIds.includes(entry.id);
-              return <button key={entry.id} type="button" disabled={!unlocked} aria-pressed={selectedEpisode === index} onClick={() => { setSelectedEpisode(index); setSelectedEpisodeDetails(false); }} className="min-h-14 rounded-xl border border-white/25 bg-indigo-900/70 p-2 text-left font-bold disabled:opacity-50">
-                {entry.name} · {entry.min}–{entry.max}{complete ? ` · Best ${progress.bestStars[entry.id] || 0} stars` : !unlocked ? ' · Locked' : ''}
-              </button>;
+      {optionsOpen ? <FocusMenu choices={menu ? [...surveys, { label: 'Constellation book', action: openCollection }, soundChoice] : playChoices} onBack={closeOptions} />
+        : phase === 'collection' ? <>
+          <div className="my-3 grid gap-3 sm:grid-cols-3">
+            {COUNT_CONSTELLATION_PAGES.map(page => {
+              const earned = progress.earnedConstellationPageIds.includes(page.id);
+              return <figure key={page.id} className="rounded-xl bg-indigo-950 p-3 text-center text-white" aria-label={`${page.name}, ${earned ? 'earned' : 'locked'}`}>
+                <ConstellationArt page={page} locked={!earned} /><figcaption>{page.name} · {earned ? 'Earned' : 'Locked'}</figcaption>
+              </figure>;
             })}
           </div>
-        </details>
-        <button type="button" onClick={openCollection} className="mx-auto mt-3 flex min-h-12 items-center gap-2 rounded-2xl bg-white/15 px-5 font-black"><BookOpen /> Constellation book ({progress.earnedConstellationPageIds.length}/3)</button>
-      </main>}
-
-      {phase === 'collection' && <main className="mx-auto mt-5 max-w-4xl rounded-[2rem] border border-white/20 bg-white/10 p-5 shadow-2xl sm:p-8">
-        <h2 className="text-center text-2xl font-black sm:text-3xl">Constellation book</h2>
-        <p className="mt-2 text-center font-semibold text-indigo-100">Pages light up after all six rounds in a survey are finished.</p>
-        <div className="mt-5 grid gap-3 sm:grid-cols-3">
-          {COUNT_CONSTELLATION_PAGES.map((page) => {
-            const earned = progress.earnedConstellationPageIds.includes(page.id);
-            return <div key={page.id} className={`rounded-2xl border p-4 text-center ${earned ? 'border-amber-200 bg-indigo-800/80' : 'border-white/15 bg-black/20 opacity-60'}`} aria-label={`${page.name}, ${earned ? 'earned' : 'locked'}`}>
-              <ConstellationArt page={page} locked={!earned} /><p className="mt-2 font-black">{page.name}</p><p className="text-sm font-bold">{earned ? 'Earned' : 'Locked'}</p>
-            </div>;
-          })}
-        </div>
-        <button type="button" onClick={() => { cancelNarration(); setPhase('map'); }} className="mx-auto mt-5 block min-h-14 rounded-2xl bg-white px-6 font-black text-indigo-950">Back to surveys</button>
-      </main>}
-
-      {(phase === 'count' || phase === 'answer' || phase === 'fact') && round && <main className="mx-auto mt-4 max-w-4xl">
-        <section className={`rounded-[2rem] border-2 border-white/30 bg-gradient-to-br ${round.scene.backdrop} p-2 shadow-2xl sm:p-6`}>
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <div><p className="text-xs font-black uppercase tracking-widest text-white/70">{episode.name} · {episode.band}</p><h2 className="text-2xl font-black sm:text-3xl">{round.scene.title}</h2></div>
+          <button type="button" className="focus-game-button" onClick={() => { cancelNarration(); setPhase('map'); }}>Back to surveys</button>
+        </> : menu ? <>
+          {phase === 'complete' && <p className="focus-game-message" role="status">{episode.name} saved. {lastResult?.newlyEarnedPage ? 'New constellation page earned. ' : ''}Best: {progress.bestStars[episode.id] || 0} stars.</p>}
+          {(saveMessage || receiptError || !progressState.ok)
+            ? <p role="alert" className="focus-game-message">{saveMessage || receiptError || 'Saved progress could not be checked.'}</p>
+            : <p className="focus-game-message">Count {recommended.min} to {recommended.max} objects in six star scenes.</p>}
+          <div className="focus-game-actions">
+            {!progressState.ok ? <button type="button" className="focus-game-button is-primary" onClick={() => { if (refreshProgress().ok) { setSaveMessage(''); setReceiptError(''); } }}>Retry reading saved surveys</button>
+              : receiptError ? <button type="button" className="focus-game-button is-primary" disabled={receiptBusy} onClick={() => void drainReceipts()}>Retry saved stars</button>
+                : <button type="button" className="focus-game-button is-primary" onClick={pendingStart ? retryStart : () => startEpisode(nextIndex)} disabled={!canStart}>{pendingStart ? 'Retry saving survey' : nextLabel}</button>}
+            <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+            <button type="button" className="focus-game-button" onClick={leaveGame}>Back to Maths Missions</button>
           </div>
-          {phase === 'count' && <p className="mt-1 rounded-xl bg-black/20 px-3 py-1.5 text-xs font-bold text-white/90 sm:mt-2 sm:py-2 sm:text-sm">{strategy}</p>}
-          <div className={`relative mx-auto mt-2 aspect-square w-full rounded-3xl border border-white/25 bg-black/15 sm:mt-4 ${phase === 'count' ? 'max-w-[288px] sm:max-w-[440px]' : phase === 'answer' ? 'max-w-[220px] sm:max-w-[320px]' : 'max-w-[160px] sm:max-w-[220px]'}`} data-layout-variant={round.layoutVariant} data-count-episode={episode.id} data-count-question={round.id} data-run-seed={run.seed} data-round-index={roundIndex + 1} role="group" aria-label={`Counting board for ${round.scene.title}; ${layoutDescription}`}>
+        </> : round && <>
+          {phase === 'count' && <p className="font-semibold" aria-live="polite">{tappedIds.length ? `Counted ${tappedIds.length}.` : strategy}</p>}
+          <div className={`my-3 rounded-2xl bg-gradient-to-br p-1 ${round.scene.backdrop}`}>
+          <div className={`relative mx-auto aspect-square w-full rounded-3xl border border-white/25 bg-black/20  ${phase === 'count' ? 'max-w-[32rem]' : phase === 'answer' ? 'max-w-[18rem] sm:max-w-[22rem]' : 'max-w-[160px] sm:max-w-[220px]'}`} data-layout-variant={round.layoutVariant} data-count-episode={episode.id} data-count-question={round.id} data-run-seed={run.seed} data-round-index={roundIndex + 1} role="group" aria-label={`Counting board for ${round.scene.title}; ${layoutDescription}`}>
             {round.objects.map((object) => {
               const countedIndex = tappedIds.indexOf(object.id);
               return <button key={object.id} type="button" aria-pressed={countedIndex >= 0} disabled={phase !== 'count'} onClick={() => handleTapObject(object.id)} aria-label={`${round.scene.noun}${countedIndex >= 0 ? `, counted as ${countedIndex + 1}` : ', not counted yet'}`} style={{ left: `${object.x}%`, top: `${object.y}%` }} className={`absolute grid ${phase === 'count' ? 'h-12 w-12 sm:h-14 sm:w-14' : 'h-8 w-8 sm:h-10 sm:w-10'} -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl border-2 p-0 shadow-lg transition focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-200 ${countedIndex >= 0 ? 'border-yellow-100 bg-yellow-200/30 opacity-75' : 'border-white/20 bg-white/10 hover:scale-105'} disabled:cursor-default`}>
@@ -382,40 +395,26 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
               </button>;
             })}
           </div>
-          {phase === 'count' && <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-black/20 px-3 py-2 sm:mt-3">
-            <p className="font-black" aria-live="polite">{phase === 'count' ? (tappedIds.length ? `Counted ${tappedIds.length} object${tappedIds.length === 1 ? '' : 's'}.` : 'Tap each object once to count it.') : phase === 'answer' ? COUNT_THE_STARS_NARRATION.countQuestion : 'Count complete'}</p>
-            <div className="flex flex-wrap gap-2"><button type="button" onClick={() => speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] })} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 font-black"><Volume2 size={18} /> Hear instructions</button><button type="button" disabled={roundHadHint || phase === 'fact'} onClick={showCountingClue} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-300 px-3 font-black text-indigo-950 disabled:opacity-50"><Lightbulb size={18} /> Show a clue</button></div>
+          </div>
+          {phase === 'answer' && <div className="my-3 grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Choose the total">
+            {round.options.map(option => <button key={option} type="button" className="focus-game-button text-xl" onClick={() => handleAnswer(option)}>{option}</button>)}
           </div>}
-          {hintText && <p className="mt-2 rounded-xl border border-amber-100/50 bg-amber-200/15 px-3 py-2 text-sm font-bold" role="status" aria-live="polite">{hintText}</p>}
-          {phase === 'answer' && <div className="mt-2 rounded-2xl border border-white/20 bg-black/20 p-2 text-center sm:mt-4 sm:p-3">
-            <p className="mb-2 text-base font-black sm:mb-3 sm:text-lg">How many {pluralOf(round.scene.noun)} did you count?</p>
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">{round.options.map((option) => <button key={option} type="button" onClick={() => handleAnswer(option)} className="min-h-16 min-w-16 rounded-2xl bg-amber-300 px-4 text-2xl font-black text-slate-950 shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-white">{option}</button>)}</div>
-            <button type="button" onClick={restartCount} className="mt-3 min-h-12 rounded-xl bg-white/15 px-4 font-black text-white underline decoration-white/70 underline-offset-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-200">Recount from 1 · uses a clue</button>
-            {feedback && <p className="mt-3 font-bold text-amber-100" role="status" aria-live="polite">{feedback}</p>}
-          </div>}
-          {phase === 'fact' && <div className="mt-4 rounded-2xl border-2 border-emerald-200/70 bg-emerald-950/50 p-4 text-center" role="status" aria-live="polite">
-            <p className="text-xl font-black text-emerald-100">{feedback}</p>
-            <p className="mt-2 text-lg font-bold">{round.explanation}</p>
-            <button type="button" onClick={replayFact} className="mt-4 min-h-12 rounded-xl bg-white/15 px-5 font-black text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-200">Hear explanation</button>
-            {roundIndex === run.rounds.length - 1 && !completionReady && <div className="mx-auto mt-3 max-w-xl rounded-xl border border-amber-200/60 bg-black/25 p-3 text-left">
-              <p className="font-bold text-amber-100" role="status">{saveMessage || receiptError || (completionSaved ? 'Your survey is saved. Stars still need to sync.' : 'Saving your survey…')}</p>
-              <button type="button" disabled={receiptBusy} onClick={retryCompletion} className="mt-2 min-h-12 w-full rounded-xl bg-white px-4 font-black text-indigo-950 disabled:opacity-50">{completionSaved ? 'Retry saved stars' : 'Retry saving survey'}</button>
-            </div>}
-            <button type="button" disabled={roundIndex === run.rounds.length - 1 && !completionReady} onClick={advance} className="mt-4 min-h-14 rounded-2xl bg-amber-300 px-8 py-3 text-lg font-black text-slate-950 disabled:cursor-not-allowed disabled:opacity-50">Next</button>
-          </div>}
-        </section>
-      </main>}
-
-      {phase === 'complete' && <main className="mx-auto mt-5 max-w-2xl rounded-[2rem] border-2 border-amber-200/60 bg-indigo-900/90 p-6 text-center shadow-2xl sm:p-10">
-        <ConstellationArt page={COUNT_CONSTELLATION_PAGES.find(({ episodeId }) => episodeId === episode.id)} locked={!(lastResult?.progress.earnedConstellationPageIds || progress.earnedConstellationPageIds).includes(episode.pageId)} />
-        <h2 className="mt-2 text-3xl font-black">{episode.name} complete!</h2>
-        <p className="mt-3 text-lg font-bold">{COUNT_THE_STARS_NARRATION.episodeComplete}</p>
-        {lastResult?.newlyEarnedPage && <p className="mt-3 rounded-2xl bg-amber-200 p-4 font-black text-indigo-950">Constellation page earned: {episode.name} Constellation</p>}
-        <p className="mt-2 font-bold text-amber-100">Best: {lastResult?.progress.bestStars[episode.id] || progress.bestStars[episode.id] || 0} stars</p>
-        <div className="mt-5 flex flex-wrap justify-center gap-3">{episodeIndex < COUNT_THE_STARS_EPISODES.length - 1 && <button type="button" onClick={() => startEpisode(episodeIndex + 1)} className="min-h-14 rounded-2xl bg-amber-300 px-6 font-black text-indigo-950">Next survey: {COUNT_THE_STARS_EPISODES[episodeIndex + 1].name}</button>}<button type="button" onClick={() => { cancelNarration(); setPhase('map'); }} className="min-h-14 rounded-2xl bg-white px-6 font-black text-indigo-950">Survey map</button><button type="button" onClick={openCollection} className="min-h-14 rounded-2xl bg-white/15 px-6 font-black text-white">Constellation book</button></div>
-      </main>}
-    </div>
-  );
+          {hintText && <p className="focus-game-message" role="status">{hintText}</p>}
+          {phase !== 'count' && feedback && <p className="focus-game-message" role="status">{feedback}</p>}
+          {phase === 'fact' && <p className="focus-game-message">{round.explanation}</p>}
+          {needsCompletion && <p className="focus-game-message" role={saveMessage || receiptError ? 'alert' : 'status'}>{saveMessage || receiptError || 'Saving your survey…'}</p>}
+          <div className="focus-game-actions">
+            {phase === 'fact' && (needsCompletion ? <button ref={nextRef} type="button" className="focus-game-button is-primary" disabled={receiptBusy} onClick={retryCompletion}>{completionSaved ? 'Retry saved stars' : 'Retry saving survey'}</button>
+              : <button ref={nextRef} type="button" className="focus-game-button is-primary" onClick={advance}>{roundIndex === run.rounds.length - 1 ? 'Finish survey' : 'Next round'}</button>)}
+            {!needsCompletion && <>
+              {soundOn && phase === 'count' && <button type="button" className="focus-game-button" onClick={readAgain}>Hear instructions</button>}
+              {soundOn && phase === 'fact' && <button type="button" className="focus-game-button" onClick={replayFact}>Hear explanation</button>}
+              <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+            </>}
+          </div>
+        </>}
+    </main>
+  </div>;
 };
 
 export default AmariCountTheStars;

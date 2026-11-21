@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { ArrowLeft, Lightbulb, RotateCcw, Sparkles, Volume2 } from 'lucide-react';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { monsterMathNarration } from '../../data/batch2Narration.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
 import {
@@ -15,17 +14,6 @@ import {
 
 const STARS_FOR = (firstTryCount) => firstTryCount >= 5 ? 3 : firstTryCount >= 3 ? 2 : 1;
 const tokenColors = ['bg-amber-500', 'bg-sky-500'];
-
-const EpisodeTile = ({ episode, index, progress, selected, disabled, onSelect }) => {
-  const complete = progress.completedEpisodeIds.includes(episode.id);
-  return (
-    <button type="button" onClick={onSelect} disabled={disabled} aria-pressed={selected} className={`min-h-24 rounded-3xl border-4 p-4 text-left shadow-md transition ${selected ? 'border-orange-300 bg-orange-800 text-white' : disabled ? 'border-white/40 bg-white/50 text-slate-500' : 'border-white bg-white/90 text-slate-900 hover:-translate-y-0.5'}`}>
-      <span className="block text-xs font-black uppercase tracking-widest">Episode {index + 1} · {episode.band}</span>
-      <strong className="mt-1 block text-lg">{complete ? '✓ ' : ''}{episode.title}</strong>
-      <span className="mt-1 block text-sm font-bold">{episode.subtitle}</span>
-    </button>
-  );
-};
 
 const CounterModel = ({ question, locked, animationCount, showHint, clueShown, guidedSteps, onStep, onResetSteps }) => {
   const model = question.model;
@@ -87,7 +75,7 @@ const CounterModel = ({ question, locked, animationCount, showHint, clueShown, g
         </div>
       </div>
       <p className="mt-1 text-center text-base font-black text-slate-800 sm:text-lg" aria-live="polite">{numberLineInstruction(model, locked)}</p>
-      {guided && <div className="mt-2 grid grid-cols-2 gap-2 sm:mt-3 sm:gap-3">
+      {guided && <div className="mt-2 grid grid-cols-2 gap-2 sm:mt-3 sm:gap-3" role="group" aria-label="Jump practice controls">
         <button type="button" onClick={onStep} disabled={guided.remaining === 0} className="min-h-12 rounded-xl bg-amber-500 px-2 text-sm font-black leading-tight text-amber-950 disabled:cursor-not-allowed disabled:opacity-50">Jump one step {model.operation === 'add' ? 'forward' : 'back'}</button>
         <button type="button" onClick={onResetSteps} disabled={guided.completed === 0} className="min-h-12 rounded-xl bg-slate-200 px-2 text-sm font-black leading-tight text-slate-900 disabled:cursor-not-allowed disabled:opacity-50">Start again</button>
         <p className="col-span-2 text-center text-sm font-bold leading-tight text-amber-950" aria-live="polite">At {guided.position}. {guided.remaining ? `${guided.remaining} ${guided.remaining === 1 ? 'jump' : 'jumps'} to go.` : 'All jumps done.'}</p>
@@ -101,6 +89,9 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
   const progress = progressState.ok ? progressState.progress : { unlockedEpisode: 0, completedEpisodeIds: [], bestStars: {} };
   const [episodeIndex, setEpisodeIndex] = useState(() => (getMonsterMathProgressStrict(playerId).progress?.unlockedEpisode || 0));
   const [phase, setPhase] = useState('start');
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const headingRef = useRef(null);
+  const nextRef = useRef(null);
   const [runSeed, setRunSeed] = useState(null);
   const [rounds, setRounds] = useState([]);
   const [roundIndex, setRoundIndex] = useState(0);
@@ -238,7 +229,11 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     speak(question.prompt, { segments: monsterMathNarration.promptSegments(question) });
   }, [episode.band, episodeIndex, onGameEvent, phase, question, roundIndex, runSeed, speak]);
 
+  useEffect(() => { if (!optionsOpen) headingRef.current?.focus({ preventScroll: true }); }, [phase, roundIndex, optionsOpen]);
+  useEffect(() => { if (locked && animationDone) nextRef.current?.focus({ preventScroll: true }); }, [locked, animationDone, completionError]);
+
   const startEpisode = (selectedIndex = episodeIndex) => {
+    setOptionsOpen(false);
     const chosen = MONSTER_MATH_EPISODES[selectedIndex];
     const loaded = getMonsterMathProgressStrict(playerId);
     if (!loaded.ok || rewardDrainBusy || pendingRewardReceipt || rewardClaimError || selectedIndex > loaded.progress.unlockedEpisode || !chosen) {
@@ -420,103 +415,67 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     onBack?.();
   };
 
-  const replayRun = () => startEpisode(episodeIndex);
+  const closeOptions = () => setOptionsOpen(false);
+  const menu = phase !== 'play';
+  const nextIndex = pendingStartRef.current?.episodeIndex ?? progress.unlockedEpisode;
+  const recommended = MONSTER_MATH_EPISODES[nextIndex];
+  const nextLabel = pendingStartRef.current ? 'Retry saving this episode' : progress.completedEpisodeIds.includes(recommended.id)
+    ? `Replay: ${recommended.title}` : phase === 'done' ? `Next: ${recommended.title}` : `Start: ${recommended.title}`;
+  const soundChoice = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } };
+  const episodeChoices = MONSTER_MATH_EPISODES.map((item, index) => {
+    const complete = progress.completedEpisodeIds.includes(item.id);
+    return {
+      label: `${item.title}${index > progress.unlockedEpisode ? ' · Locked' : complete ? ' · Complete' : ''}`,
+      description: item.subtitle,
+      button: `${complete ? 'Replay' : 'Start'}: ${item.title}`,
+      disabled: !canStartEpisode || index > progress.unlockedEpisode || Boolean(pendingStartRef.current),
+      action: () => startEpisode(index),
+    };
+  });
+  const playChoices = [
+    ...(!locked && !hadHint ? [{ label: question?.model.type === 'number-line' ? 'Try the jumps' : 'Show me a clue', action: () => { closeOptions(); requestHint(); } }] : []),
+    soundChoice,
+    { label: 'Back to Maths Missions', action: leaveGame },
+  ];
+  const menuError = !progressState.ok ? 'Saved progress could not be checked.' : rewardClaimError ? 'Confirm the saved reward before starting.' : startStorageError;
 
-  if (phase === 'start') {
-    return (
-      <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-orange-100 via-amber-100 to-orange-200 px-2 pb-5 pt-2 text-slate-900 sm:px-6 sm:pb-8 sm:pt-3">
-        <header className="mx-auto flex max-w-5xl items-center justify-between gap-2 rounded-2xl border-2 border-white/80 bg-white/90 p-2 shadow-xl sm:rounded-3xl sm:p-3">
-          <button type="button" onClick={leaveGame} className="game-icon-button !bg-orange-700 !text-white" aria-label="Back to learning world"><ArrowLeft /></button>
-          <div className="min-w-0 flex-1 text-center"><p className="truncate text-[10px] font-black uppercase tracking-widest text-orange-700 sm:text-xs">Three visual episodes · six questions each</p><h1 className="text-xl font-black sm:text-4xl">Monster Math</h1></div>
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-        </header>
-        <main className="mx-auto mt-2 max-w-5xl sm:mt-5">
-          <p className="mx-auto mb-2 max-w-2xl rounded-xl bg-white/85 px-3 py-2 text-center text-sm font-bold leading-snug text-orange-950 sm:mb-4 sm:rounded-2xl sm:px-4 sm:py-3 sm:text-lg">Count the pictures, move counters, and solve a short story. Every answer stays on screen until you choose Next.</p>
-          {!progressState.ok && <section className="mb-3 rounded-2xl border-2 border-amber-300 bg-amber-50 p-3 text-center font-bold text-amber-950" role="status"><p>Saved progress could not be checked. Episode results will stay here until storage can confirm them.</p><button type="button" disabled={progressRetryBusy} onClick={retryProgressRead} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">{progressRetryBusy ? 'Checking…' : 'Retry saved progress'}</button></section>}
-          {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <section className="mb-3 rounded-2xl border-2 border-amber-300 bg-amber-50 p-3 text-center font-bold text-amber-950" role="status" aria-live="polite"><p>{rewardClaimError ? 'A saved episode reward still needs confirmation.' : 'Checking saved episode rewards…'}</p>{rewardClaimError && <button type="button" onClick={() => { void drainPendingRewards(); }} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry reward confirmation</button>}</section>}
-          {startStorageError && <p className="mb-3 rounded-2xl bg-sky-50 p-3 text-center font-bold text-sky-900" role="status">{startStorageError}</p>}
-          <section className="rounded-2xl border-2 border-white/80 bg-white/90 p-3 shadow-xl sm:mt-5 sm:rounded-[2rem] sm:border-4 sm:p-6">
-            <div className="flex items-center gap-3"><img src="/art/catalog-v3/game-math.webp" alt="" className="h-14 w-14 shrink-0 rounded-xl object-cover sm:h-20 sm:w-20" /><p className="text-[10px] font-black uppercase tracking-widest text-orange-700 sm:text-xs">Episode {episodeIndex + 1} · {episode.band}</p></div>
-            <div className="mt-0.5 flex items-start justify-between gap-2"><h2 className="text-xl font-black leading-tight sm:text-3xl">{episode.title}</h2><span className="shrink-0 rounded-full bg-amber-100 px-2 py-1 text-xs font-black text-amber-950 sm:px-3 sm:text-sm">{progress.bestStars[episode.id] ? `${'★'.repeat(progress.bestStars[episode.id])} best` : progress.completedEpisodeIds.includes(episode.id) ? 'Completed' : 'Ready'}</span></div>
-            <p className="mt-1 text-sm font-bold leading-snug text-slate-700 sm:mt-2">{episode.subtitle}</p>
-            <button type="button" disabled={!canStartEpisode} onClick={() => startEpisode(episodeIndex)} className="mt-2 inline-flex min-h-14 w-full items-center justify-center rounded-xl bg-orange-700 px-5 py-2 text-base font-black text-white shadow-[0_4px_0_#9a3412] hover:bg-orange-800 active:translate-y-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50 sm:mt-5 sm:min-h-16 sm:rounded-2xl sm:px-6 sm:py-3 sm:text-lg sm:shadow-[0_6px_0_#9a3412]">{pendingStartRef.current?.episodeIndex === episodeIndex ? 'Retry saving this episode' : progress.completedEpisodeIds.includes(episode.id) ? 'Replay this episode' : 'Start six questions'}</button>
-            <details className="mt-2 rounded-xl border border-amber-200 bg-white/80 sm:mt-4 sm:rounded-2xl" aria-label="Episode choices">
-              <summary className="flex min-h-12 cursor-pointer items-center justify-center px-3 text-sm font-black text-orange-900">Choose another episode</summary>
-              <div className="grid gap-2 p-2 md:grid-cols-3">{MONSTER_MATH_EPISODES.map((entry, index) => <EpisodeTile key={entry.id} episode={entry} index={index} progress={progress} selected={episodeIndex === index} disabled={!progressState.ok || index > progress.unlockedEpisode} onSelect={(event) => { setEpisodeIndex(index); setStartStorageError(''); event.currentTarget.closest('details')?.removeAttribute('open'); window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }} />)}</div>
-            </details>
-          </section>
-        </main>
-      </div>
-    );
-  }
-
-  if (phase === 'done') {
-    const nextEpisode = Math.min(MONSTER_MATH_EPISODES.length - 1, episodeIndex + 1);
-    return (
-      <div className="grid min-h-[100dvh] place-items-center bg-gradient-to-b from-orange-950 via-amber-800 to-red-900 p-4 text-center text-white">
-        <section className="w-full max-w-xl rounded-[2.5rem] border-4 border-white/70 bg-white/95 p-6 text-slate-900 shadow-2xl sm:p-9">
-          <div className="text-6xl" aria-hidden="true">{newEpisodeBadge ? '🏅' : '👾'}</div>
-          <p className="mt-2 text-xs font-black uppercase tracking-widest text-orange-700">Six questions complete</p>
-          <h1 className="mt-1 text-3xl font-black">{episode.title}</h1>
-          <p className="mt-3 text-lg font-bold text-slate-700">{firstTryCount} of 6 correct without a mistake or clue</p>
-          <div className="mt-3 flex justify-center gap-2 text-4xl" aria-label={`${runStars} of 3 stars`}>{Array.from({ length: 3 }, (_, index) => <span key={index} aria-hidden="true" className={index < runStars ? 'text-amber-400' : 'text-slate-200'}>★</span>)}</div>
-          <p className="mt-3 rounded-2xl bg-orange-50 p-3 font-bold text-orange-900">{newEpisodeBadge ? 'New episode badge saved for this child.' : 'Progress is saved. Replay to practise again.'}</p>
-          <div className="mt-5 flex flex-wrap justify-center gap-3">
-            <button type="button" onClick={() => { setPhase('start'); retryProgressRead(); }} className="min-h-14 rounded-2xl bg-orange-700 px-5 font-black text-white">Episode map</button>
-            <button type="button" onClick={replayRun} className="min-h-14 rounded-2xl bg-indigo-600 px-5 font-black text-white"><RotateCcw size={18} className="mr-1 inline" />Replay episode</button>
-            {nextEpisode > episodeIndex && progress.unlockedEpisode >= nextEpisode && <button type="button" onClick={() => startEpisode(nextEpisode)} className="min-h-14 rounded-2xl bg-emerald-600 px-5 font-black text-white">Next episode</button>}
-            <button type="button" onClick={leaveGame} className="min-h-14 rounded-2xl bg-amber-400 px-5 font-black text-amber-950">Back to world</button>
-          </div>
-        </section>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-orange-100 via-amber-50 to-red-100 px-2 pb-4 pt-2 text-slate-900 sm:px-5 sm:pt-4">
-      <header className="mx-auto flex max-w-5xl flex-nowrap items-center justify-between gap-1 rounded-2xl border-2 border-white/80 bg-white/90 p-2 shadow-lg sm:gap-4 sm:rounded-3xl sm:p-3">
-        <button type="button" onClick={leaveGame} className="game-icon-button shrink-0 !bg-orange-700 !text-white" aria-label="Back to learning world"><ArrowLeft /></button>
-        <div className="min-w-0 flex-1 text-center"><p className="text-[9px] font-black uppercase leading-snug tracking-normal text-orange-700 sm:text-xs sm:tracking-widest">Episode {episodeIndex + 1} · {episode.title}</p><h1 className="text-lg font-black leading-tight sm:text-2xl">Monster Math</h1></div>
-        <span className="shrink-0 rounded-full bg-orange-100 px-2 py-1 text-xs font-black sm:px-3 sm:text-sm">Question {roundIndex + 1}/6</span>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+  return <div data-board-focus="" className="focus-game" data-monster-phase={phase} data-monster-question={menu ? undefined : question?.id}>
+    <main className={`focus-game-body ${menu || optionsOpen ? 'is-menu' : ''}`}>
+      <header className="focus-game-heading">
+        {!menu && <p>Monster Math · {episode.title} · {roundIndex + 1} of {rounds.length}</p>}
+        <h1 ref={headingRef} tabIndex={-1}>{phase === 'done' ? 'Episode saved!' : menu ? 'Monster Math' : question?.prompt}</h1>
       </header>
-
-      <main className="mx-auto mt-2 flex max-w-5xl flex-col gap-2 sm:mt-5 sm:gap-4">
-        <div className="flex items-center gap-2 rounded-xl bg-white/85 px-2.5 py-1.5 shadow-sm sm:gap-3 sm:rounded-2xl sm:px-3 sm:py-2"><div className="h-2.5 flex-1 overflow-hidden rounded-full bg-orange-100"><div className="h-full rounded-full bg-gradient-to-r from-amber-400 to-emerald-500 transition-all" style={{ width: `${((roundIndex + (locked ? 1 : 0)) / rounds.length) * 100}%` }} /></div><span className="text-xs font-black text-orange-900">{roundIndex + (locked ? 1 : 0)}/{rounds.length}</span></div>
-        <section className="rounded-2xl border-2 border-white/80 bg-white/95 p-2.5 text-center shadow-xl sm:rounded-[2rem] sm:border-4 sm:p-6">
-          <p className="text-[10px] font-black uppercase tracking-widest text-orange-700 sm:text-xs">{episode.skill}</p>
-          <h2 className="mx-auto mt-1 max-w-3xl text-lg font-black leading-snug text-slate-900 sm:mt-2 sm:text-3xl" aria-live="polite">{question?.prompt}</h2>
-          <button type="button" onClick={replayPrompt} className="mt-2 min-h-11 rounded-full bg-indigo-100 px-4 py-1.5 text-sm font-black text-indigo-900 sm:mt-3 sm:min-h-12 sm:px-5 sm:py-2 sm:text-base"><Volume2 size={18} className="mr-1 inline" />Hear the question again</button>
-        </section>
-
-        <div className="grid gap-2 lg:grid-cols-[1.2fr_.8fr] lg:items-stretch sm:gap-3">
-          <CounterModel
-            question={question}
-            locked={locked}
-            animationCount={animationCount}
-            showHint={showHint && question?.model.type === 'number-line'}
-            clueShown={hadHint}
-            guidedSteps={guidedSteps}
-            onStep={() => setGuidedSteps((steps) => monsterNumberLineStep(question.model, steps).completed + 1)}
-            onResetSteps={() => setGuidedSteps(0)}
-          />
-          <section className={`${locked ? 'hidden sm:flex' : 'flex'} flex-col justify-center rounded-2xl border-2 border-white/80 bg-white/90 p-2.5 shadow-md sm:rounded-3xl sm:border-4 sm:p-5`}>
-            <p className="mb-2 text-center text-xs font-black uppercase tracking-widest text-orange-700 sm:mb-3 sm:text-sm">Choose the answer</p>
-            <div role="group" aria-label="Choose the answer" className="grid grid-cols-2 gap-2 sm:gap-3">
-              {question?.options.map((option) => <button key={option} type="button" disabled={locked} onClick={() => checkAnswer(option)} className="min-h-14 rounded-xl border-2 border-white bg-sky-600 text-2xl font-black text-white shadow-[0_4px_0_#075985] transition hover:bg-sky-700 active:translate-y-1 active:shadow-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-yellow-300 disabled:opacity-55 sm:min-h-16 sm:rounded-2xl sm:border-4 sm:text-3xl sm:shadow-[0_5px_0_#075985]">{option}</button>)}
-            </div>
-            {!locked && !hadHint && <button type="button" onClick={requestHint} className="mt-2 min-h-11 rounded-xl bg-amber-200 px-4 py-1.5 text-sm font-black text-amber-950 sm:mt-3 sm:min-h-12 sm:py-2 sm:text-base"><Lightbulb size={18} className="mr-1 inline" />{question?.model.type === 'number-line' ? 'Try the jumps' : 'Show me a clue'}</button>}
-          </section>
+      {optionsOpen ? <FocusMenu choices={menu ? [...episodeChoices, soundChoice] : playChoices} onBack={closeOptions} /> : menu ? <>
+        {phase === 'done' && <p className="focus-game-message" role="status">{episode.title} saved with {runStars} {runStars === 1 ? 'star' : 'stars'}. {newEpisodeBadge && 'New badge earned.'}</p>}
+        {menuError ? <p role="alert" className="focus-game-message">{menuError}</p> : <p className="focus-game-message">{recommended.subtitle}</p>}
+        <div className="focus-game-actions">
+          {!progressState.ok || rewardClaimError
+            ? <button type="button" className="focus-game-button is-primary" onClick={!progressState.ok ? retryProgressRead : () => void drainPendingRewards()} disabled={progressRetryBusy || rewardDrainBusy}>{!progressState.ok ? 'Retry saved progress' : 'Retry reward confirmation'}</button>
+            : <button type="button" className="focus-game-button is-primary" disabled={!canStartEpisode} onClick={() => startEpisode(nextIndex)}>{rewardDrainBusy ? 'Checking saved progress…' : nextLabel}</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={leaveGame}>Back to Maths Missions</button>
         </div>
-
-        <section className="rounded-2xl border-2 border-white bg-white/90 p-2.5 text-center shadow-md sm:rounded-3xl sm:p-4" aria-live="polite">
-          <p className={`min-h-6 text-sm font-black leading-snug sm:min-h-8 sm:text-lg ${locked ? 'text-emerald-800' : 'text-orange-900'}`}>{feedback || (showHint ? question?.clue : 'Count the picture or follow the model, then choose.')}</p>
-          {completionPending && <div className="mt-3 rounded-2xl border-2 border-amber-300 bg-amber-50 p-3 font-bold text-amber-950" role="status" aria-live="polite"><p>{completionError || 'Saving this six-question result…'}</p>{completionError && <button type="button" disabled={completionBusyRef.current || rewardDrainBusy} onClick={() => { void finishEpisode(pendingCompletionRef.current); }} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white disabled:opacity-60">Retry saving this result</button>}</div>}
-          {locked && !completionPending && <button type="button" disabled={!animationDone} onClick={nextQuestion} className="mt-3 min-h-14 rounded-2xl bg-emerald-600 px-7 py-3 text-lg font-black text-white shadow-[0_5px_0_#047857] active:translate-y-1 active:shadow-none disabled:cursor-wait disabled:bg-slate-400 disabled:shadow-none">{animationDone ? roundIndex + 1 < rounds.length ? 'Next question' : 'Finish episode' : 'Watch the counters…'}</button>}
-        </section>
-      </main>
-    </div>
-  );
+      </> : question && <>
+        <div className="my-3" data-monster-model>
+          <CounterModel question={question} locked={locked} animationCount={animationCount} showHint={showHint && question.model.type === 'number-line'} clueShown={hadHint} guidedSteps={guidedSteps}
+            onStep={() => setGuidedSteps(steps => monsterNumberLineStep(question.model, steps).completed + 1)} onResetSteps={() => setGuidedSteps(0)} />
+        </div>
+        {!locked && <div role="group" aria-label="Choose the answer" className="my-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {question.options.map(option => <button key={option} type="button" className="focus-game-button text-xl" onClick={() => checkAnswer(option)}>{option}</button>)}
+        </div>}
+        {(feedback || showHint) && <p className="focus-game-message" role="status">{feedback || question.clue}</p>}
+        {completionPending && <p className="focus-game-message" role={completionError ? 'alert' : 'status'}>{completionError || 'Saving your result…'}</p>}
+        <div className="focus-game-actions">
+          {completionError ? <button ref={nextRef} type="button" className="focus-game-button is-primary" onClick={() => void finishEpisode(pendingCompletionRef.current)} disabled={completionBusyRef.current || rewardDrainBusy}>Retry saving this result</button>
+            : locked && !completionPending && <button ref={nextRef} type="button" className="focus-game-button is-primary" disabled={!animationDone} onClick={nextQuestion}>{!animationDone ? 'Watch the counters…' : roundIndex + 1 < rounds.length ? 'Next question' : 'Finish episode'}</button>}
+          {!completionPending && <>
+            {!locked && soundOn && <button type="button" className="focus-game-button" onClick={replayPrompt}>Hear the question again</button>}
+            <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          </>}
+        </div>
+      </>}
+    </main>
+  </div>;
 };
 
 export default MonsterMath;
