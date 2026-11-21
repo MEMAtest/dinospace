@@ -141,7 +141,7 @@ const FuelRound = ({ target, exact, tankSize, complete, mistake, speak, playSfx,
   return (
     <div className="absolute inset-0 overflow-hidden text-center text-white">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-indigo-950/40 via-transparent to-indigo-950/50" />
-      <button type="button" onClick={() => speak?.(prompt)} className="absolute left-1/2 top-[11%] z-20 flex w-max max-w-[90%] -translate-x-1/2 items-center gap-3 rounded-[1.6rem] border-4 border-white bg-white/95 px-4 py-2 text-indigo-950 shadow-xl sm:top-[12%]" aria-label={`Hear again: put ${target} in the rocket`}>
+      <div className="fuel-focus-goal" aria-label={`Put ${target} fuel ${target === 1 ? 'can' : 'cans'} in the rocket`}>
         <span className="flex min-w-16 flex-col text-left">
           <span className="text-4xl font-black sm:text-5xl">{target}</span>
           <span className="text-xs font-extrabold leading-tight sm:text-sm">Put {target} fuel {target === 1 ? 'can' : 'cans'} in the rocket</span>
@@ -149,11 +149,10 @@ const FuelRound = ({ target, exact, tankSize, complete, mistake, speak, playSfx,
         <span className="grid max-w-[11rem] grid-cols-5 gap-1" aria-hidden="true">
           {Array.from({ length: target }, (_, index) => <span key={index} className={`h-5 w-5 rounded-full border-2 border-indigo-700 transition sm:h-6 sm:w-6 ${index < filled ? 'bg-amber-400' : 'bg-white'}`} />)}
         </span>
-        {getOfflineVoiceClip(prompt) && <span className="text-xl" aria-hidden="true">🔊</span>}
-      </button>
-      {feedback && <p role="alert" aria-live="assertive" className="absolute left-1/2 top-[20%] z-30 w-max max-w-[92%] -translate-x-1/2 rounded-xl border-2 border-amber-200 bg-white/95 px-3 py-2 text-sm font-black text-indigo-950 shadow-lg sm:text-base">{feedback}</p>}
+      </div>
+      {feedback && <p role="alert" aria-live="assertive" className="absolute left-1/2 top-[24%] z-30 w-max max-w-[92%] -translate-x-1/2 rounded-xl border-2 border-amber-200 bg-white/95 px-3 py-2 text-sm font-black text-indigo-950 shadow-lg sm:text-base">{feedback}</p>}
 
-      <div ref={rocketRef} className={`absolute left-1/2 top-[25%] z-10 h-[45%] w-[55%] max-w-64 -translate-x-1/2 ${wrong ? 'animate-shake' : ''}`}>
+      <div ref={rocketRef} className={`absolute left-1/2 top-[25%] z-10 h-[45%] w-[60%] max-w-80 -translate-x-1/2 ${wrong ? 'animate-shake' : ''}`}>
         <img src={ROCKET_ART} alt="Rocket waiting for fuel" className={`h-full w-full object-contain drop-shadow-[0_16px_18px_rgba(0,0,0,.45)] transition-transform ease-in ${launched ? '-translate-y-[120vh] duration-[1800ms]' : 'duration-300'}`} draggable={false} />
         {launched && <div className="pointer-events-none absolute bottom-[-3%] left-1/2 h-[30%] w-[23%] -translate-x-1/2 rounded-b-full bg-gradient-to-b from-yellow-200 via-orange-400 to-transparent blur-sm animate-pulse" />}
         <div className="absolute right-[-20%] top-[20%] flex h-[65%] w-9 flex-col-reverse gap-1 rounded-full border-[3px] border-sky-200 bg-slate-900/80 p-1 shadow-[0_0_18px_rgba(125,211,252,.8)] sm:w-12" role="progressbar" aria-label="Fuel tank" aria-valuemin={0} aria-valuemax={size} aria-valuenow={filled}>
@@ -161,11 +160,11 @@ const FuelRound = ({ target, exact, tankSize, complete, mistake, speak, playSfx,
         </div>
       </div>
 
-      <div ref={cansRef} className="absolute bottom-[3%] left-1/2 z-20 w-[94%] max-w-md -translate-x-1/2 rounded-[1.6rem] border-4 border-sky-200/80 bg-sky-800/80 p-2 shadow-[0_12px_30px_rgba(0,0,0,.45)] backdrop-blur-sm sm:p-3">
+      <div ref={cansRef} className="absolute bottom-[3%] left-1/2 z-20 w-[96%] max-w-xl -translate-x-1/2 rounded-xl border-2 border-sky-200/80 bg-sky-800/80 p-2 shadow-[0_12px_30px_rgba(0,0,0,.45)] backdrop-blur-sm sm:p-3">
         <div className="mb-2 grid grid-cols-[1fr_auto_auto] items-center gap-1.5 sm:gap-2">
           <p className="whitespace-nowrap rounded-lg bg-white/95 px-2 py-1 text-xs font-black text-indigo-950 sm:text-sm" aria-live="polite">Count: {filled} of {target}</p>
-          <button type="button" onClick={undoLastCan} disabled={launched || used.length === 0} aria-label="Undo last fuel can" className="min-h-11 rounded-full border-2 border-white bg-amber-300 px-2 text-xs font-black text-indigo-950 shadow disabled:opacity-50 sm:px-4 sm:text-sm">Undo last can</button>
-          {!exact && <button ref={launchRef} type="button" onClick={tryLaunch} disabled={filled === 0 || launched} aria-label="Launch the rocket" className="flex min-h-11 items-center gap-1 rounded-full border-2 border-white bg-gradient-to-b from-amber-300 to-orange-500 px-2 text-xs font-black text-indigo-950 shadow-[0_4px_0_#9a3412] transition active:translate-y-1 active:shadow-none disabled:opacity-50 sm:px-4 sm:text-sm">
+          {used.length > 0 && !launched && <button type="button" onClick={undoLastCan} aria-label="Undo last fuel can" className="min-h-11 rounded-full border-2 border-white bg-amber-300 px-2 text-xs font-black text-indigo-950 shadow disabled:opacity-50 sm:px-4 sm:text-sm">Undo last can</button>}
+          {!exact && filled > 0 && !launched && <button ref={launchRef} type="button" onClick={tryLaunch} aria-label="Launch the rocket" className="flex min-h-11 items-center gap-1 rounded-full border-2 border-white bg-gradient-to-b from-amber-300 to-orange-500 px-2 text-xs font-black text-indigo-950 shadow-[0_4px_0_#9a3412] transition active:translate-y-1 active:shadow-none disabled:opacity-50 sm:px-4 sm:text-sm">
             <RocketIcon size={20} strokeWidth={2.5} /> Launch!
           </button>}
         </div>
@@ -205,6 +204,8 @@ const FuelUp = (props) => {
       title="Fuel Up"
       pairSafeProgress
       compactStart
+      compactDone
+      focusedControls
       intro={LITTLE_LINES.fuelIntro}
       background="from-sky-500 via-indigo-300 to-violet-200"
       playFullBleed

@@ -195,7 +195,7 @@ const FireRound = ({ count, targetSpots, houseColour, complete, speak, playSfx, 
         role="application"
         aria-label="Hold and aim water at the flames. Keyboard users can focus a flame and hold Space or Enter."
         className="relative mx-auto h-full touch-none overflow-hidden bg-gradient-to-b from-sky-300 to-sky-100 shadow-2xl"
-        style={{ width: 'min(100%, 56.25dvh)' }}
+        style={{ width: 'min(100%, max(26rem, 56.25dvh))' }}
       >
         {artUrl('fire-house') ? (
           <img src={artUrl('fire-house')} alt="" className="pointer-events-none absolute inset-0 h-full w-full object-fill" draggable={false} />
@@ -212,13 +212,8 @@ const FireRound = ({ count, targetSpots, houseColour, complete, speak, playSfx, 
         </>
         )}
 
-        <button type="button" onPointerDown={(event) => event.stopPropagation()} onClick={() => speak?.(LITTLE_LINES.fireStart)} className="absolute left-[3%] top-[11%] z-20 rounded-[1.4rem] border-4 border-white bg-white/95 px-4 py-2 text-lg font-black text-blue-950 shadow-xl sm:text-xl" aria-label="Hear again: spray the fire">
-          Spray the fire! 🔊
-        </button>
-        <div className="pointer-events-none absolute right-[3%] top-[11%] z-20 rounded-full border-4 border-white bg-white/95 px-3 py-2 text-lg font-black text-orange-600 shadow-xl" role="status" aria-label={`${firesLeft} ${firesLeft === 1 ? 'fire' : 'fires'} left`}>
-          🔥 {firesLeft}
-        </div>
-        <div role="status" aria-live="polite" className="pointer-events-none absolute left-[3%] top-[18%] z-20 w-[min(34%,13rem)] rounded-xl border-2 border-sky-900/20 bg-white/95 px-3 py-2 text-center text-sm font-black text-slate-900 shadow-lg sm:text-base">
+        <p className="fire-focus-count" role="status">{firesLeft} {firesLeft === 1 ? 'fire' : 'fires'} left</p>
+        <div role="status" aria-live="polite" className="pointer-events-none fire-focus-guidance">
           {guidance}
         </div>
 
@@ -295,6 +290,7 @@ const FireRescue = (props) => {
       pairSafeProgress
       compactStart
       compactDone
+      focusedControls
       manualNext
       manualNextPrompt="Ready for the next rescue?"
       manualNextReviewLabel="Fire rescue review"

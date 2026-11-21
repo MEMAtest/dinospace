@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Home, Play, RotateCcw, SkipForward, Volume2, VolumeX } from 'lucide-react';
 import { getPraise } from '../../utils.js';
 import { STICKERS } from '../../data/index.js';
+import { LEARNING_WORLDS } from '../../data/learningWorlds.js';
 import { LITTLE_LEVELS, LITTLE_LEVEL_GOALS, LITTLE_LINES, levelRounds, starsForMistakes } from '../../data/littleGames.js';
 import { getLittleLevel, recordLittleResult, startLevelFor } from '../../data/littleProgress.js';
 import {
@@ -441,15 +442,17 @@ const LittleGameShell = ({
   const backgroundArt = artUrl(backgroundArtName || `bg-${gameId}`);
   const closeOptions = () => setOptionsOpen(false);
   const openOptions = () => setOptionsOpen(true);
+  const parentWorld = bigKid ? LEARNING_WORLDS.find(world => world.gameIds.includes(gameId)) : null;
+  const backLabel = parentWorld ? `Back to ${parentWorld.title}` : 'Go home';
   const options = focusedControls ? [
     ...(pairSafeProgress && phase !== 'play' ? Array.from({ length: highestLevel - minimumPairLevel + 1 }, (_, offset) => {
       const index = minimumPairLevel + offset;
       return { label: `Level ${index + 1}`, description: LITTLE_LEVEL_GOALS[gameId]?.[index], button: 'Select level', action: () => { setLevel(index); closeOptions(); } };
     }) : []),
-    ...(phase === 'start' && soundOn ? [{ label: 'Hear instructions', action: () => { closeOptions(); speak?.(intro); } }] : []),
+    ...((phase === 'start' || phase === 'play') && soundOn ? [{ label: 'Hear instructions', action: () => { closeOptions(); speak?.(intro); } }] : []),
     ...(phase === 'done' && onNextGame ? [{ label: 'Next game', action: onNextGame }] : []),
     { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound?.(); closeOptions(); } },
-    { label: 'Go home', action: onBack },
+    { label: backLabel, action: onBack },
   ] : [];
 
 
@@ -551,7 +554,7 @@ const LittleGameShell = ({
           <h2 className={`${compactDone ? 'text-2xl' : 'text-3xl'} font-black text-white drop-shadow-[0_3px_0_rgba(15,23,42,.35)]`}>{gameId === 'shadowmatch' && (pairSaveWarning.includes('result is saved') || pairSaveWarning.includes('reward was confirmed')) ? 'Your result is saved. Confirm to finish.' : 'Your result is ready, but it is not saved yet.'}</h2>
           <p role="alert" className={`rounded-2xl border-2 border-amber-500 bg-amber-50 font-bold text-amber-950 ${compactDone ? 'px-3 py-2 text-sm' : 'px-4 py-3'}`}>{pairSaveWarning || 'Your result could not be saved yet. It is still here; try saving again.'}</p>
           <button type="button" onClick={retrySavingResult} className={`rounded-full border-4 border-white bg-gradient-to-b from-lime-400 to-green-600 font-black text-white shadow-[0_6px_0_#166534] ${compactDone ? 'min-h-12 px-5 text-lg' : 'min-h-16 px-8 text-xl'}`}>{gameId === 'shadowmatch' && pairSaveWarning.toLowerCase().includes('reward') ? 'Retry reward confirmation' : 'Retry saving this result'}</button>
-          <button type="button" onClick={onBack} className="min-h-12 rounded-full bg-white/80 px-6 font-black text-slate-900">Go home</button>
+          <button type="button" onClick={onBack} className="min-h-12 rounded-full bg-white/80 px-6 font-black text-slate-900">{focusedControls ? backLabel : 'Go home'}</button>
         </main>
       )}
 
@@ -613,10 +616,10 @@ const LittleGameShell = ({
               </div>
             )}
             <div className="flex flex-col items-center gap-1">
-              <BigRoundButton onClick={onBack} label="Go home" size={compactDone ? 'h-16 w-16' : 'h-24 w-24'} tone="bg-gradient-to-b from-amber-300 to-orange-500 text-white">
+              <BigRoundButton onClick={onBack} label={focusedControls ? backLabel : 'Go home'} size={compactDone ? 'h-16 w-16' : 'h-24 w-24'} tone="bg-gradient-to-b from-amber-300 to-orange-500 text-white">
                 <Home size={46} strokeWidth={2.8} />
               </BigRoundButton>
-              <span className={`${compactDone ? 'rounded-md bg-white/95 px-1.5 leading-4' : ''} text-sm font-black text-slate-700`}>Home</span>
+              <span className={`${compactDone ? 'rounded-md bg-white/95 px-1.5 leading-4' : ''} text-sm font-black text-slate-700`}>{focusedControls && parentWorld ? 'Back' : 'Home'}</span>
             </div>
           </div>
         </main>

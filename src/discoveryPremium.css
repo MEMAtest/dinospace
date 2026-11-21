@@ -358,3 +358,32 @@
   .rocket-focus-tray { grid-template-columns: minmax(0,1fr); gap: .35rem; }
   .rocket-focus-tray [data-part] { width: min(100%, 5rem); min-height: 48px; }
 }
+
+.fuel-focus-goal {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  width: max-content;
+  max-width: 94%;
+  padding: .4rem .75rem;
+  border-radius: .65rem;
+  background: #f7fbff;
+  color: #192659;
+}
+.fire-focus-count, .fire-focus-guidance {
+  position: absolute;
+  z-index: 20;
+  top: max(4.25rem, 10%);
+  padding: .45rem .65rem;
+  border-radius: .65rem;
+  background: #f6fbff;
+  color: #172840;
+  font-weight: 850;
+}
+.fire-focus-count { right: 2.5%; }
+.fire-focus-guidance { left: 2.5%; max-width: 55%; }
