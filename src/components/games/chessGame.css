@@ -199,8 +199,11 @@
   .chess-control-card { width: min(100%, 760px); }
 }
 @media (min-width: 1100px) {
-  .chess-match-layout { grid-template-columns: minmax(0, 760px) minmax(220px, 1fr); }
-  .chess-play-board { width: 100%; }
+  .chess-match-layout {
+    grid-template-columns: minmax(0, min(760px, max(32rem, calc(100dvh - 8rem)))) minmax(220px, 1fr);
+    grid-template-areas: "board status" "board instruction" "board controls";
+    grid-template-rows: auto auto 1fr;
+  }
 }
 @media (max-width: 639px) {
   .chess-board-frame { width: 100%; }

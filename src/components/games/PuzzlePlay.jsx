@@ -71,9 +71,6 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
 
   const chapter = PUZZLE_POP_CHAPTERS[chapterIndex] || PUZZLE_POP_CHAPTERS[0];
   const scene = queue[sceneIndex] || null;
-  const boardWidth = chapter.grid === 5
-    ? 'min(100%, 380px, calc(100dvh - 420px))'
-    : 'min(100%, 460px, calc(100dvh - 380px))';
   const solved = Boolean(scene && placed.length && placed.every(Boolean));
   const showMappingDemo = chapterIndex === 2 && moves === 0 && hintsUsed === 0;
   const completedInChapter = useMemo(() => chapter.scenes.filter(({ id }) => savedProgress.completedSceneIds.includes(id)).length, [chapter, savedProgress.completedSceneIds]);
@@ -418,7 +415,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   const canAdvanceSavedScene = !pendingStart && !pendingSceneSave && !pendingRewardReceipt && !rewardClaimError && !rewardDrainBusy && claimingReceiptsRef.current.size === 0;
 
   return (
-    <div ref={rootRef} className="puzzle-pop-root min-h-[100dvh] overflow-y-auto bg-gradient-to-br from-amber-100 via-yellow-50 to-emerald-100 text-slate-800">
+    <div ref={rootRef} data-board-focus={phase === 'intro' ? undefined : ''} className="puzzle-pop-root min-h-[100dvh] overflow-y-auto bg-gradient-to-br from-amber-100 via-yellow-50 to-emerald-100 text-slate-800">
       <header className="puzzle-pop-header sticky top-0 z-20 flex items-center justify-between gap-2 bg-amber-50/90 px-3 py-3 backdrop-blur sm:px-5">
         <button type="button" onClick={() => { onGameEvent?.('puzzle', 'leave', { level: chapterIndex, round: sceneIndex + 1, seed: seed || undefined }); onBack?.(); }} className="game-icon-button" aria-label="Back to learning world"><Home /></button>
         <div className="min-w-0 flex-1 text-center">
@@ -508,7 +505,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                       {showMappingDemo && <p className="text-center text-sm font-bold text-orange-900">Try a piece mapping: compare its highlighted preview square with the glowing board space.</p>}
                     </div>
 
-                    <div ref={boardRef} role="grid" aria-label={`${chapter.grid} by ${chapter.grid} puzzle board`} className="puzzle-board order-first grid aspect-square w-full max-w-[280px] grid-cols-1 gap-1 self-center overflow-hidden rounded-3xl border-4 border-white bg-amber-50 p-1.5 shadow-xl sm:max-w-[460px]" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))`, width: boardWidth, minWidth: `${chapter.grid * 48 + (chapter.grid - 1) * 4 + 20}px` }}>
+                    <div ref={boardRef} role="grid" aria-label={`${chapter.grid} by ${chapter.grid} puzzle board`} className="puzzle-board order-first grid aspect-square w-full grid-cols-1 gap-1 self-center overflow-hidden rounded-3xl border-4 border-white bg-amber-50 p-1.5 shadow-xl" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))`, minWidth: `${chapter.grid * 48 + (chapter.grid - 1) * 4 + 20}px` }}>
                       {Array.from({ length: chapter.grid }, (_, row) => (
                         <div role="row" key={`row-${row}`} className="col-span-full grid min-h-0 min-w-0 gap-1" style={{ gridColumn: '1 / -1', gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))` }}>
                           {placed.slice(row * chapter.grid, (row + 1) * chapter.grid).map((piece, column) => {

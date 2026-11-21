@@ -75,10 +75,13 @@ const TicTacToe = ({
   const completedResultRef = useRef('');
   const lastAwardRef = useRef('');
   const cellRefs = useRef([]);
+  const focusNewBoard = useRef(false);
 
   const chapter = COSMIC_CHAPTERS[chapterIndex];
   const result = useMemo(() => getBoardResult(board), [board]);
   const terminal = Boolean(result.winner || result.draw);
+  const opponentName = opponent === 'bot' ? 'Nova Bot' : 'Rocket';
+  const winnerName = result.winner === 'O' ? opponentName : MARK.X.name;
   const botThinking = phase === 'play' && activity === 'free' && opponent === 'bot' && turn === 'O' && !terminal && !confirmLeaveBoard;
   const requestLeaveBoard = () => setConfirmLeaveBoard(true);
   const keepPlaying = () => setConfirmLeaveBoard(false);
@@ -90,6 +93,11 @@ const TicTacToe = ({
   };
 
   useEffect(() => { onPhaseChange?.(phaseName(phase)); }, [onPhaseChange, phase]);
+  useEffect(() => {
+    if (!focusNewBoard.current) return;
+    focusNewBoard.current = false;
+    cellRefs.current[0]?.focus({ preventScroll: true });
+  }, [freeRound]);
   useEffect(() => { setProgress(getCosmicProgress(playerId)); setScores(getCosmicFreeProgress(playerId)); }, [playerId]);
   useEffect(() => () => {
     clearTimeout(botTimerRef.current);
@@ -141,6 +149,7 @@ const TicTacToe = ({
     completedResultRef.current = '';
     setActivity('free');
     setOpponent(nextOpponent);
+    setDifficulty(nextDifficulty);
     setSeed(nextSeed);
     setFreeRound((value) => value + 1);
     setBoard(Array(9).fill(null));
@@ -297,8 +306,9 @@ const TicTacToe = ({
   };
 
   const resetFreeBoard = () => {
+    focusNewBoard.current = true;
     beginBoard();
-    setFeedback('New board. Try a different plan.');
+    setFeedback(COSMIC_TACTIC_NARRATION[5]);
   };
 
   useEffect(() => {
@@ -331,37 +341,51 @@ const TicTacToe = ({
     } else {
       const winner = result.winner;
       setScores(recordCosmicFreeResult({ playerId, board, boardId: `${seed}:${freeRound}` }));
-      setFeedback(winner === 'X' ? COSMIC_TACTIC_NARRATION[8] : `${opponent === 'bot' ? 'Nova Bot' : 'Rocket'} made a line of three. Try a new plan.`);
-      say(winner === 'X' ? COSMIC_TACTIC_NARRATION[8] : COSMIC_TACTIC_NARRATION[9]);
+      const explanation = winner === 'X'
+        ? COSMIC_TACTIC_NARRATION[8]
+        : `${opponentName} made three in a row. Next round, if you see two rockets in a line, put a Dino in the empty square to block them.`;
+      setFeedback(explanation);
+      say(winner === 'X' ? explanation : COSMIC_TACTIC_NARRATION[1]);
       playSfx(winner === 'X' ? 'complete' : 'oops');
     }
-  }, [activity, board, chapterIndex, freeRound, onGameEvent, opponent, phase, playerId, playSfx, result, seed, say, terminal]);
+  }, [activity, board, chapterIndex, freeRound, onGameEvent, opponentName, phase, playerId, playSfx, result, seed, say, terminal]);
 
   const moveFocus = (event, index) => {
     const deltas = { ArrowUp: -3, ArrowDown: 3, ArrowLeft: -1, ArrowRight: 1 };
     if (!Object.hasOwn(deltas, event.key)) return;
     event.preventDefault();
-    let next = (index + deltas[event.key] + 9) % 9;
-    if (event.key === 'ArrowLeft' && Math.floor(next / 3) !== Math.floor(index / 3)) next = index;
-    if (event.key === 'ArrowRight' && Math.floor(next / 3) !== Math.floor(index / 3)) next = index;
-    cellRefs.current[next]?.focus();
+    const delta = deltas[event.key];
+    for (let step = 1; step < 3; step += 1) {
+      const next = index + delta * step;
+      if (next < 0 || next > 8 || (Math.abs(delta) === 1 && Math.floor(next / 3) !== Math.floor(index / 3))) return;
+      const cell = cellRefs.current[next];
+      if (!cell?.disabled) {
+        cell?.focus();
+        return;
+      }
+    }
   };
 
   const renderBoard = () => {
     const paths = activity === 'mission' && missionSolved ? cosmicTacticPaths(board, missionTarget, chapter.tactic) : result.line.length ? [result.line] : [];
-    return <div className={`relative mx-auto w-full sm:max-w-[28rem] ${missionSolved ? 'max-w-[min(65vw,22rem)]' : 'max-w-[min(70vw,24rem)]'}`}>
-      <div className="grid aspect-square w-full grid-cols-3 gap-2 rounded-3xl border-4 border-cyan-100 bg-slate-900/50 p-3 shadow-xl" role="grid" aria-label="Cosmic three by three board">
-        {board.map((mark, index) => {
+    const blocked = activity === 'mission' && chapter.tactic === 'block';
+    const rocketWin = activity === 'free' && result.winner === 'O';
+    const pathLabel = blocked ? 'Rocket line blocked by Dino' : paths.length > 1 ? 'Two different winning paths' : rocketWin ? `Winning line of three rockets for ${opponentName}` : 'A line of three Dino marks';
+    return <div className="cosmic-board relative mx-auto w-full">
+      <div className="grid aspect-square w-full grid-rows-3 gap-2 rounded-3xl border-4 border-cyan-100 bg-slate-900/50 p-3 shadow-xl" role="grid" aria-label="Cosmic three by three board">
+        {[0, 3, 6].map(start => <div key={start} role="row" className="grid min-h-0 grid-cols-3 gap-2">{board.slice(start, start + 3).map((mark, offset) => {
+          const index = start + offset;
           const winning = paths.some(line => line.includes(index));
           const clue = hintCell === index && !mark;
           const pathIndex = paths.findIndex(line => line.includes(index));
-          return <button key={index} type="button" ref={node => { cellRefs.current[index] = node; }} onClick={() => onCellClick(index)} onKeyDown={event => moveFocus(event, index)} disabled={Boolean(mark) || activity === 'free' && (terminal || botThinking || opponent === 'bot' && turn === 'O') || activity === 'mission' && missionSolved} role="gridcell" aria-label={`Row ${Math.floor(index / 3) + 1}, column ${index % 3 + 1}, square ${index + 1}${mark ? `, ${MARK[mark].name}` : ', empty'}${clue ? ', hint' : ''}${pathIndex >= 0 ? ', explained path' : ''}`} className={`relative z-10 grid min-h-0 min-w-0 aspect-square place-items-center rounded-2xl border-2 font-black transition focus-visible:z-20 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-amber-300 ${winning ? 'border-lime-300 bg-lime-300/10' : clue ? 'border-amber-300 bg-amber-300/20' : 'border-white/20 bg-white/10'} disabled:cursor-default`}>
-            {mark ? <img src={MARK[mark].src} alt="" aria-hidden="true" className="h-12 w-12 object-contain drop-shadow-md sm:h-20 sm:w-20" /> : clue ? <Lightbulb className="text-amber-200" size={30} /> : ''}
+          const pathColour = rocketWin ? 'border-orange-300 bg-orange-300/20' : 'border-lime-300 bg-lime-300/10';
+          return <button key={index} type="button" ref={node => { cellRefs.current[index] = node; }} onClick={() => onCellClick(index)} onKeyDown={event => moveFocus(event, index)} disabled={Boolean(mark) || activity === 'free' && (terminal || botThinking || opponent === 'bot' && turn === 'O') || activity === 'mission' && missionSolved} role="gridcell" aria-label={`Row ${Math.floor(index / 3) + 1}, column ${index % 3 + 1}, square ${index + 1}${mark ? `, ${MARK[mark].name}` : ', empty'}${clue ? ', hint' : ''}${pathIndex >= 0 ? ', explained path' : ''}`} className={`relative z-10 grid min-h-0 min-w-0 aspect-square place-items-center rounded-2xl border-2 font-black transition focus-visible:z-20 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-amber-300 ${winning ? pathColour : clue ? 'border-amber-300 bg-amber-300/20' : 'border-white/20 bg-white/10'} disabled:cursor-default`}>
+            {mark ? <img src={MARK[mark].src} alt="" aria-hidden="true" className="h-[72%] w-[72%] object-contain drop-shadow-md" /> : clue ? <Lightbulb className="text-amber-200" size={30} /> : ''}
           </button>;
-        })}
+        })}</div>)}
       </div>
-      {paths.length > 0 && <svg viewBox="0 0 300 300" role="img" aria-label={activity === 'mission' && chapter.tactic === 'block' ? 'Rocket line blocked by Dino' : paths.length > 1 ? 'Two different winning paths' : 'A line of three Dino marks'} className="pointer-events-none absolute inset-4 z-20 h-[calc(100%-2rem)] w-[calc(100%-2rem)]">
-        {paths.map((line, i) => { const center = cell => ({ x: 50 + cell % 3 * 100, y: 50 + Math.floor(cell / 3) * 100 }); const from = center(line[0]), to = center(line[2]); return <line key={line.join('-')} data-tactic-path x1={from.x} y1={from.y} x2={to.x} y2={to.y} stroke={i ? '#67e8f9' : '#bef264'} strokeWidth="6" strokeDasharray={chapter.tactic === 'block' ? '9 7' : undefined} opacity=".85" strokeLinecap="round" />; })}
+      {paths.length > 0 && <svg viewBox="0 0 300 300" role="img" aria-label={pathLabel} className="pointer-events-none absolute inset-3 z-20 h-[calc(100%-1.5rem)] w-[calc(100%-1.5rem)]">
+        {paths.map((line, i) => { const center = cell => ({ x: 50 + cell % 3 * 100, y: 50 + Math.floor(cell / 3) * 100 }); const from = center(line[0]), to = center(line[2]); return <line key={line.join('-')} data-tactic-path x1={from.x} y1={from.y} x2={to.x} y2={to.y} stroke={rocketWin ? '#fdba74' : i ? '#67e8f9' : '#bef264'} strokeWidth="6" strokeDasharray={blocked ? '9 7' : undefined} opacity=".9" strokeLinecap="round" />; })}
       </svg>}
     </div>;
   };
@@ -376,7 +400,7 @@ const TicTacToe = ({
   );
 
   const renderMission = () => (
-    <main className="cosmic-mission-layout mx-auto w-full max-w-3xl space-y-1.5 p-2 sm:space-y-4 sm:p-5">
+    <main className="cosmic-mission-layout mx-auto w-full">
       <section className={`rounded-3xl border border-cyan-100/25 bg-white/10 text-center ${missionSolved ? 'p-1.5 sm:p-4' : 'p-2 sm:p-4'}`}><p className="text-[10px] font-black uppercase tracking-wide text-cyan-100 sm:text-xs">Lesson {chapterIndex + 1} · Board {missionRunStep + 1} of {missionRunIds.length}</p><h1 className="text-lg font-black sm:mt-1 sm:text-2xl">{chapter.title}</h1><p className="mt-0.5 text-sm font-bold sm:mt-2 sm:text-lg">{missionSolved ? 'Your move worked. Look at the highlighted board.' : chapter.instruction}</p>
         {!missionSolved && <p className="mt-1 flex flex-wrap items-center justify-center gap-1 text-[11px] font-bold text-sky-100 sm:mt-3 sm:gap-2 sm:text-sm"><img src={MARK.X.src} alt="" className="h-5 w-5 object-contain sm:h-8 sm:w-8" />You are Dino<span className="px-1">·</span><img src={MARK.O.src} alt="" className="h-5 w-5 object-contain sm:h-8 sm:w-8" />Stop Rocket</p>}
         {!missionSolved && <div className="mt-2 flex flex-wrap justify-center gap-2"><button type="button" onClick={() => say(chapter.instruction)} className="min-h-12 rounded-xl bg-white/10 px-4 font-black"><Volume2 className="mr-2 inline" size={18} />Hear mission</button><button type="button" onClick={showHint} disabled={hintUsed} className="min-h-12 rounded-xl bg-amber-200 px-4 font-black text-amber-950 disabled:opacity-50"><Lightbulb className="mr-2 inline" size={18} />{hintUsed ? 'Hint used' : 'Show hint'}</button></div>}
@@ -388,15 +412,30 @@ const TicTacToe = ({
   );
 
   const renderFreePlay = () => (
-    <main className="mx-auto grid w-full max-w-5xl flex-1 content-start gap-4 px-3 py-4 sm:px-5">
-      <section className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/15 bg-white/10 p-4">
-        <div><p className="text-xs font-black uppercase tracking-widest text-cyan-100">Free play · round {freeRound}</p><h1 className="text-2xl font-black">{opponent === 'bot' ? 'Play Nova Bot' : 'Two players'}</h1></div>
-        <div className="flex flex-wrap gap-2"><button type="button" onClick={() => { setDifficulty('scout'); startFreePlay('bot', 'scout'); }} aria-pressed={difficulty === 'scout' && opponent === 'bot'} className="min-h-12 rounded-xl bg-white/15 px-3 font-black">Scout bot</button><button type="button" onClick={() => { setDifficulty('captain'); startFreePlay('bot', 'captain'); }} aria-pressed={difficulty === 'captain' && opponent === 'bot'} className="min-h-12 rounded-xl bg-white/15 px-3 font-black">Captain bot</button><button type="button" onClick={() => startFreePlay('buddy', difficulty)} aria-pressed={opponent === 'buddy'} className="min-h-12 rounded-xl bg-white/15 px-3 font-black">Two players</button></div>
+    <main className="cosmic-free-layout mx-auto w-full">
+      <section className="cosmic-match-status grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2">
+        <div>
+          <p className="text-xs font-bold text-cyan-100">{opponent === 'bot' ? 'vs Nova Bot' : 'Two players'} · Round {freeRound}</p>
+          <h1 className="text-lg font-black" aria-live="polite">{terminal ? result.draw ? 'Cosmic draw' : `${winnerName} wins` : botThinking ? 'Nova Bot is thinking…' : `${MARK[turn].name}’s turn`}</h1>
+        </div>
+        <button type="button" onClick={resetFreeBoard} className={`flex min-h-12 items-center gap-2 whitespace-nowrap rounded-xl px-3 font-black ${terminal ? 'bg-cyan-200 text-slate-950' : 'bg-white/15'}`}><RotateCcw size={18} />{terminal ? 'Play again' : 'Reset board'}</button>
       </section>
-      <div className="flex items-center justify-between rounded-2xl border border-white/15 bg-white/10 px-4 py-3"><p className="text-lg font-black" aria-live="polite">{terminal ? result.draw ? 'Cosmic draw' : `${MARK[result.winner].name} wins this board` : botThinking ? 'Nova Bot is thinking…' : `${MARK[turn].name}’s turn`}</p><button type="button" onClick={resetFreeBoard} className="flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-4 font-black"><RotateCcw size={18} />{terminal ? 'New board' : 'Reset board'}</button></div>
       {renderBoard()}
-      <div className="mx-auto w-full max-w-xl rounded-2xl border border-cyan-100/20 bg-white/10 p-4 text-center"><p className="min-h-8 font-bold" aria-live="polite">{feedback}</p><p className="mt-2 text-sm font-semibold text-white/70">Saved totals · Dino {scores.X} · Rocket {scores.O} · draws {scores.draws}</p></div>
-      <button type="button" onClick={requestLeaveBoard} className="mx-auto min-h-12 rounded-xl bg-white/10 px-5 font-black">Back to chapters</button>
+      <div className="cosmic-match-tools grid content-start gap-2">
+        <div className="rounded-2xl border border-cyan-100/20 bg-white/10 p-3">
+          <p className="font-bold" aria-live="polite">{feedback}</p>
+          <p className="mt-2 text-sm font-semibold text-white/80">Saved totals · Dino {scores.X} · Rocket {scores.O} · draws {scores.draws}</p>
+        </div>
+        <details className="rounded-2xl bg-white/10 px-3">
+          <summary className="min-h-12 cursor-pointer py-3 font-bold">Game options</summary>
+          <div className="grid grid-cols-2 gap-2 pb-3">
+            <button type="button" onClick={() => startFreePlay('bot', 'scout')} aria-pressed={difficulty === 'scout' && opponent === 'bot'} className="min-h-12 rounded-xl bg-white/15 px-2 font-black">Scout bot</button>
+            <button type="button" onClick={() => startFreePlay('bot', 'captain')} aria-pressed={difficulty === 'captain' && opponent === 'bot'} className="min-h-12 rounded-xl bg-white/15 px-2 font-black">Captain bot</button>
+            <button type="button" onClick={() => startFreePlay('buddy', difficulty)} aria-pressed={opponent === 'buddy'} className="min-h-12 rounded-xl bg-white/15 px-2 font-black">Two players</button>
+            <button type="button" onClick={requestLeaveBoard} className="min-h-12 rounded-xl bg-white/15 px-2 font-black">Back to chapters</button>
+          </div>
+        </details>
+      </div>
     </main>
   );
 
@@ -415,11 +454,11 @@ const TicTacToe = ({
     </main>
   );
 
-  return <div className="relative flex min-h-[100dvh] flex-col overflow-x-hidden bg-[#07132f] text-white">
+  return <div data-board-focus={phase === 'play' ? '' : undefined} className="relative flex min-h-[100dvh] flex-col overflow-x-hidden bg-[#07132f] text-white">
     <div className="ttt-starfield pointer-events-none absolute inset-0 opacity-80" />
-    <header className="relative z-10 flex min-h-[68px] items-center justify-between gap-2 px-3 py-3 sm:px-6">
+    <header className={`relative z-10 flex items-center justify-between gap-2 px-3 sm:px-6 ${phase === 'play' ? 'py-1' : 'min-h-[68px] py-3'}`}>
       <button type="button" onClick={phase === 'map' ? onBack : phase === 'play' ? requestLeaveBoard : showChapterMap} aria-label={phase === 'map' ? 'Back to learning world' : phase === 'play' ? 'Leave game board' : 'Back to game map'} className="grid min-h-12 min-w-12 place-items-center rounded-full bg-white/15"><ArrowLeft /></button>
-      <div className="text-center"><p className="text-xs font-black uppercase tracking-[.2em] text-cyan-100">Dino Space Arena</p><p className="text-xl font-black sm:text-2xl">Cosmic Tic-Tac-Toe</p></div>
+      <div className="text-center">{phase !== 'play' && <p className="text-xs font-black uppercase tracking-[.2em] text-cyan-100">Dino Space Arena</p>}<p className="text-lg font-black sm:text-2xl">Cosmic Tic-Tac-Toe</p></div>
       <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" />
     </header>
     <div className="relative z-10 flex flex-1 flex-col">

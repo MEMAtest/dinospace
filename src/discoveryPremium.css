@@ -111,12 +111,57 @@
    viewport-height frame beneath it. Their game CSS owns the board layout. */
 .discovery-game-surface[data-discovery-game="dinojigsaw"] .discovery-game-content > [data-little-game="dinojigsaw"] { min-height: calc(100dvh - 80px); }
 
-/* A wide lesson keeps its explanation alongside the board. */
-@media(min-width:900px){
-  main.cosmic-mission-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(20rem,.9fr);align-items:start;gap:1rem;max-width:64rem}
-  main.cosmic-mission-layout>*{margin-top:0}
-  main.cosmic-mission-layout>section:first-child{grid-column:1/-1}
-  main.cosmic-mission-layout>div.relative{grid-column:1;grid-row:2/span 2;max-width:min(28rem,calc(100dvh - 28rem))}
-  main.cosmic-mission-layout>[aria-label="Tactic explained"],main.cosmic-mission-layout>p[role="status"]{grid-column:2;grid-row:2}
-  main.cosmic-mission-layout>details{grid-column:2;grid-row:3}
+/* Active boards bring their own navigation and use the full play surface. */
+.discovery-game-surface[data-discovery-game]:has([data-board-focus]) {
+  --literacy-chrome: 0px;
+}
+.discovery-game-surface[data-discovery-game]:has([data-board-focus]) > .discovery-header {
+  display: none;
+}
+.discovery-game-surface[data-discovery-game]:has([data-board-focus]) > .discovery-game-content {
+  padding: 0;
+  max-width: none;
+}
+.discovery-game-content > div[data-board-focus]:not([role]) {
+  min-height: 100dvh;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.cosmic-mission-layout, .cosmic-free-layout {
+  display: grid;
+  align-content: start;
+  align-items: start;
+  gap: .5rem;
+  max-width: 36rem;
+  padding: .25rem .5rem 1rem;
+}
+.cosmic-board {
+  grid-area: board;
+}
+.cosmic-mission-layout {
+  grid-template-areas: "brief" "board" "review" "options";
+}
+.cosmic-mission-layout > section:first-child { grid-area: brief; }
+.cosmic-mission-layout > [aria-label="Tactic explained"],
+.cosmic-mission-layout > p[role="status"] { grid-area: review; }
+.cosmic-mission-layout > details { grid-area: options; }
+.cosmic-free-layout { grid-template-areas: "status" "board" "tools"; }
+.cosmic-match-status { grid-area: status; }
+.cosmic-match-tools { grid-area: tools; }
+@media (min-width: 900px) {
+  .cosmic-mission-layout, .cosmic-free-layout {
+    grid-template-columns: minmax(0, 38rem) minmax(19rem, 1fr);
+    grid-template-rows: auto auto 1fr;
+    gap: .75rem;
+    max-width: 68rem;
+    padding: .5rem 1rem 1.5rem;
+  }
+  .cosmic-mission-layout { grid-template-areas: "board brief" "board review" "board options"; }
+  .cosmic-free-layout {
+    grid-template-areas: "board status" "board tools";
+    grid-template-rows: auto 1fr;
+  }
+  .cosmic-board { max-width: min(38rem, max(24rem, calc(100dvh - 5rem))); }
 }

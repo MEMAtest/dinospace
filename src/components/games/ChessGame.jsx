@@ -517,7 +517,7 @@ export default function ChessGame({
     </section>
   </main>;
 
-  return <main className="chess-full-game">
+  return <main className="chess-full-game" data-board-focus="">
     <header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer<span className="chess-header-level">{DIFFICULTY_LABELS[match?.difficulty || difficulty]}</span></h1>{soundControl}</header>
     <section className="chess-match-layout" aria-label="Chess match">
       <div className="chess-match-status"><strong>{status.gameOver ? status.message : thinking ? 'Computer thinking…' : `${colorName(currentSnapshot.turn)} to move${status.inCheck ? ' · Check!' : ''}`}</strong><span>You are {colorName(colorCode(humanColor))} · Computer is {colorName(humanColor === 'white' ? 'b' : 'w')}</span></div>

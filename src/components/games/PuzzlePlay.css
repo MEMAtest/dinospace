@@ -208,11 +208,6 @@
     gap: 0.5rem;
   }
 
-  .puzzle-board {
-    width: min(100%, 276px) !important;
-    max-width: 276px;
-  }
-
   .puzzle-play-feedback {
     min-height: 48px;
     padding: 0.35rem 0.5rem;
@@ -274,10 +269,8 @@
   }
 }
 
-@media (min-width: 640px) and (max-width: 1023px) {
-  .puzzle-board {
-    width: min(100%, 380px) !important;
-  }
+.puzzle-board {
+  max-width: min(34rem, max(24rem, calc(100dvh - 13rem)));
 }
 
 @media (min-width: 1024px) and (max-height: 900px) {
@@ -287,10 +280,6 @@
     margin-inline: auto;
   }
 
-  .puzzle-board {
-    width: min(100%, 360px) !important;
-    max-width: 360px;
-  }
 }
 
 @media (max-width: 639px) {
