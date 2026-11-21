@@ -1,0 +1,715 @@
+{
+  "release": {
+    "runtime": "1fbb2989acb3a4e00fc6d6fff2ca3fe294144df3",
+    "entry": "/assets/arcade-CBDXveiW.js",
+    "worker": "amari-discovery-v94",
+    "backendUrl": "https://dinospace-36w8fogol-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_HjaLnibgAD4vzB67kMSTud8kJUmE",
+    "gatewayDeployment": "6b02036f2c157ff2b79269c4",
+    "evidence": "docs/qa-evidence/time-number-focus-20261121/README.md",
+    "scope": "Time Teller and Number Line Jump give the clock and number line the main play area. Starting and returning to a game use simple named actions, while chapter selection, hints and sound settings sit under Options."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-CBDXveiW.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Time Teller entry",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Time Teller options",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Clock wrong retry",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Time Teller held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Time Teller save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Time Teller progress saved",
+          "buttons": [
+            "Next: Past and To",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Number Line Jump entry",
+          "buttons": [
+            "Start: Forward and Back",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Number Line Jump options",
+          "buttons": [
+            "Start: Forward and Back",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Number Line Jump held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Number Line Jump save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Number Line Jump progress saved",
+          "buttons": [
+            "Next: Missing Numbers",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Time Teller",
+          "modelWidth": 226.1875,
+          "finished": 6,
+          "wrongRetry": true,
+          "held": true,
+          "saveRetried": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Number Line Jump",
+          "modelWidth": 346.8125,
+          "finished": 6,
+          "wrongRetry": true,
+          "held": true,
+          "saveRetried": true,
+          "unlockedAfterReload": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-CBDXveiW.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Time Teller entry",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Time Teller options",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Clock wrong retry",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Time Teller held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Time Teller save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Time Teller progress saved",
+          "buttons": [
+            "Next: Past and To",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Number Line Jump entry",
+          "buttons": [
+            "Start: Forward and Back",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Number Line Jump options",
+          "buttons": [
+            "Start: Forward and Back",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Number Line Jump held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Number Line Jump save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Number Line Jump progress saved",
+          "buttons": [
+            "Next: Missing Numbers",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Time Teller",
+          "modelWidth": 352,
+          "finished": 6,
+          "wrongRetry": true,
+          "held": true,
+          "saveRetried": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Number Line Jump",
+          "modelWidth": 788,
+          "finished": 6,
+          "wrongRetry": true,
+          "held": true,
+          "saveRetried": true,
+          "unlockedAfterReload": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4205",
+      "entry": "/assets/arcade-CBDXveiW.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Time Teller entry",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Time Teller options",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Clock wrong retry",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Time Teller held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Time Teller save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Time Teller progress saved",
+          "buttons": [
+            "Next: Past and To",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Number Line Jump entry",
+          "buttons": [
+            "Start: Forward and Back",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Number Line Jump options",
+          "buttons": [
+            "Start: Forward and Back",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Number Line Jump held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Number Line Jump save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Number Line Jump progress saved",
+          "buttons": [
+            "Next: Missing Numbers",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Time Teller",
+          "modelWidth": 226.1875,
+          "finished": 6,
+          "wrongRetry": true,
+          "held": true,
+          "saveRetried": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Number Line Jump",
+          "modelWidth": 346.8125,
+          "finished": 6,
+          "wrongRetry": true,
+          "held": true,
+          "saveRetried": true,
+          "unlockedAfterReload": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4205",
+      "entry": "/assets/arcade-CBDXveiW.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Time Teller entry",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Time Teller options",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Clock Explorers",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Clock wrong retry",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Time Teller held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Time Teller save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Time Teller progress saved",
+          "buttons": [
+            "Next: Past and To",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Number Line Jump entry",
+          "buttons": [
+            "Start: Forward and Back",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Number Line Jump options",
+          "buttons": [
+            "Start: Forward and Back",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Number Line Jump held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Number Line Jump save recovery",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Number Line Jump progress saved",
+          "buttons": [
+            "Next: Missing Numbers",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Time Teller",
+          "modelWidth": 352,
+          "finished": 6,
+          "wrongRetry": true,
+          "held": true,
+          "saveRetried": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Number Line Jump",
+          "modelWidth": 788,
+          "finished": 6,
+          "wrongRetry": true,
+          "held": true,
+          "saveRetried": true,
+          "unlockedAfterReload": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-36w8fogol-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "cff4e58c05db9c02c1129116bc7f2072f96d480ea500046e119f3f6951a470cd"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "cff4e58c05db9c02c1129116bc7f2072f96d480ea500046e119f3f6951a470cd"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "87a33634f8de5e02d6f4b9ad7d8243bed5a5a9b01cb6616fd997f688b1696e4c"
+        },
+        {
+          "path": "/art/catalog-v3/game-timeteller.webp",
+          "bytes": 59764,
+          "sha256": "0ed80fa4349dc47b811e949cd11a17d68a2f2e990b7b9f03eee17fd7f16df51b"
+        },
+        {
+          "path": "/art/catalog-v3/game-numberline.webp",
+          "bytes": 82632,
+          "sha256": "973b8c5ba409d11e378aecb551c57836b9df7be509996eae61306691fbca59a6"
+        },
+        {
+          "path": "/assets/arcade-CBDXveiW.js",
+          "bytes": 2153633,
+          "sha256": "5e14a40db3c91f41a7325dc526612b31f3b28ef4198bdae8796a2c3dc3a76bde"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-CVlREFff.css",
+          "bytes": 290966,
+          "sha256": "f27923f19c296f1793b702b569308fb964ce655eb65a5488c523671fe449ab2d"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b020365c549fff4f8b06f03--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "cff4e58c05db9c02c1129116bc7f2072f96d480ea500046e119f3f6951a470cd"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "cff4e58c05db9c02c1129116bc7f2072f96d480ea500046e119f3f6951a470cd"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "87a33634f8de5e02d6f4b9ad7d8243bed5a5a9b01cb6616fd997f688b1696e4c"
+        },
+        {
+          "path": "/art/catalog-v3/game-timeteller.webp",
+          "bytes": 59764,
+          "sha256": "0ed80fa4349dc47b811e949cd11a17d68a2f2e990b7b9f03eee17fd7f16df51b"
+        },
+        {
+          "path": "/art/catalog-v3/game-numberline.webp",
+          "bytes": 82632,
+          "sha256": "973b8c5ba409d11e378aecb551c57836b9df7be509996eae61306691fbca59a6"
+        },
+        {
+          "path": "/assets/arcade-CBDXveiW.js",
+          "bytes": 2153633,
+          "sha256": "5e14a40db3c91f41a7325dc526612b31f3b28ef4198bdae8796a2c3dc3a76bde"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-CVlREFff.css",
+          "bytes": 290966,
+          "sha256": "f27923f19c296f1793b702b569308fb964ce655eb65a5488c523671fe449ab2d"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "cff4e58c05db9c02c1129116bc7f2072f96d480ea500046e119f3f6951a470cd"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "cff4e58c05db9c02c1129116bc7f2072f96d480ea500046e119f3f6951a470cd"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "87a33634f8de5e02d6f4b9ad7d8243bed5a5a9b01cb6616fd997f688b1696e4c"
+        },
+        {
+          "path": "/art/catalog-v3/game-timeteller.webp",
+          "bytes": 59764,
+          "sha256": "0ed80fa4349dc47b811e949cd11a17d68a2f2e990b7b9f03eee17fd7f16df51b"
+        },
+        {
+          "path": "/art/catalog-v3/game-numberline.webp",
+          "bytes": 82632,
+          "sha256": "973b8c5ba409d11e378aecb551c57836b9df7be509996eae61306691fbca59a6"
+        },
+        {
+          "path": "/assets/arcade-CBDXveiW.js",
+          "bytes": 2153633,
+          "sha256": "5e14a40db3c91f41a7325dc526612b31f3b28ef4198bdae8796a2c3dc3a76bde"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-CVlREFff.css",
+          "bytes": 290966,
+          "sha256": "f27923f19c296f1793b702b569308fb964ce655eb65a5488c523671fe449ab2d"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}

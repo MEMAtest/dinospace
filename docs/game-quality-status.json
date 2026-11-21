@@ -2310,5 +2310,15 @@
     "gatewayDeployment": "6b020253d11f85dc6cea0741",
     "evidence": "docs/qa-evidence/arithmetic-focus-20261121/README.md",
     "scope": "Addition Adventure and Subtraction Station give counters and answers the main play area, with at most three navigation and tool controls per view."
+  },
+  "latestTimeNumberFocusRehearsal": {
+    "runtime": "1fbb2989acb3a4e00fc6d6fff2ca3fe294144df3",
+    "entry": "/assets/arcade-CBDXveiW.js",
+    "worker": "amari-discovery-v94",
+    "backendUrl": "https://dinospace-36w8fogol-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_HjaLnibgAD4vzB67kMSTud8kJUmE",
+    "gatewayDeployment": "6b02036f2c157ff2b79269c4",
+    "evidence": "docs/qa-evidence/time-number-focus-20261121/README.md",
+    "scope": "Time Teller and Number Line Jump give the clock and number line the main play area. Starting and returning to a game use simple named actions, while chapter selection, hints and sound settings sit under Options."
   }
 }
