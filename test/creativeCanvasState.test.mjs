@@ -18,7 +18,7 @@ test('existing Creative Lab drafts keep their paper, ink, and original stroke wi
     { colour: '#112233', erasing: true, size: 22, points: [[98, 122]] },
   ]);
   loaded.template = 'tiger';
-  loaded.sheets.tiger = { fill: '#ffffff', strokes: [], colours: { face: '#ed833c', muzzle: '#4386cf' } };
+  loaded.sheets.tiger = { fill: '#ffffff', strokes: [], colours: { face: '#ed833c', muzzle: '#4386cf' }, textures: {}, stamps: [] };
   const packed = packCanvas(loaded);
   assert.equal(packed.fill, legacy.fill);
   assert.deepEqual(readCanvas('draft', stored(packed)), loaded);
@@ -35,4 +35,21 @@ test('every colouring picture has named regions and texture references point to 
       assert.ok(picture.details.every((line) => !line.region || names.has(line.region)));
     }
   }
+});
+
+test('saved textures, stamps and region-bounded strokes survive a round trip', () => {
+  const saved = { fill: '#ffffff', strokes: [], template: 'tiger', pictures: { tiger: {
+    fill: '#ffffff', colours: { coat: '#ed833c' },
+    textures: { coat: 'fur', leaves: 'unknown', imaginary: 'grain' },
+    stamps: [{ kind: 'star', colour: '#f2c94c', point: [380, 490], region: 'coat' },
+      { kind: 'star', colour: '#f2c94c', point: [380, 490], region: 'imaginary' }],
+    strokes: [{ colour: '#ffffff', size: 7, points: [[380, 490], [405, 511]], region: 'coat', artSpace: true }],
+  } } };
+  const art = readCanvas('draft', stored(saved));
+  assert.equal(art.template, 'tiger');
+  assert.deepEqual(art.sheets.tiger.textures, { coat: 'fur' });
+  assert.deepEqual(art.sheets.tiger.stamps, [saved.pictures.tiger.stamps[0]]);
+  assert.equal(art.sheets.tiger.strokes[0].region, 'coat');
+  assert.equal(art.sheets.tiger.strokes[0].artSpace, true);
+  assert.deepEqual(readCanvas('draft', stored(packCanvas(art))), art);
 });

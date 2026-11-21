@@ -1,12 +1,15 @@
+import { EXTRA_COLOURING_PICTURES } from './extraColouringPictures.js';
+
 // Each region is independently paintable. Fine lines are a separate layer so
 // colouring a material never paints over its texture or shape.
 export const COLOURING_GROUPS = [
-  { label: 'Animals', pictures: ['tiger', 'turtle'] },
-  { label: 'Shapes', pictures: ['kite', 'shape-garden'] },
-  { label: 'Vehicles', pictures: ['rocket', 'truck'] },
+  { label: 'Animals', pictures: ['tiger', 'turtle', 'owl', 'butterfly', 'elephant', 'red-panda'] },
+  { label: 'Shapes', pictures: ['kite', 'shape-garden', 'colour-star', 'hexagons', 'shape-flower', 'shape-mosaic'] },
+  { label: 'Vehicles', pictures: ['rocket', 'truck', 'sailboat', 'plane', 'train', 'submarine'] },
 ];
 
 export const COLOURING_PICTURES = {
+  ...EXTRA_COLOURING_PICTURES,
   tiger: {
     label: 'Tiger',
     regions: [
