@@ -2220,5 +2220,15 @@
     "gatewayDeployment": "6affa22149c9ff74b3670317",
     "evidence": "docs/qa-evidence/sound-safari-listening-20261120/README.md",
     "scope": "18 first-run challenges and six replayed challenges per viewport. Audio-first prompts, muted and failed-audio fallback, held retries, save recovery and reward retention."
+  },
+  "latestSpotContinuationRehearsal": {
+    "runtime": "dcbcae3363fb3f6181925466ce8053c6f844c5b9",
+    "entry": "/assets/arcade-Bt3UI7Oi.js",
+    "worker": "amari-discovery-v85",
+    "backendUrl": "https://dinospace-3t3uyta01-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_47U5MoeUpoVgy2PM5sJRE8RxyNq4",
+    "gatewayDeployment": "6b01cd21d91891928ebf59e7",
+    "evidence": "docs/qa-evidence/spot-continuation-20261121/README.md",
+    "scope": "Live phone and desktop all 12 pairs, repeatable reveals, saved-pair resume, practice and reward failure recovery. Narrow 320-pixel browser layout additionally verified in candidate."
   }
 }

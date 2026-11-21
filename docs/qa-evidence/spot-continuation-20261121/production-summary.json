@@ -1,0 +1,568 @@
+{
+  "runtime": "dcbcae3363fb3f6181925466ce8053c6f844c5b9",
+  "entry": "/assets/arcade-Bt3UI7Oi.js",
+  "worker": "amari-discovery-v85",
+  "backendUrl": "https://dinospace-3t3uyta01-memas-projects-23a0001d.vercel.app",
+  "backendDeployment": "dpl_47U5MoeUpoVgy2PM5sJRE8RxyNq4",
+  "gatewayDeployment": "6b01cd21d91891928ebf59e7",
+  "evidence": "docs/qa-evidence/spot-continuation-20261121/README.md",
+  "scope": "Live phone and desktop all 12 pairs, repeatable reveals, saved-pair resume, practice and reward failure recovery. Narrow 320-pixel browser layout additionally verified in candidate.",
+  "checkedAt": "2026-11-21T16:57:15.727475+00:00",
+  "repositoryTests": 766,
+  "baselineStall": {
+    "reproduced": true,
+    "viewport": 390,
+    "progress": "Bright-Eyed Beginners · Pair 1 of 4 · 2/3",
+    "onlyHintControlDisabled": true,
+    "continuationOrReveal": 0,
+    "entry": "/assets/arcade-Cu9SKvq9.js"
+  },
+  "narrowHeaderBefore": "horizontal overflow {\"width\":320,\"scrollWidth\":346,\"oversize\":[[\"DIV\",\"discovery-profile\",346.359375],[\"STRONG\",null,336.359375]]}",
+  "assetHashes": {
+    "/": "c1e8bb202bc62e0284cf252534beafc14c22d996e67723f27cdf33d7f5770a32",
+    "/index.html": "c1e8bb202bc62e0284cf252534beafc14c22d996e67723f27cdf33d7f5770a32",
+    "/sw.js": "f2892fef486acf5b08d72cc84bc9cc13daaa19c2efc1f79bb102a9612191ae33",
+    "/assets/arcade-Bt3UI7Oi.js": "6a0567839ce45b252fa8034d3097256c6a2ea5f241fa2b9264bc8e6be33d9d5b",
+    "/assets/DiscoveryHeader-WQC4hu9b.css": "922821015c3c9ebf94521e222d1a4cd0d62eca0dc28c2442b1fdc5657272abce",
+    "/assets/arcade-DYw-NLvw.css": "82833b93651ce2832bc99b08118ea257ea6c8c3533172e54312adcc1b33ff5c3",
+    "/art/catalog-v3/game-spot.webp": "fc8eea0d85e83956609efbb99e6b2d4b32ead62377bc581a1cb52eb2b40208b5"
+  },
+  "cutover": {
+    "syntheticRecordsPreserved": 118,
+    "storybookFixturePreserved": true,
+    "usedRefreshGames": true
+  },
+  "live": [
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade-Bt3UI7Oi.js",
+      "input": "touch",
+      "boards": [
+        {
+          "chapter": 1,
+          "pair": 1,
+          "label": "A colourful city with friendly heroes",
+          "id": "spot-1",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 3,
+          "label": "A dinosaur beside a sparkling river",
+          "id": "spot-3",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 3,
+          "label": "A dinosaur exploring a moon camp",
+          "id": "spot-4",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 4,
+          "label": "Friendly dinosaurs in a sunny park",
+          "id": "spot-2",
+          "differences": 3
+        },
+        {
+          "chapter": 2,
+          "pair": 1,
+          "label": "An elephant, monkey, bird and frog making sounds beside a waterfall",
+          "id": "spot-6",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 2,
+          "label": "A sunny festival courtyard with star pennants, an arch, balloons, a parade drum and a shop canopy",
+          "id": "spot-7",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 3,
+          "label": "A young astronaut and robot sharing arrow blocks in a treehouse workshop",
+          "id": "spot-5",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 4,
+          "label": "A landscape observatory with a hanging planet model, Earth globe, telescope, books and an hourglass",
+          "id": "spot-8",
+          "differences": 5
+        },
+        {
+          "chapter": 3,
+          "pair": 1,
+          "label": "A robin on woodland soil beside real flowers, leaves, a watering can, worm and ladybird",
+          "id": "spot-9",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 2,
+          "label": "Seven historical artifacts resting on a museum display desk",
+          "id": "spot-11",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 3,
+          "label": "A sunny plant workbench with differently shaped leaves, seedlings and roots",
+          "id": "spot-12",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 4,
+          "label": "An explorer workbench with a globe, telescope, binoculars and a printed map",
+          "id": "spot-10",
+          "differences": 7
+        }
+      ],
+      "hintCount": 28,
+      "revealCount": 42,
+      "checks": [
+        "blocked save held the fact, and Retry saved one pair",
+        "continued in practice with storage still denied",
+        "reload preserved saved pairs and presented the skipped picture again",
+        "Next chapter stayed available with a denied reward write; retry credited once",
+        "all three two-star chapter rewards survived reload and replay"
+      ],
+      "errors": [],
+      "failedHttp": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade-Bt3UI7Oi.js",
+      "input": "mouse",
+      "boards": [
+        {
+          "chapter": 1,
+          "pair": 1,
+          "label": "A colourful city with friendly heroes",
+          "id": "spot-1",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 3,
+          "label": "A dinosaur beside a sparkling river",
+          "id": "spot-3",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 3,
+          "label": "A dinosaur exploring a moon camp",
+          "id": "spot-4",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 4,
+          "label": "Friendly dinosaurs in a sunny park",
+          "id": "spot-2",
+          "differences": 3
+        },
+        {
+          "chapter": 2,
+          "pair": 1,
+          "label": "A sunny festival courtyard with star pennants, an arch, balloons, a parade drum and a shop canopy",
+          "id": "spot-7",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 2,
+          "label": "An elephant, monkey, bird and frog making sounds beside a waterfall",
+          "id": "spot-6",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 3,
+          "label": "A landscape observatory with a hanging planet model, Earth globe, telescope, books and an hourglass",
+          "id": "spot-8",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 4,
+          "label": "A young astronaut and robot sharing arrow blocks in a treehouse workshop",
+          "id": "spot-5",
+          "differences": 5
+        },
+        {
+          "chapter": 3,
+          "pair": 1,
+          "label": "Seven historical artifacts resting on a museum display desk",
+          "id": "spot-11",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 2,
+          "label": "A robin on woodland soil beside real flowers, leaves, a watering can, worm and ladybird",
+          "id": "spot-9",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 3,
+          "label": "An explorer workbench with a globe, telescope, binoculars and a printed map",
+          "id": "spot-10",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 4,
+          "label": "A sunny plant workbench with differently shaped leaves, seedlings and roots",
+          "id": "spot-12",
+          "differences": 7
+        }
+      ],
+      "hintCount": 28,
+      "revealCount": 42,
+      "checks": [
+        "blocked save held the fact, and Retry saved one pair",
+        "continued in practice with storage still denied",
+        "reload preserved saved pairs and presented the skipped picture again",
+        "Next chapter stayed available with a denied reward write; retry credited once",
+        "all three two-star chapter rewards survived reload and replay"
+      ],
+      "errors": [],
+      "failedHttp": [],
+      "providers": []
+    }
+  ],
+  "localCandidate": [
+    {
+      "passed": true,
+      "width": 320,
+      "entry": "/assets/arcade-Bt3UI7Oi.js",
+      "input": "touch",
+      "boards": [
+        {
+          "chapter": 1,
+          "pair": 1,
+          "label": "A dinosaur exploring a moon camp",
+          "id": "spot-4",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 3,
+          "label": "A colourful city with friendly heroes",
+          "id": "spot-1",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 3,
+          "label": "A dinosaur beside a sparkling river",
+          "id": "spot-3",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 4,
+          "label": "Friendly dinosaurs in a sunny park",
+          "id": "spot-2",
+          "differences": 3
+        },
+        {
+          "chapter": 2,
+          "pair": 1,
+          "label": "A sunny festival courtyard with star pennants, an arch, balloons, a parade drum and a shop canopy",
+          "id": "spot-7",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 2,
+          "label": "A young astronaut and robot sharing arrow blocks in a treehouse workshop",
+          "id": "spot-5",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 3,
+          "label": "A landscape observatory with a hanging planet model, Earth globe, telescope, books and an hourglass",
+          "id": "spot-8",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 4,
+          "label": "An elephant, monkey, bird and frog making sounds beside a waterfall",
+          "id": "spot-6",
+          "differences": 5
+        },
+        {
+          "chapter": 3,
+          "pair": 1,
+          "label": "A sunny plant workbench with differently shaped leaves, seedlings and roots",
+          "id": "spot-12",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 2,
+          "label": "A robin on woodland soil beside real flowers, leaves, a watering can, worm and ladybird",
+          "id": "spot-9",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 3,
+          "label": "An explorer workbench with a globe, telescope, binoculars and a printed map",
+          "id": "spot-10",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 4,
+          "label": "Seven historical artifacts resting on a museum display desk",
+          "id": "spot-11",
+          "differences": 7
+        }
+      ],
+      "hintCount": 28,
+      "revealCount": 42,
+      "checks": [
+        "blocked save held the fact, and Retry saved one pair",
+        "continued in practice with storage still denied",
+        "reload preserved saved pairs and presented the skipped picture again",
+        "Next chapter stayed available with a denied reward write; retry credited once",
+        "all three two-star chapter rewards survived reload and replay"
+      ],
+      "errors": [],
+      "failedHttp": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade-Bt3UI7Oi.js",
+      "input": "touch",
+      "boards": [
+        {
+          "chapter": 1,
+          "pair": 1,
+          "label": "Friendly dinosaurs in a sunny park",
+          "id": "spot-2",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 3,
+          "label": "A dinosaur beside a sparkling river",
+          "id": "spot-3",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 3,
+          "label": "A colourful city with friendly heroes",
+          "id": "spot-1",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 4,
+          "label": "A dinosaur exploring a moon camp",
+          "id": "spot-4",
+          "differences": 3
+        },
+        {
+          "chapter": 2,
+          "pair": 1,
+          "label": "A sunny festival courtyard with star pennants, an arch, balloons, a parade drum and a shop canopy",
+          "id": "spot-7",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 2,
+          "label": "A young astronaut and robot sharing arrow blocks in a treehouse workshop",
+          "id": "spot-5",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 3,
+          "label": "A landscape observatory with a hanging planet model, Earth globe, telescope, books and an hourglass",
+          "id": "spot-8",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 4,
+          "label": "An elephant, monkey, bird and frog making sounds beside a waterfall",
+          "id": "spot-6",
+          "differences": 5
+        },
+        {
+          "chapter": 3,
+          "pair": 1,
+          "label": "A sunny plant workbench with differently shaped leaves, seedlings and roots",
+          "id": "spot-12",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 2,
+          "label": "An explorer workbench with a globe, telescope, binoculars and a printed map",
+          "id": "spot-10",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 3,
+          "label": "Seven historical artifacts resting on a museum display desk",
+          "id": "spot-11",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 4,
+          "label": "A robin on woodland soil beside real flowers, leaves, a watering can, worm and ladybird",
+          "id": "spot-9",
+          "differences": 7
+        }
+      ],
+      "hintCount": 28,
+      "revealCount": 42,
+      "checks": [
+        "blocked save held the fact, and Retry saved one pair",
+        "continued in practice with storage still denied",
+        "reload preserved saved pairs and presented the skipped picture again",
+        "Next chapter stayed available with a denied reward write; retry credited once",
+        "all three two-star chapter rewards survived reload and replay"
+      ],
+      "errors": [],
+      "failedHttp": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade-Bt3UI7Oi.js",
+      "input": "mouse",
+      "boards": [
+        {
+          "chapter": 1,
+          "pair": 1,
+          "label": "A dinosaur exploring a moon camp",
+          "id": "spot-4",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 3,
+          "label": "A colourful city with friendly heroes",
+          "id": "spot-1",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 3,
+          "label": "A dinosaur beside a sparkling river",
+          "id": "spot-3",
+          "differences": 3
+        },
+        {
+          "chapter": 1,
+          "pair": 4,
+          "label": "Friendly dinosaurs in a sunny park",
+          "id": "spot-2",
+          "differences": 3
+        },
+        {
+          "chapter": 2,
+          "pair": 1,
+          "label": "A landscape observatory with a hanging planet model, Earth globe, telescope, books and an hourglass",
+          "id": "spot-8",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 2,
+          "label": "An elephant, monkey, bird and frog making sounds beside a waterfall",
+          "id": "spot-6",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 3,
+          "label": "A sunny festival courtyard with star pennants, an arch, balloons, a parade drum and a shop canopy",
+          "id": "spot-7",
+          "differences": 5
+        },
+        {
+          "chapter": 2,
+          "pair": 4,
+          "label": "A young astronaut and robot sharing arrow blocks in a treehouse workshop",
+          "id": "spot-5",
+          "differences": 5
+        },
+        {
+          "chapter": 3,
+          "pair": 1,
+          "label": "A robin on woodland soil beside real flowers, leaves, a watering can, worm and ladybird",
+          "id": "spot-9",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 2,
+          "label": "An explorer workbench with a globe, telescope, binoculars and a printed map",
+          "id": "spot-10",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 3,
+          "label": "Seven historical artifacts resting on a museum display desk",
+          "id": "spot-11",
+          "differences": 7
+        },
+        {
+          "chapter": 3,
+          "pair": 4,
+          "label": "A sunny plant workbench with differently shaped leaves, seedlings and roots",
+          "id": "spot-12",
+          "differences": 7
+        }
+      ],
+      "hintCount": 28,
+      "revealCount": 42,
+      "checks": [
+        "blocked save held the fact, and Retry saved one pair",
+        "continued in practice with storage still denied",
+        "reload preserved saved pairs and presented the skipped picture again",
+        "Next chapter stayed available with a denied reward write; retry credited once",
+        "all three two-star chapter rewards survived reload and replay"
+      ],
+      "errors": [],
+      "failedHttp": [],
+      "providers": []
+    }
+  ],
+  "previousGameSamples": {
+    "passed": true,
+    "width": 390,
+    "puzzle": "Completed an entire 3×3 board and opened the next picture",
+    "safari": "Clue, wrong answer, same-round retry, correct answer and Next challenge",
+    "errors": [],
+    "failed": [],
+    "providers": []
+  }
+}
