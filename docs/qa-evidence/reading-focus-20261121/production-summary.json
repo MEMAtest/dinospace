@@ -1,0 +1,642 @@
+{
+  "release": {
+    "runtime": "4f6ab8601699adc854e74c0b813c832849aaf741",
+    "entry": "/assets/arcade-CPeh6TXt.js",
+    "worker": "amari-discovery-v92",
+    "backendUrl": "https://dinospace-dt6d1d6jm-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_82RGhcwZzm4ZNhiXna9Jh1knMNQJ",
+    "gatewayDeployment": "6b02013a360b594c3419016f",
+    "evidence": "docs/qa-evidence/reading-focus-20261121/README.md",
+    "scope": "Letter Launch and Sound Safari use one recommended chapter action, a focused play area and a maximum of three navigation and tool buttons."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-CPeh6TXt.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "CDP touch",
+      "checks": [
+        {
+          "label": "Letter Launch entry",
+          "buttons": [
+            "Start: Word sound finder",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Letter Launch options",
+          "buttons": [
+            "Start: Word sound finder",
+            "Back"
+          ]
+        },
+        {
+          "label": "Letter Launch task with muted sound",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Letter Launch held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Letter Launch chapter saved",
+          "buttons": [
+            "Next: New word explorer",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Sound Safari entry",
+          "buttons": [
+            "Start: Listen for a sound",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Safari picture play",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari wrong retry",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari held explanation",
+          "buttons": [
+            "Next challenge",
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari chapter saved",
+          "buttons": [
+            "Next: Blend the sounds",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Safari audio-first play",
+          "buttons": [
+            "Hear the sound",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one clue",
+            "Back"
+          ]
+        }
+      ],
+      "firstChapterRounds": {
+        "letters": 6,
+        "safari": 6
+      },
+      "advancedBlendStep": true,
+      "packagedPhonemePlayback": true,
+      "pictureSprite": {
+        "width": 157.40625,
+        "sprite": [
+          887,
+          1774
+        ],
+        "loaded": true
+      },
+      "chapterUnlockAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-CPeh6TXt.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop pointer and keyboard",
+      "checks": [
+        {
+          "label": "Letter Launch entry",
+          "buttons": [
+            "Start: Word sound finder",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Letter Launch options",
+          "buttons": [
+            "Start: Word sound finder",
+            "Back"
+          ]
+        },
+        {
+          "label": "Letter Launch task with muted sound",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Letter Launch held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Letter Launch chapter saved",
+          "buttons": [
+            "Next: New word explorer",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Sound Safari entry",
+          "buttons": [
+            "Start: Listen for a sound",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Safari picture play",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari wrong retry",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari held explanation",
+          "buttons": [
+            "Next challenge",
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari chapter saved",
+          "buttons": [
+            "Next: Blend the sounds",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Safari audio-first play",
+          "buttons": [
+            "Hear the sound",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one clue",
+            "Back"
+          ]
+        }
+      ],
+      "firstChapterRounds": {
+        "letters": 6,
+        "safari": 6
+      },
+      "advancedBlendStep": true,
+      "packagedPhonemePlayback": true,
+      "pictureSprite": {
+        "width": 160,
+        "sprite": [
+          887,
+          1774
+        ],
+        "loaded": true
+      },
+      "chapterUnlockAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4203",
+      "entry": "/assets/arcade-CPeh6TXt.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "CDP touch",
+      "checks": [
+        {
+          "label": "Letter Launch entry",
+          "buttons": [
+            "Start: Word sound finder",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Letter Launch options",
+          "buttons": [
+            "Start: Word sound finder",
+            "Back"
+          ]
+        },
+        {
+          "label": "Letter Launch task with muted sound",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Letter Launch held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Letter Launch chapter saved",
+          "buttons": [
+            "Next: New word explorer",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Sound Safari entry",
+          "buttons": [
+            "Start: Listen for a sound",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Safari picture play",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari wrong retry",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari held explanation",
+          "buttons": [
+            "Next challenge",
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari chapter saved",
+          "buttons": [
+            "Next: Blend the sounds",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Safari audio-first play",
+          "buttons": [
+            "Hear the sound",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one clue",
+            "Back"
+          ]
+        }
+      ],
+      "firstChapterRounds": {
+        "letters": 6,
+        "safari": 6
+      },
+      "advancedBlendStep": true,
+      "packagedPhonemePlayback": true,
+      "chapterUnlockAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4203",
+      "entry": "/assets/arcade-CPeh6TXt.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop pointer and keyboard",
+      "checks": [
+        {
+          "label": "Letter Launch entry",
+          "buttons": [
+            "Start: Word sound finder",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Letter Launch options",
+          "buttons": [
+            "Start: Word sound finder",
+            "Back"
+          ]
+        },
+        {
+          "label": "Letter Launch task with muted sound",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Letter Launch held explanation",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Letter Launch chapter saved",
+          "buttons": [
+            "Next: New word explorer",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Sound Safari entry",
+          "buttons": [
+            "Start: Listen for a sound",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Safari picture play",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari wrong retry",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari held explanation",
+          "buttons": [
+            "Next challenge",
+            "Options"
+          ]
+        },
+        {
+          "label": "Safari chapter saved",
+          "buttons": [
+            "Next: Blend the sounds",
+            "Options",
+            "Back to Read & Write"
+          ]
+        },
+        {
+          "label": "Safari audio-first play",
+          "buttons": [
+            "Hear the sound",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Use one clue",
+            "Back"
+          ]
+        }
+      ],
+      "firstChapterRounds": {
+        "letters": 6,
+        "safari": 6
+      },
+      "advancedBlendStep": true,
+      "packagedPhonemePlayback": true,
+      "chapterUnlockAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-dt6d1d6jm-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "251b3279d682f43a8a5b9e3fe718976d47dff40a5b217db101e773132b1dcce0"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "251b3279d682f43a8a5b9e3fe718976d47dff40a5b217db101e773132b1dcce0"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "043f302de980682c1ab789fb6f5e50b445ff4a14a28affca02bd2edda6da3a25"
+        },
+        {
+          "path": "/art/catalog-v3/game-letters.webp",
+          "bytes": 45506,
+          "sha256": "b5d839c2382ba2b1bb4ee0aacf3a7b5baf0adcdce05f333e9af1593e91fe05cf"
+        },
+        {
+          "path": "/art/catalog-v3/game-phonics.webp",
+          "bytes": 68282,
+          "sha256": "aa6dc44f8ec5688afd1b8b2580d7c45d0cab5dab994d0de4d74f7ab9711827be"
+        },
+        {
+          "path": "/audio/phonemes/en/s-daniel-v1.mp3",
+          "bytes": 6312,
+          "sha256": "5a274aac2b50f6b64cc4ad0b8035fcec15ee8e4602a70c83134d8d4b4a61c988"
+        },
+        {
+          "path": "/assets/arcade-CPeh6TXt.js",
+          "bytes": 2173080,
+          "sha256": "06b7430783783490330623aadb48752dc2f781eb5811d015d24200503a768bce"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-DWsntDc3.css",
+          "bytes": 293482,
+          "sha256": "5fa2f670bde5edcc24131e6bf09c90ab120d7b741d6d84995fa127df379f6714"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b02012bba9386a2d3a9dd5d--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "251b3279d682f43a8a5b9e3fe718976d47dff40a5b217db101e773132b1dcce0"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "251b3279d682f43a8a5b9e3fe718976d47dff40a5b217db101e773132b1dcce0"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "043f302de980682c1ab789fb6f5e50b445ff4a14a28affca02bd2edda6da3a25"
+        },
+        {
+          "path": "/art/catalog-v3/game-letters.webp",
+          "bytes": 45506,
+          "sha256": "b5d839c2382ba2b1bb4ee0aacf3a7b5baf0adcdce05f333e9af1593e91fe05cf"
+        },
+        {
+          "path": "/art/catalog-v3/game-phonics.webp",
+          "bytes": 68282,
+          "sha256": "aa6dc44f8ec5688afd1b8b2580d7c45d0cab5dab994d0de4d74f7ab9711827be"
+        },
+        {
+          "path": "/audio/phonemes/en/s-daniel-v1.mp3",
+          "bytes": 6312,
+          "sha256": "5a274aac2b50f6b64cc4ad0b8035fcec15ee8e4602a70c83134d8d4b4a61c988"
+        },
+        {
+          "path": "/assets/arcade-CPeh6TXt.js",
+          "bytes": 2173080,
+          "sha256": "06b7430783783490330623aadb48752dc2f781eb5811d015d24200503a768bce"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-DWsntDc3.css",
+          "bytes": 293482,
+          "sha256": "5fa2f670bde5edcc24131e6bf09c90ab120d7b741d6d84995fa127df379f6714"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "251b3279d682f43a8a5b9e3fe718976d47dff40a5b217db101e773132b1dcce0"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "251b3279d682f43a8a5b9e3fe718976d47dff40a5b217db101e773132b1dcce0"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "043f302de980682c1ab789fb6f5e50b445ff4a14a28affca02bd2edda6da3a25"
+        },
+        {
+          "path": "/art/catalog-v3/game-letters.webp",
+          "bytes": 45506,
+          "sha256": "b5d839c2382ba2b1bb4ee0aacf3a7b5baf0adcdce05f333e9af1593e91fe05cf"
+        },
+        {
+          "path": "/art/catalog-v3/game-phonics.webp",
+          "bytes": 68282,
+          "sha256": "aa6dc44f8ec5688afd1b8b2580d7c45d0cab5dab994d0de4d74f7ab9711827be"
+        },
+        {
+          "path": "/audio/phonemes/en/s-daniel-v1.mp3",
+          "bytes": 6312,
+          "sha256": "5a274aac2b50f6b64cc4ad0b8035fcec15ee8e4602a70c83134d8d4b4a61c988"
+        },
+        {
+          "path": "/assets/arcade-CPeh6TXt.js",
+          "bytes": 2173080,
+          "sha256": "06b7430783783490330623aadb48752dc2f781eb5811d015d24200503a768bce"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-DWsntDc3.css",
+          "bytes": 293482,
+          "sha256": "5fa2f670bde5edcc24131e6bf09c90ab120d7b741d6d84995fa127df379f6714"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}

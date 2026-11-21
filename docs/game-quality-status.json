@@ -2290,5 +2290,15 @@
     "gatewayDeployment": "6b01f4c1730941a04b566eb7",
     "evidence": "docs/qa-evidence/code-cadets-clarity-20261121/README.md",
     "scope": "Code Cadets, Amari home and the five world menus use a clear primary action and at most three visible buttons per view."
+  },
+  "latestReadingFocusRehearsal": {
+    "runtime": "4f6ab8601699adc854e74c0b813c832849aaf741",
+    "entry": "/assets/arcade-CPeh6TXt.js",
+    "worker": "amari-discovery-v92",
+    "backendUrl": "https://dinospace-dt6d1d6jm-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_82RGhcwZzm4ZNhiXna9Jh1knMNQJ",
+    "gatewayDeployment": "6b02013a360b594c3419016f",
+    "evidence": "docs/qa-evidence/reading-focus-20261121/README.md",
+    "scope": "Letter Launch and Sound Safari use one recommended chapter action, a focused play area and a maximum of three navigation and tool buttons."
   }
 }
