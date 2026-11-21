@@ -1,16 +1,15 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Eraser, PaintBucket, Pencil, RotateCcw } from 'lucide-react';
-import { COLOUR_PAINTS } from '../../data/colourLabAdventure.js';
 import { COLOURING_GROUPS, COLOURING_PICTURES } from '../../data/colouringPictures.js';
 import { BLANK_SHEET, newSheet, packCanvas, readCanvas } from '../../data/creativeCanvasState.js';
 import { mixPaintScoops } from '../../data/paintMix.js';
 import { playerStorageKey } from '../../data/players.js';
 import ColouringPicture from './ColouringPicture.jsx';
 import DrawingPaper from './DrawingPaper.jsx';
+import PaintMixer from './PaintMixer.jsx';
 
 const control = 'inline-flex min-h-12 items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white px-2.5 text-sm font-bold text-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-45 sm:px-3';
 const toggle = control + ' aria-pressed:border-indigo-700 aria-pressed:bg-indigo-700 aria-pressed:text-white';
-const paintNames = ['Red', 'Yellow', 'Blue', 'White', 'Black'];
 const swatches = ['#293343', '#e45152', '#ed833c', '#f2c94c', '#3b9e64', '#4386cf', '#8658b8', '#fffdf7'];
 const sizes = [
   { label: 'Small', brush: 3, eraser: 12 },
@@ -27,11 +26,14 @@ export default function CreativeCanvas({ playerId, mixing = false }) {
   const [size, setSize] = useState(sizes[1]);
   const [undo, setUndo] = useState({});
   const [saveError, setSaveError] = useState(false);
-  const [scoops, setScoops] = useState({});
-  const [mixed, setMixed] = useState(null);
-  const [colour, setColour] = useState(swatches[0]);
+  const [scoops, setScoops] = useState([]);
+  const [useMix, setUseMix] = useState(false);
+  const [manualColour, setManualColour] = useState(swatches[0]);
+  const canvasSection = useRef(null);
+  const mixture = scoops.reduce((counts, paint) => ({ ...counts, [paint]: (counts[paint] || 0) + 1 }), {});
+  const mixed = mixPaintScoops(mixture);
+  const colour = (useMix && mixed) || manualColour;
   const [notice, setNotice] = useState('');
-  const total = Object.values(scoops).reduce((sum, value) => sum + value, 0);
   const sheet = art.sheets[art.template] || newSheet();
   const picture = COLOURING_PICTURES[art.template];
 
@@ -57,7 +59,8 @@ export default function CreativeCanvas({ playerId, mixing = false }) {
     setNotice('');
   };
   const selectColour = (value) => {
-    setColour(value);
+    setManualColour(value);
+    setUseMix(false);
     if (tool === 'eraser') setTool(picture ? 'fill' : 'brush');
     setNotice('');
   };
@@ -76,9 +79,23 @@ export default function CreativeCanvas({ playerId, mixing = false }) {
     }
     updateSheet({ ...sheet, colours });
   };
+  const activateMix = () => {
+    setUseMix(true);
+    if (tool === 'eraser') setTool(picture ? 'fill' : 'brush');
+    setNotice('');
+  };
   const addPaint = (name) => {
-    setScoops((current) => ({ ...current, [name]: (current[name] || 0) + 1 }));
-    setMixed(null);
+    setScoops((current) => current.length < 24 ? [...current, name] : current);
+    activateMix();
+  };
+  const goToCanvas = () => {
+    canvasSection.current.scrollIntoView({ block: 'start' });
+    canvasSection.current.focus({ preventScroll: true });
+  };
+  const fillBackground = () => {
+    updateSheet({ ...sheet, fill: mixed });
+    setNotice('Background filled with your mix.');
+    goToCanvas();
   };
 
   const activeSize = tool === 'eraser' ? size.eraser : size.brush;
@@ -86,6 +103,10 @@ export default function CreativeCanvas({ playerId, mixing = false }) {
   const selectedGroup = COLOURING_GROUPS.find(({ label }) => label === gallery);
 
   return <div className="mx-auto grid w-full max-w-6xl gap-3">
+    {mixing && <PaintMixer scoops={scoops} mixed={mixed} active={useMix}
+      useText={tool === 'eraser' ? 'Select a painting tool to use your mix.' : tool === 'fill' ? 'Tap part of the picture to paint it.' : 'Draw on the canvas with your mix.'}
+      onAdd={addPaint} onUndo={() => setScoops((current) => current.slice(0, -1))} onClear={() => setScoops([])}
+      onUse={activateMix} onFill={fillBackground} onCanvas={goToCanvas}/>}
     <section aria-label="Choose a colouring picture" className="rounded-2xl border border-slate-200 bg-white p-2 sm:p-3">
       <div className="flex flex-wrap gap-1.5" role="group" aria-label="Picture categories">
         <button type="button" className={toggle} aria-pressed={!gallery && !picture} onClick={() => { setGallery(''); selectSheet(BLANK_SHEET); }}>Blank sheet</button>
@@ -100,27 +121,6 @@ export default function CreativeCanvas({ playerId, mixing = false }) {
         </button>)}
       </div>}
     </section>
-
-    {mixing && <details className="rounded-2xl border border-[#dbcfd9] bg-[#fdf7fc] px-3" aria-label="Mixing bucket">
-      <summary className="min-h-12 cursor-pointer py-3 font-black text-[#53264b]">Paint bucket{total ? ` · ${total} ${total === 1 ? 'scoop' : 'scoops'}` : ''}</summary>
-      <div className="pb-3">
-        <div className="grid grid-cols-5 gap-1.5">
-          {paintNames.map((name) => <button type="button" key={name} onClick={() => addPaint(name)} disabled={total >= 24} aria-label={`Add ${name} to bucket`}
-            className="grid min-h-14 min-w-0 place-items-center rounded-xl border border-[#dbcfd9] bg-white px-0.5 py-1 text-xs font-bold text-[#53264b] disabled:opacity-50">
-            <span className="h-5 w-5 rounded-full border border-slate-500/50 sm:h-7 sm:w-7" style={{ backgroundColor: COLOUR_PAINTS[name] }}/>{name}{scoops[name] ? ` ×${scoops[name]}` : ''}
-          </button>)}
-        </div>
-        <div className="mt-2 flex flex-wrap items-center gap-1.5">
-          <button type="button" className={control} disabled={!total || !!mixed} onClick={() => setMixed(mixPaintScoops(scoops))}>Mix paint</button>
-          <button type="button" className={control} disabled={!total} onClick={() => { setScoops({}); setMixed(null); }}>Empty bucket</button>
-          {mixed && <>
-            <span aria-label="Mixed paint sample" role="img" className="h-9 w-9 rounded-full border border-slate-600/40" style={{ backgroundColor: mixed }}/>
-            <button type="button" className={control} onClick={() => { selectColour(mixed); setNotice('Mixed paint selected.'); }}>Use mixed paint</button>
-            <button type="button" className={control} onClick={() => { updateSheet({ ...sheet, fill: mixed }); setNotice('Mixed paint filled the background.'); }}>Pour onto canvas</button>
-          </>}
-        </div>
-      </div>
-    </details>}
 
     <section aria-label="Canvas tools" className="rounded-2xl border border-slate-200 bg-white p-2 sm:p-3">
       <div className="flex flex-wrap items-center gap-1.5">
@@ -150,7 +150,13 @@ export default function CreativeCanvas({ playerId, mixing = false }) {
             : `${size.label} brush. Draw directly on the sheet.`}
       </p>
     </section>
-    <DrawingPaper key={art.template} sheet={sheet} picture={picture} tool={tool} colour={colour} size={activeSize} onChange={updateSheet} onRegion={changeRegion}/>
+    <div ref={canvasSection} tabIndex={-1} role="group" aria-label="Painting area" className="scroll-mt-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600">
+      {mixing && useMix && mixed && tool !== 'eraser' && <p className="mb-1 flex items-center gap-2 text-sm font-bold text-slate-800">
+        <span className="h-5 w-5 rounded-full border border-slate-500/45" style={{ backgroundColor: mixed }} aria-hidden="true"/>
+        {tool === 'fill' ? 'Tap the picture to use your mix.' : 'Draw here with your mix.'}
+      </p>}
+      <DrawingPaper key={art.template} sheet={sheet} picture={picture} tool={tool} colour={colour} size={activeSize} onChange={updateSheet} onRegion={changeRegion}/>
+    </div>
     {notice && <p className="sr-only" role="status">{notice}</p>}
     {saveError && <p role="status" className="text-sm font-bold text-amber-900">This device could not save the sheet. You can keep drawing here.</p>}
   </div>;
