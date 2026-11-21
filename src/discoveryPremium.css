@@ -283,3 +283,51 @@
 .little-focus-header p { font-weight: 750; }
 .little-focus-header button { flex: 0 0 auto; }
 .little-focus-start.focus-game-button { flex: 0 0 auto; width: min(100%, 21rem); }
+
+.creative-canvas-focus { background: #edf1f7; }
+.creative-canvas-focus .focus-game-body:not(.is-menu) { width: min(100%, 76rem); padding: clamp(.5rem, 2vw, 1.25rem); }
+.creative-paper-instructions, .creative-colour-control {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.creative-colour-control input { min-width: 3rem; min-height: 3rem; }
+.creative-current-paint { width: 1.2rem; height: 1.2rem; border: 1px solid #718197; border-radius: 50%; }
+.creative-paint-bucket {
+  display: grid;
+  place-items: center;
+  min-height: 8rem;
+  border: 2px solid #647b93;
+  border-radius: 1rem 1rem 2.2rem 2.2rem;
+  color: #20324c;
+}
+
+.sky-focused { background: #eaf5fb; }
+.sky-focused .focus-game-body:not(.is-menu) { width: min(100%, 64rem); padding: clamp(.5rem, 2vw, 1rem); }
+.sky-focus-paper { width: min(100%, 88dvh); overflow: hidden; margin-inline: auto; border: 1px solid #a7bdce; border-radius: .65rem; background: #fff; }
+.sky-focus-paper.is-finished { max-width: min(100%, 24rem); }
+.sky-focus-progress { display: block; width: 100%; height: .7rem; margin-top: .45rem; accent-color: #087957; }
+
+.colour-lessons-focus { background: #f3f0f6; }
+.colour-focus-stage { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: .6rem; margin-block: .65rem; }
+.colour-focus-bowl, .colour-focus-object {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .45rem;
+  min-height: clamp(9rem, 32vw, 15rem);
+  padding: .7rem;
+  border: 2px solid #acafc3;
+  border-radius: 1rem 1rem 3rem 3rem;
+  background: white;
+}
+.colour-focus-bowl > span:not(.colour-scoop) { background: #ffffffd9; border-radius: .25rem; padding: .1rem .35rem; font-weight: 800; }
+.colour-focus-object { border: 0; border-radius: .8rem; }
+.colour-focus-object svg { max-width: 100%; height: auto; }
+.colour-focus-pots { display: flex; flex-wrap: wrap; gap: .5rem; }
+.colour-focus-pots button { display: flex; justify-content: center; align-items: center; gap: .45rem; }
+.colour-scoop, .colour-focus-pots button span, .colour-focus-palette li span { width: 1.55rem; height: 1.55rem; border: 1px solid #64748b; border-radius: 50%; }
+.colour-scoop { width: 2.4rem; height: 2.4rem; }
+.colour-focus-palette { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .5rem; margin-bottom: .75rem; }
+.colour-focus-palette li { display: flex; align-items: center; gap: .5rem; }

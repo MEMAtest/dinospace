@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Home, RotateCcw, HelpCircle, Beaker, Sparkles, ArrowRight, LockKeyhole } from 'lucide-react';
 import { COLOUR_LABS, COLOUR_LAB_MISSIONS, COLOUR_PAINTS, COLOUR_MAKE_RECIPE_CHOICES, seededColourMissionOrder, colourRecipeMatches } from '../../data/colourLabAdventure.js';
 import {
   completeColourMissionStrict, getColourLabPendingRewardsStrict, markColourMissionReceiptClaimedStrict,
@@ -9,7 +8,7 @@ import { rewardClaimToken } from '../../data/playerRewards.js';
 import { shuffle, getPraise } from '../../utils.js';
 import { mixPaintScoops } from '../../data/paintMix.js';
 import CreativeCanvas from './CreativeCanvas.jsx';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 
 const colourFor = (name) => ({ ...COLOUR_PAINTS, Orange: '#ef8a3a', Green: '#4caa71', Purple: '#8959b5', Teal: '#278f91', Lime: '#a6c943', Pink: '#ec9ab5', 'Sky Blue': '#90c9eb', 'Pale Grey': '#ccd3d8', 'Dark Red': '#923d47', Navy: '#3f527a', Grey: '#9aa3aa', Coral: '#ee8e75', Peach: '#f4bd91', 'Dark Grey': '#68717d', Brown: '#956448' }[name] || '#cbd5e1');
 const SVG = ({ children, compact = false }) => <svg viewBox="0 0 140 100" className={compact ? 'h-14 w-20 sm:h-24 sm:w-32' : 'h-20 w-28 sm:h-24 sm:w-32'} aria-hidden="true">{children}</svg>;
@@ -44,7 +43,6 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
   const [rewardDrainBusy, setRewardDrainBusy] = useState(true);
   const [rewardClaimError, setRewardClaimError] = useState(false);
   const [pendingReceipt, setPendingReceipt] = useState(null);
-  const [progressRetryBusy, setProgressRetryBusy] = useState(false);
   const [saveBusy, setSaveBusy] = useState(false);
   const [activeLab, setActiveLab] = useState(() => COLOUR_LABS.find(({ id }) => !progress.chapters.includes(id))?.id || COLOUR_LABS.at(-1).id);
   const [phase, setPhase] = useState('intro');
@@ -63,7 +61,7 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
   const [clueUsed, setClueUsed] = useState(false);
   const [clue, setClue] = useState('');
   const [praise, setPraise] = useState('');
-  const [explanationReplay, setExplanationReplay] = useState(0);
+  const [panel, setPanel] = useState('lesson');
   const [options, setOptions] = useState(() => shuffle([...labMissions[0].options]));
   const pendingResultRef = useRef(null);
   const saveBusyRef = useRef(false);
@@ -74,17 +72,11 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
   const required = activeLab === 'make' ? Object.entries(selectedRecipeCard?.scoops || {}).map(([name, count]) => ({ name, count })) : mission.ingredients.map((name, index) => ({ name, count: Number(mission.proportions[index].match(/(\d+)/)?.[1] || 1) }));
   const totalNeeded = required.reduce((sum, item) => sum + item.count, 0);
   const totalAdded = Object.values(added).reduce((sum, count) => sum + count, 0);
-  const availablePaints = activeLab === 'make'
-    ? Object.keys(selectedRecipeCard?.scoops || {})
-    : mission.ingredients;
   const completeRecipe = activeLab === 'make'
     ? Boolean(selectedRecipeCard) && Object.keys(COLOUR_PAINTS).every((name) => (added[name] || 0) === (selectedRecipeCard.scoops[name] || 0))
     : colourRecipeMatches(mission, added);
   const labInfo = COLOUR_LABS.find((lab) => lab.id === activeLab);
   const labPosition = COLOUR_LABS.findIndex((lab) => lab.id === activeLab);
-  const targetPanelClass = activeLab === 'make'
-    ? 'order-first flex-row gap-2 min-h-16 p-1.5 text-left xl:order-none xl:flex-col xl:min-h-[340px] xl:gap-0 xl:p-7 xl:text-center'
-    : 'flex-col min-h-20 p-1.5 text-center sm:min-h-[340px] sm:p-7';
   const labUnlocked = (id) => id === 'mix' || (id === 'light' && progress.chapters.includes('mix')) || (id === 'make' && progress.chapters.includes('mix') && progress.chapters.includes('light'));
 
   const refreshProgress = useCallback(() => {
@@ -162,17 +154,11 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
     const resume = remaining.length > 0 && remaining.length < shuffled.length;
     const order = resume ? [...shuffled.filter(({ id }) => completed.has(id)), ...remaining] : shuffled;
     const startIndex = resume ? shuffled.length - remaining.length : 0;
+    setPanel('lesson');
     setProgressState(loaded); setSaveError(''); pendingResultRef.current = null;
     setActiveLab(labId); setMissionOrder(order.map((item) => item.id)); setMissionIndex(startIndex); setAdded({}); setMixed(false); setAnswer(''); setSelectedRecipe(''); setWrong(false); setHadMistake(false); setRecipeWrong(false); setClueUsed(false); setClue(''); setPraise(''); setOptions(shuffle([...order[startIndex].options])); setPhase('play');
   };
 
-  const setLab = (labId) => {
-    if (phase === 'play') return;
-    if (!labUnlocked(labId)) return; cancelNarration?.(); setPhase('intro'); setMissionOrder([]);
-    pendingResultRef.current = null;
-    setActiveLab(labId); setMissionIndex(0); setAdded({}); setMixed(false); setAnswer(''); setSelectedRecipe(''); setWrong(false); setHadMistake(false); setRecipeWrong(false); setClueUsed(false); setClue(''); setPraise(''); setSaveError(''); setExplanationReplay(0);
-    const first = COLOUR_LAB_MISSIONS.find((item) => item.lab === labId); setOptions(shuffle([...first.options]));
-  };
   const addScoop = (name) => {
     if (mixed) return;
     if (mixed || totalAdded >= totalNeeded) return;
@@ -229,7 +215,7 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
       onGameEvent?.('colormix', 'answer_wrong', { skill: 'colormix', item: mission.id, response: choice, expected: mission.answer, correct: false });
     }
   };
-  const useClue = () => { if (clueUsed || answer) return; setClueUsed(true); setClue(mission.clue); speakFixed(mission.clue);  };
+  const revealClue = () => { if (clueUsed || answer) return; setClueUsed(true); setClue(mission.clue); speakFixed(mission.clue);  };
   const nextMission = () => {
     if (!answer || saveError || saveBusy || rewardDrainBusy || pendingReceipt || rewardClaimError) return;
     if (missionIndex >= labMissions.length - 1) { cancelNarration?.(); setPhase('chapter-results'); return; }
@@ -237,82 +223,119 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
     const nextMissionData = COLOUR_LAB_MISSIONS.find((item) => item.id === missionOrder[next]);
     setMissionIndex(next);
     pendingResultRef.current = null;
-    setAdded({}); setMixed(false); setAnswer(''); setSelectedRecipe(''); setWrong(false); setHadMistake(false); setRecipeWrong(false); setClueUsed(false); setClue(''); setPraise(''); setSaveError(''); setExplanationReplay(0); setOptions(shuffle([...nextMissionData.options]));
+    setAdded({}); setMixed(false); setAnswer(''); setSelectedRecipe(''); setWrong(false); setHadMistake(false); setRecipeWrong(false); setClueUsed(false); setClue(''); setPraise(''); setSaveError(''); setOptions(shuffle([...nextMissionData.options]));
   };
   const finish = () => { cancelNarration?.(); if (onReviewComplete) onReviewComplete(); else onBack?.(); };
 
-  if (freePaint) return <main className="min-h-[100dvh] bg-[#faf7fa] px-2 pb-6 pt-2 text-slate-900 sm:px-5">
-    <header className="mx-auto mb-2 flex max-w-6xl flex-wrap items-center justify-between gap-2">
-      <button type="button" onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home size={22}/></button>
-      <h1 className="flex-1 text-xl font-black sm:text-3xl">Colour Mixing Lab</h1>
-      <button type="button" onClick={() => setFreePaint(false)} className="min-h-12 rounded-xl bg-[#713063] px-3 font-black text-white">Paint lessons</button>
-    </header>
-    <CreativeCanvas playerId={playerId} mixing />
-  </main>;
+  const closeOptions = () => setPanel('lesson');
+  const goCanvas = () => { closeOptions(); cancelNarration?.(); setFreePaint(true); };
+  const leave = () => { cancelNarration?.(); onBack?.(); };
+  const empty = () => { closeOptions(); setAdded({}); setMixed(false); setWrong(false); setRecipeWrong(false); };
+  const retrySave = () => pendingResultRef.current
+    ? void completeMission(pendingResultRef.current.result)
+    : void drainPendingRewards().then(ok => { if (ok) setSaveError(''); });
+  const retryProgress = () => {
+    const loaded = refreshProgress();
+    if (loaded.ok) void drainPendingRewards();
+  };
 
-  return <main className="min-h-screen bg-[#f8f4ee] text-[#203847]">
-    <header className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-7 sm:py-4">
-      <button type="button" onClick={onBack} disabled={phase === 'play' && (saveBusy || Boolean(answer && saveError))} aria-label="Back to home" className="grid min-h-12 min-w-12 place-items-center rounded-2xl bg-white text-[#304b59] shadow-sm ring-1 ring-[#d8e2df] disabled:opacity-50"><Home size={22}/></button>
-      <div className="text-center"><div className="text-xs font-black uppercase tracking-[.2em] text-[#ab6685]">Your paint studio</div><h1 className="text-xl font-black sm:text-3xl">Colour Mixing Lab</h1></div>
-      <SoundToggle soundOn={soundOn} onToggle={onToggleSound}/>
-    </header>
-    <div className="mx-auto grid max-w-7xl gap-3 px-3 pb-8 sm:gap-5 sm:px-7 lg:grid-cols-[minmax(0,1fr)_310px]">
-      <section className="min-w-0">
+  if (freePaint) return <CreativeCanvas playerId={playerId} mixing onLessons={() => setFreePaint(false)} onBack={leave} />;
+
+  const inPlay = phase === 'play';
+  const nextLab = COLOUR_LABS[labPosition + 1];
+  const mixedColour = mixPaintScoops(added);
+  const startLabel = labMissions.some(({ id }) => progress.completed.includes(id)) && !progress.chapters.includes(activeLab) ? 'Continue' : 'Start';
+  const menuOptions = [
+    ...(!inPlay ? [
+      ...COLOUR_LABS.map(lab => ({ label: lab.title, description: lab.subtitle, button: 'Start lab', disabled: !canStartLab || !labUnlocked(lab.id), action: () => startLab(lab.id) })),
+      { label: 'Saved palette', action: () => setPanel('palette') },
+      { label: 'Paint canvas', action: goCanvas },
+    ] : []),
+    ...(inPlay && !answer ? [
+      ...(!clueUsed ? [{ label: 'Show a clue', action: () => { closeOptions(); revealClue(); } }] : []),
+      ...(totalAdded ? [{ label: 'Empty bowl', action: empty }] : []),
+      ...(soundOn ? [{ label: 'Hear the recipe', action: () => { closeOptions(); speakFixed(mission.prompt); } }] : []),
+    ] : []),
+    ...(inPlay && answer && soundOn ? [{ label: 'Hear the explanation', action: () => { closeOptions(); speakFixed(mission.explanation); } }] : []),
+    ...(inPlay ? [{ label: 'About these recipes', description: `${labInfo.lesson} Actual paint results can vary.`, button: 'Back to the recipe', action: closeOptions }] : []),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); cancelNarration?.(); onToggleSound?.(); } },
+    { label: 'Back to Creative Lab', action: leave },
+  ];
+
+  return <div className="focus-game colour-lessons-focus" data-board-focus="">
+    <main className={`focus-game-body${inPlay && panel === 'lesson' ? '' : ' is-menu'}`} data-colour-mission={inPlay ? mission.id : undefined}>
+      <header className="focus-game-heading">
+        {inPlay && panel === 'lesson' && <p>{labInfo.title} · Mix {missionIndex + 1} of {labMissions.length}</p>}
+        <h1>{panel === 'palette' ? 'Saved palette' : inPlay && panel === 'lesson' ? mission.title : 'Colour Mixing Lab'}</h1>
+      </header>
+      {panel === 'options' ? <FocusMenu choices={menuOptions} onBack={closeOptions} /> : panel === 'palette' ? <>
+        <p className="focus-game-message">{progress.completed.length} of {COLOUR_LAB_MISSIONS.length} blends saved.</p>
+        <ul className="colour-focus-palette">{COLOUR_LAB_MISSIONS.filter(item => progress.completed.includes(item.id)).map(item => <li key={item.id}><span style={{ backgroundColor: colourFor(item.resultColor) }} />{item.resultColor}</li>)}</ul>
+        <button type="button" className="focus-game-button" onClick={closeOptions}>Back to lessons</button>
+      </> : <>
         {phase === 'intro' && <>
-          <button type="button" onClick={() => setFreePaint(true)} className="mb-3 min-h-12 rounded-xl border border-slate-300 bg-white px-4 font-black">Paint canvas</button>
-          {!progressState.ok && <section role="alert" className="mb-3 rounded-2xl border-2 border-rose-400 bg-white p-3 font-bold"><p>Saved paint progress could not be checked. Your paints stay locked until it can be read.</p><button type="button" onClick={() => { setProgressRetryBusy(true); const loaded = refreshProgress(); setProgressRetryBusy(false); if (loaded.ok) void drainPendingRewards(); }} disabled={progressRetryBusy} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{progressRetryBusy ? 'Checking…' : 'Retry saved progress'}</button></section>}
-          {rewardDrainBusy && <p role="status" className="mb-3 rounded-xl bg-white p-2 text-center text-sm font-semibold">Checking saved paint rewards…</p>}
-          {rewardClaimError && <section role="alert" className="mb-3 rounded-2xl border-2 border-amber-500 bg-white p-3 font-bold"><p>A saved paint star still needs confirmation.</p><button type="button" onClick={() => void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry saved stars</button></section>}
-          {saveError && <p role="alert" className="mb-3 rounded-xl border-2 border-rose-400 bg-white p-3 font-bold">{saveError}</p>}
-          <section className="rounded-[28px] border border-[#e2e7df] bg-white p-4 text-center shadow-sm sm:p-10" aria-label="Selected paint lab">
-            <div className="flex items-center justify-center gap-3">
-              <img src="/art/catalog-v3/game-colormix.webp" alt="" aria-hidden="true" className="h-16 w-20 shrink-0 object-contain" />
-              <div className="min-w-0"><p className="text-xs font-black uppercase tracking-widest" style={{color:labInfo.accent}}>Selected · Lab {labPosition + 1} of 3</p><h2 className="mt-1 text-2xl font-black sm:mt-2 sm:text-3xl">{labInfo.title}</h2>
-              <p className="mt-1 font-extrabold">Six paint missions</p></div>
-            </div>
-            <button type="button" data-colour-lab-start disabled={!canStartLab || !labUnlocked(activeLab)} onClick={() => startLab()} className="mt-3 min-h-14 w-full max-w-md rounded-2xl px-6 text-lg font-black text-white shadow disabled:opacity-50" style={{backgroundColor:labInfo.accent}}>{labMissions.some(({ id }) => progress.completed.includes(id)) && !progress.chapters.includes(activeLab) ? 'Continue' : 'Start'} {labInfo.title}<ArrowRight className="ml-2 inline" size={20}/></button>
-            <p className="mx-auto mt-2 max-w-xl text-sm font-semibold leading-5 text-[#647677]">{labInfo.lesson}</p>
-          </section>
-          <details className="mt-3 rounded-2xl border border-[#e2e7df] bg-white p-3 shadow-sm"><summary className="min-h-12 cursor-pointer font-black">Choose another lab</summary><nav aria-label="Colour labs" className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">{COLOUR_LABS.map((lab) => <button key={lab.id} type="button" onClick={() => setLab(lab.id)} disabled={!labUnlocked(lab.id) || !progressState.ok || rewardDrainBusy || Boolean(pendingReceipt)} aria-pressed={activeLab === lab.id} className="min-h-14 rounded-2xl border-2 px-3 py-2 text-left text-sm font-black transition disabled:cursor-not-allowed disabled:opacity-45 sm:text-base" style={{ borderColor: activeLab === lab.id ? lab.accent : '#e4e9e5', background: activeLab === lab.id ? `${lab.accent}18` : 'white', color: activeLab === lab.id ? lab.accent : '#50616a' }}>{!labUnlocked(lab.id) && <LockKeyhole className="mr-1 inline" size={14}/>} {lab.title}<span className="block text-xs font-semibold">{lab.subtitle}</span></button>)}</nav></details>
-        </>}
-        {phase === 'chapter-results' && <section className="rounded-[28px] border border-[#e2e7df] bg-white p-6 shadow-sm sm:p-10"><p className="text-xs font-black uppercase tracking-widest text-[#47866d]">Chapter complete</p><h2 className="mt-2 text-3xl font-black">{labInfo.title} finished</h2><p className="mt-3 font-semibold">All six recipes are saved in this player's palette.</p><div className="mt-5 flex flex-wrap gap-3">{labPosition < COLOUR_LABS.length - 1 ? <button type="button" onClick={() => setLab(COLOUR_LABS[labPosition + 1].id)} className="min-h-14 rounded-2xl px-6 font-black text-white" style={{backgroundColor:COLOUR_LABS[labPosition+1].accent}}>Start {COLOUR_LABS[labPosition+1].title}</button> : <button type="button" onClick={finish} className="min-h-14 rounded-2xl bg-[#214e45] px-6 font-black text-white">Finish adventure</button>}<button type="button" onClick={() => setLab(activeLab)} className="min-h-14 rounded-2xl border px-5 font-black">Replay this chapter</button></div></section>}
-        {phase === 'play' && <article data-colour-mission={mission.id} aria-label="Paint mission" className="overflow-hidden rounded-[28px] border border-[#e2e7df] bg-white shadow-[0_14px_40px_rgba(39,67,73,.08)]">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#edf0eb] px-3 py-2 sm:px-7 sm:py-4"><div><div className="text-[10px] font-black uppercase tracking-wide sm:text-xs sm:tracking-[.17em]" style={{ color: labInfo.accent }}>{labInfo.title} · Mission {missionIndex + 1} of {labMissions.length}</div><h2 className="mt-0.5 text-lg font-black sm:mt-1 sm:text-2xl">{mission.title}</h2></div><span className="rounded-full bg-[#f3f7f4] px-2 py-1.5 text-[10px] font-extrabold text-[#526a70] sm:px-3 sm:py-2 sm:text-xs">{progress.completed.length} mixes saved</span></div>
-          <div className="grid gap-1 p-1 sm:gap-3 sm:p-4 xl:grid-cols-[1.03fr_.97fr]">
-            <div className="flex min-w-0 flex-col gap-1 sm:gap-2">
-              {!answer && <p className="text-sm font-bold leading-tight sm:text-lg sm:leading-6">{mission.prompt}</p>}
-              {saveError && <div className="rounded-2xl border border-[#edc8a6] bg-[#fff4e9] p-2 text-sm font-bold text-[#8e4a23]" role="alert"><p>{saveError}</p><button type="button" data-colour-save-retry onClick={() => pendingResultRef.current ? void completeMission(pendingResultRef.current.result) : void drainPendingRewards().then((ok) => { if (ok) setSaveError(''); })} disabled={saveBusy || rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-white px-4 font-black disabled:opacity-50">{saveBusy ? 'Saving…' : pendingReceipt || rewardClaimError ? 'Retry saved stars' : 'Retry saving this result'}</button></div>}
-              {activeLab === 'make' && !answer && <div className="rounded-2xl border border-[#dbe7dc] bg-[#f8fbf7] p-1.5 sm:p-3"><p className="text-xs font-black text-[#446358] sm:text-sm">{selectedRecipeCard ? `This recipe uses ${totalNeeded} scoops` : 'Choose a recipe to see its scoops'}</p><div className="mt-1 grid grid-cols-3 gap-1 sm:mt-2 sm:gap-2">{recipeChoices.map((card) => { const recipeLabel = Object.entries(card.scoops).map(([name, count]) => `${count} ${name}`).join(' + '); return <button key={card.id} type="button" onClick={() => { setSelectedRecipe(card.id); setAdded({}); setMixed(false); setWrong(false); setRecipeWrong(false); }} disabled={Boolean(answer)} aria-label={`Recipe: ${recipeLabel}`} aria-pressed={selectedRecipe === card.id} className={`flex min-h-12 items-center justify-center rounded-xl border-2 bg-white px-1 py-1 text-center text-[10px] font-extrabold leading-tight disabled:opacity-60 sm:gap-2 sm:px-3 sm:py-2 sm:text-xs ${selectedRecipe === card.id ? 'border-[#4a9b78] ring-2 ring-[#4a9b78]/20' : 'border-[#e3e9e3]'}`}>{recipeLabel}</button>; })}</div></div>}
-              {!answer && activeLab !== 'make' && <div aria-label="Recipe proportions">
-                <p className="text-xs font-extrabold leading-5 text-[#654f41] sm:hidden">Recipe: {mission.proportions.map((part) => { const [, count, paint] = part.match(/^(\d+)\s+scoops?\s+(.+)$/i) || []; return `${count} ${Number(count) === 1 ? 'scoop' : 'scoops'} ${paint}`; }).join(' · ')}</p>
-                <div className="hidden flex-wrap gap-2 sm:flex">{mission.proportions.map((part) => <span key={part} className="rounded-full bg-[#f6f2e9] px-3 py-2 text-sm font-extrabold text-[#654f41]">{part}</span>)}</div>
-              </div>}
-              {!answer && (activeLab !== 'make' || selectedRecipeCard) && <div className={`rounded-3xl bg-[#f3f7f3] p-2.5 sm:p-5 ${mixed ? 'hidden' : ''}`}>
-                <div className="mb-1.5 flex items-center justify-between sm:mb-3"><h3 className="text-sm font-black sm:text-base">Add your paint</h3><span className="text-[10px] font-bold text-[#63777a] sm:text-xs">{Object.values(added).reduce((sum, value) => sum + value, 0)} scoops added</span></div>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">{availablePaints.map((name) => { const count = required.find((entry) => entry.name === name)?.count || 0; return ({ name, count }); }).map(({ name, count }) => <button key={name} type="button" onClick={() => addScoop(name)} disabled={Boolean(answer) || mixed || totalAdded >= totalNeeded || (added[name] || 0) >= count} aria-label={`Add ${name} paint`} className="flex min-h-12 items-center gap-1.5 rounded-2xl border border-[#dfe7e0] bg-white px-2 text-xs font-extrabold shadow-sm disabled:opacity-55 sm:min-h-14 sm:gap-2 sm:px-4 sm:text-base"><span className="h-5 w-5 rounded-full border border-black/10 shadow-inner sm:h-6 sm:w-6" style={{ backgroundColor: colourFor(name) }}/>{name}<span className="rounded-full bg-[#edf3ef] px-1.5 py-1 text-[10px] sm:px-2 sm:text-xs">{added[name] || 0}/{count}</span></button>)}</div>
-                <div className="mt-2 flex items-center gap-1.5 sm:mt-4 sm:gap-3"><div className="flex min-h-14 min-w-0 flex-1 flex-wrap items-center gap-1.5 rounded-2xl border-2 border-dashed border-[#d5e0d8] bg-white/80 p-2 sm:min-h-[72px] sm:gap-2 sm:p-3" aria-label="Paints in mixing bowl">{Object.keys(COLOUR_PAINTS).flatMap((name, i) => Array.from({length: added[name] || 0}, (_, j) => <span key={`${i}-${j}`} className="h-6 w-6 rounded-full border border-black/10 shadow-inner sm:h-7 sm:w-7" style={{ backgroundColor: colourFor(name) }} aria-label={`${name} scoop`}/>))}{!Object.values(added).some(Boolean) && <span className="text-xs font-semibold text-[#7c8d8c] sm:text-sm">Your mixing bowl</span>}</div><button type="button" onClick={mixPaint} disabled={totalAdded !== totalNeeded || mixed || (activeLab === 'make' && !selectedRecipeCard)} className="min-h-12 shrink-0 rounded-2xl px-2 text-xs font-black text-white shadow-sm disabled:cursor-not-allowed disabled:opacity-45 sm:min-h-14 sm:px-6 sm:text-base" style={{ backgroundColor: labInfo.accent }}><Beaker className="mr-1 inline" size={16}/>{mixed ? 'Mixed' : 'Mix'}</button><button type="button" onClick={() => {setAdded({});setMixed(false);setWrong(false);setRecipeWrong(false);}} disabled={Boolean(answer)} className="inline-flex min-h-12 shrink-0 items-center gap-1 rounded-xl bg-white px-2 text-xs font-bold text-[#61767b] hover:bg-white disabled:opacity-50 sm:hidden"><RotateCcw size={16}/>Empty bowl</button></div>
-                <button type="button" onClick={() => {setAdded({});setMixed(false);setWrong(false);setRecipeWrong(false);}} disabled={Boolean(answer)} className="mt-3 hidden min-h-12 items-center gap-2 rounded-xl px-3 text-sm font-bold text-[#61767b] hover:bg-white disabled:opacity-50 sm:inline-flex"><RotateCcw size={16}/>Empty bowl</button>
-              </div>}
-              {!answer && mixed && <div className="flex min-h-12 items-center justify-between gap-2 rounded-2xl bg-[#f3f7f3] px-2 sm:min-h-14 sm:px-3" aria-label="Measured scoops">
-                <div className="flex min-w-0 flex-wrap items-center gap-x-2 text-xs font-extrabold text-[#526a70] sm:text-sm">{Object.entries(added).filter(([, count]) => count > 0).map(([name, count]) => <span key={name} className="inline-flex items-center gap-1"><span className="h-4 w-4 rounded-full border border-black/10" style={{ backgroundColor: colourFor(name) }} aria-hidden="true"/>{count} {name}</span>)}</div>
-                <button type="button" onClick={() => { setAdded({}); setMixed(false); setWrong(false); setRecipeWrong(false); }} className="min-h-12 shrink-0 rounded-xl bg-white px-2 text-xs font-black text-[#61767b]">Empty bowl</button>
-              </div>}
-              {mixed && <div className="rounded-3xl border border-[#e2e7df] bg-[#fffdfa] p-4" aria-live="polite"><div className="flex items-center gap-4"><div className={`mix-result h-16 w-16 shrink-0 rounded-[48%_52%_60%_40%] border-4 border-white shadow-[inset_-7px_-7px_12px_#0002,0_5px_12px_#0002] ${answer ? 'mix-result-done' : ''}`} style={{ backgroundColor: mixPaintScoops(added) }}/><div><div className="text-xs font-black uppercase tracking-widest text-[#78888a]">Mixing bowl</div><p className="font-extrabold">{answer ? `Your blend is ${mission.resultColor}.` : 'Look at your mixed paint.'}</p></div></div></div>}
-              <div className="flex flex-wrap items-center gap-2">{!clueUsed && !answer && <button type="button" onClick={useClue} className="inline-flex min-h-12 items-center gap-2 rounded-2xl border border-[#e8d9af] bg-[#fff9e9] px-4 font-bold text-[#725d30]"><HelpCircle size={18}/>One clue</button>}{clue && !answer && <p className="rounded-2xl bg-[#fff9e9] px-4 py-3 text-sm font-bold text-[#725d30]" role="status">{clue}</p>}{wrong && <p className="rounded-2xl bg-[#fff1e7] px-4 py-3 font-bold text-[#9c542d]" role="status">{recipeWrong ? 'That paint recipe missed the target. Empty the bowl and try again.' : 'Not quite. Check the recipe and try another colour.'}</p>}</div>
-              {mixed && !answer && activeLab !== 'make' && <p className="font-black">{activeLab === 'light' ? 'Did adding white or black make the paint lighter or darker?' : 'What colour did your recipe make?'}</p>}
-              {mixed && !answer && activeLab !== 'make' && <div className="grid grid-cols-3 gap-1.5 sm:gap-2">{options.map((choice) => <button key={choice} type="button" onClick={() => choose(choice)} className="flex min-h-12 items-center justify-center gap-1 rounded-2xl border-2 border-[#e5ebe5] bg-white px-1 text-center text-xs font-black shadow-sm hover:border-[#9ebcaa] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 sm:min-h-14 sm:gap-3 sm:px-4 sm:text-base" aria-label={`Choose ${choice}`}>{activeLab !== 'light' && <span className="h-6 w-6 shrink-0 rounded-full border border-black/10 shadow-inner sm:h-8 sm:w-8" style={{ backgroundColor: colourFor(choice) }}/>} {choice}</button>)}</div>}
-              {answer && <div className="rounded-3xl bg-[#ecf7ee] p-3 text-[#286246] sm:p-4" role="status"><div className="flex items-center gap-2 font-black"><Sparkles size={19}/>{praise}</div><p className="mt-2 font-bold leading-6">{mission.explanation}</p>{explanationReplay > 0 && <p className="sr-only" aria-live="polite">{mission.explanation}</p>}<div className="mt-3 flex flex-wrap gap-2"><button type="button" onClick={() => { setExplanationReplay((value) => value + 1); speakFixed(mission.explanation); }} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-4 font-bold"><RotateCcw size={17}/>Hear explanation again</button><button type="button" onClick={nextMission} disabled={Boolean(saveError) || saveBusy || rewardDrainBusy || Boolean(pendingReceipt) || rewardClaimError} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-5 font-black text-white disabled:cursor-not-allowed disabled:opacity-50" style={{ backgroundColor: labInfo.accent }}>{missionIndex < labMissions.length - 1 ? 'Next mix' : 'Finish chapter'}<ArrowRight size={18}/></button></div></div>}
-            </div>
-            <div className={`flex ${targetPanelClass} items-center justify-center rounded-[26px] bg-[radial-gradient(ellipse_at_50%_38%,#fff_0%,#f7f6ef_67%,#eef2eb_100%)]`}>
-              <div className="mb-1 hidden rounded-full bg-white/80 px-4 py-2 text-xs font-black uppercase tracking-[.18em] text-[#738282] xl:block">Picture application</div><ObjectArt compact={activeLab === 'make'} type={mission.object} color={answer || activeLab === 'make' ? colourFor(mission.resultColor) : '#a8c8b7'}/><div className={activeLab === 'make' ? 'min-w-0' : ''}><h3 className={`font-black ${activeLab === 'make' ? 'text-sm xl:mt-2 xl:text-xl' : 'mt-0.5 text-sm sm:mt-2 sm:text-xl'}`}>{answer ? `${mission.resultColor} ${mission.object === 'sun' ? 'sun' : mission.object}` : mission.object === 'sun' ? 'Sun badge' : `${mission.object[0].toUpperCase()}${mission.object.slice(1)} picture`}</h3><p className={`${activeLab === 'make' ? 'mt-1 text-xs font-bold xl:mt-2 xl:text-sm' : 'hidden'} max-w-sm text-[#677a7b] xl:block xl:font-semibold xl:leading-6`}>{activeLab === 'make' ? `Target colour: ${mission.resultColor}.` : answer ? `Now the picture shows your ${mission.resultColor.toLowerCase()} paint.` : 'Mix the recipe, then choose the name of your new paint blend.'}</p></div>
-              <div className="mt-5 hidden items-end gap-2 sm:flex" aria-label="Paint pots">{Object.keys(COLOUR_PAINTS).map((name) => <div key={name} className="flex flex-col items-center gap-1"><div className="relative h-12 w-11 overflow-hidden rounded-b-xl border-2 border-white shadow" style={{ background: `linear-gradient(to top, ${colourFor(name)} 70%, #fff 70%)` }}><div className="absolute inset-x-0 top-1 h-2 rounded-full bg-white/70"/></div><span className="text-[11px] font-extrabold text-[#607478]">{name}</span></div>)}</div>
-            </div>
+          <p className="focus-game-message">Add paint to the bowl and see what colour it makes.</p>
+          {!progressState.ok && <p className="focus-game-message" role="alert">Saved paints could not be read.</p>}
+          {rewardClaimError && <p className="focus-game-message" role="alert">A saved paint star still needs confirmation.</p>}
+          {saveError && <p className="focus-game-message" role="alert">{saveError}</p>}
+          <div className="focus-game-actions">
+            {!progressState.ok || rewardClaimError
+              ? <button type="button" className="focus-game-button is-primary" onClick={retryProgress} disabled={rewardDrainBusy}>Retry saved progress</button>
+              : <button type="button" data-colour-lab-start className="focus-game-button is-primary" disabled={!canStartLab || !labUnlocked(activeLab)} onClick={() => startLab()}>{startLabel}: {labInfo.title}</button>}
+            <button type="button" className="focus-game-button" onClick={goCanvas}>Paint canvas</button>
+            <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
           </div>
-          <details className="border-t border-[#edf0eb] bg-[#fcfcf9] px-5 text-sm font-semibold leading-6 text-[#647677] sm:px-7"><summary className="flex min-h-12 cursor-pointer items-center font-bold">About these paint recipes</summary><p className="pb-3">{labInfo.lesson} Proportions are activity scoops; actual paint results can vary.</p></details>
-        </article>}
-      </section>
-      <details className="self-start rounded-[26px] border border-[#e2e7df] bg-white p-5 shadow-sm"><summary className="min-h-12 cursor-pointer font-black text-[#446358]">Open saved palette and progress</summary><div className="pt-3"><h2 className="mt-1 text-xl font-black">Saved blends</h2><p className="mt-1 text-sm font-semibold text-[#718082]">Completed recipes stay with this player.</p><div className="mt-4 grid grid-cols-2 gap-2">{COLOUR_LAB_MISSIONS.filter((item) => progress.completed.includes(item.id)).map((item) => <div key={item.id} className="flex min-h-12 items-center gap-2 rounded-xl bg-[#f4f7f3] px-3 text-sm font-extrabold"><span className="h-6 w-6 rounded-full border border-black/10" style={{backgroundColor:colourFor(item.resultColor)}}/>{item.resultColor}</div>)}</div>{progress.completed.length === 0 && <div className="mt-4 rounded-2xl border-2 border-dashed border-[#dfe7e0] p-4 text-center text-sm font-bold text-[#81908e]">Your first mix will appear here.</div>}<div className="mt-5 flex flex-col gap-2">{COLOUR_LABS.map((lab) => { const count = COLOUR_LAB_MISSIONS.filter((item) => item.lab === lab.id && progress.completed.includes(item.id)).length; return <div key={lab.id} className="flex items-center justify-between rounded-xl bg-[#fafbf8] px-3 py-2"><span className="font-bold">{lab.title}</span><span className="text-xs font-black text-[#788a85]">{count}/6</span></div>; })}</div><button type="button" onClick={() => { setActiveLab('mix'); setMissionIndex(0); setAdded({});setMixed(false);setAnswer('');setWrong(false); }} className="mt-5 min-h-12 w-full rounded-2xl border border-[#dce6df] bg-white font-extrabold text-[#446358]">Replay from Paint Mixer</button></div></details>
-    </div>
-    <style>{`@keyframes paint-swish{0%{transform:scale(.65) rotate(-20deg);filter:saturate(.6)}70%{transform:scale(1.13) rotate(9deg)}100%{transform:scale(1) rotate(0);filter:saturate(1)}}.mix-result-done{animation:paint-swish .65s cubic-bezier(.2,.8,.2,1) both}@media(prefers-reduced-motion:reduce){.mix-result-done{animation:none!important}}`}</style>
-  </main>;
+        </>}
+        {phase === 'chapter-results' && <>
+          <p className="focus-game-message">{labInfo.title} finished. All six recipes are saved in your palette.</p>
+          <div className="focus-game-actions">
+            {nextLab && <button type="button" className="focus-game-button is-primary" onClick={() => startLab(nextLab.id)}>Next: {nextLab.title}</button>}
+            <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
+            <button type="button" className="focus-game-button" onClick={finish}>Finish</button>
+          </div>
+        </>}
+        {inPlay && <>
+          {!answer && !mixed && <p className="focus-game-message">{activeLab === 'make' ? `Choose a recipe to make ${mission.resultColor.toLowerCase()}.` : `Add ${mission.proportions.join(' and ')}.`}</p>}
+          {activeLab === 'make' && !answer && <label className="focus-game-menu">Recipe
+            <select value={selectedRecipe} onChange={event => { empty(); setSelectedRecipe(event.target.value); }}>
+              <option value="">Choose a recipe</option>
+              {recipeChoices.map(card => <option key={card.id} value={card.id}>{Object.entries(card.scoops).map(([name,count]) => `${count} ${name}`).join(' + ')}</option>)}
+            </select>
+          </label>}
+          <div className="colour-focus-stage">
+            <div className="colour-focus-bowl" aria-label="Paints in mixing bowl" style={mixed ? { backgroundColor: mixedColour } : undefined}>
+              {mixed ? <span>Mixed paint</span> : Object.entries(added).filter(([, count]) => count).flatMap(([name,count]) => Array.from({length:count},(_,index) => <span key={`${name}-${index}`} className="colour-scoop" style={{ backgroundColor: colourFor(name) }} aria-label={`${name} scoop`} />))}
+              {!mixed && !totalAdded && <span>Empty bowl</span>}
+            </div>
+            <div className="colour-focus-object"><ObjectArt type={mission.object} color={answer || activeLab === 'make' ? colourFor(mission.resultColor) : '#a8c8b7'}/></div>
+          </div>
+          {saveError && <p role="alert" className="focus-game-message">{saveError}</p>}
+          {!answer && !mixed && (activeLab !== 'make' || selectedRecipeCard) && <div className="colour-focus-pots" role="group" aria-label="Paint pots">
+            {required.map(({ name,count }) => <button key={name} type="button" className="focus-game-button" onClick={() => addScoop(name)} disabled={totalAdded >= totalNeeded || (added[name] || 0) >= count} aria-label={`Add ${name} paint`}>
+              <span style={{ backgroundColor: colourFor(name) }} />{name} · {added[name] || 0}/{count}
+            </button>)}
+          </div>}
+          {clue && !answer && <p role="status" className="focus-game-message">{clue}</p>}
+          {wrong && <p role="status" className="focus-game-message">{recipeWrong ? 'That recipe missed the target. Empty the bowl or choose another recipe.' : 'Try another answer.'}</p>}
+          {mixed && !answer && activeLab !== 'make' && !saveError && <>
+            <p className="focus-game-message">{activeLab === 'light' ? 'Is the paint lighter or darker?' : 'What colour did you make?'}</p>
+            <div className="colour-focus-pots" role="group" aria-label="Choose the result">
+              {options.map(choice => <button key={choice} type="button" className="focus-game-button" onClick={() => choose(choice)} aria-label={`Choose ${choice}`}>
+                {activeLab !== 'light' && <span style={{ backgroundColor: colourFor(choice) }} />}{choice}
+              </button>)}
+            </div>
+          </>}
+          {answer && <div className="pattern-focus-explanation" role="status"><strong>{praise}</strong><p>{mission.explanation}</p></div>}
+          <div className="focus-game-actions mt-3">
+            {saveError
+              ? <button type="button" className="focus-game-button is-primary" data-colour-save-retry disabled={saveBusy || rewardDrainBusy} onClick={retrySave}>Retry saving this mix</button>
+              : answer
+                ? <button type="button" className="focus-game-button is-primary" disabled={saveBusy || rewardDrainBusy || Boolean(pendingReceipt) || rewardClaimError} onClick={nextMission}>{missionIndex < labMissions.length - 1 ? 'Next mix' : 'Finish chapter'}</button>
+                : !mixed && totalNeeded > 0 && <button type="button" className="focus-game-button is-primary" disabled={totalAdded !== totalNeeded} onClick={mixPaint}>Mix paint</button>}
+            {!saveError && <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>}
+          </div>
+        </>}
+      </>}
+    </main>
+  </div>;
 }

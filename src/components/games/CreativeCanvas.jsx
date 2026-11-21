@@ -1,29 +1,25 @@
 import { useRef, useState } from 'react';
-import { Box, Eraser, Layers, PaintBucket, Pencil, RotateCcw, Stamp } from 'lucide-react';
 import { STAMPS, TEXTURES } from '../../data/colouringEffects.js';
 import { COLOURING_GROUPS, COLOURING_PICTURES } from '../../data/colouringPictures.js';
 import { BLANK_SHEET, newSheet, packCanvas, readCanvas } from '../../data/creativeCanvasState.js';
 import { mixPaintScoops } from '../../data/paintMix.js';
 import { playerStorageKey } from '../../data/players.js';
-import ColouringPicture from './ColouringPicture.jsx';
 import ColouringRelief from './ColouringRelief.jsx';
 import DrawingPaper from './DrawingPaper.jsx';
 import PaintMixer from './PaintMixer.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 
-const control = 'inline-flex min-h-12 items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white px-2.5 text-sm font-bold text-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-45 sm:px-3';
-const toggle = control + ' aria-pressed:border-indigo-700 aria-pressed:bg-indigo-700 aria-pressed:text-white';
 const swatches = ['#293343', '#e45152', '#ed833c', '#f2c94c', '#3b9e64', '#4386cf', '#8658b8', '#fffdf7'];
 const sizes = [
   { label: 'Small', brush: 3, eraser: 12 },
   { label: 'Medium', brush: 7, eraser: 24 },
   { label: 'Large', brush: 15, eraser: 44 },
 ];
-const groupFor = (id) => COLOURING_GROUPS.find(({ pictures }) => pictures.includes(id))?.label || '';
 
-export default function CreativeCanvas({ playerId, mixing = false }) {
+export default function CreativeCanvas({ playerId, mixing = false, onLessons, onBack }) {
   const key = playerStorageKey(playerId, mixing ? 'mixing_canvas_v1' : 'shape_canvas_v1');
   const [art, setArt] = useState(() => readCanvas(key));
-  const [gallery, setGallery] = useState(() => groupFor(art.template));
+  const [view, setView] = useState('canvas');
   const [tool, setTool] = useState(() => art.template === BLANK_SHEET ? 'brush' : 'fill');
   const [size, setSize] = useState(sizes[1]);
   const [texture, setTexture] = useState('fur');
@@ -104,10 +100,7 @@ export default function CreativeCanvas({ playerId, mixing = false }) {
     setScoops((current) => current.length < 24 ? [...current, name] : current);
     activateMix();
   };
-  const goToCanvas = () => {
-    canvasSection.current.scrollIntoView({ block: 'start' });
-    canvasSection.current.focus({ preventScroll: true });
-  };
+  const goToCanvas = () => setView('canvas');
   const fillBackground = () => {
     updateSheet({ ...sheet, fill: mixed });
     setNotice('Background filled with your mix.');
@@ -129,83 +122,85 @@ export default function CreativeCanvas({ playerId, mixing = false }) {
   const hasArt = sheet.strokes.length || sheet.stamps.length || sheet.fill !== '#ffffff' || Object.keys(sheet.colours).length || Object.keys(sheet.textures).length;
   const currentTexture = TEXTURES.find(({ id }) => id === texture);
   const currentStamp = STAMPS.find(({ id }) => id === stamp);
-  const selectedGroup = COLOURING_GROUPS.find(({ label }) => label === gallery);
+  const title = mixing ? 'Colour Mixing Lab' : 'Sky Shapes';
+  const instructions = tool === 'eraser'
+    ? 'Drag the ring to erase marks. Tap a filled area to reset it.'
+    : tool === 'texture' ? `Tap a section to add ${currentTexture.label.toLowerCase()}.`
+      : tool === 'stamp' ? `Tap to place a ${currentStamp.label.toLowerCase()}.`
+        : tool === 'fill' ? `Tap an area of the ${picture.label.toLowerCase()} to colour it.`
+          : picture ? 'Draw inside an outline.' : 'Draw on the paper.';
+  const options = [
+    ...(undo[art.template]?.length ? [{ label: 'Undo last edit', action: () => { undoEdit(); goToCanvas(); } }] : []),
+    ...(picture ? [{ label: 'View in 3D', action: () => setView('relief') }] : []),
+    ...(mixing && scoops.length ? [
+      { label: 'Undo scoop', action: () => { setScoops(current => current.slice(0, -1)); setView('mix'); } },
+      { label: 'Empty bucket', action: () => { setScoops([]); setView('mix'); } },
+    ] : []),
+    ...(hasArt ? [{ label: 'Clear sheet', description: 'Undo can bring this sheet back while you are here.', action: () => { updateSheet(newSheet()); setNotice('Sheet cleared. You can undo that.'); goToCanvas(); } }] : []),
+    { label: mixing ? 'Paint lessons' : 'Shape lessons', action: onLessons },
+    { label: 'Back to Creative Lab', action: onBack },
+  ];
+  const openMore = () => {
+    if (picture) showRelief();
+    setView('options');
+  };
+  const backFromOptions = () => { setRelief(null); goToCanvas(); };
 
-  return <div className="mx-auto grid w-full max-w-6xl gap-3">
-    {mixing && <PaintMixer scoops={scoops} mixed={mixed} active={useMix}
-      useText={tool === 'fill' ? 'Tap part of the picture to paint it.' : tool === 'brush' ? 'Draw on the canvas with your mix.' : tool === 'stamp' ? 'Tap the sheet to place a stamp in your colour.' : 'Select a painting tool to use your mix.'}
-      onAdd={addPaint} onUndo={() => setScoops((current) => current.slice(0, -1))} onClear={() => setScoops([])}
-      onUse={activateMix} onFill={fillBackground} onCanvas={goToCanvas}/>}
-    <section aria-label="Choose a colouring picture" className="rounded-2xl border border-slate-200 bg-white p-2 sm:p-3">
-      <div className="flex flex-wrap gap-1.5" role="group" aria-label="Picture categories">
-        <button type="button" className={toggle} aria-pressed={!gallery && !picture} onClick={() => { setGallery(''); selectSheet(BLANK_SHEET); }}>Blank sheet</button>
-        {COLOURING_GROUPS.map(({ label }) => <button key={label} type="button" className={toggle} aria-pressed={label === gallery}
-          onClick={() => setGallery(gallery === label ? '' : label)}>{label}</button>)}
-      </div>
-      {selectedGroup && <div className="mt-2 flex flex-wrap gap-2">
-        {selectedGroup.pictures.map((id) => <button key={id} type="button" className={toggle + ' min-w-[8.25rem]'}
-          aria-pressed={art.template === id} onClick={() => selectSheet(id)}>
-          <span className="relative h-9 w-12 shrink-0 overflow-hidden rounded-md bg-white"><ColouringPicture picture={COLOURING_PICTURES[id]} colours={art.sheets[id]?.colours} textures={art.sheets[id]?.textures}/></span>
-          {COLOURING_PICTURES[id].label}
-        </button>)}
+  return <div className="focus-game creative-canvas-focus" data-board-focus="">
+    <main className={`focus-game-body${view === 'canvas' || view === 'relief' ? '' : ' is-menu'}`}>
+      <header className="focus-game-heading"><h1>{view === 'tools' ? 'Drawing tools' : view === 'mix' ? 'Mix paint' : title}</h1></header>
+      {view === 'options' && <FocusMenu choices={options} onBack={backFromOptions} />}
+      {view === 'mix' && <PaintMixer scoops={scoops} mixed={mixed} onAdd={addPaint}
+        onUse={() => { activateMix(); goToCanvas(); }} onFill={fillBackground} onBack={goToCanvas} />}
+      {view === 'tools' && <div className="focus-game-menu">
+        <label htmlFor="creative-sheet">Paper or picture</label>
+        <select id="creative-sheet" value={art.template} onChange={event => selectSheet(event.target.value)}>
+          <option value={BLANK_SHEET}>Blank paper</option>
+          {COLOURING_GROUPS.map(group => <optgroup key={group.label} label={group.label}>{group.pictures.map(id => <option key={id} value={id}>{COLOURING_PICTURES[id].label}</option>)}</optgroup>)}
+        </select>
+        <label htmlFor="creative-tool">Tool</label>
+        <select id="creative-tool" value={tool} onChange={event => setTool(event.target.value)}>
+          {picture && <><option value="fill">Colour areas</option><option value="texture">Textures</option></>}
+          <option value="brush">Brush</option><option value="eraser">Eraser</option><option value="stamp">Stamps</option>
+        </select>
+        {(tool === 'brush' || tool === 'eraser') && <label>Size
+          <select value={size.label} onChange={event => setSize(sizes.find(item => item.label === event.target.value))}>
+            {sizes.map(item => <option key={item.label}>{item.label}</option>)}
+          </select>
+        </label>}
+        {tool === 'texture' && <label>Texture
+          <select value={texture} onChange={event => setTexture(event.target.value)}>{TEXTURES.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select>
+        </label>}
+        {tool === 'stamp' && <label>Stamp
+          <select value={stamp} onChange={event => setStamp(event.target.value)}>{STAMPS.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select>
+        </label>}
+        {tool !== 'texture' && tool !== 'eraser' && <label className="creative-colour-control">Paint colour
+          <input type="color" value={colour} list="creative-swatches" onChange={event => selectColour(event.target.value)} />
+          <datalist id="creative-swatches">{swatches.map(swatch => <option key={swatch} value={swatch} />)}</datalist>
+        </label>}
+        <p>{instructions}</p>
+        <button type="button" className="focus-game-button is-primary" onClick={goToCanvas}>Back to paper</button>
       </div>}
-    </section>
-
-    <section hidden={Boolean(relief)} aria-label="Canvas tools" className="rounded-2xl border border-slate-200 bg-white p-2 sm:p-3">
-      <div className="flex flex-wrap items-center gap-1.5">
-        {picture && <button type="button" className={toggle} onClick={() => setTool('fill')} aria-pressed={tool === 'fill'}><PaintBucket size={17}/> Colour areas</button>}
-        {picture && <button type="button" className={toggle} onClick={() => setTool('texture')} aria-pressed={tool === 'texture'}><Layers size={17}/> Textures</button>}
-        <button type="button" className={toggle} onClick={() => setTool('stamp')} aria-pressed={tool === 'stamp'}><Stamp size={17}/> Stamps</button>
-        <button type="button" className={toggle} onClick={() => setTool('brush')} aria-pressed={tool === 'brush'}><Pencil size={17}/> Brush</button>
-        <button type="button" className={toggle} onClick={() => setTool('eraser')} aria-pressed={tool === 'eraser'}><Eraser size={17}/> Eraser</button>
-        <button type="button" className={control} onClick={undoEdit} disabled={!undo[art.template]?.length}><RotateCcw size={17}/> Undo</button>
-        <button type="button" className={control} disabled={!hasArt} onClick={() => { updateSheet(newSheet()); setNotice('Sheet cleared. You can undo that.'); }}>Clear sheet</button>
-      </div>
-      <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-        {tool !== 'eraser' && tool !== 'texture' && <div className="flex flex-wrap items-center gap-0.5" role="group" aria-label="Paint colours">
-          {swatches.map((swatch, i) => <button key={swatch} type="button" onClick={() => selectColour(swatch)}
-            aria-label={['Ink black', 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Paper white'][i]}
-            aria-pressed={swatch === colour} className="grid h-11 w-10 place-items-center rounded-xl aria-pressed:bg-indigo-100">
-            <span className="h-6 w-6 rounded-full border border-slate-400" style={{ backgroundColor: swatch }} />
-          </button>)}
-          <label className="grid h-11 w-11 place-items-center" title="Custom paint colour"><input type="color" aria-label="Custom paint colour" className="h-8 w-8 cursor-pointer" value={colour} onChange={(event) => selectColour(event.target.value)}/></label>
-        </div>}
-        {(tool === 'brush' || tool === 'eraser') && <div className="flex flex-wrap items-center gap-1" role="group" aria-label={tool === 'eraser' ? 'Eraser size' : 'Brush size'}>
-          {sizes.map((choice) => <button key={choice.label} type="button" className={toggle}
-            aria-pressed={size === choice} onClick={() => setSize(choice)}>{choice.label}</button>)}
-        </div>}
-      </div>
-      {tool === 'texture' && <div role="group" aria-label="Texture choices" className="mt-2 flex flex-wrap gap-1.5">
-        {TEXTURES.map(({ id, label, dark, light, width, height }) => <button type="button" key={id} className={toggle} aria-pressed={id === texture} onClick={() => setTexture(id)}>
-          {dark && <svg viewBox={`0 0 ${width} ${height}`} width="23" height="20" aria-hidden="true"><path d={dark} stroke="currentColor" strokeWidth="1.7" fill="none"/><path d={light} opacity=".45" stroke="currentColor" fill="none"/></svg>}
-          {label}
-        </button>)}
-      </div>}
-      {tool === 'stamp' && <div role="group" aria-label="Stamp choices" className="mt-2 flex flex-wrap gap-1.5">
-        {STAMPS.map(({ id, label, path }) => <button type="button" key={id} className={toggle} aria-pressed={id === stamp} onClick={() => setStamp(id)}>
-          <svg viewBox="-34 -34 68 68" width="21" height="21" aria-hidden="true"><path d={path} fill="currentColor"/></svg>{label}
-        </button>)}
-      </div>}
-      <p className="mt-1 text-sm font-semibold text-slate-700" aria-live="polite">
-        {tool === 'eraser' ? `${size.label} eraser. Drag the ring over brush marks.${picture ? ' Tap a coloured area to reset it.' : ''}`
-          : tool === 'texture' ? `Tap a section to apply ${currentTexture.label.toLowerCase()}.`
-            : tool === 'stamp' ? `Tap ${picture ? 'inside a section' : 'the sheet'} to place a ${currentStamp.label.toLowerCase()}.`
-              : tool === 'fill' ? `Tap a section of the ${picture.label.toLowerCase()} to colour it.`
-                : picture ? 'Start inside a section. Your brush stays within its outline.' : `${size.label} brush. Draw directly on the sheet.`}
-      </p>
-    </section>
-    <div ref={canvasSection} tabIndex={-1} role="group" aria-label="Painting area" className="scroll-mt-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600">
-      {picture && <button type="button" className={control + ' mb-2'} onClick={relief ? () => setRelief(null) : showRelief}>
-        <Box size={18}/> {relief ? 'Back to colouring' : 'View in 3D'}
-      </button>}
-      {relief && <ColouringRelief key={relief} picture={picture} sheet={sheet} source={relief}/>}
-      {!relief && mixing && useMix && mixed && tool !== 'eraser' && tool !== 'texture' && <p className="mb-1 flex items-center gap-2 text-sm font-bold text-slate-800">
-        <span className="h-5 w-5 rounded-full border border-slate-500/45" style={{ backgroundColor: mixed }} aria-hidden="true"/>
-        {tool === 'fill' ? 'Tap the picture to use your mix.' : tool === 'stamp' ? 'Place a stamp in your new colour.' : 'Draw here with your mix.'}
-      </p>}
-      {!relief && <DrawingPaper key={art.template} sheet={sheet} picture={picture} tool={tool} colour={colour} size={activeSize} stamp={stamp} onChange={updateSheet} onRegion={changeRegion}/>}
-    </div>
-    {notice && <p className="sr-only" role="status">{notice}</p>}
-    {saveError && <p role="status" className="text-sm font-bold text-amber-900">This device could not save the sheet. You can keep drawing here.</p>}
+      {view === 'relief' && relief && <>
+        <ColouringRelief key={relief} picture={picture} sheet={sheet} source={relief}/>
+        <button type="button" className="focus-game-button mt-2 w-full" onClick={backFromOptions}>Back to colouring</button>
+      </>}
+      {view === 'canvas' && <>
+        <p className="focus-game-message creative-paper-instructions">
+          {tool !== 'texture' && tool !== 'eraser' && <span className="creative-current-paint" style={{ backgroundColor: colour }} aria-hidden="true" />}
+          {instructions}
+        </p>
+        <div ref={canvasSection} role="group" aria-label="Painting area">
+          <DrawingPaper key={art.template} sheet={sheet} picture={picture} tool={tool} colour={colour} size={activeSize} stamp={stamp} onChange={updateSheet} onRegion={changeRegion}/>
+        </div>
+        <div className="focus-game-actions mt-3">
+          {mixing && <button type="button" className="focus-game-button" onClick={() => setView('mix')}>Mix paint</button>}
+          <button type="button" className="focus-game-button" onClick={() => setView('tools')}>Tools</button>
+          <button type="button" className="focus-game-button" onClick={openMore}>Options</button>
+        </div>
+      </>}
+      {notice && <p className="sr-only" role="status">{notice}</p>}
+      {saveError && <p role="status" className="focus-game-message">This device could not save the sheet. You can keep drawing here.</p>}
+    </main>
   </div>;
 }

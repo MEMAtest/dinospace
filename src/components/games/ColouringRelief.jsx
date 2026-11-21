@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import * as THREE from 'three';
 import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -113,7 +113,6 @@ export default function ColouringRelief({ picture, sheet, source }) {
       controls.addEventListener('change', render);
       handles.current = {
         rotate: (direction) => { pivot.rotation.y += direction * Math.PI / 6; render(); },
-        reset: () => { pivot.rotation.set(-0.16, 0.34, 0); controls.reset(); render(); },
       };
       fit();
       setStatus('ready');
@@ -140,7 +139,6 @@ export default function ColouringRelief({ picture, sheet, source }) {
       <div className="flex flex-wrap gap-1.5">
         <button className={control} type="button" onClick={() => rotate(-1)} disabled={status !== 'ready'}><ChevronLeft size={17}/> Turn left</button>
         <button className={control} type="button" onClick={() => rotate(1)} disabled={status !== 'ready'}>Turn right <ChevronRight size={17}/></button>
-        <button className={control} type="button" disabled={status !== 'ready'} onClick={() => { handles.current?.reset(); setTurn(0); }}><RotateCcw size={16}/> Reset view</button>
       </div>
     </div>
     <div ref={host} data-relief-frame data-relief-state={status} className="relative h-[max(340px,53dvh)] overflow-hidden bg-[#edf3fc] sm:h-[min(62dvh,590px)]">
