@@ -1,0 +1,795 @@
+{
+  "release": {
+    "runtime": "f99376facd0df6e361064471c4c2df94ab280a68",
+    "entry": "/assets/arcade-CAGBwYQd.js",
+    "worker": "amari-discovery-v110",
+    "backendUrl": "https://dinospace-cmswyyab8-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_9QiorTTdYYBJZBeiLph66EzKf11K",
+    "gatewayDeployment": "6b021c3a0455f7d64c227ed8",
+    "evidence": "docs/qa-evidence/facts-askia-focus-20261121/README.md",
+    "scope": "Fact Finder shows one large picture and one fact at a time. Topic filters, sources and audio remain available. Askia\u2019s Count the Stars has a large field of touchable objects, visible count badges and a held result with one next action."
+  },
+  "live": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "pictureBounds": {
+        "x": 10.390625,
+        "y": 77.140625,
+        "width": 369.21875,
+        "height": 377.390625
+      },
+      "boardBounds": {
+        "x": 10.390625,
+        "y": 77.140625,
+        "width": 369.21875,
+        "height": 362.59375
+      },
+      "totals": [
+        2,
+        3,
+        1,
+        3
+      ],
+      "duplicateIgnored": true,
+      "checks": [
+        {
+          "label": "Fact Finder topics",
+          "buttons": [
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Triceratops first fact muted",
+          "buttons": [
+            "Next fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 2",
+            "Back"
+          ]
+        },
+        {
+          "label": "Triceratops first fact with sound",
+          "buttons": [
+            "Next fact",
+            "Hear fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Triceratops last fact",
+          "buttons": [
+            "Explore in Dino Detective",
+            "Hear fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 2",
+            "Back"
+          ]
+        },
+        {
+          "label": "Askia counting 1",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 1",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 2",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 2",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 3",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 3",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 4",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 4",
+          "buttons": [
+            "Finish level",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia level complete",
+          "buttons": [
+            "Next: One to five",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Askia next level saved",
+          "buttons": [
+            "Start: One to five",
+            "Options",
+            "Back"
+          ]
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "pictureBounds": {
+        "x": 304,
+        "y": 101.984375,
+        "width": 832,
+        "height": 459
+      },
+      "boardBounds": {
+        "x": 228,
+        "y": 101.984375,
+        "width": 984,
+        "height": 441
+      },
+      "totals": [
+        1,
+        3,
+        1,
+        2
+      ],
+      "duplicateIgnored": true,
+      "checks": [
+        {
+          "label": "Fact Finder topics",
+          "buttons": [
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Triceratops first fact muted",
+          "buttons": [
+            "Next fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 2",
+            "Back"
+          ]
+        },
+        {
+          "label": "Triceratops first fact with sound",
+          "buttons": [
+            "Next fact",
+            "Hear fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Triceratops last fact",
+          "buttons": [
+            "Explore in Dino Detective",
+            "Hear fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 2",
+            "Back"
+          ]
+        },
+        {
+          "label": "Askia counting 1",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 1",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 2",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 2",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 3",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 3",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 4",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 4",
+          "buttons": [
+            "Finish level",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia level complete",
+          "buttons": [
+            "Next: One to five",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Askia next level saved",
+          "buttons": [
+            "Start: One to five",
+            "Options",
+            "Back"
+          ]
+        }
+      ]
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "pictureBounds": {
+        "x": 10.390625,
+        "y": 77.140625,
+        "width": 369.21875,
+        "height": 377.390625
+      },
+      "boardBounds": {
+        "x": 10.390625,
+        "y": 77.140625,
+        "width": 369.21875,
+        "height": 362.59375
+      },
+      "totals": [
+        3,
+        3,
+        3,
+        1
+      ],
+      "duplicateIgnored": true,
+      "checks": [
+        {
+          "label": "Fact Finder topics",
+          "buttons": [
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Triceratops first fact muted",
+          "buttons": [
+            "Next fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 2",
+            "Back"
+          ]
+        },
+        {
+          "label": "Triceratops first fact with sound",
+          "buttons": [
+            "Next fact",
+            "Hear fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Triceratops last fact",
+          "buttons": [
+            "Explore in Dino Detective",
+            "Hear fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 2",
+            "Back"
+          ]
+        },
+        {
+          "label": "Askia counting 1",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 1",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 2",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 2",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 3",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 3",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 4",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 4",
+          "buttons": [
+            "Finish level",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia level complete",
+          "buttons": [
+            "Next: One to five",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Askia next level saved",
+          "buttons": [
+            "Start: One to five",
+            "Options",
+            "Back"
+          ]
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "pictureBounds": {
+        "x": 304,
+        "y": 101.984375,
+        "width": 832,
+        "height": 459
+      },
+      "boardBounds": {
+        "x": 228,
+        "y": 101.984375,
+        "width": 984,
+        "height": 441
+      },
+      "totals": [
+        3,
+        1,
+        2,
+        2
+      ],
+      "duplicateIgnored": true,
+      "checks": [
+        {
+          "label": "Fact Finder topics",
+          "buttons": [
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Triceratops first fact muted",
+          "buttons": [
+            "Next fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 2",
+            "Back"
+          ]
+        },
+        {
+          "label": "Triceratops first fact with sound",
+          "buttons": [
+            "Next fact",
+            "Hear fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Triceratops last fact",
+          "buttons": [
+            "Explore in Dino Detective",
+            "Hear fact",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Fact 2",
+            "Back"
+          ]
+        },
+        {
+          "label": "Askia counting 1",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 1",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 2",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 2",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 3",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 3",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia counting 4",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia explanation 4",
+          "buttons": [
+            "Finish level",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia level complete",
+          "buttons": [
+            "Next: One to five",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Askia next level saved",
+          "buttons": [
+            "Start: One to five",
+            "Options",
+            "Back"
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-cmswyyab8-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1435,
+          "sha256": "b21db9fba6dc4edf2fbe37f7b48b2b63e745c878549a398673ee6243930826c4"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1435,
+          "sha256": "b21db9fba6dc4edf2fbe37f7b48b2b63e745c878549a398673ee6243930826c4"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16453,
+          "sha256": "7bf6a49552a36196ea68c3ba77d093d6083b36e062b193b136315c9393090301"
+        },
+        {
+          "path": "/art/catalog-v3/game-factfinder.webp",
+          "bytes": 67512,
+          "sha256": "fa594ab71460711665405ef1bee78e0f0b5520900b9369367f729f7c9cf02e0e"
+        },
+        {
+          "path": "/art/catalog-v3/game-counting.webp",
+          "bytes": 68074,
+          "sha256": "532092e9ce40682910a76acef047e2fdb2f7d8be095f4cd1398a4cae5d53ee88"
+        },
+        {
+          "path": "/assets/arcade-CAGBwYQd.js",
+          "bytes": 2016023,
+          "sha256": "a33621f7d6236ca078a43196e0c3dad93e9faa37f5fadecaeba9a0c01d99bf18"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-CKfP14vN.css",
+          "bytes": 40883,
+          "sha256": "b6162a8a34305fbdf114afe7eb544c2c1aadf194b274d90c367f428bc6edfc23"
+        },
+        {
+          "path": "/assets/arcade-B6Xy_xpU.css",
+          "bytes": 242412,
+          "sha256": "fca8bc682aa514431d040bce60647a5c391b66271df3548d237f791c41c7aceb"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b021c1d5f2d1b5162383c08--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1435,
+          "sha256": "b21db9fba6dc4edf2fbe37f7b48b2b63e745c878549a398673ee6243930826c4"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1435,
+          "sha256": "b21db9fba6dc4edf2fbe37f7b48b2b63e745c878549a398673ee6243930826c4"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16453,
+          "sha256": "7bf6a49552a36196ea68c3ba77d093d6083b36e062b193b136315c9393090301"
+        },
+        {
+          "path": "/art/catalog-v3/game-factfinder.webp",
+          "bytes": 67512,
+          "sha256": "fa594ab71460711665405ef1bee78e0f0b5520900b9369367f729f7c9cf02e0e"
+        },
+        {
+          "path": "/art/catalog-v3/game-counting.webp",
+          "bytes": 68074,
+          "sha256": "532092e9ce40682910a76acef047e2fdb2f7d8be095f4cd1398a4cae5d53ee88"
+        },
+        {
+          "path": "/assets/arcade-CAGBwYQd.js",
+          "bytes": 2016023,
+          "sha256": "a33621f7d6236ca078a43196e0c3dad93e9faa37f5fadecaeba9a0c01d99bf18"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-CKfP14vN.css",
+          "bytes": 40883,
+          "sha256": "b6162a8a34305fbdf114afe7eb544c2c1aadf194b274d90c367f428bc6edfc23"
+        },
+        {
+          "path": "/assets/arcade-B6Xy_xpU.css",
+          "bytes": 242412,
+          "sha256": "fca8bc682aa514431d040bce60647a5c391b66271df3548d237f791c41c7aceb"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1435,
+          "sha256": "b21db9fba6dc4edf2fbe37f7b48b2b63e745c878549a398673ee6243930826c4"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1435,
+          "sha256": "b21db9fba6dc4edf2fbe37f7b48b2b63e745c878549a398673ee6243930826c4"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16453,
+          "sha256": "7bf6a49552a36196ea68c3ba77d093d6083b36e062b193b136315c9393090301"
+        },
+        {
+          "path": "/art/catalog-v3/game-factfinder.webp",
+          "bytes": 67512,
+          "sha256": "fa594ab71460711665405ef1bee78e0f0b5520900b9369367f729f7c9cf02e0e"
+        },
+        {
+          "path": "/art/catalog-v3/game-counting.webp",
+          "bytes": 68074,
+          "sha256": "532092e9ce40682910a76acef047e2fdb2f7d8be095f4cd1398a4cae5d53ee88"
+        },
+        {
+          "path": "/assets/arcade-CAGBwYQd.js",
+          "bytes": 2016023,
+          "sha256": "a33621f7d6236ca078a43196e0c3dad93e9faa37f5fadecaeba9a0c01d99bf18"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-CKfP14vN.css",
+          "bytes": 40883,
+          "sha256": "b6162a8a34305fbdf114afe7eb544c2c1aadf194b274d90c367f428bc6edfc23"
+        },
+        {
+          "path": "/assets/arcade-B6Xy_xpU.css",
+          "bytes": 242412,
+          "sha256": "fca8bc682aa514431d040bce60647a5c391b66271df3548d237f791c41c7aceb"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 2,
+        "sha256": "519711d1e83a1f76e8df55619ca9fd5bc82993dc1edf6ed6e80d50800cb49500"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 771
+}
