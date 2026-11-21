@@ -32,16 +32,21 @@ const DINO_CROPS = {
   ovira: { name: 'Dash the Oviraptor', x: 0.78, y: 0.68, width: 0.22, height: 0.22, sheet: moreDinoCharacterSheet, blend: true },
 };
 
+// Crop just the original illustrations. The caption below each sticker comes
+// from the saved reward catalogue and stays readable at every size.
+const rewardCrop = (label, left, top, right, bottom) => ({
+  label, x: left / 1254, y: top / 1254, width: (right - left) / 1254, height: (bottom - top) / 1254,
+});
 const REWARD_CROPS = {
-  rocket: { label: 'Rocket Star', x: 0.235, y: 0.35, width: 0.16, height: 0.2 },
-  dino: { label: 'Dino Egg Prize', x: 0.02, y: 0.56, width: 0.19, height: 0.2 },
-  star: { label: 'Super Star', x: 0.6, y: 0.08, width: 0.16, height: 0.2 },
-  heart: { label: 'Heart of Awesome', x: 0.61, y: 0.56, width: 0.18, height: 0.2 },
-  hero: { label: 'Brave and Strong Shield', x: 0.61, y: 0.35, width: 0.17, height: 0.2 },
-  trophy: { label: 'Gold Winner Trophy', x: 0.02, y: 0.08, width: 0.18, height: 0.2 },
-  diamond: { label: 'Rainbow Gem', x: 0.39, y: 0.35, width: 0.19, height: 0.2 },
-  crown: { label: 'Crown of Greatness', x: 0.02, y: 0.35, width: 0.18, height: 0.2 },
-  legend: { label: 'Awesome Medal', x: 0.21, y: 0.08, width: 0.18, height: 0.2 },
+  rocket: rewardCrop('Rocket Star', 269, 442, 475, 665),
+  dino: rewardCrop('Dino Egg Prize', 43, 722, 228, 941),
+  star: rewardCrop('Super Star', 750, 135, 986, 384),
+  heart: rewardCrop('Heart of Awesome', 751, 727, 976, 939),
+  hero: rewardCrop('Brave and Strong Shield', 758, 445, 985, 669),
+  trophy: rewardCrop('Gold Winner Trophy', 15, 134, 273, 384),
+  diamond: rewardCrop('Rainbow Gem', 491, 453, 749, 665),
+  crown: rewardCrop('Crown of Greatness', 17, 452, 267, 663),
+  legend: rewardCrop('Awesome Medal', 290, 135, 481, 384),
 };
 
 const spriteStyle = (sheet, crop) => ({
@@ -83,13 +88,14 @@ export const RewardSticker = ({ rewardId, size = 52, locked = false, className =
   if (rewardId === 'truck') return <img src={rescueTruck} alt="Rescue Truck" draggable={false} width={size} height={size} className={`inline-block shrink-0 object-contain transition ${locked ? 'grayscale opacity-30' : ''} ${className}`} />;
   if (rewardId === 'planet' || rewardId === 'galaxy') return <span role="img" aria-label={rewardId === 'planet' ? 'Planet Master' : 'Galaxy King'} className={`inline-grid shrink-0 place-items-center rounded-full bg-gradient-to-br from-indigo-100 to-blue-200 text-center shadow-inner transition ${locked ? 'grayscale opacity-30' : ''} ${className}`} style={{ width: size, height: size, fontSize: size * .68 }}>{rewardId === 'planet' ? '🪐' : '🌌'}</span>;
   const crop = REWARD_CROPS[rewardId] || REWARD_CROPS.star;
+  const ratio = crop.width / crop.height;
 
   return (
     <span
       aria-label={crop.label}
       className={`inline-block shrink-0 mix-blend-multiply transition ${locked ? 'grayscale opacity-30' : ''} ${className}`}
       role="img"
-      style={{ ...spriteStyle(rewardStickerSheet, crop), height: size, width: size }}
+      style={{ ...spriteStyle(rewardStickerSheet, crop), height: size * Math.min(1, 1 / ratio), width: size * Math.min(1, ratio) }}
     />
   );
 };

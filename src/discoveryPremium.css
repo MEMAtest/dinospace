@@ -514,3 +514,36 @@
 .little-stars-number { position: absolute; top: -.1rem; right: -.3rem; display: grid; width: 1.6rem; aspect-ratio: 1; place-items: center; border-radius: 50%; background: #ffcf4c; color: #322650; font-size: .95rem; font-weight: 850; }
 .little-stars-choices { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .5rem; margin-top: .65rem; }
 .little-stars-choices button { font-size: 1.5rem; }
+
+/* Keep the illustrated Discovery setting around the focused task. */
+.discovery-game-surface[data-discovery-world] { --play-paper: #f5fbff; --play-ink: #133961; --play-action: #1556aa; }
+.discovery-game-surface[data-discovery-world="read-write"] { --play-paper: #fcf1ff; --play-ink: #4a256e; --play-action: #6440a6; }
+.discovery-game-surface[data-discovery-world="maths"] { --play-paper: #fff6e8; --play-ink: #563a24; --play-action: #96501e; }
+.discovery-game-surface[data-discovery-world="explore"] { --play-paper: #eff6ff; --play-ink: #243e74; --play-action: #3058a5; }
+.discovery-game-surface[data-discovery-world="creative"] { --play-paper: #fbf2ff; --play-ink: #51336d; --play-action: #783e9c; }
+.discovery-game-surface[data-discovery-world="thinking"] { --play-paper: #effbf5; --play-ink: #1c504b; --play-action: #14645f; }
+
+.discovery-game-surface .focus-game[data-board-focus],
+.discovery-game-surface .writing-focus {
+  background: transparent;
+}
+.discovery-game-surface .focus-game-body {
+  background: var(--play-paper, #f3f8fb);
+  color: var(--play-ink, #142e4b);
+  box-shadow: 0 10px 32px #11245048;
+}
+.discovery-game-surface .focus-game-body.is-menu { min-height: 0; margin: clamp(.75rem, 4vh, 2rem) auto; border: 2px solid #fff; border-radius: 1.4rem; width: min(calc(100% - 1.4rem), 31rem); }
+.discovery-game-surface .focus-game-body .focus-game-button.is-primary { background: var(--play-action, #075e68); border-color: var(--play-action, #075e68); color: #fff; }
+.discovery-game-surface .focus-game-body .focus-game-heading h1 { color: var(--play-ink, #142e4b); }
+.discovery-game-surface:is([data-discovery-game="letters"],[data-discovery-game="phonics"],[data-discovery-game="addition"],[data-discovery-game="subtraction"],[data-discovery-game="timeteller"],[data-discovery-game="numberline"],[data-discovery-game="counting"],[data-discovery-game="math"],[data-discovery-game="pattern"],[data-discovery-game="oddoneout"],[data-discovery-game="astronaut"],[data-discovery-game="hangman"],[data-discovery-game="german"]) .focus-game-body.is-menu:not(:has(.focus-game-menu)) .focus-game-heading::before {
+  content: "";
+  display: block;
+  height: clamp(5.5rem, 17svh, 9rem);
+  margin-bottom: .55rem;
+  border-radius: .8rem;
+  background: var(--discovery-game-art) center / contain no-repeat, radial-gradient(ellipse at center,#fff,transparent 72%);
+}
+@media(min-width: 700px) {
+  .discovery-game-surface .focus-game-body:not(.is-menu) { border: 2px solid #fff; border-radius: 1.2rem; }
+}
+.discovery-game-surface .focus-game[data-board-focus] { display: flow-root; }

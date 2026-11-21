@@ -1,73 +1,163 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
+import { Lock, Play, Search } from 'lucide-react';
+import { SoundToggle } from '../shared/index.jsx';
+import { MiniIcon } from '../shared/Navigation.jsx';
+import WorldIcon from '../shared/WorldIcon.jsx';
+import astronautCrew from '../../assets/landing/amari-astronaut-robot.png';
 import { LEARNING_WORLDS } from '../../data/learningWorlds.js';
+import { getNextRank, getRank } from '../../utils.js';
 import './discoveryVisuals.css';
 
+const PlayerChip = ({ player, onClick }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    aria-label={`${player.name} is playing. Tap to change player`}
+    className="flex min-w-0 items-center gap-2 rounded-full bg-gradient-to-r from-sky-100 to-indigo-100 py-1 pl-1 pr-4 shadow-inner transition hover:brightness-105"
+  >
+    <span className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-gradient-to-br from-sky-400 to-indigo-600">
+      <img src={astronautCrew} alt="" className="h-11 w-11 object-cover object-top" />
+    </span>
+    <span className="truncate text-lg font-black text-slate-800">{player.name}</span>
+  </button>
+);
+
+// Amari's home: everything a child needs on one short screen — today's
+// mission, a quick way back into recent games, and the five worlds. Progress,
+// settings and stickers live on their own pages.
 const ExplorerHome = ({
-  player, points, challenge, challengeProgress, challengeCompleted, practiceGames, quickGames,
-  favouriteGames, onLaunch, onOpenWorld, onOpenPage, onSwitchPlayer, soundOn, onToggleSound,
+  player, points, streak, challenge, challengeProgress, challengeCompleted, practiceGames, quickGames,
+  games, favouriteGames, onLaunch, onOpenWorld, onOpenPage, onSwitchPlayer, soundOn, onToggleSound,
 }) => {
-  const [view, setView] = useState('home');
-  const [worldId, setWorldId] = useState(LEARNING_WORLDS[0].id);
-  const [option, setOption] = useState('stickers');
-  const heading = useRef(null);
-  const world = LEARNING_WORLDS.find(item => item.id === worldId);
-  const featured = quickGames[0];
-  const dailyOption = { id: 'daily', label: 'Play today’s challenge', action: () => onLaunch(challenge.game, 'launch') };
-  const general = [
-    { id: 'stickers', label: 'Stickers', action: () => onOpenPage('stickers') },
-    { id: 'grownups', label: 'Grown-ups', action: () => onOpenPage('grownups') },
-    { id: 'switch', label: 'Switch player', action: onSwitchPlayer },
-    { id: 'sound', label: soundOn ? 'Turn sound off' : 'Turn sound on', action: onToggleSound },
-    dailyOption,
-  ];
-  const practice = practiceGames.map(game => ({ id: `practice-${game.id}`, label: game.title, action: () => onLaunch(game.id) }));
-  const recent = quickGames.map(game => ({ id: `again-${game.id}`, label: game.title + (favouriteGames.includes(game.id) ? ' ★' : ''), action: () => onLaunch(game.id) }));
-  const chosen = [...general, ...practice, ...recent].find(item => item.id === option);
+  const [query, setQuery] = useState('');
+  const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const matches = words.length ? games.filter(game => {
+    const text = `${game.title} ${game.desc} ${game.category}`.toLowerCase();
+    return words.every(word => text.includes(word));
+  }) : [];
+  const rank = getRank(points);
+  const nextRank = getNextRank(points);
+  return (
+    <div className="relative flex min-h-[100dvh] w-full flex-col items-center gap-5 overflow-hidden bg-gradient-to-b from-[#dff3ff] via-[#eef8ff] to-[#f8fbff] p-3 pb-28 sm:p-6 sm:pb-28">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-32 right-8 h-40 w-40 rounded-full bg-orange-200/60 blur-2xl" />
+        <div className="absolute bottom-16 left-10 h-52 w-52 rounded-full bg-green-200/60 blur-3xl" />
+      </div>
 
-  useEffect(() => { heading.current?.focus(); }, [view]);
+      <header className="relative z-20 flex w-full max-w-7xl items-center justify-between gap-2 rounded-[1.7rem] border border-white/80 bg-white/80 px-2 py-2 shadow-[0_12px_34px_rgba(30,105,175,.12)] backdrop-blur-xl sm:px-4">
+        <PlayerChip player={player} onClick={onSwitchPlayer} />
+        <div className="flex items-center gap-2">
+          <span className="rounded-full bg-amber-50 px-3 py-2 text-sm font-black text-amber-700 sm:text-base">⭐ {points}</span>
+          <span className="hidden rounded-full bg-orange-50 px-3 py-2 text-sm font-black text-orange-700 sm:block">🔥 {streak} day{streak === 1 ? '' : 's'}</span>
+          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+        </div>
+      </header>
 
-  return <main className="explorer-simple">
-    <div className="explorer-simple-body">
-      {view === 'home' && <>
-        <p className="explorer-simple-meta">{points} stars</p>
-        <h1 tabIndex={-1} ref={heading}>Hi {player.name}!</h1>
-        <p>Choose a world to find a game.</p>
-        <div className="explorer-simple-actions">
-          <button type="button" className="explorer-primary" onClick={() => setView('worlds')}>Choose a world</button>
-          <button type="button" onClick={featured ? () => onLaunch(featured.id) : dailyOption.action}>{featured ? `Play ${featured.title} again` : dailyOption.label}</button>
-          <button type="button" onClick={() => setView('more')}>More options</button>
+      <section className="discovery-home-hero relative z-10 grid w-full min-w-0 max-w-7xl items-center overflow-hidden rounded-[2.2rem] border-2 border-white/90 bg-gradient-to-br from-sky-100 via-white/80 to-indigo-100 p-4 shadow-[0_22px_60px_rgba(38,104,171,.17)] sm:p-6">
+        <img src={astronautCrew} alt="Amari the astronaut with a friendly learning robot" className="discovery-home-crew mx-auto w-auto object-contain drop-shadow-[0_18px_22px_rgba(30,64,175,.22)] sm:h-48" />
+        <div className="discovery-home-greeting min-w-0 text-left">
+          <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">Hi {player.name}!</h1>
+          <p className="mx-auto mt-1 max-w-full break-words text-sm font-bold text-slate-600 sm:mx-0 sm:text-base">
+            {rank.emoji} {rank.title}{nextRank ? ` · ${nextRank.minPoints - points} stars to ${nextRank.title}` : ''}
+          </p>
         </div>
-      </>}
-      {view === 'worlds' && <>
-        <h1 tabIndex={-1} ref={heading}>Choose a world</h1>
-        <label><span id="explorer-world-label">Learning world</span>
-          <select aria-labelledby="explorer-world-label" value={worldId} onChange={event => setWorldId(event.target.value)}>
-            {LEARNING_WORLDS.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}
-          </select>
+          <div className={`discovery-home-daily flex items-center gap-3 rounded-2xl border-2 p-3 text-left ${challengeCompleted ? 'border-emerald-200 bg-emerald-50' : 'border-amber-200 bg-amber-50'}`}>
+            <span className="text-3xl" aria-hidden="true">{challengeCompleted ? '🏆' : challenge.emoji}</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-black uppercase tracking-wide text-amber-700">Daily challenge</p>
+              <p className="break-words font-black leading-tight text-slate-800">{challenge.desc}</p>
+              <div className="mt-1 h-2 overflow-hidden rounded-full bg-white" role="progressbar" aria-label="Daily challenge progress" aria-valuemin={0} aria-valuemax={challenge.target} aria-valuenow={Math.min(challengeProgress, challenge.target)}>
+                <div className={`h-full rounded-full ${challengeCompleted ? 'bg-emerald-500' : 'bg-amber-500'}`} style={{ width: `${Math.min(100, (challengeProgress / challenge.target) * 100)}%` }} />
+              </div>
+            </div>
+            {!challengeCompleted && (
+              <button type="button" onClick={() => onLaunch(challenge.game, 'launch')} aria-label={`Play the daily challenge: ${challenge.desc}`} className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-amber-500 text-white shadow-md active:translate-y-0.5">
+                <Play size={24} fill="currentColor" className="ml-0.5" />
+              </button>
+            )}
+          </div>
+      </section>
+
+      <section className="relative z-10 w-full max-w-7xl" aria-label="Find a game">
+        <label className="discovery-game-search">
+          <Search size={22} aria-hidden="true" />
+          <span className="sr-only">Find a game</span>
+          <input type="search" placeholder="Find a game" value={query} onChange={event => setQuery(event.target.value)} />
         </label>
-        <p>{world.desc}</p>
-        <div className="explorer-simple-actions">
-          <button type="button" className="explorer-primary" onClick={() => onOpenWorld(worldId)}>Open {world.title}</button>
-          <button type="button" onClick={() => setView('home')}>Back to home</button>
+        {words.length > 0 && (matches.length ? <div className="discovery-search-results" aria-label="Matching games">
+          {matches.map(game => (
+            <button key={game.id} type="button" onClick={() => onLaunch(game.id)}>
+              <MiniIcon icon={game.icon} />
+              <span><strong>{game.title}</strong><small>{LEARNING_WORLDS.find(world => world.gameIds.includes(game.id))?.title}</small></span>
+            </button>
+          ))}
+        </div> : <p className="mt-3 font-bold text-slate-700" role="status">No games match. Try a name like Chess or Dino.</p>)}
+      </section>
+
+      <section className="relative z-10 w-full max-w-7xl" aria-labelledby="worlds-heading">
+        <h2 id="worlds-heading" className="mb-3 text-left text-2xl font-black text-slate-900 sm:text-3xl">Choose a world</h2>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
+          {LEARNING_WORLDS.map((world) => (
+            <button
+              key={world.id}
+              type="button"
+              onClick={() => onOpenWorld(world.id)}
+              className={`discovery-world-card group relative flex w-full min-h-[14rem] flex-col overflow-hidden rounded-[1.8rem] bg-gradient-to-br ${world.color} p-3 text-left text-white active:translate-y-1 active:shadow-none sm:min-h-[15rem] sm:p-4 last:col-span-2 lg:last:col-span-1`}
+            >
+              <span className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/20" />
+              <span className="pointer-events-none absolute -bottom-12 -left-10 h-28 w-28 rounded-full border-[18px] border-white/10" />
+              <span className="discovery-art-stage relative -ml-1 grid h-[8.5rem] w-full place-items-center rounded-[1.2rem] sm:h-[9.5rem]"><span className="discovery-world-card__art w-full"><WorldIcon world={world} /></span></span>
+              <strong className="relative mt-auto block pt-2 text-base font-black leading-tight drop-shadow-sm sm:text-xl">{world.title}</strong>
+              <span className="relative mt-2 inline-flex w-max items-center gap-1 rounded-full border border-white/25 bg-white/20 px-2.5 py-1 text-[.68rem] font-black backdrop-blur sm:px-3 sm:text-xs">{world.gameIds.length} games <span aria-hidden="true">→</span></span>
+            </button>
+          ))}
         </div>
-      </>}
-      {view === 'more' && <>
-        <h1 tabIndex={-1} ref={heading}>More options</h1>
-        <label><span id="explorer-more-label">What would you like to do?</span>
-          <select aria-labelledby="explorer-more-label" value={option} onChange={event => setOption(event.target.value)}>
-            {general.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}
-            {practice.length > 0 && <optgroup label="Today’s practice">{practice.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</optgroup>}
-            {recent.length > 0 && <optgroup label="Play again">{recent.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</optgroup>}
-          </select>
-        </label>
-        {option === 'daily' && <p>{challenge.desc} · {challengeCompleted ? 'Complete' : `${Math.min(challengeProgress, challenge.target)} of ${challenge.target}`}</p>}
-        <div className="explorer-simple-actions">
-          <button type="button" className="explorer-primary" disabled={!chosen} onClick={chosen?.action}>{chosen?.label ?? 'Continue'}</button>
-          <button type="button" onClick={() => setView('home')}>Back to home</button>
+      </section>
+
+      <section className="relative z-10 w-full max-w-7xl rounded-[2rem] border border-white/90 bg-white/75 p-4 shadow-[0_14px_40px_rgba(30,105,175,.12)] backdrop-blur-xl sm:p-5" aria-labelledby="practice-heading">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <h2 id="practice-heading" className="text-xl font-black text-slate-900 sm:text-2xl">Today’s practice</h2>
+            <p className="text-sm font-bold text-slate-500">Three quick games · about 8 minutes</p>
+          </div>
+          <button type="button" onClick={() => onLaunch(practiceGames[0].id, 'launch')} className="shrink-0 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-400 px-4 py-3 font-black text-white shadow-lg transition hover:-translate-y-0.5 active:translate-y-0">
+            ▶ Start
+          </button>
         </div>
-      </>}
+        <div className="mt-3 grid gap-2 sm:grid-cols-3 sm:gap-3">
+          {practiceGames.map((game, index) => (
+            <button key={game.id} type="button" onClick={() => onLaunch(game.id)} className="flex min-h-16 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-2 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md active:translate-y-0">
+              <MiniIcon icon={game.icon} />
+              <span className="min-w-0"><span className="block text-xs font-black uppercase tracking-wide text-orange-500">Step {index + 1}</span><strong className="block truncate text-base text-slate-900">{game.title}</strong></span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {quickGames.length > 0 && (
+        <section className="relative z-10 w-full max-w-7xl" aria-labelledby="quick-heading">
+          <h2 id="quick-heading" className="mb-2 text-left text-xl font-black text-slate-900">Play again</h2>
+          <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+            {quickGames.map((game) => (
+              <button key={game.id} type="button" onClick={() => onLaunch(game.id)} className="flex min-w-52 items-center gap-3 rounded-2xl border border-white bg-white/85 p-2 text-left shadow-md transition hover:-translate-y-0.5 active:translate-y-0">
+                <MiniIcon icon={game.icon} className="h-12 w-12 bg-indigo-50" />
+                <span className="min-w-0"><strong className="block truncate text-sm text-slate-900">{game.title}</strong><span className="text-xs font-bold text-slate-500">{favouriteGames.includes(game.id) ? '★ Favourite' : '↺ Recent'}</span></span>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <nav className="fixed inset-x-0 bottom-0 z-30 flex justify-center gap-3 border-t border-white/80 bg-white/85 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-10px_30px_rgba(30,105,175,.12)] backdrop-blur-xl" aria-label="Home shortcuts">
+        <button type="button" onClick={() => onOpenPage('stickers')} className="flex min-h-14 flex-1 max-w-xs items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-amber-300 to-orange-400 px-4 font-black text-amber-950 shadow-md active:translate-y-0.5">
+          <span className="text-2xl" aria-hidden="true">🏅</span> Stickers
+        </button>
+        <button type="button" onClick={() => onOpenPage('grownups')} className="flex min-h-14 flex-1 max-w-xs items-center justify-center gap-2 rounded-2xl bg-slate-800 px-4 font-black text-white shadow-md active:translate-y-0.5">
+          <Lock size={20} aria-hidden="true" /> Grown-ups
+        </button>
+      </nav>
     </div>
-  </main>;
+  );
 };
 
 export default ExplorerHome;

@@ -11,33 +11,34 @@ import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
-import { ACHIEVEMENTS } from './data/index.js';
+import { ACHIEVEMENTS, STICKERS } from './data/index.js';
 import { createBursts, createConfetti, getPraise, getTodaysChallenge, loadSaved, saveSafe } from './utils.js';
 import { useSfx, useVoice, useInstallPrompt } from './hooks.js';
 import { useHashRouter } from './hooks/useHashRouter.js';
 import { ForcedDifficultyContext } from './hooks/useGameDifficulty.js';
 import {
-  CelebrationOverlay, RewardsShelf, BreakReminder, DailyChallengeTracker, InstallAppPrompt, VoiceSettings,
+  CelebrationOverlay, BreakReminder, DailyChallengeTracker, InstallAppPrompt, VoiceSettings,
 } from './components/shared/index.jsx';
-import { LeaveGameDialog, PageHeader, ParentGate } from './components/shared/Navigation.jsx';
+import { LeaveGameDialog, ParentGate } from './components/shared/Navigation.jsx';
 import ProgressDashboard from './components/games/ProgressDashboard.jsx';
 import IntroScreen from './components/games/IntroScreen.jsx';
 import ExplorerHome from './components/home/ExplorerHome.jsx';
 import LittleHome from './components/home/LittleHome.jsx';
 import WorldPage from './components/home/WorldPage.jsx';
-import LittleStickerAlbum from './components/home/LittleStickerAlbum.jsx';
+import StickerAlbum, { StickerReward } from './components/home/StickerAlbum.jsx';
 import GameSession from './components/shared/GameSession.jsx';
 import LittleDinoDetective from './components/little/games/LittleDinoDetective.jsx';
 import { GAME_SESSIONS, ownsGameProgression } from './data/gameSessions.js';
 import { recordLegacyGameEvent } from './data/learningProgress.js';
 import { recordGameDiagnostic } from './data/gameDiagnostics.js';
 import {
-  LEARNING_WORLDS, LITTLE_EXPLORER_GAME_IDS, PRACTICE_GAME_IDS,
+  BONUS_GAME_IDS, LEARNING_WORLDS, LITTLE_EXPLORER_GAME_IDS, PRACTICE_GAME_IDS,
 } from './data/learningWorlds.js';
 import { ACTIVE_PLAYER_KEY, getPlayer, isLittleExplorer, playerStorageKey } from './data/players.js';
 import { commitPlayerReward, mergeRewards, readPlayerRewards, rewardKey } from './data/playerRewards.js';
-import { getGame } from './gameCatalog.jsx';
+import { ALL_GAMES, getGame } from './gameCatalog.jsx';
 
+const BONUS_GAMES = new Set(BONUS_GAME_IDS);
 const MAX_RECENT_GAMES = 4;
 const SOUND_PREFERENCE_KEY = 'amari-sound-on';
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
@@ -78,6 +79,7 @@ const PlayerSession = ({
   const rewardsRef = useRef(rewards);
   const [rewardSaveFailed, setRewardSaveFailed] = useState(false);
   const [celebration, setCelebration] = useState(null);
+  const [newSticker, setNewSticker] = useState(null);
   const [streak, setStreak] = useState(() => Math.max(0, loadPlayerValue(player.id, 'streak', 0)));
   const [lastPlayDate, setLastPlayDate] = useState(() => loadPlayerValue(player.id, 'lastplay', ''));
   const [challengeProgress, setChallengeProgress] = useState(() => Math.max(0, loadPlayerValue(player.id, 'challenge_progress', 0)));
@@ -208,13 +210,17 @@ const PlayerSession = ({
     const finalMessage = message || getPraise();
     const gameIdAtCall = gameIdOverride || currentGameIdRef.current;
     const run = () => {
-      const next = commitPlayerReward(player.id, rewardsRef.current, pointsEarned, gameIdAtCall, undefined, { rewardToken });
+      const previous = rewardsRef.current;
+      const savedStickerIds = previous.persisted === false ? readPlayerRewards(player.id).earnedStickerIds : previous.earnedStickerIds;
+      const next = commitPlayerReward(player.id, previous, pointsEarned, gameIdAtCall, undefined, { rewardToken });
       rewardsRef.current = next;
       setRewards(next);
       // These lessons hold their own receipt and Retry action beside the result.
       const lessonOwnsRetry = Boolean(rewardToken && ['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap', 'letters', 'puzzle', 'spot', 'jet', 'math', 'counting', 'addition', 'subtraction', 'numberline', 'timeteller', 'phonics', 'colormix', 'shadowmatch'].includes(gameIdAtCall));
       setRewardSaveFailed(!next.persisted && !lessonOwnsRetry);
       const total = next.points;
+      const earnedNow = next.persisted && STICKERS.findLast(sticker => next.earnedStickerIds.includes(sticker.id) && !savedStickerIds.includes(sticker.id));
+      if (earnedNow) setNewSticker(earnedNow);
       if (quiet || (rewardToken && (!next.persisted || next.awardedPoints === 0))) return next;
       setCelebration({
         id: Date.now(), message: finalMessage, points: pointsEarned, total, bursts: createBursts(), confetti: createConfetti(),
@@ -235,6 +241,12 @@ const PlayerSession = ({
     const timer = setTimeout(() => setCelebration(null), celebration.points >= 8 ? 850 : 560);
     return () => clearTimeout(timer);
   }, [celebration]);
+
+  useEffect(() => {
+    if (!newSticker) return undefined;
+    const timer = setTimeout(() => setNewSticker(null), 3000);
+    return () => clearTimeout(timer);
+  }, [newSticker]);
 
   const homeGames = useMemo(() => byIds(LITTLE_EXPLORER_GAME_IDS), []);
   const quickGames = useMemo(
@@ -318,31 +330,30 @@ const PlayerSession = ({
         key={world.id}
         world={world}
         games={byIds(world.gameIds)}
+        bonusGameIds={BONUS_GAMES}
+        gamesPlayed={gamesPlayed}
         favouriteGames={favouriteGames}
         onLaunch={launchGame}
         onToggleFavourite={toggleFavourite}
         onBack={() => back({ toParent: true })}
+        {...soundProps}
       />
     );
-  } else if (route.name === 'stickers' && little) {
-    content = <LittleStickerAlbum playerId={player.id} points={points} earnedStickerIds={earnedStickerIds} onBack={() => back()} playSfx={playSfx} />;
   } else if (route.name === 'stickers') {
-    content = (
-      <div className={`flex min-h-[100dvh] w-full flex-col items-center gap-2 bg-gradient-to-b p-3 sm:p-6 ${little ? 'from-amber-200 to-sky-200' : 'from-amber-100 via-white to-sky-100'}`}>
-        <PageHeader title={`${player.name}’s stickers`} subtitle={`⭐ ${points} stars`} onBack={() => back()} backLabel="Back to home" {...soundProps} />
-        <p className="max-w-2xl rounded-2xl bg-white px-4 py-3 text-center text-sm font-bold text-slate-700">Stars and collected badges are kept in this browser on this device. Finish a chapter to earn its badge. Other browsers and devices have separate collections.</p>
+    content = <StickerAlbum player={player} little={little} points={points} earnedStickerIds={earnedStickerIds}
+      onBack={() => back()} playSfx={playSfx} onExplore={() => launchGame('dinodiscovery')} {...soundProps}>
+      <ReasoningCollections playerId={player.id} littleMode={little} />
+      {!little && <>
         <LetterLaunchBadgeCollection playerId={player.id} />
         <CurriculumBadgeCollection playerId={player.id} />
         <Batch3BadgeCollections playerId={player.id} />
         <Batch4BadgeCollections playerId={player.id} />
         <SafariColourCollections playerId={player.id} />
-        <ReasoningCollections playerId={player.id} />
         <SpaceStrategyCollections playerId={player.id} />
         <CreativeProjectCollections playerId={player.id} />
         <MemoryBadgeCollection playerId={player.id} />
-        <RewardsShelf points={points} earnedStickerIds={earnedStickerIds} />
-      </div>
-    );
+      </>}
+    </StickerAlbum>;
   } else if (route.name === 'grownups') {
     content = grownUpsUnlocked ? (
       <ProgressDashboard
@@ -384,6 +395,8 @@ const PlayerSession = ({
       <ExplorerHome
         player={player}
         points={points}
+        streak={streak}
+        games={ALL_GAMES}
         challenge={todaysChallenge}
         challengeProgress={challengeProgress}
         challengeCompleted={challengeCompleted}
@@ -402,7 +415,13 @@ const PlayerSession = ({
   return (
     <>
       {rewardSaveFailed && <aside role="alert" className="relative z-40 border-b-2 border-amber-400 bg-amber-50 p-4 text-center font-bold text-amber-950">Your reward is here, but this browser could not save it. Keep this page open and free some browser storage, then <button type="button" className="min-h-12 rounded-xl border-2 border-amber-700 px-4 underline" onClick={() => { const next = commitPlayerReward(player.id, rewardsRef.current, 0); rewardsRef.current = next; setRewards(next); setRewardSaveFailed(!next.persisted); }}>Try saving again</button></aside>}
-      {route.name==='game'&&!little?<div className="discovery-game-surface" data-discovery-game={currentGame?.id}><DiscoveryHeader playerName={player.name} points={points} onHome={()=>openDiscoveryPage('home')} onWorlds={()=>back({toParent:true})} onStickers={()=>openDiscoveryPage('stickers')} onGrownups={()=>openDiscoveryPage('grownups')}/><div className="discovery-game-content">{content}</div></div>:content}
+      {route.name === 'game' && currentGame && !little ? <div className="discovery-game-surface" data-discovery-game={currentGame.id}
+        data-discovery-world={LEARNING_WORLDS.find(world => world.gameIds.includes(currentGame.id))?.id}
+        style={{ '--discovery-game-art': `url("${currentGame.catalogueArt ?? `/art/catalog-v3/game-${currentGame.id}.webp`}")` }}>
+        <DiscoveryHeader playerName={player.name} points={points} onHome={() => openDiscoveryPage('home')} onWorlds={() => back({ toParent: true })}
+          onStickers={() => openDiscoveryPage('stickers')} onGrownups={() => openDiscoveryPage('grownups')} />
+        <div className="discovery-game-content">{content}</div>
+      </div> : content}
       {currentGame && !little && !currentGame.little && !NO_CHALLENGE_TRACKER.has(currentGame.id) && (!GAME_SESSIONS[currentGame.id] || sessionPhase === 'play') && (
         <DailyChallengeTracker
           challenge={todaysChallenge}
@@ -413,7 +432,8 @@ const PlayerSession = ({
           placement={currentGame.id === 'memory' ? 'inline' : currentGame.id === 'solar' ? 'top-center' : 'bottom-right'}
         />
       )}
-      <CelebrationOverlay celebration={celebration} />
+      {newSticker ? <StickerReward key={newSticker.id} sticker={newSticker} little={little} />
+        : <CelebrationOverlay celebration={celebration} />}
       {leaveDialog && <LeaveGameDialog onStay={() => {setPendingPage(null);setLeaveDialog(false);}} onLeave={leaveGame} destination={pendingPage ? ({home:'Home',stickers:'Stickers',grownups:'Grown-ups'}[pendingPage]) : little ? 'Home' : 'World'} />}
       <BreakWatcher onBreak={onBreakRequested} />
     </>

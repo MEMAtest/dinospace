@@ -1,7 +1,5 @@
-import { ArrowRight, Download, Headphones, Home, Pause, Play, Sparkles, Volume2, VolumeX, X } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowRight, Download, Headphones, Home, Pause, Play, Sparkles, Volume2, VolumeX } from 'lucide-react';
 import { STICKERS, GAME_LABELS } from '../../data/index.js';
-import { RewardSticker } from './StickerArt.jsx';
 
 export const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
   <button
@@ -57,7 +55,6 @@ export const CelebrationOverlay = ({ celebration }) => {
   if (!celebration) return null;
 
   const isBig = celebration.points >= 8;
-  const newlyUnlocked = STICKERS.find((sticker) => celebration.total >= sticker.points && celebration.total - celebration.points < sticker.points);
 
   if (!isBig) {
     return (
@@ -112,75 +109,12 @@ export const CelebrationOverlay = ({ celebration }) => {
         />
       ))}
       <div className="relative z-10 flex items-center gap-4 rounded-[2rem] border-2 border-amber-200/80 bg-gradient-to-br from-white via-amber-50 to-fuchsia-50 px-7 py-5 text-left shadow-2xl animate-milestone-reward">
-        {newlyUnlocked ? <RewardSticker rewardId={newlyUnlocked.id} size={72} /> : <Sparkles className="text-amber-500" size={54} aria-hidden="true" />}
+        <Sparkles className="text-amber-500" size={54} aria-hidden="true" />
         <div>
           <div className="text-2xl font-black text-amber-600">{celebration.message}</div>
           <div className="font-bold text-slate-600">+{celebration.points} stars · {celebration.total} total</div>
-          {newlyUnlocked && <div className="mt-1 text-sm font-black text-fuchsia-700">Sticker unlocked: {newlyUnlocked.name}</div>}
         </div>
       </div>
-    </div>
-  );
-};
-
-export const RewardsShelf = ({ points, earnedStickerIds = [] }) => {
-  const [selectedSticker, setSelectedSticker] = useState(null);
-  const details = {
-    rocket: 'A speedy rocket for launching into new learning missions.',
-    dino: 'A friendly dino pal for curious explorers.',
-    star: 'A bright star for a growing collection of clever moments.',
-    truck: 'A rescue truck for helping in learning missions.',
-    heart: 'A kindness heart for helping, sharing and trying again.',
-    planet: 'A planet badge for exploring big ideas.',
-    hero: 'A hero shield for brave, independent attempts.',
-    trophy: 'A trophy for completing a brilliant run.',
-    diamond: 'A diamond for careful thinking and problem solving.',
-    crown: 'A crown for leading your own learning adventure.',
-    legend: 'A legend medal for a remarkable learning streak.',
-    galaxy: 'A galaxy badge for reaching the very top of the shelf.',
-  };
-  return (
-    <div className="mt-6 w-full max-w-5xl bg-white/70 rounded-3xl p-4 border-4 border-white shadow-xl">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-lg font-black text-slate-700">Sticker Shelf</h3>
-        <span className="text-sm font-semibold text-slate-500">Unlock more by earning stars!</span>
-      </div>
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
-        {STICKERS.map((sticker) => {
-          const unlocked = earnedStickerIds.includes(sticker.id) || points >= sticker.points;
-          return (
-            <button
-              key={sticker.id}
-              type="button"
-              onClick={() => setSelectedSticker(sticker)}
-              aria-label={`${sticker.name}, unlocks at ${sticker.points} stars`}
-              aria-haspopup="dialog"
-              className={`rounded-2xl p-3 text-center border-2 transition ${
-                unlocked ? 'bg-amber-50 border-amber-200' : 'bg-slate-100 border-slate-200'
-              } hover:-translate-y-1 hover:shadow-md active:translate-y-0`}
-            >
-              <div className="flex h-14 items-center justify-center">
-                <RewardSticker rewardId={sticker.id} size={52} locked={!unlocked} />
-              </div>
-              <div className="text-sm font-bold text-slate-600 mt-1">{sticker.name}</div>
-              <div className="text-xs text-slate-400">{sticker.points}⭐</div>
-            </button>
-          );
-        })}
-      </div>
-      {selectedSticker && (() => {
-        const unlocked = earnedStickerIds.includes(selectedSticker.id) || points >= selectedSticker.points;
-        const remaining = Math.max(0, selectedSticker.points - points);
-        return <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/45 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="sticker-detail-title" onClick={() => setSelectedSticker(null)}>
-          <section className="relative w-full max-w-sm rounded-[2rem] border-4 border-white bg-gradient-to-br from-amber-50 via-white to-fuchsia-50 p-6 text-center shadow-2xl" onClick={(event) => event.stopPropagation()}>
-            <button type="button" onClick={() => setSelectedSticker(null)} className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-slate-700" aria-label="Close sticker details"><X size={18} /></button>
-            <RewardSticker rewardId={selectedSticker.id} size={104} locked={!unlocked} className="mt-2" />
-            <h4 id="sticker-detail-title" className="mt-3 text-2xl font-black text-slate-800">{selectedSticker.name}</h4>
-            <p className="mt-2 font-semibold text-slate-600">{details[selectedSticker.id]}</p>
-            <p className={`mt-4 rounded-2xl px-4 py-3 text-sm font-black ${unlocked ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-800'}`}>{unlocked ? 'You have earned this sticker!' : `Earn ${remaining} more star${remaining === 1 ? '' : 's'} to unlock it.`}</p>
-          </section>
-        </div>;
-      })()}
     </div>
   );
 };
@@ -442,7 +376,7 @@ export const MenuCard = ({
   >
     <div className="absolute top-0 right-0 -mr-8 -mt-8 w-48 h-48 bg-white/25 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
     <div className="absolute -bottom-14 -left-10 h-28 w-28 rounded-full border-[18px] border-white/10 transition-transform duration-500 group-hover:scale-125" />
-    <div className="absolute left-4 top-4 flex items-center gap-2">
+    <div className="catalogue-game-card__badges absolute left-4 top-4 flex items-center gap-2">
       {badge && <span className="rounded-full bg-yellow-300 px-3 py-1 text-xs font-black tracking-wide text-slate-900 shadow-md">{badge}</span>}
       {playedCount > 0 && <span className="rounded-full bg-white/25 px-3 py-1 text-xs font-bold text-white backdrop-blur">✓ Played {playedCount}</span>}
     </div>
@@ -451,11 +385,11 @@ export const MenuCard = ({
         {icon}
       </div>
       <div>
-        <div className="mb-2 text-xs font-black uppercase tracking-[0.16em] text-white/65">{category}</div>
+        <div className="catalogue-game-card__category mb-2 text-xs font-black uppercase tracking-[0.16em] text-white/65">{category}</div>
         <h2 className="mb-1 pr-16 text-xl font-black leading-tight text-white drop-shadow-md">{title}</h2>
         <p className="pr-16 text-sm font-bold text-white/90">{desc}</p>
       </div>
-      <div className="absolute bottom-4 right-4 bg-white/25 p-1.5 rounded-full opacity-70 transition-all group-hover:translate-x-1 group-hover:bg-white/35 group-hover:opacity-100">
+      <div className="catalogue-game-card__arrow absolute bottom-4 right-4 bg-white/25 p-1.5 rounded-full opacity-70 transition-all group-hover:translate-x-1 group-hover:bg-white/35 group-hover:opacity-100">
         <ArrowRight className="text-white" size={19} />
       </div>
     </div>

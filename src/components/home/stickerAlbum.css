@@ -1,0 +1,78 @@
+.sticker-album {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: clamp(.8rem, 2vw, 1.45rem);
+  min-height: 100dvh;
+  padding: clamp(.7rem, 2.5vw, 1.8rem);
+  color: #263457;
+  background: linear-gradient(160deg, #b4dcffeb, #e6f0f6dc 50%, #e5daf4f2), url('/art/discovery-v2/environment.webp') center / cover fixed;
+}
+.sticker-album--little { background: radial-gradient(ellipse at top, #fff6ba, #e6f1dc 55%, #bfe5f1); }
+.sticker-album-page, .sticker-album-extra {
+  width: min(100%, 72rem);
+  border: 2px solid #fff;
+  border-radius: 1.35rem;
+  padding: clamp(.8rem, 3vw, 1.75rem);
+  background: repeating-linear-gradient(0deg, #fffdf7 0, #fffdf7 23px, #f0e9d9 24px);
+  box-shadow: 0 5px 0 #a77b6780, 0 12px 28px #283c5b25;
+}
+.sticker-album-title { display: flex; align-items: center; justify-content: space-between; gap: .6rem; flex-wrap: wrap; margin-bottom: .85rem; }
+.sticker-album-title h2, .sticker-album-detail h2 { font-weight: 900; font-size: clamp(1.35rem, 4vw, 2.15rem); line-height: 1.15; }
+.sticker-album-title p { margin-top: .18rem; font-size: .9rem; font-weight: 700; color: #535873; }
+.sticker-album-next { display: flex; align-items: center; gap: .5rem; padding: .24rem .65rem; border: 1px solid #dfb96b; border-radius: .8rem; background: #fff4ca; font-variant-numeric: tabular-nums; }
+.sticker-album-next p { color: #684c2f; font-size: .8rem; }
+.sticker-album-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .55rem; }
+.sticker-album-slot {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  min-width: 0;
+  min-height: 8.2rem;
+  padding: .45rem .3rem;
+  border: 2px dashed #bdb7a8;
+  border-radius: .95rem;
+  background: #fffcf1c9;
+  text-align: center;
+}
+.sticker-album-slot[data-earned="true"] { border-style: solid; border-color: #ceabe0; background: radial-gradient(ellipse at 50% 20%, #fff8e7, #f0ddfb); box-shadow: 0 3px 0 #aa8abd42; }
+.sticker-album-slot[data-earned="true"]:nth-child(3n + 2) { border-color: #95c9cc; background: radial-gradient(ellipse at 50% 20%, #fcffea, #d4f0e6); }
+.sticker-album-slot[data-earned="true"]:nth-child(3n) { border-color: #deb983; background: radial-gradient(ellipse at 50% 20%, #fffbe0, #ffe3be); }
+.sticker-album-slot strong { font-size: .9rem; font-weight: 850; overflow-wrap: anywhere; }
+.sticker-album-slot small { color: #515672; font-weight: 750; }
+.sticker-slot-picture { display: grid; mix-blend-mode: multiply; height: 6rem; place-items: center; }
+.sticker-album-slot[data-earned="true"] .sticker-slot-picture { rotate: -5deg; transition: rotate .18s, scale .18s; }
+.sticker-album-slot[data-earned="true"]:is(:focus-visible,:hover) .sticker-slot-picture { rotate: 3deg; scale: 1.08; }
+.sticker-art-silhouette { filter: grayscale(1); opacity: .35; }
+.sticker-creature-art { display: grid; place-items: center; }
+.sticker-creature-art > *, .sticker-creature-art :is(img,svg) { max-width: 100%; max-height: 100%; object-fit: contain; }
+.sticker-album-extra summary { min-height: 48px; padding: .6rem .15rem; cursor: pointer; font-weight: 850; }
+.sticker-album-extra > div { display: grid; justify-items: center; gap: .65rem; }
+.sticker-album-explore { display: flex; align-items: center; gap: .4rem; min-height: 48px; padding: .4rem .8rem; border-radius: .8rem; background: #28587d; color: #fff; font-weight: 850; }
+.sticker-album-help { font-weight: 750; }
+.sticker-album :is(button,summary):focus-visible { outline: 3px solid #1b62aa; outline-offset: 3px; }
+.sticker-album-detail { width: min(91vw, 26rem); max-height: 90dvh; margin: auto; padding: 0; border: 2px solid #fff; border-radius: 1.5rem; color: #2e2a4d; background: #fff7e7; box-shadow: 0 14px 50px #2a174c6f; }
+.sticker-album-detail::backdrop { background: #1a234b86; backdrop-filter: blur(4px); }
+.sticker-album-detail article { position: relative; padding: 1.2rem; text-align: center; }
+.sticker-album-detail article > button { position: absolute; top: .5rem; right: .5rem; z-index: 1; display: grid; min-width: 44px; min-height: 44px; place-items: center; border: 1px solid #c4b6d4; border-radius: 50%; background: #fff; }
+.sticker-album-detail article > p { margin: .55rem 0; }
+.sticker-album-detail article > strong { display: inline-block; padding: .4rem .7rem; border-radius: .6rem; background: #e7f4dc; }
+.sticker-detail-art { display: grid; mix-blend-mode: multiply; min-height: 11.2rem; place-items: center; background: radial-gradient(ellipse,#f5e4ff 10%,transparent 72%); }
+.sticker-detail-art[data-earned="true"] > * { animation: sticker-land .6s cubic-bezier(.12,.8,.35,1) both; }
+.sticker-reward { position: fixed; inset: auto 1rem max(1rem,env(safe-area-inset-bottom)) auto; z-index: 55; display: flex; align-items: center; gap: .7rem; width: min(calc(100% - 2rem),23rem); min-height: 5.6rem; padding: .4rem .8rem; border: 2px solid #ffe19b; border-radius: 1rem; background: #fff8e3; color: #35274d; box-shadow: 0 6px 0 #9b6cb370,0 12px 35px #22153745; pointer-events: none; }
+.sticker-reward strong { font-size: 1.06rem; font-weight: 900; }
+.sticker-reward p { font-size: .9rem; font-weight: 750; }
+.sticker-reward-placement { display: grid; width: 80px; height: 80px; flex-shrink: 0; place-items: center; border: 2px dashed #caa0d3; border-radius: .85rem; background: #f1dbfd; }
+.sticker-reward-placement > * { animation: sticker-land .65s cubic-bezier(.12,.8,.35,1) both; }
+@keyframes sticker-land {
+  0% { opacity: 0; transform: translate(40px,-28px) rotate(24deg) scale(1.3); }
+  58% { opacity: 1; transform: translate(0,0) rotate(-7deg) scale(.92); }
+  100% { transform: translate(0,0) rotate(-4deg) scale(1); }
+}
+@media(min-width: 600px) { .sticker-album-grid { grid-template-columns: repeat(4,minmax(0,1fr)); } }
+@media(min-width: 1000px) { .sticker-album-grid { grid-template-columns: repeat(6,minmax(0,1fr)); } }
+@media(prefers-reduced-motion: reduce) {
+  .sticker-reward-placement > *, .sticker-detail-art[data-earned="true"] > * { animation: none; }
+  .sticker-album-slot[data-earned="true"] .sticker-slot-picture { transition: none; }
+}
+.sticker-album > header h1 { font-size: clamp(1.1rem, 5vw, 1.85rem); }
