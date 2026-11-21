@@ -1,0 +1,783 @@
+{
+  "release": {
+    "runtime": "1936164bdac10444d644b56bee9a24391cd182ef",
+    "entry": "/assets/arcade-BbCKYil9.js",
+    "worker": "amari-discovery-v91",
+    "backendUrl": "https://dinospace-r6ia2qpey-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_DCKSWC65aaqkpSyQtAD5bSL3z6kf",
+    "gatewayDeployment": "6b01f4c1730941a04b566eb7",
+    "evidence": "docs/qa-evidence/code-cadets-clarity-20261121/README.md",
+    "scope": "Code Cadets, Amari home and the five world menus use a clear primary action and at most three visible buttons per view."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-BbCKYil9.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "boardWidth": 358,
+      "screens": [
+        {
+          "label": "Home",
+          "controls": [
+            "Choose a world",
+            "Play today\u2019s challenge",
+            "More options"
+          ]
+        },
+        {
+          "label": "Home options",
+          "controls": [
+            "Stickers",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "World picker",
+          "controls": [
+            "Open Read & Write",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "World",
+          "controls": [
+            "Play Code Cadets",
+            "Add to favourites",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "Cadets intro",
+          "controls": [
+            "Start: Reach the flag",
+            "Options",
+            "Back to Creative Lab"
+          ]
+        },
+        {
+          "label": "First guided command",
+          "controls": [
+            "Add Forward",
+            "Options"
+          ]
+        },
+        {
+          "label": "Ready to run",
+          "controls": [
+            "Run Pip",
+            "Edit code",
+            "Options"
+          ]
+        },
+        {
+          "label": "Running",
+          "controls": [
+            "Stop Pip"
+          ]
+        },
+        {
+          "label": "Save failure",
+          "controls": [
+            "Retry saving mission"
+          ]
+        },
+        {
+          "label": "Saved mission",
+          "controls": [
+            "Next: Find a way around the wall",
+            "Options"
+          ]
+        },
+        {
+          "label": "Next mission",
+          "controls": [
+            "Add Turn left",
+            "Options"
+          ]
+        },
+        {
+          "label": "Cadets options",
+          "controls": [
+            "Choose a mission",
+            "Back"
+          ]
+        },
+        {
+          "label": "Mission picker",
+          "controls": [
+            "Play mission",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cadets options",
+          "controls": [
+            "Choose a mission",
+            "Back"
+          ]
+        },
+        {
+          "label": "Editor",
+          "controls": [
+            "Add Forward",
+            "Change a command",
+            "Back to map"
+          ]
+        },
+        {
+          "label": "Command editor",
+          "controls": [
+            "Apply change",
+            "Back to code"
+          ]
+        },
+        {
+          "label": "Cadets options",
+          "controls": [
+            "Choose a mission",
+            "Back"
+          ]
+        },
+        {
+          "label": "Saved programs",
+          "controls": [
+            "Save a copy",
+            "Back"
+          ]
+        },
+        {
+          "label": "Saved copy",
+          "controls": [
+            "Save a copy",
+            "Open original saved program",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cadets options",
+          "controls": [
+            "Choose a mission",
+            "Back"
+          ]
+        },
+        {
+          "label": "Return to world",
+          "controls": [
+            "Play Code Cadets",
+            "Remove from favourites",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "Return home",
+          "controls": [
+            "Choose a world",
+            "Play Code Cadets again",
+            "More options"
+          ]
+        },
+        {
+          "label": "Read & Write",
+          "controls": [
+            "Play Letter Launch",
+            "Add to favourites",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "Maths Missions",
+          "controls": [
+            "Play Count the Stars",
+            "Add to favourites",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "Explore & Languages",
+          "controls": [
+            "Play Solar System",
+            "Add to favourites",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "Thinking & Play",
+          "controls": [
+            "Play Memory Match",
+            "Add to favourites",
+            "Back to home"
+          ]
+        }
+      ],
+      "advancedEditing": true,
+      "savedMissionAndDraft": true,
+      "favourites": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-BbCKYil9.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop pointer and keyboard",
+      "boardWidth": 496,
+      "screens": [
+        {
+          "label": "Home",
+          "controls": [
+            "Choose a world",
+            "Play today\u2019s challenge",
+            "More options"
+          ]
+        },
+        {
+          "label": "Home options",
+          "controls": [
+            "Stickers",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "World picker",
+          "controls": [
+            "Open Read & Write",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "World",
+          "controls": [
+            "Play Code Cadets",
+            "Add to favourites",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "Cadets intro",
+          "controls": [
+            "Start: Reach the flag",
+            "Options",
+            "Back to Creative Lab"
+          ]
+        },
+        {
+          "label": "First guided command",
+          "controls": [
+            "Add Forward",
+            "Options"
+          ]
+        },
+        {
+          "label": "Ready to run",
+          "controls": [
+            "Run Pip",
+            "Edit code",
+            "Options"
+          ]
+        },
+        {
+          "label": "Running",
+          "controls": [
+            "Stop Pip"
+          ]
+        },
+        {
+          "label": "Save failure",
+          "controls": [
+            "Retry saving mission"
+          ]
+        },
+        {
+          "label": "Saved mission",
+          "controls": [
+            "Next: Find a way around the wall",
+            "Options"
+          ]
+        },
+        {
+          "label": "Next mission",
+          "controls": [
+            "Add Turn left",
+            "Options"
+          ]
+        },
+        {
+          "label": "Cadets options",
+          "controls": [
+            "Choose a mission",
+            "Back"
+          ]
+        },
+        {
+          "label": "Mission picker",
+          "controls": [
+            "Play mission",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cadets options",
+          "controls": [
+            "Choose a mission",
+            "Back"
+          ]
+        },
+        {
+          "label": "Editor",
+          "controls": [
+            "Add Forward",
+            "Change a command",
+            "Back to map"
+          ]
+        },
+        {
+          "label": "Command editor",
+          "controls": [
+            "Apply change",
+            "Back to code"
+          ]
+        },
+        {
+          "label": "Cadets options",
+          "controls": [
+            "Choose a mission",
+            "Back"
+          ]
+        },
+        {
+          "label": "Saved programs",
+          "controls": [
+            "Save a copy",
+            "Back"
+          ]
+        },
+        {
+          "label": "Saved copy",
+          "controls": [
+            "Save a copy",
+            "Open original saved program",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cadets options",
+          "controls": [
+            "Choose a mission",
+            "Back"
+          ]
+        },
+        {
+          "label": "Return to world",
+          "controls": [
+            "Play Code Cadets",
+            "Remove from favourites",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "Return home",
+          "controls": [
+            "Choose a world",
+            "Play Code Cadets again",
+            "More options"
+          ]
+        },
+        {
+          "label": "Read & Write",
+          "controls": [
+            "Play Letter Launch",
+            "Add to favourites",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "Maths Missions",
+          "controls": [
+            "Play Count the Stars",
+            "Add to favourites",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "Explore & Languages",
+          "controls": [
+            "Play Solar System",
+            "Add to favourites",
+            "Back to home"
+          ]
+        },
+        {
+          "label": "Thinking & Play",
+          "controls": [
+            "Play Memory Match",
+            "Add to favourites",
+            "Back to home"
+          ]
+        }
+      ],
+      "advancedEditing": true,
+      "savedMissionAndDraft": true,
+      "favourites": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidateNarrow": {
+    "passed": true,
+    "origin": "http://127.0.0.1:4202",
+    "entry": "/assets/arcade-BbCKYil9.js",
+    "viewport": [
+      320,
+      740
+    ],
+    "input": "Chromium touch emulation",
+    "boardWidth": 288,
+    "screens": [
+      {
+        "label": "Home",
+        "controls": [
+          "Choose a world",
+          "Play today\u2019s challenge",
+          "More options"
+        ]
+      },
+      {
+        "label": "Home options",
+        "controls": [
+          "Stickers",
+          "Back to home"
+        ]
+      },
+      {
+        "label": "World picker",
+        "controls": [
+          "Open Read & Write",
+          "Back to home"
+        ]
+      },
+      {
+        "label": "World",
+        "controls": [
+          "Play Code Cadets",
+          "Add to favourites",
+          "Back to home"
+        ]
+      },
+      {
+        "label": "Cadets intro",
+        "controls": [
+          "Start: Reach the flag",
+          "Options",
+          "Back to Creative Lab"
+        ]
+      },
+      {
+        "label": "First guided command",
+        "controls": [
+          "Add Forward",
+          "Options"
+        ]
+      },
+      {
+        "label": "Ready to run",
+        "controls": [
+          "Run Pip",
+          "Edit code",
+          "Options"
+        ]
+      },
+      {
+        "label": "Running",
+        "controls": [
+          "Stop Pip"
+        ]
+      },
+      {
+        "label": "Save failure",
+        "controls": [
+          "Retry saving mission"
+        ]
+      },
+      {
+        "label": "Saved mission",
+        "controls": [
+          "Next: Find a way around the wall",
+          "Options"
+        ]
+      },
+      {
+        "label": "Next mission",
+        "controls": [
+          "Add Turn left",
+          "Options"
+        ]
+      },
+      {
+        "label": "Cadets options",
+        "controls": [
+          "Choose a mission",
+          "Back"
+        ]
+      },
+      {
+        "label": "Mission picker",
+        "controls": [
+          "Play mission",
+          "Back"
+        ]
+      },
+      {
+        "label": "Cadets options",
+        "controls": [
+          "Choose a mission",
+          "Back"
+        ]
+      },
+      {
+        "label": "Editor",
+        "controls": [
+          "Add Forward",
+          "Change a command",
+          "Back to map"
+        ]
+      },
+      {
+        "label": "Command editor",
+        "controls": [
+          "Apply change",
+          "Back to code"
+        ]
+      },
+      {
+        "label": "Cadets options",
+        "controls": [
+          "Choose a mission",
+          "Back"
+        ]
+      },
+      {
+        "label": "Saved programs",
+        "controls": [
+          "Save a copy",
+          "Back"
+        ]
+      },
+      {
+        "label": "Saved copy",
+        "controls": [
+          "Save a copy",
+          "Open original saved program",
+          "Back"
+        ]
+      },
+      {
+        "label": "Cadets options",
+        "controls": [
+          "Choose a mission",
+          "Back"
+        ]
+      },
+      {
+        "label": "Return to world",
+        "controls": [
+          "Play Code Cadets",
+          "Remove from favourites",
+          "Back to home"
+        ]
+      },
+      {
+        "label": "Return home",
+        "controls": [
+          "Choose a world",
+          "Play Code Cadets again",
+          "More options"
+        ]
+      }
+    ],
+    "advancedEditing": true,
+    "savedMissionAndDraft": true,
+    "favourites": true,
+    "errors": [],
+    "http": [],
+    "providers": []
+  },
+  "matchedAssets": {
+    "backend": {
+      "origin": "https://dinospace-r6ia2qpey-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "4fa7b1b4d226b187a6bcf00d036818051f4a2e717f6292eb14d1dcec49ecb0e4"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "4fa7b1b4d226b187a6bcf00d036818051f4a2e717f6292eb14d1dcec49ecb0e4"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "4722d1d3a0769d5196d53c25bc51eb1bf26f3a532609d164c28801b9be2b6d82"
+        },
+        {
+          "path": "/art/discovery-v2/pip.webp",
+          "bytes": 174264,
+          "sha256": "745d52ef12fa535dbfe92fb2860a77cafc9ec158375f20da9463ea43dd40299c"
+        },
+        {
+          "path": "/assets/arcade-BbCKYil9.js",
+          "bytes": 2181400,
+          "sha256": "2ee424a73109f33380ae5477b16dfa07bc0dc135a2960edcd0bcfd56110cbf13"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-Fhoy3uqw.css",
+          "bytes": 27012,
+          "sha256": "2f2c81213f1254867f5f7db6a154f8450c34a63184e78f97aa6852903ea7ded1"
+        },
+        {
+          "path": "/assets/arcade-BjXKC2Vi.css",
+          "bytes": 302030,
+          "sha256": "cf5214fd3a080eae66484cc4c373935542a7b615038b3d8033a48cf86c8431fc"
+        },
+        {
+          "path": "/assets/DigitalSkillGame-C1o_Ksg0.js",
+          "bytes": 637,
+          "sha256": "6a0850e496061def55e3b43fb66ff97488ca8c7889d41419e590d9c016b70e89"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b01f4960b49bef075ea0698--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "4fa7b1b4d226b187a6bcf00d036818051f4a2e717f6292eb14d1dcec49ecb0e4"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "4fa7b1b4d226b187a6bcf00d036818051f4a2e717f6292eb14d1dcec49ecb0e4"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "4722d1d3a0769d5196d53c25bc51eb1bf26f3a532609d164c28801b9be2b6d82"
+        },
+        {
+          "path": "/art/discovery-v2/pip.webp",
+          "bytes": 174264,
+          "sha256": "745d52ef12fa535dbfe92fb2860a77cafc9ec158375f20da9463ea43dd40299c"
+        },
+        {
+          "path": "/assets/arcade-BbCKYil9.js",
+          "bytes": 2181400,
+          "sha256": "2ee424a73109f33380ae5477b16dfa07bc0dc135a2960edcd0bcfd56110cbf13"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-Fhoy3uqw.css",
+          "bytes": 27012,
+          "sha256": "2f2c81213f1254867f5f7db6a154f8450c34a63184e78f97aa6852903ea7ded1"
+        },
+        {
+          "path": "/assets/arcade-BjXKC2Vi.css",
+          "bytes": 302030,
+          "sha256": "cf5214fd3a080eae66484cc4c373935542a7b615038b3d8033a48cf86c8431fc"
+        },
+        {
+          "path": "/assets/DigitalSkillGame-C1o_Ksg0.js",
+          "bytes": 637,
+          "sha256": "6a0850e496061def55e3b43fb66ff97488ca8c7889d41419e590d9c016b70e89"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "4fa7b1b4d226b187a6bcf00d036818051f4a2e717f6292eb14d1dcec49ecb0e4"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "4fa7b1b4d226b187a6bcf00d036818051f4a2e717f6292eb14d1dcec49ecb0e4"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "4722d1d3a0769d5196d53c25bc51eb1bf26f3a532609d164c28801b9be2b6d82"
+        },
+        {
+          "path": "/art/discovery-v2/pip.webp",
+          "bytes": 174264,
+          "sha256": "745d52ef12fa535dbfe92fb2860a77cafc9ec158375f20da9463ea43dd40299c"
+        },
+        {
+          "path": "/assets/arcade-BbCKYil9.js",
+          "bytes": 2181400,
+          "sha256": "2ee424a73109f33380ae5477b16dfa07bc0dc135a2960edcd0bcfd56110cbf13"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-Fhoy3uqw.css",
+          "bytes": 27012,
+          "sha256": "2f2c81213f1254867f5f7db6a154f8450c34a63184e78f97aa6852903ea7ded1"
+        },
+        {
+          "path": "/assets/arcade-BjXKC2Vi.css",
+          "bytes": 302030,
+          "sha256": "cf5214fd3a080eae66484cc4c373935542a7b615038b3d8033a48cf86c8431fc"
+        },
+        {
+          "path": "/assets/DigitalSkillGame-C1o_Ksg0.js",
+          "bytes": 637,
+          "sha256": "6a0850e496061def55e3b43fb66ff97488ca8c7889d41419e590d9c016b70e89"
+        }
+      ]
+    }
+  },
+  "storageCutover": {
+    "actualRefreshGamesClick": true,
+    "unchangedSyntheticStorageRecords": 118,
+    "unchangedStorybookFixture": {
+      "present": true,
+      "version": 2,
+      "stores": {
+        "assets": {
+          "count": 14,
+          "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+        },
+        "books": {
+          "count": 1,
+          "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+        },
+        "profiles": {
+          "count": 1,
+          "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+        },
+        "series": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      },
+      "blobBytes": 3729264
+    },
+    "updateNoticeCleared": true
+  },
+  "repositoryTestsPassed": 770,
+  "precacheAssets": 171,
+  "precacheBytes": 31417464
+}

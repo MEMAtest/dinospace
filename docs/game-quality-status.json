@@ -2280,5 +2280,15 @@
     "gatewayDeployment": "6b01f20e378d43877421f23d",
     "evidence": "docs/qa-evidence/cosmic-board-focus-20261121/README.md",
     "scope": "Focused boards in Cosmic Tic-Tac-Toe, full Chess matches and Puzzle Pop, with accurate Cosmic win highlights, a blocking tip and immediate rematch."
+  },
+  "latestCodeCadetsClarityRehearsal": {
+    "runtime": "1936164bdac10444d644b56bee9a24391cd182ef",
+    "entry": "/assets/arcade-BbCKYil9.js",
+    "worker": "amari-discovery-v91",
+    "backendUrl": "https://dinospace-r6ia2qpey-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_DCKSWC65aaqkpSyQtAD5bSL3z6kf",
+    "gatewayDeployment": "6b01f4c1730941a04b566eb7",
+    "evidence": "docs/qa-evidence/code-cadets-clarity-20261121/README.md",
+    "scope": "Code Cadets, Amari home and the five world menus use a clear primary action and at most three visible buttons per view."
   }
 }
