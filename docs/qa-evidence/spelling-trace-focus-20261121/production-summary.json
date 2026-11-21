@@ -1,0 +1,1343 @@
+{
+  "release": {
+    "runtime": "ca2562759fc0b74509e3d23e94441bc5de69aa73",
+    "entry": "/assets/arcade-BbsC0_QB.js",
+    "worker": "amari-discovery-v104",
+    "backendUrl": "https://dinospace-jvwigci6x-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_DtL36TDbHjddPtPMMeqFsUHVkUpH",
+    "gatewayDeployment": "6b02128776bc7a5e80d39ba3",
+    "evidence": "docs/qa-evidence/spelling-trace-focus-20261121/README.md",
+    "scope": "Spelling Studio starts the current skill, with the picture and letter tiles available immediately. Letter Trace opens one large tracing sheet, with the moving demonstration and keyboard practice in Options."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-BbsC0_QB.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Spelling Studio entry",
+          "buttons": [
+            "Start: Copy the word",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spelling build",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling one sound placed",
+          "buttons": [
+            "Undo",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start practice",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Finish stage",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling stage saved",
+          "buttons": [
+            "Next: Find the missing sound",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Letter Trace entry",
+          "buttons": [
+            "Start: Follow the path",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace first letter",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace save blocked",
+          "buttons": [
+            "Retry saving chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace chapter saved",
+          "buttons": [
+            "Next: Big and little",
+            "Options",
+            "Finish"
+          ]
+        }
+      ],
+      "spellWidth": 358.8125,
+      "traceSize": {
+        "x": 11.390625,
+        "y": 87.84375,
+        "width": 367.21875,
+        "height": 412.390625
+      },
+      "spelled": [
+        "MAD",
+        "TIN",
+        "CAT",
+        "PAT",
+        "RED"
+      ],
+      "letters": [
+        "C",
+        "T",
+        "F",
+        "G",
+        "U",
+        "N",
+        "I",
+        "E"
+      ],
+      "nativePackagedAudio": 1,
+      "wrongRetryAndUndo": true,
+      "demoNoCredit": true,
+      "traceSaveRecovery": true,
+      "stageUnlockAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-BbsC0_QB.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Spelling Studio entry",
+          "buttons": [
+            "Start: Copy the word",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spelling build",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling one sound placed",
+          "buttons": [
+            "Undo",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start practice",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Finish stage",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling stage saved",
+          "buttons": [
+            "Next: Find the missing sound",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Letter Trace entry",
+          "buttons": [
+            "Start: Follow the path",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace first letter",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch stroke again",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace save blocked",
+          "buttons": [
+            "Retry saving chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace chapter saved",
+          "buttons": [
+            "Next: Big and little",
+            "Options",
+            "Finish"
+          ]
+        }
+      ],
+      "spellWidth": 816,
+      "traceSize": {
+        "x": 291.390625,
+        "y": 115.390625,
+        "width": 857.21875,
+        "height": 502
+      },
+      "spelled": [
+        "GAP",
+        "KID",
+        "LOG",
+        "MAT",
+        "PAT"
+      ],
+      "letters": [
+        "C",
+        "F",
+        "G",
+        "I",
+        "O",
+        "D",
+        "K",
+        "L"
+      ],
+      "nativePackagedAudio": 1,
+      "wrongRetryAndUndo": true,
+      "demoNoCredit": true,
+      "traceSaveRecovery": true,
+      "stageUnlockAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-BbsC0_QB.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Spelling Studio entry",
+          "buttons": [
+            "Start: Copy the word",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spelling build",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling one sound placed",
+          "buttons": [
+            "Undo",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start practice",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Finish stage",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling stage saved",
+          "buttons": [
+            "Next: Find the missing sound",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Letter Trace entry",
+          "buttons": [
+            "Start: Follow the path",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace first letter",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace save blocked",
+          "buttons": [
+            "Retry saving chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace chapter saved",
+          "buttons": [
+            "Next: Big and little",
+            "Options",
+            "Finish"
+          ]
+        }
+      ],
+      "spellWidth": 358.8125,
+      "traceSize": {
+        "x": 11.390625,
+        "y": 87.84375,
+        "width": 367.21875,
+        "height": 412.390625
+      },
+      "spelled": [
+        "DIP",
+        "RAG",
+        "MAP",
+        "RED",
+        "MAD"
+      ],
+      "letters": [
+        "T",
+        "F",
+        "N",
+        "U",
+        "A",
+        "R",
+        "P",
+        "L"
+      ],
+      "nativePackagedAudio": 1,
+      "wrongRetryAndUndo": true,
+      "demoNoCredit": true,
+      "traceSaveRecovery": true,
+      "stageUnlockAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-BbsC0_QB.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Spelling Studio entry",
+          "buttons": [
+            "Start: Copy the word",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spelling build",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling one sound placed",
+          "buttons": [
+            "Undo",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start practice",
+            "Back"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling word held",
+          "buttons": [
+            "Finish stage",
+            "Options"
+          ]
+        },
+        {
+          "label": "Spelling stage saved",
+          "buttons": [
+            "Next: Find the missing sound",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Letter Trace entry",
+          "buttons": [
+            "Start: Follow the path",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace first letter",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch stroke again",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Next letter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Watch this stroke",
+            "Back"
+          ]
+        },
+        {
+          "label": "Trace ready to check",
+          "buttons": [
+            "Check shape",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace save blocked",
+          "buttons": [
+            "Retry saving chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace result held",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Trace chapter saved",
+          "buttons": [
+            "Next: Big and little",
+            "Options",
+            "Finish"
+          ]
+        }
+      ],
+      "spellWidth": 816,
+      "traceSize": {
+        "x": 291.390625,
+        "y": 115.390625,
+        "width": 857.21875,
+        "height": 502
+      },
+      "spelled": [
+        "TAG",
+        "TAP",
+        "HEN",
+        "LOG",
+        "NAP"
+      ],
+      "letters": [
+        "H",
+        "C",
+        "A",
+        "R",
+        "M",
+        "K",
+        "I",
+        "T"
+      ],
+      "nativePackagedAudio": 1,
+      "wrongRetryAndUndo": true,
+      "demoNoCredit": true,
+      "traceSaveRecovery": true,
+      "stageUnlockAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-jvwigci6x-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "9efa967236518c8df3aad21fd958c585b3afeec655c39a072377ff06ee21ec70"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "9efa967236518c8df3aad21fd958c585b3afeec655c39a072377ff06ee21ec70"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16536,
+          "sha256": "e326643f1a19ce962ef822efe17b880cc41d50869f473f11acafe6f733623e29"
+        },
+        {
+          "path": "/art/catalog-v3/game-words.webp",
+          "bytes": 53410,
+          "sha256": "c5684b81a5f08163ac2bdf031c7bdf081c0c7959ca85307c9799e36a6749e623"
+        },
+        {
+          "path": "/art/catalog-v3/game-trace.webp",
+          "bytes": 50146,
+          "sha256": "e9ce17a7612b1c61fd3996a1cd16ca20ee3f64f437526182a431a6ed5a4f9f3e"
+        },
+        {
+          "path": "/assets/arcade-BbsC0_QB.js",
+          "bytes": 2071814,
+          "sha256": "7babab8acc1a39005ced2245dc93256716d5664f9d6da30475fe6a52473c7a66"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-MYpD5D2H.css",
+          "bytes": 35932,
+          "sha256": "eadaab3bf4f6bfe9ee8321603178606102595080b9bf2508cf3e7d623f0deae5"
+        },
+        {
+          "path": "/assets/arcade-BiIvme3L.css",
+          "bytes": 262385,
+          "sha256": "d5a50670ca84c3416e06438e61cda5a0a4283f0a51f12a0cfe9a370df4f3a22f"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b021277ec6a8a02fcb05586--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "9efa967236518c8df3aad21fd958c585b3afeec655c39a072377ff06ee21ec70"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "9efa967236518c8df3aad21fd958c585b3afeec655c39a072377ff06ee21ec70"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16536,
+          "sha256": "e326643f1a19ce962ef822efe17b880cc41d50869f473f11acafe6f733623e29"
+        },
+        {
+          "path": "/art/catalog-v3/game-words.webp",
+          "bytes": 53410,
+          "sha256": "c5684b81a5f08163ac2bdf031c7bdf081c0c7959ca85307c9799e36a6749e623"
+        },
+        {
+          "path": "/art/catalog-v3/game-trace.webp",
+          "bytes": 50146,
+          "sha256": "e9ce17a7612b1c61fd3996a1cd16ca20ee3f64f437526182a431a6ed5a4f9f3e"
+        },
+        {
+          "path": "/assets/arcade-BbsC0_QB.js",
+          "bytes": 2071814,
+          "sha256": "7babab8acc1a39005ced2245dc93256716d5664f9d6da30475fe6a52473c7a66"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-MYpD5D2H.css",
+          "bytes": 35932,
+          "sha256": "eadaab3bf4f6bfe9ee8321603178606102595080b9bf2508cf3e7d623f0deae5"
+        },
+        {
+          "path": "/assets/arcade-BiIvme3L.css",
+          "bytes": 262385,
+          "sha256": "d5a50670ca84c3416e06438e61cda5a0a4283f0a51f12a0cfe9a370df4f3a22f"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "9efa967236518c8df3aad21fd958c585b3afeec655c39a072377ff06ee21ec70"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "9efa967236518c8df3aad21fd958c585b3afeec655c39a072377ff06ee21ec70"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16536,
+          "sha256": "e326643f1a19ce962ef822efe17b880cc41d50869f473f11acafe6f733623e29"
+        },
+        {
+          "path": "/art/catalog-v3/game-words.webp",
+          "bytes": 53410,
+          "sha256": "c5684b81a5f08163ac2bdf031c7bdf081c0c7959ca85307c9799e36a6749e623"
+        },
+        {
+          "path": "/art/catalog-v3/game-trace.webp",
+          "bytes": 50146,
+          "sha256": "e9ce17a7612b1c61fd3996a1cd16ca20ee3f64f437526182a431a6ed5a4f9f3e"
+        },
+        {
+          "path": "/assets/arcade-BbsC0_QB.js",
+          "bytes": 2071814,
+          "sha256": "7babab8acc1a39005ced2245dc93256716d5664f9d6da30475fe6a52473c7a66"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-MYpD5D2H.css",
+          "bytes": 35932,
+          "sha256": "eadaab3bf4f6bfe9ee8321603178606102595080b9bf2508cf3e7d623f0deae5"
+        },
+        {
+          "path": "/assets/arcade-BiIvme3L.css",
+          "bytes": 262385,
+          "sha256": "d5a50670ca84c3416e06438e61cda5a0a4283f0a51f12a0cfe9a370df4f3a22f"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 771
+}

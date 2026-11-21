@@ -2400,5 +2400,15 @@
     "gatewayDeployment": "6b0210b995ff492105df3fcb",
     "evidence": "docs/qa-evidence/fuel-fire-focus-20261121/README.md",
     "scope": "Fuel Up shows the target, rocket and fuel cans. Undo and Launch appear when they are useful. Fire Truck Rescue leaves the scene, hold instruction and remaining-fire count visible. Options gives sound and named parent-world navigation. The final header has a light background for readability."
+  },
+  "latestSpellingTraceFocusRehearsal": {
+    "runtime": "ca2562759fc0b74509e3d23e94441bc5de69aa73",
+    "entry": "/assets/arcade-BbsC0_QB.js",
+    "worker": "amari-discovery-v104",
+    "backendUrl": "https://dinospace-jvwigci6x-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_DtL36TDbHjddPtPMMeqFsUHVkUpH",
+    "gatewayDeployment": "6b02128776bc7a5e80d39ba3",
+    "evidence": "docs/qa-evidence/spelling-trace-focus-20261121/README.md",
+    "scope": "Spelling Studio starts the current skill, with the picture and letter tiles available immediately. Letter Trace opens one large tracing sheet, with the moving demonstration and keyboard practice in Options."
   }
 }
