@@ -1,0 +1,811 @@
+{
+  "release": {
+    "runtime": "1cece6fc62cc1bf0388d6b8a33bcf15332ba211a",
+    "entry": "/assets/arcade-CdmEukB1.js",
+    "worker": "amari-discovery-v95",
+    "backendUrl": "https://dinospace-htcth3mte-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_57WPjs3tZsHGFDo8A4x6dfhhCfNR",
+    "gatewayDeployment": "6b0204b97f7b8404fa18fbba",
+    "evidence": "docs/qa-evidence/count-monster-focus-20261121/README.md",
+    "scope": "Amari\u2019s Count the Stars and Monster Math each open on one recommended activity with access to other levels in Options. Counting tiles and pictured objects occupy the main play area. Each explanation stays visible until the child chooses the named next action."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-CdmEukB1.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Count the Stars entry",
+          "buttons": [
+            "Start: Star Garden",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Counting board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Recount from 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Survey save retry",
+          "buttons": [
+            "Retry saving survey"
+          ]
+        },
+        {
+          "label": "Survey saved",
+          "buttons": [
+            "Next: Constellation Workshop",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay: Star Garden",
+            "Back"
+          ]
+        },
+        {
+          "label": "Monster Math entry",
+          "buttons": [
+            "Start: Count to 10",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Monster Math model",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show me a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Monster Math held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Monster Math save retry",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Monster Math episode saved",
+          "buttons": [
+            "Next: Add and Take Away",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Count the Stars",
+          "completed": 6,
+          "boardWidth": 350.8125,
+          "recount": true,
+          "saveRecovered": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Monster Math",
+          "completed": 6,
+          "held": true,
+          "saveRecovered": true,
+          "unlockedAfterReload": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-CdmEukB1.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Count the Stars entry",
+          "buttons": [
+            "Start: Star Garden",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Counting board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Recount from 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Survey save retry",
+          "buttons": [
+            "Retry saving survey"
+          ]
+        },
+        {
+          "label": "Survey saved",
+          "buttons": [
+            "Next: Constellation Workshop",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay: Star Garden",
+            "Back"
+          ]
+        },
+        {
+          "label": "Monster Math entry",
+          "buttons": [
+            "Start: Count to 10",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Monster Math model",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show me a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Monster Math held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Monster Math save retry",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Monster Math episode saved",
+          "buttons": [
+            "Next: Add and Take Away",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Count the Stars",
+          "completed": 6,
+          "boardWidth": 512,
+          "recount": true,
+          "saveRecovered": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Monster Math",
+          "completed": 6,
+          "held": true,
+          "saveRecovered": true,
+          "unlockedAfterReload": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4206",
+      "entry": "/assets/arcade-CdmEukB1.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Count the Stars entry",
+          "buttons": [
+            "Start: Star Garden",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Counting board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Recount from 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Survey save retry",
+          "buttons": [
+            "Retry saving survey"
+          ]
+        },
+        {
+          "label": "Survey saved",
+          "buttons": [
+            "Next: Constellation Workshop",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay: Star Garden",
+            "Back"
+          ]
+        },
+        {
+          "label": "Monster Math entry",
+          "buttons": [
+            "Start: Count to 10",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Monster Math model",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show me a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Monster Math held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Monster Math save retry",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Monster Math episode saved",
+          "buttons": [
+            "Next: Add and Take Away",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Count the Stars",
+          "completed": 6,
+          "boardWidth": 350.8125,
+          "recount": true,
+          "saveRecovered": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Monster Math",
+          "completed": 6,
+          "held": true,
+          "saveRecovered": true,
+          "unlockedAfterReload": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4206",
+      "entry": "/assets/arcade-CdmEukB1.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Count the Stars entry",
+          "buttons": [
+            "Start: Star Garden",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Counting board",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Recount from 1",
+            "Back"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Count held explanation",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Survey save retry",
+          "buttons": [
+            "Retry saving survey"
+          ]
+        },
+        {
+          "label": "Survey saved",
+          "buttons": [
+            "Next: Constellation Workshop",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Replay: Star Garden",
+            "Back"
+          ]
+        },
+        {
+          "label": "Monster Math entry",
+          "buttons": [
+            "Start: Count to 10",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        },
+        {
+          "label": "Monster Math model",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show me a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Monster Math held explanation",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Monster Math save retry",
+          "buttons": [
+            "Retry saving this result"
+          ]
+        },
+        {
+          "label": "Monster Math episode saved",
+          "buttons": [
+            "Next: Add and Take Away",
+            "Options",
+            "Back to Maths Missions"
+          ]
+        }
+      ],
+      "results": [
+        {
+          "game": "Count the Stars",
+          "completed": 6,
+          "boardWidth": 512,
+          "recount": true,
+          "saveRecovered": true,
+          "unlockedAfterReload": true
+        },
+        {
+          "game": "Monster Math",
+          "completed": 6,
+          "held": true,
+          "saveRecovered": true,
+          "unlockedAfterReload": true
+        }
+      ],
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-htcth3mte-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "b6b9a46cbcf333178dd0b0f7ec8024ab02fc2c6ef6d48060df1035e2809359da"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "b6b9a46cbcf333178dd0b0f7ec8024ab02fc2c6ef6d48060df1035e2809359da"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "7c7f4d5d08ba3444e0243a68135df57065e6f176d0124771d28536f0d37d6d7b"
+        },
+        {
+          "path": "/art/catalog-v3/game-counting.webp",
+          "bytes": 68074,
+          "sha256": "532092e9ce40682910a76acef047e2fdb2f7d8be095f4cd1398a4cae5d53ee88"
+        },
+        {
+          "path": "/art/catalog-v3/game-math.webp",
+          "bytes": 60830,
+          "sha256": "521c197105ba0c5ce686e781c6470ab97d5ceb36386aa3c4ef8093c89e36aa56"
+        },
+        {
+          "path": "/assets/arcade-CdmEukB1.js",
+          "bytes": 2145299,
+          "sha256": "d67f6dced34e4a5cefbf3d0491b4698c0bb37726ed92c092c4ff67c9fc6703b3"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-DePeqbRP.css",
+          "bytes": 287419,
+          "sha256": "95927dd2e0f2fae778844ca1fed7c9e1269a839d1bd9d3b62ece2ccdc9eb96dc"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b0204a7d0efcd2ce5617466--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "b6b9a46cbcf333178dd0b0f7ec8024ab02fc2c6ef6d48060df1035e2809359da"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "b6b9a46cbcf333178dd0b0f7ec8024ab02fc2c6ef6d48060df1035e2809359da"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "7c7f4d5d08ba3444e0243a68135df57065e6f176d0124771d28536f0d37d6d7b"
+        },
+        {
+          "path": "/art/catalog-v3/game-counting.webp",
+          "bytes": 68074,
+          "sha256": "532092e9ce40682910a76acef047e2fdb2f7d8be095f4cd1398a4cae5d53ee88"
+        },
+        {
+          "path": "/art/catalog-v3/game-math.webp",
+          "bytes": 60830,
+          "sha256": "521c197105ba0c5ce686e781c6470ab97d5ceb36386aa3c4ef8093c89e36aa56"
+        },
+        {
+          "path": "/assets/arcade-CdmEukB1.js",
+          "bytes": 2145299,
+          "sha256": "d67f6dced34e4a5cefbf3d0491b4698c0bb37726ed92c092c4ff67c9fc6703b3"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-DePeqbRP.css",
+          "bytes": 287419,
+          "sha256": "95927dd2e0f2fae778844ca1fed7c9e1269a839d1bd9d3b62ece2ccdc9eb96dc"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "b6b9a46cbcf333178dd0b0f7ec8024ab02fc2c6ef6d48060df1035e2809359da"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "b6b9a46cbcf333178dd0b0f7ec8024ab02fc2c6ef6d48060df1035e2809359da"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "7c7f4d5d08ba3444e0243a68135df57065e6f176d0124771d28536f0d37d6d7b"
+        },
+        {
+          "path": "/art/catalog-v3/game-counting.webp",
+          "bytes": 68074,
+          "sha256": "532092e9ce40682910a76acef047e2fdb2f7d8be095f4cd1398a4cae5d53ee88"
+        },
+        {
+          "path": "/art/catalog-v3/game-math.webp",
+          "bytes": 60830,
+          "sha256": "521c197105ba0c5ce686e781c6470ab97d5ceb36386aa3c4ef8093c89e36aa56"
+        },
+        {
+          "path": "/assets/arcade-CdmEukB1.js",
+          "bytes": 2145299,
+          "sha256": "d67f6dced34e4a5cefbf3d0491b4698c0bb37726ed92c092c4ff67c9fc6703b3"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DcMkAqcH.css",
+          "bytes": 28414,
+          "sha256": "6146a8c3bc61a85bc24b1c1908cc688f1188f7861857f85ad15b13e97a273ab6"
+        },
+        {
+          "path": "/assets/arcade-DePeqbRP.css",
+          "bytes": 287419,
+          "sha256": "95927dd2e0f2fae778844ca1fed7c9e1269a839d1bd9d3b62ece2ccdc9eb96dc"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}

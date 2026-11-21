@@ -2320,5 +2320,15 @@
     "gatewayDeployment": "6b02036f2c157ff2b79269c4",
     "evidence": "docs/qa-evidence/time-number-focus-20261121/README.md",
     "scope": "Time Teller and Number Line Jump give the clock and number line the main play area. Starting and returning to a game use simple named actions, while chapter selection, hints and sound settings sit under Options."
+  },
+  "latestCountMonsterFocusRehearsal": {
+    "runtime": "1cece6fc62cc1bf0388d6b8a33bcf15332ba211a",
+    "entry": "/assets/arcade-CdmEukB1.js",
+    "worker": "amari-discovery-v95",
+    "backendUrl": "https://dinospace-htcth3mte-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_57WPjs3tZsHGFDo8A4x6dfhhCfNR",
+    "gatewayDeployment": "6b0204b97f7b8404fa18fbba",
+    "evidence": "docs/qa-evidence/count-monster-focus-20261121/README.md",
+    "scope": "Amari\u2019s Count the Stars and Monster Math each open on one recommended activity with access to other levels in Options. Counting tiles and pictured objects occupy the main play area. Each explanation stays visible until the child chooses the named next action."
   }
 }
