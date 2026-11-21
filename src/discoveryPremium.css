@@ -29,6 +29,15 @@
 .discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"],[data-discovery-game="worldmap"],[data-discovery-game="german"],[data-discovery-game="letters"],[data-discovery-game="factfinder"],[data-discovery-game="trace"],[data-discovery-game="tictactoe"],[data-discovery-game="puzzle"],[data-discovery-game="spot"],[data-discovery-game="jet"],[data-discovery-game="math"],[data-discovery-game="counting"],[data-discovery-game="addition"],[data-discovery-game="subtraction"],[data-discovery-game="numberline"],[data-discovery-game="timeteller"],[data-discovery-game="phonics"],[data-discovery-game="colormix"],[data-discovery-game="shadowmatch"]) > .discovery-header .discovery-profile > span { display: none; }
 .discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"],[data-discovery-game="chess"],[data-discovery-game="dinojigsaw"],[data-discovery-game="worldmap"],[data-discovery-game="german"],[data-discovery-game="letters"],[data-discovery-game="factfinder"],[data-discovery-game="trace"],[data-discovery-game="tictactoe"],[data-discovery-game="puzzle"],[data-discovery-game="spot"],[data-discovery-game="jet"],[data-discovery-game="math"],[data-discovery-game="counting"],[data-discovery-game="addition"],[data-discovery-game="subtraction"],[data-discovery-game="numberline"],[data-discovery-game="timeteller"],[data-discovery-game="phonics"],[data-discovery-game="colormix"],[data-discovery-game="shadowmatch"]) > .discovery-game-content { padding: 8px 8px 12px; }
 .discovery-game-content > [data-compact-session="true"] { min-height: calc(100dvh - var(--literacy-chrome)); gap: 8px; padding: 12px; }
+@media (max-width: 359px) {
+  .discovery-game-surface[data-discovery-game="spot"] > .discovery-header .discovery-brand {
+    flex: 0 0 44px;
+    justify-content: center;
+  }
+  .discovery-game-surface[data-discovery-game="spot"] > .discovery-header .discovery-brand > span:nth-child(2) {
+    display: none;
+  }
+}
 [data-compact-session="true"] > .grid { gap: 10px; padding: 16px; }
 [data-compact-session="true"] .catalogue-welcome-art { height: 100px; }
 [data-compact-session="true"] .catalogue-welcome-art .kid-pop-icon { height: 90px; }
