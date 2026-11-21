@@ -503,7 +503,7 @@ const LittleGameShell = ({
           {!focusedControls && <LevelDots level={level} total={levels.length} />}
           <p className="max-w-md rounded-2xl bg-white/90 px-5 py-2 text-lg font-black text-slate-800 shadow-lg">{level < highestLevel ? 'Practice ' : ''}Level {level + 1} of {levels.length}: {LITTLE_LEVEL_GOALS[gameId]?.[level]}{pairSafeProgress && !compactStart ? `. Available through Level ${highestLevel + 1}.` : ''}</p>
           {focusedControls
-            ? <button type="button" onClick={start} disabled={Boolean(restoredDinoReward) || (gameId === 'shadowmatch' && (shadowRewardPending || Boolean(pairSaveWarning)))} className="focus-game-button is-primary little-focus-start">Play level {level + 1}</button>
+            ? <button type="button" onClick={start} disabled={Boolean(restoredDinoReward) || (gameId === 'shadowmatch' && (shadowRewardPending || Boolean(pairSaveWarning)))} className="focus-game-button is-primary little-focus-start"><Play size={20} fill="currentColor" aria-hidden="true" />Play level {level + 1}</button>
             : <>          <button
             type="button"
             onClick={start}

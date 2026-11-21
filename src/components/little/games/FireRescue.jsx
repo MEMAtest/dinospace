@@ -24,7 +24,7 @@ const RESCUE_TRUCK = artUrl('rescue-firetruck');
 const RESCUE_FLAME = artUrl('rescue-flame');
 
 const RescueTruck = ({ className = '' }) => <img src={RESCUE_TRUCK} alt="Fire truck" className={`object-contain ${className}`} draggable={false} />;
-const RescueFlame = ({ className = '', style }) => <img src={RESCUE_FLAME} alt="" className={`object-contain ${className}`} style={style} draggable={false} />;
+const RescueFlame = ({ className = '', style }) => <img src={RESCUE_FLAME} fetchPriority="high" alt="" className={`object-contain ${className}`} style={style} draggable={false} />;
 
 const FireRound = ({ count, targetSpots, houseColour, complete, speak, playSfx, firstRound, playId, round }) => {
   const hint = useRoundHint({ demo: firstRound });
