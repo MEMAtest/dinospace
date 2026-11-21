@@ -4,6 +4,7 @@ import { MEMORY_LEVELS } from '../../data/index.js';
 import { memoryCardLabel, memoryCardIllustration, MEMORY_CARD_ILLUSTRATIONS, MEMORY_CARD_CONTEXT_ILLUSTRATIONS } from '../../data/memoryMatchContent.js';
 import { getPraise, loadSaved, saveSafe } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { getGameLevel, nextGameLevelIndex } from '../../data/sessionLevels.js';
 import { recordGameDiagnostic } from '../../data/gameDiagnostics.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
@@ -98,7 +99,6 @@ import crabArt from '../../assets/memory-match/crab-v1-card.webp';
 import squidArt from '../../assets/memory-match/squid-v1-card.webp';
 import oceanFishArt from '../../assets/memory-match/ocean-fish-v1-card.webp';
 import pondFishArt from '../../assets/memory-match/pond-fish-v1-card.webp';
-import memoryCoachArt from '../../assets/little/askia-detective.webp';
 import './memoryMatch.css';
 import { buildSeededMemoryDeck, getMemoryStorage, memoryStrategy, readMemoryPassport, readMemoryResume, safeSaveMemoryGameLevel, completeMemoryRun } from '../../data/memoryMatchProgress.js';
 const createMemorySeed = () => {
@@ -251,7 +251,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
   const [locked, setLocked] = useState(false);
   const [showLevelComplete, setShowLevelComplete] = useState(false);
   const [completionSaved, setCompletionSaved] = useState(false);
-  const [focusMode, setFocusMode] = useState(false);
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [completionMessage, setCompletionMessage] = useState('');
   const [feedback, setFeedback] = useState('');
   const [timer, setTimer] = useState(0);
@@ -287,21 +287,14 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
 
   // One timer per play-through: restarts on every startLevel (runId) and stops once the level is complete.
   useEffect(() => {
-    if (showLevelComplete) return undefined;
+    if (showLevelComplete || optionsOpen) return undefined;
     timerRef.current = setInterval(() => setTimer((t) => t + 1), 1000);
     return () => clearInterval(timerRef.current);
-  }, [runId, showLevelComplete]);
+  }, [runId, showLevelComplete, optionsOpen]);
 
   useEffect(() => {
     if (showLevelComplete) completePanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, [showLevelComplete]);
-
-  useEffect(() => {
-    if (focusMode) {
-      playAreaRef.current?.scrollIntoView({ behavior: 'auto', block: 'start' });
-      playAreaRef.current?.focus({ preventScroll: true });
-    }
-  }, [focusMode]);
 
   const matches = deck.filter((card) => card.matched).length / 2;
   const handleBack = () => onBack?.();
@@ -431,6 +424,8 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
   };
 
   const startLevel = (nextIndex) => {
+    setOptionsOpen(false);
+    setFeedback('');
     clearTimeout(mismatchRef.current);
     cancelNarration?.();
     const nextLevel = levels[nextIndex];
@@ -548,87 +543,56 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
     </div>
   );
 
-  return (
-    <div className="memory-match-app" data-theme={level.scene || level.id} data-focus-mode={focusMode ? 'true' : undefined}>
+  const closeOptions = () => setOptionsOpen(false);
+  const unlocked = Math.max(getGameLevel(playerId, 'memory', levels.length, getMemoryStorage()).unlocked, resumeIndex);
+  const boardChoices = levels.map((item, index) => ({
+    label: `${item.name}${index > unlocked ? ' · Locked' : index === resumeIndex ? ' · Continue here' : ''}`,
+    button: `${index < resumeIndex ? 'Replay' : 'Play'}: ${item.name}`,
+    description: `Find ${item.emojis.length} pairs.`,
+    action: () => startLevel(index),
+    disabled: index > unlocked,
+  }));
+  const soundChoices = [
+    ...(soundOn && getOfflineVoiceClip(strategy) ? [{ label: 'Hear the memory tip', description: strategy, action: () => {
+      closeOptions();
+      hintCountRef.current += 1;
+      recordGameDiagnostic('memory', 'hint', { ...diagnosticsRef.current, hintType: 'instructions', hints: hintCountRef.current });
+      speakMemory(speak, strategy, soundOn);
+    } }] : []),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } },
+  ];
+  return <div className="memory-match-app" data-board-focus="" data-theme={level.scene || level.id} data-focus-mode="true">
+    {optionsOpen ? <main className="focus-game focus-game-body is-menu">
+      <header className="focus-game-heading"><h1>Memory Match</h1></header>
+      <FocusMenu choices={[...boardChoices, ...soundChoices, { label: 'Back to Thinking & Play', action: handleBack }]} onBack={closeOptions} />
+    </main> : <>
       <div className="memory-atmosphere" aria-hidden="true" />
-      <header className="memory-topbar">
-        <button
-          onClick={handleBack}
-          className="game-icon-button"
-          aria-label="Back to Thinking and Play"
-        >
-          <ArrowLeft />
-        </button>
-        <div className="memory-title-block">
-          <span className="memory-eyebrow">AMARI’S MEMORY QUEST</span>
-          <h2>Memory Match</h2>
-          <p>Level {levelIndex + 1} of {levels.length}<span aria-hidden="true"> · </span><strong>{level.name}</strong></p>
-        </div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </header>
-
-      <main className="memory-main">
-        <div className="memory-mobile-tools">
-          <button
-            type="button"
-            className="memory-focus-toggle"
-            aria-pressed={focusMode}
-            aria-controls="memory-play-area"
-            onClick={() => setFocusMode(value => !value)}
-          >
-            {focusMode ? 'Show game tools' : 'Focus on cards'}
-          </button>
-        </div>
-        <section className="memory-coach" aria-label="Memory strategy">
-          <div className="memory-coach-avatar"><img src={memoryCoachArt} alt="" /></div>
-          <div className="memory-coach-copy">
-            <span className="memory-coach-kicker"><Sparkles size={15} aria-hidden="true" /> YOUR MEMORY TIP</span>
-            <p role="status">{strategy}</p>
-            {!littleMode && level.emojis.length === 8 && <p className="memory-transition-note">There are more cards now. Scan a small area before moving to the next one.</p>}
-            {!littleMode && level.emojis.length === 13 && <p className="memory-transition-note">With a bigger board, remember each picture with its row and place.</p>}
-          </div>
-          {soundOn && getOfflineVoiceClip(strategy) && <button type="button" onClick={() => { hintCountRef.current += 1; recordGameDiagnostic('memory', 'hint', { ...diagnosticsRef.current, hintType: 'instructions', hints: hintCountRef.current }); speakMemory(speak, strategy, soundOn); }} className="memory-repeat-button" aria-label="Repeat the memory tip"><Volume2 size={21} aria-hidden="true" /></button>}
-        </section>
-
+      <main className="memory-main memory-focused-body">
+        <header className="text-center">
+          <p className="text-sm font-bold">Memory Match · {level.name} · {levelIndex + 1} of {levels.length}</p>
+          <h1 className="text-xl font-black sm:text-2xl">{showLevelComplete ? 'Board complete!' : 'Find the matching pairs'}</h1>
+          <p className="text-sm font-semibold" aria-label="Round statistics">{matches} of {level.emojis.length} pairs · {moves} moves</p>
+        </header>
         <section ref={playAreaRef} id="memory-play-area" tabIndex={-1} className="memory-play-area" aria-label={`${level.name} memory board`}>
-          <div className="memory-play-heading">
-            <div className="memory-level-picker">
-              <p className="memory-level-picker-hint" id="memory-level-picker-hint">{levelIndex < resumeIndex ? `Replay Level ${levelIndex + 1}. Progress remains at Level ${resumeIndex + 1}; select that number to continue.` : resumeIndex === 0 ? 'Complete a board to unlock the next level.' : `Resume point: Level ${resumeIndex + 1}. Choose an earlier number to replay.`}</p>
-              <nav className="memory-level-nav" aria-label="Choose a level or replay an earlier one" aria-describedby="memory-level-picker-hint">
-              {levels.map((entry, index) => <button type="button" key={entry.id} disabled={index > Math.max(getGameLevel(playerId, 'memory', levels.length, getMemoryStorage()).unlocked, resumeIndex)} onClick={() => startLevel(index)} aria-label={`Level ${index + 1}: ${entry.name}`} aria-current={index === levelIndex ? 'step' : undefined} className="memory-level-step">{index + 1}</button>)}
-              </nav>
-            </div>
-            <div className="memory-stats" aria-label="Round statistics">
-              <span><strong>{matches}</strong><small>PAIRS</small></span>
-              <span><strong>{moves}</strong><small>MOVES</small></span>
-              <span><strong>{Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}</strong><small>TIME</small></span>
-              {bestTimes[level.id] && <span><strong>{Math.floor(bestTimes[level.id] / 60)}:{String(bestTimes[level.id] % 60).padStart(2, '0')}</strong><small>BEST</small></span>}
-            </div>
-          </div>
-
-          {feedback && <p className="memory-feedback" role="status">{feedback}</p>}
-          <div className="memory-board" data-pairs={level.emojis.length} style={{ '--memory-columns': level.columns }}>
-            {deck.map(renderCard)}
-          </div>
-          <div className="memory-board-footer">
-            <p aria-label="Memory passport"><Star fill="currentColor" aria-hidden="true" />{Object.keys(passport).length}/{levels.length} board stickers collected</p>
-          </div>
+          <div className="memory-board" data-pairs={level.emojis.length} style={{ '--memory-columns': level.columns }}>{deck.map(renderCard)}</div>
+          {feedback && !showLevelComplete && <p className="memory-feedback" role="status">{feedback}</p>}
         </section>
-        {saveWarning && <p role="status" className="memory-save-warning">{saveWarning}</p>}
-
-        {showLevelComplete && (
-          <div ref={completePanelRef} className="memory-complete-panel">
-            <Star className="mx-auto mb-2 h-12 w-12 text-amber-500" fill="currentColor" aria-hidden="true" />
-            <h3>{completionMessage}</h3>
-            <p>{level.fact}</p>
-            {completionSaved ? <button onClick={handleNextLevel}>
-              {levelIndex < levels.length - 1 ? `Next level: ${levels[levelIndex + 1].name}` : 'Replay this level'}
-            </button> : <div className="memory-save-retry"><p role="status" className="memory-save-warning">{saveWarning || 'Your sticker and progress are not saved yet.'}</p><button type="button" onClick={() => pendingCompletion && commitCompletion(pendingCompletion)}>Retry saving this board</button></div>}
-          </div>
-        )}
+        {showLevelComplete && <section ref={completePanelRef} className="memory-focus-result">
+          <p className="font-black" role="status">{completionMessage}</p>
+          <p className="mt-1">{level.fact}</p>
+          <p className="mt-1 text-sm font-bold" aria-label="Memory passport">{Object.keys(passport).length} of {levels.length} stickers collected</p>
+        </section>}
+        {saveWarning && <p role="alert" className="memory-save-warning">{saveWarning}</p>}
+        <div className="focus-game-actions memory-focus-actions">
+          {showLevelComplete ? completionSaved
+            ? <button type="button" className="focus-game-button is-primary" onClick={handleNextLevel}>{levelIndex < levels.length - 1 ? `Next: ${levels[levelIndex + 1].name}` : 'Replay this level'}</button>
+            : <button type="button" className="focus-game-button is-primary" onClick={() => pendingCompletion && commitCompletion(pendingCompletion)}>Retry saving this board</button>
+            : null}
+          {(!showLevelComplete || completionSaved) && <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>}
+        </div>
       </main>
-    </div>
-  );
+    </>}
+  </div>;
 };
 
 export default MemoryMatch;

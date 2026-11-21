@@ -208,3 +208,12 @@
 @media (max-width: 639px) {
   .chess-board-frame { width: 100%; }
 }
+
+.chess-focused-main.chess-full-game {
+  min-height: 100dvh;
+  padding: .65rem .5rem 1rem;
+  background: transparent;
+}
+.chess-focused-main .chess-full-header { margin: 0 auto .45rem; border: 0; box-shadow: none; background: transparent; }
+.chess-focused-main .chess-full-header h1 { font-size: clamp(1.4rem, 4vw, 2rem); }
+.chess-focused-main .chess-control-card { box-shadow: none; }

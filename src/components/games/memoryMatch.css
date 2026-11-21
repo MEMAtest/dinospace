@@ -490,3 +490,13 @@
 @media (prefers-reduced-motion: reduce) {
   .memory-match-app *, .memory-match-app *::before, .memory-match-app *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+.memory-match-app[data-focus-mode="true"] .memory-focused-body {
+  margin-inline: auto;
+  width: min(100%, 66rem);
+  padding: .65rem .5rem 1rem;
+  gap: .5rem;
+}
+.memory-focus-actions, .memory-focus-result { width: min(100%, 35rem); margin-inline: auto; }
+.memory-focus-result { padding: .65rem; border-radius: .6rem; background: #0b223fe6; color: white; }
+.memory-match-app > .focus-game { position: relative; z-index: 1; color: #142e4b; }

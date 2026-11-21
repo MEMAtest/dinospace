@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ChevronDown, RotateCcw, Swords, Undo2, Volume2, VolumeX } from 'lucide-react';
 import {
   CHESS_DIFFICULTIES, CHESS_PIECE_NAMES, colorCode, colorName, createChessGame,
   applyChessMove, getChessBoardSquares, getChessStatus, legalMovesFrom, restoreChessGame, serializeChessGame,
@@ -10,6 +9,7 @@ import {
 } from '../../data/chessGameProgress.js';
 import { drainChessRewardReceipts } from '../../data/chessRewardRecovery.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import './chessGame.css';
 
 const DIFFICULTY_LABELS = { beginner: 'Beginner', growing: 'Growing', challenge: 'Challenge' };
@@ -71,7 +71,9 @@ export default function ChessGame({
   const [thinking, setThinking] = useState(false);
   const [computerError, setComputerError] = useState(false);
   const [conflictError, setConflictError] = useState(false);
-  const [moveListOpen, setMoveListOpen] = useState(false);
+  const [view, setView] = useState('board');
+  const headingRef = useRef(null);
+  const [promotionChoice, setPromotionChoice] = useState('q');
   const [confirmNew, setConfirmNew] = useState(false);
   const [finished, setFinished] = useState(false);
   const [loadRevision, setLoadRevision] = useState(0);
@@ -98,6 +100,8 @@ export default function ChessGame({
   const phase = finished ? 'finish' : mode === 'setup' ? 'intro' : 'play';
 
   useEffect(() => { onPhaseChange?.(phase); }, [phase, onPhaseChange]);
+  useEffect(() => { if (view !== 'options') headingRef.current?.focus({ preventScroll: true }); }, [view, mode, confirmNew, promotionFrom]);
+  useEffect(() => { if (promotionFrom) setPromotionChoice('q'); }, [promotionFrom]);
 
   const stopComputer = useCallback((updateState = true) => {
     generationRef.current += 1;
@@ -498,64 +502,123 @@ export default function ChessGame({
   const lastMove = currentSnapshot.history.at(-1);
   const checkSquare = status.inCheck ? currentGame.board().flatMap((rank, row) => rank.map((piece, col) => piece?.type === 'k' && piece.color === currentGame.turn() ? `${String.fromCharCode(97 + col)}${8 - row}` : null)).find(Boolean) : null;
   const pendingError = Boolean(pendingRef.current);
-  const soundControl = <button type="button" className="chess-full-button chess-sound-toggle" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'} onClick={onToggleSound}>{soundOn ? <Volume2 size={20} /> : <VolumeX size={20} />}</button>;
 
-  if (loadError || !progress) return <main className="chess-full-game"><header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer</h1>{soundControl}</header><section className="chess-full-card" role="alert"><p>{loadError || 'Reading saved chess data…'}</p><button type="button" className="chess-full-button" onClick={load}>Retry reading saved game</button></section></main>;
+  const boardView = () => setView('board');
+  const hasMatch = Boolean(matchRef.current);
+  const matchDone = Boolean(matchRef.current?.result);
+  const inSetup = mode !== 'playing';
+  const couldUndo = (match?.history?.length || 0) >= 2 && !status.gameOver && !thinking && !saving && !pendingError;
+  const options = [
+    ...(!inSetup ? [
+      { label: 'Move history', action: () => setView('moves') },
+      { label: 'New game', disabled: saving || pendingError, action: () => { stopComputer(); boardView(); setMode('setup'); setConfirmNew(true); } },
+    ] : []),
+    { label: 'How to play', description: 'Tap a piece and a highlighted square, or drag the piece there. Castling, en passant, promotion and draws follow standard chess rules.', button: 'Back to game', action: boardView },
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound?.(); boardView(); } },
+    { label: 'Back to lessons', action: leaveGame },
+  ];
 
-  if (mode === 'setup' || mode === 'complete') return <main className="chess-full-game">
-    <header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer</h1>{soundControl}</header>
-    <section className="chess-full-card chess-setup-card">
-      <div className="chess-full-badge"><Swords size={21} /> Full 8×8 game</div>
-      {matchRef.current?.result && <div className="chess-full-result" role="status"><h2>{matchRef.current.status.message}</h2><p>{matchRef.current.result.outcome === 'win' ? 'You won.' : matchRef.current.result.outcome === 'loss' ? 'The computer won this game.' : 'This game was a draw.'}</p><button type="button" className="chess-full-button" onClick={() => setMode('playing')}>Review final board</button>{pendingError && <><p role="alert">{message}</p><button className="chess-full-primary" onClick={retryPending} disabled={saving}>Retry reward confirmation</button></>}</div>}
-      {matchRef.current && !matchRef.current.result && <div className="chess-full-result"><h2>Saved game ready</h2><p>{DIFFICULTY_LABELS[matchRef.current.difficulty]} · You play {colorName(colorCode(matchRef.current.humanColor))} · {matchRef.current.history.length} moves played</p><button className="chess-full-primary" onClick={resume}>Resume saved game</button></div>}
-      <fieldset className="chess-choice-group"><legend>Computer difficulty</legend>{CHESS_DIFFICULTIES.map((choice) => <button key={choice} type="button" aria-pressed={difficulty === choice} className={`chess-choice ${difficulty === choice ? 'is-selected' : ''}`} onClick={() => setDifficulty(choice)}>{DIFFICULTY_LABELS[choice]}</button>)}</fieldset>
-      <fieldset className="chess-choice-group"><legend>Your side</legend>{['white', 'black'].map((side) => <button key={side} type="button" aria-pressed={humanColor === side} className={`chess-choice ${humanColor === side ? 'is-selected' : ''}`} onClick={() => setHumanColor(side)}>Play {side}</button>)}</fieldset>
-      {confirmNew && <div className="chess-confirm" role="alertdialog" aria-labelledby="chess-new-title"><h2 id="chess-new-title">Start a new game?</h2><p>This replaces the currently saved board. Its completed rewards stay saved.</p><div><button className="chess-full-button" onClick={() => setConfirmNew(false)}>Keep saved game</button><button className="chess-full-primary" onClick={() => startNew(true)}>Start new game</button></div></div>}
-      <button className="chess-full-primary" disabled={saving || Boolean(loadError)} onClick={() => startNew(false)}>{matchRef.current ? 'New game' : 'Start game'}</button>
-      {pendingError && <div role="alert" className="chess-save-error"><p>{message}</p><button className="chess-full-primary" disabled={saving} onClick={retryPending}>Retry save</button></div>}
-      <details className="chess-howto"><summary><ChevronDown size={18} /> How to play</summary><p>Drag one of your pieces to a highlighted square, or tap the piece and then its destination. The board marks your last move, checks, legal moves and captures. Castling, en passant, promotion, checkmate and draws follow standard chess rules.</p></details>
-    </section>
-  </main>;
+  if (loadError || !progress) return <div className="focus-game" data-board-focus="">
+    <main className="focus-game-body is-menu">
+      <header className="focus-game-heading"><h1>Chess vs computer</h1></header>
+      <p className="focus-game-message" role={loadError ? 'alert' : 'status'}>{loadError || 'Reading saved chess data…'}</p>
+      <div className="focus-game-actions">
+        {loadError && <button type="button" className="focus-game-button is-primary" onClick={load}>Retry reading saved game</button>}
+        <button type="button" className="focus-game-button" onClick={leaveGame}>Back to lessons</button>
+      </div>
+    </main>
+  </div>;
 
-  return <main className="chess-full-game" data-board-focus="">
-    <header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer<span className="chess-header-level">{DIFFICULTY_LABELS[match?.difficulty || difficulty]}</span></h1>{soundControl}</header>
-    <section className="chess-match-layout" aria-label="Chess match">
-      <div className="chess-match-status"><strong>{status.gameOver ? status.message : thinking ? 'Computer thinking…' : `${colorName(currentSnapshot.turn)} to move${status.inCheck ? ' · Check!' : ''}`}</strong><span>You are {colorName(colorCode(humanColor))} · Computer is {colorName(humanColor === 'white' ? 'b' : 'w')}</span></div>
-      {!status.gameOver && <p className="chess-move-instruction">Drag a piece, or tap it then tap a highlighted square.</p>}
-      <div className="chess-board-frame">
-        <div className="chess-play-board" role="grid" aria-label={`Chess board. ${colorName(colorCode(humanColor))} at bottom`}>
-          {squareOrder.map(({ square, piece }, index) => {
-            const legalMove = legalTargets.get(square);
-            const isSelected = selected === square;
-            const isLast = lastMove?.from === square || lastMove?.to === square;
-            const isCheck = checkSquare === square;
-            const isLight = ((square.charCodeAt(0) - 97) + Number(square[1])) % 2 === 0;
-            const label = `${square}, ${piece ? `${colorName(piece.color)} ${piece.name}` : 'empty square'}${legalMove ? legalMove.captured ? ', legal capture' : ', legal move' : ''}${isSelected ? ', selected' : ''}${isLast ? ', last move' : ''}${isCheck ? ', king in check' : ''}`;
-            return <button key={square} ref={(node) => node ? squareRefs.current.set(square, node) : squareRefs.current.delete(square)} type="button" role="gridcell" tabIndex={index === 0 ? 0 : undefined} aria-label={label} aria-selected={isSelected} disabled={!humanTurn} data-chess-square={square} onPointerDown={(event) => beginPointer(event, square)} onPointerMove={movePointer} onPointerUp={(event) => finishPointer(event)} onPointerCancel={(event) => finishPointer(event, true)} onLostPointerCapture={(event) => { if (pointerRef.current?.id === event.pointerId) finishPointer(event, true); }} onClick={(event) => { if (event.detail > 0 && suppressClickRef.current) { suppressClickRef.current = false; return; } chooseSquare(square); }} onKeyDown={(event) => {
-              const whiteBottom = humanColor === 'white';
-              const deltas = { ArrowUp: [0, whiteBottom ? 1 : -1], ArrowDown: [0, whiteBottom ? -1 : 1], ArrowLeft: [whiteBottom ? -1 : 1, 0], ArrowRight: [whiteBottom ? 1 : -1, 0] };
-              const delta = deltas[event.key]; if (!delta) return;
-              event.preventDefault();
-              const file = square.charCodeAt(0) - 97 + delta[0], rank = Number(square[1]) + delta[1];
-              if (file >= 0 && file < 8 && rank >= 1 && rank <= 8) squareRefs.current.get(`${String.fromCharCode(97 + file)}${rank}`)?.focus();
-            }} className={`chess-play-square ${isLight ? 'chess-play-square--light' : 'chess-play-square--dark'} ${isLast ? 'chess-play-square--last' : ''} ${isSelected ? 'chess-play-square--selected' : ''} ${dragging?.from === square ? 'chess-play-square--dragging' : ''} ${isCheck ? 'chess-play-square--check' : ''} ${legalMove ? legalMove.captured ? 'chess-play-square--capture' : 'chess-play-square--legal' : ''}`}>
-              {(square[0] === (humanColor === 'white' ? 'a' : 'h') || square[1] === (humanColor === 'white' ? '1' : '8')) && <span className="chess-play-coordinate">{square}</span>}
-              {legalMove && <span className={`chess-play-target ${legalMove.captured ? 'chess-play-target--capture' : ''}`} aria-hidden="true" />}
-              <PieceMark piece={piece} />
-            </button>;
-          })}
+  if (view === 'options' || view === 'moves' || inSetup || confirmNew || promotionFrom) return <div className="focus-game" data-board-focus="">
+    <main className="focus-game-body is-menu">
+      <header className="focus-game-heading">
+        <h1 ref={headingRef} tabIndex={-1}>{confirmNew ? 'Start a new game?' : promotionFrom ? 'Choose your promotion' : view === 'moves' ? 'Move history' : 'Chess vs computer'}</h1>
+      </header>
+      {promotionFrom ? <>
+        <div className="focus-game-menu">
+          <label htmlFor="chess-promotion">Promote your pawn to</label>
+          <select id="chess-promotion" value={promotionChoice} onChange={event => setPromotionChoice(event.target.value)}>
+            {['q','r','b','n'].map(piece => <option key={piece} value={piece}>{CHESS_PIECE_NAMES[piece]}</option>)}
+          </select>
+          <div className="focus-game-actions"><button type="button" className="focus-game-button is-primary" onClick={() => promote(promotionChoice)}>Promote</button><button type="button" className="focus-game-button" onClick={() => setPromotionFrom(null)}>Cancel</button></div>
         </div>
-      </div>
-      <div className="chess-control-card">
-        <p className="chess-live-message" role="status" aria-live="polite">{pendingError ? message : thinking ? 'The computer is choosing a legal move.' : message}</p>
-        {(pendingError || computerError) && <button className="chess-full-primary" onClick={pendingError ? retryPending : () => requestComputer(currentGame, matchRef.current)} disabled={saving}>{pendingError ? 'Retry save' : 'Retry computer turn'}</button>}
-        {conflictError && <div className="chess-save-error" role="alert"><p>This board no longer matches the saved game. Loading it will replace the board shown here.</p><button className="chess-full-button" onClick={load}>Load saved game</button></div>}
-        {status.gameOver && !pendingError && <div className="chess-completion-note"><strong>{status.message}</strong><p>Completed games earn once per difficulty.</p><button className="chess-full-primary" onClick={() => { setMode('complete'); setFinished(true); }}>Finish game</button></div>}
-        <div className="chess-actions"><button type="button" className="chess-full-button" onClick={undoTurn} disabled={(match?.history?.length || 0) < 2 || status.gameOver || thinking || saving || pendingError}><Undo2 size={17} /> Undo turn</button><button type="button" className="chess-full-button" onClick={() => setMoveListOpen((open) => !open)} aria-expanded={moveListOpen}><ChevronDown size={17} /> Moves</button><button type="button" className="chess-full-button" onClick={() => { stopComputer(); setMode('setup'); setConfirmNew(true); }} disabled={saving || pendingError}><RotateCcw size={17} /> New game</button></div>
-        {moveListOpen && <ol className="chess-move-list" aria-label="Saved move history">{currentSnapshot.history.map((move, index) => <li key={`${move.from}-${move.to}-${index}`}>{formatMove(move, index)}</li>)}</ol>}
-      </div>
-    </section>
-    {dragging && <div className="chess-drag-piece" aria-hidden="true" style={{ left: dragging.x - dragging.size / 2, top: dragging.y - dragging.size / 2, width: dragging.size, height: dragging.size }}><PieceMark piece={currentGame.get(dragging.from)} /></div>}
-    {promotionFrom && <div className="chess-promotion-backdrop"><section className="chess-promotion-dialog" role="dialog" aria-modal="true" aria-labelledby="chess-promote-title"><h2 id="chess-promote-title">Choose your promotion</h2><p>Your pawn reached the last rank. Pick what it becomes.</p><div className="chess-promotion-options">{['q', 'r', 'b', 'n'].map((piece) => <button key={piece} className="chess-promotion-choice" onClick={() => promote(piece)} aria-label={`Promote to ${CHESS_PIECE_NAMES[piece]}`}><PieceMark piece={{ color: colorCode(humanColor), type: piece }} /><span>{CHESS_PIECE_NAMES[piece]}</span></button>)}</div><button className="chess-full-button" onClick={() => setPromotionFrom(null)}>Cancel</button></section></div>}
-  </main>;
+      </> : confirmNew ? <>
+        <p className="focus-game-message">Starting a new game replaces the board you saved. Earned rewards stay saved.</p>
+        <div className="focus-game-actions">
+          <button type="button" className="focus-game-button is-primary" onClick={() => setConfirmNew(false)}>Keep saved game</button>
+          <button type="button" className="focus-game-button" onClick={() => startNew(true)}>Start new game</button>
+        </div>
+      </> : view === 'options' ? <FocusMenu choices={options} onBack={boardView} /> : view === 'moves' ? <>
+        {currentSnapshot.history.length > 0
+          ? <ol className="chess-move-list" aria-label="Saved move history">{currentSnapshot.history.map((move, index) => <li key={`${move.from}-${move.to}-${index}`}>{formatMove(move, index)}</li>)}</ol>
+          : <p className="focus-game-message">No moves yet.</p>}
+        <button type="button" className="focus-game-button" onClick={boardView}>Back to board</button>
+      </> : <>
+        {hasMatch && <p className="focus-game-message" role="status">{matchDone ? matchRef.current.status.message : `${matchRef.current.history.length} moves saved. You play ${colorName(colorCode(matchRef.current.humanColor))}.`}</p>}
+        {pendingError ? <p className="focus-game-message" role="alert">{message}</p> : <div className="focus-game-menu mb-3">
+          <label htmlFor="chess-difficulty">Computer difficulty</label>
+          <select id="chess-difficulty" value={difficulty} onChange={event => setDifficulty(event.target.value)}>{CHESS_DIFFICULTIES.map(choice => <option key={choice} value={choice}>{DIFFICULTY_LABELS[choice]}</option>)}</select>
+          <label htmlFor="chess-colour">Your side</label>
+          <select id="chess-colour" value={humanColor} onChange={event => setHumanColor(event.target.value)}><option value="white">White</option><option value="black">Black</option></select>
+        </div>}
+        <div className="focus-game-actions">
+          {pendingError ? <button type="button" className="focus-game-button is-primary" disabled={saving} onClick={retryPending}>Retry save</button> : <>
+            {hasMatch && <button type="button" className="focus-game-button is-primary" disabled={saving} onClick={matchDone ? () => setMode('playing') : resume}>{matchDone ? 'Review final board' : 'Resume saved game'}</button>}
+            <button type="button" className={`focus-game-button${hasMatch ? '' : ' is-primary'}`} disabled={saving} onClick={() => startNew(false)}>{hasMatch ? 'New game' : 'Start game'}</button>
+            <button type="button" className="focus-game-button" onClick={() => setView('options')}>Options</button>
+          </>}
+        </div>
+      </>}
+    </main>
+  </div>;
+
+  return <div className="focus-game" data-board-focus="">
+    <main className="chess-full-game chess-focused-main">
+      <header className="chess-full-header focus-game-heading">
+        <h1 ref={headingRef} tabIndex={-1}>Chess vs computer</h1>
+      </header>
+      <section className="chess-match-layout" aria-label="Chess match">
+        <div className="chess-match-status">
+          <strong>{status.gameOver ? status.message : thinking ? 'Computer thinking…' : `${colorName(currentSnapshot.turn)} to move${status.inCheck ? ' · Check!' : ''}`}</strong>
+          <span>You are {colorName(colorCode(humanColor))}</span>
+        </div>
+        <div className="chess-board-frame">
+          <div className="chess-play-board" role="grid" aria-label={`Chess board. ${colorName(colorCode(humanColor))} at bottom`}>
+            {squareOrder.map(({ square, piece }, index) => {
+              const legalMove = legalTargets.get(square);
+              const isSelected = selected === square;
+              const isLast = lastMove?.from === square || lastMove?.to === square;
+              const isCheck = checkSquare === square;
+              const isLight = ((square.charCodeAt(0) - 97) + Number(square[1])) % 2 === 0;
+              const label = `${square}, ${piece ? `${colorName(piece.color)} ${piece.name}` : 'empty square'}${legalMove ? legalMove.captured ? ', legal capture' : ', legal move' : ''}${isSelected ? ', selected' : ''}${isLast ? ', last move' : ''}${isCheck ? ', king in check' : ''}`;
+              return <button key={square} ref={(node) => node ? squareRefs.current.set(square, node) : squareRefs.current.delete(square)} type="button" role="gridcell" tabIndex={index === 0 ? 0 : undefined} aria-label={label} aria-selected={isSelected} disabled={!humanTurn} data-chess-square={square} onPointerDown={(event) => beginPointer(event, square)} onPointerMove={movePointer} onPointerUp={(event) => finishPointer(event)} onPointerCancel={(event) => finishPointer(event, true)} onLostPointerCapture={(event) => { if (pointerRef.current?.id === event.pointerId) finishPointer(event, true); }} onClick={(event) => { if (event.detail > 0 && suppressClickRef.current) { suppressClickRef.current = false; return; } chooseSquare(square); }} onKeyDown={(event) => {
+                const whiteBottom = humanColor === 'white';
+                const deltas = { ArrowUp: [0, whiteBottom ? 1 : -1], ArrowDown: [0, whiteBottom ? -1 : 1], ArrowLeft: [whiteBottom ? -1 : 1, 0], ArrowRight: [whiteBottom ? 1 : -1, 0] };
+                const delta = deltas[event.key]; if (!delta) return;
+                event.preventDefault();
+                const file = square.charCodeAt(0) - 97 + delta[0], rank = Number(square[1]) + delta[1];
+                if (file >= 0 && file < 8 && rank >= 1 && rank <= 8) squareRefs.current.get(`${String.fromCharCode(97 + file)}${rank}`)?.focus();
+              }} className={`chess-play-square ${isLight ? 'chess-play-square--light' : 'chess-play-square--dark'} ${isLast ? 'chess-play-square--last' : ''} ${isSelected ? 'chess-play-square--selected' : ''} ${dragging?.from === square ? 'chess-play-square--dragging' : ''} ${isCheck ? 'chess-play-square--check' : ''} ${legalMove ? legalMove.captured ? 'chess-play-square--capture' : 'chess-play-square--legal' : ''}`}>
+                {(square[0] === (humanColor === 'white' ? 'a' : 'h') || square[1] === (humanColor === 'white' ? '1' : '8')) && <span className="chess-play-coordinate">{square}</span>}
+                {legalMove && <span className={`chess-play-target ${legalMove.captured ? 'chess-play-target--capture' : ''}`} aria-hidden="true" />}
+                <PieceMark piece={piece} />
+              </button>;
+            })}
+          </div>
+        </div>
+        <div className="chess-control-card">
+          <p className="chess-live-message" role="status">{pendingError ? message : thinking ? 'The computer is choosing a move.' : message}</p>
+          {conflictError && <p className="focus-game-message" role="alert">This board no longer matches the saved game.</p>}
+          <div className="focus-game-actions">
+            {conflictError ? <button type="button" className="focus-game-button is-primary" onClick={load}>Load saved game</button>
+              : pendingError || computerError ? <button type="button" className="focus-game-button is-primary" onClick={pendingError ? retryPending : () => requestComputer(currentGame, matchRef.current)} disabled={saving}>{pendingError ? 'Retry save' : 'Retry computer turn'}</button>
+                : status.gameOver ? <button type="button" className="focus-game-button is-primary" onClick={() => { setMode('complete'); setFinished(true); }}>Finish game</button>
+                  : couldUndo && <button type="button" className="focus-game-button" onClick={undoTurn}>Undo turn</button>}
+            {!conflictError && !pendingError && !computerError && <button type="button" className="focus-game-button" onClick={() => setView('options')}>Options</button>}
+          </div>
+        </div>
+      </section>
+      {dragging && <div className="chess-drag-piece" aria-hidden="true" style={{ left: dragging.x - dragging.size / 2, top: dragging.y - dragging.size / 2, width: dragging.size, height: dragging.size }}><PieceMark piece={currentGame.get(dragging.from)} /></div>}
+    </main>
+  </div>;
 }

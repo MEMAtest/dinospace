@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 import { analyzeChessMove, analyzeKingMove, attackedBySide, CHESS_ADVENTURES, CHESS_AUDIO_LINES, CHESS_CHAPTERS, CHESS_PIECES, chessMoveIsLegal, chessSquare, getChessPuzzleMoveAnalysis, seededChessRun } from '../../data/chessAdventure.js';
 import { completeChessChapter, readChessProgress, recordChessRun } from '../../data/chessProgress.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { makeLearningEvent } from '../../data/literacy.js';
 import ChessGame, { PieceMark } from './ChessGame.jsx';
 
@@ -12,6 +12,7 @@ const LessonPiece = ({ type, side = 'white', size = 'h-10 w-10' }) => <span clas
 
 export default function ChessExplorers({ onBack = () => {}, playSfx = () => {}, soundOn, onToggleSound, cancelNarration = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) {
   const [mode, setMode] = useState('menu');
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [progress, setProgress] = useState(() => readChessProgress(playerId));
   const [chapterIndex, setChapterIndex] = useState(0);
   const [run, setRun] = useState([]);
@@ -50,6 +51,7 @@ export default function ChessExplorers({ onBack = () => {}, playSfx = () => {}, 
   };
   const begin = (nextChapterIndex, seed = (globalThis.crypto?.getRandomValues?.(new Uint32Array(1))?.[0] ?? Math.floor(Math.random() * 0x100000000)) >>> 0) => {
     stopVoice();
+    setOptionsOpen(false);
     const selectedChapter = CHESS_CHAPTERS[nextChapterIndex];
     const nextRun = seededChessRun(selectedChapter.id, seed, progress.recentPuzzleIds);
     setRunSeed(Number(seed) >>> 0);
@@ -101,30 +103,64 @@ export default function ChessExplorers({ onBack = () => {}, playSfx = () => {}, 
     if (index === run.length - 1) { if (chapterSaved) setMode('finish'); else finishChapter(); return; }
     const nextIndex = index + 1; setIndex(nextIndex); setSolved(false); setSolvedAt(null); setHelpUsed(false); setHadMistake(false); setMessage(''); replay([CHESS_AUDIO_LINES[run[nextIndex].piece].prompt, CHESS_AUDIO_LINES[run[nextIndex].piece].rule]);
   };
-  const backMenu = () => { stopVoice(); setMode('menu'); setSaveFailed(false); setMessage(''); setProgress(readChessProgress(playerId)); };
+  const backMenu = () => { stopVoice(); setMode('menu'); setOptionsOpen(false); setSaveFailed(false); setMessage(''); setProgress(readChessProgress(playerId)); };
 
   const shell = 'min-h-screen flex flex-col bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100 px-3 pb-6';
-  const header = (title, back = backMenu) => <header className="flex items-center justify-between gap-2 py-3"><button type="button" className="game-icon-button" onClick={back} aria-label="Back to chapters"><ArrowLeft /></button><h1 className="text-xl sm:text-2xl font-black text-amber-900 text-center">{title}</h1><SoundToggle soundOn={soundOn} onToggle={toggleSound} /></header>;
+  const header = (title, back = backMenu) => <header className="flex items-center justify-between gap-2 py-3"><button type="button" className="game-icon-button" onClick={back} aria-label="Back to chapters"><ArrowLeft /></button><h1 className="text-xl sm:text-2xl font-black text-amber-900 text-center">{title}</h1><div aria-hidden="true" className="w-12" /></header>;
   const audioButton = (lines) => { const available = lines.every((line) => getOfflineVoiceClip(line, 'en-US')); const label = lines.length > 1 ? 'Replay recorded piece prompt and rule' : 'Replay recorded piece rule'; return <button type="button" className="min-h-12 rounded-full border-2 border-amber-400 bg-white px-4 py-2 font-bold text-amber-900" onClick={() => replay(lines)} disabled={!soundOn || !available} aria-label={!soundOn ? 'Narration muted' : available ? label : 'Recorded guidance unavailable'}>{!soundOn ? 'Narration muted' : available ? lines.length > 1 ? '🔊 Replay recorded prompt & rule' : '🔊 Replay recorded rule' : 'Recorded guidance unavailable'}</button>; };
 
   if (mode === 'full-game') return <ChessGame playerId={playerId} onBack={() => { stopVoice(); setMode('menu'); }} onPhaseChange={onPhaseChange} onCelebrate={onCelebrate} playSfx={playSfx} soundOn={soundOn} onToggleSound={toggleSound} />;
 
-  if (mode === 'menu') return <main className={`${shell} items-center`}>
-    <header className="w-full flex items-center justify-between py-3"><button className="game-icon-button" onClick={onBack} aria-label="Back to Thinking & Play"><ArrowLeft /></button><h1 className="text-2xl sm:text-3xl font-black text-amber-900">♟ Chess Explorers</h1><SoundToggle soundOn={soundOn} onToggle={toggleSound} /></header>
-    <div className="w-full max-w-3xl text-center"><p className="text-lg font-bold text-amber-900">Play a match against the computer, or explore the lessons below.</p><p className="mt-2 text-sm text-amber-950">Choose your side and difficulty for a full game. Lessons help you practise each piece.</p>
-      <button type="button" onClick={() => { stopVoice(); setMode('full-game'); }} className="mt-4 flex min-h-16 w-full items-center justify-center gap-3 rounded-3xl border-4 border-purple-800 bg-purple-700 px-5 py-4 text-xl font-black text-white shadow-lg"><span aria-hidden="true">♟</span> Play a full game vs computer <span aria-hidden="true">→</span></button>
-      <div className="mt-5 grid gap-3 sm:grid-cols-3">{CHESS_CHAPTERS.map((item, i) => { const unlocked = i <= progress.unlockedChapterIndex; return <button key={item.id} disabled={!unlocked} onClick={() => begin(i)} className="rounded-3xl border-4 border-amber-200 bg-white p-5 text-left shadow-lg disabled:opacity-50"><span className="text-3xl">{progress.completedChapterIds.includes(item.id) ? '🏅' : ['♘', '♖', '🧩'][i]}</span><span className="mt-2 block text-lg font-black text-amber-900">{item.title}</span><span className="mt-1 block text-sm text-amber-800">{item.intro}</span><span className="mt-2 block font-bold">{progress.completedChapterIds.includes(item.id) ? 'Badge earned · Replay' : unlocked ? 'Start five puzzles' : 'Complete the previous chapter to unlock'}</span></button>; })}</div>
-      <div className="mt-4 flex flex-wrap justify-center gap-3"><button onClick={() => { setMode('pieces'); setPracticePiece(CHESS_PIECES[0]); }} className="min-h-12 rounded-full bg-purple-700 px-5 py-3 font-black text-white">Meet the pieces</button><button onClick={() => { setPracticePiece(CHESS_PIECES[0]); setPracticeFrom([4,2]); setMode('practice'); }} className="min-h-12 rounded-full bg-purple-700 px-5 py-3 font-black text-white">Move It! practice</button></div>
-    </div>
-  </main>;
+  const piecePicker = <label className="my-3 flex items-center justify-center gap-2 font-bold">Piece
+    <select className="min-h-12 rounded-lg border-2 border-amber-300 bg-white px-3" value={practicePiece.id} onChange={event => {
+      stopVoice();
+      setPracticePiece(CHESS_PIECES.find(piece => piece.id === event.target.value));
+      setPracticeFrom([4, 2]);
+    }}>{CHESS_PIECES.map(piece => <option key={piece.id} value={piece.id}>{piece.name}</option>)}</select>
+  </label>;
 
-  if (mode === 'pieces') { const piece = practicePiece; return <main className={`${shell} items-center`}>{header('Meet the pieces')}<section className="w-full max-w-lg rounded-3xl bg-white p-6 text-center shadow-xl"><LessonPiece type={piece.id} size="h-24 w-24" /><h2 className="text-3xl font-black text-amber-900">{piece.name}</h2><p className="mt-2 text-lg font-semibold">{piece.rule}</p><div className="mt-4 flex flex-wrap justify-center gap-2">{CHESS_PIECES.map((p) => <button key={p.id} onClick={() => { stopVoice(); setPracticePiece(p); }} aria-pressed={p.id === piece.id} className="min-h-12 min-w-12 rounded-xl border-2 border-amber-300 p-1" aria-label={`Choose ${p.name}`}><LessonPiece type={p.id} /></button>)}</div><div className="mt-4">{audioButton([CHESS_AUDIO_LINES[piece.id].rule])}</div></section></main>; }
+  if (mode === 'menu') {
+    const nextIndex = Math.min(progress.unlockedChapterIndex, CHESS_CHAPTERS.length - 1);
+    const openStudy = (nextMode) => {
+      setOptionsOpen(false);
+      setPracticePiece(CHESS_PIECES[0]);
+      setPracticeFrom([4, 2]);
+      setMode(nextMode);
+    };
+    const choices = [
+      ...CHESS_CHAPTERS.map((item, index) => ({
+        label: item.title,
+        description: progress.completedChapterIds.includes(item.id) ? 'Badge saved. Replay for practice.' : item.intro,
+        disabled: index > progress.unlockedChapterIndex,
+        action: () => begin(index),
+      })),
+      { label: 'Meet the pieces', action: () => openStudy('pieces') },
+      { label: 'Move It! practice', action: () => openStudy('practice') },
+      { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { toggleSound(); setOptionsOpen(false); } },
+      { label: 'Back to Thinking & Play', action: onBack },
+    ];
+    return <div className="focus-game" data-board-focus="">
+      <main className="focus-game-body is-menu">
+        <header className="focus-game-heading"><h1>Chess Explorers</h1></header>
+        {optionsOpen ? <FocusMenu choices={choices} onBack={() => setOptionsOpen(false)} /> : <>
+          <p className="focus-game-message">Ready for a match? Choose your side and play the computer.</p>
+          <div className="focus-game-actions">
+            <button type="button" className="focus-game-button is-primary" onClick={() => { stopVoice(); setMode('full-game'); }}>Play vs computer</button>
+            <button type="button" className="focus-game-button" onClick={() => begin(nextIndex)}>{CHESS_CHAPTERS[nextIndex].title}</button>
+            <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          </div>
+        </>}
+      </main>
+    </div>;
+  }
 
-  if (mode === 'finish') return <main className={`${shell} items-center`}>{header('Chapter complete')}<section className="m-auto max-w-lg rounded-3xl bg-white p-8 text-center shadow-xl"><div className="text-6xl">🏅</div><h2 className="mt-2 text-2xl font-black text-amber-900">{chapter.title} badge earned</h2><p className="mt-2">You solved all five puzzles. Your chapter badge is saved.</p><button ref={focusNext} autoFocus onClick={backMenu} className="mt-5 rounded-full bg-amber-600 px-6 py-3 font-black text-white">Back to chapters</button></section></main>;
+  if (mode === 'pieces') { const piece = practicePiece; return <main className={`${shell} items-center`} data-board-focus="">{header('Meet the pieces')}<section className="w-full max-w-lg rounded-3xl bg-white p-6 text-center shadow-xl"><LessonPiece type={piece.id} size="h-24 w-24" /><h2 className="text-3xl font-black text-amber-900">{piece.name}</h2><p className="mt-2 text-lg font-semibold">{piece.rule}</p>{piecePicker}<div className="mt-4">{audioButton([CHESS_AUDIO_LINES[piece.id].rule])}</div></section></main>; }
+
+  if (mode === 'finish') return <main className={`${shell} items-center`} data-board-focus="">{header('Chapter complete')}<section className="m-auto max-w-lg rounded-3xl bg-white p-8 text-center shadow-xl"><div className="text-6xl">🏅</div><h2 className="mt-2 text-2xl font-black text-amber-900">{chapter.title} badge earned</h2><p className="mt-2">You solved all five puzzles. Your chapter badge is saved.</p><button ref={focusNext} autoFocus onClick={backMenu} className="mt-5 rounded-full bg-amber-600 px-6 py-3 font-black text-white">Back to chapters</button></section></main>;
 
   if (mode === 'practice') {
     const legalSquares = Array.from({ length: 36 }, (_, n) => [Math.floor(n/6), n%6]).filter((to) => chessMoveIsLegal(practicePiece.id, practiceFrom, to));
-    return <main className={`${shell} items-center`}>{header('Move It! practice')}<p className="mb-3 text-center font-bold">Practice has no chapter reward. {practicePiece.rule}</p><div className="mb-3 flex flex-wrap justify-center gap-2">{CHESS_PIECES.map((p) => <button key={p.id} aria-label={`Choose ${p.name} for practice`} onClick={() => { stopVoice(); setPracticePiece(p); setPracticeFrom([4,2]); }} aria-pressed={p.id === practicePiece.id} className="min-h-12 min-w-12 rounded-lg border-2 border-amber-300 bg-white p-1"><LessonPiece type={p.id} /></button>)}</div><div className="grid w-[min(90vw,420px)] grid-cols-6 gap-1" role="group" aria-label={`${practicePiece.name} practice board, six by six`}>
+    return <main className={`${shell} items-center`} data-board-focus="">{header('Move It! practice')}<p className="mb-3 text-center font-bold">Practice has no chapter reward. {practicePiece.rule}</p>{piecePicker}<div className="grid w-[min(calc(100vw-2rem),68vh,560px)] grid-cols-6 gap-1" role="group" aria-label={`${practicePiece.name} practice board, six by six`}>
       {Array.from({length:36},(_,n)=>{const r=Math.floor(n/6),c=n%6,from=r===practiceFrom[0]&&c===practiceFrom[1],legal=legalSquares.some(([a,b])=>a===r&&b===c);return <button key={n} onClick={()=>legal&&setPracticeFrom([r,c])} disabled={!legal} aria-label={`${chessSquare([r,c])} ${from?`${practicePiece.name} is here`:legal?'legal move':'square'}`} className={`aspect-square min-w-0 rounded-md text-2xl ${from?'bg-purple-300':legal?'bg-amber-300':'bg-amber-100'} ${legal?'cursor-pointer':''}`}>{from?<LessonPiece type={practicePiece.id} />:null}</button>;})}</div><p role="status" className="mt-3">Tap a gold square to move. Try another piece whenever you like.</p><button type="button" onClick={() => { stopVoice(); setPracticeFrom([4,2]); }} className="mt-3 min-h-12 rounded-xl border-2 border-purple-300 bg-white px-4 font-bold text-purple-900">Reset practice board</button>
     </main>;
   }
@@ -160,10 +196,10 @@ export default function ChessExplorers({ onBack = () => {}, playSfx = () => {}, 
   const currentAttackers = puzzle.kind === 'king-safety' ? attackedBySide(puzzle.from, 'black', puzzle.pieces) : [];
   const dangerModels = showTeaching ? outcomes.filter((result) => result.legal && !result.safe && (puzzle.kind === 'king-safety' || result.capture)).map((result) => ({ target: result.square, attackers: result.attackedBy })) : [];
   if (currentAttackers.length) dangerModels.push({ target: puzzle.from, attackers: currentAttackers });
-  return <main className={`${shell} items-center`}>
+  return <main className={`${shell} items-center`} data-board-focus="">
     {header(chapter.title)}
-    <section data-chess-puzzle={puzzle.id} data-run-seed={runSeed} className="w-full max-w-xl text-center"><p className="text-sm font-bold text-amber-900">Puzzle {index+1} of {run.length} · Simplified 6×6 board</p><h2 className="mt-2 text-xl font-black text-slate-900">{puzzle.objective}</h2><p className="mt-2 text-sm font-semibold text-slate-800">{CHESS_PIECES.find((p)=>p.id===puzzle.piece).rule}</p><p className="mt-1 text-sm text-slate-700">Light pieces are yours. Dark pieces are opponents. {puzzle.kind === 'move' ? 'Find the named square.' : puzzle.kind === 'king-safety' ? 'Keep your king away from the rook’s line.' : 'Look for a capture the other enemies cannot attack.'}</p><details className="mx-auto mt-2 max-w-lg rounded-xl border border-amber-200 bg-white/80 px-3 text-left"><summary className="flex min-h-12 cursor-pointer items-center font-bold text-amber-900">How these small boards work</summary><p className="pb-3 text-sm">Friendly pieces block sliding paths and cannot be captured; knights can jump. Here, pawns take one forward step or capture on either forward diagonal. A capture is safe when no other displayed enemy attacks the landing square afterward. A king cannot enter a shown attacked square. These six-by-six positions omit full turns, the pawn’s opening double step, castling, en passant, promotion and checkmate.</p></details><div className="mt-3 flex justify-center gap-2">{audioButton(prompt)}<button type="button" disabled={helpUsed||solved} onClick={()=>{setHelpUsed(true);setMessage(puzzle.explanation); replay([CHESS_AUDIO_LINES[puzzle.piece].rule]);}} className="min-h-12 rounded-full border-2 border-purple-400 bg-white px-4 py-2 font-bold text-purple-900 disabled:opacity-50">{helpUsed?'Clue used':'One-use clue'}</button></div>
-      <div className="relative mx-auto mt-4 grid w-[min(90vw,420px)] grid-cols-6 gap-1" role="group" aria-label={`${CHESS_PIECES.find((p)=>p.id===puzzle.piece).name} board, six by six squares`}>
+    <section data-chess-puzzle={puzzle.id} data-run-seed={runSeed} className="w-full max-w-xl text-center"><p className="text-sm font-bold text-amber-900">Puzzle {index+1} of {run.length} · Simplified 6×6 board</p><h2 className="mt-2 text-xl font-black text-slate-900">{puzzle.objective}</h2><p className="mt-2 text-sm font-semibold text-slate-800">{CHESS_PIECES.find((p)=>p.id===puzzle.piece).rule}</p><p className="mt-1 text-sm text-slate-700">Light pieces are yours. Dark pieces are opponents. {puzzle.kind === 'move' ? 'Find the named square.' : puzzle.kind === 'king-safety' ? 'Keep your king away from the rook’s line.' : 'Look for a capture the other enemies cannot attack.'}</p><div className="mt-3 flex justify-center gap-2">{!solved && soundOn && audioButton(prompt)}{!solved && !helpUsed && <button type="button" onClick={() => { setHelpUsed(true); setMessage(puzzle.explanation); replay([CHESS_AUDIO_LINES[puzzle.piece].rule]); }} className="min-h-12 rounded-full border-2 border-purple-400 bg-white px-4 py-2 font-bold text-purple-900">Show clue</button>}</div>
+      <div className="relative mx-auto mt-4 grid w-[min(calc(100vw-2rem),68vh,560px)] grid-cols-6 gap-1" role="group" aria-label={`${CHESS_PIECES.find((p)=>p.id===puzzle.piece).name} board, six by six squares`}>
         {outcomes.map((analysis, n) => {
           const [r,c] = analysis.square;
           const from = r === puzzle.from[0] && c === puzzle.from[1];
