@@ -1,0 +1,915 @@
+{
+  "release": {
+    "runtime": "1c270635725da3977a33b4c641d4f121ba50bf93",
+    "entry": "/assets/arcade-5VPQjkEb.js",
+    "worker": "amari-discovery-v105",
+    "backendUrl": "https://dinospace-r2ruxdeys-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_BzAv9xpEvnL26rDtoPiUm2XmxmMx",
+    "gatewayDeployment": "6b02147576b0fa37cc926794",
+    "evidence": "docs/qa-evidence/hangman-books-focus-20261121/README.md",
+    "scope": "Dino Hangman starts the current rescue and keeps the clue and letter keyboard in view. Storybook Studio has a clear My stories shelf, one button per book and a large clear reader with Next page, read-aloud when enabled and Options."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-5VPQjkEb.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Dino Hangman entry",
+          "buttons": [
+            "Start: First words",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Dino Hangman active",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reveal one letter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Finish level",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman saved level",
+          "buttons": [
+            "Next: Four-letter rescue",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Storybook Studio shelf",
+          "buttons": [
+            "My stories",
+            "Create a story",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Find a story",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook search filters",
+          "buttons": [
+            "Show stories"
+          ]
+        },
+        {
+          "label": "Storybook cover",
+          "buttons": [
+            "Start reading",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook page with sound off",
+          "buttons": [
+            "Next page",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook page with sound on",
+          "buttons": [
+            "Next page",
+            "Hear page",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook wrong answer",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Finish",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia can open the Storybook shelf",
+          "buttons": [
+            "My stories",
+            "Create a story",
+            "Options"
+          ]
+        }
+      ],
+      "hangmanWidth": 358.8125,
+      "storyWidth": 374,
+      "rescued": [
+        "MAT",
+        "RAG",
+        "PAT"
+      ],
+      "readPages": 10,
+      "questions": 3,
+      "narrationAdvanced": true,
+      "favouriteAndBookmarkRetained": true,
+      "askiaShelf": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-5VPQjkEb.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Dino Hangman entry",
+          "buttons": [
+            "Start: First words",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Dino Hangman active",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reveal one letter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Finish level",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman saved level",
+          "buttons": [
+            "Next: Four-letter rescue",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Storybook Studio shelf",
+          "buttons": [
+            "My stories",
+            "Create a story",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Find a story",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook search filters",
+          "buttons": [
+            "Show stories"
+          ]
+        },
+        {
+          "label": "Storybook cover",
+          "buttons": [
+            "Start reading",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook page with sound off",
+          "buttons": [
+            "Next page",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook page with sound on",
+          "buttons": [
+            "Next page",
+            "Hear page",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook wrong answer",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Finish",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia can open the Storybook shelf",
+          "buttons": [
+            "My stories",
+            "Create a story",
+            "Options"
+          ]
+        }
+      ],
+      "hangmanWidth": 816,
+      "storyWidth": 1160,
+      "rescued": [
+        "SAD",
+        "RED",
+        "HEN"
+      ],
+      "readPages": 10,
+      "questions": 3,
+      "narrationAdvanced": true,
+      "favouriteAndBookmarkRetained": true,
+      "askiaShelf": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-5VPQjkEb.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Dino Hangman entry",
+          "buttons": [
+            "Start: First words",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Dino Hangman active",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reveal one letter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Finish level",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman saved level",
+          "buttons": [
+            "Next: Four-letter rescue",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Storybook Studio shelf",
+          "buttons": [
+            "My stories",
+            "Create a story",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Find a story",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook search filters",
+          "buttons": [
+            "Show stories"
+          ]
+        },
+        {
+          "label": "Storybook cover",
+          "buttons": [
+            "Start reading",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook page with sound off",
+          "buttons": [
+            "Next page",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook page with sound on",
+          "buttons": [
+            "Next page",
+            "Hear page",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook wrong answer",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Finish",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia can open the Storybook shelf",
+          "buttons": [
+            "My stories",
+            "Create a story",
+            "Options"
+          ]
+        }
+      ],
+      "hangmanWidth": 358.8125,
+      "storyWidth": 374,
+      "rescued": [
+        "MAP",
+        "TAG",
+        "PAT"
+      ],
+      "readPages": 10,
+      "questions": 3,
+      "narrationAdvanced": true,
+      "favouriteAndBookmarkRetained": true,
+      "askiaShelf": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-5VPQjkEb.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Dino Hangman entry",
+          "buttons": [
+            "Start: First words",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Dino Hangman active",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reveal one letter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman held word",
+          "buttons": [
+            "Finish level",
+            "Options"
+          ]
+        },
+        {
+          "label": "Dino Hangman saved level",
+          "buttons": [
+            "Next: Four-letter rescue",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Storybook Studio shelf",
+          "buttons": [
+            "My stories",
+            "Create a story",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Find a story",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook search filters",
+          "buttons": [
+            "Show stories"
+          ]
+        },
+        {
+          "label": "Storybook cover",
+          "buttons": [
+            "Start reading",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook page with sound off",
+          "buttons": [
+            "Next page",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook page with sound on",
+          "buttons": [
+            "Next page",
+            "Hear page",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Previous page",
+            "Back"
+          ]
+        },
+        {
+          "label": "Storybook wrong answer",
+          "buttons": [
+            "Try again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Next question",
+            "Options"
+          ]
+        },
+        {
+          "label": "Storybook held correct answer",
+          "buttons": [
+            "Finish",
+            "Options"
+          ]
+        },
+        {
+          "label": "Askia can open the Storybook shelf",
+          "buttons": [
+            "My stories",
+            "Create a story",
+            "Options"
+          ]
+        }
+      ],
+      "hangmanWidth": 816,
+      "storyWidth": 1160,
+      "rescued": [
+        "KID",
+        "GAP",
+        "LOG"
+      ],
+      "readPages": 10,
+      "questions": 3,
+      "narrationAdvanced": true,
+      "favouriteAndBookmarkRetained": true,
+      "askiaShelf": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-r2ruxdeys-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "343dd57e148de505ba2c6c0482c3116db1c3b4fd9c0dbe66a25cb87f755a66bb"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "343dd57e148de505ba2c6c0482c3116db1c3b4fd9c0dbe66a25cb87f755a66bb"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16536,
+          "sha256": "50c458b05499c2568b565f29c93bebdd87127d3fc42903c8f8e6d81bb362f390"
+        },
+        {
+          "path": "/art/catalog-v3/game-hangman.webp",
+          "bytes": 49858,
+          "sha256": "763d1c2420d9a3997ca6dbbfc614abddbb9146fc7b72c84296e36e9ac04fce76"
+        },
+        {
+          "path": "/art/catalog-v3/game-storybooks.webp",
+          "bytes": 77094,
+          "sha256": "cfd9cb94f53484aee6c5b6da1fc5d0cb7270763bff4e2bc60e38df6909d4cf95"
+        },
+        {
+          "path": "/assets/arcade-5VPQjkEb.js",
+          "bytes": 2034937,
+          "sha256": "3818fce49060f56c5f732dd5c75a0eaa78134ef1d673f1c8d6677d5888592477"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DPTHH5JF.css",
+          "bytes": 38494,
+          "sha256": "7dc4eae725a0148a63ae9023332caed3a4934ea3a638d4de82a10bd7d51a1bf0"
+        },
+        {
+          "path": "/assets/arcade-Dv0p6xSR.css",
+          "bytes": 250474,
+          "sha256": "be989104d46391aec0c851a0cb4ab0f8fab2ce7dcf8e2b37954dbf480bf0ca94"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b0214651139e842e5022835--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "343dd57e148de505ba2c6c0482c3116db1c3b4fd9c0dbe66a25cb87f755a66bb"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "343dd57e148de505ba2c6c0482c3116db1c3b4fd9c0dbe66a25cb87f755a66bb"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16536,
+          "sha256": "50c458b05499c2568b565f29c93bebdd87127d3fc42903c8f8e6d81bb362f390"
+        },
+        {
+          "path": "/art/catalog-v3/game-hangman.webp",
+          "bytes": 49858,
+          "sha256": "763d1c2420d9a3997ca6dbbfc614abddbb9146fc7b72c84296e36e9ac04fce76"
+        },
+        {
+          "path": "/art/catalog-v3/game-storybooks.webp",
+          "bytes": 77094,
+          "sha256": "cfd9cb94f53484aee6c5b6da1fc5d0cb7270763bff4e2bc60e38df6909d4cf95"
+        },
+        {
+          "path": "/assets/arcade-5VPQjkEb.js",
+          "bytes": 2034937,
+          "sha256": "3818fce49060f56c5f732dd5c75a0eaa78134ef1d673f1c8d6677d5888592477"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DPTHH5JF.css",
+          "bytes": 38494,
+          "sha256": "7dc4eae725a0148a63ae9023332caed3a4934ea3a638d4de82a10bd7d51a1bf0"
+        },
+        {
+          "path": "/assets/arcade-Dv0p6xSR.css",
+          "bytes": 250474,
+          "sha256": "be989104d46391aec0c851a0cb4ab0f8fab2ce7dcf8e2b37954dbf480bf0ca94"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "343dd57e148de505ba2c6c0482c3116db1c3b4fd9c0dbe66a25cb87f755a66bb"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "343dd57e148de505ba2c6c0482c3116db1c3b4fd9c0dbe66a25cb87f755a66bb"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16536,
+          "sha256": "50c458b05499c2568b565f29c93bebdd87127d3fc42903c8f8e6d81bb362f390"
+        },
+        {
+          "path": "/art/catalog-v3/game-hangman.webp",
+          "bytes": 49858,
+          "sha256": "763d1c2420d9a3997ca6dbbfc614abddbb9146fc7b72c84296e36e9ac04fce76"
+        },
+        {
+          "path": "/art/catalog-v3/game-storybooks.webp",
+          "bytes": 77094,
+          "sha256": "cfd9cb94f53484aee6c5b6da1fc5d0cb7270763bff4e2bc60e38df6909d4cf95"
+        },
+        {
+          "path": "/assets/arcade-5VPQjkEb.js",
+          "bytes": 2034937,
+          "sha256": "3818fce49060f56c5f732dd5c75a0eaa78134ef1d673f1c8d6677d5888592477"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DPTHH5JF.css",
+          "bytes": 38494,
+          "sha256": "7dc4eae725a0148a63ae9023332caed3a4934ea3a638d4de82a10bd7d51a1bf0"
+        },
+        {
+          "path": "/assets/arcade-Dv0p6xSR.css",
+          "bytes": 250474,
+          "sha256": "be989104d46391aec0c851a0cb4ab0f8fab2ce7dcf8e2b37954dbf480bf0ca94"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 771
+}
