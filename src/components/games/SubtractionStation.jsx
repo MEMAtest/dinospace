@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
 import { SUBTRACTION_CHAPTERS, arithmeticNarrationSegments, createSubtractionRun, createArithmeticSeed, arithmeticRewardUnits, scoreArithmeticResults } from '../../data/arithmeticAdventure.js';
 import {
   readArithmeticProgressStrict, rememberStartedArithmeticRunStrict, recordArithmeticRunCompletionStrict,
   getPendingArithmeticRewardReceiptsStrict, pendingArithmeticRewardReceipts, markArithmeticRewardReceiptClaimedStrict,
 } from '../../data/arithmeticProgress.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 
 const tell = (speak, text, segments = arithmeticNarrationSegments(text)) => speak?.(text, { premium: false, segments });
 const noopCancel = () => {};
@@ -22,8 +21,7 @@ const ObjectToken = ({ object, color }) => {
   if (object === 'cookie') return <><circle cx="16" cy="16" r="13" fill={fill} stroke="#78350f" strokeWidth="1.5"/><g fill="#451a03"><circle cx="10" cy="11" r="1.7"/><circle cx="21" cy="9" r="1.6"/><circle cx="17" cy="18" r="1.8"/><circle cx="10" cy="22" r="1.5"/><circle cx="24" cy="22" r="1.5"/></g></>;
   return <circle cx="16" cy="16" r="11" fill={fill} stroke="#fff" strokeWidth="2"/>;
 };
-const ObjectIcon = ({ object, color }) => <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden="true" focusable="false"><ObjectToken object={object} color={color}/></svg>;
-const Chapter = ({ chapter, index, selected, done, locked, onClick }) => <button type="button" disabled={locked} onClick={onClick} aria-pressed={selected} className={`min-h-16 rounded-2xl border-2 p-3 text-left font-black disabled:opacity-50 ${selected ? 'border-violet-600 bg-violet-100' : 'border-white bg-white'}`}><span className="block text-xs uppercase tracking-wide">Chapter {index + 1}{done ? ' · Badge earned' : locked ? ' · Locked' : ''}</span>{chapter.title}</button>;
+const ObjectIcon = ({ object, color }) => <svg viewBox="0 0 32 32" className="h-8 w-8 sm:h-11 sm:w-11" aria-hidden="true" focusable="false"><ObjectToken object={object} color={color}/></svg>;
 
 export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, cancelNarration = noopCancel, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) {
   const [progressState, setProgressState] = useState(() => readArithmeticProgressStrict('subtraction', playerId));
@@ -31,6 +29,9 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
   const unlockedChapter = Math.min(progress.completedChapterIds.length, SUBTRACTION_CHAPTERS.length - 1);
   const [chapterIndex, setChapterIndex] = useState(() => Math.min(readArithmeticProgressStrict('subtraction', playerId).progress?.completedChapterIds.length || 0, SUBTRACTION_CHAPTERS.length - 1));
   const [phase, setPhase] = useState('start');
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const headingRef = useRef(null);
+  const nextRef = useRef(null);
   const [seed, setSeed] = useState(null);
   const [rounds, setRounds] = useState([]);
   const [roundIndex, setRoundIndex] = useState(0);
@@ -142,7 +143,11 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     tell(speak, question.prompt, arithmeticNarrationSegments(question));
   }, [phase, question, chapterIndex, chapter.id, roundIndex, seed, speak, onGameEvent]);
 
+  useEffect(() => { if (!optionsOpen) headingRef.current?.focus({ preventScroll: true }); }, [phase, roundIndex, optionsOpen]);
+  useEffect(() => { if (locked) nextRef.current?.focus({ preventScroll: true }); }, [locked, completionError]);
+
   const start = (index = chapterIndex) => {
+    setOptionsOpen(false);
     cancelNarration();
     const loaded = readArithmeticProgressStrict('subtraction', playerId);
     if (!loaded.ok) {
@@ -355,14 +360,10 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     return <section className="mx-auto max-w-xl rounded-2xl border-2 border-violet-200 bg-white p-2 sm:p-3" aria-label="Take-away model">
       <p className="hidden text-xs font-black uppercase tracking-wide text-violet-800 sm:block">{question.type === 'story' ? 'Story · Give away the second amount' : 'Take away · Remove the second amount'}</p>
       {!locked && <p className="mt-1 hidden text-xs font-bold sm:block">{question.b === 0 ? 'Nothing is taken away.' : 'Tap the objects being taken away.'}</p>}
-      <div className="my-0.5 flex items-center justify-between gap-1 sm:my-2">
-        <span aria-hidden="true" className="w-[5.75rem] shrink-0" />
         <p className="flex-1 text-center text-2xl font-black" aria-label={`Equation: ${question.a} minus ${question.b} equals ${locked ? question.answer : 'unknown'}`}>{question.a} − {question.b} = {locked ? question.answer : '?'}</p>
-        {!locked ? <div className="flex shrink-0 gap-1"><button type="button" aria-label="Undo marked object" onClick={() => setRemovedTokens((previous) => previous.slice(0, -1))} disabled={!removedTokens.length} className="min-h-11 min-w-11 rounded-lg border-2 border-slate-300 px-1 text-xs font-bold disabled:opacity-50">Undo</button><button type="button" onClick={() => setRemovedTokens([])} disabled={!removedTokens.length} className="min-h-11 min-w-11 rounded-lg border-2 border-slate-300 px-1 text-xs font-bold disabled:opacity-50">Reset</button></div> : <span aria-hidden="true" className="w-[5.75rem] shrink-0" />}
-      </div>
       <div role="group" aria-label={`Starting group: ${question.a} ${question.a === 1 ? question.one : question.many}. ${removedTokens.length} marked to take away.`} className="rounded-xl border-2 border-slate-200 bg-slate-50 p-2 sm:p-3">
         <div className="mb-1 flex flex-wrap items-center justify-between gap-1 text-sm"><b>Starting group · {question.a}</b><span className="font-bold text-rose-700">Take away · {question.b}</span></div>
-        <div className="flex flex-wrap justify-center gap-0.5 sm:gap-1" aria-label="Tap objects to mark them for taking away">
+        <div className="flex flex-wrap justify-center gap-1 sm:gap-2" aria-label="Tap objects to mark them for taking away">
           {Array.from({ length: question.a }, (_, index) => <button key={index} type="button" disabled={locked || (!selected.has(index) && removedTokens.length >= question.b)} onClick={() => setRemovedTokens((previous) => previous.includes(index) ? previous.filter((item) => item !== index) : [...previous, index])} aria-pressed={selected.has(index)} aria-label={`${question.object} ${index + 1}${selected.has(index) ? ', marked to take away' : ', remains'}`} className={`relative flex min-h-11 min-w-11 items-center justify-center rounded-lg border-2 ${selected.has(index) ? 'border-rose-500 bg-rose-100 opacity-70' : 'border-transparent bg-white'} disabled:cursor-default`}><ObjectIcon object={question.object} color={selected.has(index) ? 'rose' : question.color}/>{selected.has(index) && <><span aria-hidden="true" className="absolute inset-x-1/4 top-1/2 h-0.5 -rotate-45 bg-slate-950"/><span aria-hidden="true" className="sr-only">Marked to take away</span></>}</button>)}
           {question.a === 0 && <span className="py-2 text-sm font-bold text-slate-500">Empty starting group</span>}
         </div>
@@ -370,41 +371,73 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
       </div>
     </section>;
   }, [question, locked, removedTokens]);
-  if (phase === 'start' || phase === 'done') return (
-    <div className="min-h-[100dvh] bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6" data-subtraction-phase={phase}>
-      <header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>
-      {phase === 'start' ? <main className="mx-auto mt-3 max-w-4xl" data-subtraction-menu>
-        <p className="mb-3 rounded-2xl bg-white p-3 text-center font-bold">Take away, compare groups, and solve stories. Each chapter has six questions. Your worked answer stays until Finish chapter, and chapter progress saves then.</p>
-        {!progressState.ok && <section role="alert" className="mb-3 rounded-2xl border-2 border-rose-600 bg-white p-3 text-center font-bold"><p>Saved chapter progress is unavailable, so chapters stay locked until it can be checked.</p><button onClick={retryProgressRead} disabled={progressRetryBusy} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{progressRetryBusy ? 'Checking saved progress…' : 'Retry saved progress'}</button></section>}
-        {rewardDrainBusy && <p role="status" className="mb-3 rounded-xl bg-white p-3 text-center font-semibold">Checking saved chapter rewards…</p>}
-        {rewardClaimError && <section role="alert" className="mb-3 rounded-2xl border-2 border-amber-600 bg-white p-3 text-center font-bold"><p>A saved chapter reward still needs confirmation.</p><button onClick={()=>void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry reward confirmation</button></section>}
-        {startError && <p role="alert" className="mb-3 rounded-xl border-2 border-rose-500 bg-white p-3 text-center font-bold">{startError}</p>}
-        <section className="relative rounded-2xl bg-white p-3 shadow" aria-label="Selected subtraction chapter">
-          <img src="/art/catalog-v3/game-subtraction.webp" alt="" aria-hidden="true" className="pointer-events-none absolute right-3 top-2 h-14 w-20 object-contain" />
-          <div className="min-h-14 pr-20"><p className="text-xs font-black uppercase tracking-wide">Selected · Chapter {chapterIndex + 1} of 3</p><h2 className="mt-1 text-lg font-black">{chapter.title}</h2><p className="text-sm">{chapter.skill[0].toUpperCase() + chapter.skill.slice(1)} · up to {chapter.max}</p></div>
-          <button type="button" data-subtraction-start disabled={!canStart || chapterIndex > unlockedChapter} onClick={()=>start(chapterIndex)} className="mt-3 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white disabled:opacity-50">
-            {pendingStartRef.current?.chapterIndex === chapterIndex ? 'Retry saving this chapter' : progress.completedChapterIds.includes(chapter.id) ? `Replay ${chapter.title}` : `Start ${chapter.title}`}
-          </button>
-        </section>
-        <details className="mt-3 rounded-2xl bg-white p-3 shadow" aria-label="Chapter choices"><summary className="min-h-12 cursor-pointer content-center font-black">Choose another chapter</summary><div className="mt-2 grid gap-2 sm:grid-cols-3">{SUBTRACTION_CHAPTERS.map((item,index)=><Chapter key={item.id} chapter={item} index={index} selected={chapterIndex===index} done={progress.completedChapterIds.includes(item.id)} locked={!progressState.ok || index>unlockedChapter} onClick={()=>{setChapterIndex(index);setStartError('');}} />)}</div></details>
-      </main> : <main className="mx-auto mt-5 max-w-2xl rounded-3xl bg-white p-5 text-center shadow-xl" data-subtraction-result><p className="text-xl font-black">{feedback}</p><p className="mt-2">Choose the next unlocked chapter or replay a completed chapter.</p><button className="mt-4 min-h-14 w-full rounded-2xl bg-violet-700 px-5 font-black text-white" onClick={()=>{cancelNarration();setPhase('start');setChapterIndex(unlockedChapter);}}>Continue</button><button className="mt-3 min-h-14 w-full rounded-2xl bg-white px-5 font-black text-violet-800 ring-2 ring-violet-700" onClick={()=>start(chapterIndex)}>Replay {chapter.title}</button></main>}
-    </div>
-  );
+
+  const closeOptions = () => setOptionsOpen(false);
+  const menu = phase !== 'play';
+  const nextIndex = pendingStartRef.current?.chapterIndex ?? unlockedChapter;
+  const recommended = SUBTRACTION_CHAPTERS[nextIndex];
+  const retryStart = pendingStartRef.current?.chapterIndex === nextIndex;
+  const recommendedLabel = retryStart ? 'Retry saving this chapter' : progress.completedChapterIds.includes(recommended.id)
+    ? `Replay: ${recommended.title}` : phase === 'done' ? `Next: ${recommended.title}` : `Start: ${recommended.title}`;
+  const soundChoice = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } };
+  const chapterChoices = SUBTRACTION_CHAPTERS.map((item, index) => {
+    const completed = progress.completedChapterIds.includes(item.id);
+    return {
+      label: `${item.title}${index > unlockedChapter ? ' · Locked' : completed ? ' · Complete' : ''}`,
+      button: `${completed ? 'Replay' : 'Start'}: ${item.title}`,
+      description: item.skill,
+      disabled: !canStart || index > unlockedChapter,
+      action: () => start(index),
+    };
+  });
+  const playChoices = [
+    ...(!locked && !hintUsed ? [{ label: 'Use one hint', action: () => { closeOptions(); hint(); } }] : []),
+    ...(question?.type !== 'compare' && removedTokens.length ? [
+      { label: 'Undo marked object', action: () => { closeOptions(); setRemovedTokens(previous => previous.slice(0, -1)); } },
+      { label: 'Reset marked objects', action: () => { closeOptions(); setRemovedTokens([]); } },
+    ] : []),
+    soundChoice,
+    { label: 'Back to Maths Missions', action: leave },
+  ];
+  const startBlocked = !progressState.ok || rewardClaimError;
   const equation = question?.type === 'compare'
     ? `${question.a} and ${question.b} → ${locked ? question.answer : '?'} unpaired`
-    : `${question?.a} − ${question?.b} = ${locked ? question?.answer : '?'}`;
-  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6" data-subtraction-phase="play" data-subtraction-question={question?.id} data-subtraction-run-seed={seed}>
-    <header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-2 shadow sm:p-3"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex+1} of 3 · Question {roundIndex+1} of 6</p><h1 className="text-lg font-black sm:text-3xl">Subtraction Station</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>
-    <main className="mx-auto mt-2 max-w-4xl rounded-3xl bg-white/90 p-2 text-center shadow-xl sm:mt-4 sm:p-6">
-      <p className="mb-1 text-base font-bold leading-5 sm:mb-2 sm:text-lg sm:leading-normal" aria-live="polite">{question?.prompt}</p>
-      {question?.type === 'compare' && !locked && <p className="mb-1 text-xl font-black sm:mb-2" aria-label={`Difference model: ${equation}`}>{equation}</p>}
-      {!locked && <div className="mx-auto mb-2 flex flex-wrap justify-center gap-2" role="group" aria-label="Question tools"><button className="inline-flex min-h-12 items-center gap-1 rounded-xl bg-violet-100 px-3 text-sm font-black sm:gap-2 sm:px-4 sm:text-base" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button><button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-1 rounded-xl border-2 border-amber-500 bg-amber-50 px-3 text-sm font-black disabled:opacity-50 sm:gap-2 sm:px-4 sm:text-base"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button></div>}
-      {model}
-      {feedback&&<p role="status" className="mx-auto my-2 max-w-2xl rounded-xl bg-violet-50 p-2 font-bold">{feedback}</p>}
-      {locked&&<button onClick={()=>tell(speak, question.explanation, arithmeticNarrationSegments(question, 'explanation'))} className="mx-auto inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-violet-700 bg-white px-4 font-black"><Volume2 size={20}/> Hear explanation</button>}
-      {!locked && <div className="my-3 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose the answer">{question?.options.map(option=><button key={option} disabled={locked} onClick={()=>attempt(option)} className="min-h-14 min-w-16 rounded-2xl bg-violet-700 px-5 text-2xl font-black text-white shadow disabled:opacity-60" aria-label={`Answer ${option}`}>{option}</button>)}</div>}
-      {completionError&&<section role="alert" className="mx-auto mt-2 max-w-2xl rounded-2xl border-2 border-rose-600 bg-white p-2 text-sm font-bold"><p>{completionError}</p><button data-subtraction-result-retry onClick={()=>void finishChapter(pendingCompletionRef.current)} disabled={completionPending} className="mt-1 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{completionPending?'Saving…':completionError.includes('reward') || completionError.includes('rewards') ? 'Retry reward confirmation' : 'Retry saving this result'}</button></section>}
-      {locked&&!completionError&&<button onClick={next} disabled={completionPending} className="mt-3 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white disabled:opacity-60">{roundIndex===5?'Finish chapter':'Next question'}</button>}
+    : null;
+  return <div data-board-focus="" className="focus-game" data-subtraction-phase={phase} data-subtraction-question={menu ? undefined : question?.id} data-subtraction-run-seed={menu ? undefined : seed}>
+    <main className={`focus-game-body ${menu || optionsOpen ? 'is-menu' : ''}`}>
+      <header className="focus-game-heading">
+        {!menu && <p>Subtraction Station · {chapter.title} · {roundIndex + 1} of 6</p>}
+        <h1 ref={headingRef} tabIndex={-1}>{phase === 'done' ? 'Chapter saved!' : menu ? 'Subtraction Station' : question?.prompt}</h1>
+      </header>
+      {optionsOpen ? <FocusMenu choices={menu ? [...chapterChoices, soundChoice] : playChoices} onBack={closeOptions} /> : menu ? <>
+        {phase === 'done' && <p role="status" className="focus-game-message">{feedback}</p>}
+        {startBlocked || startError
+          ? <p role="alert" className="focus-game-message">{startError || (!progressState.ok ? 'Saved chapter progress could not be checked.' : 'Confirm the saved reward before starting.')}</p>
+          : <p className="focus-game-message">{recommended.skill} · six questions</p>}
+        <div className="focus-game-actions">
+          {startBlocked ? <button type="button" className="focus-game-button is-primary" disabled={progressRetryBusy || rewardDrainBusy} onClick={!progressState.ok ? retryProgressRead : () => void drainPendingRewards()}>{!progressState.ok ? 'Retry saved progress' : 'Retry reward confirmation'}</button>
+            : <button type="button" data-subtraction-start className="focus-game-button is-primary" disabled={!canStart} onClick={() => start(nextIndex)}>{rewardDrainBusy ? 'Checking saved progress…' : recommendedLabel}</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={leave}>Back to Maths Missions</button>
+        </div>
+      </> : <>
+        {equation && <p className="mb-3 text-center text-2xl font-black" aria-label={`Equation: ${equation}`}>{equation}</p>}
+        <div className="my-3" data-subtraction-model>{model}</div>
+        {!locked && <div className="my-3 grid grid-cols-3 gap-2" role="group" aria-label="Choose the answer">
+          {question?.options.map(option => <button key={option} type="button" onClick={() => attempt(option)} className="focus-game-button text-xl" aria-label={`Answer ${option}`}>{option}</button>)}
+        </div>}
+        {feedback && <p role="status" className="focus-game-message">{feedback}</p>}
+        {completionError && <p role="alert" className="focus-game-message">{completionError}</p>}
+        <div className="focus-game-actions">
+          {completionError ? <button ref={nextRef} type="button" data-subtraction-result-retry onClick={() => void finishChapter(pendingCompletionRef.current)} disabled={completionPending} className="focus-game-button is-primary">{completionPending ? 'Saving…' : 'Retry saving this result'}</button>
+            : locked && <button ref={nextRef} type="button" onClick={next} disabled={completionPending} className="focus-game-button is-primary">{completionPending ? 'Saving…' : roundIndex === 5 ? 'Finish chapter' : 'Next question'}</button>}
+          {!completionError && !completionPending && <>
+            {soundOn && <button type="button" className="focus-game-button" onClick={() => tell(speak, locked ? question.explanation : question.prompt, arithmeticNarrationSegments(question, locked ? 'explanation' : undefined))}>{locked ? 'Hear explanation' : 'Hear question'}</button>}
+
+            <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          </>}
+        </div>
+      </>}
     </main>
   </div>;
 }

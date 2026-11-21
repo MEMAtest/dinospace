@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, Lightbulb, Volume2 } from 'lucide-react';
 import { ARITHMETIC_CHAPTERS, arithmeticNarrationSegments, createAdditionRun, createArithmeticSeed, arithmeticRewardUnits, scoreArithmeticResults } from '../../data/arithmeticAdventure.js';
 import {
   readArithmeticProgressStrict, rememberStartedArithmeticRunStrict, recordArithmeticRunCompletionStrict,
   getPendingArithmeticRewardReceiptsStrict, pendingArithmeticRewardReceipts, markArithmeticRewardReceiptClaimedStrict,
 } from '../../data/arithmeticProgress.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 
 const tell = (speak, text, segments = arithmeticNarrationSegments(text)) => speak?.(text, { premium: false, segments });
 const noopCancel = () => {};
@@ -22,7 +21,6 @@ const ObjectToken = ({ object, color }) => {
   if (object === 'cookie') return <><circle cx="16" cy="16" r="13" fill={fill} stroke="#78350f" strokeWidth="1.5"/><g fill="#451a03"><circle cx="10" cy="11" r="1.7"/><circle cx="21" cy="9" r="1.6"/><circle cx="17" cy="18" r="1.8"/><circle cx="10" cy="22" r="1.5"/><circle cx="24" cy="22" r="1.5"/></g></>;
   return <circle cx="16" cy="16" r="11" fill={fill} stroke="#fff" strokeWidth="2"/>;
 };
-const Chapter = ({ chapter, index, selected, done, locked, onClick }) => <button type="button" disabled={locked} onClick={onClick} aria-pressed={selected} className={`min-h-16 rounded-2xl border-2 p-3 text-left font-black disabled:opacity-50 ${selected ? 'border-emerald-600 bg-emerald-100' : 'border-white bg-white'}`}><span className="block text-xs uppercase tracking-wide">Chapter {index + 1}{done ? ' · Badge earned' : locked ? ' · Locked' : ''}</span>{chapter.title}</button>;
 
 export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, cancelNarration = noopCancel, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) {
   const [progressState, setProgressState] = useState(() => readArithmeticProgressStrict('addition', playerId));
@@ -30,6 +28,9 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
   const unlockedChapter = Math.min(progress.completedChapterIds.length, ARITHMETIC_CHAPTERS.length - 1);
   const [chapterIndex, setChapterIndex] = useState(() => Math.min(readArithmeticProgressStrict('addition', playerId).progress?.completedChapterIds.length || 0, ARITHMETIC_CHAPTERS.length - 1));
   const [phase, setPhase] = useState('start');
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const headingRef = useRef(null);
+  const nextRef = useRef(null);
   const [seed, setSeed] = useState(null);
   const [rounds, setRounds] = useState([]);
   const [roundIndex, setRoundIndex] = useState(0);
@@ -141,7 +142,11 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     tell(speak, question.prompt, arithmeticNarrationSegments(question));
   }, [phase, question, chapterIndex, chapter.id, roundIndex, seed, speak, onGameEvent]);
 
+  useEffect(() => { if (!optionsOpen) headingRef.current?.focus({ preventScroll: true }); }, [phase, roundIndex, optionsOpen]);
+  useEffect(() => { if (locked) nextRef.current?.focus({ preventScroll: true }); }, [locked, completionError]);
+
   const start = (index = chapterIndex) => {
+    setOptionsOpen(false);
     cancelNarration();
     const loaded = readArithmeticProgressStrict('addition', playerId);
     if (!loaded.ok) {
@@ -340,9 +345,9 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
           className={`min-w-24 rounded-2xl border-2 border-slate-200 bg-white p-2 transition-all duration-500 motion-reduce:transition-none ${joined ? 'opacity-45' : ''}`}
         >
           <p className="text-xs font-black">{joined ? `Moved from ${label.toLowerCase()}` : `${label}: ${count === 0 ? '0 (empty)' : count}`}</p>
-          <div className="mt-1 flex max-w-56 flex-wrap gap-1" aria-hidden="true">
+          <div className="mt-1 flex max-w-full flex-wrap gap-1" aria-hidden="true">
             {Array.from({ length: joined ? 0 : count }, (_, index) => (
-              <svg key={index} viewBox="0 0 32 32" className="h-7 w-7" focusable="false">
+              <svg key={index} viewBox="0 0 32 32" className="h-8 w-8 sm:h-11 sm:w-11" focusable="false">
                 <ObjectToken object={question.object} color={question.color} />
               </svg>
             ))}
@@ -356,9 +361,9 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
           aria-label={`Joined group, ${question.answer} ${question.answer === 1 ? question.one : question.many}`}
         >
           <b>Joined group: {question.answer}</b>
-          <div className="mt-1 flex max-w-56 flex-wrap justify-center gap-1" aria-hidden="true">
+          <div className="mt-1 flex max-w-full flex-wrap justify-center gap-1" aria-hidden="true">
             {Array.from({ length: question.answer }, (_, index) => (
-              <svg key={index} viewBox="0 0 32 32" className="h-7 w-7" focusable="false">
+              <svg key={index} viewBox="0 0 32 32" className="h-8 w-8 sm:h-11 sm:w-11" focusable="false">
                 <ObjectToken object={question.object} color={question.color} />
               </svg>
             ))}
@@ -366,7 +371,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
         </div>
       );
       return (
-        <div className="mx-auto w-full max-w-md" aria-label="Two groups shown separately before adding">
+        <div className="mx-auto w-full max-w-2xl" aria-label="Two groups shown separately before adding">
           {modelJoined ? joinedGroup : (
             <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2">
               {objectGroup(question.a, 'First group', false)}
@@ -393,67 +398,70 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
       </div>
     );
   }, [question, locked, modelJoined]);
-  if (phase === 'start' || phase === 'done') return (
-    <div className="min-h-[100dvh] bg-gradient-to-b from-emerald-100 to-teal-200 p-3 text-slate-900 sm:p-6" data-addition-phase={phase}>
-      <header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow">
-        <button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button>
-        <h1 className="text-xl font-black sm:text-3xl">Addition Adventure</h1>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </header>
-      {phase === 'start' ? (
-        <main className="mx-auto mt-3 max-w-4xl" data-addition-menu>
-          <p className="mb-3 rounded-2xl bg-white p-3 text-center font-bold">Three ways to think about addition. Each chapter has six questions. Your worked answer stays here until Next, and chapter progress saves when you finish.</p>
-          {!progressState.ok && <section role="alert" className="mb-3 rounded-2xl border-2 border-rose-600 bg-white p-3 text-center font-bold"><p>Saved chapter progress is unavailable, so chapters stay locked until it can be checked.</p><button onClick={retryProgressRead} disabled={progressRetryBusy} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{progressRetryBusy ? 'Checking saved progress…' : 'Retry saved progress'}</button></section>}
-          {rewardDrainBusy && <p role="status" className="mb-3 rounded-xl bg-white p-3 text-center font-semibold">Checking saved chapter rewards…</p>}
-          {rewardClaimError && <section role="alert" className="mb-3 rounded-2xl border-2 border-amber-600 bg-white p-3 text-center font-bold"><p>A saved chapter reward still needs confirmation.</p><button onClick={()=>void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry reward confirmation</button></section>}
-          {startError && <p role="alert" className="mb-3 rounded-xl border-2 border-rose-500 bg-white p-3 text-center font-bold">{startError}</p>}
-          <section className="relative rounded-2xl bg-white p-3 shadow" aria-label="Selected addition chapter">
-            <img src="/art/catalog-v3/game-addition.webp" alt="" aria-hidden="true" className="pointer-events-none absolute right-3 top-2 h-14 w-20 object-contain" />
-            <div className="min-h-14 pr-20">
-              <p className="text-xs font-black uppercase tracking-wide">Selected · Chapter {chapterIndex + 1} of 3</p>
-              <h2 className="mt-1 text-lg font-black">{chapter.title}</h2>
-              <p className="text-sm">{chapter.skill[0].toUpperCase() + chapter.skill.slice(1)} · up to {chapter.max}</p>
-            </div>
-            <button type="button" data-addition-start disabled={!canStart || chapterIndex > unlockedChapter} onClick={()=>start(chapterIndex)} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-700 px-5 text-lg font-black text-white disabled:opacity-50">
-              {pendingStartRef.current?.chapterIndex === chapterIndex ? 'Retry saving this chapter' : progress.completedChapterIds.includes(chapter.id) ? `Replay ${chapter.title}` : `Start ${chapter.title}`}
-            </button>
-          </section>
-          <details className="mt-3 rounded-2xl bg-white p-3 shadow" aria-label="Chapter choices">
-            <summary className="min-h-12 cursor-pointer content-center font-black">Choose another chapter</summary>
-            <div className="mt-2 grid gap-2 sm:grid-cols-3">
-              {ARITHMETIC_CHAPTERS.map((item,index)=><Chapter key={item.id} chapter={item} index={index} selected={chapterIndex===index} done={progress.completedChapterIds.includes(item.id)} locked={!progressState.ok || index>unlockedChapter} onClick={()=>{setChapterIndex(index);setStartError('');}} />)}
-            </div>
-          </details>
-        </main>
-      ) : (
-        <main className="mx-auto mt-5 max-w-2xl rounded-3xl bg-white p-5 text-center shadow-xl" data-addition-result>
-          <p className="text-xl font-black">{feedback}</p>
-          <p className="mt-2">{progress.completedChapterIds.length < 3 ? 'Choose the next unlocked chapter or replay this one.' : 'All three chapters are complete. Replay any chapter.'}</p>
-          <button className="mt-4 min-h-14 w-full rounded-2xl bg-emerald-700 px-5 font-black text-white" onClick={()=>{cancelNarration();setPhase('start');setChapterIndex(unlockedChapter);}}>Continue</button>
-          <button className="mt-3 min-h-14 w-full rounded-2xl bg-white px-5 font-black text-emerald-800 ring-2 ring-emerald-700" onClick={()=>start(chapterIndex)}>Replay {chapter.title}</button>
-        </main>
-      )}
-    </div>
-  );
+
+  const closeOptions = () => setOptionsOpen(false);
+  const menu = phase !== 'play';
+  const nextIndex = pendingStartRef.current?.chapterIndex ?? unlockedChapter;
+  const recommended = ARITHMETIC_CHAPTERS[nextIndex];
+  const retryStart = pendingStartRef.current?.chapterIndex === nextIndex;
+  const recommendedLabel = retryStart ? 'Retry saving this chapter' : progress.completedChapterIds.includes(recommended.id)
+    ? `Replay: ${recommended.title}` : phase === 'done' ? `Next: ${recommended.title}` : `Start: ${recommended.title}`;
+  const soundChoice = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } };
+  const chapterChoices = ARITHMETIC_CHAPTERS.map((item, index) => {
+    const completed = progress.completedChapterIds.includes(item.id);
+    return {
+      label: `${item.title}${index > unlockedChapter ? ' · Locked' : completed ? ' · Complete' : ''}`,
+      button: `${completed ? 'Replay' : 'Start'}: ${item.title}`,
+      description: item.skill,
+      disabled: !canStart || index > unlockedChapter,
+      action: () => start(index),
+    };
+  });
+  const playChoices = [
+    ...(!locked && !hintUsed ? [{ label: 'Use one hint', action: () => { closeOptions(); hint(); } }] : []),
+
+    soundChoice,
+    { label: 'Back to Maths Missions', action: leave },
+  ];
+  const startBlocked = !progressState.ok || rewardClaimError;
   const equation = question?.type === 'bond'
     ? `${question.a} + ${locked ? question.b : '?'} = ${question.total}`
     : `${question?.a} + ${question?.b} = ${locked ? question?.answer : '?'}`;
-  return (
-    <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-emerald-100 to-teal-200 p-3 text-slate-900 sm:p-6" data-addition-phase="play" data-addition-question={question?.id} data-addition-run-seed={seed}>
-      <header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex+1} of 3 · Question {roundIndex+1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Addition Adventure</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>
-      <main className="mx-auto mt-3 max-w-4xl rounded-3xl bg-white/90 p-3 text-center shadow-xl sm:mt-4 sm:p-6">
-        <p className="mb-2 text-lg font-bold" aria-live="polite">{question?.prompt}</p>
-        <p className="mb-2 text-xl font-black" aria-label={`Equation: ${equation}`}>{equation}</p>
-        {!locked&&<button className="mb-2 inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>}
-        {model}
-        {question?.type !== 'bond' && !locked && <button onClick={()=>setModelJoined((joined)=>!joined)} className="my-2 min-h-12 rounded-xl border-2 border-teal-700 bg-teal-50 px-4 font-black">{modelJoined ? 'Split the groups apart' : 'Bring the groups together'}</button>}
-        {!locked && <div className="my-3 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose the answer">{question?.options.map(option=><button key={option} disabled={locked} onClick={()=>attempt(option)} className="min-h-14 min-w-16 rounded-2xl bg-emerald-700 px-5 text-2xl font-black text-white shadow disabled:opacity-60" aria-label={`Answer ${option}`}>{option}</button>)}</div>}
-        {feedback&&<p role="status" className="mx-auto mb-2 max-w-2xl rounded-xl bg-emerald-50 p-3 font-bold">{feedback}</p>}
-        {locked&&<button onClick={()=>tell(speak, question.explanation, arithmeticNarrationSegments(question, 'explanation'))} className="mx-auto inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-emerald-700 bg-white px-4 font-black"><Volume2 size={20}/> Hear explanation again</button>}
-        {!locked&&<button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button>}
-        {completionError&&<section role="alert" className="mx-auto mt-2 max-w-2xl rounded-2xl border-2 border-rose-600 bg-white p-2 text-sm font-bold"><p>{completionError}</p><button data-addition-result-retry onClick={()=>void finishChapter(pendingCompletionRef.current)} disabled={completionPending} className="mt-1 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{completionPending?'Saving…':completionError.includes('reward') || completionError.includes('rewards') ? 'Retry reward confirmation' : 'Retry saving this result'}</button></section>}
-        {locked&&!completionError&&<button onClick={next} disabled={completionPending} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-700 px-5 text-lg font-black text-white disabled:opacity-60">{roundIndex===5?'Finish chapter':'Next question'}</button>}
-      </main>
-    </div>
-  );
+  return <div data-board-focus="" className="focus-game" data-addition-phase={phase} data-addition-question={menu ? undefined : question?.id} data-addition-run-seed={menu ? undefined : seed}>
+    <main className={`focus-game-body ${menu || optionsOpen ? 'is-menu' : ''}`}>
+      <header className="focus-game-heading">
+        {!menu && <p>Addition Adventure · {chapter.title} · {roundIndex + 1} of 6</p>}
+        <h1 ref={headingRef} tabIndex={-1}>{phase === 'done' ? 'Chapter saved!' : menu ? 'Addition Adventure' : question?.prompt}</h1>
+      </header>
+      {optionsOpen ? <FocusMenu choices={menu ? [...chapterChoices, soundChoice] : playChoices} onBack={closeOptions} /> : menu ? <>
+        {phase === 'done' && <p role="status" className="focus-game-message">{feedback}</p>}
+        {startBlocked || startError
+          ? <p role="alert" className="focus-game-message">{startError || (!progressState.ok ? 'Saved chapter progress could not be checked.' : 'Confirm the saved reward before starting.')}</p>
+          : <p className="focus-game-message">{recommended.skill} · six questions</p>}
+        <div className="focus-game-actions">
+          {startBlocked ? <button type="button" className="focus-game-button is-primary" disabled={progressRetryBusy || rewardDrainBusy} onClick={!progressState.ok ? retryProgressRead : () => void drainPendingRewards()}>{!progressState.ok ? 'Retry saved progress' : 'Retry reward confirmation'}</button>
+            : <button type="button" data-addition-start className="focus-game-button is-primary" disabled={!canStart} onClick={() => start(nextIndex)}>{rewardDrainBusy ? 'Checking saved progress…' : recommendedLabel}</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={leave}>Back to Maths Missions</button>
+        </div>
+      </> : <>
+        {equation && <p className="mb-3 text-center text-2xl font-black" aria-label={`Equation: ${equation}`}>{equation}</p>}
+        <div className="my-3" data-addition-model>{model}</div>
+        {!locked && <div className="my-3 grid grid-cols-3 gap-2" role="group" aria-label="Choose the answer">
+          {question?.options.map(option => <button key={option} type="button" onClick={() => attempt(option)} className="focus-game-button text-xl" aria-label={`Answer ${option}`}>{option}</button>)}
+        </div>}
+        {feedback && <p role="status" className="focus-game-message">{feedback}</p>}
+        {completionError && <p role="alert" className="focus-game-message">{completionError}</p>}
+        <div className="focus-game-actions">
+          {completionError ? <button ref={nextRef} type="button" data-addition-result-retry onClick={() => void finishChapter(pendingCompletionRef.current)} disabled={completionPending} className="focus-game-button is-primary">{completionPending ? 'Saving…' : 'Retry saving this result'}</button>
+            : locked && <button ref={nextRef} type="button" onClick={next} disabled={completionPending} className="focus-game-button is-primary">{completionPending ? 'Saving…' : roundIndex === 5 ? 'Finish chapter' : 'Next question'}</button>}
+          {!completionError && !completionPending && <>
+            {soundOn && <button type="button" className="focus-game-button" onClick={() => tell(speak, locked ? question.explanation : question.prompt, arithmeticNarrationSegments(question, locked ? 'explanation' : undefined))}>{locked ? 'Hear explanation' : 'Hear question'}</button>}
+            {!locked && question?.type !== 'bond' && <button type="button" onClick={() => setModelJoined(joined => !joined)} className="focus-game-button">{modelJoined ? 'Split the groups apart' : 'Bring the groups together'}</button>}
+            <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          </>}
+        </div>
+      </>}
+    </main>
+  </div>;
 }
