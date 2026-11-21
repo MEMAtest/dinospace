@@ -1,32 +1,23 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { Headphones, ArrowLeft, RotateCcw, Sparkles, Compass, ArrowRight, Clock3 } from 'lucide-react';
+import { Headphones } from 'lucide-react';
 import { CONTINENTS, CURRICULUM_MODULES, getCurriculumModule, OCEANS } from '../../data/curriculumModules.js';
 import { CURRICULUM_LESSON_COPY, getCurriculumVoiceClip } from '../../data/curriculumVoice.js';
 import { getPraise } from '../../utils.js';
 import { getRecommendedDifficulty } from '../../data/learningProgress.js';
 import { createCurriculumQueue, createCurriculumReplayQueue, makeCurriculumSeed, shuffleCurriculumAnswers } from '../../data/curriculumQueue.js';
 import { inspectCurriculumPreferences, inspectCurriculumSession, loadCurriculumPreferences, loadCurriculumSession, saveCurriculumPreferences, saveCurriculumSession } from '../../data/curriculumSession.js';
-import { SoundToggle } from '../shared/index.jsx';
-import geographyWorld from '../../assets/curriculum/geography-world.webp';
-import historyWorld from '../../assets/curriculum/history-world.webp';
-import natureWorld from '../../assets/curriculum/nature-world.webp';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import continentMap from '../../assets/curriculum/continent-map.svg';
 import natureSpecimens from '../../assets/curriculum/nature-specimens.webp';
 import historyClues from '../../assets/curriculum/history-clues.webp';
 import robinArt from '../../assets/curriculum/robin.webp';
 import guideCharacters from '../../assets/curriculum/guides.webp';
-import { CURRICULUM_BADGES, inspectCurriculumBadges } from '../../data/curriculumBadges.js';
+import { inspectCurriculumBadges } from '../../data/curriculumBadges.js';
 import { commitCurriculumHistory, finishCurriculumPath, inspectCurriculumHistory } from '../../data/curriculumProgress.js';
-import { CurriculumBadge, CurriculumBadgeCollection } from '../shared/CurriculumBadges.jsx';
+import { CurriculumBadgeCollection } from '../shared/CurriculumBadges.jsx';
 import './CurriculumQuest.css';
 
 const DIFFICULTY_LABELS = { starter: 'Starter', growing: 'Growing', challenge: 'Challenge' };
-const ACCENT_BADGE_CLASSES = {
-  sky: 'bg-sky-100 text-sky-800',
-  amber: 'bg-amber-100 text-amber-800',
-  emerald: 'bg-emerald-100 text-emerald-800',
-};
-
 const ROUND_HELP = Object.freeze({
   continent: 'Tap the map pin where this continent is.',
   country: 'Tap the map pin for the continent where this country belongs.',
@@ -151,22 +142,18 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
   const isOceanRound = round.type === 'ocean';
   return (
     <>
-      <div className="relative mx-auto h-[22rem] w-full max-w-3xl overflow-hidden rounded-[2rem] border-4 border-sky-200 bg-[#38bde4] shadow-inner" aria-label="A simplified labelled world map, not to scale">
+      <div className="relative mx-auto h-[22rem] w-full max-w-3xl overflow-hidden rounded-[2rem] border-4 border-sky-200 bg-[#38bde4] shadow-inner" data-quest-map="" aria-label="A simplified world map, not to scale">
         <img src={continentMap} alt="" className="absolute inset-0 h-full w-full object-fill" aria-hidden="true" />
         <div className="absolute inset-0">
-          {!isOceanRound && CONTINENTS.map((continent) => (
-            <button
-              key={continent.id}
-              type="button"
-              disabled={disabled || isOceanRound}
-              onClick={() => onPick(continent.id)}
-              aria-label={`Choose ${continent.name}`}
-              className={`absolute flex min-h-12 min-w-[4.8rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-xl border-2 px-1 py-1 text-center text-[10px] font-black shadow-md transition hover:scale-105 active:scale-95 disabled:cursor-default disabled:opacity-100 disabled:hover:scale-100 ${selected === continent.id ? 'border-white bg-slate-950 text-white ring-4 ring-white/70' : 'border-slate-700/30 bg-white/95 text-slate-800'}`}
-              style={{ left: continent.position.left, top: continent.position.top }}
-            >
-              {showLabels ? <><span className="text-base leading-none" aria-hidden="true">{continent.emoji}</span><span className="max-w-[5.4rem] leading-tight">{continent.name}</span></> : <span className="text-lg leading-none" aria-hidden="true">📍</span>}
-            </button>
-          ))}
+          {!isOceanRound && CONTINENTS.map(continent => {
+            const style = { left: continent.position.left, top: continent.position.top };
+            if (showLabels) return <span key={continent.id} className="quest-focus-map-label" style={style}>{continent.name}</span>;
+            return <button key={continent.id} type="button" disabled={disabled} onClick={() => onPick(continent.id)}
+              aria-label={`Choose ${continent.name}`} style={style}
+              className={`quest-focus-marker ${selected === continent.id ? 'is-picked' : ''}`}>
+              <span aria-hidden="true">📍</span>
+            </button>;
+          })}
           {isOceanRound && OCEANS.map((ocean) => (
             <button
               key={ocean.id}
@@ -174,7 +161,7 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
               onClick={() => onPick(ocean.id)}
               disabled={disabled}
               aria-label={`Choose ${ocean.name}`}
-              className={`quest-ocean-marker absolute flex min-h-12 min-w-[5.8rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-xl border-2 px-1 py-1 text-center text-[9px] font-black shadow-md transition hover:scale-105 active:scale-95 disabled:cursor-default disabled:opacity-100 ${selected === ocean.id ? 'border-white bg-slate-950 text-white ring-4 ring-white/70' : 'border-white/70 bg-sky-950/80 text-white'}`}
+              className={`quest-focus-marker quest-ocean-marker ${selected === ocean.id ? 'is-picked' : ''}`}
               style={{ left: ocean.position.left, top: ocean.position.top }}
             >
               {showLabels ? <><span className="text-base leading-none" aria-hidden="true">{ocean.emoji}</span><span className="max-w-[6.2rem] leading-tight">{ocean.name}</span></> : <span className="text-lg leading-none" aria-hidden="true">🌊</span>}
@@ -278,11 +265,11 @@ const InvestigationRound = ({ round, prediction, onPredict, onConclude, disabled
   <div className="mx-auto w-full max-w-3xl">
     {!prediction ? (
       <div className="quest-investigation-predictions grid gap-3 sm:grid-cols-2">
-        {round.predictions.map((option) => <div key={option.id} className="flex flex-col items-center gap-2 rounded-3xl border-4 border-emerald-200 bg-white p-2 shadow-lg"><button type="button" onClick={() => onPredict(option.id)} className="min-h-20 w-full rounded-2xl p-2 text-center"><span className="block text-4xl">{option.emoji}</span><strong className="mt-2 block text-sm font-black">{option.label}</strong></button></div>)}
+        {round.predictions.map((option) => <div key={option.id} className="flex flex-col items-center gap-2 rounded-3xl border-4 border-emerald-200 bg-white p-2 shadow-lg"><button type="button" onClick={() => onPredict(option.id)} disabled={disabled} className="min-h-20 w-full rounded-2xl p-2 text-center"><span className="block text-4xl">{option.emoji}</span><strong className="mt-2 block text-sm font-black">{option.label}</strong></button></div>)}
       </div>
     ) : (
       <>
-        <div className="quest-investigation-observation rounded-3xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center"><p className="text-xs font-black uppercase tracking-wider text-emerald-700">Observation</p><div className="quest-investigation-observation-row"><p className="font-bold text-slate-700">{round.observation}</p><PackagedAudioButton compact text={round.observation} label="Hear observation" soundOn={soundOn} /></div></div>
+        <div className="quest-investigation-observation rounded-3xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center"><p className="text-xs font-black uppercase tracking-wider text-emerald-700">Observation</p><div className="quest-investigation-observation-row"><p className="font-bold text-slate-700">{round.observation}</p>{soundOn && <PackagedAudioButton compact text={round.observation} label="Hear observation" soundOn={soundOn} />}</div></div>
         <h3 className="quest-investigation-question my-4 text-center text-xl font-black text-slate-900">What does the observation tell us?</h3>
         <ChoiceRound round={round} onPick={onConclude} disabled={disabled} selected={selected} />
       </>
@@ -302,18 +289,10 @@ const LessonVisual = ({ module, round }) => {
   return <div className="quest-lesson-visual quest-nature-lesson"><span className="quest-guide-character quest-owl-guide" style={{ backgroundImage: `url(${guideCharacters})` }} aria-hidden="true" /><div className="quest-scene-kicker">🔬 Look closely</div><p className="quest-model-instruction"><strong>Learn:</strong> study the examples. In Try, make a prediction or choose an answer from the observation.</p><div className="quest-specimens">{choices.slice(0, 4).map((choice) => <div className="quest-specimen" key={choice.id}><ChoiceArt item={choice} /><strong>{choice.label}</strong></div>)}</div><p>Look for ways living things are alike or different.</p></div>;
 };
 
-const ExplorerWords = ({ module, soundOn, onLaunchGame }) => <details className="quest-extra-learning">
-  <summary>Explore words and lesson notes</summary>
-  <div className="quest-extra-learning-content">
-    <div className="quest-extra-audio"><PackagedAudioButton text={CURRICULUM_LESSON_COPY[module.id]} label="Hear lesson" soundOn={soundOn} />{module.id === 'time-detectives' && onLaunchGame && <button type="button" onClick={() => onLaunchGame('timeteller')} className="quest-related-game"><Clock3 size={17} /> Practise telling the time</button>}</div>
-    <div className="quest-word-list">{module.vocabulary.slice(0, 4).map((word) => <div key={word} className="quest-word"><strong>{word}</strong><PackagedAudioButton text={word} label="Hear word" soundOn={soundOn} /></div>)}</div>
-    <p className="quest-lesson-copy">{CURRICULUM_LESSON_COPY[module.id]}</p>
-  </div>
-</details>;
-
 const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, onPhaseChange, playerId, initialModule }) => {
   const [moduleId, setModuleId] = useState(() => initialCurriculumModule(initialModule, playerId));
-  const stagePickerRef = useRef(null);
+  const [panel, setPanel] = useState(null);
+  const [lessonWord, setLessonWord] = useState('');
   const badgeCache = useRef(new Map());
   const [badgeView, setBadgeView] = useState(() => {
     const result = inspectCurriculumBadges(playerId);
@@ -354,7 +333,6 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   const round = rounds[roundIndex % rounds.length];
   // Keep answer positions stable on a retry, but shuffle them for each new question.
   const shuffledOptions = useMemo(() => round.options ? shuffleCurriculumAnswers(round.options, queueSeed, roundCursor) : [], [round, roundCursor, queueSeed]);
-  const moduleNumber = CURRICULUM_MODULES.findIndex((item) => item.id === activeModule.id) + 1;
 
   const resetRound = useCallback((nextIndex = 0, showLesson = false) => {
     setRoundIndex(nextIndex);
@@ -557,7 +535,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
 
   const startQuestion = () => {
     if (persistenceIssue) return;
-    closeStagePicker('#quest-prompt');
+    requestAnimationFrame(() => document.getElementById('quest-prompt')?.focus({ preventScroll: true }));
     setSessionResumed(false);
     setLessonOpen(false);
     onGameEvent?.(difficultyGameId, 'start', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
@@ -736,117 +714,111 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
 
   const positiveRouteFeedback = !locked && round.type === 'route' && feedback.startsWith('Good move:');
   const mapRound = activeModule.id === 'continents' && ['continent', 'country', 'ocean'].includes(round.type);
-  const accent = activeModule.id === 'continents' ? 'sky' : activeModule.id === 'time-detectives' ? 'amber' : 'emerald';
   const choiceRound = ['evidence', 'classify', 'map-key', 'direction', 'feature', 'uk-place'].includes(round.type) ? round : null;
-
-  const worldArt = activeModule.id === 'continents' ? geographyWorld : activeModule.id === 'time-detectives' ? historyWorld : natureWorld;
-
-  const closeStagePicker = (focusSelector) => {
-    const picker = stagePickerRef.current;
-    if (picker?.open) picker.open = false;
-    if (focusSelector) requestAnimationFrame(() => document.querySelector(focusSelector)?.focus({ preventScroll: true }));
+  const closePanel = () => setPanel(null);
+  const leaveQuest = () => {
+    onGameEvent?.(difficultyGameId, 'leave', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
+    onBack?.();
   };
+  const selectModule = module => {
+    const savedDifficulty = loadCurriculumPreferences(curriculumStorage(), playerId).difficulties[module.id];
+    playSfx('click');
+    setDifficulty(savedDifficulty || getRecommendedDifficulty(`worldmap-${module.id}`));
+    setModuleId(module.id);
+    closePanel();
+  };
+  const options = [
+    ...CURRICULUM_MODULES.filter(module => module.id !== moduleId).map(module => ({
+      label: module.title, description: module.subtitle, action: () => selectModule(module),
+    })),
+    ...Object.entries(DIFFICULTY_LABELS).filter(([band]) => band !== difficulty).map(([band, label]) => ({
+      label: `${label} level`, action: () => { setDifficulty(band); closePanel(); },
+    })),
+    { label: 'Lesson notes', action: () => { setLessonWord(activeModule.vocabulary[0] || ''); setPanel('notes'); } },
+    { label: 'Saved badges', action: () => setPanel('badges') },
+    ...(activeModule.id === 'time-detectives' && onLaunchGame
+      ? [{ label: 'Practise telling the time', action: () => onLaunchGame('timeteller') }] : []),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound?.(); closePanel(); } },
+    { label: 'Back to Explore & Languages', action: leaveQuest },
+  ];
 
-  return (
-    <CurriculumHintContext.Provider value={logAudioHint}>
-    <div className={`curriculum-quest quest-${activeModule.id}`} style={{ '--quest-world': `url(${worldArt})` }}>
-      <header className="quest-header">
-        <button type="button" onClick={() => { onGameEvent?.(difficultyGameId, 'leave', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor }); onBack(); }} className="quest-round-button" aria-label="Back to learning world"><ArrowLeft size={23} /></button>
-        <div className="quest-heading"><p>Curriculum Quest · Module {moduleNumber}</p><h1><span aria-hidden="true">{activeModule.icon}</span> {activeModule.title}</h1><span>{activeModule.subtitle}</span></div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="quest-round-button" />
-      </header>
-
-      <main className="quest-main">
-        {persistenceIssue && <div className="quest-save-alert" role="alert">
-          <strong>{persistenceIssue.type === 'session-read' || persistenceIssue.type === 'history-read' || persistenceIssue.type === 'preferences'
-            ? 'Your saved learning data could not be read safely.'
-            : 'This step has not been safely saved yet.'}</strong>
-          <span>Keep this page open and retry before continuing.</span>
-          <button type="button" onClick={retryPersistence} className="quest-continue min-h-12">Retry save</button>
-        </div>}
-        <details className="quest-stage-picker" ref={stagePickerRef}>
-          <summary>Choose a topic or level</summary>
-          <div className="quest-stage-picker-content">
-            <nav className="quest-modules" aria-label="Curriculum modules">
-              {CURRICULUM_MODULES.map((module) => (
-                <button key={module.id} type="button" onClick={() => { playSfx('click'); const savedDifficulty = loadCurriculumPreferences(curriculumStorage(), playerId).difficulties[module.id]; setDifficulty(savedDifficulty || getRecommendedDifficulty(`worldmap-${module.id}`)); setModuleId(module.id); closeStagePicker('.quest-stage-picker summary'); }} aria-pressed={module.id === activeModule.id} className="quest-module-tab">
-                  <span className="quest-module-icon" aria-hidden="true">{module.icon}</span><span><strong>{module.title}</strong><small>{module.subtitle}</small></span><ArrowRight className="quest-tab-arrow" size={18} />
-                </button>
-              ))}
-            </nav>
-            <label className="quest-level-select">Choose a level
-              <select aria-label="Choose a level" value={difficulty} onChange={(event) => { setDifficulty(event.target.value); closeStagePicker('.quest-stage-picker summary'); }}>
-                {Object.entries(DIFFICULTY_LABELS).map(([band, label]) => <option key={band} value={band}>{label}</option>)}
-              </select>
-            </label>
+  return <CurriculumHintContext.Provider value={logAudioHint}>
+    <div className={`focus-game curriculum-quest quest-focus quest-${moduleId}`} data-board-focus="" data-quest-round={round.id} data-quest-module={moduleId}>
+      <main className={`focus-game-body${panel || queueComplete ? ' is-menu' : ''}`}>
+        <header className="focus-game-heading">
+          <p>Curriculum Quest · {DIFFICULTY_LABELS[difficulty]}</p>
+          <h1>{panel === 'notes' ? 'Lesson notes' : panel === 'badges' ? 'Saved badges' : activeModule.title}</h1>
+        </header>
+        {panel === 'options' ? <FocusMenu choices={options} onBack={closePanel} /> : panel === 'notes' ? <>
+          <p className="focus-game-message">{CURRICULUM_LESSON_COPY[moduleId]}</p>
+          <div className="focus-game-menu">
+            <label htmlFor="quest-vocabulary">Explore a word</label>
+            <select id="quest-vocabulary" value={lessonWord} onChange={event => setLessonWord(event.target.value)}>
+              {activeModule.vocabulary.slice(0, 4).map(word => <option key={word}>{word}</option>)}
+            </select>
+            {soundOn && <PackagedAudioButton text={lessonWord} label="Hear word" soundOn />}
+            {soundOn && <PackagedAudioButton text={CURRICULUM_LESSON_COPY[moduleId]} label="Hear lesson" soundOn />}
+            <button type="button" className="focus-game-button" onClick={closePanel}>Back to the quest</button>
           </div>
-        </details>
-
-        <ol className="quest-learning-steps" aria-label="Learning stages">
-          {['Learn', 'Try', 'Review'].map((label, index) => {
-            const activeIndex = lessonOpen ? 0 : locked || queueComplete ? 2 : 1;
-            return <li key={label} aria-current={index === activeIndex ? 'step' : undefined} className={index === activeIndex ? 'is-current' : index < activeIndex ? 'is-done' : ''}>{index + 1}. {label}</li>;
-          })}
-        </ol>
-
-        {queueComplete ? (
-          <section className="quest-paper quest-completion text-center" aria-labelledby="quest-complete">
-            <span className={`quest-year-badge ${ACCENT_BADGE_CLASSES[accent]}`}>{DIFFICULTY_LABELS[difficulty]} path complete</span>
-            <h2 id="quest-complete" className="mt-2 text-2xl font-black text-slate-900">You finished this discovery run!</h2>
-            <p className="mx-auto mt-1 max-w-xl text-sm font-bold text-slate-700">{activeModule.title} · {roundOrder.length} questions explored.</p>
-            <button type="button" onClick={replayQueue} className="quest-start quest-restart-action mt-3"><RotateCcw size={18} /> Restart this level</button>
-            <details className="quest-completion-details">
-              <summary>Badge and other levels</summary>
-              <div className="quest-completion-secondary">
-                <div className="mx-auto max-w-xs"><CurriculumBadge badge={CURRICULUM_BADGES.find((badge) => badge.module === moduleId && badge.band === difficulty)} earned /><p className="mt-2 font-bold text-indigo-800">Your badge is saved in your sticker collection.</p></div>
-                <div className="flex flex-wrap justify-center gap-2" aria-label="Choose another curriculum level">
-                  {Object.keys(DIFFICULTY_LABELS).map((band) => <button key={band} type="button" onClick={() => { if (band === difficulty) replayQueue(); else setDifficulty(band); }} aria-pressed={band === difficulty} className={`min-h-12 rounded-full border-2 px-5 font-black ${band === difficulty ? 'border-indigo-700 bg-indigo-700 text-white' : 'border-indigo-200 bg-white text-indigo-800'}`}>{DIFFICULTY_LABELS[band]}</button>)}
-                </div>
-              </div>
-            </details>
-          </section>
-        ) : (
-        <section className="quest-paper" aria-labelledby="quest-prompt">
-          {lessonOpen ? (
-            <div className="quest-learn-stage">
-              <p className="quest-stage-label">Learn</p>
-              <h2 id="quest-prompt" tabIndex={-1}>Explore {activeModule.title}</h2>
-              <div className="quest-learn-intro-row"><p className="quest-learn-intro">{sessionResumed ? 'Your saved round is ready to continue.' : 'Learn: explore the map labels, timeline clues or specimen models. Then try one question at a time.'}</p><div className="quest-actions quest-learn-actions"><button type="button" onClick={startQuestion} disabled={Boolean(persistenceIssue)} className="quest-start disabled:opacity-50"><Sparkles size={19} /> {sessionResumed ? 'Continue round' : 'Start round'} <ArrowRight size={18} /></button></div></div>
-              <div className="quest-lesson-grid"><LessonVisual module={activeModule} round={round} /><ExplorerWords module={activeModule} soundOn={soundOn} onLaunchGame={onLaunchGame} /></div>
-            </div>
-          ) : (
-            <div className="quest-play-stage">
-              <div className="quest-round-progress" aria-label={`Question ${roundCursor + 1} of ${roundOrder.length || Math.min(5, rounds.length)}`}>
-                <div><span>{locked ? 'Review' : 'Try'}</span><strong>Question {roundCursor + 1} of {roundOrder.length || Math.min(5, rounds.length)}</strong></div>
-                <div className="quest-round-track" role="progressbar" aria-label="Discovery run progress" aria-valuemin="0" aria-valuemax={roundOrder.length || Math.min(5, rounds.length)} aria-valuenow={roundCursor + (locked ? 1 : 0)}><span style={{ width: `${((roundCursor + (locked ? 1 : 0)) / (roundOrder.length || Math.min(5, rounds.length))) * 100}%` }} /></div>
-              </div>
-              {sessionResumed && <p className="quest-resume-note" role="status">Saved round restored. Continue where you left off.</p>}
-              <div className="quest-prompt-row"><h2 id="quest-prompt" tabIndex={-1}>{round.prompt}</h2>{!locked && <PackagedAudioButton compact={round.type === 'investigation'} text={round.prompt} label="Hear prompt" soundOn={soundOn} />}</div>
-              {!locked && !(round.type === 'investigation' && prediction) && <p className="quest-help"><Compass size={18} />{roundHelpFor(round)}</p>}
-              {!locked && <>
-                {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={locked || Boolean(persistenceIssue)} showLabels={round.type === 'ocean'} />}
-                {choiceRound && <ChoiceRound round={{ ...choiceRound, options: shuffledOptions }} onPick={handlePick} disabled={locked || Boolean(persistenceIssue)} selected={selected} />}
-                {round.type === 'sequence' && <SequenceRound round={round} sequence={sequence} onPick={handlePick} disabled={locked || Boolean(persistenceIssue)} />}
-                {round.type === 'route' && <RouteRound round={round} step={routeStep} onMove={handleRouteMove} disabled={locked || Boolean(persistenceIssue)} />}
-                {round.type === 'investigation' && <InvestigationRound round={round} prediction={prediction} onPredict={handlePrediction} onConclude={handleInvestigationConclusion} disabled={locked || Boolean(persistenceIssue)} selected={selected} soundOn={soundOn} />}
-              </>}
-              <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : positiveRouteFeedback ? 'is-progress' : 'is-retry'}`}><p><span className="quest-fact-heading"><Sparkles size={23} />{locked ? 'Explorer fact' : positiveRouteFeedback ? 'Good move' : 'Try again'}</span><span className="quest-fact-copy">{feedback}</span></p>{locked ? <><PackagedAudioButton text={round.explanation} label="Hear fact" soundOn={soundOn} /><button type="button" onClick={advance} className="quest-continue">{roundCursor + 1 >= roundOrder.length ? 'Finish run' : 'Next question'} <ArrowRight size={16} /></button></> : <PackagedAudioButton text={feedbackVoice} label="Hear clue" soundOn={soundOn} />}</div>}</div>
-            </div>
-          )}
-        </section>
-        )}
-        <details className="quest-badge-disclosure"><summary>View saved badges</summary>
+        </> : panel === 'badges' ? <>
           {currentBadgeView.status === 'ready'
             ? <CurriculumBadgeCollection playerId={playerId} module={moduleId} earned={currentBadgeView.badges} />
-            : <div className="quest-badge-read-error" role="status">
-              <p>{currentBadgeView.badges.length ? 'Some saved badges may be shown from this visit, but the collection could not be checked.' : 'The saved badge collection could not be read, so it is not being shown as empty.'}</p>
-              <button type="button" onClick={retryBadgeRead} className="quest-continue min-h-12">Retry badge read</button>
+            : <p className="focus-game-message" role="status">{currentBadgeView.badges.length ? 'Some badges from this visit are available. The saved collection could not be checked.' : 'The saved badge collection could not be read.'}</p>}
+          <div className="focus-game-actions mt-3">
+            {currentBadgeView.status !== 'ready' && <button type="button" onClick={retryBadgeRead} className="focus-game-button is-primary">Retry badge read</button>}
+            <button type="button" className="focus-game-button" onClick={closePanel}>Back to the quest</button>
+          </div>
+        </> : <>
+          {persistenceIssue && <div className="quest-save-alert" role="alert">
+            <strong>{['session-read', 'history-read', 'preferences'].includes(persistenceIssue.type)
+              ? 'Your saved learning data could not be read safely.'
+              : 'This step has not been safely saved yet.'}</strong>
+            <span>Keep this page open and retry before continuing.</span>
+            <button type="button" onClick={retryPersistence} className="focus-game-button is-primary">Retry save</button>
+          </div>}
+          {queueComplete ? <>
+            <h2 className="text-xl font-extrabold">Discovery run complete!</h2>
+            <p className="focus-game-message">You explored {roundOrder.length} questions. Your badge is in Stickers.</p>
+            <div className="focus-game-actions">
+              {!persistenceIssue && <button type="button" onClick={replayQueue} className="focus-game-button is-primary">Play this level again</button>}
+              <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
+              <button type="button" className="focus-game-button" onClick={leaveQuest}>Finish</button>
+            </div>
+          </> : lessonOpen ? <>
+            <div className="quest-lesson-grid">
+              <LessonVisual module={activeModule} round={round} />
+            </div>
+            <div className="focus-game-actions mt-3">
+              {!persistenceIssue && <button type="button" onClick={startQuestion} className="focus-game-button is-primary">{sessionResumed ? 'Continue round' : 'Start round'}</button>}
+              <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
+              <button type="button" className="focus-game-button" onClick={leaveQuest}>Back</button>
+            </div>
+          </> : <section className="quest-play-stage" aria-labelledby="quest-prompt">
+            <p className="quest-focus-progress">Question {roundCursor + 1} of {roundOrder.length || Math.min(5, rounds.length)}</p>
+            <h2 id="quest-prompt" className="quest-focus-prompt" tabIndex={-1}>{round.prompt}</h2>
+            {!locked && !(round.type === 'investigation' && prediction) && <p className="focus-game-message">{roundHelpFor(round)}</p>}
+            {!locked && <div className="quest-focus-board" aria-label="Play area">
+              {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={Boolean(persistenceIssue)} showLabels={round.type === 'ocean'} />}
+              {choiceRound && <ChoiceRound round={{ ...choiceRound, options: shuffledOptions }} onPick={handlePick} disabled={Boolean(persistenceIssue)} selected={selected} />}
+              {round.type === 'sequence' && <SequenceRound round={round} sequence={sequence} onPick={handlePick} disabled={Boolean(persistenceIssue)} />}
+              {round.type === 'route' && <RouteRound round={round} step={routeStep} onMove={handleRouteMove} disabled={Boolean(persistenceIssue)} />}
+              {round.type === 'investigation' && <InvestigationRound round={round} prediction={prediction} onPredict={handlePrediction} onConclude={handleInvestigationConclusion} disabled={Boolean(persistenceIssue)} selected={selected} soundOn={soundOn && !persistenceIssue} />}
             </div>}
-        </details>
+            <div aria-live="polite">
+              {feedback && <p className={locked || positiveRouteFeedback ? 'pattern-focus-explanation' : 'focus-game-message'}>{feedback}</p>}
+            </div>
+            <div className="focus-game-actions mt-3">
+              {!persistenceIssue && locked && <button type="button" onClick={advance} className="focus-game-button is-primary">{roundCursor + 1 >= roundOrder.length ? 'Finish run' : 'Next question'}</button>}
+              {soundOn && !persistenceIssue && <PackagedAudioButton
+                text={locked ? round.explanation : feedbackVoice || round.prompt}
+                label={locked ? 'Hear fact' : feedbackVoice ? 'Hear clue' : 'Hear prompt'} soundOn />}
+              <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
+            </div>
+          </section>}
+        </>}
       </main>
     </div>
-    </CurriculumHintContext.Provider>
-  );
+  </CurriculumHintContext.Provider>;
 };
 
 export default CurriculumQuest;

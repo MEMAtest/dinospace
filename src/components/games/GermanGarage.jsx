@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, Volume2 } from 'lucide-react';
+import { Volume2 } from 'lucide-react';
 import { GERMAN_MATCH_MODES } from '../../data/index.js';
 import { getGermanAudioPath } from '../../data/germanAudio.js';
 import { buildSeededGermanRound, germanHistoryMode, germanTranslation, readGermanTargetHistory, rememberGermanTarget, saveGermanTargetHistory } from '../../data/germanLearning.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { commitGermanChapter, drainPendingGermanChapterRewards, markGermanChapterRewardClaimed, pendingGermanChapterRewards, readGermanChapterProgress } from '../../data/germanChapterProgress.js';
 import { applyGermanDriveCommand, buildGermanDriveRouteOrder, createGermanDriveState, GERMAN_DRIVE_COMMANDS, GERMAN_DRIVE_GRID_SIZE } from '../../data/germanRouteFlow.js';
 import emptyGarage from '../../assets/german-garage/empty-garage.png';
@@ -19,9 +19,9 @@ import bodyScene from '../../assets/german-garage/scenes/body.webp';
 import greetingsScene from '../../assets/german-garage/scenes/greetings.webp';
 
 const CHAPTERS = [
-  { id: 'colour-painter', title: 'Colour Painter', subtitle: 'Paint the car and find its garage', modes: ['paint', 'park'], goal: 5, image: emptyGarage },
-  { id: 'vehicle-workshop', title: 'Vehicle Workshop', subtitle: 'Name vehicles and their parts', modes: ['vehicles', 'parts'], goal: 6, image: vehiclesScene },
-  { id: 'direction-driver', title: 'Direction Driver', subtitle: 'Hear commands, then drive a two-step route', modes: ['directions'], goal: 7, image: garageScene },
+  { id: 'colour-painter', title: 'Colour Painter', subtitle: 'Paint the car and find its garage', modes: ['paint', 'park'], goal: 5 },
+  { id: 'vehicle-workshop', title: 'Vehicle Workshop', subtitle: 'Name vehicles and their parts', modes: ['vehicles', 'parts'], goal: 6 },
+  { id: 'direction-driver', title: 'Direction Driver', subtitle: 'Hear commands, then drive a two-step route', modes: ['directions'], goal: 7 },
 ];
 const PRACTICE_MODES = [
   { id: 'paint', label: 'Farben · paint' }, { id: 'park', label: 'Garage · park' },
@@ -58,6 +58,7 @@ export default function GermanGarage({ onBack, playSfx, soundOn, onToggleSound, 
   const [saveError, setSaveError] = useState('');
   const [claimError, setClaimError] = useState(false);
   const [soundError, setSoundError] = useState(false);
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const audioRef = useRef(null);
   const audioGenerationRef = useRef(0);
   const recentRef = useRef(historyStatus.history);
@@ -333,39 +334,76 @@ export default function GermanGarage({ onBack, playSfx, soundOn, onToggleSound, 
     beginNextVocabularyRound();
   };
 
-  if (chapterIndex === null && practiceMode === null) {
-    const available = progress.ok && progressPlayerId === playerId;
-    return <div className="german-garage-page min-h-screen bg-[#fff5dc] px-3 pb-6 pt-3 text-slate-900 sm:px-6">
-      <header className="mx-auto flex max-w-5xl items-center justify-between gap-3"><button onClick={() => { stopAudio(); onBack?.(); }} className="min-h-12 min-w-12 rounded-full bg-amber-400 p-3 text-white" aria-label="Back to learning world"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">German Garage</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>
-      <main className="mx-auto mt-5 max-w-5xl">
-        <p className="mb-3 text-center text-sm font-bold text-slate-700">Three garage chapters · 11 extra word themes stay open for practice.</p>
-        {claimError && progress.ok && pendingGermanChapterRewards(progress.storedProgress).length > 0 && <div className="mb-3 rounded-2xl border-2 border-amber-300 bg-white p-3 text-center" role="alert"><p className="font-bold">A saved chapter reward still needs confirmation.</p><button className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 font-bold text-white" onClick={retryPendingClaims}>Retry reward confirmation</button></div>}
-        {!available && <div className="mb-3 rounded-2xl border-2 border-amber-300 bg-white p-3 text-center" role="alert"><p>{progress.error || 'Saved progress is unavailable. You can practise, but chapter progress cannot be confirmed.'}</p><button className="mt-2 min-h-12 rounded-xl bg-amber-600 px-4 font-bold text-white" onClick={refreshProgress}>Retry progress</button></div>}
-        <div className="grid gap-3 md:grid-cols-3">{CHAPTERS.map((chapter, index) => {
-          const unlocked = available && index <= (progress.progress?.unlockedChapterIndex ?? -1);
-          const completed = chapterIds.has(chapter.id);
-          return <article key={chapter.id} className="overflow-hidden rounded-3xl border-2 border-amber-100 bg-white shadow-lg">
-            <img className="h-28 w-full object-cover" src={chapter.image} alt="" />
-            <div className="p-3"><p className="text-xs font-black uppercase text-blue-600">Chapter {index + 1} {completed ? '· Complete' : ''}</p><h2 className="text-lg font-black">{chapter.title}</h2><p className="min-h-10 text-sm text-slate-700">{chapter.subtitle}</p>
-              <button disabled={!unlocked} onClick={() => startVocabulary(index)} className="mt-2 min-h-12 w-full rounded-xl bg-blue-700 px-3 font-black text-white disabled:bg-slate-300 disabled:text-slate-600">{completed ? 'Replay · no reward' : unlocked ? 'Start chapter' : 'Finish earlier chapter'}</button></div>
-          </article>;
-        })}</div>
-        <section className="mt-4 rounded-3xl border-2 border-amber-100 bg-white p-3 shadow-lg"><div className="flex flex-wrap items-center justify-between gap-2"><div><h2 className="text-lg font-black">More practice · no chapter rewards</h2><p className="text-sm text-slate-700">All 11 vocabulary modes, any time.</p></div></div><div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">{PRACTICE_MODES.map((item) => <button key={item.id} className="min-h-12 rounded-xl border-2 border-amber-200 px-2 text-sm font-bold" onClick={() => startVocabulary(null, item.id)}>{item.label}</button>)}</div></section>
-      </main>
-    </div>;
-  }
-
+  const atGarage = chapterIndex === null && !isPractice;
+  const available = progress.ok && progressPlayerId === playerId;
+  const latestChapter = Math.min(progress.progress?.unlockedChapterIndex ?? 0, CHAPTERS.length - 1);
+  const nextChapter = CHAPTERS[latestChapter];
+  const pendingReward = claimError && progress.ok && pendingGermanChapterRewards(progress.storedProgress).length > 0;
+  const closeOptions = () => setOptionsOpen(false);
+  const leaveGarage = () => { stopAudio(); onBack?.(); };
+  const chooseChapter = (index, practice) => { closeOptions(); startVocabulary(index, practice); };
+  const handleSound = () => {
+    if (soundOn) stopAudio();
+    onToggleSound?.();
+    closeOptions();
+  };
+  const toggleRouteWords = () => {
+    if (!routeWordsShown) onGameEvent?.('german', 'route_assistance', { chapter: 'direction-driver', route: currentRoute.id, step: driveState?.step || 0, helpType: 'german-word-list' });
+    setRouteWordsShown(shown => !shown);
+    closeOptions();
+  };
   const directionLesson = chapterIndex === 2 && !isPractice && !directionReady;
   const currentRoute = chapterIndex === 2 && !isPractice && directionReady ? driveRoutes[roundIndex] : null;
   const heldRoute = held?.kind === 'route' ? driveRoutes.find(({ id }) => id === held.route) : null;
   const target = activeRound?.target;
-  return <div className="german-garage-page min-h-screen bg-[#fff5dc] text-slate-900" data-german-chapter={activeChapter?.id || 'practice'} data-german-route={currentRoute?.id || ''} data-german-step={driveState?.step ?? ''} data-run-seed={seed}>
-    <header className="mx-auto flex max-w-5xl items-center gap-2 px-3 pt-3"><button onClick={goMenu} className="min-h-12 min-w-12 rounded-full bg-amber-400 p-3 text-white" aria-label="Choose chapter"><ArrowLeft /></button><div className="min-w-0 flex-1"><p className="text-xs font-bold text-blue-700">{isPractice ? 'Practice · no rewards' : `${activeChapter.title} · ${roundIndex + 1} of ${activeChapter.goal}`}</p><h1 className="truncate text-lg font-black sm:text-2xl">{isPractice ? PRACTICE_MODES.find(({ id }) => id === practiceMode)?.label : activeChapter.subtitle}</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>
-    <main className="mx-auto flex max-w-5xl flex-col gap-3 px-3 pb-5 pt-3">
-      {directionLesson ? <section className="rounded-3xl border-2 border-white bg-white/95 p-3 text-center shadow-lg"><p className="text-xs font-black uppercase tracking-widest text-blue-600">Learn six driving words</p><p className="text-sm font-bold">Forward is up · Zurück is down · Langsam slows a move · Halt stops the car.</p><div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">{GERMAN_DRIVE_COMMANDS.map((command) => <button key={command.id} onClick={() => playTerms([command.id])} className="min-h-12 rounded-xl border-2 border-amber-200 bg-amber-50 px-2 font-black"><span className="block">{command.id} · {command.english}</span><span className="text-xs font-semibold">Tap to hear</span></button>)}</div>{soundError && <p className="mt-1 text-sm font-bold text-amber-800">Sound is unavailable. Read each German word and meaning above.</p>}<button onClick={beginDirectionDrive} className="mt-3 min-h-12 w-full rounded-xl bg-blue-700 px-5 font-black text-white">Start the driving routes</button></section> : currentRoute ? <>
-        <section className="rounded-2xl border-2 border-white bg-white/95 p-2 text-center shadow-lg"><p className="text-xs font-black uppercase tracking-widest text-blue-600">Route {roundIndex + 1} of 7 · hear two commands</p><p className="text-xs font-bold">Forward ↑ · Back ↓ · Slow changes speed · Stop at the star</p><div className="mt-1 grid grid-cols-3 gap-1"><button aria-label="Replay both German commands" onClick={() => playTerms(currentRoute.commands)} className="min-h-11 rounded-lg bg-blue-700 px-1 text-xs font-black text-white"><Volume2 className="mr-1 inline" size={15} /> Replay</button><button aria-label="Pause German audio" onClick={stopAudio} className="min-h-11 rounded-lg border-2 border-slate-300 px-1 text-xs font-bold">Pause</button><button aria-expanded={routeWordsShown} onClick={() => { if (!routeWordsShown) onGameEvent?.('german', 'route_assistance', { chapter: 'direction-driver', route: currentRoute.id, step: driveState?.step || 0, helpType: 'german-word-list' }); setRouteWordsShown((shown) => !shown); }} className="min-h-11 rounded-lg border-2 border-amber-300 bg-amber-50 px-1 text-xs font-bold">{routeWordsShown ? 'Hide words' : 'Show words'}</button></div>{routeWordsShown && <p className="mt-1 text-sm font-black text-blue-800">{currentRoute.commands.join(' → ')}</p>}{soundError && <p className="mt-1 text-xs font-bold text-amber-800">Sound is unavailable. Use the lesson or word help.</p>}</section>
-        <div className="flex w-full items-start justify-center gap-2 sm:gap-3">
-        <div className="relative grid aspect-square w-[220px] shrink-0 grid-cols-4 gap-1 rounded-3xl border-4 border-amber-300 bg-emerald-100 p-2 sm:w-[300px]" role="grid" aria-label="Four by four garage driving grid">
+  const options = [
+    ...(atGarage ? [
+      ...CHAPTERS.map((chapter, index) => ({
+        label: chapter.title, description: chapter.subtitle, disabled: !available || index > latestChapter,
+        button: chapterIds.has(chapter.id) ? 'Replay chapter' : 'Start chapter', action: () => chooseChapter(index),
+      })),
+      ...PRACTICE_MODES.map(item => ({ label: item.label, action: () => chooseChapter(null, item.id) })),
+    ] : [
+      ...(currentRoute ? [
+        { label: routeWordsShown ? 'Hide words' : 'Show words', action: toggleRouteWords },
+        ...(soundOn ? [{ label: 'Pause German audio', action: () => { stopAudio(); closeOptions(); } }] : []),
+      ] : []),
+      { label: 'Back to the garage', action: () => { closeOptions(); goMenu(); } },
+    ]),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: handleSound },
+    { label: 'Back to Explore & Languages', action: leaveGarage },
+  ];
+  if (atGarage || optionsOpen) return <div className="focus-game german-focus" data-board-focus="">
+    <main className="focus-game-body is-menu">
+      <header className="focus-game-heading"><h1>German Garage</h1></header>
+      {optionsOpen ? <FocusMenu choices={options} onBack={closeOptions} /> : <>
+        <p className="focus-game-message">{!available ? progress.error || 'Saved progress is unavailable. Practice is available in Options.' : nextChapter.subtitle}</p>
+        {pendingReward && available && <p className="focus-game-message" role="alert">Your saved chapter reward needs confirmation.</p>}
+        <div className="focus-game-actions">
+          {!available
+            ? <button className="focus-game-button is-primary" onClick={refreshProgress}>Retry progress</button>
+            : pendingReward
+              ? <button className="focus-game-button is-primary" onClick={retryPendingClaims}>Retry reward confirmation</button>
+              : <button className="focus-game-button is-primary" onClick={() => chooseChapter(latestChapter)}>{chapterIds.has(nextChapter.id) ? 'Replay' : 'Start'}: {nextChapter.title}</button>}
+          <button className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button className="focus-game-button" onClick={leaveGarage}>Back</button>
+        </div>
+      </>}
+    </main>
+  </div>;
+
+  return <div className="focus-game german-focus" data-board-focus="" data-german-chapter={activeChapter?.id || 'practice'} data-german-route={currentRoute?.id || ''} data-german-step={driveState?.step ?? ''} data-run-seed={seed}>
+    <main className="focus-game-body">
+      <header className="focus-game-heading">
+        <p>German Garage · {isPractice ? 'Practice' : `${activeChapter.title} · ${roundIndex + 1} of ${activeChapter.goal}`}</p>
+        <h1>{directionLesson ? 'Learn the driving words' : currentRoute ? 'Drive to the star' : activeMode === 'paint' ? 'Paint the car' : activeMode === 'park' ? 'Choose the garage' : PRACTICE_MODES.find(({ id }) => id === activeMode)?.label.split(' · ')[0] || 'Choose the picture'}</h1>
+      </header>
+      <div className="german-focus-play">
+      {directionLesson ? <section className="rounded-3xl border-2 border-white bg-white/95 p-3 text-center shadow-lg"><p className="text-sm font-bold">Forward is up · Zurück is down · Langsam slows a move · Halt stops the car.</p><div aria-label="German driving words" className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">{GERMAN_DRIVE_COMMANDS.map((command) => <button key={command.id} onClick={() => playTerms([command.id])} className="min-h-12 rounded-xl border-2 border-amber-200 bg-amber-50 px-2 font-black"><span className="block">{command.id} · {command.english}</span><span className="text-xs font-semibold">Tap to hear</span></button>)}</div>{soundError && <p className="mt-1 text-sm font-bold text-amber-800">Sound is unavailable. Read each German word and meaning above.</p>}<button onClick={beginDirectionDrive} className="mt-3 min-h-12 w-full rounded-xl bg-blue-700 px-5 font-black text-white">Start the driving routes</button></section> : currentRoute ? <>
+        <p className="focus-game-message">{routeWordsShown || !soundOn ? currentRoute.commands.join(' → ') : 'Listen, then choose a driving command.'}</p>
+        {soundError && <p className="focus-game-message">Sound is unavailable. Use Show words in Options.</p>}
+        <div className="german-focus-drive">
+        <div className="relative grid aspect-square w-full grid-cols-4 gap-1 rounded-2xl border-2 border-amber-300 bg-emerald-100 p-2" role="grid" aria-label="Four by four garage driving grid">
           {Array.from({ length: GERMAN_DRIVE_GRID_SIZE * GERMAN_DRIVE_GRID_SIZE }, (_, i) => {
             const x = i % GERMAN_DRIVE_GRID_SIZE; const y = Math.floor(i / GERMAN_DRIVE_GRID_SIZE);
             const isCar = driveState?.position[0] === x && driveState?.position[1] === y;
@@ -374,19 +412,30 @@ export default function GermanGarage({ onBack, playSfx, soundOn, onToggleSound, 
           })}
           {driveState && <span aria-hidden="true" className="pointer-events-none absolute z-10 grid aspect-square w-[calc((100%-1.5rem)/4)] place-items-center rounded-full bg-blue-700 text-3xl text-white shadow transition-[left,top] ease-linear" style={{ left: `calc(0.5rem + (100% - 1rem) * ${(driveState.position[0] + 0.5) / 4})`, top: `calc(0.5rem + (100% - 1rem) * ${(driveState.position[1] + 0.5) / 4})`, transform: 'translate(-50%, -50%)', transitionDuration: `${driveState.moveDurationMs}ms` }}>↑</span>}
         </div>
-        <div className="grid w-[calc(100%-228px)] max-w-[140px] grid-cols-2 gap-1.5 sm:w-[300px] sm:max-w-none sm:grid-cols-3 sm:gap-2">{GERMAN_DRIVE_COMMANDS.map((command) => {
+        <div aria-label="Driving controls" className="grid grid-cols-3 gap-2">{GERMAN_DRIVE_COMMANDS.map((command) => {
           const label = command.id === 'Geradeaus' ? 'Move forward' : command.id === 'Zurück' ? 'Move back' : command.kind === 'move' ? `Move ${command.english}` : command.id === 'Langsam' ? 'Slow' : 'Stop';
           return <button key={command.id} disabled={Boolean(held) || Boolean(driveState?.solved)} aria-label={label} onClick={() => moveDrive(command.id)} className="min-h-11 rounded-xl border-2 border-white bg-blue-700 px-0.5 text-xs font-black text-white shadow sm:min-h-12 sm:px-1 sm:text-sm">{command.icon}<span className="block text-[10px] font-semibold leading-tight sm:text-xs">{label}</span></button>;
         })}</div>
         </div>
       </> : <>
-        <section className="rounded-3xl border-2 border-white bg-white/95 p-3 text-center shadow-lg"><p className="text-xs font-black uppercase tracking-widest text-blue-600">{activeMode === 'paint' ? 'Paint the car' : activeMode === 'park' ? 'Choose the garage' : `${activeMode} word`}</p><div className="flex items-center justify-center gap-2"><p className="text-xl font-black">Listen to the German word</p><button onClick={() => playTerms([target?.name])} className="min-h-12 min-w-12 rounded-full bg-blue-700 p-3 text-white" aria-label="Replay German word"><Volume2 /></button></div><p className="text-2xl font-black text-blue-800" aria-label="German word clue">{target?.name}</p>{soundError && <p className="text-sm font-bold text-amber-800">Sound could not play. Read the German word and use the picture clues.</p>}{!historyStatus.ok && <p className="text-xs font-bold text-amber-800">Recent-word rotation is not saved. You can continue; words may repeat.</p>}</section>
-        <section className="relative h-36 overflow-hidden rounded-3xl border-4 border-white shadow-lg sm:h-48">{activeMode === 'paint' ? <><img src={emptyGarage} alt="An empty garage ready for the car" className="h-full w-full object-cover" /><div className="absolute inset-0 flex items-center justify-center pt-2"><div className="relative h-[92%] w-[62%] max-w-[620px]"><img src={friendlyCar} alt={painted ? `Car painted ${painted.name}` : 'Car ready to paint'} className="absolute inset-0 h-full w-full object-contain drop-shadow-[0_18px_18px_rgba(15,23,42,.32)]" />{painted && <div className="absolute inset-0 transition-all duration-300" style={{ backgroundColor: painted.hex, WebkitMaskImage: `url(${friendlyCar})`, maskImage: `url(${friendlyCar})`, WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center', WebkitMaskSize: 'contain', maskSize: 'contain', mixBlendMode: 'multiply', opacity: 0.72 }} />}</div>{painted && <span className="absolute right-2 top-2 rounded-full border-2 border-white bg-slate-900/75 px-3 py-1 text-sm font-black text-white">Painted {painted.name}</span>}</div></> : <img src={MODE_SCENES[activeMode] || garageScene} alt={`${activeMode} German learning scene`} className="h-full w-full object-cover" />}</section>
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">{activeRound?.options.map((option) => <button key={option.name} disabled={Boolean(held)} onClick={() => chooseVocabulary(option)} className="flex min-h-16 items-center justify-center gap-2 rounded-2xl border-4 border-white bg-white px-2 py-2 text-center font-black shadow"><span className="text-3xl" aria-hidden="true">{option.emoji || '🎨'}</span><span>{germanTranslation(activeMode, option.name)}</span>{activeMode === 'paint' && <i className="h-7 w-7 rounded-full border" style={{ backgroundColor: option.hex }} />}</button>)}</div>
+        <p className="german-focus-word" aria-label="German word clue">{target?.name}</p>
+        {soundError && <p className="focus-game-message">Sound could not play. Read the word and use the pictures.</p>}
+        {!historyStatus.ok && <p className="focus-game-message">Recent words could not be saved. Some may repeat.</p>}
+        <section className="german-focus-scene">{activeMode === 'paint' ? <><img src={emptyGarage} alt="An empty garage ready for the car" className="h-full w-full object-cover" /><div className="absolute inset-0 flex items-center justify-center pt-2"><div className="relative h-[92%] w-[62%] max-w-[620px]"><img src={friendlyCar} alt={painted ? `Car painted ${painted.name}` : 'Car ready to paint'} className="absolute inset-0 h-full w-full object-contain drop-shadow-[0_18px_18px_rgba(15,23,42,.32)]" />{painted && <div className="absolute inset-0 transition-all duration-300" style={{ backgroundColor: painted.hex, WebkitMaskImage: `url(${friendlyCar})`, maskImage: `url(${friendlyCar})`, WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskPosition: 'center', WebkitMaskSize: 'contain', maskSize: 'contain', mixBlendMode: 'multiply', opacity: 0.72 }} />}</div>{painted && <span className="absolute right-2 top-2 rounded-full border-2 border-white bg-slate-900/75 px-3 py-1 text-sm font-black text-white">Painted {painted.name}</span>}</div></> : <img src={MODE_SCENES[activeMode] || garageScene} alt={`${activeMode} German learning scene`} className="h-full w-full object-cover" />}</section>
+        <div aria-label="Choose the matching picture" className="grid grid-cols-2 gap-2 sm:grid-cols-4">{activeRound?.options.map((option) => <button key={option.name} disabled={Boolean(held)} onClick={() => chooseVocabulary(option)} className="flex min-h-16 items-center justify-center gap-2 rounded-2xl border-4 border-white bg-white px-2 py-2 text-center font-black shadow"><span className="text-3xl" aria-hidden="true">{option.emoji || '🎨'}</span><span>{germanTranslation(activeMode, option.name)}</span>{activeMode === 'paint' && <i className="h-7 w-7 rounded-full border" style={{ backgroundColor: option.hex }} />}</button>)}</div>
       </>}
       {!held && <div className="min-h-8 text-center text-sm font-black text-slate-800" aria-live="polite">{feedback}</div>}
       {saveError && <div className="rounded-xl border-2 border-rose-300 bg-white p-3 text-center" role="alert"><p className="font-bold">{saveError}</p>{held?.kind === 'word' && <p className="mt-1">Your answer: {held.target} · {germanTranslation(held.mode, held.target)}.</p>}{held?.kind === 'route' && heldRoute && <p className="mt-1">Route reached: {heldRoute.commands.map((id) => `${id} · ${commandFor(id).english}`).join(' → ')}.</p>}<button disabled={saving} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-5 font-black text-white" onClick={submitCompletion}>Retry save</button></div>}
-      {held && !saveError && !saving && <section className="rounded-2xl border-2 border-emerald-200 bg-white p-3 text-center shadow" role="status" tabIndex={-1} ref={(node) => { if (node) node.focus({ preventScroll: true }); }}><p className="font-bold">{held.kind === 'word' ? `${held.target} means ${germanTranslation(held.mode, held.target)}.` : held.kind === 'route-step' ? `${held.command} means ${held.english}.` : heldRoute ? `You reached the destination and stopped the car. ${heldRoute.commands.map((id) => `${id} means ${commandFor(id).english}`).join(' · ')}.` : 'You reached the destination and stopped the car.'}</p>{held.final && !isPractice && <p className="mt-1 text-sm">Chapter progress is saved. Finish returns to the garage; mid-round answers are not saved.</p>}<button disabled={saving} onClick={advanceHeld} className="mt-2 min-h-12 rounded-xl bg-emerald-700 px-6 font-black text-white">{held.final ? 'Finish chapter' : held.kind === 'route-step' ? 'Next command' : held.kind === 'route' ? 'Next route' : 'Next word'}</button></section>}
+      {held && !saveError && !saving && <section className="rounded-2xl border-2 border-emerald-200 bg-white p-3 text-center shadow" role="status" tabIndex={-1} ref={(node) => { if (node) node.focus({ preventScroll: true }); }}><p className="font-bold">{held.kind === 'word' ? `${held.target} means ${germanTranslation(held.mode, held.target)}.` : held.kind === 'route-step' ? `${held.command} means ${held.english}.` : heldRoute ? `You reached the destination and stopped the car. ${heldRoute.commands.map((id) => `${id} means ${commandFor(id).english}`).join(' · ')}.` : 'You reached the destination and stopped the car.'}</p>{held.final && !isPractice && <p className="mt-1 text-sm">Your chapter is saved.</p>}<button disabled={saving} onClick={advanceHeld} className="mt-2 min-h-12 rounded-xl bg-emerald-700 px-6 font-black text-white">{held.final ? 'Finish chapter' : held.kind === 'route-step' ? 'Next command' : held.kind === 'route' ? 'Next route' : 'Next word'}</button></section>}
+      <div className="focus-game-actions">
+        {soundOn && !held && !directionLesson && (currentRoute || target) && (
+          <button type="button" className="focus-game-button" onClick={() => playTerms(currentRoute?.commands || [target.name])}>
+            <Volume2 className="mr-1 inline" size={18} aria-hidden="true" /> {currentRoute ? 'Hear the commands' : 'Hear the word'}
+          </button>
+        )}
+        <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+      </div>
+      </div>
     </main>
   </div>;
 }

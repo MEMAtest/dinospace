@@ -226,3 +226,19 @@
   .quest-route-body>.mt-4 button{min-width:48px;min-height:48px}
   .quest-play-stage .quest-sequence-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
+
+.quest-focus.curriculum-quest { padding: 0; background: #edf6fa; }
+.quest-focus .focus-game-body:not(.is-menu) { width: min(100%, 70rem); padding: clamp(.65rem, 2vw, 1.25rem); }
+.quest-focus .quest-lesson-grid { display: block; }
+.quest-focus .quest-lesson-visual { min-height: 0; padding: 0; border: 0; box-shadow: none; }
+.quest-focus .quest-focus-progress { color: #405d73; font-size: .85rem; font-weight: 800; }
+.quest-focus .quest-focus-prompt { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 850; line-height: 1.15; }
+.quest-focus [data-quest-map] { max-width: none; height: clamp(18rem, 48vw, 27rem); border-width: 2px; border-radius: .85rem; }
+.quest-focus-map-label, .quest-focus-marker { position: absolute; translate: -50% -50%; border-radius: .5rem; font-size: clamp(.64rem, 1.55vw, .9rem); font-weight: 850; text-align: center; }
+.quest-focus-map-label { max-width: 5.3rem; padding: .15rem .38rem; background: #fff; color: #172c47; }
+.quest-focus-marker { display: grid; place-content: center; min-width: 48px; min-height: 48px; padding: .2rem; border: 1px solid #688da1; background: #fff; color: #142e4b; }
+.quest-focus-marker.quest-ocean-marker { width: clamp(50px, 16%, 90px); line-height: 1.05; }
+.quest-focus-marker.is-picked { outline: 2px solid #b32745; }
+.quest-focus-board .quest-answer-card { border-width: 2px; box-shadow: none; border-radius: .75rem; }
+
+.quest-focus .quest-focus-marker:focus-visible { position: absolute; }
