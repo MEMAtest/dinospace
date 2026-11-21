@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { EditorContent, useEditor, useEditorState } from '@tiptap/react';
+import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import TextAlign from '@tiptap/extension-text-align';
 import Image from '@tiptap/extension-image';
+import { FocusMenu } from '../components/shared/FocusMenu.jsx';
 import './writingDesk.css';
 import {
-  WRITING_PROJECTS, checkWritingProject, countWritingBodyWords, writingBodyText, writingHeadingText,
+  WRITING_PROJECTS, checkWritingProject, countWritingBodyWords, writingHeadingText,
 } from './writingProjects.js';
 import {
   completeWritingProject, hasWritingRecovery, loadWritingDraft, readLegacyWritingDraft,
@@ -18,8 +19,9 @@ const blankDocument = (project) => ({ type: 'doc', content: [
   { type: 'paragraph', content: [] },
   ...(project.id === 'planet-mini-report' ? [{ type: 'paragraph', content: [] }, { type: 'paragraph', content: [] }] : []),
 ] });
-export default function WritingDesk({ player = 'amari', playerId = player, registerDirty, onCelebrate = () => {}, onGameEvent, onPhaseChange, cancelNarration = () => {}, soundOn = false }) {
+export default function WritingDesk({ player = 'amari', playerId = player, registerDirty, onCelebrate = () => {}, onGameEvent, onPhaseChange, cancelNarration = () => {}, soundOn = false, onBack }) {
   const [screen, setScreen] = useState('map');
+  const [panel, setPanel] = useState(null);
   const [activeProjectId, setActiveProjectId] = useState(null);
   const [title, setTitle] = useState('');
   const [planet, setPlanet] = useState('Earth');
@@ -44,7 +46,8 @@ export default function WritingDesk({ player = 'amari', playerId = player, regis
   const liveRef = useRef({ dirty: false, snapshot: null });
   const lastDocumentRef = useRef(null);
   const editFrameRef = useRef(null);
-  const projectGridRef = useRef(null);
+  const headingRef = useRef(null);
+  const selectedTextRef = useRef(null);
   const extensions = useMemo(() => [
     StarterKit.configure({ heading: { levels: [1] }, bulletList: false, orderedList: false, blockquote: false, codeBlock: false, horizontalRule: false, link: false }),
     TextAlign.configure({ types: ['heading', 'paragraph'] }),
@@ -57,6 +60,11 @@ export default function WritingDesk({ player = 'amari', playerId = player, regis
     content: initialDocument,
     editorProps,
     shouldRerenderOnTransaction: false,
+    onSelectionUpdate: ({ editor: current }) => {
+      const { doc, selection } = current.state;
+      if (!selection.empty) selectedTextRef.current = { doc, from: selection.from, to: selection.to };
+      else if (current.view.hasFocus()) selectedTextRef.current = null;
+    },
     onUpdate: ({ editor: currentEditor }) => {
       if (!activeProjectRef.current) return;
       if (lastDocumentRef.current?.eq(currentEditor.state.doc)) return;
@@ -81,10 +89,6 @@ export default function WritingDesk({ player = 'amari', playerId = player, regis
       });
     },
   });
-  const formats = useEditorState({ editor, selector: ({ editor: current }) => current ? {
-    bold: current.isActive('bold'), italic: current.isActive('italic'), heading: current.isActive('heading'), centered: current.isActive({ textAlign: 'center' }),
-  } : {} });
-
   const activeProject = WRITING_PROJECTS.find((item) => item.id === activeProjectId) || null;
   const activePrompt = activeProject ? `${activeProject.prompt}${planet === 'Pluto' ? ' Pluto is a dwarf planet.' : ''}` : '';
   const document = editor?.getJSON() || blankDocument(WRITING_PROJECTS[0]);
@@ -177,8 +181,8 @@ export default function WritingDesk({ player = 'amari', playerId = player, regis
       const target = screen === 'editor'
         ? window.document.querySelector('[data-writing-screen="editor"] .writing-paper .tiptap')
         : screen === 'complete'
-          ? window.document.querySelector('[data-writing-screen="complete"] .writing-button.primary')
-          : window.document.querySelector('[data-writing-screen="map"] .writing-project-card .writing-button');
+          ? window.document.querySelector('[data-writing-screen="complete"] .is-primary')
+          : window.document.querySelector('[data-writing-screen="map"] .is-primary');
       target?.focus({ preventScroll: true });
     });
     return () => window.cancelAnimationFrame(frame);
@@ -304,17 +308,13 @@ export default function WritingDesk({ player = 'amari', playerId = player, regis
   };
 
   const focusBody = () => {
-    const state = editor.state;
-    let offset = 0;
-    for (let index = 0; index < state.doc.childCount; index += 1) {
-      const node = state.doc.child(index);
-      if (node.type.name === 'paragraph') {
-        editor.chain().focus().setTextSelection(Math.min(offset + 1, state.doc.content.size)).run();
-        return;
-      }
-      offset += node.nodeSize;
-    }
-    editor.chain().focus('end').run();
+    let position = 0;
+    editor.state.doc.forEach((node, offset) => {
+      if (node.type.name === 'paragraph') position = offset + node.nodeSize - 1;
+    });
+    if (position) editor.commands.setTextSelection(position);
+    editor.view.focus();
+    editor.commands.scrollIntoView();
   };
 
   const addPlanetPicture = async () => {
@@ -461,86 +461,158 @@ export default function WritingDesk({ player = 'amari', playerId = player, regis
 
   if (!editor) return <p>Opening your writing desk…</p>;
 
-  if (screen === 'map') return <section className="writing-desk writing-map" aria-labelledby="writing-map-title" data-writing-screen="map" data-writing-stage="project-map" data-writing-project="" data-writing-save-status={saveState}>
-    <div className="section-heading"><div><p className="eyebrow">Type · Edit · Save · Share</p><h1 id="writing-map-title">My Writing Desk</h1></div><span className="skill-pill">{progress.completedProjectIds.length} of 3 projects complete</span></div>
-    <div className="writing-project-intro"><p>Choose a project. Your draft saves for this explorer on this device.</p><button type="button" className="writing-button primary" onClick={() => { projectGridRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' }); projectGridRef.current?.focus({ preventScroll: true }); }}>Show projects</button></div>
-    {legacyDraft && <aside className="writing-legacy-notice" role="status"><strong>An older saved postcard is available.</strong><span>Its original manual copy remains separate and unchanged.</span>{!savedProjects['space-postcard'].ok && <button type="button" className="writing-button secondary" onClick={importLegacy}>Import legacy postcard</button>}<button type="button" className="writing-button secondary" onClick={() => applyRecord({ ...legacyDraft, playerId: String(playerId), projectId: 'space-postcard', milestones: { saved: false, reopened: false, exported: false } }, { readOnly: true })}>Open older copy read-only to export</button></aside>}
-    <div className="writing-project-grid" ref={projectGridRef} tabIndex={-1} aria-label="Writing projects">
-      {WRITING_PROJECTS.map((project, index) => {
-        const saved = savedProjects[project.id];
-        const unlocked = index <= progress.unlockedProjectIndex || progress.completedProjectIds.includes(project.id);
-        const complete = progress.completedProjectIds.includes(project.id);
-        const recovery = hasWritingRecovery(playerId, project.id);
-        return <article className={`writing-project-card ${complete ? 'is-complete' : ''} ${!unlocked ? 'is-locked' : ''}`} key={project.id}>
-          <span className="writing-project-number">PROJECT 0{index + 1}</span>
-          <h2>{project.title}</h2><p>{project.description}</p>
-          <span className="writing-project-status">{complete ? '✓ Project steps complete' : saved.ok ? saved.recovered ? 'Recovered draft available' : 'Saved draft available' : saved.reason === 'draft-corrupt' ? 'A saved copy needs recovery; it will not be replaced' : saved.reason === 'storage-read-failed' ? 'Saved work could not be read' : unlocked ? 'Ready to begin' : `Complete ${WRITING_PROJECTS[index - 1]?.kind.toLowerCase()} to unlock`}</span>
-          <div className="writing-project-actions">
-            {saved.ok && unlocked && <button type="button" className="writing-button primary" onClick={() => openProject(project.id)}>{complete ? 'Replay saved project' : 'Resume saved draft'}</button>}
-            {recovery && unlocked && saved.ok && !saved.recovered && <button type="button" className="writing-button secondary" onClick={() => openProject(project.id, true)}>Recover previous saved version</button>}
-            {unlocked && !saved.ok && !['draft-corrupt', 'storage-read-failed'].includes(saved.reason) && <button type="button" className="writing-button secondary" onClick={() => beginProject(project)}>Start project</button>}
-            {!unlocked && <button type="button" className="writing-button secondary" disabled>Complete the earlier project first</button>}
+  const busy = imageLoading || exporting;
+  const closePanel = () => setPanel(null);
+  const leaveDesk = () => {
+    if (busy || !liveHandlersRef.current.save()) {
+      if (!busy) { setSaveState('failed'); setStatus('Your draft could not save. Retry before leaving.'); }
+      return;
+    }
+    cancelNarration();
+    onBack?.();
+  };
+  const available = (project, index) => index <= progress.unlockedProjectIndex || progress.completedProjectIds.includes(project.id);
+  const projectAction = project => {
+    closePanel();
+    if (savedProjects[project.id].ok) openProject(project.id);
+    else beginProject(project);
+  };
+
+  const preferredProject = WRITING_PROJECTS[Math.min(progress.unlockedProjectIndex, WRITING_PROJECTS.length - 1)];
+  const primaryProject = preferredProject || WRITING_PROJECTS[0];
+  const primarySaved = savedProjects[primaryProject.id];
+  const primaryBlocked = !primarySaved.ok && ['draft-corrupt', 'storage-read-failed'].includes(primarySaved.reason);
+  const openLegacyReadOnly = () => {
+    closePanel();
+    applyRecord({ ...legacyDraft, playerId: String(playerId), projectId: 'space-postcard', milestones: { saved: false, reopened: false, exported: false } }, { readOnly: true });
+  };
+  const projectOptions = [
+    ...WRITING_PROJECTS.map((project, index) => ({
+      label: project.title, description: project.description,
+      disabled: !available(project, index) || ['draft-corrupt', 'storage-read-failed'].includes(savedProjects[project.id].reason),
+      button: savedProjects[project.id].ok ? 'Open saved draft' : 'Start project', action: () => projectAction(project),
+    })),
+    ...WRITING_PROJECTS.filter((project, index) => available(project, index) && hasWritingRecovery(playerId, project.id)).map(project => ({
+      label: `Recover ${project.title}`, action: () => { closePanel(); openProject(project.id, true); },
+    })),
+    ...(legacyDraft ? [
+      ...(!savedProjects['space-postcard'].ok ? [{ label: 'Import older postcard', action: () => { closePanel(); importLegacy(); } }] : []),
+      { label: 'Open older copy read-only', action: openLegacyReadOnly },
+    ] : []),
+    ...(onBack ? [{ label: 'Back to Creative Lab', action: leaveDesk }] : []),
+  ];
+  if (screen === 'map' || screen === 'complete') {
+    const complete = screen === 'complete';
+    return <section className="writing-desk writing-focus focus-game" aria-labelledby="writing-map-title" data-writing-screen={screen} data-writing-stage={complete ? 'complete' : 'project-map'} data-writing-project={complete ? activeProject?.id : ''} data-writing-save-status={saveState}>
+      <div className="focus-game-body is-menu">
+        <header className="focus-game-heading"><h1 id="writing-map-title">{complete ? `${activeProject.title} complete!` : 'My Writing Desk'}</h1></header>
+        {panel ? <FocusMenu choices={projectOptions} onBack={closePanel} /> : <>
+          <div className="writing-focus-planet">
+            <img src={`/models/${primaryProject.planet === 'Earth' ? 'solar-v2' : 'solar-v1'}/${primaryProject.planet.toLowerCase()}.png`} alt={primaryProject.planet} />
           </div>
-          {project.id === 'space-postcard' && <div className="postcard-preview writing-project-art"><span className="postage">✦ SPACE POST</span><img src="/models/solar-v2/earth.png" alt="Earth with blue oceans and continents"/><p>Hello from Earth!</p></div>}
-          {project.id !== 'space-postcard' && <div className="writing-planet-art"><img src={`/models/solar-v1/${project.planet.toLowerCase()}.png`} alt={`${project.planet} planet`}/><span>{project.kind}</span></div>}
-        </article>;
-      })}
-    </div>
-    <p className="writing-save-status" role="status">{status}</p>
-  </section>;
-
-  if (screen === 'complete') return <section className="writing-desk writing-project-complete" aria-labelledby="writing-complete-title" data-writing-screen="complete" data-writing-stage="complete" data-writing-project={activeProject?.id} data-writing-save-status={saveState}>
-    <div className="section-heading"><div><p className="eyebrow">Project saved</p><h1 id="writing-complete-title">{activeProject?.title} complete</h1></div><span className="skill-pill">Project steps recorded</span></div>
-    <div className="writing-completion-card"><img src={`/models/${planet === 'Earth' ? 'solar-v2' : 'solar-v1'}/${planet.toLowerCase()}.png`} alt={planet === 'Pluto' ? 'Pluto dwarf planet' : `${planet} planet`}/><p>Your project steps are saved.</p><div className="writing-project-actions"><button type="button" className="writing-button primary" onClick={goToMap}>Choose next project</button><button type="button" className="writing-button secondary" onClick={() => openProject(activeProject.id)}>Open saved project</button><button type="button" className="writing-button secondary" onClick={() => openProject(activeProject.id)}>Replay saved project</button></div></div>
-  </section>;
-
-  const missingChecks = review.checks.filter((check) => !check.done);
-  const nextAction = missingChecks[0]?.label || 'Project steps ready';
-  const imageExists = (document.content || []).some((node) => node.type === 'image');
-  const bodyParagraphCount = (document.content || []).filter((node) => node.type === 'paragraph' && writingBodyText({ content: [node] }).trim()).length;
-
-  return <section className="writing-desk writing-editor" aria-labelledby="writing-title" data-writing-screen="editor" data-writing-stage={readOnlyRecovery ? 'legacy-read-only' : missingChecks[0]?.id || 'complete'} data-writing-project={activeProject.id} data-writing-save-status={readOnlyRecovery ? 'legacy-read-only' : saveState} data-writing-revision={revision}>
-    <div className="section-heading"><div><p className="eyebrow">Type · Edit · Save · Share</p><h1 id="writing-title">My Writing Desk</h1></div><span className="skill-pill">{activeProject.title}</span></div>
-    <nav className="writing-project-nav" aria-label="Project actions"><button type="button" className="writing-button secondary" disabled={imageLoading || exporting} onClick={goToMap}>All projects</button><span>{activeProject.kind}</span></nav>
-    {readOnlyRecovery && <aside className="writing-legacy-notice" role="status"><strong>Older copy opened read-only</strong><span>This older copy is protected. Its original stays separate; you can download a Word copy.</span></aside>}
-    <div className="writing-quick-guide"><strong>{activeProject.kind}</strong><span>{activePrompt}</span><span>Next: {nextAction}.</span></div>
-    <div className="writing-document-panel panel">
-      <label className="writing-field writing-heading-entry">Heading<input aria-label="Document heading" value={writingHeadingText(document)} maxLength={100} readOnly={readOnlyRecovery} onChange={(event) => updateHeading(event.target.value)} /></label>
-      <button type="button" className="writing-button primary writing-focus-message" disabled={readOnlyRecovery || imageLoading || exporting} onClick={focusBody}>Write my message</button>
-      <p className="writing-word-count" aria-live="polite">Body words: <strong>{bodyWords}</strong> of {activeProject.minimumBodyWords} · heading not counted</p>
-      <div className="writing-paper"><EditorContent editor={editor}/></div>
-      <p className="writing-paragraph-count">Paragraphs: {bodyParagraphCount} of {activeProject.minimumParagraphs}</p>
-
-      <div className="writing-format-tools" role="toolbar" aria-label="Project formatting tools">
-        {activeProject.requireBold && <button type="button" disabled={readOnlyRecovery} className="writing-button secondary" aria-label="Bold" aria-pressed={formats.bold || false} onClick={() => editor.chain().focus().toggleBold().run()}><strong>B</strong> Bold a word</button>}
-        {activeProject.requireItalic && <button type="button" disabled={readOnlyRecovery} className="writing-button secondary" aria-label="Italic" aria-pressed={formats.italic || false} onClick={() => editor.chain().focus().toggleItalic().run()}><em>I</em> Italic</button>}
-        {activeProject.requireCentered && <button type="button" disabled={readOnlyRecovery} className="writing-button secondary" aria-pressed={formats.centered || false} onClick={() => editor.chain().focus().setTextAlign('center').run()}>Centre paragraph</button>}
+          <p className="focus-game-message">{complete ? 'Your project is saved.' : primaryBlocked ? 'The saved draft could not be opened. Look in Options for a recovery copy.' : primaryProject.description}</p>
+          {!complete && legacyDraft && <p>An older saved postcard is available in Options.</p>}
+          {status && !complete && !status.startsWith('Choose a project') && <p className="writing-save-status" role="status">{status}</p>}
+          <div className="focus-game-actions">
+            {complete
+              ? <button type="button" className="focus-game-button is-primary" onClick={goToMap}>Next project</button>
+              : !primaryBlocked && <button type="button" className="focus-game-button is-primary" onClick={() => projectAction(primaryProject)}>{primarySaved.ok ? 'Resume' : 'Start'}: {primaryProject.title}</button>}
+            <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
+            {onBack && <button type="button" className="focus-game-button" onClick={leaveDesk}>Back</button>}
+          </div>
+        </>}
       </div>
+    </section>;
+  }
 
-      <div className="writing-planet-choice"><label className="writing-field">Space picture<select aria-label="Space picture" value={planet} disabled={readOnlyRecovery || imageExists || imageLoading} onChange={(event) => { const nextPlanet = event.target.value; setPlanet(nextPlanet); markMetadataEdited({ planet: nextPlanet }); }}>{planets.map((name) => <option key={name} value={name}>{name === 'Pluto' ? 'Pluto (dwarf planet)' : name}</option>)}</select></label><button type="button" className="writing-button secondary" disabled={readOnlyRecovery || imageLoading || exporting || imageExists} onClick={addPlanetPicture}>{imageLoading ? 'Adding picture…' : imageExists ? `${planet} picture added` : `Add ${planet} picture`}</button></div>
-      <div className="writing-save-tools">
-        <button type="button" className="writing-button primary" disabled={readOnlyRecovery || exporting || imageLoading} onClick={() => saveNow()}>Save now</button>
-        <button type="button" className="writing-button secondary" disabled={readOnlyRecovery || exporting || imageLoading} onClick={openSavedProject}>Save and reopen</button>
-        <button type="button" className="writing-button secondary" disabled={exporting || imageLoading} onClick={exportWord}>{exporting ? 'Preparing Word file…' : 'Start Word export'}</button>
-      </div>
-      {dirty && <p id="writing-save-help" className={`writing-save-status is-${saveState}`} role="status">{saveState === 'failed' ? 'Save failed. Your writing is still editable; retry save or export.' : saveState === 'saving' ? 'Saving…' : 'Unsaved changes · saving automatically…'}</p>}
-      {!dirty && <p id="writing-save-help" className={`writing-save-status is-${saveState}`} role="status">{status}</p>}
-      {saveState === 'failed' && !readOnlyRecovery && <button type="button" className="writing-button retry" disabled={exporting || imageLoading} onClick={() => saveNow()}>Retry save</button>}
+  const missingCheck = review.checks.find(check => !check.done);
+  const imageExists = (document.content || []).some(node => node.type === 'image');
+  const closeAnd = action => {
+    closePanel();
+    requestAnimationFrame(() => { if (mountedRef.current) action(); });
+  };
+  const format = command => {
+    const saved = selectedTextRef.current;
+    closeAnd(() => {
+      const chain = editor.chain();
+      if (['toggleBold', 'toggleItalic'].includes(command) && saved?.doc === editor.state.doc) {
+        chain.setTextSelection({ from: saved.from, to: saved.to });
+      }
+      chain[command]().run();
+      editor.view.focus();
+    });
+  };
+  const align = value => closeAnd(() => editor.chain().focus().setTextAlign(value).run());
+  const editorOptions = [
+    ...(!readOnlyRecovery ? [
+      { label: 'Save now', disabled: busy, action: () => closeAnd(() => saveNow()) },
+      { label: 'Save and reopen', disabled: busy, action: () => closeAnd(openSavedProject) },
+      { label: 'Bold selected text', action: () => format('toggleBold') },
+      { label: 'Italic selected text', action: () => format('toggleItalic') },
+      { label: 'Centre paragraph', action: () => align('center') },
+      { label: 'Align left', action: () => align('left') },
+      { label: 'Normal text', action: () => format('setParagraph') },
+      { label: 'Undo', action: () => format('undo') },
+      { label: 'Redo', action: () => format('redo') },
+      { label: 'Planet picture', disabled: imageExists || busy, action: () => setPanel('picture') },
+      { label: 'Document file name', action: () => setPanel('name') },
+      { label: 'Project steps', action: () => setPanel('steps') },
+    ] : []),
+    { label: 'Export Word file', disabled: busy, action: () => closeAnd(exportWord) },
+    { label: 'All projects', disabled: busy, action: () => closeAnd(goToMap) },
+    ...(onBack ? [{ label: 'Back to Creative Lab', disabled: busy, action: () => closeAnd(leaveDesk) }] : []),
+  ];
+  const nextActions = {
+    documentName: { label: 'Name your document', action: () => setPanel('name') },
+    heading: { label: 'Add a heading', action: () => headingRef.current?.focus() },
+    bodyWords: { label: 'Write your message', action: focusBody },
+    paragraphs: { label: 'Write your next paragraph', action: focusBody },
+    bold: { label: 'Bold selected text', action: () => format('toggleBold') },
+    italic: { label: 'Italic selected text', action: () => format('toggleItalic') },
+    centered: { label: 'Centre paragraph', action: () => align('center') },
+    picture: { label: 'Add a planet picture', action: () => setPanel('picture') },
+    saved: { label: 'Save draft', action: () => saveNow() },
+    reopened: { label: 'Save and reopen', action: openSavedProject },
+    exported: { label: 'Export Word file', action: exportWord },
+  };
+  const mainAction = readOnlyRecovery ? { label: 'Export Word file', action: exportWord }
+    : saveState === 'failed' ? { label: 'Retry save', action: () => saveNow() }
+      : missingCheck ? nextActions[missingCheck.id] : { label: 'Complete project', action: completeProject };
 
-      <details className="writing-project-checks"><summary>Project steps</summary><div className="writing-checklist">{review.checks.map((check) => <div className={check.done ? 'is-done' : ''} key={check.id}><span aria-hidden="true">{check.done ? '✓' : '○'}</span>{check.label}</div>)}</div></details>
-      <details className="writing-advanced-tools"><summary>More writing tools</summary><div className="writing-format-tools" role="toolbar" aria-label="More document tools">
-        <button type="button" disabled={readOnlyRecovery} className="writing-button secondary" onClick={() => editor.chain().focus().setParagraph().run()}>Normal text</button>
-        <button type="button" disabled={readOnlyRecovery} className="writing-button secondary" onClick={() => editor.chain().focus().setTextAlign('left').run()}>Align left</button>
-        <button type="button" disabled={readOnlyRecovery} className="writing-button secondary" onClick={() => editor.chain().focus().undo().run()}>Undo</button>
-        <button type="button" disabled={readOnlyRecovery} className="writing-button secondary" onClick={() => editor.chain().focus().redo().run()}>Redo</button>
-      </div></details>
-      <details className="writing-document-name"><summary>Document file name</summary><label className="writing-field">Name for your saved and Word files<input value={title} maxLength={100} readOnly={readOnlyRecovery} onChange={(event) => updateTitle(event.target.value)} /></label></details>
-      <details className="writing-parent-note"><summary>About project keepsakes</summary><p>Project completion records document steps and structure. It does not assess spelling, handwriting or prose quality.</p></details>
-      <div className="writing-complete-panel">
-        <button type="button" className="writing-button primary" disabled={readOnlyRecovery || !review.complete || dirty || saveState !== 'saved' || exporting || imageLoading} onClick={completeProject}>Complete project</button>
-        {!review.complete && <p className="writing-disabled-help">Next: {nextAction}.</p>}
-        {(dirty || saveState === 'failed') && <p className="writing-disabled-help" role="alert">Save the current draft before completing this project.</p>}
+  return <section className="writing-desk writing-editor writing-focus focus-game" aria-labelledby="writing-title" data-writing-screen="editor" data-writing-stage={readOnlyRecovery ? 'legacy-read-only' : missingCheck?.id || 'complete'} data-writing-project={activeProject.id} data-writing-save-status={readOnlyRecovery ? 'legacy-read-only' : saveState} data-writing-revision={revision}>
+    <div className={`focus-game-body${panel ? ' is-menu' : ''}`}>
+      <header className="focus-game-heading"><p>My Writing Desk</p><h1 id="writing-title">{activeProject.title}</h1></header>
+      <div hidden={Boolean(panel)}>
+        <p className="focus-game-message">{readOnlyRecovery ? 'Older copy opened read-only.' : activePrompt}</p>
+        <label className="writing-field writing-heading-entry">Heading<input ref={headingRef} aria-label="Document heading" value={writingHeadingText(document)} maxLength={100} readOnly={readOnlyRecovery} onChange={event => updateHeading(event.target.value)} /></label>
+        <div className="writing-paper"><EditorContent editor={editor} /></div>
+        {!readOnlyRecovery && <p className="writing-word-count" aria-live="polite">{bodyWords} of {activeProject.minimumBodyWords} body words{activeProject.minimumParagraphs > 1 ? ` · ${activeProject.minimumParagraphs} paragraphs needed` : ''}</p>}
+        <p id="writing-save-help" className={`writing-save-status is-${saveState}`} role="status">
+          {dirty ? saveState === 'failed' ? 'Save failed. Your writing is still here.' : 'Saving draft…' : status}
+        </p>
+        {missingCheck && !readOnlyRecovery && <p className="focus-game-message">{missingCheck.id === 'bold' || missingCheck.id === 'italic' ? 'Select a word in the message, then use the button below.' : missingCheck.label}</p>}
+        <div className="focus-game-actions">
+          <button type="button" className="focus-game-button is-primary" disabled={busy || (!missingCheck && !readOnlyRecovery && (dirty || saveState !== 'saved') && saveState !== 'failed')} onClick={mainAction.action}>{busy ? imageLoading ? 'Adding picture…' : 'Preparing Word file…' : mainAction.label}</button>
+          <button type="button" className="focus-game-button" disabled={busy} onClick={() => setPanel('options')}>Options</button>
+          <button type="button" className="focus-game-button" disabled={busy} onClick={goToMap}>All projects</button>
+        </div>
       </div>
+      {panel === 'options' ? <FocusMenu choices={editorOptions} onBack={closePanel} /> : panel && <div className="focus-game-menu">
+        {panel === 'picture' ? <>
+          <label className="writing-field">Space picture
+            <select aria-label="Space picture" value={planet} onChange={event => { setPlanet(event.target.value); markMetadataEdited({ planet: event.target.value }); }}>
+              {planets.map(name => <option key={name} value={name}>{name === 'Pluto' ? 'Pluto (dwarf planet)' : name}</option>)}
+            </select>
+          </label>
+          <button type="button" className="focus-game-button is-primary" onClick={() => closeAnd(addPlanetPicture)}>Add {planet} picture</button>
+        </> : panel === 'name' ? <label className="writing-field">Name for your saved and Word files<input value={title} maxLength={100} onChange={event => updateTitle(event.target.value)} /></label>
+          : <>
+            <h2>Project steps</h2>
+            <div className="writing-checklist">{review.checks.map(check => <div className={check.done ? 'is-done' : ''} key={check.id}><span aria-hidden="true">{check.done ? '✓' : '○'}</span>{check.label}</div>)}</div>
+            <p>These steps track how you use the writing desk.</p>
+          </>}
+        <button type="button" className="focus-game-button" onClick={closePanel}>Back to writing</button>
+      </div>}
     </div>
   </section>;
 }

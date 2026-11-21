@@ -185,7 +185,7 @@ const LadderRound = ({ animals, targetFloor, byFloorNumber, complete, mistake, s
         <span className="text-left text-sm leading-tight sm:text-lg">{byFloorNumber ? 'Tap floor' : `Find the ${target.name}`}</span>
         {byFloorNumber ? <span className="text-4xl text-rose-600">{targetFloor}</span> : <Animal animal={target} fixed className="h-12 w-12" />}
       </button>
-      <div className="relative mx-auto w-full overflow-hidden rounded-[2rem] border-[6px] border-white bg-gradient-to-b from-sky-300 to-sky-100 shadow-2xl" style={{ aspectRatio: '4 / 5', maxWidth: 'calc((100dvh - var(--rescue-ladder-chrome, 12rem)) * 0.8)' }}>
+      <div data-ladder-board="" className="relative mx-auto w-full overflow-hidden rounded-xl border-2 border-white bg-gradient-to-b from-sky-300 to-sky-100" style={{ aspectRatio: '4 / 5', maxWidth: 'min(32rem, calc((100dvh - var(--rescue-ladder-chrome, 9rem)) * 0.8))' }}>
         <div className="absolute inset-x-0 bottom-0 h-[12%] bg-gradient-to-b from-slate-400 to-slate-600" />
         {feedback && (
           <p role={rescueStarted ? 'status' : 'alert'} aria-live="polite" className="absolute left-[3%] top-[3%] z-30 w-[38%] rounded-xl border-2 border-amber-700 bg-amber-50 px-2 py-2 text-center text-xs font-black leading-tight text-amber-950 shadow sm:text-sm">
@@ -297,8 +297,9 @@ const LadderRescue = (props) => {
       pairSafeProgress
       compactStart
       compactDone
+      focusedControls
       manualNext
-      manualNextPrompt="The animal is safe. Ready for the next rescue?"
+      manualNextPrompt="Next rescue"
       manualNextReviewLabel="Ladder rescue review"
       intro={LITTLE_LINES.ladderIntro}
       background="from-red-400 via-rose-300 to-sky-200"

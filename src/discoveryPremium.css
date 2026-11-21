@@ -503,3 +503,5 @@
 .dino-focus-hero { display: grid; min-height: 9rem; place-items: center; }
 .dino-focus-search { min-height: clamp(23rem, 60svh, 35rem); }
 .dino-focus-search button { min-width: 56px; min-height: 56px; }
+
+.discovery-game-surface[data-discovery-game="ladder"]:has([data-board-focus]) { --rescue-ladder-chrome: 9rem; }

@@ -96,3 +96,13 @@
 .studio-shell .writing-desk .section-heading { flex-wrap: wrap; align-items: flex-start; gap: 10px; }
 .studio-shell .writing-desk .section-heading > div { flex: 1 1 200px; min-width: 0; }
 .studio-shell .writing-desk .skill-pill { max-width: 100%; white-space: normal; font-size: 13px; padding: 9px 13px; }
+
+.studio-shell.writing-focus-shell > main { width: 100%; max-width: none; margin: 0; padding: 0; }
+.studio-shell .writing-focus { background: #edf5fb; }
+.studio-shell .writing-focus .focus-game-body:not(.is-menu) { width: min(100%, 65rem); padding: clamp(.65rem, 2vw, 1.25rem); }
+.studio-shell .writing-focus .writing-paper { max-width: none; margin-block: .55rem; padding: .7rem; border: 1px solid #b6c7d8; border-radius: .85rem; box-shadow: none; background: white; }
+.studio-shell .writing-focus .writing-paper .tiptap { min-height: clamp(13rem, 40svh, 27rem); padding: .4rem; font-size: clamp(1.05rem, 3vw, 1.25rem); line-height: 1.65; overflow-wrap: anywhere; }
+.studio-shell .writing-focus-planet { display: grid; min-height: 9rem; place-items: center; }
+.studio-shell .writing-focus-planet img { width: clamp(8rem, 38vw, 12rem); aspect-ratio: 1; object-fit: contain; }
+.studio-shell .writing-focus :is(.writing-word-count, .writing-save-status) { margin: .45rem 0; padding: 0; border: 0; background: transparent; box-shadow: none; font-size: .85rem; }
+.studio-shell .writing-focus [hidden] { display: none; }
