@@ -2390,5 +2390,15 @@
     "gatewayDeployment": "6b020e71c83bb056c1fa3953",
     "evidence": "docs/qa-evidence/jigsaw-rocket-focus-20261121/README.md",
     "scope": "Dino Jigsaw uses nearly the full phone width for its puzzle, with only the picture clue and Options outside the pieces. Rocket Builder puts the parts alongside a larger launch pad and holds the result after launch until the player chooses Next."
+  },
+  "latestFuelFireFocusRehearsal": {
+    "runtime": "e44f0f9b29720c48f68be0a7d1c6c17ae57d0677",
+    "entry": "/assets/arcade-D7ocIfoM.js",
+    "worker": "amari-discovery-v103",
+    "backendUrl": "https://dinospace-f83tj5zil-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_46wA6JdLB7b21A3RngGtcskddMq3",
+    "gatewayDeployment": "6b0210b995ff492105df3fcb",
+    "evidence": "docs/qa-evidence/fuel-fire-focus-20261121/README.md",
+    "scope": "Fuel Up shows the target, rocket and fuel cans. Undo and Launch appear when they are useful. Fire Truck Rescue leaves the scene, hold instruction and remaining-fire count visible. Options gives sound and named parent-world navigation. The final header has a light background for readability."
   }
 }

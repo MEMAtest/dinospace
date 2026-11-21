@@ -1,0 +1,939 @@
+{
+  "release": {
+    "runtime": "e44f0f9b29720c48f68be0a7d1c6c17ae57d0677",
+    "entry": "/assets/arcade-D7ocIfoM.js",
+    "worker": "amari-discovery-v103",
+    "backendUrl": "https://dinospace-f83tj5zil-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_46wA6JdLB7b21A3RngGtcskddMq3",
+    "gatewayDeployment": "6b0210b995ff492105df3fcb",
+    "evidence": "docs/qa-evidence/fuel-fire-focus-20261121/README.md",
+    "scope": "Fuel Up shows the target, rocket and fuel cans. Undo and Launch appear when they are useful. Fire Truck Rescue leaves the scene, hold instruction and remaining-fire count visible. Options gives sound and named parent-world navigation. The final header has a light background for readability."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-D7ocIfoM.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Fuel Up entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Fuel Up initial mission",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Fuel Up counted one",
+          "buttons": [
+            "Options",
+            "Undo last can",
+            "Launch!"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 3",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 4",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 5",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 2",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 3",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Fuel Up saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Fire Rescue active",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Fire Rescue options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        }
+      ],
+      "fuelSize": {
+        "x": 78,
+        "y": 185,
+        "width": 234,
+        "height": 333
+      },
+      "fireSize": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 740
+      },
+      "fuelTargets": [
+        3,
+        4,
+        5,
+        2,
+        3
+      ],
+      "fireCounts": [
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "wrongFuelRetryAndUndo": true,
+      "shortSprayStopsOnRelease": true,
+      "nextLevelAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-D7ocIfoM.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Fuel Up entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Fuel Up initial mission",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Fuel Up counted one",
+          "buttons": [
+            "Options",
+            "Undo last can",
+            "Launch!"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 2",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 5",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 4",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 3",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 2",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Fuel Up saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Fire Rescue active",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Fire Rescue options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        }
+      ],
+      "fuelSize": {
+        "x": 560,
+        "y": 225,
+        "width": 320,
+        "height": 405
+      },
+      "fireSize": {
+        "x": 466.875,
+        "y": 0,
+        "width": 506.25,
+        "height": 900
+      },
+      "fuelTargets": [
+        2,
+        5,
+        4,
+        3,
+        2
+      ],
+      "fireCounts": [
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "wrongFuelRetryAndUndo": true,
+      "shortSprayStopsOnRelease": true,
+      "nextLevelAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-D7ocIfoM.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Fuel Up entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Fuel Up initial mission",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Fuel Up counted one",
+          "buttons": [
+            "Options",
+            "Undo last can",
+            "Launch!"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 4",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 5",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 2",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 3",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 4",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Fuel Up saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Fire Rescue active",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Fire Rescue options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        }
+      ],
+      "fuelSize": {
+        "x": 78,
+        "y": 185,
+        "width": 234,
+        "height": 333
+      },
+      "fireSize": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 740
+      },
+      "fuelTargets": [
+        4,
+        5,
+        2,
+        3,
+        4
+      ],
+      "fireCounts": [
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "wrongFuelRetryAndUndo": true,
+      "shortSprayStopsOnRelease": true,
+      "nextLevelAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-D7ocIfoM.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Fuel Up entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Fuel Up initial mission",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Fuel Up counted one",
+          "buttons": [
+            "Options",
+            "Undo last can",
+            "Launch!"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 4",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 2",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 3",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 5",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fuel Up held launch",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0a Hear the number 4",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Fuel Up saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue entry",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Fire Rescue active",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Fire Rescue options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue held result",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Fire Truck Rescue saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        }
+      ],
+      "fuelSize": {
+        "x": 560,
+        "y": 225,
+        "width": 320,
+        "height": 405
+      },
+      "fireSize": {
+        "x": 466.875,
+        "y": 0,
+        "width": 506.25,
+        "height": 900
+      },
+      "fuelTargets": [
+        4,
+        2,
+        3,
+        5,
+        4
+      ],
+      "fireCounts": [
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "wrongFuelRetryAndUndo": true,
+      "shortSprayStopsOnRelease": true,
+      "nextLevelAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-f83tj5zil-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "5145842f54477a3219e48192e7ea58bd696fe95b62c0b6b7e546b3dde70be344"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "5145842f54477a3219e48192e7ea58bd696fe95b62c0b6b7e546b3dde70be344"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16576,
+          "sha256": "9dc196554a675ef080aff992b15524a7c11560b2eb06c23a0bc9848a3191599a"
+        },
+        {
+          "path": "/art/catalog-v3/game-fuelup.webp",
+          "bytes": 51892,
+          "sha256": "376c2c3e1348bd0d9bf09d0c0cb35e3a4e3aea2307bde5e75efb8717036c257a"
+        },
+        {
+          "path": "/art/catalog-v3/game-firerescue.webp",
+          "bytes": 86042,
+          "sha256": "6e8cf98187353bfa1a3ae6f0719ea8dad65ca267826efab99aee898f34e19fdc"
+        },
+        {
+          "path": "/assets/arcade-D7ocIfoM.js",
+          "bytes": 2074106,
+          "sha256": "d35a7f9ee104bd23f16975626e95fb5632303564e16302dede6858d825a7673c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BMWWLVkY.css",
+          "bytes": 34546,
+          "sha256": "df3d592caed0fdfc895d27c60abba0bf7a0efccab370e53c24a4047f035133e8"
+        },
+        {
+          "path": "/assets/arcade-ChivGvL5.css",
+          "bytes": 266020,
+          "sha256": "4e62b6d69b3df8f4d08f2b63dbd891fb380bd714ca56915c3440dbec6e007a7a"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b0210993cfac026c3fa3e4a--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "5145842f54477a3219e48192e7ea58bd696fe95b62c0b6b7e546b3dde70be344"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "5145842f54477a3219e48192e7ea58bd696fe95b62c0b6b7e546b3dde70be344"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16576,
+          "sha256": "9dc196554a675ef080aff992b15524a7c11560b2eb06c23a0bc9848a3191599a"
+        },
+        {
+          "path": "/art/catalog-v3/game-fuelup.webp",
+          "bytes": 51892,
+          "sha256": "376c2c3e1348bd0d9bf09d0c0cb35e3a4e3aea2307bde5e75efb8717036c257a"
+        },
+        {
+          "path": "/art/catalog-v3/game-firerescue.webp",
+          "bytes": 86042,
+          "sha256": "6e8cf98187353bfa1a3ae6f0719ea8dad65ca267826efab99aee898f34e19fdc"
+        },
+        {
+          "path": "/assets/arcade-D7ocIfoM.js",
+          "bytes": 2074106,
+          "sha256": "d35a7f9ee104bd23f16975626e95fb5632303564e16302dede6858d825a7673c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BMWWLVkY.css",
+          "bytes": 34546,
+          "sha256": "df3d592caed0fdfc895d27c60abba0bf7a0efccab370e53c24a4047f035133e8"
+        },
+        {
+          "path": "/assets/arcade-ChivGvL5.css",
+          "bytes": 266020,
+          "sha256": "4e62b6d69b3df8f4d08f2b63dbd891fb380bd714ca56915c3440dbec6e007a7a"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "5145842f54477a3219e48192e7ea58bd696fe95b62c0b6b7e546b3dde70be344"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "5145842f54477a3219e48192e7ea58bd696fe95b62c0b6b7e546b3dde70be344"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16576,
+          "sha256": "9dc196554a675ef080aff992b15524a7c11560b2eb06c23a0bc9848a3191599a"
+        },
+        {
+          "path": "/art/catalog-v3/game-fuelup.webp",
+          "bytes": 51892,
+          "sha256": "376c2c3e1348bd0d9bf09d0c0cb35e3a4e3aea2307bde5e75efb8717036c257a"
+        },
+        {
+          "path": "/art/catalog-v3/game-firerescue.webp",
+          "bytes": 86042,
+          "sha256": "6e8cf98187353bfa1a3ae6f0719ea8dad65ca267826efab99aee898f34e19fdc"
+        },
+        {
+          "path": "/assets/arcade-D7ocIfoM.js",
+          "bytes": 2074106,
+          "sha256": "d35a7f9ee104bd23f16975626e95fb5632303564e16302dede6858d825a7673c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BMWWLVkY.css",
+          "bytes": 34546,
+          "sha256": "df3d592caed0fdfc895d27c60abba0bf7a0efccab370e53c24a4047f035133e8"
+        },
+        {
+          "path": "/assets/arcade-ChivGvL5.css",
+          "bytes": 266020,
+          "sha256": "4e62b6d69b3df8f4d08f2b63dbd891fb380bd714ca56915c3440dbec6e007a7a"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}
