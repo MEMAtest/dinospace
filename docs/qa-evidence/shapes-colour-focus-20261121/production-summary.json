@@ -1,0 +1,1447 @@
+{
+  "release": {
+    "runtime": "8071b62cfc2b5734c46e61fa8f080a12019d44f2",
+    "entry": "/assets/arcade-BlKHenpZ.js",
+    "worker": "amari-discovery-v100",
+    "backendUrl": "https://dinospace-obvf2m11i-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_9fAYevAhqc6G1djBQxWFtWsTwFAE",
+    "gatewayDeployment": "6b020d10e02235d05e50a4ae",
+    "evidence": "docs/qa-evidence/shapes-colour-focus-20261121/README.md",
+    "scope": "Sky Shapes makes the paper or white tracing surface the main area. Progress feedback stays below the trace. Colour Mixing Lab opens on paper with Mix paint, Tools and Options, while the measured-paint lessons centre the bowl."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-BlKHenpZ.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Sky free drawing",
+          "buttons": [
+            "Tools",
+            "Options"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sky Shapes entry",
+          "buttons": [
+            "Start: Cloud Meadow",
+            "Free draw",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky tracing view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a tracing hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Complete this sky",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky saved chapter",
+          "buttons": [
+            "Next: Rainbow Ridge",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Clear sheet",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start this sky",
+            "Back"
+          ]
+        },
+        {
+          "label": "Colour Mixing blank canvas",
+          "buttons": [
+            "Mix paint",
+            "Tools",
+            "Options"
+          ]
+        },
+        {
+          "label": "Empty bucket",
+          "buttons": [
+            "Add red",
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Mixed bucket",
+          "buttons": [
+            "Add yellow",
+            "Use this mix",
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Tiger 3D",
+          "buttons": [
+            "Turn left",
+            "Turn right",
+            "Back to colouring"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "View in 3D",
+            "Back"
+          ]
+        },
+        {
+          "label": "Paint lesson entry",
+          "buttons": [
+            "Start: Paint Mixer",
+            "Paint canvas",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint chapter saved",
+          "buttons": [
+            "Next: Light & Shade",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "View in 3D",
+            "Back"
+          ]
+        },
+        {
+          "label": "Saved palette",
+          "buttons": [
+            "Back to lessons"
+          ]
+        }
+      ],
+      "skyCount": 4,
+      "mixIds": [
+        "mix-green",
+        "mix-lime",
+        "mix-purple",
+        "mix-brown",
+        "mix-orange",
+        "mix-teal"
+      ],
+      "paperSize": {
+        "x": 10,
+        "y": 86.75,
+        "width": 370,
+        "height": 407
+      },
+      "traceSize": {
+        "x": 9,
+        "y": 110.140625,
+        "width": 372,
+        "height": 241.796875
+      },
+      "paintColour": "rgb(242, 139, 53)",
+      "reliefState": "ready",
+      "eraserUndo": true,
+      "regionBoundedFillAndTexture": true,
+      "retainedTiger": true,
+      "unlocksAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-BlKHenpZ.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Sky free drawing",
+          "buttons": [
+            "Tools",
+            "Options"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sky Shapes entry",
+          "buttons": [
+            "Start: Cloud Meadow",
+            "Free draw",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky tracing view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a tracing hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Complete this sky",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky saved chapter",
+          "buttons": [
+            "Next: Rainbow Ridge",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Clear sheet",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start this sky",
+            "Back"
+          ]
+        },
+        {
+          "label": "Colour Mixing blank canvas",
+          "buttons": [
+            "Mix paint",
+            "Tools",
+            "Options"
+          ]
+        },
+        {
+          "label": "Empty bucket",
+          "buttons": [
+            "Add red",
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Mixed bucket",
+          "buttons": [
+            "Add yellow",
+            "Use this mix",
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Tiger 3D",
+          "buttons": [
+            "Turn left",
+            "Turn right",
+            "Back to colouring"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "View in 3D",
+            "Back"
+          ]
+        },
+        {
+          "label": "Paint lesson entry",
+          "buttons": [
+            "Start: Paint Mixer",
+            "Paint canvas",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint chapter saved",
+          "buttons": [
+            "Next: Light & Shade",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "View in 3D",
+            "Back"
+          ]
+        },
+        {
+          "label": "Saved palette",
+          "buttons": [
+            "Back to lessons"
+          ]
+        }
+      ],
+      "skyCount": 4,
+      "mixIds": [
+        "mix-brown",
+        "mix-lime",
+        "mix-orange",
+        "mix-purple",
+        "mix-teal",
+        "mix-green"
+      ],
+      "paperSize": {
+        "x": 134,
+        "y": 113.984375,
+        "width": 1172,
+        "height": 585
+      },
+      "traceSize": {
+        "x": 325,
+        "y": 133.375,
+        "width": 790,
+        "height": 513.5
+      },
+      "paintColour": "rgb(242, 139, 53)",
+      "reliefState": "ready",
+      "eraserUndo": true,
+      "regionBoundedFillAndTexture": true,
+      "retainedTiger": true,
+      "unlocksAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-BlKHenpZ.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Sky free drawing",
+          "buttons": [
+            "Tools",
+            "Options"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sky Shapes entry",
+          "buttons": [
+            "Start: Cloud Meadow",
+            "Free draw",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky tracing view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a tracing hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Complete this sky",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky saved chapter",
+          "buttons": [
+            "Next: Rainbow Ridge",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Clear sheet",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start this sky",
+            "Back"
+          ]
+        },
+        {
+          "label": "Colour Mixing blank canvas",
+          "buttons": [
+            "Mix paint",
+            "Tools",
+            "Options"
+          ]
+        },
+        {
+          "label": "Empty bucket",
+          "buttons": [
+            "Add red",
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Mixed bucket",
+          "buttons": [
+            "Add yellow",
+            "Use this mix",
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Tiger 3D",
+          "buttons": [
+            "Turn left",
+            "Turn right",
+            "Back to colouring"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "View in 3D",
+            "Back"
+          ]
+        },
+        {
+          "label": "Paint lesson entry",
+          "buttons": [
+            "Start: Paint Mixer",
+            "Paint canvas",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint chapter saved",
+          "buttons": [
+            "Next: Light & Shade",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "View in 3D",
+            "Back"
+          ]
+        },
+        {
+          "label": "Saved palette",
+          "buttons": [
+            "Back to lessons"
+          ]
+        }
+      ],
+      "skyCount": 4,
+      "mixIds": [
+        "mix-teal",
+        "mix-brown",
+        "mix-orange",
+        "mix-purple",
+        "mix-lime",
+        "mix-green"
+      ],
+      "paperSize": {
+        "x": 10,
+        "y": 86.75,
+        "width": 370,
+        "height": 407
+      },
+      "traceSize": {
+        "x": 9,
+        "y": 110.140625,
+        "width": 372,
+        "height": 241.796875
+      },
+      "paintColour": "rgb(242, 139, 53)",
+      "reliefState": "ready",
+      "eraserUndo": true,
+      "regionBoundedFillAndTexture": true,
+      "retainedTiger": true,
+      "unlocksAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-BlKHenpZ.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Sky free drawing",
+          "buttons": [
+            "Tools",
+            "Options"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sky Shapes entry",
+          "buttons": [
+            "Start: Cloud Meadow",
+            "Free draw",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky tracing view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a tracing hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Next mission",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky solved flight",
+          "buttons": [
+            "Complete this sky",
+            "Options"
+          ]
+        },
+        {
+          "label": "Sky saved chapter",
+          "buttons": [
+            "Next: Rainbow Ridge",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Clear sheet",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start this sky",
+            "Back"
+          ]
+        },
+        {
+          "label": "Colour Mixing blank canvas",
+          "buttons": [
+            "Mix paint",
+            "Tools",
+            "Options"
+          ]
+        },
+        {
+          "label": "Empty bucket",
+          "buttons": [
+            "Add red",
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Mixed bucket",
+          "buttons": [
+            "Add yellow",
+            "Use this mix",
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Drawing tool picker",
+          "buttons": [
+            "Back to paper"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Undo last edit",
+            "Back"
+          ]
+        },
+        {
+          "label": "Tiger 3D",
+          "buttons": [
+            "Turn left",
+            "Turn right",
+            "Back to colouring"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "View in 3D",
+            "Back"
+          ]
+        },
+        {
+          "label": "Paint lesson entry",
+          "buttons": [
+            "Start: Paint Mixer",
+            "Paint canvas",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show a clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Next mix",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint recipe",
+          "buttons": [
+            "Mix paint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Solved paint mix",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Paint chapter saved",
+          "buttons": [
+            "Next: Light & Shade",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "View in 3D",
+            "Back"
+          ]
+        },
+        {
+          "label": "Saved palette",
+          "buttons": [
+            "Back to lessons"
+          ]
+        }
+      ],
+      "skyCount": 4,
+      "mixIds": [
+        "mix-teal",
+        "mix-orange",
+        "mix-green",
+        "mix-purple",
+        "mix-lime",
+        "mix-brown"
+      ],
+      "paperSize": {
+        "x": 134,
+        "y": 113.984375,
+        "width": 1172,
+        "height": 585
+      },
+      "traceSize": {
+        "x": 325,
+        "y": 133.375,
+        "width": 790,
+        "height": 513.5
+      },
+      "paintColour": "rgb(242, 139, 53)",
+      "reliefState": "ready",
+      "eraserUndo": true,
+      "regionBoundedFillAndTexture": true,
+      "retainedTiger": true,
+      "unlocksAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-obvf2m11i-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "bf7807210d6c390c812eda8acb9e86cef20d44bb79f53ff030dccb338f625a3e"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "bf7807210d6c390c812eda8acb9e86cef20d44bb79f53ff030dccb338f625a3e"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16576,
+          "sha256": "36268677fc70a714e3038aed932a4bb3954d816b690aeb231933040717150d54"
+        },
+        {
+          "path": "/art/catalog-v3/game-jet.webp",
+          "bytes": 73420,
+          "sha256": "d9598009cd6a7ef1909b045ab1adafca126a4afc39c1f8a0c67c0e68eb23e297"
+        },
+        {
+          "path": "/art/catalog-v3/game-colormix.webp",
+          "bytes": 64010,
+          "sha256": "0ae052feca38c51f4e4dccb7f1604f477b1296d5c58f73f4e95fb19d6082f3cb"
+        },
+        {
+          "path": "/assets/arcade-BlKHenpZ.js",
+          "bytes": 2075772,
+          "sha256": "78d43a01842b048bcf63ff72f85f28f00cef1c1d6246a32a790d7c6240166364"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BbZ7hg7A.css",
+          "bytes": 32956,
+          "sha256": "ec48ad459fbb26f1390305c7e68ce3ae58f5d3e1b9184698b3f7a2426a730abd"
+        },
+        {
+          "path": "/assets/arcade-WRa8WE5x.css",
+          "bytes": 266433,
+          "sha256": "b108cf815dd35bac61df8243f5622f605a94041c05fa93838f4515efd630feef"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b020d037e2e21ac5202a0ee--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "bf7807210d6c390c812eda8acb9e86cef20d44bb79f53ff030dccb338f625a3e"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "bf7807210d6c390c812eda8acb9e86cef20d44bb79f53ff030dccb338f625a3e"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16576,
+          "sha256": "36268677fc70a714e3038aed932a4bb3954d816b690aeb231933040717150d54"
+        },
+        {
+          "path": "/art/catalog-v3/game-jet.webp",
+          "bytes": 73420,
+          "sha256": "d9598009cd6a7ef1909b045ab1adafca126a4afc39c1f8a0c67c0e68eb23e297"
+        },
+        {
+          "path": "/art/catalog-v3/game-colormix.webp",
+          "bytes": 64010,
+          "sha256": "0ae052feca38c51f4e4dccb7f1604f477b1296d5c58f73f4e95fb19d6082f3cb"
+        },
+        {
+          "path": "/assets/arcade-BlKHenpZ.js",
+          "bytes": 2075772,
+          "sha256": "78d43a01842b048bcf63ff72f85f28f00cef1c1d6246a32a790d7c6240166364"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BbZ7hg7A.css",
+          "bytes": 32956,
+          "sha256": "ec48ad459fbb26f1390305c7e68ce3ae58f5d3e1b9184698b3f7a2426a730abd"
+        },
+        {
+          "path": "/assets/arcade-WRa8WE5x.css",
+          "bytes": 266433,
+          "sha256": "b108cf815dd35bac61df8243f5622f605a94041c05fa93838f4515efd630feef"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "bf7807210d6c390c812eda8acb9e86cef20d44bb79f53ff030dccb338f625a3e"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "bf7807210d6c390c812eda8acb9e86cef20d44bb79f53ff030dccb338f625a3e"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16576,
+          "sha256": "36268677fc70a714e3038aed932a4bb3954d816b690aeb231933040717150d54"
+        },
+        {
+          "path": "/art/catalog-v3/game-jet.webp",
+          "bytes": 73420,
+          "sha256": "d9598009cd6a7ef1909b045ab1adafca126a4afc39c1f8a0c67c0e68eb23e297"
+        },
+        {
+          "path": "/art/catalog-v3/game-colormix.webp",
+          "bytes": 64010,
+          "sha256": "0ae052feca38c51f4e4dccb7f1604f477b1296d5c58f73f4e95fb19d6082f3cb"
+        },
+        {
+          "path": "/assets/arcade-BlKHenpZ.js",
+          "bytes": 2075772,
+          "sha256": "78d43a01842b048bcf63ff72f85f28f00cef1c1d6246a32a790d7c6240166364"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BbZ7hg7A.css",
+          "bytes": 32956,
+          "sha256": "ec48ad459fbb26f1390305c7e68ce3ae58f5d3e1b9184698b3f7a2426a730abd"
+        },
+        {
+          "path": "/assets/arcade-WRa8WE5x.css",
+          "bytes": 266433,
+          "sha256": "b108cf815dd35bac61df8243f5622f605a94041c05fa93838f4515efd630feef"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}
