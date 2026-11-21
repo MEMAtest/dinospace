@@ -1,0 +1,1011 @@
+{
+  "release": {
+    "runtime": "c40e702dedb3e24634bbfe3000a240c091119f8a",
+    "entry": "/assets/arcade-BBfAJB3e.js",
+    "worker": "amari-discovery-v107",
+    "backendUrl": "https://dinospace-10q41nnlt-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_3q47URCtWjhrMVsGZkATcjGwpkrE",
+    "gatewayDeployment": "6b021789b8acf931ccb8315a",
+    "evidence": "docs/qa-evidence/garage-quest-focus-20261121/README.md",
+    "scope": "German Garage shows one chapter action and a large car. Curriculum Quest opens on a wide map with one Start round action. Options hold topics, levels, lesson notes and badges."
+  },
+  "live": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "dimensions": {
+        "x": 10.390625,
+        "y": 118.5625,
+        "width": 369.21875,
+        "height": 273.796875
+      },
+      "mapBounds": {
+        "x": 10.390625,
+        "y": 144.828125,
+        "width": 369.21875,
+        "height": 300
+      },
+      "words": [
+        "Braun",
+        "Gelb",
+        "Gr\u00fcn",
+        "Wei\u00df",
+        "Orange"
+      ],
+      "completed": [
+        "continent-australia",
+        "continent-antarctica",
+        "continent-asia",
+        "continent-americas",
+        "continent-africa"
+      ],
+      "checks": [
+        {
+          "label": "German chapter selection",
+          "buttons": [
+            "Start: Colour Painter",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "German guessing 1",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 1",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 2",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 2",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 3",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 3",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 4",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 4",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 5",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 5",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "German saved chapter unlock",
+          "buttons": [
+            "Start: Vehicle Workshop",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Curriculum introduction",
+          "buttons": [
+            "Start round",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Curriculum question 1",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 2",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 3",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 4",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 5",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum completion",
+          "buttons": [
+            "Play this level again",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Time Detectives",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Time Detectives",
+            "Back"
+          ]
+        },
+        {
+          "label": "Time Detectives introduction",
+          "buttons": [
+            "Start round",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Continents & Oceans",
+            "Back"
+          ]
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "dimensions": {
+        "x": 220,
+        "y": 158.078125,
+        "width": 1000,
+        "height": 333
+      },
+      "mapBounds": {
+        "x": 180,
+        "y": 150.828125,
+        "width": 1080,
+        "height": 440
+      },
+      "words": [
+        "Gr\u00fcn",
+        "Braun",
+        "Blau",
+        "Schwarz",
+        "Wei\u00df"
+      ],
+      "completed": [
+        "continent-europe",
+        "continent-antarctica",
+        "continent-south",
+        "map-key-harbour",
+        "continent-asia"
+      ],
+      "checks": [
+        {
+          "label": "German chapter selection",
+          "buttons": [
+            "Start: Colour Painter",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "German guessing 1",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 1",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 2",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 2",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 3",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 3",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 4",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 4",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 5",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 5",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "German saved chapter unlock",
+          "buttons": [
+            "Start: Vehicle Workshop",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Curriculum introduction",
+          "buttons": [
+            "Start round",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Curriculum question 1",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 2",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 3",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 4",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 5",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum completion",
+          "buttons": [
+            "Play this level again",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Time Detectives",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Time Detectives",
+            "Back"
+          ]
+        },
+        {
+          "label": "Time Detectives introduction",
+          "buttons": [
+            "Start round",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Continents & Oceans",
+            "Back"
+          ]
+        }
+      ]
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "dimensions": {
+        "x": 10.390625,
+        "y": 118.5625,
+        "width": 369.21875,
+        "height": 273.796875
+      },
+      "mapBounds": {
+        "x": 10.390625,
+        "y": 144.828125,
+        "width": 369.21875,
+        "height": 300
+      },
+      "words": [
+        "Rot",
+        "Gelb",
+        "Gr\u00fcn",
+        "Orange",
+        "Wei\u00df"
+      ],
+      "completed": [
+        "continent-australia",
+        "continent-africa",
+        "continent-americas",
+        "map-key-harbour",
+        "continent-europe"
+      ],
+      "checks": [
+        {
+          "label": "German chapter selection",
+          "buttons": [
+            "Start: Colour Painter",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "German guessing 1",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 1",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 2",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 2",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 3",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 3",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 4",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 4",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 5",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 5",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "German saved chapter unlock",
+          "buttons": [
+            "Start: Vehicle Workshop",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Curriculum introduction",
+          "buttons": [
+            "Start round",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Curriculum question 1",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 2",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 3",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 4",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 5",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum completion",
+          "buttons": [
+            "Play this level again",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Time Detectives",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Time Detectives",
+            "Back"
+          ]
+        },
+        {
+          "label": "Time Detectives introduction",
+          "buttons": [
+            "Start round",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Continents & Oceans",
+            "Back"
+          ]
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "dimensions": {
+        "x": 220,
+        "y": 158.078125,
+        "width": 1000,
+        "height": 333
+      },
+      "mapBounds": {
+        "x": 180,
+        "y": 150.828125,
+        "width": 1080,
+        "height": 440
+      },
+      "words": [
+        "Rosa",
+        "Wei\u00df",
+        "Schwarz",
+        "Blau",
+        "Orange"
+      ],
+      "completed": [
+        "continent-africa",
+        "continent-australia",
+        "map-key-harbour",
+        "continent-europe",
+        "map-east"
+      ],
+      "checks": [
+        {
+          "label": "German chapter selection",
+          "buttons": [
+            "Start: Colour Painter",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "German guessing 1",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 1",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 2",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 2",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 3",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 3",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 4",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 4",
+          "buttons": [
+            "Next word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German guessing 5",
+          "buttons": [
+            "Hear the word",
+            "Options"
+          ]
+        },
+        {
+          "label": "German held explanation 5",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "German saved chapter unlock",
+          "buttons": [
+            "Start: Vehicle Workshop",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Curriculum introduction",
+          "buttons": [
+            "Start round",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Curriculum question 1",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 2",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 3",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 4",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum question 5",
+          "buttons": [
+            "Hear prompt",
+            "Options"
+          ]
+        },
+        {
+          "label": "Curriculum completion",
+          "buttons": [
+            "Play this level again",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Time Detectives",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Time Detectives",
+            "Back"
+          ]
+        },
+        {
+          "label": "Time Detectives introduction",
+          "buttons": [
+            "Start round",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Continents & Oceans",
+            "Back"
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-10q41nnlt-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "b5f0c7cb8cc1d61e0c7eabff619cca522ec3445583f004ff49e23f1215006887"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "b5f0c7cb8cc1d61e0c7eabff619cca522ec3445583f004ff49e23f1215006887"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16459,
+          "sha256": "2501730960c79ae35654b37c97936721dc65e43ca34c589b9f0f0ff60212854f"
+        },
+        {
+          "path": "/art/catalog-v3/game-german.webp",
+          "bytes": 64940,
+          "sha256": "fd91da9d2d49aafb9fe733ec4920b93fba5421d0731d111b268b78ae6b2285b5"
+        },
+        {
+          "path": "/art/catalog-v3/game-worldmap.webp",
+          "bytes": 60276,
+          "sha256": "2a1a3b693c04febcd7184dffb02c4b6b066c1ddaea77a373c545ef56cdcac4a2"
+        },
+        {
+          "path": "/assets/arcade-BBfAJB3e.js",
+          "bytes": 2023063,
+          "sha256": "a4d896b14188d6d47a2edce0a4e6dd86e07a2b922f8dff045547bddf1094fd3c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-CDCUMbmI.css",
+          "bytes": 39551,
+          "sha256": "5a927202541e7d0df6c801d2b678cc1238636033a3e5b1559109331048730ce9"
+        },
+        {
+          "path": "/assets/arcade-DGWPhHke.css",
+          "bytes": 245817,
+          "sha256": "e3083da8c5ca784f5d923a11829abad7b736a37e6c422de021e8ab237c4327ed"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b02178008d2210b03a62826--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "b5f0c7cb8cc1d61e0c7eabff619cca522ec3445583f004ff49e23f1215006887"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "b5f0c7cb8cc1d61e0c7eabff619cca522ec3445583f004ff49e23f1215006887"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16459,
+          "sha256": "2501730960c79ae35654b37c97936721dc65e43ca34c589b9f0f0ff60212854f"
+        },
+        {
+          "path": "/art/catalog-v3/game-german.webp",
+          "bytes": 64940,
+          "sha256": "fd91da9d2d49aafb9fe733ec4920b93fba5421d0731d111b268b78ae6b2285b5"
+        },
+        {
+          "path": "/art/catalog-v3/game-worldmap.webp",
+          "bytes": 60276,
+          "sha256": "2a1a3b693c04febcd7184dffb02c4b6b066c1ddaea77a373c545ef56cdcac4a2"
+        },
+        {
+          "path": "/assets/arcade-BBfAJB3e.js",
+          "bytes": 2023063,
+          "sha256": "a4d896b14188d6d47a2edce0a4e6dd86e07a2b922f8dff045547bddf1094fd3c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-CDCUMbmI.css",
+          "bytes": 39551,
+          "sha256": "5a927202541e7d0df6c801d2b678cc1238636033a3e5b1559109331048730ce9"
+        },
+        {
+          "path": "/assets/arcade-DGWPhHke.css",
+          "bytes": 245817,
+          "sha256": "e3083da8c5ca784f5d923a11829abad7b736a37e6c422de021e8ab237c4327ed"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "b5f0c7cb8cc1d61e0c7eabff619cca522ec3445583f004ff49e23f1215006887"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "b5f0c7cb8cc1d61e0c7eabff619cca522ec3445583f004ff49e23f1215006887"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16459,
+          "sha256": "2501730960c79ae35654b37c97936721dc65e43ca34c589b9f0f0ff60212854f"
+        },
+        {
+          "path": "/art/catalog-v3/game-german.webp",
+          "bytes": 64940,
+          "sha256": "fd91da9d2d49aafb9fe733ec4920b93fba5421d0731d111b268b78ae6b2285b5"
+        },
+        {
+          "path": "/art/catalog-v3/game-worldmap.webp",
+          "bytes": 60276,
+          "sha256": "2a1a3b693c04febcd7184dffb02c4b6b066c1ddaea77a373c545ef56cdcac4a2"
+        },
+        {
+          "path": "/assets/arcade-BBfAJB3e.js",
+          "bytes": 2023063,
+          "sha256": "a4d896b14188d6d47a2edce0a4e6dd86e07a2b922f8dff045547bddf1094fd3c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-CDCUMbmI.css",
+          "bytes": 39551,
+          "sha256": "5a927202541e7d0df6c801d2b678cc1238636033a3e5b1559109331048730ce9"
+        },
+        {
+          "path": "/assets/arcade-DGWPhHke.css",
+          "bytes": 245817,
+          "sha256": "e3083da8c5ca784f5d923a11829abad7b736a37e6c422de021e8ab237c4327ed"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 2,
+        "sha256": "519711d1e83a1f76e8df55619ca9fd5bc82993dc1edf6ed6e80d50800cb49500"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 771
+}
