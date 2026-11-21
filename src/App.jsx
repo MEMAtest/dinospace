@@ -32,13 +32,12 @@ import { GAME_SESSIONS, ownsGameProgression } from './data/gameSessions.js';
 import { recordLegacyGameEvent } from './data/learningProgress.js';
 import { recordGameDiagnostic } from './data/gameDiagnostics.js';
 import {
-  BONUS_GAME_IDS as BONUS_GAME_ID_LIST, LEARNING_WORLDS, LITTLE_EXPLORER_GAME_IDS, PRACTICE_GAME_IDS,
+  LEARNING_WORLDS, LITTLE_EXPLORER_GAME_IDS, PRACTICE_GAME_IDS,
 } from './data/learningWorlds.js';
 import { ACTIVE_PLAYER_KEY, getPlayer, isLittleExplorer, playerStorageKey } from './data/players.js';
 import { commitPlayerReward, mergeRewards, readPlayerRewards, rewardKey } from './data/playerRewards.js';
 import { getGame } from './gameCatalog.jsx';
 
-const BONUS_GAME_IDS = new Set(BONUS_GAME_ID_LIST);
 const MAX_RECENT_GAMES = 4;
 const SOUND_PREFERENCE_KEY = 'amari-sound-on';
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
@@ -316,15 +315,13 @@ const PlayerSession = ({
     const world = LEARNING_WORLDS.find((item) => item.id === route.id);
     content = (
       <WorldPage
+        key={world.id}
         world={world}
         games={byIds(world.gameIds)}
-        bonusGameIds={BONUS_GAME_IDS}
         favouriteGames={favouriteGames}
-        gamesPlayed={gamesPlayed}
         onLaunch={launchGame}
         onToggleFavourite={toggleFavourite}
         onBack={() => back({ toParent: true })}
-        {...soundProps}
       />
     );
   } else if (route.name === 'stickers' && little) {
@@ -387,7 +384,6 @@ const PlayerSession = ({
       <ExplorerHome
         player={player}
         points={points}
-        streak={streak}
         challenge={todaysChallenge}
         challengeProgress={challengeProgress}
         challengeCompleted={challengeCompleted}

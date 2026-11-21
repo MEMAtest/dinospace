@@ -1,7 +1,5 @@
-import amariCrew from '../assets/landing/amari-astronaut-robot.png';
 import { useEffect, useRef, useState } from 'react';
 import RoverArt from './RoverArt.jsx';
-import { Volume2, VolumeX } from 'lucide-react';
 import { BLOCKS, BOARD_SIZE, CHAPTERS, MAX_PROGRAM_BLOCKS, MISSION_BY_ID, MISSION_ORDER, MISSIONS, advanceRover, expandProgram, judgeRover, startRover, validateProgram } from './rover.js';
 import { codeAttemptAttribution, completeCodeMission, isCodeMissionUnlocked, readCodeProgress, saveCodeDraft } from './codeProgress.js';
 import { nextGuidedMissionInstruction } from './codeCadetsFlow.js';
@@ -9,11 +7,12 @@ import { loadProject, saveProject } from './storage.js';
 import { getOfflineVoiceClip } from '../data/offlineVoice.js';
 import './codeCadets.css';
 
-const GLYPHS = { forward: '↑', left: '↶', right: '↷', repeat3: '⟳', collect: '◆' };
+const COMMAND_NAMES = { forward: 'Forward', left: 'Turn left', right: 'Turn right', repeat3: 'Repeat Forward 3 times', collect: 'Collect' };
+const DIRECTIONS = ['north', 'east', 'south', 'west'];
 const legacyMission = (legacyIndex) => [MISSION_BY_ID['first-route'], MISSION_BY_ID['debug-turn'], MISSION_BY_ID['repeat-rescue']][legacyIndex] || null;
 const safeInitialMission = (progress) => isCodeMissionUnlocked(progress, progress.currentMissionId) ? progress.currentMissionId : MISSION_ORDER[Math.min(progress.unlockedMissionIndex, MISSION_ORDER.length - 1)];
 
-export default function CodeCadets({ player: playerProp, playerId = 'amari', registerDirty = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, playSfx = () => {}, soundOn = true, onToggleSound, cancelNarration = () => {} }) {
+export default function CodeCadets({ player: playerProp, playerId = 'amari', registerDirty = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, playSfx = () => {}, soundOn = true, onToggleSound, onBack, cancelNarration = () => {} }) {
   const player = playerProp ?? playerId;
   const [profile, setProfile] = useState(() => ({ player, progress: readCodeProgress(player) }));
   const progress = profile.player === player ? profile.progress : readCodeProgress(player);
@@ -31,13 +30,16 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
   const [rover, setRover] = useState(() => startRover(mission));
   const [running, setRunning] = useState(false);
   const [active, setActive] = useState(-1);
-  const [message, setMessage] = useState('Pip is ready. Read the goal, then choose your blocks.');
+  const [message, setMessage] = useState('');
   const [status, setStatus] = useState('Your mission draft saves automatically.');
   const [draftFailed, setDraftFailed] = useState(false);
   const [dirty, setDirty] = useState(false);
-  const [helpTip, setHelpTip] = useState(false);
-  const [toolsOpen, setToolsOpen] = useState(false);
-  const [missionsOpen, setMissionsOpen] = useState(false);
+  const [view, setView] = useState('rover');
+  const [option, setOption] = useState('missions');
+  const [selectedMission, setSelectedMission] = useState(missionId);
+  const [selectedCommand, setSelectedCommand] = useState('');
+  const [selectedBlock, setSelectedBlock] = useState(0);
+  const [blockChange, setBlockChange] = useState('remove');
   const [sound, setSound] = useState(soundOn);
   const [legacySaved, setLegacySaved] = useState(() => loadProject(player, 'code'));
   const [legacyUnranked, setLegacyUnranked] = useState(false);
@@ -47,21 +49,19 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
   cancelNarrationRef.current = cancelNarration;
   const attemptCounter = useRef(0);
   const currentAttemptId = useRef('');
-  const successRef = useRef(null);
+  const headingRef = useRef(null);
+  const retryRef = useRef(null);
   const execution = useRef({ step: 0, state: startRover(mission) });
-  const instructions = expandProgram(program);
   const missionOrderIndex = MISSION_ORDER.indexOf(missionId);
   const chapter = CHAPTERS.find((item) => item.id === mission.chapterId);
-  const missionIndexInChapter = chapter.missionIds.indexOf(missionId);
   const phase = !started ? 'intro' : won ? 'finish' : 'play';
-  const guided = Array.isArray(mission.guidedBlocks);
-  const nextGuidedBlock = guided ? nextGuidedMissionInstruction(program, mission.guidedBlocks) : null;
+  const nextGuidedBlock = nextGuidedMissionInstruction(program, mission.guidedBlocks);
   const hasPromptRecording = Boolean(getOfflineVoiceClip(mission.prompt, 'en-US'));
   const wallAt = (x, y) => mission.walls?.some((wall) => wall.x === x && wall.y === y);
 
   useEffect(() => { onPhaseChange?.(phase); }, [phase, onPhaseChange]);
-  useEffect(() => { if (pendingCompletion) { const retry = document.querySelector('.cc-retry-save'); retry?.focus(); retry?.scrollIntoView({ block: 'center' }); } }, [pendingCompletion]);
-  useEffect(() => { if (won) { successRef.current?.focus(); successRef.current?.scrollIntoView?.({ block: 'nearest' }); } }, [won]);
+  useEffect(() => { headingRef.current?.focus(); }, [view, phase, missionId]);
+  useEffect(() => { if (pendingCompletion || draftFailed) retryRef.current?.focus(); }, [pendingCompletion, draftFailed, view]);
   useEffect(() => { setSound(soundOn); if (!soundOn) { audio.current?.pause?.(); audio.current = null; cancelNarrationRef.current(); } }, [soundOn]);
   useEffect(() => {
     clearTimeout(timer.current); timer.current = null;
@@ -74,7 +74,7 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
     setMissionId(nextId); setProgram([...(draft?.program || nextMission.initial)]); setTitle(draft?.title || 'My rover mission');
     setHelpUsed(draft?.helpUsed === true); setGuidedUsed(draft?.guidedUsed === true); setRover(startRover(nextMission));
     execution.current = { step: 0, state: startRover(nextMission) };
-    setLegacySaved(loadProject(player, 'code')); setLegacyUnranked(false); setStarted(false); setRunning(false); setWon(false); setPendingCompletion(false); setHistory([]); setActive(-1); setHelpTip(false); setToolsOpen(false); setMissionsOpen(false); setDirty(false); setDraftFailed(false);
+    setLegacySaved(loadProject(player, 'code')); setLegacyUnranked(false); setStarted(false); setRunning(false); setWon(false); setPendingCompletion(false); setHistory([]); setActive(-1); setView('rover'); setMessage(''); setDirty(false); setDraftFailed(false);
   // The wrapper keys this activity by player; this also handles an in-place player switch.
   }, [player]);
   useEffect(() => { registerDirty(() => dirty || running || draftFailed || pendingCompletion); return () => registerDirty(null); }, [dirty, running, draftFailed, pendingCompletion, registerDirty]);
@@ -107,7 +107,7 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
     setStatus(result.persisted ? 'Mission draft saved automatically.' : 'Draft save failed. Your code is still here; retry before leaving this mission.');
     return result.persisted;
   };
-  const edit = (nextProgram, feedback = 'Code changed. Run it to test your program.', usedGuided = guidedUsed) => {
+  const edit = (nextProgram, feedback = 'Run Pip to test your changes.', usedGuided = guidedUsed) => {
     if (!validateProgram(nextProgram) || nextProgram.length > MAX_PROGRAM_BLOCKS) return;
     currentAttemptId.current = '';
     stop(); execution.current = { step: 0, state: startRover(mission) };
@@ -121,7 +121,7 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
     if (!nextMission) return;
     stop(); stopAudio();
     currentAttemptId.current = '';
-    setMissionsOpen(false);
+    setView('rover');
     const draft = progress.missionDrafts[nextId];
     const nextProgram = [...(overrides.program || draft?.program || nextMission.initial)];
     const nextTitle = overrides.title ?? draft?.title ?? 'My rover mission';
@@ -132,7 +132,7 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
     setMissionId(nextId); setProgram(nextProgram); setTitle(nextTitle); setHelpUsed(nextHelpUsed); setGuidedUsed(nextGuidedUsed);
     setHistory([]); setRover(startRover(nextMission));
     execution.current = { step: 0, state: startRover(nextMission) };
-    setActive(-1); setWon(false); setPendingCompletion(false); setMessage(nextMission.prompt); setHelpTip(false); setStarted(true); setToolsOpen(false);
+    setActive(-1); setWon(false); setPendingCompletion(false); setMessage(''); setStarted(true);
     writeDraft(nextProgram, nextTitle, nextHelpUsed, nextId, isLockedImport, nextGuidedUsed);
   };
   const completeMission = () => {
@@ -145,7 +145,7 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
       return false;
     }
     if (!result.persisted) { setPendingCompletion(true); setWon(false); setDirty(true); setMessage('Pip reached the goal, but progress could not be saved. Retry the save before moving on.'); return false; }
-    setPendingCompletion(false); setDraftFailed(false); setDirty(false); setToolsOpen(false); setStatus('Mission and draft saved.'); setWon(true);
+    setPendingCompletion(false); setDraftFailed(false); setDirty(false); setView('rover'); setStatus('Mission and draft saved.'); setWon(true);
     setMessage(judgeRover(execution.current.state, mission, program).message);
     if (result.newlyCompletedChapterId) onCelebrate('Code Cadets chapter badge earned!', 4, 0, 'codecadets', { quiet: true });
     onGameEvent?.('codecadets', 'mission_complete', { missionId, chapterId: mission.chapterId, attemptId: currentAttemptId.current, blockCount: program.length, expandedActionCount: expandProgram(program).length, ...codeAttemptAttribution({ helpUsed, guidedUsed }), mastery: false });
@@ -185,11 +185,11 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
     return false;
   };
   const runProgram = () => {
-    if (!program.length) { setMessage('Add an instruction first. The Run button stays here after you add a block.'); return; }
-    stop(); stopAudio(); setToolsOpen(false); setWon(false); setPendingCompletion(false);
+    if (!program.length) { setMessage('Add a command first.'); return; }
+    stop(); stopAudio(); setView('rover'); setWon(false); setPendingCompletion(false);
     attemptCounter.current += 1; currentAttemptId.current = `cc-${missionId}-${attemptCounter.current}`;
     execution.current = { step: 0, state: startRover(mission) }; setRover(execution.current.state); setActive(-1);
-    setRunning(true); setMessage('Run started at the base. Pip follows the same blocks shown in the code list.');
+    setRunning(true); setMessage('Pip is following your code.');
     const tick = () => { if (!executeOne()) timer.current = setTimeout(tick, 550); };
     timer.current = setTimeout(tick, 100);
   };
@@ -209,12 +209,12 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
   const addGuidedBlock = () => {
     if (!nextGuidedBlock) return;
     const next = [...program, nextGuidedBlock];
-    edit(next, `Added ${BLOCKS[nextGuidedBlock]}. Read the next goal step or edit the code yourself.`, true);
+    edit(next, `Added ${COMMAND_NAMES[nextGuidedBlock]}.`, true);
   };
   const toggleHelp = () => {
     if (helpUsed) return;
-    setHelpUsed(true); setHelpTip(true); writeDraft(program, title, true);
-    setMessage(`${mission.tip} Help was used for this mission.`);
+    setHelpUsed(true); writeDraft(program, title, true);
+    setMessage(`${mission.tip}`);
   };
   const retryCompletion = () => completeMission();
   const retryDraft = () => writeDraft();
@@ -233,80 +233,175 @@ export default function CodeCadets({ player: playerProp, playerId = 'amari', reg
     setStatus('Original saved program opened. The original slot was not changed.');
   };
 
-  if (!started) return <section className="activity-welcome code-cadets-welcome" aria-labelledby="cc-welcome-title">
-    <div className="welcome-scene"><RoverArt/><span className="orbit-dot" aria-hidden="true">⚑</span></div>
-    <p className="eyebrow">Your first coding adventure</p><h1 id="cc-welcome-title">Meet Pip, your Mars rover!</h1>
-    <button className="primary start-button" onClick={() => { setStarted(true); setToolsOpen(false); }}>Start {chapter.title} · {mission.title} →</button>
-    <p>A program is a list of instructions. Build, test, and improve it. The three chapters move from sequences to debugging and Repeat blocks.</p>
-    <div className="mini-demo"><span>Forward</span><span aria-hidden="true">→</span><span>Move one square</span></div>
-    {legacySaved && <button className="cc-open-saved" onClick={openLegacySlot}>Open original saved program</button>}
-    <p className="quiet">No typing needed. Add blocks, then Run or Step through them. Each child's mission drafts save separately.</p>
-  </section>;
+  const showMissions = () => { setSelectedMission(missionId); setView('missions'); };
+  const showOptions = () => { setOption('missions'); setView('options'); };
+  const showEditor = () => { setSelectedCommand(mission.allowedBlocks[0]); setView('editor'); };
+  const showBlockEditor = () => { setSelectedBlock(0); setBlockChange('remove'); setView('block'); };
+  const backToRover = () => setView('rover');
+  const available = (id) => isCodeMissionUnlocked(progress, id) || progress.completedMissionIds.includes(id);
+  const options = [
+    { id: 'missions', label: 'Choose a mission', action: showMissions },
+    { id: 'saved', label: 'Saved programs', action: () => setView('saved') },
+    ...(started && !won ? [
+      { id: 'edit', label: 'Edit code', action: showEditor },
+      { id: 'clue', label: 'Get a clue', action: () => { backToRover(); toggleHelp(); }, disabled: helpUsed },
+      { id: 'step', label: 'Run one step', action: () => { backToRover(); stepOnce(); }, disabled: !program.length },
+      { id: 'reset', label: 'Reset Pip', action: () => { backToRover(); reset(); } },
+      { id: 'undo', label: 'Undo last change', action: () => { backToRover(); undo(); }, disabled: !history.length },
+    ] : []),
+    ...(hasPromptRecording && sound ? [{ id: 'hear', label: 'Hear the goal', action: () => { backToRover(); playPrompt(); } }] : []),
+    ...(onToggleSound ? [{ id: 'sound', label: sound ? 'Turn sound off' : 'Turn sound on', action: () => { stopAudio(); onToggleSound(); backToRover(); } }] : []),
+    ...(onBack ? [{ id: 'world', label: 'Back to Creative Lab', action: onBack }] : []),
+  ];
+  const chosenOption = options.find(item => item.id === option);
+  const titleText = mission.title.replace(/^\d+ · /, '');
+  const nextTitle = nextMission && MISSION_BY_ID[nextMission].title.replace(/^\d+ · /, '');
+  const heading = {
+    rover: !started ? 'Code Cadets' : won ? 'Mission complete!' : titleText,
+    options: 'Options',
+    missions: 'Choose a mission',
+    editor: 'Edit code',
+    block: 'Change a command',
+    saved: 'Saved programs',
+  }[view];
 
-  return <section className="code-cadets" aria-labelledby="cc-heading" data-code-mission={missionId} data-code-running={running ? 'true' : 'false'} data-code-saved={progress.completedMissionIds.includes(missionId) ? 'true' : 'false'} data-code-phase={phase}>
-    <header className="cc-header"><img src={amariCrew} alt="Amari the astronaut"/><div><p className="eyebrow">Think · Build · Test · Improve</p><h1 id="cc-heading">Code Cadets</h1><div className="cc-progress" aria-label={`${chapter.title}, mission ${missionIndexInChapter + 1} of 4`}>{chapter.title} · {missionIndexInChapter + 1}/4</div></div>
-      {typeof onToggleSound === 'function' && <button type="button" aria-label={sound ? 'Turn sound off' : 'Turn sound on'} onClick={() => { stopAudio(); onToggleSound(); }} className="cc-sound">{sound ? <Volume2 aria-hidden="true" /> : <VolumeX aria-hidden="true" />}</button>}
+  const programList = program.length > 0 && <ol className="cc-command-list" aria-label="Pip’s commands">
+    {program.map((op, index) => <li key={`${index}-${op}`} data-code-block={index + 1} aria-current={active === index ? 'step' : undefined}>{COMMAND_NAMES[op]}</li>)}
+  </ol>;
+
+  const nextActions = () => {
+    if (!started) return <>
+      <button type="button" className="cc-primary" onClick={() => setStarted(true)}>Start: {titleText}</button>
+      <button type="button" onClick={showOptions}>Options</button>
+      {onBack && <button type="button" onClick={onBack}>Back to Creative Lab</button>}
+    </>;
+    if (pendingCompletion || draftFailed) return <button type="button" className="cc-primary" ref={retryRef} onClick={pendingCompletion ? retryCompletion : retryDraft}>{pendingCompletion ? 'Retry saving mission' : 'Retry saving code'}</button>;
+    if (running) return <button type="button" onClick={() => stop('Pip stopped. Run Pip to start again.')}>Stop Pip</button>;
+    if (won) return <>
+      {nextMission && available(nextMission)
+        ? <button type="button" className="cc-primary" onClick={() => chooseMission(nextMission)}>Next: {nextTitle}</button>
+        : <button type="button" className="cc-primary" onClick={showMissions}>Choose a mission</button>}
+      <button type="button" onClick={showOptions}>Options</button>
+    </>;
+    return <>
+      {nextGuidedBlock
+        ? <button type="button" className="cc-primary" onClick={addGuidedBlock}>Add {COMMAND_NAMES[nextGuidedBlock]}</button>
+        : program.length
+          ? <button type="button" className="cc-primary" onClick={runProgram}>Run Pip</button>
+          : <button type="button" className="cc-primary" onClick={showEditor}>Add a command</button>}
+      {!nextGuidedBlock && program.length > 0 && <button type="button" onClick={showEditor}>Edit code</button>}
+      <button type="button" onClick={showOptions}>Options</button>
+    </>;
+  };
+
+  const missionBoard = <div className="cc-grid" role="img" aria-label={`Pip at column ${rover.x + 1}, row ${rover.y + 1}, facing ${DIRECTIONS[rover.direction]}. Flag at column ${mission.goal.x + 1}, row ${mission.goal.y + 1}.${mission.sample ? ` Rock sample at column ${mission.sample.x + 1}, row ${mission.sample.y + 1}.` : ''}${mission.walls.length ? ' Rock walls are blocked cells.' : ''}`}>
+    {Array.from({ length: BOARD_SIZE * BOARD_SIZE }, (_, index) => {
+      const x = index % BOARD_SIZE, y = Math.floor(index / BOARD_SIZE), here = rover.x === x && rover.y === y;
+      const goal = mission.goal.x === x && mission.goal.y === y, sample = mission.sample?.x === x && mission.sample?.y === y;
+      const isWall = wallAt(x, y), startSquare = mission.start.x === x && mission.start.y === y;
+      return <div key={index} className={`cc-square ${rover.trail.includes(`${x},${y}`) ? 'visited' : ''} ${isWall ? 'is-wall' : ''}`} data-rover-coordinate={`${String.fromCharCode(65 + x)}${BOARD_SIZE - y}`} aria-hidden="true">
+        {startSquare && <span className="cc-tile-label">Start</span>}
+        {goal && <span className="cc-flag">⚑</span>}
+        {sample && !rover.collected && <span className="cc-sample">◆</span>}
+        {isWall && <span className="cc-wall-label">Rock</span>}
+        {here && <RoverArt className="rover-art" direction={rover.direction}/>}
+      </div>;
+    })}
+  </div>;
+
+  const applyBlockChange = () => {
+    const next = [...program];
+    const offset = blockChange === 'earlier' ? -1 : 1;
+    if (blockChange === 'remove') next.splice(selectedBlock, 1);
+    else [next[selectedBlock], next[selectedBlock + offset]] = [next[selectedBlock + offset], next[selectedBlock]];
+    edit(next);
+    backToRover();
+  };
+
+  return <section className="code-cadets" aria-labelledby="cc-heading" data-code-mission={missionId} data-code-running={running} data-code-saved={progress.completedMissionIds.includes(missionId)} data-code-phase={phase} data-code-view={view}>
+    <header className="cc-heading">
+      {started && view === 'rover' && <p>Code Cadets · Mission {missionOrderIndex + 1} of {MISSION_ORDER.length}</p>}
+      <h1 id="cc-heading" ref={headingRef} tabIndex={-1}>{heading}</h1>
     </header>
-    <details className="cc-mission-picker" open={missionsOpen} onToggle={(event) => setMissionsOpen(event.currentTarget.open)}>
-      <summary>Choose a mission · {chapter.title} {missionIndexInChapter + 1} of 4</summary>
-      <nav className="cc-mission-nav" aria-label="Coding missions">{CHAPTERS.map((group) => <section key={group.id} className="cc-chapter-nav"><h2>{group.title}<span>{progress.completedChapterIds.includes(group.id) ? ' · Badge earned' : ''}</span></h2><div>{group.missionIds.map((id) => { const item = MISSION_BY_ID[id]; const completed = progress.completedMissionIds.includes(id); const unlocked = isCodeMissionUnlocked(progress, id) || completed; return <button key={id} aria-current={missionId === id ? 'step' : undefined} disabled={running || !unlocked} onClick={() => chooseMission(id)}>{completed ? '✓ ' : ''}{item.title}</button>; })}</div></section>)}</nav>
-    </details>
-    <div className={`cc-coach ${won ? 'is-success' : ''}`}><RoverArt/><div><p className="eyebrow">{won ? 'Saved mission complete' : `${mission.skill} · ${chapter.title}`}</p><h2>{mission.title}</h2><p>{mission.prompt}</p></div></div>
 
-    {helpTip && <p className="cc-tip" role="note">{mission.tip} Help was used and is saved with this mission draft.</p>}
-
-    <div className="cc-game">
-      <div className="cc-card cc-board-card">
-        <div className="cc-card-heading"><span className="cc-step-number">1</span><div><h2>Look at Pip’s map</h2><p>{BOARD_SIZE} by {BOARD_SIZE} rover grid · row 1 is at the top</p></div></div>
-        <p className="cc-board-goal">{pendingCompletion ? 'Pip reached the goal. Retry saving before you continue.' : 'Run starts at the base. Step follows one action.'}</p>
-        <div className="cc-main-actions" aria-label="Run the rover program">
-          {guided && nextGuidedBlock && <button className="cc-primary" onClick={addGuidedBlock} disabled={running}>Add {BLOCKS[nextGuidedBlock]} · {program.length + 1}/{mission.guidedBlocks.length}</button>}
-          <button className="cc-primary" onClick={runProgram} disabled={running}>{running ? 'Pip is running…' : '▶ Run Pip'}</button>
-          {running ? <button className="cc-stop" onClick={() => stop('Stopped. Pip is safe here. Your code is still available; Run restarts from the base.')}>Stop Pip</button> : <button onClick={stepOnce} disabled={!program.length}>Step once</button>}
-          {!won && <button onClick={() => setToolsOpen((open) => !open)} aria-expanded={toolsOpen}>Edit code · {program.length} blocks</button>}
-        </div>
-        <div className="cc-grid" role="img" aria-label={`Pip at column ${rover.x + 1}, row ${rover.y + 1}, facing ${['north','east','south','west'][rover.direction]}. Flag at column ${mission.goal.x + 1}, row ${mission.goal.y + 1}.${mission.sample ? ` Rock sample at column ${mission.sample.x + 1}, row ${mission.sample.y + 1}.` : ''} Rock walls are blocked cells.`}>
-          {Array.from({ length: BOARD_SIZE * BOARD_SIZE }, (_, index) => {
-            const x = index % BOARD_SIZE, y = Math.floor(index / BOARD_SIZE), here = rover.x === x && rover.y === y;
-            const goal = mission.goal.x === x && mission.goal.y === y, sample = mission.sample?.x === x && mission.sample?.y === y;
-            const isWall = wallAt(x, y), startSquare = mission.start.x === x && mission.start.y === y;
-            return <div key={`${x}-${y}`} className={`cc-square ${rover.trail.includes(`${x},${y}`) ? 'visited' : ''} ${isWall ? 'is-wall' : ''}`} data-rover-coordinate={`${String.fromCharCode(65 + x)}${BOARD_SIZE - y}`} aria-hidden="true">
-              <span className="cc-coordinate">{String.fromCharCode(65 + x)}{BOARD_SIZE - y}</span>
-              {startSquare && <span className="cc-tile-label">Start</span>}{goal && <span className="cc-flag">⚑</span>}{sample && !rover.collected && <span className="cc-sample">◆</span>}
-              {isWall && <span className="cc-wall-label">ROCK</span>}{here && <RoverArt className="rover-art" direction={rover.direction}/>}
-            </div>;
-          })}
-        </div>
-        <p className="cc-map-key"><span>Green = Pip’s travelled path</span><span>⚑ Flag</span>{mission.sample && <span>◆ Rock sample</span>}{mission.walls.length > 0 && <span>▩ Wall (blocked)</span>}</p>
-        <p className="cc-facing"><strong>{['↑','→','↓','←'][rover.direction]} Pip faces {['North','East','South','West'][rover.direction]}.</strong> Forward moves one square in this direction.</p>
-        <p className="cc-feedback" role="status" aria-live="polite">{message}</p>
-        {pendingCompletion && <button className="cc-primary cc-retry-save" onClick={retryCompletion}>Retry save mission</button>}
-        {draftFailed && <button className="cc-retry-save" onClick={retryDraft}>Retry draft save</button>}
-        {won && <div className="cc-success" role="status" tabIndex="-1" ref={successRef}><strong>{mission.title} saved.</strong>{progress.completedChapterIds.includes(mission.chapterId) && <span>{chapter.title} badge earned.</span>}{nextMission && isCodeMissionUnlocked(progress, nextMission) && <button className="cc-primary" onClick={() => chooseMission(nextMission)}>Next mission →</button>}{!nextMission && <span>All three chapters are complete. Replay any unlocked mission from Choose a mission.</span>}</div>}
-        <p className="cc-save-status" role="status">{status}{dirty && ' · Unsaved write needs retry'}</p>
-        {hasPromptRecording ? <button className="cc-clue" onClick={playPrompt} disabled={!sound}>Replay recorded mission prompt</button> : <p className="cc-readable-only">Read the goal, follow Pip’s arrow, then test your blocks.</p>}
+    {view === 'rover' && (!started ? <div className="cc-intro">
+      <RoverArt className="cc-intro-art"/>
+      <p>Give Pip commands to reach the flag.</p>
+      <div className="cc-actions">{nextActions()}</div>
+    </div> : <div className="cc-play">
+      <div className="cc-next">
+        <p className="cc-goal">{won ? `${titleText} saved.` : mission.prompt}</p>
+        <div className="cc-actions" aria-label="What to do next">{nextActions()}</div>
+        {pendingCompletion || draftFailed
+          ? <p className="cc-feedback" role="alert">{pendingCompletion ? message : status}</p>
+          : <p className="cc-feedback" role="status">{won ? nextMission ? '' : 'All missions complete. Choose a mission to play it again.' : message || (missionId === 'first-route' ? 'Forward moves Pip one square in the direction of its arrow.' : '')}</p>}
+        {won && progress.completedChapterIds.includes(mission.chapterId) && <p className="cc-feedback">{chapter.title} badge earned.</p>}
       </div>
-
-      <div className="cc-card cc-code-card">
-        <div className="cc-card-heading"><span className="cc-step-number">2</span><div><h2>Pip’s code</h2><p>Run and Step follow these same blocks from top to bottom.</p></div></div>
-        {program.length ? <ol className="cc-code-list" aria-label="Pip's instruction sequence">{program.map((op, index) => <li key={`${index}-${op}`} data-code-block={index + 1} className={active === index ? 'is-active' : ''}><span className={`cc-code-glyph op-${op}`} aria-hidden="true">{GLYPHS[op]}</span><span><strong>{index + 1}. {BLOCKS[op]}</strong>{op === 'forward' && <small>Move ahead one square</small>}{op === 'repeat3' && <small>Do Forward 3 times · one block</small>}{op === 'right' && <small>Turn Pip to the right</small>}{op === 'left' && <small>Turn Pip to the left</small>}{op === 'collect' && <small>Collect only on the diamond square</small>}</span></li>)}</ol> : <div className="cc-empty-code"><span aria-hidden="true">＋</span><p>Your first instruction will appear here. Use the guided action or open the code editor.</p></div>}
-        {instructions.length > program.length && <p className="cc-facing">Expanded actions: {instructions.length}. Repeat instructions point back to their single highlighted block.</p>}
+      {missionBoard}
+      <div className="cc-program">
+        <h2>Pip’s commands</h2>
+        {programList || <p>No commands yet.</p>}
       </div>
-    </div>
+    </div>)}
 
-    <details className="cc-tools" open={toolsOpen} onToggle={(event) => setToolsOpen(event.currentTarget.open)}>
-      <summary>Block editor and original saved-program slot</summary>
-      <div className="cc-tools-content">
-        <section aria-labelledby="cc-edit-heading"><h2 id="cc-edit-heading">Edit the code yourself</h2><p>Add, move, or remove a block. The board and code remain visible while you edit.</p>
-          <div className="cc-tool-buttons"><button onClick={() => reset()} disabled={running}>Reset Pip</button><button onClick={undo} disabled={running || !history.length}>Undo edit</button><button onClick={toggleHelp} disabled={helpUsed || won}>{helpUsed ? 'One clue used' : 'Use one clue'}</button>{draftFailed && <button onClick={retryDraft}>Retry draft save</button>}</div>
-          <div className="cc-palette">{mission.allowedBlocks.map((op) => <button key={op} className={`cc-block op-${op}`} onClick={() => edit([...program, op])} disabled={running || program.length >= MAX_PROGRAM_BLOCKS}><span aria-hidden="true">{GLYPHS[op]}</span>Add {BLOCKS[op]}</button>)}</div>
-          <div className="cc-edit-list">{program.map((op, index) => <div key={`${index}-${op}`}><strong>Block {index + 1}: {BLOCKS[op]}</strong><span><button aria-label={`Move block ${index + 1} earlier`} disabled={running || index === 0} onClick={() => { const next = [...program]; [next[index - 1], next[index]] = [next[index], next[index - 1]]; edit(next); }}>Move earlier</button><button aria-label={`Move block ${index + 1} later`} disabled={running || index === program.length - 1} onClick={() => { const next = [...program]; [next[index + 1], next[index]] = [next[index], next[index + 1]]; edit(next); }}>Move later</button><button aria-label={`Remove block ${index + 1}`} disabled={running} onClick={() => edit(program.filter((_, itemIndex) => itemIndex !== index))}>Remove</button></span></div>)}</div>
-          <div className="cc-tool-buttons"><button onClick={() => edit([])} disabled={running || !program.length}>Clear all code</button><button onClick={() => { setTitle('My rover mission'); writeDraft(program, 'My rover mission'); }}>Reset program name</button></div>
-        </section>
-        <section aria-labelledby="cc-save-heading"><h2 id="cc-save-heading">Program name and original slot</h2><label className="cc-title-field">Program name<input value={title} maxLength={60} onChange={(event) => { setTitle(event.target.value); writeDraft(program, event.target.value); }}/></label>
-          <div className="cc-tool-buttons"><button onClick={saveLegacySlot}>Save to original slot</button><button onClick={openLegacySlot}>Open original saved program</button></div><p className="cc-save-status" role="status">Mission drafts are per-child and save automatically. The original slot changes only when you choose Save to original slot.</p>
-        </section>
+    {view === 'options' && <div className="cc-form">
+      <label><span id="cc-option-label">What would you like to do?</span>
+        <select aria-labelledby="cc-option-label" value={option} onChange={event => setOption(event.target.value)}>{options.map(item => <option key={item.id} value={item.id} disabled={item.disabled}>{item.label}</option>)}</select>
+      </label>
+      <div className="cc-actions"><button type="button" className="cc-primary" onClick={chosenOption?.action} disabled={!chosenOption || chosenOption.disabled}>{chosenOption?.label || 'Continue'}</button><button type="button" onClick={backToRover}>Back</button></div>
+    </div>}
+
+    {view === 'missions' && <div className="cc-form">
+      <label><span id="cc-mission-label">Mission</span>
+        <select aria-labelledby="cc-mission-label" value={selectedMission} onChange={event => setSelectedMission(event.target.value)}>
+          {CHAPTERS.map(group => <optgroup key={group.id} label={group.title}>
+            {group.missionIds.map(id => <option key={id} value={id} disabled={!available(id)}>{MISSION_BY_ID[id].title}{progress.completedMissionIds.includes(id) ? ' · Complete' : available(id) ? '' : ' · Locked'}</option>)}
+          </optgroup>)}
+        </select>
+      </label>
+      <div className="cc-actions"><button type="button" className="cc-primary" disabled={!available(selectedMission)} onClick={() => chooseMission(selectedMission)}>Play mission</button><button type="button" onClick={backToRover}>Back</button></div>
+    </div>}
+
+    {view === 'editor' && <div className="cc-form">
+      {programList}
+      {program.length < MAX_PROGRAM_BLOCKS && <label><span id="cc-command-label">Choose a command</span>
+        <select aria-labelledby="cc-command-label" value={selectedCommand} onChange={event => setSelectedCommand(event.target.value)}>{mission.allowedBlocks.map(op => <option key={op} value={op}>{COMMAND_NAMES[op]}</option>)}</select>
+      </label>}
+      <div className="cc-actions">
+        {program.length < MAX_PROGRAM_BLOCKS && <button type="button" className="cc-primary" onClick={() => { edit([...program, selectedCommand], `Added ${COMMAND_NAMES[selectedCommand]}.`); if (program.length + 1 === MAX_PROGRAM_BLOCKS) backToRover(); }}>Add {COMMAND_NAMES[selectedCommand]}</button>}
+        {program.length > 0 && <button type="button" onClick={showBlockEditor}>Change a command</button>}
+        <button type="button" onClick={backToRover}>Back to map</button>
       </div>
-    </details>
+      <p className="cc-feedback" role={draftFailed ? 'alert' : 'status'}>{draftFailed ? status : message}</p>
+    </div>}
+
+    {view === 'block' && <div className="cc-form">
+      <label><span id="cc-block-label">Command</span>
+        <select aria-labelledby="cc-block-label" value={selectedBlock} onChange={event => { setSelectedBlock(Number(event.target.value)); setBlockChange('remove'); }}>
+          {program.map((op, index) => <option key={index} value={index}>{index + 1}. {COMMAND_NAMES[op]}</option>)}
+        </select>
+      </label>
+      <label><span id="cc-change-label">Change</span>
+        <select aria-labelledby="cc-change-label" value={blockChange} onChange={event => setBlockChange(event.target.value)}>
+          <option value="remove">Remove</option>
+          {selectedBlock > 0 && <option value="earlier">Move earlier</option>}
+          {selectedBlock < program.length - 1 && <option value="later">Move later</option>}
+        </select>
+      </label>
+      <div className="cc-actions"><button type="button" className="cc-primary" onClick={applyBlockChange}>Apply change</button><button type="button" onClick={showEditor}>Back to code</button></div>
+    </div>}
+
+    {view === 'saved' && <div className="cc-form">
+      <p>Your mission draft saves automatically. Save a copy to keep this program in the original slot.</p>
+      <label>Program name<input value={title} maxLength={60} onChange={event => { setTitle(event.target.value); writeDraft(program, event.target.value); }}/></label>
+      <div className="cc-actions">
+        {draftFailed ? <button type="button" className="cc-primary" ref={retryRef} onClick={retryDraft}>Retry saving code</button> : <>
+          <button type="button" className="cc-primary" onClick={saveLegacySlot}>Save a copy</button>
+          {legacySaved && <button type="button" onClick={openLegacySlot}>Open original saved program</button>}
+        </>}
+        <button type="button" onClick={backToRover}>Back</button>
+      </div>
+      <p className="cc-feedback" role="status">{status}</p>
+    </div>}
   </section>;
 }

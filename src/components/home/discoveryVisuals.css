@@ -226,3 +226,44 @@
 
 .catalogue-game-art { max-width:100%; max-height:100%; min-width:0; min-height:0; pointer-events:none; }
 .catalogue-welcome-art .catalogue-game-art { width:100%; height:11rem; max-width:18rem; }
+
+.explorer-simple {
+  min-height: 100dvh;
+  padding: clamp(1rem, 6vw, 4rem) 1rem;
+  background: #f3f8fb;
+  color: #142e4b;
+}
+.explorer-simple-body {
+  display: grid;
+  gap: .8rem;
+  width: min(100%, 27rem);
+  margin-inline: auto;
+}
+.explorer-simple h1 { margin: 0; font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 1.12; font-weight: 850; }
+.explorer-simple h1:focus { outline: none; }
+.explorer-simple p { margin: 0; color: #3c556c; }
+.explorer-simple .explorer-simple-meta { font-size: .85rem; font-weight: 750; }
+.explorer-simple label { display: grid; gap: .3rem; font-weight: 750; }
+.explorer-simple select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: .55rem .65rem;
+  border: 1px solid #acbfd2;
+  border-radius: .6rem;
+  background: white;
+  color: #142e4b;
+}
+.explorer-simple-actions { display: grid; gap: .45rem; }
+.explorer-simple-actions button {
+  min-height: 48px;
+  padding: .55rem .75rem;
+  border: 1px solid #b2c7d7;
+  border-radius: .6rem;
+  background: white;
+  color: #173e61;
+  font-weight: 800;
+  text-align: center;
+}
+.explorer-simple-actions .explorer-primary { border-color: #075e68; background: #075e68; color: white; }
+.explorer-simple :is(button, select):focus-visible { outline: 3px solid #126bb2; outline-offset: 2px; }
