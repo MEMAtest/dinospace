@@ -1,6 +1,5 @@
 import { createArithmeticSeed } from '../../data/arithmeticAdventure.js';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Lightbulb, Volume2 } from 'lucide-react';
 import { NUMBER_LINE_CHAPTERS, createNumberLineRun } from '../../data/timeLineAdventure.js';
 import { numberLineNarrationSegments, numberLineNarrationText } from '../../data/batch4Narration.js';
 import {
@@ -8,9 +7,8 @@ import {
   getPendingTimeLineRewardReceiptsStrict, pendingTimeLineRewardReceipts, markTimeLineRewardReceiptClaimedStrict,
 } from '../../data/timeLineProgress.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
-import { LearningHeader } from './TimeLineLearningUI.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import NumberLineJourney from './NumberLineJourney.jsx';
-import frogArt from '../../assets/memory-match/isolated-frog-v1-card.webp';
 const tell = (speak, line, segments) => speak?.(line, { premium: false, segments });
 const noopCancel = () => {};
 export default function NumberLineJump({
@@ -37,7 +35,6 @@ export default function NumberLineJump({
   const [locked, setLocked] = useState(false);
   const [first, setFirst] = useState(0);
   const [feedback, setFeedback] = useState('');
-  const [completion, setCompletion] = useState(null);
   const [position, setPosition] = useState(0);
   const [trail, setTrail] = useState([]);
   const [startError, setStartError] = useState('');
@@ -48,7 +45,9 @@ export default function NumberLineJump({
   const [pendingRewardReceipt, setPendingRewardReceipt] = useState(null);
   const [progressRetryBusy, setProgressRetryBusy] = useState(false);
   const [pendingStart, setPendingStart] = useState(null);
-  const [pickerOpen, setPickerOpen] = useState(false);
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const headingRef = useRef(null);
+  const nextRef = useRef(null);
   const startRef = useRef(null);
   const completionRef = useRef(null);
   const completionBusyRef = useRef(false);
@@ -130,7 +129,11 @@ export default function NumberLineJump({
       tell(speak, numberLineNarrationText(q), numberLineNarrationSegments(q));
     }
   }, [phase, q, chapterIndex, ri, seed, chapter.id, speak, onGameEvent]);
+  useEffect(() => { if (!optionsOpen) headingRef.current?.focus({ preventScroll: true }); }, [phase, ri, optionsOpen]);
+  useEffect(() => { if (locked) nextRef.current?.focus({ preventScroll: true }); }, [locked, completionError]);
+
   const start = (index = chapterIndex, retry = false) => {
+    setOptionsOpen(false);
     cancelNarration();
     const loaded = refreshProgress();
     if (!loaded.ok) { setStartError('Saved progress is unavailable. Try again before starting.'); return; }
@@ -170,7 +173,6 @@ export default function NumberLineJump({
     setLocked(false);
     setFirst(0);
     setFeedback('');
-    setCompletion(null);
     setCompletionError('');
     completionRef.current = null;
     setTrail([]);
@@ -338,7 +340,6 @@ export default function NumberLineJump({
     }
     const currentChapter = NUMBER_LINE_CHAPTERS[draft.chapterIndex];
     setProgressState(latest);
-    setCompletion({ stars: draft.stars, newlyCompleted: draft.newlyCompleted, best: latest.progress.bestStars[currentChapter.id] });
     setFeedback(draft.newlyCompleted ? `World complete! You earned ${draft.stars} ${draft.stars === 1 ? 'star' : 'stars'}.` : `Replay complete! Your best is ${latest.progress.bestStars[currentChapter.id]} stars.`);
     setCompletionError('');
     setPhase('done');
@@ -366,66 +367,74 @@ export default function NumberLineJump({
     });
     onBack?.();
   };
-  const header = <LearningHeader title="Number Line Jump" subtitle={phase === 'play' ? `World ${chapterIndex + 1} · Mission ${ri + 1} of 6` : 'One hop · One space'} onBack={leave} soundOn={soundOn} onToggleSound={onToggleSound} />;
-  if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-sky-100 via-lime-50 to-amber-100 p-3 text-slate-900 sm:p-6">{header}
-    {phase === 'start' ? <main className="mx-auto mt-3 max-w-4xl" data-numberline-menu>
-      {!progressState.ok && <section role="alert" className="mb-2 rounded-2xl border-2 border-rose-600 bg-white p-3 text-center font-bold"><p>Saved world progress could not be checked. Worlds stay locked until it can be read.</p><button type="button" onClick={retryProgressRead} disabled={progressRetryBusy} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{progressRetryBusy ? 'Checking progress…' : 'Retry saved progress'}</button></section>}
-      {rewardDrainBusy && <p role="status" className="mb-2 rounded-xl bg-white p-2 text-center text-sm font-semibold">Checking saved world rewards…</p>}
-      {rewardClaimError && <section role="alert" className="mb-2 rounded-2xl border-2 border-amber-600 bg-white p-3 text-center font-bold"><p>A saved world reward still needs confirmation.</p><button type="button" onClick={() => void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry reward confirmation</button></section>}
-      {startError && <p role="alert" className="mb-2 rounded-xl border-2 border-rose-500 bg-white p-3 text-center font-bold">{startError}</p>}
-      <section className="rounded-3xl border-2 border-teal-200 bg-white p-4 text-center shadow-md sm:p-6" aria-label="Selected number line world">
-        <div className="flex items-center justify-center gap-3"><img src={frogArt} alt="" aria-hidden="true" className="h-14 w-14 shrink-0 object-contain" /><div className="text-left"><p className="text-xs font-black uppercase tracking-wide text-teal-800">Selected · World {chapterIndex + 1} of 3</p><h2 className="text-xl font-black text-teal-950">{chapter.title}</h2><p className="text-sm font-semibold text-slate-600">{chapter.skill} · 6 missions</p></div></div>
-        <button type="button" data-numberline-start disabled={!canStart || chapterIndex > progress.unlockedChapter} onClick={() => start(chapterIndex, Boolean(pendingStart))} className="mt-3 min-h-14 w-full rounded-2xl bg-teal-800 px-5 text-lg font-black text-white shadow-md disabled:opacity-50">
-          {pendingStart ? 'Retry saving this same six-mission run' : progress.completedChapterIds.includes(chapter.id) ? `Replay ${chapter.title}` : `Start ${chapter.title} →`}
-        </button>
-      </section>
-      <details className="mt-3 rounded-2xl border border-sky-100 bg-white p-3 shadow" open={pickerOpen} onToggle={(event) => setPickerOpen(event.currentTarget.open)}>
-        <summary className="min-h-12 cursor-pointer content-center font-black">Choose another world</summary>
-        <div className="mt-2 grid gap-2 sm:grid-cols-3">{NUMBER_LINE_CHAPTERS.map((item, index) => {
-          const complete = progress.completedChapterIds.includes(item.id); const isLocked = !progressState.ok || index > progress.unlockedChapter;
-          return <button type="button" key={item.id} disabled={isLocked || Boolean(pendingStart)} aria-pressed={chapterIndex === index} onClick={() => { setChapterIndex(index); setStartError(''); setPickerOpen(false); }} className={`min-h-14 rounded-xl border-2 p-2 text-left font-bold disabled:opacity-50 ${chapterIndex === index ? 'border-teal-700 bg-teal-50' : 'border-slate-200 bg-white'}`}>
-            <span className="block text-xs font-black uppercase text-teal-800">World {index + 1}{complete ? ' · Badge earned' : isLocked ? ' · Locked' : ' · Ready'}</span>{item.title}{complete && <span className="block text-sm">{'★'.repeat(progress.bestStars[item.id] || 1)} · Best stars</span>}
-          </button>;
-        })}</div>
-      </details>
-    </main> : <main className="mx-auto mt-6 max-w-2xl rounded-3xl border-2 border-white bg-white p-6 text-center shadow-xl"><p className="text-4xl text-amber-500" aria-label={`${completion?.best || 1} best stars`}>{'★'.repeat(completion?.best || 1)}</p><h2 className="mt-3 text-2xl font-black">{chapter.title} complete!</h2><p className="mt-2 font-semibold">{completion?.newlyCompleted ? 'Your journey badge and best stars are saved.' : 'Your best stars and unlocked worlds are safe.'}</p>
-      <button className="mt-5 min-h-14 w-full rounded-2xl bg-teal-800 px-3 font-black text-white" onClick={() => { cancelNarration(); setChapterIndex(progress.unlockedChapter); setPhase('start'); }}>Choose next world →</button><button className="mt-3 min-h-12 w-full rounded-2xl border-2 border-teal-700 bg-white px-3 font-black text-teal-900" onClick={() => start(chapterIndex)}>Replay {chapter.title}</button></main>}
-  </div>;
+
+  const closeOptions = () => setOptionsOpen(false);
+  const menu = phase !== 'play';
+  const nextIndex = pendingStart?.chapterIndex ?? progress.unlockedChapter;
+  const nextChapter = NUMBER_LINE_CHAPTERS[nextIndex];
+  const nextLabel = pendingStart ? 'Retry saving this run' : progress.completedChapterIds.includes(nextChapter.id) ? `Replay: ${nextChapter.title}`
+    : phase === 'done' ? `Next: ${nextChapter.title}` : `Start: ${nextChapter.title}`;
+  const startBlocked = !progressState.ok || rewardClaimError;
+  const soundChoice = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } };
+  const chapterChoices = NUMBER_LINE_CHAPTERS.map((item,index) => {
+    const completed = progress.completedChapterIds.includes(item.id);
+    return {
+      label: `${item.title}${index > progress.unlockedChapter ? ' · Locked' : completed ? ' · Complete' : ''}`,
+      description: item.skill,
+      button: `${completed ? 'Replay' : 'Start'}: ${item.title}`,
+      disabled: !canStart || Boolean(pendingStart) || index > progress.unlockedChapter,
+      action: () => start(index),
+    };
+  });
+  const playChoices = [
+    ...(!locked && !hintUsed ? [{ label: 'Use one hint', action: () => { closeOptions(); hint(); } }] : []),
+    soundChoice,
+    { label: 'Back to Maths Missions', action: leave },
+  ];
   const limit = chapter.max;
-  const missingStart = q.type === 'missing' && q.missing === 0 && !locked && !hintUsed;
-  const missingEnd = q.type === 'missing' && q.missing === 2 && !locked && !hintUsed;
-  return <div className="min-h-[100dvh] bg-gradient-to-b from-sky-100 via-lime-50 to-amber-100 p-2 text-slate-900 sm:p-6 [&>header]:p-2 [&>header_h1]:text-lg [&>header_p]:text-[10px] sm:[&>header_h1]:text-3xl sm:[&>header_p]:text-[11px]" data-numberline-phase="play" data-numberline-question={q.id} data-run-seed={seed} data-chapter={chapter.id} data-mission-index={ri + 1}>
-    {header}
-    <main className="mx-auto mt-2 max-w-4xl rounded-3xl border-2 border-white bg-white/95 p-2 text-center shadow-xl sm:mt-4 sm:p-6" data-mission-type={q.type}>
-      <p className="mb-0.5 text-[10px] font-black uppercase tracking-wide text-teal-800 sm:text-xs">{q.type === 'hop' ? 'Make the journey' : q.type === 'missing' ? 'Find the missing part' : q.compare === 'farther' ? 'Compare the distance' : 'Compare the landing numbers'}</p>
-      <h2 className="mx-auto max-w-2xl text-lg font-black leading-tight sm:text-xl" aria-live="polite">{locked ? 'Your journey, explained' : q.prompt}</h2>
-      {q.type === 'compare' ? <div className="mt-1 grid gap-1.5 sm:mt-3 sm:gap-3">
-        <NumberLineJourney compact limit={limit} start={q.start1} end={q.end1} position={q.end1} showRoute label={`Frog A · ${q.hops1} hops`} />
-        <NumberLineJourney compact limit={limit} start={q.start2} end={q.end2} position={q.end2} showRoute label={`Frog B · ${q.hops2} hops`} />
-      </div> : <div className="mt-1 sm:mt-3"><NumberLineJourney compact limit={limit} label={q.type === 'hop' ? `${trail.length} of ${q.b} hops made` : q.missing === 0 ? 'Find the start' : q.missing === 1 ? 'Count the spaces' : 'Find the landing number'}
-        start={q.type === 'hop' ? q.a : missingStart ? undefined : q.start} end={q.type === 'hop' || missingEnd ? undefined : q.end} position={q.type === 'hop' ? position : missingEnd ? q.start : q.end}
-        trail={trail} showRoute={q.type === 'missing' && (hintUsed || locked)} onSwipe={q.type === 'hop' ? dir => hopTo(position + dir) : undefined} disabled={locked} /></div>}
-      {!locked && <div className="mx-auto mt-1 flex max-w-md gap-2 sm:mt-3">
-        <button type="button" onClick={() => tell(speak, numberLineNarrationText(q), numberLineNarrationSegments(q))} className="inline-flex min-h-12 flex-1 items-center justify-center gap-1 rounded-xl bg-teal-50 px-2 text-sm font-black text-teal-900 sm:gap-2 sm:px-4 sm:text-base"><Volume2 size={18} />Hear mission</button>
-        <button type="button" disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 flex-1 items-center justify-center gap-1 rounded-xl border-2 border-amber-400 bg-amber-50 px-2 text-sm font-black disabled:opacity-50 sm:gap-2 sm:px-4 sm:text-base"><Lightbulb size={18} />{hintUsed ? 'Hint used' : 'Use one hint'}</button>
-      </div>}
-      {!locked && (q.type === 'hop' ? <>
-        <div className="mt-1 grid grid-cols-2 gap-2 sm:mt-3">
-          <button disabled={position <= 0 || trail.length >= q.b} onClick={() => hopTo(position - 1)} onKeyDown={e => { if (e.key === 'ArrowLeft') { e.preventDefault(); hopTo(position - 1); } }} className="min-h-14 rounded-2xl border-2 border-teal-700 bg-white px-2 font-black text-teal-900 disabled:opacity-50">← Hop back</button>
-          <button disabled={position >= 10 || trail.length >= q.b} onClick={() => hopTo(position + 1)} onKeyDown={e => { if (e.key === 'ArrowRight') { e.preventDefault(); hopTo(position + 1); } }} className="min-h-14 rounded-2xl bg-teal-800 px-2 font-black text-white disabled:opacity-50">Hop forward →</button>
-        </div><p className="sr-only" aria-live="polite">Frog at {position}. Accepted hops: {trail.join(', ') || 'none'}.</p>
-      </> : <div className="my-1 grid grid-cols-2 gap-2 sm:my-4 sm:grid-cols-3" role="group" aria-label="Choose the answer">{q.options.map(o => <button key={o} onClick={() => answer(o)} className="min-h-14 rounded-2xl bg-teal-800 px-3 text-xl font-black text-white">{o === 'same' ? 'Same' : q.type === 'compare' ? `Frog ${o}` : o}</button>)}</div>)}
-      {locked ? <section aria-label="Worked answer" className="mt-1 rounded-2xl border-2 border-emerald-200 bg-emerald-50 p-2 sm:mt-4 sm:p-4">
-        <p className="mb-1 text-xs font-black uppercase tracking-wide text-emerald-800">You worked it out!</p>
-        <p role="status" className="font-bold text-slate-800">{feedback}</p>
-        {ri === 5 && completionError && <section role="alert" className="mt-2 rounded-xl border-2 border-rose-600 bg-white p-3 text-left font-bold"><p>{completionError}</p><button type="button" data-numberline-result-retry onClick={() => void finishChapter(completionRef.current)} disabled={completionBusy} className="mt-2 min-h-12 w-full rounded-xl bg-rose-700 px-4 text-white disabled:opacity-50">{completionBusy ? 'Saving…' : completionError.toLowerCase().includes('reward') ? 'Retry reward confirmation' : 'Retry saving this result'}</button></section>}
-        <div className="mt-2 grid gap-2 sm:mt-3 sm:grid-cols-[1fr_1fr]">
-          <button type="button" onClick={() => tell(speak, q.explanation, numberLineNarrationSegments(q, 'explanation'))} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border-2 border-emerald-600 bg-white px-4 font-black text-emerald-900"><Volume2 size={20} />Hear explanation</button>
-          {ri < 5 ? <button type="button" onClick={next} className="min-h-14 rounded-xl bg-emerald-800 px-6 text-lg font-black text-white">Next mission →</button>
-            : !completionError && <button type="button" onClick={next} disabled={completionBusy} className="min-h-14 rounded-xl bg-emerald-800 px-6 text-lg font-black text-white disabled:opacity-50">Finish world →</button>}
+  const missingStart = q?.type === 'missing' && q.missing === 0 && !locked && !hintUsed;
+  const missingEnd = q?.type === 'missing' && q.missing === 2 && !locked && !hintUsed;
+  return <div data-board-focus="" className="focus-game" data-numberline-phase={phase} data-numberline-question={menu ? undefined : q.id} data-run-seed={menu ? undefined : seed} data-chapter={menu ? undefined : chapter.id} data-mission-index={menu ? undefined : ri + 1}>
+    <main className={`focus-game-body ${menu || optionsOpen ? 'is-menu' : ''}`} data-mission-type={menu ? undefined : q.type}>
+      <header className="focus-game-heading">
+        {!menu && <p>Number Line Jump · {chapter.title} · {ri + 1} of 6</p>}
+        <h1 ref={headingRef} tabIndex={-1}>{ phase === 'done' ? 'Progress saved!' : menu ? 'Number Line Jump' : q.prompt}</h1>
+      </header>
+      {optionsOpen ? <FocusMenu choices={menu ? [...chapterChoices, soundChoice] : playChoices} onBack={closeOptions} /> : menu ? <>
+        {phase === 'done' && <p role="status" className="focus-game-message">{feedback}</p>}
+        {startBlocked || startError ? <p role="alert" className="focus-game-message">{startError || (!progressState.ok ? 'Saved progress could not be checked.' : 'Confirm the saved reward before starting.')}</p> : <p className="focus-game-message">{nextChapter.skill} · six missions</p>}
+        <div className="focus-game-actions">
+          {startBlocked ? <button type="button" className="focus-game-button is-primary" disabled={progressRetryBusy || rewardDrainBusy} onClick={!progressState.ok ? retryProgressRead : () => void drainPendingRewards()}>{!progressState.ok ? 'Retry saved progress' : 'Retry reward confirmation'}</button>
+            : <button type="button" data-numberline-start className="focus-game-button is-primary" disabled={!canStart} onClick={() => start(nextIndex, Boolean(pendingStart))}>{rewardDrainBusy ? 'Checking saved progress…' : nextLabel}</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={leave}>Back to Maths Missions</button>
         </div>
-      </section> : <>
-        {feedback && <p role="status" className="my-3 rounded-xl bg-amber-50 p-3 font-bold">{feedback}</p>}
+      </> : <>
+        {q.type === 'compare' ? <div className="my-3 grid gap-2">
+          <NumberLineJourney compact limit={limit} start={q.start1} end={q.end1} position={q.end1} showRoute label={`Frog A · ${q.hops1} hops`} />
+          <NumberLineJourney compact limit={limit} start={q.start2} end={q.end2} position={q.end2} showRoute label={`Frog B · ${q.hops2} hops`} />
+        </div> : <div className="my-3"><NumberLineJourney compact limit={limit} label={q.type === 'hop' ? `${trail.length} of ${q.b} hops made` : q.missing === 0 ? 'Find the start' : q.missing === 1 ? 'Count the spaces' : 'Find the landing number'}
+          start={q.type === 'hop' ? q.a : missingStart ? undefined : q.start} end={q.type === 'hop' || missingEnd ? undefined : q.end} position={q.type === 'hop' ? position : missingEnd ? q.start : q.end}
+          trail={trail} showRoute={q.type === 'missing' && (hintUsed || locked)} onSwipe={q.type === 'hop' ? direction => hopTo(position + direction) : undefined} disabled={locked} /></div>}
+        {!locked && q.type === 'hop' && <div className="focus-game-actions my-3" role="group" aria-label="Hop controls">
+          <button type="button" className="focus-game-button" disabled={position <= 0} onClick={() => hopTo(position - 1)} onKeyDown={event => { if (event.key === 'ArrowLeft') { event.preventDefault(); hopTo(position - 1); } }}>Hop back</button>
+          <button type="button" className="focus-game-button" disabled={position >= 10} onClick={() => hopTo(position + 1)} onKeyDown={event => { if (event.key === 'ArrowRight') { event.preventDefault(); hopTo(position + 1); } }}>Hop forward</button>
+          <p className="sr-only" aria-live="polite">Frog at {position}. Accepted hops: {trail.join(', ') || 'none'}.</p>
+        </div>}
+        {!locked && q.type !== 'hop' && <div className="my-3 grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Choose the answer">
+          {q.options.map(value => <button key={value} type="button" onClick={() => answer(value)} className="focus-game-button text-xl">{value === 'same' ? 'Same' : q.type === 'compare' ? `Frog ${value}` : value}</button>)}
+        </div>}
+        {feedback && <p className="focus-game-message" role="status">{feedback}</p>}
+        {completionError && <p className="focus-game-message" role="alert">{completionError}</p>}
+        <div className="focus-game-actions">
+          {completionError ? <button ref={nextRef} type="button" data-numberline-result-retry onClick={() => void finishChapter(completionRef.current)} disabled={completionBusy} className="focus-game-button is-primary">{completionBusy ? 'Saving…' : 'Retry saving this result'}</button>
+            : locked && <button ref={nextRef} type="button" onClick={next} disabled={completionBusy} className="focus-game-button is-primary">{completionBusy ? 'Saving…' : ri === 5 ? 'Finish world' : 'Next mission'}</button>}
+          {!completionError && !completionBusy && <>
+
+            {soundOn && <button type="button" className="focus-game-button" onClick={() => tell(speak, locked ? q.explanation : numberLineNarrationText(q), numberLineNarrationSegments(q, locked ? 'explanation' : undefined))}>{locked ? 'Hear explanation' : 'Hear mission'}</button>}
+            <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          </>}
+        </div>
       </>}
     </main>
   </div>;

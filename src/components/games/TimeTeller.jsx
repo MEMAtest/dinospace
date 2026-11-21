@@ -1,6 +1,5 @@
 import { createArithmeticSeed } from '../../data/arithmeticAdventure.js';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Lightbulb, Volume2 } from 'lucide-react';
 import { TIME_CHAPTERS, createTimeRun, formatClock, timeLabel } from '../../data/timeLineAdventure.js';
 import { TIME_TELLER_NARRATION, timeNarrationSegments } from '../../data/batch4Narration.js';
 import {
@@ -8,7 +7,8 @@ import {
   getPendingTimeLineRewardReceiptsStrict, pendingTimeLineRewardReceipts, markTimeLineRewardReceiptClaimedStrict,
 } from '../../data/timeLineProgress.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
-import { LearningHeader, LearningChapters, LearningClock, ClockPractice } from './TimeLineLearningUI.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
+import { LearningClock } from './TimeLineLearningUI.jsx';
 const tell = (speak, line, segments) => speak?.(line, { premium: false, segments });
 const noopCancel = () => {};
 export default function TimeTeller({
@@ -35,7 +35,6 @@ export default function TimeTeller({
   const [locked, setLocked] = useState(false);
   const [first, setFirst] = useState(0);
   const [feedback, setFeedback] = useState('');
-  const [completion, setCompletion] = useState(null);
   const [setTime, setSetTime] = useState({
     hour: 12,
     minute: 0
@@ -48,7 +47,11 @@ export default function TimeTeller({
   const [pendingRewardReceipt, setPendingRewardReceipt] = useState(null);
   const [progressRetryBusy, setProgressRetryBusy] = useState(false);
   const [pendingStart, setPendingStart] = useState(null);
-  const [pickerOpen, setPickerOpen] = useState(false);
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const [practice, setPractice] = useState(false);
+  const [practiceTime, setPracticeTime] = useState({hour:3, minute:0});
+  const headingRef = useRef(null);
+  const nextRef = useRef(null);
   const startRef = useRef(null);
   const completionRef = useRef(null);
   const completionBusyRef = useRef(false);
@@ -128,7 +131,11 @@ export default function TimeTeller({
       tell(speak, q.prompt, timeNarrationSegments(q));
     }
   }, [phase, q, chapterIndex, ri, seed, chapter.id, speak, onGameEvent]);
+  useEffect(() => { if (!optionsOpen) headingRef.current?.focus({ preventScroll: true }); }, [phase, ri, optionsOpen, practice]);
+  useEffect(() => { if (locked) nextRef.current?.focus({ preventScroll: true }); }, [locked, completionError]);
+
   const start = (index = chapterIndex, retry = false) => {
+    setOptionsOpen(false);
     cancelNarration();
     const loaded = refreshProgress();
     if (!loaded.ok) { setStartError('Saved progress is unavailable. Try again before starting.'); return; }
@@ -168,7 +175,6 @@ export default function TimeTeller({
     setLocked(false);
     setFirst(0);
     setFeedback('');
-    setCompletion(null);
     setCompletionError('');
     completionRef.current = null;
     setSetTime({
@@ -311,7 +317,6 @@ export default function TimeTeller({
     }
     const currentChapter = TIME_CHAPTERS[draft.chapterIndex];
     setProgressState(latest);
-    setCompletion({ stars: draft.stars, newlyCompleted: draft.newlyCompleted, best: latest.progress.bestStars[currentChapter.id] });
     setFeedback(draft.newlyCompleted ? `Chapter complete! You earned ${draft.stars} ${draft.stars === 1 ? 'star' : 'stars'}.` : `Replay complete! Your best is ${latest.progress.bestStars[currentChapter.id]} stars.`);
     setCompletionError('');
     setPhase('done');
@@ -339,52 +344,65 @@ export default function TimeTeller({
     });
     onBack?.();
   };
-  const header = <LearningHeader title="Time Teller" subtitle={phase === 'play' ? `Chapter ${chapterIndex + 1} · Mission ${ri + 1} of 6` : 'Look · Move · Tell the time'} onBack={leave} soundOn={soundOn} onToggleSound={onToggleSound} compact={phase === 'start' || phase === 'play'} />;
-  if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-sky-100 via-emerald-50 to-amber-100 p-2 text-slate-900 sm:p-6">{header}
-    {phase === 'start' ? <main className="mx-auto mt-2 max-w-4xl" data-timeteller-menu>
-      {!progressState.ok && <section role="alert" className="mb-2 rounded-2xl border-2 border-rose-600 bg-white p-3 text-center font-bold"><p>Saved chapter progress could not be checked. Chapters stay locked until it can be read.</p><button type="button" onClick={retryProgressRead} disabled={progressRetryBusy} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{progressRetryBusy ? 'Checking progress…' : 'Retry saved progress'}</button></section>}
-      {rewardDrainBusy && <p role="status" className="mb-2 rounded-xl bg-white p-2 text-center text-sm font-semibold">Checking saved chapter rewards…</p>}
-      {rewardClaimError && <section role="alert" className="mb-2 rounded-2xl border-2 border-amber-600 bg-white p-3 text-center font-bold"><p>A saved chapter reward still needs confirmation.</p><button type="button" onClick={() => void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry reward confirmation</button></section>}
-      {startError && <p role="alert" className="mb-2 rounded-xl border-2 border-rose-500 bg-white p-3 text-center font-bold">{startError}</p>}
-      <section className="rounded-3xl border-2 border-sky-200 bg-white p-3 text-center shadow-md sm:p-5" aria-label="Selected clock chapter">
-        <div className="flex items-center justify-center gap-2">
-          <img src="/art/catalog-v3/game-timeteller.webp" alt="" aria-hidden="true" className="h-14 w-16 shrink-0 object-contain" />
-          <div className="min-w-0"><p className="text-xs font-black uppercase tracking-wide text-sky-800">Selected · Chapter {chapterIndex + 1} of 3</p>
-          <h2 className="mt-1 text-xl font-black text-sky-950">{chapter.title}</h2>
-          <p className="text-sm font-semibold text-slate-600">{chapter.skill} · six missions</p></div>
+
+  const closeOptions = () => setOptionsOpen(false);
+  const menu = phase !== 'play';
+  const nextIndex = pendingStart?.chapterIndex ?? progress.unlockedChapter;
+  const nextChapter = TIME_CHAPTERS[nextIndex];
+  const nextLabel = pendingStart ? 'Retry saving this run' : progress.completedChapterIds.includes(nextChapter.id) ? `Replay: ${nextChapter.title}`
+    : phase === 'done' ? `Next: ${nextChapter.title}` : `Start: ${nextChapter.title}`;
+  const startBlocked = !progressState.ok || rewardClaimError;
+  const soundChoice = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } };
+  const chapterChoices = TIME_CHAPTERS.map((item,index) => {
+    const completed = progress.completedChapterIds.includes(item.id);
+    return {
+      label: `${item.title}${index > progress.unlockedChapter ? ' · Locked' : completed ? ' · Complete' : ''}`,
+      description: item.skill,
+      button: `${completed ? 'Replay' : 'Start'}: ${item.title}`,
+      disabled: !canStart || Boolean(pendingStart) || index > progress.unlockedChapter,
+      action: () => start(index),
+    };
+  });
+  const playChoices = [
+    ...(!locked && !hintUsed ? [{ label: 'Use one hint', action: () => { closeOptions(); hint(); } }] : []),
+    ...(!locked ? [{ label: 'How the two hands work', description: TIME_TELLER_NARRATION.lesson, action: () => { closeOptions(); setFeedback(TIME_TELLER_NARRATION.lesson); if (soundOn) tell(speak, TIME_TELLER_NARRATION.lesson, timeNarrationSegments(TIME_TELLER_NARRATION.lesson)); } }] : []),
+    soundChoice,
+    { label: 'Back to Maths Missions', action: leave },
+  ];
+  return <div data-board-focus="" className="focus-game" data-timeteller-phase={phase} data-timeteller-question={menu ? undefined : q.id} data-run-seed={menu ? undefined : seed} data-chapter={menu ? undefined : chapter.id} data-mission-index={menu ? undefined : ri + 1}>
+    <main className={`focus-game-body ${menu || optionsOpen ? 'is-menu' : ''}`} data-mission-type={menu ? undefined : q.type}>
+      <header className="focus-game-heading">
+        {!menu && <p>Time Teller · {chapter.title} · {ri + 1} of 6</p>}
+        <h1 ref={headingRef} tabIndex={-1}>{practice ? 'Practise the clock' : phase === 'done' ? 'Progress saved!' : menu ? 'Time Teller' : q.prompt}</h1>
+      </header>
+      {practice ? <>
+        <div className="mb-3 text-center"><LearningClock time={practiceTime} onChange={setPracticeTime} label="Practice clock" /></div>
+        <button type="button" className="focus-game-button" onClick={() => setPractice(false)}>Back to chapters</button>
+      </> : optionsOpen ? <FocusMenu choices={menu ? [...chapterChoices, { label: 'Try moving the clock hands', action: () => { closeOptions(); setPractice(true); } }, soundChoice] : playChoices} onBack={closeOptions} /> : menu ? <>
+        {phase === 'done' && <p role="status" className="focus-game-message">{feedback}</p>}
+        {startBlocked || startError ? <p role="alert" className="focus-game-message">{startError || (!progressState.ok ? 'Saved progress could not be checked.' : 'Confirm the saved reward before starting.')}</p> : <p className="focus-game-message">{nextChapter.skill} · six missions</p>}
+        <div className="focus-game-actions">
+          {startBlocked ? <button type="button" className="focus-game-button is-primary" disabled={progressRetryBusy || rewardDrainBusy} onClick={!progressState.ok ? retryProgressRead : () => void drainPendingRewards()}>{!progressState.ok ? 'Retry saved progress' : 'Retry reward confirmation'}</button>
+            : <button type="button" data-timeteller-start className="focus-game-button is-primary" disabled={!canStart} onClick={() => start(nextIndex, Boolean(pendingStart))}>{rewardDrainBusy ? 'Checking saved progress…' : nextLabel}</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={leave}>Back to Maths Missions</button>
         </div>
-        <button type="button" data-timeteller-start disabled={!canStart || chapterIndex > progress.unlockedChapter} onClick={() => start(chapterIndex, Boolean(pendingStart))} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-800 px-5 text-lg font-black text-white shadow-md disabled:opacity-50">
-          {pendingStart ? 'Retry saving this same six-mission run' : progress.completedChapterIds.includes(chapter.id) ? `Replay ${chapter.title}` : `Start ${chapter.title} →`}
-        </button>
-      </section>
-      <details className="mt-2 rounded-2xl border border-sky-100 bg-white p-3 shadow" open={pickerOpen} onToggle={(event) => setPickerOpen(event.currentTarget.open)}>
-        <summary className="min-h-12 cursor-pointer content-center font-black">Choose another chapter</summary>
-        <div className="mt-2"><LearningChapters chapters={TIME_CHAPTERS} selected={chapterIndex} progress={progress} selectionDisabled={Boolean(pendingStart)} onSelect={(index) => { setChapterIndex(index); setStartError(''); setPickerOpen(false); }} /></div>
-      </details>
-      <ClockPractice />
-    </main> : <main className="mx-auto mt-6 max-w-2xl rounded-3xl border-2 border-white bg-white p-6 text-center shadow-xl">
-      <p className="text-4xl text-amber-500" aria-label={`${completion?.best || 1} best stars`}>{'★'.repeat(completion?.best || 1)}</p><h2 className="mt-3 text-2xl font-black">{chapter.title} complete!</h2><p className="mt-2 font-semibold">{completion?.newlyCompleted ? 'Your clock badge and best stars are saved.' : 'Your best stars and unlocked chapters are safe.'}</p>
-      <button className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-800 px-3 font-black text-white" onClick={() => { cancelNarration(); setChapterIndex(progress.unlockedChapter); setPhase('start'); }}>Choose next chapter →</button><button className="mt-3 min-h-12 w-full rounded-2xl border-2 border-emerald-700 bg-white px-3 font-black text-emerald-900" onClick={() => start(chapterIndex)}>Replay {chapter.title}</button>
-    </main>}
-  </div>;
-  return <div className="min-h-[100dvh] bg-gradient-to-b from-sky-100 via-emerald-50 to-amber-100 p-2 text-slate-900 sm:p-6">{header}
-    <main className="mx-auto mt-2 max-w-4xl rounded-3xl border-2 border-white bg-white/95 p-2 text-center shadow-xl sm:mt-4 sm:p-6" data-mission-type={q.type} data-timeteller-question={q.id} data-run-seed={seed} data-chapter={chapter.id} data-mission-index={ri + 1}>
-      <p className="mb-0.5 text-[10px] font-black uppercase tracking-wide text-sky-800 sm:text-xs">{q.type === 'set' ? 'Move the hands' : 'Read the clock'}</p>
-      <h2 className="mx-auto max-w-2xl text-lg font-black leading-tight sm:text-xl" aria-live="polite">{locked ? timeLabel(q.target) : q.prompt}</h2>
-      {!locked && <div className="mx-auto my-1 flex max-w-sm gap-2 sm:my-3">
-        <button className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-sky-50 px-3 font-black text-sky-900" onClick={() => tell(speak, q.prompt, timeNarrationSegments(q))}><Volume2 size={18} />Hear mission</button>
-        <button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl border-2 border-amber-400 bg-amber-50 px-3 font-black disabled:opacity-50"><Lightbulb size={18} />{hintUsed ? 'Hint used' : 'Use hint'}</button>
-      </div>}
-      <div className="mt-1 sm:mt-3"><LearningClock compact time={q.type === 'set' ? setTime : q.target} onChange={q.type === 'set' && !locked ? setSetTime : undefined} label={q.type === 'set' ? 'Clock setting controls' : locked ? `Clock showing ${timeLabel(q.target)}` : 'Clock face with short red hour hand and long blue minute hand'} /></div>
-      {!locked && (q.type === 'set' ? <button onClick={() => attempt(setTime)} className="mx-auto mt-2 min-h-14 w-full max-w-sm rounded-2xl bg-emerald-800 px-4 text-lg font-black text-white sm:mt-4">Check clock</button> : <div className="my-2 grid grid-cols-2 gap-2 sm:my-4 sm:grid-cols-4" role="group" aria-label="Choose the time">{q.options.map(t => <button key={formatClock(t)} onClick={() => attempt(t)} className="min-h-14 rounded-2xl bg-emerald-800 px-3 text-lg font-black text-white">{timeLabel(t)}</button>)}</div>)}
-      {locked ? <section aria-label="Worked answer" className="mt-1 rounded-2xl border-2 border-emerald-200 bg-emerald-50 p-1.5 text-left sm:mt-4 sm:p-4">
-        <p className="mb-1 text-xs font-black uppercase tracking-wide text-emerald-800">You worked it out!</p><p role="status" className="font-bold text-slate-800">{feedback}</p>
-        {ri === 5 && completionError && <section role="alert" className="mt-1 rounded-xl border-2 border-rose-600 bg-white p-1.5 font-bold sm:mt-2 sm:p-3"><p className="text-sm">{completionError}</p><button type="button" data-timeteller-result-retry onClick={() => void finishChapter(completionRef.current)} disabled={completionBusy} className="mt-1 min-h-12 w-full rounded-xl bg-rose-700 px-3 text-sm text-white disabled:opacity-50">{completionBusy ? 'Saving…' : completionError.toLowerCase().includes('reward') ? 'Retry reward confirmation' : 'Retry saving this result'}</button></section>}
-        <div className="mt-2 grid gap-2 sm:mt-3 sm:grid-cols-2"><button type="button" onClick={() => tell(speak, q.explanation, timeNarrationSegments(q, 'explanation'))} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border-2 border-emerald-700 bg-white px-4 font-black text-emerald-900"><Volume2 size={18} />Hear explanation</button>
-          {ri < 5 ? <button type="button" onClick={next} className="min-h-14 rounded-xl bg-emerald-800 px-6 text-lg font-black text-white">Next mission →</button> : !completionError && <button type="button" onClick={next} disabled={completionBusy} className="min-h-14 rounded-xl bg-emerald-800 px-6 text-lg font-black text-white disabled:opacity-50">Finish chapter →</button>}</div>
-      </section> : <>
-        {feedback && <p role="status" className="my-2 rounded-xl bg-amber-50 p-2 font-bold">{feedback}</p>}
-        <details className="mx-auto mt-2 max-w-xl rounded-xl bg-sky-50 p-2 text-left sm:mt-3 sm:p-3"><summary className="min-h-12 cursor-pointer p-3 font-bold text-sky-900">How the two hands work</summary><p className="p-3 text-sm font-semibold">The short hand shows the hour. The long hand shows minutes. As minutes pass, the hour hand moves between numbers.</p><button className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 font-bold" onClick={() => tell(speak, TIME_TELLER_NARRATION.lesson, timeNarrationSegments(TIME_TELLER_NARRATION.lesson))}><Volume2 size={20} />Hear hand lesson</button></details>
+      </> : <>
+        <div className="my-3 text-center"><LearningClock compact time={q.type === 'set' ? setTime : q.target} onChange={q.type === 'set' && !locked ? setSetTime : undefined} label={q.type === 'set' ? 'Clock setting controls' : locked ? `Clock showing ${timeLabel(q.target)}` : 'Clock face with short red hour hand and long blue minute hand'} /></div>
+        {!locked && q.type !== 'set' && <div className="my-3 grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Choose the time">
+          {q.options.map(time => <button key={formatClock(time)} type="button" onClick={() => attempt(time)} className="focus-game-button">{timeLabel(time)}</button>)}
+        </div>}
+        {feedback && <p className="focus-game-message" role="status">{feedback}</p>}
+        {completionError && <p className="focus-game-message" role="alert">{completionError}</p>}
+        <div className="focus-game-actions">
+          {completionError ? <button ref={nextRef} type="button" data-timeteller-result-retry onClick={() => void finishChapter(completionRef.current)} disabled={completionBusy} className="focus-game-button is-primary">{completionBusy ? 'Saving…' : 'Retry saving this result'}</button>
+            : locked && <button ref={nextRef} type="button" onClick={next} disabled={completionBusy} className="focus-game-button is-primary">{completionBusy ? 'Saving…' : ri === 5 ? 'Finish chapter' : 'Next mission'}</button>}
+          {!completionError && !completionBusy && <>
+            {!locked && q.type === 'set' && <button type="button" onClick={() => attempt(setTime)} className="focus-game-button is-primary">Check clock</button>}
+            {soundOn && <button type="button" className="focus-game-button" onClick={() => tell(speak, locked ? q.explanation : q.prompt, timeNarrationSegments(q, locked ? 'explanation' : undefined))}>{locked ? 'Hear explanation' : 'Hear mission'}</button>}
+            <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          </>}
+        </div>
       </>}
     </main>
   </div>;
