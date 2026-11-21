@@ -7,6 +7,8 @@ import {
 } from '../../data/colourLabProgress.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
 import { shuffle, getPraise } from '../../utils.js';
+import { mixPaintScoops } from '../../data/paintMix.js';
+import CreativeCanvas from './CreativeCanvas.jsx';
 import { SoundToggle } from '../shared/index.jsx';
 
 const colourFor = (name) => ({ ...COLOUR_PAINTS, Orange: '#ef8a3a', Green: '#4caa71', Purple: '#8959b5', Teal: '#278f91', Lime: '#a6c943', Pink: '#ec9ab5', 'Sky Blue': '#90c9eb', 'Pale Grey': '#ccd3d8', 'Dark Red': '#923d47', Navy: '#3f527a', Grey: '#9aa3aa', Coral: '#ee8e75', Peach: '#f4bd91', 'Dark Grey': '#68717d', Brown: '#956448' }[name] || '#cbd5e1');
@@ -36,6 +38,7 @@ export const COLOUR_LAB_ROUND_DATA = COLOUR_LAB_MISSIONS.map((mission) => Object
 }));
 
 export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, onReviewComplete, onPhaseChange, cancelNarration, playerId = 'default' }) {
+  const [freePaint, setFreePaint] = useState(true);
   const [progressState, setProgressState] = useState(() => readColourLabProgressStrict(playerId));
   const progress = progressState.ok ? progressState.progress : { version: 1, completed: [], chapters: [], recentMissionIds: [], rewardReceipts: {} };
   const [rewardDrainBusy, setRewardDrainBusy] = useState(true);
@@ -43,7 +46,7 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
   const [pendingReceipt, setPendingReceipt] = useState(null);
   const [progressRetryBusy, setProgressRetryBusy] = useState(false);
   const [saveBusy, setSaveBusy] = useState(false);
-  const [activeLab, setActiveLab] = useState('mix');
+  const [activeLab, setActiveLab] = useState(() => COLOUR_LABS.find(({ id }) => !progress.chapters.includes(id))?.id || COLOUR_LABS.at(-1).id);
   const [phase, setPhase] = useState('intro');
   const [missionOrder, setMissionOrder] = useState([]);
   const [recipeWrong, setRecipeWrong] = useState(false);
@@ -153,9 +156,14 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
     if (!loaded.ok || !pending.ok) { setSaveError('Saved progress needs a check before you start.'); return; }
     if (pending.receipts.length || rewardDrainBusy || rewardClaimError || pendingReceipt) { setSaveError('Confirm your saved star before starting.'); void drainPendingRewards(); return; }
     if (!labUnlocked(labId)) return;
-    const order = seededColourMissionOrder(labId, Date.now(), loaded.progress.recentMissionIds);
+    const shuffled = seededColourMissionOrder(labId, Date.now(), loaded.progress.recentMissionIds);
+    const completed = new Set(loaded.progress.completed);
+    const remaining = shuffled.filter(({ id }) => !completed.has(id));
+    const resume = remaining.length > 0 && remaining.length < shuffled.length;
+    const order = resume ? [...shuffled.filter(({ id }) => completed.has(id)), ...remaining] : shuffled;
+    const startIndex = resume ? shuffled.length - remaining.length : 0;
     setProgressState(loaded); setSaveError(''); pendingResultRef.current = null;
-    setActiveLab(labId); setMissionOrder(order.map((item) => item.id)); setMissionIndex(0); setAdded({}); setMixed(false); setAnswer(''); setSelectedRecipe(''); setWrong(false); setHadMistake(false); setRecipeWrong(false); setClueUsed(false); setClue(''); setPraise(''); setOptions(shuffle([...order[0].options])); setPhase('play');
+    setActiveLab(labId); setMissionOrder(order.map((item) => item.id)); setMissionIndex(startIndex); setAdded({}); setMixed(false); setAnswer(''); setSelectedRecipe(''); setWrong(false); setHadMistake(false); setRecipeWrong(false); setClueUsed(false); setClue(''); setPraise(''); setOptions(shuffle([...order[startIndex].options])); setPhase('play');
   };
 
   const setLab = (labId) => {
@@ -233,6 +241,15 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
   };
   const finish = () => { cancelNarration?.(); if (onReviewComplete) onReviewComplete(); else onBack?.(); };
 
+  if (freePaint) return <main className="min-h-[100dvh] bg-[#faf7fa] px-2 pb-6 pt-2 text-slate-900 sm:px-5">
+    <header className="mx-auto mb-2 flex max-w-6xl flex-wrap items-center justify-between gap-2">
+      <button type="button" onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home size={22}/></button>
+      <h1 className="flex-1 text-xl font-black sm:text-3xl">Colour Mixing Lab</h1>
+      <button type="button" onClick={() => setFreePaint(false)} className="min-h-12 rounded-xl bg-[#713063] px-3 font-black text-white">Paint lessons</button>
+    </header>
+    <CreativeCanvas playerId={playerId} mixing />
+  </main>;
+
   return <main className="min-h-screen bg-[#f8f4ee] text-[#203847]">
     <header className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-7 sm:py-4">
       <button type="button" onClick={onBack} disabled={phase === 'play' && (saveBusy || Boolean(answer && saveError))} aria-label="Back to home" className="grid min-h-12 min-w-12 place-items-center rounded-2xl bg-white text-[#304b59] shadow-sm ring-1 ring-[#d8e2df] disabled:opacity-50"><Home size={22}/></button>
@@ -242,6 +259,7 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
     <div className="mx-auto grid max-w-7xl gap-3 px-3 pb-8 sm:gap-5 sm:px-7 lg:grid-cols-[minmax(0,1fr)_310px]">
       <section className="min-w-0">
         {phase === 'intro' && <>
+          <button type="button" onClick={() => setFreePaint(true)} className="mb-3 min-h-12 rounded-xl border border-slate-300 bg-white px-4 font-black">Paint canvas</button>
           {!progressState.ok && <section role="alert" className="mb-3 rounded-2xl border-2 border-rose-400 bg-white p-3 font-bold"><p>Saved paint progress could not be checked. Your paints stay locked until it can be read.</p><button type="button" onClick={() => { setProgressRetryBusy(true); const loaded = refreshProgress(); setProgressRetryBusy(false); if (loaded.ok) void drainPendingRewards(); }} disabled={progressRetryBusy} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{progressRetryBusy ? 'Checking…' : 'Retry saved progress'}</button></section>}
           {rewardDrainBusy && <p role="status" className="mb-3 rounded-xl bg-white p-2 text-center text-sm font-semibold">Checking saved paint rewards…</p>}
           {rewardClaimError && <section role="alert" className="mb-3 rounded-2xl border-2 border-amber-500 bg-white p-3 font-bold"><p>A saved paint star still needs confirmation.</p><button type="button" onClick={() => void drainPendingRewards()} disabled={rewardDrainBusy} className="mt-2 min-h-12 rounded-xl bg-amber-700 px-4 text-white">Retry saved stars</button></section>}
@@ -252,7 +270,7 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
               <div className="min-w-0"><p className="text-xs font-black uppercase tracking-widest" style={{color:labInfo.accent}}>Selected · Lab {labPosition + 1} of 3</p><h2 className="mt-1 text-2xl font-black sm:mt-2 sm:text-3xl">{labInfo.title}</h2>
               <p className="mt-1 font-extrabold">Six paint missions</p></div>
             </div>
-            <button type="button" data-colour-lab-start disabled={!canStartLab || !labUnlocked(activeLab)} onClick={() => startLab()} className="mt-3 min-h-14 w-full max-w-md rounded-2xl px-6 text-lg font-black text-white shadow disabled:opacity-50" style={{backgroundColor:labInfo.accent}}>Start {labInfo.title}<ArrowRight className="ml-2 inline" size={20}/></button>
+            <button type="button" data-colour-lab-start disabled={!canStartLab || !labUnlocked(activeLab)} onClick={() => startLab()} className="mt-3 min-h-14 w-full max-w-md rounded-2xl px-6 text-lg font-black text-white shadow disabled:opacity-50" style={{backgroundColor:labInfo.accent}}>{labMissions.some(({ id }) => progress.completed.includes(id)) && !progress.chapters.includes(activeLab) ? 'Continue' : 'Start'} {labInfo.title}<ArrowRight className="ml-2 inline" size={20}/></button>
             <p className="mx-auto mt-2 max-w-xl text-sm font-semibold leading-5 text-[#647677]">{labInfo.lesson}</p>
           </section>
           <details className="mt-3 rounded-2xl border border-[#e2e7df] bg-white p-3 shadow-sm"><summary className="min-h-12 cursor-pointer font-black">Choose another lab</summary><nav aria-label="Colour labs" className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">{COLOUR_LABS.map((lab) => <button key={lab.id} type="button" onClick={() => setLab(lab.id)} disabled={!labUnlocked(lab.id) || !progressState.ok || rewardDrainBusy || Boolean(pendingReceipt)} aria-pressed={activeLab === lab.id} className="min-h-14 rounded-2xl border-2 px-3 py-2 text-left text-sm font-black transition disabled:cursor-not-allowed disabled:opacity-45 sm:text-base" style={{ borderColor: activeLab === lab.id ? lab.accent : '#e4e9e5', background: activeLab === lab.id ? `${lab.accent}18` : 'white', color: activeLab === lab.id ? lab.accent : '#50616a' }}>{!labUnlocked(lab.id) && <LockKeyhole className="mr-1 inline" size={14}/>} {lab.title}<span className="block text-xs font-semibold">{lab.subtitle}</span></button>)}</nav></details>
@@ -279,7 +297,7 @@ export default function ColorMixingLab({ onBack, playSfx, soundOn, onToggleSound
                 <div className="flex min-w-0 flex-wrap items-center gap-x-2 text-xs font-extrabold text-[#526a70] sm:text-sm">{Object.entries(added).filter(([, count]) => count > 0).map(([name, count]) => <span key={name} className="inline-flex items-center gap-1"><span className="h-4 w-4 rounded-full border border-black/10" style={{ backgroundColor: colourFor(name) }} aria-hidden="true"/>{count} {name}</span>)}</div>
                 <button type="button" onClick={() => { setAdded({}); setMixed(false); setWrong(false); setRecipeWrong(false); }} className="min-h-12 shrink-0 rounded-xl bg-white px-2 text-xs font-black text-[#61767b]">Empty bowl</button>
               </div>}
-              {mixed && <div className="rounded-3xl border border-[#e2e7df] bg-[#fffdfa] p-4" aria-live="polite"><div className="flex items-center gap-4"><div className={`mix-result h-16 w-16 shrink-0 rounded-[48%_52%_60%_40%] border-4 border-white shadow-[inset_-7px_-7px_12px_#0002,0_5px_12px_#0002] ${answer ? 'mix-result-done' : ''}`} style={{ backgroundColor: colourFor(activeLab === 'make' ? selectedRecipeCard?.color : mission.resultColor) }}/><div><div className="text-xs font-black uppercase tracking-widest text-[#78888a]">Mixing bowl</div><p className="font-extrabold">{answer ? `Your blend is ${mission.resultColor}.` : 'Look at your mixed paint.'}</p></div></div></div>}
+              {mixed && <div className="rounded-3xl border border-[#e2e7df] bg-[#fffdfa] p-4" aria-live="polite"><div className="flex items-center gap-4"><div className={`mix-result h-16 w-16 shrink-0 rounded-[48%_52%_60%_40%] border-4 border-white shadow-[inset_-7px_-7px_12px_#0002,0_5px_12px_#0002] ${answer ? 'mix-result-done' : ''}`} style={{ backgroundColor: mixPaintScoops(added) }}/><div><div className="text-xs font-black uppercase tracking-widest text-[#78888a]">Mixing bowl</div><p className="font-extrabold">{answer ? `Your blend is ${mission.resultColor}.` : 'Look at your mixed paint.'}</p></div></div></div>}
               <div className="flex flex-wrap items-center gap-2">{!clueUsed && !answer && <button type="button" onClick={useClue} className="inline-flex min-h-12 items-center gap-2 rounded-2xl border border-[#e8d9af] bg-[#fff9e9] px-4 font-bold text-[#725d30]"><HelpCircle size={18}/>One clue</button>}{clue && !answer && <p className="rounded-2xl bg-[#fff9e9] px-4 py-3 text-sm font-bold text-[#725d30]" role="status">{clue}</p>}{wrong && <p className="rounded-2xl bg-[#fff1e7] px-4 py-3 font-bold text-[#9c542d]" role="status">{recipeWrong ? 'That paint recipe missed the target. Empty the bowl and try again.' : 'Not quite. Check the recipe and try another colour.'}</p>}</div>
               {mixed && !answer && activeLab !== 'make' && <p className="font-black">{activeLab === 'light' ? 'Did adding white or black make the paint lighter or darker?' : 'What colour did your recipe make?'}</p>}
               {mixed && !answer && activeLab !== 'make' && <div className="grid grid-cols-3 gap-1.5 sm:gap-2">{options.map((choice) => <button key={choice} type="button" onClick={() => choose(choice)} className="flex min-h-12 items-center justify-center gap-1 rounded-2xl border-2 border-[#e5ebe5] bg-white px-1 text-center text-xs font-black shadow-sm hover:border-[#9ebcaa] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 sm:min-h-14 sm:gap-3 sm:px-4 sm:text-base" aria-label={`Choose ${choice}`}>{activeLab !== 'light' && <span className="h-6 w-6 shrink-0 rounded-full border border-black/10 shadow-inner sm:h-8 sm:w-8" style={{ backgroundColor: colourFor(choice) }}/>} {choice}</button>)}</div>}

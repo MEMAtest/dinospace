@@ -9,7 +9,7 @@ import StorybookProfiles from './StorybookProfiles.jsx';
 import StorybookSeriesLibrary from './StorybookSeriesLibrary.jsx';
 import { createStoryImage, createStoryNarration, createStoryOutline, createStorySession } from '../../data/storybookApi.js';
 import { isUsableStoryBlob, storyAssetInventory, validateStoryMediaAssets, validateStoryMediaBlob } from '../../data/storybookAssets.js';
-import { getStoryAsset, getStoryAssetInventory, getStoryBookRecord, getStoryLibraryInventory, getChildProfilesInventory, saveChildProfile, deleteChildProfile, getStorySeriesInventory, saveStorySeries, saveStoryAsset, saveStoryBook, importStorybookRecords } from '../../data/storybookStorage.js';
+import { getStoryAsset, getStoryAssetInventory, getStoryBookRecord, getStoryLibraryInventory, getChildProfilesInventory, getAskiaStoryReaderInventory, saveChildProfile, deleteChildProfile, getStorySeriesInventory, saveStorySeries, saveStoryAsset, saveStoryBook, importStorybookRecords } from '../../data/storybookStorage.js';
 import { pagesForAgeBand } from '../../data/storybookValidation.js';
 import { commitStoryCompletion, commitStoryProgress, getBookProgress, readStoryProgress, readStoryProgressState, saveActiveChildId } from '../../data/storybookProfiles.js';
 import { decorateStoryBook, filterStoryBooks, STORYBOOK_SHELVES } from '../../data/storybookLibrary.js';
@@ -155,6 +155,8 @@ const validateCompleteStoryAssets = async (book, controller) => {
 const continuityPrompt = (book) => book.characters.map((character) => `${character.name}: ${character.visualDescription}`).join('; ');
 
 const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}, soundOn, onToggleSound, onCelebrate, onGameEvent }) => {
+  const askia = playerId === 'askia';
+  const loadReaders = askia ? getAskiaStoryReaderInventory : getChildProfilesInventory;
   const [library, setLibrary] = useState(STORYBOOK_CATALOG);
   const [libraryStorageState, setLibraryStorageState] = useState('loading');
   const [profileStorageState, setProfileStorageState] = useState('loading');
@@ -171,7 +173,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   const [activeGenerationId, setActiveGenerationId] = useState(null);
   const [dailyLimitReached, setDailyLimitReached] = useState(false);
   const [profiles, setProfiles] = useState([]);
-  const [activeReaderPreference] = useState(() => readActiveStoryReader());
+  const [activeReaderPreference] = useState(() => askia ? { ok: true, status: 'player', id: 'askia' } : readActiveStoryReader());
   const [activeChildId, setActiveChildId] = useState(() => activeReaderPreference.id || 'amari');
   const [activePreferenceState, setActivePreferenceState] = useState(activeReaderPreference);
   const [readerCheckBusy, setReaderCheckBusy] = useState(false);
@@ -245,7 +247,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   const generationBookIdRef = useRef(null);
   const persistChainRef = useRef(Promise.resolve());
 
-  const activeChild = profiles.find((profile) => profile.id === activeChildId) || profiles[0] || { id: 'amari', displayName: 'Amari', ageBand: '5-6' };
+  const activeChild = profiles.find((profile) => profile.id === activeChildId) || profiles[0] || (askia ? { id: 'askia', displayName: 'Askia', ageBand: '3-4' } : { id: 'amari', displayName: 'Amari', ageBand: '5-6' });
   const activeReaderProgress = useMemo(() => (readerAccess.verified ? progressByChild[activeChild.id] || {} : {}), [activeChild.id, progressByChild, readerAccess.verified]);
   const activeBookProgress = (slug) => readerAccess.verified ? getBookProgress(progressByChild, activeChild.id, slug) : {};
   const activeReaderCompleted = (slug) => readerAccess.verified && readCompletion(slug, activeChild.id);
@@ -308,7 +310,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
       setLibraryStorageState(inventory.available ? 'available' : 'unavailable');
       if (inventory.available) setCustomRecords(inventory.books);
     }, () => setLibraryStorageState('unavailable'));
-    loadIndependently(getChildProfilesInventory, (inventory) => {
+    loadIndependently(loadReaders, (inventory) => {
       setProfileStorageState(inventory.available ? 'available' : 'unavailable');
       if (!inventory.available) return;
       setProfiles(inventory.profiles);
@@ -328,7 +330,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
       if (inventory.available) setSeries(inventory.series);
     }, () => setSeriesStorageState('unavailable'));
     return () => { cancelled = true; generationAbortRef.current?.abort(); };
-  }, []);
+  }, [loadReaders]);
 
   useEffect(() => setLibrary([...bundledBooks, ...customRecords.map((record) => ({ ...record, accent: styleAccent[record.style] || styleAccent['3d'], emoji: '✨', cover: null, coverAudio: null, pages: (record.pages || []).map((page) => ({ ...page, image: null, audio: null })) }))]), [bundledBooks, customRecords]);
 
@@ -408,11 +410,11 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
     setReaderCheckBusy(true);
     setReaderCheckError('');
     try {
-      const preference = readActiveStoryReader();
+      const preference = askia ? { ok: true, status: 'player', id: 'askia' } : readActiveStoryReader();
       activePreferenceRef.current = preference;
       setActivePreferenceState(preference);
       readerIdentityRef.current = { ...readerIdentityRef.current, preferenceOk: preference.ok };
-      const inventory = await getChildProfilesInventory();
+      const inventory = await loadReaders();
       if (!inventory.available) {
         readerIdentityRef.current = { ...readerIdentityRef.current, status: 'unavailable' };
         setProfileStorageState('unavailable');
@@ -448,7 +450,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
       readerCheckBusyRef.current = false;
       setReaderCheckBusy(false);
     }
-  }, []);
+  }, [askia, loadReaders]);
 
   const claimCompletionReceipt = useCallback((receipt, slug, readerChildId) => {
     if (!receipt || reconciledReceiptIdsRef.current.has(receipt.id)) return Promise.resolve(true);
@@ -1151,8 +1153,8 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
           </section>}
           {!readerAccess.verified && <div role="status" className="mt-2 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{readerCheckError || readerAccessMessage}<button type="button" onClick={retryReaderCheck} disabled={readerCheckBusy} className="min-h-11 rounded-lg bg-white px-3 font-black disabled:opacity-60">{readerCheckBusy ? 'Checking…' : 'Retry reader check'}</button></div>}
           <section className="mt-3 rounded-2xl border border-white/20 bg-white/10 p-3 sm:mt-4 sm:p-4" aria-label="Storybook filters">
-            <div className="flex flex-wrap items-center gap-2"><label className="flex min-h-12 flex-wrap items-center gap-2 text-xs font-black uppercase tracking-wide text-cyan-100"><span>Reading progress for</span><select value={readerAccess.verified ? activeChild.id : ''} disabled={profileStorageState !== 'available' || readerCheckBusy} onChange={(event) => selectChild(event.target.value)} className="min-h-11 border-0 rounded-xl bg-white px-3 py-2 text-sm font-black text-slate-800 disabled:opacity-60">{!readerAccess.verified && <option value="" disabled>Choose a saved reader</option>}{profiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.displayName} · {profile.ageBand}</option>)}</select></label></div>
-            {parentToolsOpen && <><div className="mt-3 flex flex-wrap items-center gap-2"><button type="button" onClick={() => setShowProfiles(true)} className="min-h-12 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Edit children</button><button type="button" onClick={() => setShowSeries(true)} className="min-h-12 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Characters &amp; series</button><button type="button" disabled={backupBusy || !customRecords.length || libraryStorageState !== 'available' || !progressStorageReadable} onClick={exportStories} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-3 py-2 text-xs font-black text-indigo-900 disabled:opacity-50"><Download size={16} /> Back up saved stories</button><button type="button" disabled={backupBusy} onClick={() => backupInputRef.current?.click()} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white disabled:opacity-50"><Upload size={16} /> Restore a story backup</button><input ref={backupInputRef} type="file" accept="application/json,.json" onChange={importStories} className="hidden" aria-label="Choose a story backup file" />{backupMessage && <p role="status" className="self-center text-xs font-bold text-amber-100">{backupMessage}</p>}</div><p className="mt-2 text-xs font-bold text-cyan-100/80">Stories on this device are shared. Each reader has their own place and favourites.</p>{profileStorageState === 'unavailable' && <p role="status" className="text-xs font-bold text-amber-100">Reader profiles could not be read. This does not mean they were deleted.</p>}{seriesStorageState === 'unavailable' && <p role="status" className="text-xs font-bold text-amber-100">Saved characters and series could not be read. This does not mean they were deleted.</p>}{!progressStorageReadable && <p role="status" className="text-xs font-bold text-amber-100">Reading progress could not be verified; backup is paused so saved positions and favourites are not omitted.</p>}</>}
+            {askia ? <p className="py-2 text-sm font-black text-cyan-100">Reading as Askia</p> : <div className="flex flex-wrap items-center gap-2"><label className="flex min-h-12 flex-wrap items-center gap-2 text-xs font-black uppercase tracking-wide text-cyan-100"><span>Reading progress for</span><select value={readerAccess.verified ? activeChild.id : ''} disabled={profileStorageState !== 'available' || readerCheckBusy} onChange={(event) => selectChild(event.target.value)} className="min-h-11 border-0 rounded-xl bg-white px-3 py-2 text-sm font-black text-slate-800 disabled:opacity-60">{!readerAccess.verified && <option value="" disabled>Choose a saved reader</option>}{profiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.displayName} · {profile.ageBand}</option>)}</select></label></div>}
+            {parentToolsOpen && <><div className="mt-3 flex flex-wrap items-center gap-2">{!askia && <button type="button" onClick={() => setShowProfiles(true)} className="min-h-12 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Edit children</button>}<button type="button" onClick={() => setShowSeries(true)} className="min-h-12 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Characters &amp; series</button><button type="button" disabled={backupBusy || !customRecords.length || libraryStorageState !== 'available' || !progressStorageReadable} onClick={exportStories} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-3 py-2 text-xs font-black text-indigo-900 disabled:opacity-50"><Download size={16} /> Back up saved stories</button><button type="button" disabled={backupBusy} onClick={() => backupInputRef.current?.click()} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white disabled:opacity-50"><Upload size={16} /> Restore a story backup</button><input ref={backupInputRef} type="file" accept="application/json,.json" onChange={importStories} className="hidden" aria-label="Choose a story backup file" />{backupMessage && <p role="status" className="self-center text-xs font-bold text-amber-100">{backupMessage}</p>}</div><p className="mt-2 text-xs font-bold text-cyan-100/80">Stories on this device are shared. Each reader has their own place and favourites.</p>{profileStorageState === 'unavailable' && <p role="status" className="text-xs font-bold text-amber-100">Reader profiles could not be read. This does not mean they were deleted.</p>}{seriesStorageState === 'unavailable' && <p role="status" className="text-xs font-bold text-amber-100">Saved characters and series could not be read. This does not mean they were deleted.</p>}{!progressStorageReadable && <p role="status" className="text-xs font-bold text-amber-100">Reading progress could not be verified; backup is paused so saved positions and favourites are not omitted.</p>}</>}
             <details className="group mt-1">
               <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-2 text-sm font-black text-white outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300 [&::-webkit-details-marker]:hidden"><span>Find a story</span>{(shelf !== 'all' || ageFilter !== 'all' || seriesFilter !== 'all') && <span className="min-w-0 flex-1 truncate text-right text-xs font-bold text-cyan-100">Showing {shelf !== 'all' ? STORYBOOK_SHELVES.find((item) => item.id === shelf)?.label : 'all stories'}{ageFilter !== 'all' ? ` · Ages ${ageFilter.replace('-', '–')}` : ''}{seriesFilter !== 'all' ? ` · ${availableSeries.find((item) => item.id === seriesFilter)?.name || 'selected series'}` : ''}</span>}<span aria-hidden="true" className="text-lg transition-transform group-open:rotate-180">⌄</span></summary>
               <div className="mt-2 flex flex-wrap gap-2">{STORYBOOK_SHELVES.map((item) => <button key={item.id} type="button" onClick={() => setShelf(item.id)} className={`min-h-12 rounded-full px-3 py-2 text-xs font-black ${shelf === item.id ? 'bg-amber-300 text-slate-900' : 'bg-white/15 text-white'}`} aria-pressed={shelf === item.id}>{item.label}</button>)}<select value={ageFilter} onChange={(event) => setAgeFilter(event.target.value)} className="min-h-12 rounded-full border-0 bg-white px-3 py-2 text-xs font-black text-slate-800" aria-label="Filter by age band"><option value="all">All ages</option><option value="3-4">Ages 3–4</option><option value="5-6">Ages 5–6</option><option value="7-8">Ages 7–8</option></select>{availableSeries.length > 0 && <select value={seriesFilter} onChange={(event) => setSeriesFilter(event.target.value)} className="min-h-12 rounded-full border-0 bg-white px-3 py-2 text-xs font-black text-slate-800" aria-label="Filter by series"><option value="all">All series</option>{availableSeries.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select>}</div>
@@ -1187,7 +1189,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
           <p className="mt-7 flex items-center justify-center gap-2 text-center text-sm font-bold text-cyan-100"><Headphones size={17} /> Saved stories can be read aloud offline.</p>
         </div>
         {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) { setShowCreator(false); setInitialSeriesId(''); setCreatorProgress(null); } }} onCreate={createCustomStory} onPause={pauseGeneration} onShelf={() => { if (activeGenerationId) setShowCreator(false); }} seriesOptions={availableSeries} selectedChild={activeChild} initialSeriesId={initialSeriesId} busy={creatorBusy} progress={creatorProgress} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= LIBRARY_LIMIT} />}
-        {showProfiles && <StorybookProfiles profiles={profiles} storageState={profileStorageState} activeId={activeChild.id} onSelect={selectChild} onSave={saveProfile} onDelete={removeProfile} onClose={() => setShowProfiles(false)} />}
+        {!askia && showProfiles && <StorybookProfiles profiles={profiles} storageState={profileStorageState} activeId={activeChild.id} onSelect={selectChild} onSave={saveProfile} onDelete={removeProfile} onClose={() => setShowProfiles(false)} />}
         {showSeries && <StorybookSeriesLibrary series={series} storageState={seriesStorageState} onSave={saveSeries} onGenerateReference={generateSeriesReference} onUse={(item) => { setInitialSeriesId(item.id); setShowSeries(false); setShowCreator(true); }} onClose={() => setShowSeries(false)} />}
       </main>
     );

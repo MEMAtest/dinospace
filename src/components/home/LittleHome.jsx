@@ -52,6 +52,12 @@ const LittleHome = ({ player, points, games, onLaunch, onOpenPage, onSwitchPlaye
 
     <main id="askia-worlds" className="relative z-10 mx-auto mt-5 w-full max-w-7xl">
       <h2 className="sr-only">Choose a world</h2>
+      {gameById.storybooks && <button type="button" onClick={() => launch('storybooks')} aria-label="Play Storybook Studio"
+        className="mb-4 flex min-h-16 w-full items-center gap-3 rounded-2xl border-2 border-white bg-white/90 px-3 py-2 text-left text-indigo-950 shadow-md sm:max-w-md">
+        <img src="/art/catalog-v3/game-storybooks.webp" alt="" className="h-14 w-16 shrink-0 rounded-xl object-cover" />
+        <span className="flex-1"><strong className="block text-lg">Storybook Studio</strong><span className="text-sm">Read or listen to a story</span></span>
+        <ArrowRight size={22} aria-hidden="true" />
+      </button>}
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {WORLDS.map((world) => <section key={world.id} className={`askia-world askia-world--${world.tone} overflow-hidden rounded-[2rem] border-4 border-white/90 shadow-xl`} aria-labelledby={`${world.id}-title`}>
           <div className="askia-world__scene relative h-44 overflow-hidden sm:h-52">

@@ -14,5 +14,5 @@ export const BONUS_GAME_IDS = Object.freeze(['hangman', 'spot', 'tictactoe']);
 // run on their starter level for this profile).
 export const LITTLE_EXPLORER_GAME_IDS = Object.freeze([
   'dinojigsaw', 'shadowmatch', 'rocketbuilder', 'fuelup', 'firerescue', 'ladder',
-  'dino', 'memory', 'counting', 'pattern', 'dinodiscovery',
+  'storybooks', 'dino', 'memory', 'counting', 'pattern', 'dinodiscovery',
 ]);

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Check, RotateCcw, Sparkles, Volume2 } from 'lucide-react';
+import CreativeCanvas from './CreativeCanvas.jsx';
 import { SoundToggle } from '../shared/index.jsx';
 import { skyShapeNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
@@ -37,6 +38,7 @@ const SkyShapeEpisodeCard = ({ episode, index, progress, confirmedEpisodeIds, se
 };
 
 const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) => {
+  const [freeDraw, setFreeDraw] = useState(true);
   const svgRef = useRef(null);
   const pointerRef = useRef({ id: null, drawing: false });
   const pathIndexRef = useRef(0);
@@ -498,7 +500,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   const showHint = () => {
     if (!mission || traceReady) return;
     setHadHint(true);
-    setFeedback(pathIndex === 0 && cursorIndex === 0 ? 'Begin at green 1, then follow the glowing dots in order.' : `Continue at green dot ${pathIndex + 1}. Trace close to the bright line.`);
+    setFeedback(pathIndex === 0 && cursorIndex === 0 ? 'Begin at green 1, then follow the dots in order.' : `Continue at green dot ${pathIndex + 1}. Trace close to the bright line.`);
     onGameEvent?.('jet', 'hint', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band, hintType: 'instructions' });
     speakPackagedBatch2Line(speak, skyShapeNarration.hint(pathIndex, cursorIndex));
   };
@@ -564,6 +566,17 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     onBack?.();
   };
 
+  if (freeDraw) {
+    return <main className="min-h-[100dvh] bg-sky-50 px-2 pb-6 pt-2 text-slate-900 sm:px-5">
+      <header className="mx-auto mb-2 flex max-w-6xl flex-wrap items-center justify-between gap-2">
+        <button type="button" onClick={leaveGame} className="game-icon-button" aria-label="Back to learning world"><ArrowLeft /></button>
+        <h1 className="flex-1 text-xl font-black sm:text-3xl">Sky Shapes</h1>
+        <button type="button" onClick={() => setFreeDraw(false)} className="min-h-12 rounded-xl bg-sky-800 px-3 font-black text-white">Shape lessons</button>
+      </header>
+      <CreativeCanvas playerId={playerId} />
+    </main>;
+  }
+
   if (phase === 'start') {
     return (
       <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-sky-500 via-sky-200 to-lime-100 px-3 pb-8 pt-3 text-slate-900 sm:px-6">
@@ -573,7 +586,8 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
           <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
         </header>
         <main className="mx-auto mt-2 max-w-6xl">
-          <p className="mx-auto mb-2 max-w-2xl rounded-2xl bg-white/85 px-3 py-2 text-center text-sm font-bold text-sky-950 sm:mb-4 sm:px-4 sm:py-3 sm:text-lg">Trace the glowing path. You can also guide the jet with Enter, Space, or arrow keys.</p>
+          <button type="button" onClick={() => setFreeDraw(true)} className="mb-2 min-h-12 rounded-xl bg-white px-4 font-black text-sky-900">Free draw</button>
+          <p className="mx-auto mb-2 max-w-2xl rounded-2xl bg-white/85 px-3 py-2 text-center text-sm font-bold text-sky-950 sm:mb-4 sm:px-4 sm:py-3 sm:text-lg">Trace the dotted outline. You can also guide the jet with Enter, Space, or arrow keys.</p>
           {!progressState.ok && <div className="mb-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950" role="alert"><p>{progressState.error || 'Saved Sky Shapes progress could not be checked.'}</p><button type="button" onClick={retrySavedProgress} className="mt-2 min-h-12 rounded-lg bg-amber-800 px-4 font-black text-white">Retry saved progress</button></div>}
           {rewardError && <div className="mb-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950" role="status"><p>{rewardError}</p><button type="button" disabled={rewardBusy} onClick={retrySavedProgress} className="mt-2 min-h-12 rounded-lg bg-amber-800 px-4 font-black text-white disabled:opacity-60">{rewardBusy ? 'Checking saved stars…' : 'Retry saved stars'}</button></div>}
           {startError && <div className="mb-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950" role="status"><p>{startError}</p>{!progressState.ok && <button type="button" onClick={retrySavedProgress} className="mt-2 min-h-12 rounded-lg bg-amber-800 px-4 font-black text-white">Retry saved progress</button>}</div>}
@@ -643,27 +657,26 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
 
-      <main className="mx-auto mt-3 grid max-w-6xl gap-2 rounded-[2rem] border-4 border-white/80 bg-sky-950/80 p-2.5 text-white shadow-2xl sm:mt-5 sm:gap-3 sm:p-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,.85fr)]">
+      <main className="mx-auto mt-3 grid max-w-6xl gap-2 rounded-2xl border border-sky-200 bg-white p-1.5 text-slate-900 shadow-lg sm:mt-5 sm:gap-3 sm:p-4 lg:grid-cols-[minmax(0,1fr)_minmax(270px,.36fr)]">
         <div className={`flex flex-wrap items-center justify-between gap-2 px-1 sm:px-3 lg:col-span-2 ${traceReady ? 'hidden sm:flex' : ''}`}>
-          <div><p className="text-xs font-black uppercase tracking-widest text-sky-200">Mission {roundIndex + 1} · {episode.band}</p><p className="text-lg font-black sm:text-xl">{mission?.icon} {mission?.name} · {completedPaths.length}/{totalPathCount} parts</p></div>
-          <p className="rounded-full bg-white/15 px-3 py-1 text-sm font-black">{progress.completedMissionIds.filter((id) => SKY_SHAPE_MISSION_BY_ID[id]?.episodeId === episode.id).length}/{episode.missions.length} saved</p>
+          <div><p className="text-xs font-black uppercase tracking-widest text-sky-800">Mission {roundIndex + 1} · {episode.band}</p><p className="text-lg font-black sm:text-xl">{mission?.icon} {mission?.name} · {completedPaths.length}/{totalPathCount} parts</p></div>
+          <p className="rounded-full bg-sky-100 px-3 py-1 text-sm font-black text-sky-950">{progress.completedMissionIds.filter((id) => SKY_SHAPE_MISSION_BY_ID[id]?.episodeId === episode.id).length}/{episode.missions.length} saved</p>
         </div>
         <div className={`flex flex-wrap items-center gap-2 px-1 sm:px-3 lg:col-span-2 ${traceReady ? 'hidden sm:flex' : ''}`}>
-          <div className="h-3 min-w-36 flex-1 overflow-hidden rounded-full bg-white/20"><div className="h-full rounded-full bg-gradient-to-r from-yellow-300 to-emerald-400 transition-all" style={{ width: `${overallProgress}%` }} /></div>
+          <div className="h-3 min-w-36 flex-1 overflow-hidden rounded-full bg-slate-200"><div className="h-full rounded-full bg-gradient-to-r from-sky-500 to-emerald-600 transition-all" style={{ width: `${overallProgress}%` }} /></div>
           <span className="w-12 text-right text-sm font-black">{overallProgress}%</span>
           <span className="rounded-xl bg-amber-300 px-2 py-1 text-sm font-black text-amber-950">{starsShown ? `${'★'.repeat(starsShown)}${'☆'.repeat(3 - starsShown)}` : '☆☆☆'}</span>
         </div>
         <p className={`mx-1 rounded-xl bg-emerald-800 px-3 py-2 text-center text-xs font-black text-white sm:mx-3 sm:text-sm lg:col-span-2 ${traceReady ? 'hidden sm:block' : ''}`}>Start at green 1 → follow the dots and arrow → finish at the flag</p>
-        <div className={`relative mx-auto overflow-hidden rounded-[1.6rem] border-2 border-sky-100/80 bg-gradient-to-b from-indigo-950 via-blue-900 to-sky-700 ${traceReady ? 'w-36 sm:w-full sm:max-w-[min(100%,76.9dvh)]' : 'w-full max-w-[min(100%,76.9dvh)]'} lg:mx-0 lg:max-w-full`}>
-          <div className="pointer-events-none absolute inset-0 opacity-70" aria-hidden="true"><span className="absolute left-[12%] top-[18%] text-3xl">✦</span><span className="absolute right-[16%] top-[24%] text-2xl">✧</span><span className="absolute right-[28%] bottom-[16%] text-xl">✦</span></div>
-          <svg
+        <div className={`relative mx-auto overflow-hidden rounded-2xl border border-slate-300 bg-white ${traceReady ? 'w-36 sm:w-full sm:max-w-[min(100%,76.9dvh)]' : 'w-full max-w-[min(100%,76.9dvh)]'} lg:mx-0 lg:max-w-full`}>
+            <svg
             ref={svgRef}
             viewBox={`0 0 ${VIEW_WIDTH} ${VIEW_HEIGHT}`}
             className="relative z-10 block h-auto w-full touch-none focus:outline-none focus-visible:ring-4 focus-visible:ring-yellow-300"
             style={{ aspectRatio: `${VIEW_WIDTH}/${VIEW_HEIGHT}` }}
             role={traceReady ? 'img' : 'application'}
             tabIndex={traceReady ? -1 : 0}
-            aria-label={traceReady ? `Completed route preview for ${mission?.name}.` : `Tracing board for ${mission?.name}. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.`}
+            aria-label={traceReady ? `Completed route preview for ${mission?.name}.` : `Tracing board for ${mission?.name}. Start at the numbered circle and follow the dots to the checkered flag. Press Enter, then Space or an arrow key to trace.`}
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={stopPointer}
@@ -686,8 +699,8 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
               const flag = skyFinishFlagPosition(start, end);
               return (
                 <g key={mission?.paths[index]?.id} aria-hidden="true">
-                  <polyline points={pathString} fill="none" stroke={complete ? '#34d399' : 'rgba(255,255,255,.92)'} strokeWidth="30" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="3 18" />
-                  <polyline points={pathString} fill="none" stroke={active ? '#fde68a' : 'rgba(147,197,253,.55)'} strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="2 21" />
+                  <polyline points={pathString} fill="none" stroke={complete ? '#078458' : active ? '#657387' : '#aeb9c8'} strokeWidth="30" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="3 18" />
+                  <polyline points={pathString} fill="none" stroke={active ? '#dce7f5' : '#f2f5fa'} strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="2 21" />
                   {visited > 1 && <polyline points={points.slice(0, visited).map(pointString).join(' ')} fill="none" stroke="#34d399" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />}
                   {trail.length > 1 && <polyline points={trail.map(pointString).join(' ')} fill="none" stroke="#f97316" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" opacity=".8" />}
                   {!complete && <path d="M -14 -10 L 14 0 L -14 10 Z" transform={`translate(${arrowPoint[0]} ${arrowPoint[1]}) rotate(${arrowAngle})`} fill="#fde047" stroke="#0f172a" strokeWidth="3" />}
@@ -706,23 +719,23 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
           </svg>
         </div>
 
-        <div className="rounded-2xl border-2 border-white/20 bg-white/10 p-3 text-center">
-          {!traceReady && <p className="mx-auto mb-2 max-w-3xl rounded-xl bg-indigo-200/15 px-3 py-2 text-sm font-bold text-indigo-50"><span className="font-black text-yellow-200">Tracing tip: </span>{SKY_SHAPE_TEACHING[mission?.id]?.strategy}</p>}
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-center">
+          {!traceReady && <p className="mx-auto mb-2 max-w-3xl rounded-xl bg-sky-100 px-3 py-2 text-sm font-bold text-sky-950"><span className="font-black text-sky-900">Tracing tip: </span>{SKY_SHAPE_TEACHING[mission?.id]?.strategy}</p>}
           <p className="min-h-12 text-base font-black sm:text-lg" role="status" aria-live="polite">{traceReady ? keyboardCompletion ? 'Keyboard-guided completion · 1 participation star.' : `${missionAccuracy}% route accuracy · ${missionStars} of 3 accuracy stars.` : feedback}</p>
-          {traceReady && <p className="mt-1 hidden text-sm font-bold text-sky-50 sm:block">{keyboardCompletion ? 'Supported keyboard route. You completed the ordered path.' : !hadMiss && !hadHint ? 'Independent tracing: no hints or retries used.' : 'Supported practice: a hint or retry helped you finish.'}</p>}
-          {traceReady && <p className="mx-auto mt-2 max-w-3xl rounded-xl border border-emerald-200/50 bg-emerald-100/15 px-3 py-2 text-sm font-bold text-emerald-50" role="status">Shape idea: {SKY_SHAPE_TEACHING[mission?.id]?.explanation}</p>}
+          {traceReady && <p className="mt-1 hidden text-sm font-bold text-sky-950 sm:block">{keyboardCompletion ? 'Supported keyboard route. You completed the ordered path.' : !hadMiss && !hadHint ? 'Independent tracing: no hints or retries used.' : 'Supported practice: a hint or retry helped you finish.'}</p>}
+          {traceReady && <p className="mx-auto mt-2 max-w-3xl rounded-xl border border-emerald-200/50 bg-emerald-100/15 px-3 py-2 text-sm font-bold text-emerald-950" role="status">Shape idea: {SKY_SHAPE_TEACHING[mission?.id]?.explanation}</p>}
           {traceReady && flightSaveState === 'saving' && <p className="mt-1 rounded-xl bg-amber-200 px-3 py-2 text-sm font-black text-amber-950" role="status">Checking the saved flight and stars…</p>}
           {traceReady && flightSaveState === 'failed' && <div className="mt-1 rounded-xl bg-amber-100 px-3 py-2 text-sm font-bold text-amber-950" role="alert"><p>{flightSaveError || rewardError || 'This result is held until it can be saved.'}</p><button type="button" disabled={rewardBusy} onClick={retrySavedProgress} className="mt-2 min-h-12 rounded-lg bg-amber-800 px-4 font-black text-white disabled:opacity-60">{rewardBusy ? 'Checking saved stars…' : flightSaveError.startsWith('Your flight is saved') ? 'Retry saved stars' : 'Retry saving flight'}</button></div>}
-          {traceReady && flightSaveState === 'saved' && <p className="mt-1 rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-sky-50">Your best flight rating is saved. {newMissionStars > 0 ? `${newMissionStars} new ${newMissionStars === 1 ? 'star' : 'stars'} added to your collection!` : 'Try a new mission to collect more stars.'}</p>}
+          {traceReady && flightSaveState === 'saved' && <p className="mt-1 rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-sky-950">Your best flight rating is saved. {newMissionStars > 0 ? `${newMissionStars} new ${newMissionStars === 1 ? 'star' : 'stars'} added to your collection!` : 'Try a new mission to collect more stars.'}</p>}
           {traceReady && flightSaveState === 'saved' && chapterBonusStars > 0 && <p className="mt-1 font-black text-yellow-200">Aviator badge saved · {chapterBonusStars} bonus stars added!</p>}
           {traceReady && flightSaveState === 'saved' && <div className="mt-2 hidden justify-center gap-2 text-3xl sm:flex" aria-label={keyboardCompletion ? 'Keyboard-guided completion: 1 participation star' : `${missionStars} of 3 accuracy stars`}>{Array.from({ length: 3 }, (_, index) => <span key={index} aria-hidden="true" className={index < missionStars ? 'text-yellow-300' : 'text-white/35'}>★</span>)}</div>}
           <div className={`mt-3 grid justify-center gap-2 ${traceReady ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-3'}`}>
             <button type="button" onClick={speakPrompt} className="min-h-12 rounded-xl bg-white px-3 py-2 font-black text-sky-900"><Volume2 size={18} className="mr-1 inline" />Hear mission again</button>
             {!traceReady && <button type="button" onClick={showHint} className="min-h-12 rounded-xl bg-amber-300 px-3 py-2 font-black text-amber-950">Show a tracing hint</button>}
-            {!traceReady && <button type="button" onClick={resetMission} className="min-h-12 rounded-xl bg-white/20 px-3 py-2 font-black text-white" aria-label="Restart this flight"><RotateCcw size={18} className="mr-1 inline" />Restart flight</button>}
+            {!traceReady && <button type="button" onClick={resetMission} className="min-h-12 rounded-xl border border-slate-300 bg-white px-3 py-2 font-black text-slate-900" aria-label="Restart this flight"><RotateCcw size={18} className="mr-1 inline" />Restart flight</button>}
             {traceReady && <button type="button" disabled={flightSaveState !== 'saved' || rewardBusy || Boolean(rewardError) || !progressState.ok || pendingSkyShapesRewards(progressState.progress).length > 0} onClick={continueMission} className="min-h-12 rounded-xl bg-emerald-400 px-3 py-2 font-black text-emerald-950 shadow-lg disabled:cursor-not-allowed disabled:opacity-50">{roundIndex + 1 < queue.length ? 'Next mission' : 'Complete this sky'}</button>}
           </div>
-          {!traceReady && <p className="mt-3 text-xs font-bold text-sky-50">Keyboard: focus the outline, press Enter to begin, then press Space, Enter, or an arrow key to guide the jet along the glowing dots.</p>}
+          {!traceReady && <p className="mt-3 text-xs font-bold text-sky-950">Keyboard: focus the outline, press Enter to begin, then press Space, Enter, or an arrow key to guide the jet along the dots.</p>}
         </div>
         <div className="sr-only" aria-live="polite">{traceReady ? flightSaveState === 'saved' ? 'Flight finished. Your stars are saved.' : flightSaveState === 'failed' ? 'Flight result is held. Retry saving before continuing.' : 'Flight finished. Checking saved progress.' : `Part ${pathIndex + 1} of ${totalPathCount}. Follow the glowing dots to the flag.`}</div>
       </main>

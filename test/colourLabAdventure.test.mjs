@@ -107,3 +107,17 @@ test('foreign progress schemas are rejected and failed writes cannot award progr
   assert.deepEqual(result.completed, []);
   assert.deepEqual(readColourLabProgress('player-a', storage).completed, []);
 });
+
+test('free paint combines scoops, responds to proportions, and can tint or shade', async () => {
+  const { mixPaintScoops } = await import('../src/data/paintMix.js');
+  assert.equal(mixPaintScoops({}), null);
+  assert.equal(mixPaintScoops({ Red: 1 }), '#e45152');
+  assert.equal(mixPaintScoops({ Red: 1, Yellow: 1 }), '#f28b35');
+  assert.equal(mixPaintScoops({ Blue: 1, Yellow: 1 }), '#55a762');
+  assert.equal(mixPaintScoops({ Blue: 1, Red: 1 }), '#8c58b6');
+  assert.equal(mixPaintScoops({ Blue: 1, Red: 1, Yellow: 1 }), '#89603e');
+  assert.notEqual(mixPaintScoops({ Red: 2, Yellow: 1 }), '#f28b35');
+  const light = (hex) => hex.slice(1).match(/../g).reduce((sum, part) => sum + Number.parseInt(part, 16), 0);
+  assert.ok(light(mixPaintScoops({ Blue: 1, White: 1 })) > light(mixPaintScoops({ Blue: 1 })));
+  assert.ok(light(mixPaintScoops({ Blue: 1, Black: 1 })) < light(mixPaintScoops({ Blue: 1 })));
+});

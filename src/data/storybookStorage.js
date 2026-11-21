@@ -264,6 +264,28 @@ export const getChildProfilesInventory = async () => {
   catch { return { available: false, profiles: [] }; }
 };
 
+// Askia uses the same family library, with a separate verified reader record.
+export const getAskiaStoryReaderInventory = async () => {
+  const inventory = await getChildProfilesInventory();
+  if (!inventory.available || inventory.profiles.some(({ id }) => id === 'askia')) return inventory;
+  try {
+    const verified = await transaction(PROFILES_STORE, 'readwrite', (store) => new Promise((resolve, reject) => {
+      const request = store.getAll();
+      request.onsuccess = () => {
+        const profiles = request.result.map(normaliseProfile);
+        if (!profiles.some(({ id }) => id === 'askia')) {
+          const profile = normaliseProfile({ id: 'askia', displayName: 'Askia', ageBand: '3-4' });
+          store.add(profile);
+          profiles.push(profile);
+        }
+        resolve(profiles);
+      };
+      request.onerror = () => reject(request.error);
+    }));
+    return verified ? { available: true, profiles: verified } : { available: false, profiles: [] };
+  } catch { return { available: false, profiles: [] }; }
+};
+
 export const saveChildProfile = async (profile) => {
   const normalised = normaliseProfile(profile);
   const result = await transaction(PROFILES_STORE, 'readwrite', (store) => requestResult(store.put(normalised))).catch(() => null);
