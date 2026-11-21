@@ -1,0 +1,1051 @@
+{
+  "release": {
+    "runtime": "dfae9f3abfabed82a0b6bfc177d6f8f2102ac6b6",
+    "entry": "/assets/arcade-ZAx3Etcw.js",
+    "worker": "amari-discovery-v98",
+    "backendUrl": "https://dinospace-914yu2msl-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_4n6sC197crMqiyqJjzaXcwEPsatM",
+    "gatewayDeployment": "6b0209892606e72bba9fb5d2",
+    "evidence": "docs/qa-evidence/pattern-odd-focus-20261121/README.md",
+    "scope": "Pattern Parade gives the sequence and answer pictures the main play area. Odd One Out shows the rule and four pictures, then shows a separate reason task. Both start the current chapter directly, with optional tools in Options."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-ZAx3Etcw.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Pattern Parade entry",
+          "buttons": [
+            "Start: Colour Courtyard",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern Parade chapter picker",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern Parade first question",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern resolved 1",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 2",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 3",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 4",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 5",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 6",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern save failure",
+          "buttons": [
+            "Retry saving chapter"
+          ]
+        },
+        {
+          "label": "Pattern saved chapter",
+          "buttons": [
+            "Next: Festival Friends",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out entry",
+          "buttons": [
+            "Start: Things & Places",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out picture view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out reason view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out save failure",
+          "buttons": [
+            "Retry save"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 1",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 2",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 3",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 4",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 5",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 6",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out saved chapter",
+          "buttons": [
+            "Next: Look & Notice",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        }
+      ],
+      "patternWidth": 358.8125,
+      "oddWidth": 358.8125,
+      "patternRounds": [
+        "gold-leaf",
+        "plum-sun",
+        "leaf-coral",
+        "growing-coral",
+        "coral-blue",
+        "growing-gold"
+      ],
+      "oddRounds": [
+        "semantic-vehicles",
+        "semantic-fruit",
+        "semantic-tools",
+        "semantic-weather",
+        "semantic-habitat",
+        "semantic-clothing"
+      ],
+      "wrongPictureAndReason": true,
+      "optionsPreserveQuestion": true,
+      "saveRecoveryBoth": true,
+      "unlocksAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-ZAx3Etcw.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Pattern Parade entry",
+          "buttons": [
+            "Start: Colour Courtyard",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern Parade chapter picker",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern Parade first question",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern resolved 1",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 2",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 3",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 4",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 5",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 6",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern save failure",
+          "buttons": [
+            "Retry saving chapter"
+          ]
+        },
+        {
+          "label": "Pattern saved chapter",
+          "buttons": [
+            "Next: Festival Friends",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out entry",
+          "buttons": [
+            "Start: Things & Places",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out picture view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out reason view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out save failure",
+          "buttons": [
+            "Retry save"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 1",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 2",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 3",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 4",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 5",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 6",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out saved chapter",
+          "buttons": [
+            "Next: Look & Notice",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        }
+      ],
+      "patternWidth": 816,
+      "oddWidth": 816,
+      "patternRounds": [
+        "sun-plum",
+        "coral-blue",
+        "plum-sun",
+        "growing-gold",
+        "blue-gold",
+        "growing-coral"
+      ],
+      "oddRounds": [
+        "semantic-weather",
+        "semantic-fruit",
+        "semantic-clothing",
+        "semantic-habitat",
+        "semantic-vehicles",
+        "semantic-tools"
+      ],
+      "wrongPictureAndReason": true,
+      "optionsPreserveQuestion": true,
+      "saveRecoveryBoth": true,
+      "unlocksAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-ZAx3Etcw.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Pattern Parade entry",
+          "buttons": [
+            "Start: Colour Courtyard",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern Parade chapter picker",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern Parade first question",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern resolved 1",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 2",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 3",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 4",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 5",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 6",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern save failure",
+          "buttons": [
+            "Retry saving chapter"
+          ]
+        },
+        {
+          "label": "Pattern saved chapter",
+          "buttons": [
+            "Next: Festival Friends",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out entry",
+          "buttons": [
+            "Start: Things & Places",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out picture view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out reason view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out save failure",
+          "buttons": [
+            "Retry save"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 1",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 2",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 3",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 4",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 5",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 6",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out saved chapter",
+          "buttons": [
+            "Next: Look & Notice",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        }
+      ],
+      "patternWidth": 358.8125,
+      "oddWidth": 358.8125,
+      "patternRounds": [
+        "gold-leaf",
+        "sun-plum",
+        "blue-gold",
+        "growing-coral",
+        "coral-blue",
+        "leaf-coral"
+      ],
+      "oddRounds": [
+        "semantic-fruit",
+        "semantic-vehicles",
+        "semantic-weather",
+        "semantic-tools",
+        "semantic-clothing",
+        "semantic-habitat"
+      ],
+      "wrongPictureAndReason": true,
+      "optionsPreserveQuestion": true,
+      "saveRecoveryBoth": true,
+      "unlocksAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4208",
+      "entry": "/assets/arcade-ZAx3Etcw.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Pattern Parade entry",
+          "buttons": [
+            "Start: Colour Courtyard",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern Parade chapter picker",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern Parade first question",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Pattern resolved 1",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 2",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 3",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 4",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 5",
+          "buttons": [
+            "Next pattern",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern resolved 6",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Pattern save failure",
+          "buttons": [
+            "Retry saving chapter"
+          ]
+        },
+        {
+          "label": "Pattern saved chapter",
+          "buttons": [
+            "Next: Festival Friends",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out entry",
+          "buttons": [
+            "Start: Things & Places",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out picture view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show clue",
+            "Back"
+          ]
+        },
+        {
+          "label": "Odd One Out reason view",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out save failure",
+          "buttons": [
+            "Retry save"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 1",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 2",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 3",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 4",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 5",
+          "buttons": [
+            "Next round",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out solved 6",
+          "buttons": [
+            "Finish chapter",
+            "Options"
+          ]
+        },
+        {
+          "label": "Odd One Out saved chapter",
+          "buttons": [
+            "Next: Look & Notice",
+            "Options",
+            "Finish"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start chapter",
+            "Back"
+          ]
+        }
+      ],
+      "patternWidth": 816,
+      "oddWidth": 816,
+      "patternRounds": [
+        "coral-blue",
+        "gold-leaf",
+        "growing-coral",
+        "blue-gold",
+        "sun-plum",
+        "plum-sun"
+      ],
+      "oddRounds": [
+        "semantic-clothing",
+        "semantic-vehicles",
+        "semantic-habitat",
+        "semantic-weather",
+        "semantic-fruit",
+        "semantic-tools"
+      ],
+      "wrongPictureAndReason": true,
+      "optionsPreserveQuestion": true,
+      "saveRecoveryBoth": true,
+      "unlocksAfterReload": true,
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-914yu2msl-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "abfb7a8a48c3fac0800aa0f22e31e76e79cd7fbaedbbf3b0e2d96fc24e90633d"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "abfb7a8a48c3fac0800aa0f22e31e76e79cd7fbaedbbf3b0e2d96fc24e90633d"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "642b075f384b57a763eec1a39ef1a22bb2173a86b76de572bec0383eec143dce"
+        },
+        {
+          "path": "/art/catalog-v3/game-pattern.webp",
+          "bytes": 43802,
+          "sha256": "b20740bdc594f0674d25746bbe16991d41d80f96ed8773d33816310393f43b6f"
+        },
+        {
+          "path": "/art/catalog-v3/game-oddoneout.webp",
+          "bytes": 57670,
+          "sha256": "e5d7119518c66d3528b34ca17fc47b8d64ddbea36034af3e481513c6d798b87c"
+        },
+        {
+          "path": "/assets/arcade-ZAx3Etcw.js",
+          "bytes": 2109503,
+          "sha256": "625e5a938e36d3b3704c1cfd2042ccdd81f3791741e84822d04f3191358723aa"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-Ae7ZkgQG.css",
+          "bytes": 30237,
+          "sha256": "23652dfd12ba56a64bda88a3a49ce9885477dde47587af81befc5bb8b5097dd9"
+        },
+        {
+          "path": "/assets/arcade-DTkMRVnG.css",
+          "bytes": 277576,
+          "sha256": "01291b086e0029e5a3356f4c53097fcccdc80deb5727562b0e2adf853ad6ea05"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b02097c28b1ddd4d0bd55f1--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "abfb7a8a48c3fac0800aa0f22e31e76e79cd7fbaedbbf3b0e2d96fc24e90633d"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "abfb7a8a48c3fac0800aa0f22e31e76e79cd7fbaedbbf3b0e2d96fc24e90633d"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "642b075f384b57a763eec1a39ef1a22bb2173a86b76de572bec0383eec143dce"
+        },
+        {
+          "path": "/art/catalog-v3/game-pattern.webp",
+          "bytes": 43802,
+          "sha256": "b20740bdc594f0674d25746bbe16991d41d80f96ed8773d33816310393f43b6f"
+        },
+        {
+          "path": "/art/catalog-v3/game-oddoneout.webp",
+          "bytes": 57670,
+          "sha256": "e5d7119518c66d3528b34ca17fc47b8d64ddbea36034af3e481513c6d798b87c"
+        },
+        {
+          "path": "/assets/arcade-ZAx3Etcw.js",
+          "bytes": 2109503,
+          "sha256": "625e5a938e36d3b3704c1cfd2042ccdd81f3791741e84822d04f3191358723aa"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-Ae7ZkgQG.css",
+          "bytes": 30237,
+          "sha256": "23652dfd12ba56a64bda88a3a49ce9885477dde47587af81befc5bb8b5097dd9"
+        },
+        {
+          "path": "/assets/arcade-DTkMRVnG.css",
+          "bytes": 277576,
+          "sha256": "01291b086e0029e5a3356f4c53097fcccdc80deb5727562b0e2adf853ad6ea05"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "abfb7a8a48c3fac0800aa0f22e31e76e79cd7fbaedbbf3b0e2d96fc24e90633d"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "abfb7a8a48c3fac0800aa0f22e31e76e79cd7fbaedbbf3b0e2d96fc24e90633d"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "642b075f384b57a763eec1a39ef1a22bb2173a86b76de572bec0383eec143dce"
+        },
+        {
+          "path": "/art/catalog-v3/game-pattern.webp",
+          "bytes": 43802,
+          "sha256": "b20740bdc594f0674d25746bbe16991d41d80f96ed8773d33816310393f43b6f"
+        },
+        {
+          "path": "/art/catalog-v3/game-oddoneout.webp",
+          "bytes": 57670,
+          "sha256": "e5d7119518c66d3528b34ca17fc47b8d64ddbea36034af3e481513c6d798b87c"
+        },
+        {
+          "path": "/assets/arcade-ZAx3Etcw.js",
+          "bytes": 2109503,
+          "sha256": "625e5a938e36d3b3704c1cfd2042ccdd81f3791741e84822d04f3191358723aa"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-Ae7ZkgQG.css",
+          "bytes": 30237,
+          "sha256": "23652dfd12ba56a64bda88a3a49ce9885477dde47587af81befc5bb8b5097dd9"
+        },
+        {
+          "path": "/assets/arcade-DTkMRVnG.css",
+          "bytes": 277576,
+          "sha256": "01291b086e0029e5a3356f4c53097fcccdc80deb5727562b0e2adf853ad6ea05"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}

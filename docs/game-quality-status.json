@@ -2350,5 +2350,15 @@
     "gatewayDeployment": "6b0208660d00d5a03ebd4dc9",
     "evidence": "docs/qa-evidence/chess-memory-focus-20261121/README.md",
     "scope": "Chess Explorers and computer chess use a simpler entry, a large board and one place for settings. Amari Memory Match starts at the saved board, with options only when playing and a named next board after saving."
+  },
+  "latestPatternOddFocusRehearsal": {
+    "runtime": "dfae9f3abfabed82a0b6bfc177d6f8f2102ac6b6",
+    "entry": "/assets/arcade-ZAx3Etcw.js",
+    "worker": "amari-discovery-v98",
+    "backendUrl": "https://dinospace-914yu2msl-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_4n6sC197crMqiyqJjzaXcwEPsatM",
+    "gatewayDeployment": "6b0209892606e72bba9fb5d2",
+    "evidence": "docs/qa-evidence/pattern-odd-focus-20261121/README.md",
+    "scope": "Pattern Parade gives the sequence and answer pictures the main play area. Odd One Out shows the rule and four pictures, then shows a separate reason task. Both start the current chapter directly, with optional tools in Options."
   }
 }
