@@ -1,0 +1,106 @@
+{
+  "runtime": "824c488402da1a494afb82a8b1c4f5b750a19a10",
+  "entry": "/assets/arcade-Bsq7d-C6.js",
+  "worker": "amari-discovery-v87",
+  "backendUrl": "https://dinospace-iixgxgzm9-memas-projects-23a0001d.vercel.app",
+  "backendDeployment": "dpl_AHc2JdpizEQPcf5aYiYx9BZMQxqr",
+  "gatewayDeployment": "6b01e86f3c32541e2e7e4716",
+  "evidence": "docs/qa-evidence/colouring-pictures-20261121/README.md",
+  "scope": "Both Creative Lab routes. True erasing, six independently saved colouring templates, shade and texture retention, actual paint mix, undo, prior drawing preservation and guided lesson entry.",
+  "checkedAt": "2026-11-21T18:53:14.950830+00:00",
+  "repositoryTests": 769,
+  "assetHashes": {
+    "/": "28cb3518795f47b7752bd2c25cf7c39d70f73992dbf671fbc91b3b0f25cddb0d",
+    "/index.html": "28cb3518795f47b7752bd2c25cf7c39d70f73992dbf671fbc91b3b0f25cddb0d",
+    "/sw.js": "29ff878e86dd3062af87d850cdab8700c96099bca5dd29014a12bd1ac54862c9",
+    "/assets/arcade-Bsq7d-C6.js": "16fa06c2b89b10eaaed4e87f71a1f279964f49b1931b580f903d6ebf3e6ecce3",
+    "/assets/DiscoveryHeader-DYw-azmg.css": "6129f526a51637220f3d476975ad8ce4c71bd83b8c050a38fba801a08d24ac84",
+    "/assets/arcade-DVlGssEG.css": "9aec8cfbf2e9e3decb3bc38a0965b2a2a600392fe40c43d652b3192e02719ee1",
+    "/art/catalog-v3/game-jet.webp": "d9598009cd6a7ef1909b045ab1adafca126a4afc39c1f8a0c67c0e68eb23e297",
+    "/art/catalog-v3/game-colormix.webp": "0ae052feca38c51f4e4dccb7f1604f477b1296d5c58f73f4e95fb19d6082f3cb"
+  },
+  "cutover": {
+    "syntheticRecordsPreserved": 118,
+    "storybookFixturePreserved": true,
+    "usedRefreshGames": true
+  },
+  "live": [
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade-Bsq7d-C6.js",
+      "input": "touch",
+      "checks": [
+        "legacy drawing loaded, 44px eraser ring tracked input and selectively removed ink, undo restored it",
+        "tiger fur changed shade, stripes and texturing remained, and reset/undo affected only the selected area",
+        "all six pictures selectable and paintable, drawings and selection restored, original blank sheet and lessons accessible",
+        "red and yellow mixed into orange and flowed to a selected part or the background; guided paint lesson opens"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade-Bsq7d-C6.js",
+      "input": "mouse and keyboard",
+      "checks": [
+        "legacy drawing loaded, 44px eraser ring tracked input and selectively removed ink, undo restored it",
+        "tiger fur changed shade, stripes and texturing remained, and reset/undo affected only the selected area",
+        "all six pictures selectable and paintable, drawings and selection restored, original blank sheet and lessons accessible",
+        "red and yellow mixed into orange and flowed to a selected part or the background; guided paint lesson opens"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "width": 320,
+      "entry": "/assets/arcade-Bsq7d-C6.js",
+      "input": "touch",
+      "checks": [
+        "legacy drawing loaded, 44px eraser ring tracked input and selectively removed ink, undo restored it",
+        "tiger fur changed shade, stripes and texturing remained, and reset/undo affected only the selected area",
+        "all six pictures selectable and paintable, drawings and selection restored, original blank sheet and lessons accessible",
+        "red and yellow mixed into orange and flowed to a selected part or the background; guided paint lesson opens"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade-Bsq7d-C6.js",
+      "input": "touch",
+      "checks": [
+        "legacy drawing loaded, 44px eraser ring tracked input and selectively removed ink, undo restored it",
+        "tiger fur changed shade, stripes and texturing remained, and reset/undo affected only the selected area",
+        "all six pictures selectable and paintable, drawings and selection restored, original blank sheet and lessons accessible",
+        "red and yellow mixed into orange and flowed to a selected part or the background; guided paint lesson opens"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade-Bsq7d-C6.js",
+      "input": "mouse and keyboard",
+      "checks": [
+        "legacy drawing loaded, 44px eraser ring tracked input and selectively removed ink, undo restored it",
+        "tiger fur changed shade, stripes and texturing remained, and reset/undo affected only the selected area",
+        "all six pictures selectable and paintable, drawings and selection restored, original blank sheet and lessons accessible",
+        "red and yellow mixed into orange and flowed to a selected part or the background; guided paint lesson opens"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    }
+  ]
+}

@@ -2240,5 +2240,15 @@
     "gatewayDeployment": "6b01d18f00a7d7bcc3d9247e",
     "evidence": "docs/qa-evidence/creative-canvas-20261121/README.md",
     "scope": "Free drawing and paint mixing, all 12 Sky Shapes flights and 18 guided paint missions with save retry on live phone and desktop browser sizes, and Askia Storybook launch with separate reading progress."
+  },
+  "latestCreativeColouringRehearsal": {
+    "runtime": "824c488402da1a494afb82a8b1c4f5b750a19a10",
+    "entry": "/assets/arcade-Bsq7d-C6.js",
+    "worker": "amari-discovery-v87",
+    "backendUrl": "https://dinospace-iixgxgzm9-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_AHc2JdpizEQPcf5aYiYx9BZMQxqr",
+    "gatewayDeployment": "6b01e86f3c32541e2e7e4716",
+    "evidence": "docs/qa-evidence/colouring-pictures-20261121/README.md",
+    "scope": "Both Creative Lab routes. True erasing, six independently saved colouring templates, shade and texture retention, actual paint mix, undo, prior drawing preservation and guided lesson entry."
   }
 }
