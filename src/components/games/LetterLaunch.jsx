@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, Volume2 } from 'lucide-react';
 import { getPraise } from '../../utils.js';
-import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { makeLearningEvent, getTaughtGraphemes } from '../../data/literacy.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import {
@@ -14,14 +13,13 @@ import {
   pendingLetterLaunchRewards, readLetterLaunchProgress,
 } from '../../data/letterLaunchProgress.js';
 import {
-  inspectChapterBadges, saveChapterBadgeStrict, LETTER_LAUNCH_CHAPTER_BADGES,
+  inspectChapterBadges, saveChapterBadgeStrict,
 } from '../../data/chapterBadges.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
 import { playerStorageKey } from '../../data/players.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
 import { learningPictureFor } from '../learning/pictureClues.js';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
-import launchWorld from '../../assets/little/bg-fuelup.webp';
 import './letterLaunch.css';
 
 const CHAPTERS = Object.freeze([
@@ -30,12 +28,6 @@ const CHAPTERS = Object.freeze([
   { id: 'letters-letter-match-maker', title: 'Big and little letters', subtitle: 'Match a little letter to its capital shape.', badge: 'Letter Match Maker' },
   { id: 'letters-cvc-blender', title: 'Build and read a word', subtitle: 'Blend taught sounds, then try longer decodable words when ready.', badge: 'CVC Word Builder' },
 ]);
-const PHASE_LABELS = ['Word sound finder', 'New word explorer', 'Big and little letters', 'Build and read a word'];
-const WORLD_BACKGROUND_STYLE = {
-  backgroundImage: `linear-gradient(180deg, rgba(6,14,70,.66), rgba(6,14,70,.16) 55%, rgba(6,14,70,.36)), url(${launchWorld})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-};
 const historyKey = (playerId, level) => playerStorageKey(playerId, `letter_launch_recent_v1_${level}`);
 const loadRecentKeys = (playerId, level) => {
   try {
@@ -67,6 +59,7 @@ const LetterLaunch = ({
   const difficulty = useGameDifficulty('letters');
   const [progressState, setProgressState] = useState(() => readLetterLaunchProgress(playerId));
   const [phase, setPhase] = useState('menu');
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [chapterIndex, setChapterIndex] = useState(0);
   const [round, setRound] = useState(null);
   const [runSeed, setRunSeed] = useState(0);
@@ -87,6 +80,7 @@ const LetterLaunch = ({
   const nextButtonRef = useRef(null);
   const retryButtonRef = useRef(null);
   const finishHeadingRef = useRef(null);
+  const headingRef = useRef(null);
   const lastEventRoundRef = useRef(null);
   const reconciledPlayerRef = useRef(null);
   const [earnedBadgeIds, setEarnedBadgeIds] = useState(() => {
@@ -183,6 +177,7 @@ const LetterLaunch = ({
   }, [claimRetryBusy, onCelebrate, playerId, refreshProgress]);
 
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
+  useEffect(() => { if (!optionsOpen) headingRef.current?.focus({ preventScroll: true }); }, [phase, round?.key, optionsOpen]);
 
   useEffect(() => {
     if (!soundOn) cancelNarration?.();
@@ -226,6 +221,7 @@ const LetterLaunch = ({
   }, [chapterIndex, chapterSaved, held, phase, saveError]);
 
   const exitToMenu = () => {
+    setOptionsOpen(false);
     cancelNarration?.();
     setSessionPhase('menu');
     setRound(null);
@@ -244,8 +240,7 @@ const LetterLaunch = ({
 
   const beginChapter = (index) => {
     if (!progressState?.ok || index > progressState.progress.unlockedChapterIndex || pendingLetterLaunchRewards(progressState.storedProgress).length > 0 || claimError) return;
-    // Chapter cards can be lower down the menu. Start each lesson at its top
-    // so the clue, audio switch and choices are visible on a small screen.
+    setOptionsOpen(false);
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     const recent = loadRecentKeys(playerId, index);
     const seed = newRunSeed();
@@ -434,110 +429,92 @@ const LetterLaunch = ({
   };
 
   const available = progressState?.ok === true;
-  const pendingClaims = progressState?.ok ? pendingLetterLaunchRewards(progressState.storedProgress) : [];
-  const completedBadgeIds = earnedBadgeIds;
+  const pendingClaims = available ? pendingLetterLaunchRewards(progressState.storedProgress) : [];
+  const needsReward = available && (pendingClaims.length > 0 || claimError);
+  const openOptions = () => setOptionsOpen(true);
+  const closeOptions = () => setOptionsOpen(false);
+  const nextIndex = phase === 'review' && chapterIndex < unlockedIndex ? chapterIndex + 1 : Math.max(0, unlockedIndex);
+  const next = CHAPTERS[nextIndex];
+  const canStart = available && !needsReward;
+  const menu = phase === 'menu' || phase === 'review';
+  const isUnavailable = !menu && (!round || round.kind === 'unavailable');
+  const review = phase === 'review';
+  const switchSound = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } };
+  const chapterChoices = CHAPTERS.map((item, index) => {
+    const earned = earnedBadgeIds.includes(item.id);
+    const complete = completedIds.has(item.id);
+    const legacyNoReward = available && index <= (progressState.legacy?.rewardCeiling ?? -1) && !complete;
+    return {
+      label: `${item.title}${index > unlockedIndex ? ' · Locked' : earned ? ' · Badge earned' : complete ? ' · Complete' : ''}`,
+      button: complete ? `Replay: ${item.title}` : `Start: ${item.title}`,
+      description: complete || legacyNoReward ? 'Practice only. This chapter does not award another badge.' : item.subtitle,
+      disabled: !canStart || index > unlockedIndex,
+      action: () => beginChapter(index),
+    };
+  });
+  const playChoices = [
+    ...(canHearTargetWord && soundOn ? [{ label: 'Hear the whole word', action: () => { closeOptions(); hearTargetWord(); } }] : []),
+    ...(canHearNextSound && soundOn && !held ? [{ label: 'Hear the next sound', action: () => { closeOptions(); hearNextSound(); } }] : []),
+    switchSound,
+    { label: 'Back to chapters', action: exitToMenu },
+    { label: 'Back to Read & Write', action: leaveGame },
+  ];
+  const retryText = !available ? 'Retry progress check' : claimError ? 'Retry saved reward' : 'Confirm saved reward';
+  const backLabel = littleMode ? 'Back to home' : 'Back to Read & Write';
+  const replay = completedIds.has(next.id);
+  const nextLabel = replay ? `Replay: ${next.title}` : review ? `Next: ${next.title}` : `Start: ${next.title}`;
+  const instruction = round?.kind === 'build-word' ? 'Choose the sound tiles in order.'
+    : round?.kind === 'case-match' ? 'Choose the matching capital letter.' : 'Choose the letter that spells the first sound.';
+  const word = round?.target?.word;
+  const picture = word ? learningPictureFor(word) : null;
 
-  if (phase === 'menu' || phase === 'review') {
-    return <main className="letter-launch letter-launch-menu min-h-screen text-white" style={WORLD_BACKGROUND_STYLE} data-letter-phase={phase}>
-      <header className="letter-launch-header">
-        <button type="button" onClick={leaveGame} aria-label="Back to learning world" className="letter-launch-back"><ArrowLeft /></button>
-        <div className="text-center"><h1>Letter Launch</h1><p>Four letter missions · sound first, then build and read.</p></div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+  return <div data-board-focus="" className="focus-game" data-letter-phase={phase} data-letter-chapter={menu ? undefined : chapter.id} data-run-seed={menu ? undefined : runSeed}>
+    <main className={`focus-game-body ${menu || optionsOpen || isUnavailable ? 'is-menu' : ''}`}>
+      <header className="focus-game-heading">
+        {!menu && !isUnavailable && <p>Letter Launch · {chapter.title} · {Math.min(roundCount + (held ? 0 : 1), targetCount)} of {targetCount}</p>}
+        <h1 ref={headingRef} tabIndex={-1}>{review ? 'Chapter saved!' : menu ? 'Letter Launch' : isUnavailable ? 'Choose a taught sound first' : instruction}</h1>
       </header>
-      <section className="letter-launch-menu-content">
-        {phase === 'review' && <div className="letter-launch-review" role="status">
-          <h2 ref={finishHeadingRef} tabIndex={-1}>Chapter saved: {CHAPTERS[chapterIndex].badge}</h2>
-          <p>{LETTER_LAUNCH_CHAPTER_BADGES[chapterIndex]?.description}</p>
-          <button type="button" onClick={() => { setSessionPhase('menu'); refreshProgress(); }} className="letter-launch-primary">Choose another chapter</button>
-        </div>}
-        {!available && <div className="letter-launch-alert" role="alert"><p>{progressState?.error || 'Saved Letter Launch progress could not be checked.'}</p><button type="button" onClick={refreshProgress}>Retry progress check</button></div>}
-        {available && claimError && <div className="letter-launch-alert" role="alert"><p>{claimError}</p><button type="button" disabled={claimRetryBusy} onClick={retryPendingClaims}>{claimRetryBusy ? 'Retrying…' : 'Retry saved reward'}</button></div>}
-        {available && pendingClaims.length > 0 && !claimError && <div className="letter-launch-alert" role="status"><p>A saved chapter reward needs confirmation.</p><button type="button" disabled={claimRetryBusy} onClick={retryPendingClaims}>{claimRetryBusy ? 'Retrying…' : 'Confirm saved reward'}</button></div>}
-        <div className="letter-launch-chapters" aria-label="Letter Launch chapters">
-          {CHAPTERS.map((item, index) => {
-            const complete = completedIds.has(item.id);
-            const unlocked = available && index <= unlockedIndex;
-            const badgeEarned = completedBadgeIds.includes(item.id);
-            const legacyNoReward = available && index <= (progressState.legacy?.rewardCeiling ?? -1) && !complete;
-            return <article key={item.id} className={`letter-launch-chapter ${unlocked ? '' : 'is-locked'}`}>
-              <div className="letter-launch-chapter-number">{index + 1}</div>
-              <div className="letter-launch-chapter-copy"><p>Chapter {index + 1}{complete ? ' · Complete' : ''}</p><h2>{item.title}</h2><p>{item.subtitle}</p></div>
-              {badgeEarned && <span className="letter-launch-badge" aria-label={`${item.badge} badge earned`}>★ {item.badge}</span>}
-              <button type="button" disabled={!unlocked || !available || pendingClaims.length > 0 || Boolean(claimError)} onClick={() => beginChapter(index)} className="letter-launch-primary">
-                {complete ? 'Replay · no reward' : legacyNoReward ? 'Play · no reward' : unlocked ? 'Start chapter' : 'Finish earlier chapter'}
-              </button>
-            </article>;
-          })}
+      {optionsOpen ? <FocusMenu choices={menu ? [...chapterChoices, switchSound] : playChoices} onBack={closeOptions} /> : menu ? <>
+        {review && <p className="focus-game-message" role="status">{chapter.badge} saved.</p>}
+        {canStart ? <p className="focus-game-message">{next.subtitle}</p> : <p className="focus-game-message" role="alert">{progressState?.error || claimError || 'Confirm the saved chapter reward before starting.'}</p>}
+        <div className="focus-game-actions">
+          {canStart ? <button type="button" className="focus-game-button is-primary" onClick={() => beginChapter(nextIndex)}>{nextLabel}</button>
+            : <button type="button" className="focus-game-button is-primary" disabled={claimRetryBusy} onClick={available ? retryPendingClaims : refreshProgress}>{claimRetryBusy ? 'Retrying…' : retryText}</button>}
+          <button type="button" className="focus-game-button" onClick={openOptions}>Options</button>
+          <button type="button" className="focus-game-button" onClick={leaveGame}>{backLabel}</button>
         </div>
-        <p className="letter-launch-menu-note">Your chapter progress and badge save when you finish. Each chapter rewards once; replays are for practice.</p>
-      </section>
-    </main>;
-  }
-
-  if (!round || round.kind === 'unavailable') return <div className="letter-launch letter-launch-unavailable" data-letter-chapter={chapter.id}>
-    <h1>This chapter needs a taught letter sound.</h1><p>Ask a grown-up to select taught sounds in the Phonics learning profile, then retry this progress check.</p>
-    <button type="button" onClick={exitToMenu} className="letter-launch-primary">Choose another chapter</button>
-  </div>;
-
-  const isFinal = roundCount >= targetCount;
-  return <main className="letter-launch letter-launch-play" style={WORLD_BACKGROUND_STYLE} data-letter-chapter={chapter.id} data-letter-phase="play" data-run-seed={runSeed}>
-    <header className="letter-launch-header">
-      <button type="button" onClick={exitToMenu} aria-label="Choose a chapter" className="letter-launch-back"><ArrowLeft /></button>
-      <div className="text-center"><h1>Letter Launch</h1><p>{chapter.title} · {Math.min(roundCount + (held ? 0 : 1), targetCount)} of {targetCount}</p></div>
-      <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-    </header>
-    <section className="letter-launch-task">
-      <PracticeProgress skill={PHASE_LABELS[chapterIndex]} completed={Math.min(roundCount, targetCount)} target={targetCount} accent="sky" className="letter-launch-progress" />
-      <div className="letter-launch-panel">
-        <p className="letter-launch-kicker">{round.kind === 'build-word' ? 'Blend the sounds' : round.kind === 'case-match' ? 'Big and little letters' : chapterIndex === 0 ? 'Name and sound' : 'Find the first sound'}</p>
-        <div className="letter-launch-clue" aria-label={round.kind === 'case-match' ? `Little letter ${round.target.letter.toLowerCase()}` : round.kind !== 'case-match' ? `Picture clue for ${round.target.word}` : 'Listen to the word'}>
-          {round.kind === 'case-match' ? <span>{round.target.letter.toLowerCase()}</span> : learningPictureFor(round.target.word)
-            ? <img className="letter-launch-picture" src={learningPictureFor(round.target.word).src} alt="" />
-            : round.target.emoji}
+      </> : isUnavailable ? <>
+        <p className="focus-game-message">Ask a grown-up to select letter sounds in the Phonics learning profile.</p>
+        <button type="button" className="focus-game-button is-primary" onClick={exitToMenu}>Back to chapters</button>
+      </> : <>
+        <div className="letter-launch-clue" aria-label={round.kind === 'case-match' ? `Little letter ${round.target.letter.toLowerCase()}` : `Picture clue for ${word}`}>
+          {round.kind === 'case-match' ? <span>{round.target.letter.toLowerCase()}</span> : picture ? <img className="letter-launch-picture" src={picture.src} alt="" /> : round.target.emoji}
         </div>
-        {['letter-sound', 'first-sound'].includes(round.kind) && <p className="letter-launch-caption">{round.target.word}</p>}
+        {['letter-sound', 'first-sound'].includes(round.kind) && <p className="letter-launch-caption">{word}</p>}
         {letterLaunchClueCaption(round) && <p className="letter-launch-caption">{letterLaunchClueCaption(round)}</p>}
-        <p className="letter-launch-instruction">{round.kind === 'build-word'
-          ? 'Choose one sound tile at a time to build the word.'
-          : round.kind === 'case-match'
-            ? 'This is the little letter. Choose its matching capital.'
-            : chapterIndex === 0
-              ? 'A letter has a name and can spell a sound. Listen to the word; find the starting letter.'
-              : 'Say the word slowly. Choose the letter or letter team that spells its first sound.'}</p>
-
-        <div className="letter-launch-audio-row">
-          <button type="button" disabled={!canReplayPrompt || !soundOn} onClick={replayClue} aria-label={canReplayPrompt ? 'Hear the clue again' : 'Recorded clue unavailable'} className="letter-launch-audio"><Volume2 size={20} /> Hear the clue again</button>
-          {canHearTargetWord && <button type="button" disabled={!soundOn} onClick={hearTargetWord} aria-label="Hear the whole word" className="letter-launch-audio"><Volume2 size={20} /> Hear the whole word</button>}
-          {!canReplayPrompt && <span className="letter-launch-audio-note">Read the clue and choose the matching sound.</span>}
+        {round.kind === 'build-word' && <div className="letter-launch-slots" aria-label={`${selectedTiles.length} of ${round.target.graphemes.length} sounds placed`}>
+          {round.target.graphemes.map((_, index) => <span key={index} className="letter-launch-slot">{selectedTiles[index]?.toUpperCase() || '·'}</span>)}
+        </div>}
+        {!held && <div className={`letter-launch-options ${columns}`} aria-label="Answer tiles">
+          {options.map(option => {
+            const buildWord = round.kind === 'build-word';
+            const key = buildWord ? option.grapheme : option.letter;
+            return <button key={buildWord ? option.id : key} type="button" onClick={() => handlePick(option)} disabled={buildWord && selectedTiles.includes(option.grapheme)} className="letter-launch-choice">{buildWord ? key.toUpperCase() : key}</button>;
+          })}
+        </div>}
+        {held && <div className="letter-launch-stage is-launching" aria-hidden="true"><img src={rocketArt} alt="" className="letter-launch-rocket" /></div>}
+        {feedback && <p className="focus-game-message" role="status">{feedback}</p>}
+        {saveError && <p className="focus-game-message" role="alert">{saveError}</p>}
+        {chapterSaved && <h2 ref={finishHeadingRef} tabIndex={-1} className="focus-game-message">{chapter.badge} saved!</h2>}
+        <div className="focus-game-actions">
+          {saveError ? <button ref={retryButtonRef} type="button" disabled={saving} onClick={retrySave} className="focus-game-button is-primary">{saving ? 'Saving…' : 'Retry save'}</button>
+            : held ? <button ref={nextButtonRef} type="button" disabled={saving} onClick={nextMission} className="focus-game-button is-primary">{saving ? 'Saving…' : chapterSaved ? 'Finish chapter' : 'Next mission'}</button>
+            : canReplayPrompt && soundOn && <button type="button" onClick={replayClue} className="focus-game-button">Hear the clue again</button>}
+          {!saveError && !saving && <button type="button" className="focus-game-button" onClick={openOptions}>Options</button>}
         </div>
-        <div className={`letter-launch-stage ${held ? 'is-launching' : ''}`} aria-hidden="true">
-          <div className="letter-launch-runway" /><img src={rocketArt} alt="" className="letter-launch-rocket" />
-          <span className="letter-launch-flame">🔥</span><span className="letter-launch-sparks">✨ ✨</span>
-        </div>
-      </div>
-
-      {round.kind === 'build-word' && <div className="letter-launch-slots" aria-label={`${selectedTiles.length} of ${round.target.graphemes.length} sounds placed`}>
-        {round.target.graphemes.map((_, index) => <span key={`${round.key}-slot-${index}`} className="letter-launch-slot">{selectedTiles[index]?.toUpperCase() || '·'}</span>)}
-        {canHearNextSound && <button type="button" disabled={held || selectedTiles.length >= round.target.graphemes.length || !soundOn} onClick={hearNextSound} className="letter-launch-audio"><Volume2 size={18} /> Hear next sound</button>}
-      </div>}
-      <div className={`letter-launch-options ${columns}`}>
-        {options.map((option) => {
-          const buildWord = round.kind === 'build-word';
-          const key = buildWord ? option.grapheme : option.letter;
-          const chosen = buildWord && selectedTiles.includes(option.grapheme);
-          return <button key={buildWord ? option.id : key} type="button" onClick={() => handlePick(option)} disabled={held || chosen} className="letter-launch-choice">{buildWord ? option.grapheme.toUpperCase() : key}</button>;
-        })}
-      </div>
-      {feedback && <div className="letter-launch-feedback" role="status" aria-live="polite">{feedback}</div>}
-      {saveError && <div className="letter-launch-alert" role="alert"><p>{saveError}</p><button ref={retryButtonRef} type="button" disabled={saving} onClick={retrySave}>{saving ? 'Saving…' : 'Retry save'}</button></div>}
-      {held && !saveError && !chapterSaved && <button ref={nextButtonRef} type="button" onClick={nextMission} className="letter-launch-primary">Next mission</button>}
-      {chapterSaved && <section className="letter-launch-review" aria-labelledby="letter-launch-finish-title">
-        <h2 ref={finishHeadingRef} id="letter-launch-finish-title" tabIndex={-1}>{CHAPTERS[chapterIndex].badge} saved!</h2>
-        <button type="button" onClick={() => { setSessionPhase('review'); setRound(null); }} className="letter-launch-primary">Finish chapter</button>
-      </section>}
-      {isFinal && saving && <p role="status" className="letter-launch-save-status">Saving your chapter and badge…</p>}
-    </section>
-  </main>;
+      </>}
+    </main>
+  </div>;
 };
 
 export default LetterLaunch;

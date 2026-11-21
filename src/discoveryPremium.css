@@ -165,3 +165,41 @@
   }
   .cosmic-board { max-width: min(38rem, max(24rem, calc(100dvh - 5rem))); }
 }
+
+/* A focused game presents the task and its next action before secondary tools. */
+.focus-game {
+  min-height: 100dvh;
+  background: #f3f8fb;
+  color: #142e4b;
+}
+.focus-game-body {
+  width: min(100%, 55rem);
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 2rem) clamp(.75rem, 4vw, 2rem);
+}
+.focus-game-body.is-menu { max-width: 31rem; }
+.focus-game-heading { margin-bottom: .8rem; }
+.focus-game-heading h1 { margin: 0; font-size: clamp(1.65rem, 4vw, 2.5rem); line-height: 1.12; font-weight: 850; }
+.focus-game-heading h1:focus, .focus-game-menu h2:focus { outline: none; }
+.focus-game-heading p { margin: 0 0 .25rem; color: #405d73; font-size: .85rem; font-weight: 750; }
+.focus-game-actions { display: flex; flex-wrap: wrap; gap: .45rem; }
+.focus-game-button {
+  flex: 1 1 auto;
+  min-height: 48px;
+  padding: .55rem .75rem;
+  border: 1px solid #b2c7d7;
+  border-radius: .6rem;
+  background: white;
+  color: #173e61;
+  font-weight: 800;
+  text-align: center;
+}
+.focus-game-button.is-primary { flex-basis: 100%; border-color: #075e68; background: #075e68; color: white; }
+.focus-game-button:disabled { cursor: not-allowed; opacity: .55; }
+.focus-game :is(button, select):focus-visible { outline: 3px solid #126bb2; outline-offset: 2px; }
+.focus-game-menu { display: grid; gap: .65rem; width: min(100%, 27rem); }
+.focus-game-menu h2 { font-size: 1.25rem; font-weight: 850; }
+.focus-game-menu label { font-weight: 750; }
+.focus-game-menu select { width: 100%; min-width: 0; min-height: 48px; padding: .55rem; border: 1px solid #acbfd2; border-radius: .6rem; color: #142e4b; background: white; }
+.focus-game-message { margin: .65rem 0; font-weight: 750; }
+.focus-game-message[role="alert"] { color: #922629; }

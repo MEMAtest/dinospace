@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, Volume2, Lightbulb, RotateCcw, Check, ChevronRight } from 'lucide-react';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
 import {
@@ -12,16 +11,14 @@ import {
   markSoundSafariRewardReceiptClaimedStrict, pendingSoundSafariRewardReceipts,
   recordSoundSafariChapterCompletionStrict,
 } from '../../data/soundSafariProgress.js';
-import safariScene from '../../assets/game-scenes/sound-safari.webp';
 import safariPictures from '../../assets/sound-safari/word-pictures-v1.webp';
-import './amariScenes.css';
 
 // One consistent illustration sheet; each cell depicts the corresponding word.
 const PICTURE_ORDER = ['ant', 'sit', 'sip', 'tip', 'pit', 'pin', 'tin', 'tap', 'nap', 'pan', 'pat', 'sap', 'pip', 'snip', 'snap', 'spin', 'pants', 'insect'];
 function SvgWordPicture({ item }) {
   const index = PICTURE_ORDER.indexOf(item.word.toLowerCase());
   if (index < 0) return null;
-  return <span aria-hidden="true" className="mx-auto block h-16 w-16 rounded-xl sm:h-24 sm:w-24" style={{ backgroundImage: `url("${safariPictures}")`, backgroundSize: '300% 600%', backgroundPosition: `${(index % 3) * 50}% ${Math.floor(index / 3) * 20}%` }} />;
+  return <span aria-hidden="true" className="mx-auto block aspect-square w-[min(100%,10rem)] rounded-lg" style={{ backgroundImage: `url("${safariPictures}")`, backgroundSize: '300% 600%', backgroundPosition: `${(index % 3) * 50}% ${Math.floor(index / 3) * 20}%` }} />;
 }
 
 const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cancelNarration = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, onReviewComplete, sessionTarget = 0, playerId = 'amari', phonemeAudio = SOUND_SAFARI_PHONEME_AUDIO }) => {
@@ -37,7 +34,8 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
   const [usedClue, setUsedClue] = useState(false);
   const [clueText, setClueText] = useState('');
   const [visualPractice, setVisualPractice] = useState(false);
-  const [showReplay, setShowReplay] = useState(false);
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const [audioNote, setAudioNote] = useState('');
   const [feedback, setFeedback] = useState(null);
   const [chapterResult, setChapterResult] = useState(null);
   const [completionError, setCompletionError] = useState('');
@@ -46,6 +44,8 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
   const [rewardDrainPending, setRewardDrainPending] = useState(false);
   const [startPending, setStartPending] = useState(false);
   const [startError, setStartError] = useState('');
+  const headingRef = useRef(null);
+  const nextRef = useRef(null);
   const startBusyRef = useRef(false);
   const pendingCompletionRef = useRef(null);
   const completionBusyRef = useRef(false);
@@ -132,6 +132,8 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
   }, []);
   const phase = chapterResult ? 'finish' : chapterIndex === null ? 'intro' : 'play';
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
+  useEffect(() => { if (!optionsOpen) headingRef.current?.focus({ preventScroll: true }); }, [phase, round?.id, optionsOpen]);
+  useEffect(() => { if (feedback) nextRef.current?.focus({ preventScroll: true }); }, [feedback, completionError]);
   useEffect(() => () => { cancelNarrationRef.current(); stopPhonemeAudio(); }, [stopPhonemeAudio]);
   useEffect(() => {
     if (soundOn) return;
@@ -145,9 +147,9 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
     const generation = lifecycleRef.current;
     cancelNarrationRef.current();
     stopPhonemeAudio();
-    setChapterIndex(null); setChapterResult(null); setFeedback(null); setCompletionError('');
+    setOptionsOpen(false); setChapterIndex(null); setChapterResult(null); setFeedback(null); setCompletionError('');
     setActiveRun(null); setStartError(''); setStartPending(false); startBusyRef.current = false;
-    setRoundIndex(0); setBlendStep(0); setSelectedSounds([]); setWrong(false); setUsedClue(false); setClueText(''); setVisualPractice(false); setShowReplay(false);
+    setRoundIndex(0); setBlendStep(0); setSelectedSounds([]); setWrong(false); setUsedClue(false); setClueText(''); setVisualPractice(false); setAudioNote('');
     setCompletionPending(false); setRewardDrainPending(false);
     pendingCompletionRef.current = null;
     answeredRoundRef.current.clear(); heardRoundRef.current.clear();
@@ -215,7 +217,7 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
       if (index >= sequence.length) return;
       playClip(sequence[index], {
         onEnded: () => playNext(index + 1),
-        onFailure: () => setShowReplay(true),
+        onFailure: () => setAudioNote('The recording could not play. Read the explanation above.'),
       });
     };
     cancelNarration();
@@ -266,6 +268,8 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
         return;
       }
       setRunNumber(nextRunNumber);
+      setOptionsOpen(false);
+      setAudioNote('');
       setActiveRun(snapshot);
       setChapterIndex(index);
       setRoundIndex(0);
@@ -300,7 +304,7 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
       setClueText('');
       setVisualPractice(false);
       setFeedback(null);
-      setShowReplay(false);
+      setAudioNote('');
       return;
     }
     const draft = pendingCompletionRef.current;
@@ -400,7 +404,7 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
     playPhoneme(sound);
     if (index === blendStep) setBlendStep((current) => current + 1);
   };
-  const useClue = () => {
+  const revealClue = () => {
     if (usedClue || feedback) return;
     setUsedClue(true);
     const first = chapter.id === 'listen' ? round.target.sound : round.word.phonemes[0];
@@ -408,89 +412,110 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, cance
     if (soundOn) playPhoneme(first);
   };
 
-  const panel = 'rounded-3xl border border-emerald-100 bg-white/95 shadow-lg';
-  const button = 'min-h-12 rounded-2xl border-2 px-4 py-3 text-base font-bold transition focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-indigo-700 disabled:cursor-not-allowed disabled:opacity-50';
-  return <div className="amari-scene flex min-h-screen flex-col" style={{ '--scene-image': `url("${safariScene}")` }}>
-    <header className="amari-scene-header relative z-20">
-      <button type="button" onClick={() => { cancelNarration(); stopPhonemeAudio(); onBack?.(); }} className="game-icon-button min-h-12 min-w-12" aria-label="Back to home"><ArrowLeft /></button>
-      <div className="amari-scene-title"><h2 className="text-lg sm:text-2xl">Sound Safari</h2><p className="text-xs text-sky-100">Listen · blend · pull sounds apart</p></div>
-      <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-    </header>
-    <main className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-start px-2 py-2 sm:justify-center sm:px-8 sm:py-5">
-      {chapterIndex === null && !chapterResult && <section className={`${panel} mx-auto w-full max-w-2xl p-4 sm:p-7`}>
-        <div className="flex items-center gap-3">
-          <img src="/art/catalog-v3/game-phonics.webp" alt="" aria-hidden="true" className="h-16 w-20 shrink-0 object-contain sm:h-20 sm:w-24" />
-          <div className="min-w-0"><h1 className="text-xl font-black text-emerald-950 sm:text-2xl">Choose a sound mission</h1>
-          <p className="mt-1 text-sm text-slate-600">Each mission has six short challenges. New missions open as you finish them.</p></div>
+  const openOptions = () => setOptionsOpen(true);
+  const closeOptions = () => setOptionsOpen(false);
+  const leave = () => { cancelNarration(); stopPhonemeAudio(); onBack?.(); };
+  const backToChapters = () => {
+    cancelNarration();
+    stopPhonemeAudio();
+    closeOptions();
+    setActiveRun(null);
+    setChapterIndex(null);
+    setChapterResult(null);
+    setFeedback(null);
+    setAudioNote('');
+    if (chapterResult && sessionTarget > 0) onReviewComplete?.();
+  };
+  const retryRound = () => { setFeedback(null); setSelectedSounds([]); setBlendStep(0); setWrong(true); };
+  const pendingRewards = progressState.ok && pendingSoundSafariRewardReceipts(progress).length > 0;
+  const progressError = !progressState.ok ? 'Saved chapter progress could not be checked.' : rewardDrainError || (pendingRewards ? 'Confirm your saved reward before continuing.' : '');
+  const canStart = !progressError && !rewardDrainPending && !startPending && run.ready;
+  const nextChapterIndex = progress.unlockedChapter;
+  const nextChapter = SOUND_SAFARI_CHAPTERS[nextChapterIndex];
+  const replay = progress.completedChapterIds.includes(nextChapter.id);
+  const nextLabel = replay ? `Replay: ${nextChapter.title}` : chapterResult ? `Next: ${nextChapter.title}` : `Start: ${nextChapter.title}`;
+  const soundChoice = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } };
+  const chapterChoices = SOUND_SAFARI_CHAPTERS.map((item, index) => {
+    const complete = progress.completedChapterIds.includes(item.id);
+    return {
+      label: `${item.title}${index > progress.unlockedChapter ? ' · Locked' : complete ? ' · Complete' : ''}`,
+      action: () => void startChapter(index),
+      button: `${complete ? 'Replay' : 'Start'}: ${item.title}`,
+      description: item.intro,
+      disabled: !canStart || index > progress.unlockedChapter,
+    };
+  });
+  const playChoices = [
+    ...(!feedback && !usedClue && (chapter?.id === 'segment' || !showVisualPrompt) ? [{ label: 'Use one clue', action: () => { closeOptions(); revealClue(); } }] : []),
+    ...(chapter?.id === 'blend' && promptClip && soundOn && !feedback ? [{ label: 'Hear instructions', action: () => { closeOptions(); playWordPrompt(); } }] : []),
+    soundChoice,
+    { label: 'Back to chapters', action: backToChapters },
+    { label: 'Back to Read & Write', action: leave },
+  ];
+  const listen = chapter?.id === 'listen';
+  const blend = chapter?.id === 'blend';
+  const segment = chapter?.id === 'segment';
+  const correct = feedback?.kind === 'correct';
+  const menu = !round;
+  const showPictures = listen || blend && blendStep === round?.word.phonemes.length;
+  const instruction = listen
+    ? showVisualPrompt ? `Which picture begins with /${round.target.sound}/?` : 'Which picture begins with this sound?'
+    : blend ? showPictures ? 'Choose the picture for the word.' : 'Tap each sound from left to right.'
+      : showVisualPrompt ? 'Tap the sounds in this word.' : 'Hear the word, then tap its sounds.';
+  const audioPrompt = listen ? 'Hear the sound' : 'Hear the word';
+  const canHear = soundOn && (listen ? phonemeAudio?.[round?.target.sound] : segment && promptClip);
+
+  return <div className="focus-game" data-board-focus="" data-safari-round={menu ? undefined : round.id}>
+    <main className={`focus-game-body ${menu || optionsOpen ? 'is-menu' : ''}`}>
+      <header className="focus-game-heading">
+        {!menu && <p>Sound Safari · {chapter.title} · {roundIndex + 1} of 6</p>}
+        <h1 ref={headingRef} tabIndex={-1}>{chapterResult ? 'Chapter complete!' : menu ? 'Sound Safari' : instruction}</h1>
+      </header>
+      {optionsOpen ? <FocusMenu choices={menu ? [...chapterChoices, soundChoice] : playChoices} onBack={closeOptions} /> : menu ? <>
+        {chapterResult && <p className="focus-game-message" role="status">{chapterResult.chapter.title} saved.</p>}
+        {progressError || startError ? <p className="focus-game-message" role="alert">{progressError || startError}</p> : <p className="focus-game-message">{nextChapter.intro}</p>}
+        {!run.ready && <p className="focus-game-message">Ask a grown-up to check the taught sounds and recordings.</p>}
+        <div className="focus-game-actions">
+          {progressError ? <button type="button" className="focus-game-button is-primary" disabled={rewardDrainPending} onClick={retryProgressRead}>{!progressState.ok ? 'Retry saved progress' : 'Retry reward confirmation'}</button>
+            : <button type="button" className="focus-game-button is-primary" disabled={!canStart} onClick={() => { if (chapterResult && sessionTarget > 0) backToChapters(); else void startChapter(nextChapterIndex); }}>{startPending ? 'Opening chapter…' : nextLabel}</button>}
+          <button type="button" className="focus-game-button" onClick={openOptions}>Options</button>
+          <button type="button" className="focus-game-button" onClick={leave}>Back to Read & Write</button>
         </div>
-        {!progressState.ok && <div role="alert" className="mt-3 rounded-xl border border-rose-300 bg-rose-50 p-3 text-sm font-bold text-rose-950"><p>Saved chapter progress could not be checked, so missions stay locked.</p><button type="button" onClick={retryProgressRead} disabled={rewardDrainPending} className={`${button} mt-2 border-rose-700 bg-white text-rose-950`}>{rewardDrainPending ? 'Checking saved progress…' : 'Retry saved progress'}</button></div>}
-        {progressState.ok && (rewardDrainError || pendingSoundSafariRewardReceipts(progress.rewardReceipts ? progress : null).length > 0) && <div role="alert" className="mt-3 rounded-xl border border-amber-300 bg-amber-50 p-3 text-sm font-bold text-amber-950"><p>{rewardDrainError || 'A chapter reward still needs confirmation before continuing.'}</p><button type="button" onClick={retryProgressRead} disabled={rewardDrainPending} className={`${button} mt-2 border-amber-700 bg-white text-amber-950`}>{rewardDrainPending ? 'Checking chapter rewards…' : 'Retry reward confirmation'}</button></div>}
-        {startError && <p role="alert" className="mt-3 rounded-xl border border-rose-300 bg-rose-50 p-3 text-sm font-bold text-rose-950">{startError}</p>}
-        {!run.ready && <p className="mt-4 rounded-2xl bg-amber-50 p-4 text-amber-900" role="status">Sound clips and taught sounds must be ready before this safari can open.</p>}
-        <div className="mt-4 grid gap-2 sm:mt-5 sm:grid-cols-3 sm:gap-3">{SOUND_SAFARI_CHAPTERS.map((item, index) => {
-          const locked = !progressState.ok || startPending || rewardDrainPending || Boolean(rewardDrainError) || index > progress.unlockedChapter || !run.ready;
-          return <button key={item.id} type="button" disabled={locked} onClick={() => void startChapter(index)} className={`${button} text-left ${locked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-emerald-300 bg-emerald-50 text-emerald-900 hover:bg-emerald-100'}`}>
-            <span className="block text-xs font-black uppercase tracking-wide">Chapter {index + 1} {progress.completedChapterIds.includes(item.id) ? '✓' : ''}</span><span className="mt-1 block">{startPending ? 'Checking saved progress…' : item.title}</span>
-          </button>;
-        })}</div>
-      </section>}
-      {chapterResult && <section className={`${panel} mx-auto w-full max-w-xl p-6 text-center`}>
-        <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-700"><Check size={32} /></div>
-        <h1 className="text-2xl font-black text-emerald-950">Chapter complete!</h1>
-        <p className="mt-2 text-slate-700">You finished “{chapterResult.chapter.title}”. {chapterResult.newlyEarned ? 'Your chapter reward is saved.' : 'This chapter was already completed, so replay added no reward.'}</p>
-        <button type="button" className={`${button} mt-6 border-emerald-700 bg-emerald-700 px-8 text-white`} onClick={() => { setChapterResult(null); if (sessionTarget > 0) onReviewComplete?.(); }}>Choose next chapter <ChevronRight className="ml-2 inline" size={18} /></button>
-      </section>}
-      {round && chapter && <section data-safari-round={round.id} aria-label="Sound mission" className={`${panel} mx-auto w-full max-w-3xl p-2 sm:p-7`}>
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div><p className="text-xs font-black uppercase tracking-wide text-emerald-700">Chapter {chapterIndex + 1} · Challenge {roundIndex + 1} of 6</p><h1 className="mt-1 text-xl font-black text-slate-900 sm:text-2xl">{chapter.title}</h1></div>
-          <div className="flex gap-1" aria-label={`${roundIndex + 1} of 6 challenges`} role="status">{chapter.rounds.map((item, index) => <span key={item.id} className={`h-2 w-5 rounded-full ${index <= roundIndex ? 'bg-emerald-500' : 'bg-slate-200'}`} />)}</div>
-        </div>
-        {roundIndex === 0 && !showVisualPrompt && feedback?.kind !== 'correct' && <p className="mt-2 hidden rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-950 sm:block">{chapter.intro}</p>}
-        {showVisualPrompt && feedback?.kind !== 'correct' && <p role="status" className="mt-1 rounded-xl bg-amber-50 px-2 py-0.5 text-xs font-semibold leading-tight text-amber-900 sm:mt-3 sm:px-3 sm:py-2 sm:text-sm"><span className="sm:hidden">Visual practice · assisted</span><span className="hidden sm:inline">Visual practice is on for this challenge. Your answer will be marked assisted.</span></p>}
-        {feedback?.kind !== 'correct' && <><div className="mt-2 flex flex-wrap items-center justify-center gap-1 rounded-2xl bg-slate-50 p-2 text-center sm:mt-4 sm:gap-2 sm:p-4">
-          {chapter.id === 'listen' && <>
-            <p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">
-              {showVisualPrompt ? `Which picture begins with /${round.target.sound}/?` : 'Which picture begins with this sound?'}
-            </p>
-            <button type="button" disabled={!phonemeAudio?.[round.target.sound] || !soundOn} onClick={() => playPhoneme(round.target.sound)} className={`${button} border-emerald-200 bg-white text-emerald-800`}><Volume2 size={19} className="mr-2 inline" />Hear the sound</button>
-            {!feedback && !showVisualPrompt && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 text-amber-900`}><Lightbulb size={18} className="mr-2 inline" />{usedClue ? 'Clue used' : 'Use one clue'}</button>}
-          </>}
-          {chapter.id === 'blend' && <>
-            <p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">
-              {showVisualPrompt ? 'Tap and read each sound from left to right. Then choose the matching picture.' : 'Tap each sound from left to right. Then choose the matching picture.'}
-            </p>
-            <div className="flex flex-wrap justify-center gap-1 sm:gap-2">
-              {round.word.phonemes.map((sound, index) => <button type="button" disabled={Boolean(feedback) || index > blendStep} onClick={() => chooseBlendTile(index, sound)} aria-label={showVisualPrompt ? `Sound ${index + 1}: ${sound}` : `Hear sound ${index + 1}`} aria-pressed={index < blendStep} className={`${button} min-h-12 min-w-12 border-emerald-300 bg-white px-3 py-2 text-lg text-emerald-800 sm:min-h-14 sm:min-w-14 sm:text-xl ${index === blendStep ? 'ring-2 ring-emerald-400' : ''}`} key={`${sound}-${index}`}>{showVisualPrompt ? sound : index + 1}</button>)}
-            </div>
-            {!feedback && !showVisualPrompt && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 text-amber-900`}><Lightbulb size={18} className="mr-2 inline" />{usedClue ? 'Clue used' : 'Use one clue'}</button>}
-          </>}
-          {chapter.id === 'segment' && <>
-            <p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">{showVisualPrompt ? 'Look at the word. Tap its sounds from first to last.' : 'Hear the word. Tap its sounds from first to last.'}</p>
-            <figure className="w-full" aria-label={showVisualPrompt ? 'Picture and word for this challenge' : 'Picture for this challenge'}>
+      </> : <>
+        {showVisualPrompt && !feedback && <p className="text-sm font-semibold text-slate-700">Visual practice · assisted</p>}
+        {!feedback && <>
+          {canHear && <div className="focus-game-actions my-3"><button type="button" className="focus-game-button is-primary" onClick={listen ? () => playPhoneme(round.target.sound) : playWordPrompt}>{audioPrompt}</button></div>}
+          {blend && !showPictures && <div className="my-3 grid grid-cols-3 gap-2" aria-label="Blend tiles">
+            {round.word.phonemes.map((sound, index) => <button type="button" key={`${sound}-${index}`} disabled={index > blendStep} onClick={() => chooseBlendTile(index, sound)} aria-label={showVisualPrompt ? `Sound ${index + 1}: ${sound}` : `Hear sound ${index + 1}`} aria-pressed={index < blendStep} className={`focus-game-button min-w-0 text-lg ${index === blendStep ? 'ring-2 ring-teal-700' : ''}`}>{showVisualPrompt ? sound : index + 1}</button>)}
+          </div>}
+          {segment && <>
+            <figure className="mx-auto my-3 w-28 text-center sm:w-36" aria-label={showVisualPrompt ? 'Picture and word for this challenge' : 'Picture for this challenge'}>
               <SvgWordPicture item={round.word} />
-              {showVisualPrompt && <figcaption className="text-xs font-bold text-slate-700 sm:text-sm">{round.word.word.toLowerCase()}</figcaption>}
+              {showVisualPrompt && <figcaption className="font-bold">{round.word.word.toLowerCase()}</figcaption>}
             </figure>
-            <div className="flex min-h-12 items-center gap-1" aria-live="polite">{selectedSounds.map((id) => { const sound = segmentChoices.find((item) => item.id === id)?.sound; return <span className="rounded-xl bg-emerald-100 px-2 py-1 text-lg font-black text-emerald-800 sm:px-4 sm:py-2 sm:text-xl" key={id}>{sound}</span>; })}</div>
-            {!feedback && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900 sm:px-4 sm:py-3 sm:text-base`}><Lightbulb size={18} className="mr-1 inline" />{usedClue ? <span role="status" className="text-sm">First sound: /${round.word.phonemes[0]}/</span> : 'Use one clue'}</button>}
+            <div className="my-3 flex min-h-9 flex-wrap justify-center gap-2" aria-label="Selected sounds" aria-live="polite">
+              {selectedSounds.map(id => <span key={id} className="rounded-lg bg-teal-100 px-3 py-1 font-bold">{segmentChoices.find(item => item.id === id)?.sound}</span>)}
+            </div>
+            <div className="my-3 grid grid-cols-3 gap-2" aria-label="Sound tiles">{segmentChoices.map(choice => <button type="button" key={choice.id} onClick={() => chooseSound(choice)} aria-pressed={selectedSounds.includes(choice.id)} aria-label={soundOn ? `Hear /${choice.sound}/ and add it` : `Add /${choice.sound}/`} className={`focus-game-button min-w-0 ${selectedSounds.includes(choice.id) ? '!bg-teal-100' : ''}`}>/{choice.sound}/</button>)}</div>
           </>}
-          {chapter.id !== 'listen' && <button type="button" disabled={!promptClip || !soundOn} onClick={playWordPrompt} className={`${button} mt-1 border-blue-200 bg-white text-blue-800`}><Volume2 size={19} className="mr-2 inline" />Hear {chapter.id === 'blend' ? 'instructions' : 'the word'}</button>}
-          {clueText && chapter.id !== 'segment' && <p className="w-full rounded-xl bg-amber-50 p-2 text-center text-sm font-bold text-amber-950 sm:p-3" role="status">{clueText}</p>}
-        </div>
-        {chapter.id === 'segment' ? <>
-          <div className="mt-2 grid grid-cols-3 gap-1 sm:mt-4 sm:grid-cols-3 sm:gap-3">{segmentChoices.map((choice) => <button type="button" key={choice.id} disabled={Boolean(feedback)} onClick={() => chooseSound(choice)} aria-pressed={selectedSounds.includes(choice.id)} aria-label={soundOn ? `Hear /${choice.sound}/ and add it` : `Add /${choice.sound}/`} className={`${button} min-h-12 border-slate-200 bg-white px-2 py-2 text-sm text-slate-800 hover:border-emerald-300 sm:text-base ${selectedSounds.includes(choice.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-900' : ''}`}>/{choice.sound}/</button>)}</div>
-          {!feedback && <button type="button" disabled={selectedSounds.length !== round.word.phonemes.length} onClick={submitSegments} className={`${button} mt-2 w-full border-emerald-700 bg-emerald-700 text-white sm:mt-3`}>Check sounds</button>}
-        </> : (chapter.id === 'blend' ? blendStep === round.word.phonemes.length : true) && <div className="mt-2 grid grid-cols-2 gap-2 sm:mt-4 sm:grid-cols-4 sm:gap-3">{options.map((option, index) => <button type="button" key={option.id} disabled={Boolean(feedback)} onClick={() => answer(option)} data-word={option.id} aria-label={`Picture choice ${index + 1}: ${option.word.toLowerCase()}`} className={`${button} min-h-[5.5rem] border-emerald-200 bg-white px-1 py-1 text-left hover:border-emerald-500 hover:bg-emerald-50 sm:min-h-32 sm:px-4 sm:py-3`}><SvgWordPicture item={option} /></button>)}</div>}
+          {showPictures && <div className="my-3 grid grid-cols-2 gap-2 sm:grid-cols-4" aria-label="Picture choices">
+            {options.map((option, index) => <button type="button" key={option.id} onClick={() => answer(option)} data-word={option.id} aria-label={`Picture choice ${index + 1}: ${option.word.toLowerCase()}`} className="focus-game-button min-w-0 px-2 py-2"><SvgWordPicture item={option} /></button>)}
+          </div>}
+          {clueText && <p className="focus-game-message" role="status">{clueText}</p>}
         </>}
-        {feedback && <div className={`mt-2 rounded-2xl p-2 text-sm ${feedback.kind === 'correct' ? 'bg-emerald-50 text-emerald-950' : 'bg-amber-50 text-amber-950'} sm:mt-4 sm:p-4 sm:text-base`} aria-live="polite">
-          {feedback.kind === 'correct' && <div className="mx-auto mb-1 flex max-w-24 justify-center rounded-2xl bg-white p-1 sm:mb-3 sm:max-w-48 sm:p-3"><SvgWordPicture item={chapter.id === 'listen' ? round.pictureWord : round.word} /></div>}
-          <p className="font-bold">{feedback.text}</p>
-          {feedback.kind === 'correct' && completionError && roundIndex === 5 && <div className="mt-3 rounded-xl border-2 border-rose-300 bg-white p-3 text-sm" role="alert"><p>{completionError}</p><button type="button" onClick={retryChapterSave} disabled={completionPending} className={`${button} mt-2 border-rose-700 bg-rose-700 text-white`}>{completionPending ? 'Saving chapter…' : completionError.includes('reward') || completionError.includes('rewards') ? 'Retry reward confirmation' : 'Retry saving this chapter'}</button></div>}
-          {feedback.kind === 'correct' ? <div className="mt-2 flex flex-wrap gap-1 sm:mt-3 sm:gap-2"><button type="button" onClick={() => setShowReplay((shown) => !shown)} aria-expanded={showReplay} className={`${button} border-emerald-200 bg-white px-2 py-2 text-sm text-emerald-900 sm:px-4 sm:py-3 sm:text-base`}><RotateCcw size={17} className="mr-1 inline" />Read explanation again</button><button type="button" disabled={!explanationAudioReady} onClick={playExplanation} className={`${button} border-emerald-200 bg-white px-2 py-2 text-sm text-emerald-900 sm:px-4 sm:py-3 sm:text-base`}><Volume2 size={17} className="mr-1 inline" />Hear sounds and word</button><button type="button" disabled={completionPending || Boolean(completionError && roundIndex === 5)} onClick={moveNext} className={`${button} border-emerald-700 bg-emerald-700 px-2 py-2 text-sm text-white sm:px-4 sm:py-3 sm:text-base`}>{roundIndex === 5 ? 'Finish chapter' : 'Next challenge'} <ChevronRight className="ml-1 inline" size={18} /></button></div> : <button type="button" onClick={() => { setFeedback(null); setSelectedSounds([]); setBlendStep(0); setWrong(true); }} className={`${button} mt-2 border-amber-300 bg-white px-2 py-2 text-sm text-amber-900 sm:mt-3 sm:px-4 sm:py-3 sm:text-base`}>Try this challenge again</button>}
-          {showReplay && feedback.kind === 'correct' && <p className="mt-3 rounded-xl border border-emerald-200 bg-white p-3" role="status">{feedback.text}</p>}
-        </div>}
-        {!feedback && chapter.id === 'segment' && <p className="sr-only">Choose sounds above, then check your answer.</p>}
-      </section>}
-      {chapterIndex !== null && <button type="button" disabled={Boolean(completionError) || completionPending} onClick={() => { cancelNarration(); stopPhonemeAudio(); setActiveRun(null); setChapterIndex(null); setFeedback(null); }} className="mx-auto mt-4 min-h-12 rounded-xl px-4 text-sm font-bold text-white underline underline-offset-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-white disabled:opacity-50">Back to chapters</button>}
+        {correct && <div className="mx-auto mb-2 w-28 sm:w-36"><SvgWordPicture item={listen ? round.pictureWord : round.word} /></div>}
+        {feedback && <p className="focus-game-message" role="status">{feedback.text}</p>}
+        {completionError && <p className="focus-game-message" role="alert">{completionError}</p>}
+        {audioNote && <p role="status">{audioNote}</p>}
+        <div className="focus-game-actions">
+          {completionError ? <button ref={nextRef} type="button" disabled={completionPending} onClick={retryChapterSave} className="focus-game-button is-primary">Retry saving this chapter</button>
+            : correct ? <button ref={nextRef} type="button" disabled={completionPending} onClick={moveNext} className="focus-game-button is-primary">{completionPending ? 'Saving…' : roundIndex === 5 ? 'Finish chapter' : 'Next challenge'}</button>
+              : feedback ? <button ref={nextRef} type="button" onClick={retryRound} className="focus-game-button is-primary">Try again</button>
+                : segment && <button type="button" disabled={selectedSounds.length !== round.word.phonemes.length} onClick={submitSegments} className="focus-game-button is-primary">Check sounds</button>}
+          {correct && explanationAudioReady && !completionError && !completionPending && <button type="button" onClick={playExplanation} className="focus-game-button">Hear sounds and word</button>}
+          {!completionError && !completionPending && <button type="button" onClick={openOptions} className="focus-game-button">Options</button>}
+        </div>
+      </>}
     </main>
   </div>;
 };
