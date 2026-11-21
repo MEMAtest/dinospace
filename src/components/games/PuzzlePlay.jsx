@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowRight, Check, Eye, Home, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
-import { SoundToggle } from '../shared/index.jsx';
+import { Check, Lightbulb } from 'lucide-react';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import './PuzzlePlay.css';
 import { puzzlePopNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
@@ -64,7 +64,8 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   const completionHeadingRef = useRef(null);
   const pointerRef = useRef(null);
   const suppressPieceClickRef = useRef(false);
-  const chapterPickerRef = useRef(null);
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const headingRef = useRef(null);
   const claimedReceiptsRef = useRef(new Set());
   const claimingReceiptsRef = useRef(new Set());
   const drainingReceiptsRef = useRef(false);
@@ -174,6 +175,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   };
 
   const beginChapterRun = (nextChapterIndex, nextSeed, nextQueue, queueProgress) => {
+    setOptionsOpen(false);
     const nextChapter = PUZZLE_POP_CHAPTERS[nextChapterIndex];
     setProgressState({ ready: true, progress: queueProgress, error: null });
     scrollToIntroTop();
@@ -265,18 +267,16 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     const feedback = feedbackRef.current?.getBoundingClientRect();
     const board = boardRef.current?.getBoundingClientRect();
     if (!feedback || !board) return;
-    const stickyHeaderClearance = 72;
-    const contextOffscreen = board.top < stickyHeaderClearance || board.bottom > window.innerHeight
-      || feedback.top < stickyHeaderClearance || feedback.bottom > window.innerHeight;
+    const contextOffscreen = board.top < 0 || board.bottom > window.innerHeight
+      || feedback.top < 0 || feedback.bottom > window.innerHeight;
     if (contextOffscreen) boardRef.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
   };
 
   const scrollTrayIntoViewIfNeeded = (remainingPieces) => {
     if (!window.matchMedia('(max-width: 639px)').matches) return;
-    const stickyHeaderClearance = 72;
     const offscreenPiece = remainingPieces.find(({ id }) => {
       const bounds = trayPieceRefs.current[id]?.getBoundingClientRect();
-      return bounds && (bounds.top < stickyHeaderClearance || bounds.bottom > window.innerHeight);
+      return bounds && (bounds.top < 0 || bounds.bottom > window.innerHeight);
     });
     if (offscreenPiece) trayPieceRefs.current[offscreenPiece.id]?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
   };
@@ -414,156 +414,127 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   const replayChapter = () => startChapter(chapterIndex);
   const canAdvanceSavedScene = !pendingStart && !pendingSceneSave && !pendingRewardReceipt && !rewardClaimError && !rewardDrainBusy && claimingReceiptsRef.current.size === 0;
 
-  return (
-    <div ref={rootRef} data-board-focus={phase === 'intro' ? undefined : ''} className="puzzle-pop-root min-h-[100dvh] overflow-y-auto bg-gradient-to-br from-amber-100 via-yellow-50 to-emerald-100 text-slate-800">
-      <header className="puzzle-pop-header sticky top-0 z-20 flex items-center justify-between gap-2 bg-amber-50/90 px-3 py-3 backdrop-blur sm:px-5">
-        <button type="button" onClick={() => { onGameEvent?.('puzzle', 'leave', { level: chapterIndex, round: sceneIndex + 1, seed: seed || undefined }); onBack?.(); }} className="game-icon-button" aria-label="Back to learning world"><Home /></button>
-        <div className="min-w-0 flex-1 text-center">
-          <h1 className="text-2xl font-black text-orange-700 sm:text-3xl">Puzzle Pop</h1>
-          {phase !== 'intro' && scene && <>
-            <p className="break-words text-sm font-black leading-tight text-orange-950 sm:text-base">{scene.title}</p>
-            <p className="text-xs font-bold leading-tight text-orange-800 sm:text-sm">{chapter.name} · Picture {sceneIndex + 1} of {queue.length}</p>
-          </>}
-        </div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+  const intro = phase === 'intro';
+  const playing = phase === 'play';
+  const closeOptions = () => setOptionsOpen(false);
+  const leaveGame = () => { onGameEvent?.('puzzle', 'leave', { level: chapterIndex, round: sceneIndex + 1, seed: seed || undefined }); onBack?.(); };
+  const sound = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } };
+  const back = { label: 'Back to Creative Lab', action: leaveGame };
+  const chapters = PUZZLE_POP_CHAPTERS.map((item, index) => {
+    const complete = item.scenes.every(({ id }) => savedProgress.completedSceneIds.includes(id));
+    return {
+      label: `${item.name}${index > savedProgress.unlockedChapter ? ' · Locked' : complete ? ' · Complete' : ''}`,
+      description: `${item.grid}×${item.grid} · ${item.skill}`,
+      button: `${complete ? 'Replay' : 'Start'}: ${item.name}`,
+      disabled: !progressState.ready || !canAdvanceSavedScene || index > savedProgress.unlockedChapter,
+      action: () => startChapter(index),
+    };
+  });
+  const playOptions = [
+    ...(playing && soundOn ? [{ label: 'Hear puzzle instructions again', action: () => { closeOptions(); hearPrompt(); } }] : []),
+    ...(!playing && phase === 'chapter-complete' && canAdvanceSavedScene ? [{ label: 'Replay pictures', action: replayChapter }] : []),
+    sound,
+    back,
+  ];
+  const saveNeedsRetry = pendingSceneSave || pendingStart || rewardClaimError || progressState.error === 'read';
+  const retryLabel = pendingSceneSave ? 'Retry saving this picture' : pendingStart ? 'Retry saving to start' : rewardClaimError ? 'Retry saving stars' : 'Retry saved progress';
+  const retryMessage = pendingSceneSave ? 'Your picture is complete. Retry saving to continue.' : pendingStart ? 'Retry saving the chapter to begin.' : rewardClaimError ? 'Your stars could not be confirmed yet.' : 'Saved progress could not be checked.';
+  const retry = event => {
+    if (pendingSceneSave) confirmSceneSave(event.detail === 0);
+    else if (pendingStart) retryStartSave();
+    else if (rewardClaimError) retryPendingReward();
+    else retryProgressRead();
+  };
+  const nextPicture = sceneIndex + 1 < queue.length;
+  const nextChapter = PUZZLE_POP_CHAPTERS[chapterIndex + 1];
+  const nextResult = nextPicture ? { label: 'Next picture', handler: advanceScene }
+    : nextChapter ? { label: `Next: ${nextChapter.name}`, handler: advanceScene }
+      : phase === 'chapter-complete' ? { label: 'Replay pictures', handler: replayChapter }
+        : { label: 'See chapter reward', handler: () => setPhase('chapter-complete') };
+
+  useEffect(() => {
+    if (!optionsOpen && (intro || playing)) headingRef.current?.focus({ preventScroll: true });
+  }, [intro, playing, optionsOpen, sceneIndex]);
+
+  return <div ref={rootRef} data-board-focus="" className="puzzle-pop-root focus-game" data-puzzle-phase={phase}>
+    <main className={`focus-game-body ${intro || optionsOpen || !playing ? 'is-menu' : ''} ${playing && !optionsOpen ? 'puzzle-focus-main' : ''}`}>
+      <header className="focus-game-heading puzzle-focus-title">
+        {!intro && scene && <p>Puzzle Pop · {chapter.name} · Picture {sceneIndex + 1} of {queue.length}</p>}
+        <h1 ref={intro || playing ? headingRef : completionHeadingRef} tabIndex={-1}>{intro ? 'Puzzle Pop' : playing ? scene?.title : pendingSceneSave ? 'Picture ready to save' : phase === 'chapter-complete' ? `${chapter.name} saved!` : 'Picture complete!'}</h1>
       </header>
-
-      {phase === 'intro' ? (
-        <main className="puzzle-intro-main mx-auto grid w-full max-w-3xl gap-4 px-4 pb-8 pt-4">
-          <section className="puzzle-intro-card rounded-3xl border-4 border-white bg-white/90 p-5 text-center shadow-xl sm:p-7" aria-labelledby="puzzle-intro-chapter">
-            <div className="puzzle-intro-selected flex w-full items-center gap-2 text-left sm:gap-4">
-              <img src="/art/catalog-v3/game-puzzle.webp" alt="" aria-hidden="true" className="h-20 w-24 shrink-0 object-contain sm:h-24 sm:w-28" />
-              <div className="min-w-0">
-                <p className="puzzle-intro-kicker">Chapter {chapterIndex + 1} of {PUZZLE_POP_CHAPTERS.length} · {chapter.grid}×{chapter.grid} · {completedInChapter}/4 pictures</p>
-                <h2 id="puzzle-intro-chapter" className="puzzle-intro-title font-black text-orange-800">{chapter.name}</h2>
-                <p className="puzzle-intro-skill font-bold text-slate-700">{chapter.skill}</p>
-              </div>
-            </div>
-            <p className="puzzle-intro-tip rounded-2xl bg-amber-50 px-4 py-3 text-sm font-bold text-orange-900"><strong>Picture tip: </strong>{chapter.visualTip}</p>
-            {(progressState.error || pendingStart) && <div className="puzzle-save-notice" role="status" aria-live="polite">
-              <p>{progressState.error === 'read' ? 'Saved progress could not be checked yet.' : 'This chapter could not be saved yet.'}</p>
-              <button type="button" onClick={progressState.error === 'read' ? retryProgressRead : retryStartSave}>{progressState.error === 'read' ? 'Retry saved progress' : 'Retry saving to start'}</button>
+      {optionsOpen ? <FocusMenu choices={intro ? [...chapters, sound] : playOptions} onBack={closeOptions} /> : intro ? <>
+        {saveNeedsRetry ? <p role="alert" className="focus-game-message">{retryMessage}</p> : <p className="focus-game-message">{chapter.grid}×{chapter.grid} puzzles · {chapter.skill}</p>}
+        <div className="focus-game-actions">
+          {saveNeedsRetry ? <button type="button" className="focus-game-button is-primary" disabled={rewardDrainBusy} onClick={retry}>{retryLabel}</button>
+            : <button type="button" className="focus-game-button is-primary" disabled={!progressState.ready || !canAdvanceSavedScene} onClick={() => startChapter()}>{rewardDrainBusy ? 'Checking saved stars…' : `${completedInChapter === chapter.scenes.length ? 'Replay' : 'Start'}: ${chapter.name}`}</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={leaveGame}>Back to Creative Lab</button>
+        </div>
+      </> : playing && scene ? <>
+        <aside className="puzzle-focus-preview">
+          <div className="puzzle-focus-picture relative aspect-square overflow-hidden rounded-lg">
+            <img src={scene.image} alt={`Completed picture preview: ${scene.alt}`} className="absolute inset-0 h-full w-full object-cover" />
+            {hintSlot !== null && <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))` }}>
+              {Array.from({ length: chapter.grid ** 2 }, (_, slot) => <span key={slot} className={`border border-white/60 ${slot === hintSlot ? 'z-10 bg-amber-300/35 ring-2 ring-inset ring-amber-500' : ''}`} />)}
             </div>}
-            {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <div className="puzzle-save-notice" role="status" aria-live="polite"><p>{rewardClaimError ? 'Your stars could not be saved yet.' : 'Saving your stars…'}</p>{rewardClaimError && <button type="button" onClick={retryPendingReward}>Retry saving stars</button>}</div>}
-            <button type="button" disabled={!progressState.ready || Boolean(pendingStart) || !canAdvanceSavedScene} onClick={() => startChapter()} className="puzzle-start-button inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-7 py-3 text-lg font-black text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50"><Eye /> {completedInChapter ? 'Replay chapter' : 'Start chapter'}</button>
-          </section>
-          <details ref={chapterPickerRef} className="puzzle-chapter-picker rounded-2xl border-2 border-amber-200 bg-white/85">
-            <summary className="min-h-12 cursor-pointer px-4 py-3 font-black text-orange-900">Choose another chapter</summary>
-            <div className="puzzle-chapter-options" role="group" aria-label="Other Puzzle Pop chapters">
-              {PUZZLE_POP_CHAPTERS.map((entry, index) => {
-                if (index === chapterIndex) return null;
-                const unlocked = index <= savedProgress.unlockedChapter;
-                const count = entry.scenes.filter(({ id }) => savedProgress.completedSceneIds.includes(id)).length;
-                return <button type="button" key={entry.id} disabled={!unlocked} onClick={() => { setChapterIndex(index); if (chapterPickerRef.current) chapterPickerRef.current.open = false; }} aria-pressed={index === chapterIndex} aria-label={`${entry.name}${unlocked ? '' : ', locked'}`} className="puzzle-chapter-option min-h-12 rounded-2xl border-2 px-3 py-2 text-left font-black disabled:opacity-50">
-                  <span className="block">Chapter {index + 1} · {entry.name}</span>
-                  <span className="puzzle-chapter-meta mt-1 block text-sm font-bold">{entry.grid}×{entry.grid} · {count}/4 pictures {unlocked ? '' : '· Locked'}</span>
-                </button>;
-              })}
+          </div>
+          <div className="focus-game-actions">
+            <button type="button" className="focus-game-button" onClick={showHint} disabled={!tray.length}>{showMappingDemo ? 'Show a piece mapping' : 'Hint'}</button>
+            <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          </div>
+        </aside>
+        <section className="puzzle-focus-play">
+          <div ref={feedbackRef} className="puzzle-play-feedback">
+            <p aria-live="polite">{message}</p>
+            {selected && <span role="img" aria-label="Selected picture piece preview" className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md border border-orange-500"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(selected.correctSlot, chapter.grid)} /></span>}
+          </div>
+          <div ref={boardRef} role="grid" aria-label={`${chapter.grid} by ${chapter.grid} puzzle board`} className="puzzle-board order-first grid aspect-square w-full grid-cols-1 gap-1 self-center overflow-hidden rounded-2xl border-4 border-slate-200 bg-white p-1.5" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))`, minWidth: `${chapter.grid * 48 + (chapter.grid - 1) * 4 + 20}px` }}>
+            {Array.from({ length: chapter.grid }, (_, row) => (
+              <div role="row" key={`row-${row}`} className="col-span-full grid min-h-0 min-w-0 gap-1" style={{ gridColumn: '1 / -1', gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))` }}>
+                {placed.slice(row * chapter.grid, (row + 1) * chapter.grid).map((piece, column) => {
+                  const slotIndex = row * chapter.grid + column;
+                  return <div role="gridcell" key={`cell-${slotIndex}`} className="min-h-0 min-w-0">
+                    <button type="button" ref={(element) => { boardSlotRefs.current[slotIndex] = element; }} tabIndex={focusedSlot === slotIndex ? 0 : -1} onFocus={() => setFocusedSlot(slotIndex)} onKeyDown={(event) => {
+                      if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
+                      event.preventDefault();
+                      const target = movePuzzlePopBoardFocus(slotIndex, event.key, chapter.grid);
+                      if (target !== slotIndex) focusBoardSlot(target);
+                    }} data-puzzle-slot={slotIndex} onClick={(event) => placePiece(slotIndex, selected, event.detail === 0)} aria-label={`Puzzle space ${slotIndex + 1}, ${piece ? 'piece in place' : 'empty'}${hintSlot === slotIndex ? ', hint space' : ''}`} className={`relative h-full w-full min-h-12 min-w-12 overflow-hidden rounded-md border border-white/80 focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-400 ${wrongSlot === slotIndex ? 'animate-shake bg-rose-100' : piece ? 'bg-white' : hintSlot === slotIndex ? 'bg-yellow-200 ring-4 ring-yellow-400' : 'bg-emerald-50'}`}>
+                      {piece && <span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(slotIndex, chapter.grid)} /><span className="absolute inset-0 border border-white/15" /></span>}
+                      {!piece && hintSlot === slotIndex && <Lightbulb className="absolute inset-0 m-auto text-orange-600" aria-hidden="true" />}
+                      {piece && <Check className="absolute right-0.5 top-0.5 rounded-full bg-emerald-600 p-0.5 text-white" size={20} aria-hidden="true" />}
+                    </button>
+                  </div>;
+                })}
+              </div>
+            ))}
+          </div>
+          <div className="puzzle-focus-tray">
+            <p className="font-bold">Pieces · {tray.length} left {tray.length > 10 && <span className="text-sm font-semibold sm:hidden">· swipe for more</span>}</p>
+            <div className="puzzle-piece-tray grid gap-1.5 sm:gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(48px, 1fr))' }} role="group" aria-label="Picture piece tray">
+              {tray.map((piece, trayIndex) => <button type="button" key={piece.id} ref={(element) => { trayPieceRefs.current[piece.id] = element; }} onPointerDown={(event) => beginPiecePointer(event, piece)} onPointerMove={movePiecePointer} onPointerUp={finishPiecePointer} onPointerCancel={(event) => finishPiecePointer(event, true)} onLostPointerCapture={(event) => finishPiecePointer(event, true)} onClick={(event) => choosePiece(piece, event)} aria-pressed={selected?.id === piece.id} aria-label={`Choose loose piece ${trayIndex + 1}`} className={`puzzle-tray-piece relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-xl border-2 bg-white shadow-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-orange-400 ${selected?.id === piece.id ? 'border-orange-600 ring-4 ring-orange-200' : 'border-white'}`}><span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(piece.correctSlot, chapter.grid)} /></span></button>)}
             </div>
-          </details>
-        </main>
-      ) : (
-        <main className="puzzle-play-main mx-auto grid w-full max-w-6xl gap-4 px-3 pb-8 pt-4 lg:grid-cols-[minmax(250px,.65fr)_minmax(400px,1fr)] sm:px-5">
-          {scene && (
-            <>
-              <aside className="puzzle-preview-panel grid grid-cols-[96px_minmax(0,1fr)] gap-2 rounded-3xl border-4 border-white bg-white/85 p-3 shadow-xl sm:block sm:p-4">
-                <div className="puzzle-preview-heading col-span-2 mb-0 flex items-center justify-between gap-2 text-orange-800 sm:mb-2">
-                  <span className="flex items-center gap-2 font-black"><Eye size={20} /> Picture preview</span>
-                  <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-black">{chapter.grid}×{chapter.grid}</span>
-                </div>
-                <h2 className="puzzle-preview-title col-span-2 m-0 rounded-xl bg-orange-50 px-2 py-2 text-center text-sm font-black leading-tight text-orange-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-lg">{scene.title}</h2>
-                <div className="puzzle-preview-image relative row-span-2 aspect-square h-24 w-24 overflow-hidden rounded-xl shadow-md sm:row-span-1 sm:h-auto sm:w-full sm:rounded-2xl">
-                  <img src={scene.image} alt={`Completed picture preview: ${scene.alt}`} className="absolute inset-0 h-full w-full object-cover" />
-                  {hintSlot !== null && <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))` }}>
-                    {Array.from({ length: chapter.grid ** 2 }, (_, slot) => <span key={slot} className={`border border-white/60 ${slot === hintSlot ? 'z-10 rounded-sm bg-amber-300/35 ring-2 ring-inset ring-amber-500' : ''}`} />)}
-                  </div>}
-                </div>
-                <p className="puzzle-preview-skill m-0 rounded-xl bg-emerald-50 px-2 py-2 text-xs font-bold text-emerald-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-sm">{chapter.skill}</p>
-                <button type="button" onClick={hearPrompt} aria-label="Hear puzzle instructions again" className="puzzle-hear-button inline-flex min-h-12 w-full items-center justify-center gap-1 rounded-xl bg-sky-100 px-2 text-xs font-black text-sky-900 sm:mt-3 sm:gap-2 sm:px-3 sm:text-base"><Volume2 size={19} /> <span className="sm:hidden">Hear again</span><span className="hidden sm:inline">Hear instructions again</span></button>
-                <button type="button" onClick={showHint} disabled={!tray.length} className="puzzle-mobile-hint inline-flex min-h-12 items-center justify-center gap-1 rounded-xl bg-amber-100 px-2 text-xs font-black text-orange-800 sm:hidden"><Lightbulb size={18} />{showMappingDemo ? 'Show a piece mapping' : 'Hint'}</button>
-                <div className="puzzle-picture-progress col-span-2 mt-0 flex flex-wrap justify-center gap-2 sm:mt-3" aria-label="Chapter progress">
-                  {queue.map((entry, index) => <span key={entry.id} aria-label={`Picture ${index + 1}${savedProgress.completedSceneIds.includes(entry.id) ? ', completed before' : ''}`} className={`grid h-10 w-10 place-items-center rounded-full border-2 text-sm font-black ${index === sceneIndex ? 'border-orange-700 bg-orange-500 text-white' : savedProgress.completedSceneIds.includes(entry.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-800' : 'border-slate-300 bg-white text-slate-600'}`}>{index + 1}</span>)}
-                </div>
-              </aside>
-
-              <section className="puzzle-play-panel flex min-w-0 flex-col gap-3">
-                <div ref={feedbackRef} className="puzzle-play-feedback flex min-h-12 items-center justify-center gap-3 rounded-2xl bg-white/95 px-3 py-2 shadow">
-                  <p className="m-0 min-w-0 flex-1 text-center font-black text-orange-800" aria-live="polite">{message}</p>
-                  {selected && <span role="img" aria-label="Selected picture piece preview" className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border-2 border-orange-400 bg-white shadow-sm"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(selected.correctSlot, chapter.grid)} /></span>}
-                </div>
-                {phase === 'play' ? (
-                  <>
-                    <div className="puzzle-tray-panel rounded-3xl border-4 border-white bg-white/90 p-3 shadow-lg sm:p-4">
-                      <div className="puzzle-tray-heading mb-3 flex items-center justify-between gap-2">
-                        <p className="font-black text-slate-800">Picture pieces <span className="text-slate-500">({tray.length} left · {moves} moves)</span></p>
-                        <button type="button" onClick={showHint} disabled={!tray.length} className="puzzle-hint-button hidden min-h-12 sm:inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-4 font-black text-orange-800 disabled:opacity-50"><Lightbulb size={18} />{showMappingDemo ? 'Show a piece mapping' : 'Hint'}</button>
-                      </div>
-                      {tray.length > 10 && <p className="puzzle-tray-swipe-cue text-xs font-bold text-orange-900 sm:hidden">Swipe sideways for more pieces ↔</p>}
-                      <div className="puzzle-piece-tray grid gap-1.5 sm:gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(48px, 1fr))' }} role="group" aria-label="Picture piece tray">
-                        {tray.map((piece, trayIndex) => <button type="button" key={piece.id} ref={(element) => { trayPieceRefs.current[piece.id] = element; }} onPointerDown={(event) => beginPiecePointer(event, piece)} onPointerMove={movePiecePointer} onPointerUp={finishPiecePointer} onPointerCancel={(event) => finishPiecePointer(event, true)} onLostPointerCapture={(event) => finishPiecePointer(event, true)} onClick={(event) => choosePiece(piece, event)} aria-pressed={selected?.id === piece.id} aria-label={`Choose loose piece ${trayIndex + 1}`} className={`puzzle-tray-piece relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-xl border-2 bg-white shadow-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-orange-400 ${selected?.id === piece.id ? 'border-orange-600 ring-4 ring-orange-200' : 'border-white'}`}><span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(piece.correctSlot, chapter.grid)} /></span></button>)}
-                      </div>
-                      {showMappingDemo && <p className="text-center text-sm font-bold text-orange-900">Try a piece mapping: compare its highlighted preview square with the glowing board space.</p>}
-                    </div>
-
-                    <div ref={boardRef} role="grid" aria-label={`${chapter.grid} by ${chapter.grid} puzzle board`} className="puzzle-board order-first grid aspect-square w-full grid-cols-1 gap-1 self-center overflow-hidden rounded-3xl border-4 border-white bg-amber-50 p-1.5 shadow-xl" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))`, minWidth: `${chapter.grid * 48 + (chapter.grid - 1) * 4 + 20}px` }}>
-                      {Array.from({ length: chapter.grid }, (_, row) => (
-                        <div role="row" key={`row-${row}`} className="col-span-full grid min-h-0 min-w-0 gap-1" style={{ gridColumn: '1 / -1', gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))` }}>
-                          {placed.slice(row * chapter.grid, (row + 1) * chapter.grid).map((piece, column) => {
-                            const slotIndex = row * chapter.grid + column;
-                            return <div role="gridcell" key={`cell-${slotIndex}`} className="min-h-0 min-w-0">
-                              <button type="button" ref={(element) => { boardSlotRefs.current[slotIndex] = element; }} tabIndex={focusedSlot === slotIndex ? 0 : -1} onFocus={() => setFocusedSlot(slotIndex)} onKeyDown={(event) => {
-                                if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
-                                event.preventDefault();
-                                const target = movePuzzlePopBoardFocus(slotIndex, event.key, chapter.grid);
-                                if (target !== slotIndex) focusBoardSlot(target);
-                              }} data-puzzle-slot={slotIndex} onClick={(event) => placePiece(slotIndex, selected, event.detail === 0)} aria-label={`Puzzle space ${slotIndex + 1}, ${piece ? 'piece in place' : 'empty'}${hintSlot === slotIndex ? ', hint space' : ''}`} className={`relative h-full w-full min-h-12 min-w-12 overflow-hidden rounded-md border border-white/80 focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-400 ${wrongSlot === slotIndex ? 'animate-shake bg-rose-100' : piece ? 'bg-white' : hintSlot === slotIndex ? 'bg-yellow-200 ring-4 ring-yellow-400' : 'bg-emerald-50'}`}>
-                                {piece && <span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(slotIndex, chapter.grid)} /><span className="absolute inset-0 border border-white/15" /></span>}
-                                {!piece && hintSlot === slotIndex && <Lightbulb className="absolute inset-0 m-auto text-orange-600" aria-hidden="true" />}
-                                {piece && <Check className="absolute right-0.5 top-0.5 rounded-full bg-emerald-600 p-0.5 text-white" size={20} aria-hidden="true" />}
-                              </button>
-                            </div>;
-                          })}
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <section className="puzzle-completion-panel rounded-3xl border-4 border-emerald-200 bg-white p-4 text-center shadow-xl sm:p-6" aria-live="polite">
-                    <div className="puzzle-completed-picture-row">
-                      <img src={scene.image} alt={`Completed puzzle: ${scene.alt}`} className="puzzle-completed-picture" />
-                      <div><h2 ref={completionHeadingRef} tabIndex={-1} className="text-xl font-black text-emerald-900">{pendingSceneSave ? `${scene.title} is ready to save` : phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} complete!`}</h2>
-                      <p className="puzzle-completion-fact mt-2 rounded-2xl bg-emerald-50 p-4 text-left font-bold leading-relaxed text-emerald-950"><strong>Picture fact:</strong> {scene.fact}</p></div>
-                    </div>
-                    {pendingSceneSave && <div className="puzzle-save-notice" role="status" aria-live="polite">
-                      <p>The picture is complete, but its progress has not been saved yet.</p>
-                      <button type="button" onClick={(event) => confirmSceneSave(event.detail === 0)}>Retry saving this picture</button>
-                    </div>}
-                    {pendingStart && <div className="puzzle-save-notice" role="status" aria-live="polite">
-                      <p>The replay chapter could not be saved yet.</p>
-                      <button type="button" onClick={retryStartSave}>Retry saving to replay</button>
-                    </div>}
-                    {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <div className="puzzle-save-notice" role="status" aria-live="polite"><p>{rewardClaimError ? 'Your stars could not be saved yet.' : 'Saving your stars…'}</p>{rewardClaimError && <button type="button" onClick={retryPendingReward}>Retry saving stars</button>}</div>}
-                    <button type="button" onClick={() => speakPackagedBatch2Line(speak, puzzlePopNarration.completed(scene))} className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={19} /> Hear fact again</button>
-                    <div className="mt-4 flex flex-wrap justify-center gap-3">
-                      {sceneIndex + 1 < queue.length && <button type="button" disabled={!canAdvanceSavedScene} onClick={advanceScene} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Next picture <ArrowRight size={19} /></button>}
-                      {sceneIndex + 1 === queue.length && chapterIndex < PUZZLE_POP_CHAPTERS.length - 1 && <button type="button" disabled={!canAdvanceSavedScene} onClick={advanceScene} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Next chapter <ArrowRight size={19} /></button>}
-                      {sceneIndex + 1 === queue.length && chapterIndex === PUZZLE_POP_CHAPTERS.length - 1 && <button type="button" disabled={!canAdvanceSavedScene} onClick={() => setPhase('chapter-complete')} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white disabled:cursor-not-allowed disabled:opacity-50"><ArrowRight size={19} /> See chapter reward</button>}
-                      {phase === 'chapter-complete' && <button type="button" disabled={!canAdvanceSavedScene} onClick={replayChapter} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-sky-700 px-5 py-3 font-black text-white disabled:cursor-not-allowed disabled:opacity-50"><RotateCcw size={19} /> Replay pictures</button>}
-                    </div>
-                  </section>
-                )}
-              </section>
-            </>
-          )}
-        </main>
-      )}
-      {dragPreview && scene && (
-        <span aria-hidden="true" className="puzzle-drag-preview" style={{ left: dragPreview.x, top: dragPreview.y }}>
-          <img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(dragPreview.piece.correctSlot, chapter.grid)} />
-        </span>
-      )}
-    </div>
-  );
+          </div>
+        </section>
+      </> : scene && <>
+        <img src={scene.image} alt={`Completed puzzle: ${scene.alt}`} className="mx-auto mb-3 aspect-square w-[min(68vw,19rem)] rounded-xl object-cover" />
+        <p role="status" className="focus-game-message">{scene.fact}</p>
+        {saveNeedsRetry && <p role="alert" className="focus-game-message">{retryMessage}</p>}
+        {!canAdvanceSavedScene && !saveNeedsRetry && <p role="status">Saving your stars…</p>}
+        <div className="focus-game-actions">
+          {saveNeedsRetry ? <button type="button" className="focus-game-button is-primary" disabled={rewardDrainBusy} onClick={retry}>{retryLabel}</button>
+            : <button type="button" className="focus-game-button is-primary" disabled={!canAdvanceSavedScene} onClick={nextResult.handler}>{nextResult.label}</button>}
+          {canAdvanceSavedScene && soundOn && <button type="button" className="focus-game-button" onClick={() => speakPackagedBatch2Line(speak, puzzlePopNarration.completed(scene))}>Hear fact again</button>}
+          {canAdvanceSavedScene && <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>}
+        </div>
+      </>}
+    </main>
+    {dragPreview && scene && (
+      <span aria-hidden="true" className="puzzle-drag-preview" style={{ left: dragPreview.x, top: dragPreview.y }}>
+        <img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(dragPreview.piece.correctSlot, chapter.grid)} />
+      </span>
+    )}
+  </div>;
 };
 
 export default PuzzlePlay;

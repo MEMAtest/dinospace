@@ -129,41 +129,29 @@
   box-shadow: none;
 }
 
-.cosmic-mission-layout, .cosmic-free-layout {
+.cosmic-focused-play {
   display: grid;
+  grid-template-areas: "heading" "board" "tools";
   align-content: start;
-  align-items: start;
   gap: .5rem;
-  max-width: 36rem;
-  padding: .25rem .5rem 1rem;
+  width: min(100%, 36rem);
+  margin-inline: auto;
+  padding: .8rem .5rem 1rem;
 }
-.cosmic-board {
-  grid-area: board;
-}
-.cosmic-mission-layout {
-  grid-template-areas: "brief" "board" "review" "options";
-}
-.cosmic-mission-layout > section:first-child { grid-area: brief; }
-.cosmic-mission-layout > [aria-label="Tactic explained"],
-.cosmic-mission-layout > p[role="status"] { grid-area: review; }
-.cosmic-mission-layout > details { grid-area: options; }
-.cosmic-free-layout { grid-template-areas: "status" "board" "tools"; }
-.cosmic-match-status { grid-area: status; }
-.cosmic-match-tools { grid-area: tools; }
+.cosmic-focused-play .focus-game-heading { grid-area: heading; margin: 0; }
+.cosmic-focused-play .focus-game-heading h1 { font-size: clamp(1.35rem, 4vw, 2rem); }
+.cosmic-focused-play .cosmic-board { grid-area: board; background: #173961; border-radius: 1.5rem; }
+.cosmic-focused-tools { grid-area: tools; }
 @media (min-width: 900px) {
-  .cosmic-mission-layout, .cosmic-free-layout {
+  .cosmic-focused-play {
     grid-template-columns: minmax(0, 38rem) minmax(19rem, 1fr);
-    grid-template-rows: auto auto 1fr;
-    gap: .75rem;
-    max-width: 68rem;
-    padding: .5rem 1rem 1.5rem;
-  }
-  .cosmic-mission-layout { grid-template-areas: "board brief" "board review" "board options"; }
-  .cosmic-free-layout {
-    grid-template-areas: "board status" "board tools";
+    grid-template-areas: "board heading" "board tools";
     grid-template-rows: auto 1fr;
+    gap: 1rem;
+    width: min(100%, 68rem);
+    padding: 1rem;
   }
-  .cosmic-board { max-width: min(38rem, max(24rem, calc(100dvh - 5rem))); }
+  .cosmic-focused-play .cosmic-board { max-width: min(38rem, max(24rem, calc(100dvh - 5rem))); }
 }
 
 /* A focused game presents the task and its next action before secondary tools. */
