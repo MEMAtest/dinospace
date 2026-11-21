@@ -1,0 +1,815 @@
+{
+  "release": {
+    "runtime": "dd142c3f6117557ac763f897bd3ae8ccc903da6c",
+    "entry": "/assets/arcade-Pl6-oSxA.js",
+    "worker": "amari-discovery-v109",
+    "backendUrl": "https://dinospace-ioryi3fwa-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_GLp3tVTuCTjgbaxS8zmPbjKja1gq",
+    "gatewayDeployment": "6b021b864caf97dea8ea06cb",
+    "evidence": "docs/qa-evidence/writing-ladder-focus-20261121/README.md",
+    "scope": "My Writing Desk gives the document a large white writing area and one action for the next project step. Ladder Rescue uses the screen for the building and windows, then shows one way to continue after each rescue."
+  },
+  "live": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "bounds": {
+        "x": 22.578125,
+        "y": 263.015625,
+        "width": 344.84375,
+        "height": 296
+      },
+      "rescueBounds": {
+        "x": 12,
+        "y": 130.59375,
+        "width": 366,
+        "height": 457.5
+      },
+      "animals": [
+        "You rescued the kitten from floor 1.",
+        "You rescued the puppy from floor 2.",
+        "You rescued the bunny from floor 3.",
+        "You rescued the chick from floor 1.",
+        "You rescued the panda from floor 2."
+      ],
+      "checks": [
+        {
+          "label": "Writing Desk project selection",
+          "buttons": [
+            "Start: Space postcard",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Writing Desk empty page",
+          "buttons": [
+            "Add a heading",
+            "Options",
+            "All projects"
+          ]
+        },
+        {
+          "label": "Planet picker",
+          "buttons": [
+            "Add Earth picture",
+            "Back to writing"
+          ]
+        },
+        {
+          "label": "Writing Desk reopened draft",
+          "buttons": [
+            "Export Word file",
+            "Options",
+            "All projects"
+          ]
+        },
+        {
+          "label": "Writing project complete",
+          "buttons": [
+            "Next project",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Ladder start",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Ladder play 1",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the kitten"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 1",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 2",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aTap floor2"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 2",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 3",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the bunny"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 3",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 4",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aTap floor1"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 4",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 5",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the panda"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 5",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Ladder saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "bounds": {
+        "x": 232.1875,
+        "y": 239.859375,
+        "width": 975.625,
+        "height": 360
+      },
+      "rescueBounds": {
+        "x": 464,
+        "y": 130.59375,
+        "width": 512,
+        "height": 640
+      },
+      "animals": [
+        "You rescued the kitten from floor 1.",
+        "You rescued the puppy from floor 2.",
+        "You rescued the bunny from floor 3.",
+        "You rescued the chick from floor 1.",
+        "You rescued the panda from floor 2."
+      ],
+      "checks": [
+        {
+          "label": "Writing Desk project selection",
+          "buttons": [
+            "Start: Space postcard",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Writing Desk empty page",
+          "buttons": [
+            "Add a heading",
+            "Options",
+            "All projects"
+          ]
+        },
+        {
+          "label": "Planet picker",
+          "buttons": [
+            "Add Earth picture",
+            "Back to writing"
+          ]
+        },
+        {
+          "label": "Writing Desk reopened draft",
+          "buttons": [
+            "Export Word file",
+            "Options",
+            "All projects"
+          ]
+        },
+        {
+          "label": "Writing project complete",
+          "buttons": [
+            "Next project",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Ladder start",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Ladder play 1",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the kitten"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 1",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 2",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aTap floor2"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 2",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 3",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the bunny"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 3",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 4",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aTap floor1"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 4",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 5",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the panda"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 5",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Ladder saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        }
+      ]
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "bounds": {
+        "x": 22.578125,
+        "y": 263.015625,
+        "width": 344.84375,
+        "height": 296
+      },
+      "rescueBounds": {
+        "x": 12,
+        "y": 130.59375,
+        "width": 366,
+        "height": 457.5
+      },
+      "animals": [
+        "You rescued the kitten from floor 1.",
+        "You rescued the puppy from floor 2.",
+        "You rescued the bunny from floor 3.",
+        "You rescued the chick from floor 1.",
+        "You rescued the panda from floor 2."
+      ],
+      "checks": [
+        {
+          "label": "Writing Desk project selection",
+          "buttons": [
+            "Start: Space postcard",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Writing Desk empty page",
+          "buttons": [
+            "Add a heading",
+            "Options",
+            "All projects"
+          ]
+        },
+        {
+          "label": "Planet picker",
+          "buttons": [
+            "Add Earth picture",
+            "Back to writing"
+          ]
+        },
+        {
+          "label": "Writing Desk reopened draft",
+          "buttons": [
+            "Export Word file",
+            "Options",
+            "All projects"
+          ]
+        },
+        {
+          "label": "Writing project complete",
+          "buttons": [
+            "Next project",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Ladder start",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Ladder play 1",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the kitten"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 1",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 2",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aTap floor2"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 2",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 3",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the bunny"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 3",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 4",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aTap floor1"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 4",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 5",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the panda"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 5",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Ladder saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "bounds": {
+        "x": 232.1875,
+        "y": 239.859375,
+        "width": 975.625,
+        "height": 360
+      },
+      "rescueBounds": {
+        "x": 464,
+        "y": 130.59375,
+        "width": 512,
+        "height": 640
+      },
+      "animals": [
+        "You rescued the kitten from floor 1.",
+        "You rescued the puppy from floor 2.",
+        "You rescued the bunny from floor 3.",
+        "You rescued the chick from floor 1.",
+        "You rescued the panda from floor 2."
+      ],
+      "checks": [
+        {
+          "label": "Writing Desk project selection",
+          "buttons": [
+            "Start: Space postcard",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Writing Desk empty page",
+          "buttons": [
+            "Add a heading",
+            "Options",
+            "All projects"
+          ]
+        },
+        {
+          "label": "Planet picker",
+          "buttons": [
+            "Add Earth picture",
+            "Back to writing"
+          ]
+        },
+        {
+          "label": "Writing Desk reopened draft",
+          "buttons": [
+            "Export Word file",
+            "Options",
+            "All projects"
+          ]
+        },
+        {
+          "label": "Writing project complete",
+          "buttons": [
+            "Next project",
+            "Options",
+            "Back"
+          ]
+        },
+        {
+          "label": "Ladder start",
+          "buttons": [
+            "Options",
+            "Play level 3"
+          ]
+        },
+        {
+          "label": "Ladder play 1",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the kitten"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 1",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 2",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aTap floor2"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 2",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 3",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the bunny"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 3",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 4",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aTap floor1"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 4",
+          "buttons": [
+            "Options",
+            "Next round"
+          ]
+        },
+        {
+          "label": "Ladder play 5",
+          "buttons": [
+            "Options",
+            "\ud83d\udd0aFind the panda"
+          ]
+        },
+        {
+          "label": "Ladder held rescue 5",
+          "buttons": [
+            "Options",
+            "Finish game"
+          ]
+        },
+        {
+          "label": "Ladder saved level",
+          "buttons": [
+            "Options",
+            "",
+            ""
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Select level",
+            "Back"
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-ioryi3fwa-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1435,
+          "sha256": "ec5fb979640a424c6126d44234006c300171b6359ee63bcbdbcafc9dce9a679f"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1435,
+          "sha256": "ec5fb979640a424c6126d44234006c300171b6359ee63bcbdbcafc9dce9a679f"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16453,
+          "sha256": "b40b058343f9877988c20fc63ffac7b7f1f68ccec60b96000bba105d8f488e38"
+        },
+        {
+          "path": "/art/catalog-v3/game-writingdesk.webp",
+          "bytes": 58256,
+          "sha256": "98ff6507c00a0f8f16623d19a6bc4bf3d2cd32ecdf7b7c8dc155a0715ee4ebe0"
+        },
+        {
+          "path": "/art/catalog-v3/game-ladder.webp",
+          "bytes": 82216,
+          "sha256": "a61f96fb698f6f3973850f8ff5f4b1d15bb262544fc0d4ad5c638ca91f4465ad"
+        },
+        {
+          "path": "/assets/arcade-Pl6-oSxA.js",
+          "bytes": 2017968,
+          "sha256": "2389043249ee31e41c4f5906a03be85ccf7fab6d5eba8a6624496b02be1f9f7c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BrppvQu_.css",
+          "bytes": 39963,
+          "sha256": "407df8babc67147f6c88d306abedad4ffb6237076ada9c6399f7b1b3a51c7d29"
+        },
+        {
+          "path": "/assets/arcade-CvEjLqDX.css",
+          "bytes": 244607,
+          "sha256": "6d9888f68dc6dba78733c3c4760c8b89281824bfe4a9c8fe93d1f49ad228e959"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b021b6eaa4c692b400229e4--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1435,
+          "sha256": "ec5fb979640a424c6126d44234006c300171b6359ee63bcbdbcafc9dce9a679f"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1435,
+          "sha256": "ec5fb979640a424c6126d44234006c300171b6359ee63bcbdbcafc9dce9a679f"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16453,
+          "sha256": "b40b058343f9877988c20fc63ffac7b7f1f68ccec60b96000bba105d8f488e38"
+        },
+        {
+          "path": "/art/catalog-v3/game-writingdesk.webp",
+          "bytes": 58256,
+          "sha256": "98ff6507c00a0f8f16623d19a6bc4bf3d2cd32ecdf7b7c8dc155a0715ee4ebe0"
+        },
+        {
+          "path": "/art/catalog-v3/game-ladder.webp",
+          "bytes": 82216,
+          "sha256": "a61f96fb698f6f3973850f8ff5f4b1d15bb262544fc0d4ad5c638ca91f4465ad"
+        },
+        {
+          "path": "/assets/arcade-Pl6-oSxA.js",
+          "bytes": 2017968,
+          "sha256": "2389043249ee31e41c4f5906a03be85ccf7fab6d5eba8a6624496b02be1f9f7c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BrppvQu_.css",
+          "bytes": 39963,
+          "sha256": "407df8babc67147f6c88d306abedad4ffb6237076ada9c6399f7b1b3a51c7d29"
+        },
+        {
+          "path": "/assets/arcade-CvEjLqDX.css",
+          "bytes": 244607,
+          "sha256": "6d9888f68dc6dba78733c3c4760c8b89281824bfe4a9c8fe93d1f49ad228e959"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1435,
+          "sha256": "ec5fb979640a424c6126d44234006c300171b6359ee63bcbdbcafc9dce9a679f"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1435,
+          "sha256": "ec5fb979640a424c6126d44234006c300171b6359ee63bcbdbcafc9dce9a679f"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16453,
+          "sha256": "b40b058343f9877988c20fc63ffac7b7f1f68ccec60b96000bba105d8f488e38"
+        },
+        {
+          "path": "/art/catalog-v3/game-writingdesk.webp",
+          "bytes": 58256,
+          "sha256": "98ff6507c00a0f8f16623d19a6bc4bf3d2cd32ecdf7b7c8dc155a0715ee4ebe0"
+        },
+        {
+          "path": "/art/catalog-v3/game-ladder.webp",
+          "bytes": 82216,
+          "sha256": "a61f96fb698f6f3973850f8ff5f4b1d15bb262544fc0d4ad5c638ca91f4465ad"
+        },
+        {
+          "path": "/assets/arcade-Pl6-oSxA.js",
+          "bytes": 2017968,
+          "sha256": "2389043249ee31e41c4f5906a03be85ccf7fab6d5eba8a6624496b02be1f9f7c"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BrppvQu_.css",
+          "bytes": 39963,
+          "sha256": "407df8babc67147f6c88d306abedad4ffb6237076ada9c6399f7b1b3a51c7d29"
+        },
+        {
+          "path": "/assets/arcade-CvEjLqDX.css",
+          "bytes": 244607,
+          "sha256": "6d9888f68dc6dba78733c3c4760c8b89281824bfe4a9c8fe93d1f49ad228e959"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 2,
+        "sha256": "519711d1e83a1f76e8df55619ca9fd5bc82993dc1edf6ed6e80d50800cb49500"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 771
+}
