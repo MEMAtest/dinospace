@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
-import { ArrowRight, Check, Eye, Home, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { spotDifferenceNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
 import {
@@ -123,6 +123,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
   const progress = progressState.ok ? progressState.progress : getSpotDifferenceProgress(playerId);
   const [chapterIndex, setChapterIndex] = useState(() => progress.unlockedChapter);
   const [phase, setPhase] = useState('intro');
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [seed, setSeed] = useState(0);
   const [queue, setQueue] = useState([]);
   const [sceneIndex, setSceneIndex] = useState(0);
@@ -266,6 +267,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     const latest = refreshProgress();
     const available = latest.ok ? latest.progress : progress;
     if (targetIndex > available.unlockedChapter) return;
+    setOptionsOpen(false);
     const nextSeed = seedNow();
     const { queue: nextQueue, startIndex } = planSpotDifferenceChapter(targetIndex, nextSeed, available);
     setChapterIndex(targetIndex);
@@ -394,33 +396,48 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     onBack?.();
   };
 
-  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-indigo-50 via-sky-50 to-indigo-100 text-slate-900">
-    <header className="sticky top-0 z-20 flex items-center justify-between gap-2 bg-indigo-50/90 px-3 py-2 backdrop-blur sm:px-5 sm:py-3">
-      <button type="button" onClick={leave} className="game-icon-button" aria-label="Back to learning world"><Home /></button>
-      <div className="min-w-0 text-center"><h1 className="text-xl font-black text-indigo-700 sm:text-3xl">Spot the Difference</h1>{scene && phase !== 'intro' && <p data-spot-progress className="text-xs font-bold leading-tight text-indigo-600 sm:text-sm">{chapter.name} · Pair {sceneIndex + 1} of 4 · {found.length}/{scene.differences.length}</p>}</div>
-      <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-    </header>
+  const inPlay = phase === 'play' && scene;
+  const nextIndex = nextSpotChapterIndex(chapterIndex, SPOT_DIFFERENCE_CHAPTERS.length);
+  const hintLabel = hintCount < chapter.hintTokens ? 'Show a hint' : 'Show me a change';
+  const closeOptions = () => setOptionsOpen(false);
+  const options = [
+    ...(phase === 'intro' ? SPOT_DIFFERENCE_CHAPTERS.map((entry, index) => ({
+      label: entry.name,
+      description: `Find ${entry.differenceCount} changes in each picture pair.`,
+      button: 'Play chapter',
+      disabled: index > progress.unlockedChapter,
+      action: () => startChapter(index),
+    })) : []),
+    ...(inPlay ? [
+      { label: hintLabel, description: hintCount < chapter.hintTokens ? `${chapter.hintTokens - hintCount} hints left before the game can show you a change.` : 'See a marked change and choose whether to count it.', action: () => { closeOptions(); showHint(); } },
+      ...(soundOn ? [{ label: 'Hear the clue', action: () => { closeOptions(); speakPackagedBatch2Line(speak, spotDifferenceNarration.prompt(scene)); } }] : []),
+    ] : []),
+    ...(phase === 'chapter-complete' ? [{ label: 'Replay chapter', action: () => startChapter() }] : []),
+    ...(scene && !inPlay && phase !== 'intro' && soundOn ? [{ label: 'Hear the fact', action: () => { closeOptions(); speakPackagedBatch2Line(speak, spotDifferenceNarration.completed(scene)); } }] : []),
+    ...(claimError ? [{ label: 'Retry saved chapter reward', disabled: claimBusy, action: () => { closeOptions(); void retryPendingClaims(); } }] : []),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { closeOptions(); onToggleSound?.(); } },
+    { label: 'Back to Thinking & Play', action: leave },
+  ];
 
-    {phase === 'intro' ? <main className="mx-auto max-w-3xl px-3 py-2 sm:px-4 sm:py-5"><section className="rounded-3xl border-4 border-white bg-white/90 p-3 text-center shadow-xl sm:p-7">
-      <div className="flex items-center justify-center gap-3 text-left"><img src="/art/catalog-v3/game-spot.webp" alt="" aria-hidden="true" className="h-20 w-24 shrink-0 object-contain sm:h-24 sm:w-28" /><h2 className="text-xl font-black text-indigo-800 sm:text-2xl">Twelve picture pairs. Three chapters.</h2></div><p className="mt-1 text-sm font-bold text-slate-700 sm:mt-2 sm:text-base">Find the changes in four picture pairs. Use a hint or choose Show me a change if you get stuck.</p><p className="mt-2 rounded-2xl bg-indigo-50 px-3 py-2 text-sm font-bold text-indigo-900 sm:px-4 sm:py-3"><strong>Compare: </strong>Look at the top, middle, then bottom of Picture A and Picture B.</p>
-      {!progressState.ok && <p role="status" className="mt-2 rounded-xl bg-amber-50 p-3 text-sm font-bold text-amber-950">Saved progress is unavailable. You can still practise. Retry saving on the picture fact screen.</p>}
-      {claimError && <div className="mt-2 rounded-xl bg-amber-50 p-3 text-sm font-bold text-amber-950"><p role="alert">{claimError}</p><button type="button" disabled={claimBusy} onClick={retryPendingClaims} className="mt-2 inline-flex min-h-12 items-center rounded-lg bg-amber-700 px-4 font-black text-white disabled:opacity-60">{claimBusy ? 'Retrying…' : 'Retry saved chapter reward'}</button></div>}
-      <div className="mt-3 rounded-2xl border-2 border-indigo-200 bg-indigo-50/70 p-3 text-left" aria-live="polite"><p className="text-xs font-black uppercase tracking-wide text-indigo-700">Selected chapter · {chapterIndex + 1} of {SPOT_DIFFERENCE_CHAPTERS.length}</p><p className="mt-1 text-lg font-black text-indigo-950">{chapter.name}</p><p className="text-sm font-bold text-indigo-900">Find {chapter.differenceCount} changes · {completedCount}/4 pairs saved</p></div>
-      <button type="button" onClick={() => startChapter()} className="mt-3 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-lg font-black text-white sm:w-auto sm:px-7"><Eye /> {completedCount === 4 ? 'Replay chapter' : completedCount ? 'Continue chapter' : `Start ${chapter.name}`}</button>
-      <details className="mt-2 rounded-2xl border border-sky-200 bg-white text-left"><summary className="flex min-h-12 cursor-pointer items-center justify-center px-3 text-sm font-black text-indigo-800">Choose another chapter</summary><div className="grid gap-2 p-2 sm:grid-cols-3">{SPOT_DIFFERENCE_CHAPTERS.map((entry, index) => { const unlocked = index <= progress.unlockedChapter; const count = SPOT_DIFFERENCE_SCENES.filter((item) => item.chapterIndex === index && progress.completedSceneIds.includes(item.id)).length; return <button type="button" key={entry.id} disabled={!unlocked} onClick={() => setChapterIndex(index)} aria-pressed={index === chapterIndex} className={`min-h-12 rounded-xl border-2 p-2 text-left text-sm font-black ${chapterIndex === index ? 'border-indigo-600 bg-indigo-100 text-indigo-900' : unlocked ? 'border-sky-300 bg-white text-slate-800' : 'border-slate-200 bg-slate-100 text-slate-400'}`}><span className="block">{index + 1}. {entry.name}</span><span className="mt-1 block text-xs">Find {entry.differenceCount} changes · {count}/4 pairs {unlocked ? '' : '· Locked'}</span></button>; })}</div></details>
-    </section></main> : <main className="mx-auto max-w-7xl px-2 pb-4 pt-2 sm:px-5 sm:pb-8 sm:pt-3">
-      {scene && <>
-        <p className="mb-2 min-h-10 rounded-xl bg-white/95 px-2 py-1.5 text-center text-sm font-black leading-tight text-indigo-800 shadow sm:mb-3 sm:min-h-12 sm:rounded-2xl sm:px-4 sm:py-3 sm:text-base" aria-live="polite">{feedback}</p>
-        {saveError && completionSaveState === 'idle' && <p role="status" className="mb-2 rounded-xl bg-amber-50 p-2 text-center text-xs font-bold text-amber-950">{saveError}</p>}
-        {phase === 'play' ? <>
-          <section className="mb-2 flex flex-wrap items-center justify-between gap-1 rounded-xl bg-white/90 p-2 shadow sm:mb-3 sm:gap-2 sm:rounded-2xl sm:p-3"><p className="min-w-0 basis-full text-sm font-black leading-tight sm:flex-1 sm:text-base">{scene.title} <span className="text-slate-600">· {found.length}/{scene.differences.length}</span></p><div className="flex shrink-0 gap-1 sm:gap-2"><button type="button" onClick={() => { speakPackagedBatch2Line(speak, spotDifferenceNarration.prompt(scene)); playSfx('click'); }} className="inline-flex min-h-12 items-center gap-1 rounded-full bg-sky-100 px-2 text-sm font-black sm:gap-2 sm:px-4 sm:text-base text-sky-900"><Volume2 size={18} /> Hear clue</button><button type="button" onClick={showHint} className="inline-flex min-h-12 items-center gap-1 rounded-full bg-amber-100 px-2 text-sm font-black text-amber-900 sm:gap-2 sm:px-4 sm:text-base"><Lightbulb size={18} /> {hintCount < chapter.hintTokens ? `Hint · ${chapter.hintTokens - hintCount} left` : 'Show me a change'}</button></div></section>
-          <div className="mb-2 grid grid-cols-2 gap-2 sm:hidden" role="group" aria-label="Choose picture to compare"><button type="button" aria-pressed={mobilePicture === 'A'} onClick={() => setMobilePicture('A')} className={`min-h-12 rounded-xl border-2 px-3 font-black ${mobilePicture === 'A' ? 'border-indigo-700 bg-indigo-100 text-indigo-950' : 'border-white bg-white/80 text-indigo-800'}`}>Picture A · Compare</button><button type="button" aria-pressed={mobilePicture === 'B'} onClick={() => setMobilePicture('B')} className={`min-h-12 rounded-xl border-2 px-3 font-black ${mobilePicture === 'B' ? 'border-indigo-700 bg-indigo-100 text-indigo-950' : 'border-white bg-white/80 text-indigo-800'}`}>Picture B · Find changes</button></div>
-          {answer && <div className="mb-2 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-amber-300 bg-amber-50 p-2 text-sm text-amber-950" aria-live="polite">
-            <p className="min-w-40 flex-1 font-bold">Look at the yellow circle in Picture B. You can see that {answer.label}.</p>
-            <button type="button" onClick={() => handleFind(answer)} className="min-h-12 rounded-lg bg-amber-700 px-3 font-black text-white">Mark this change</button>
-          </div>}
-          <div className="grid grid-cols-1 gap-2 sm:gap-4 lg:mx-auto lg:max-w-4xl lg:grid-cols-2">
-            {[false, true].map((changed) => <section key={String(changed)} role="tabpanel" aria-label={`Picture ${changed ? 'B' : 'A'}${changed ? ' · Find changes here' : ' · Compare'}`} className={`${(changed ? 'B' : 'A') === mobilePicture ? '' : 'hidden'} min-w-0 rounded-2xl border-2 border-white bg-white p-1.5 shadow-lg sm:block sm:rounded-3xl sm:border-4 sm:p-3 sm:shadow-xl`}><h2 className="mb-1 text-center text-xs font-black leading-tight text-indigo-800 sm:mb-2 sm:text-lg">Picture {changed ? 'B · Find changes here' : 'A · Compare'}</h2><div ref={changed ? pictureBRef : undefined} className="relative w-full overflow-hidden rounded-xl bg-sky-100 sm:rounded-2xl" style={{ aspectRatio: scene.aspectRatio || 4 / 3 }}><img src={changed && scene.imageB && !scene.editRegions ? scene.imageB : scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
+  return <div className="focus-game spot-focused" data-board-focus="">
+    <main className={`focus-game-body${inPlay && !optionsOpen ? '' : ' is-menu'}`}>
+      <header className="focus-game-heading">
+        {inPlay && !optionsOpen && <p data-spot-progress>{chapter.name} · Pair {sceneIndex + 1} of 4 · {found.length}/{scene.differences.length} changes</p>}
+        <h1>{inPlay && !optionsOpen ? scene.title : 'Spot the Difference'}</h1>
+      </header>
+      {optionsOpen ? <FocusMenu key={phase} choices={options} onBack={closeOptions} /> : <>
+      {phase === 'intro' ? <>
+        <p className="focus-game-message">Compare the pictures. Tap a change in Picture B.</p>
+        {!progressState.ok && <p role="status" className="focus-game-message">Saved progress is unavailable. You can still practise.</p>}
+        {claimError && <p role="alert" className="focus-game-message">{claimError}</p>}
+        <div className="focus-game-actions">
+          <button type="button" className="focus-game-button is-primary" onClick={() => startChapter()}>{completedCount === 4 ? `Replay: ${chapter.name}` : completedCount ? `Continue: ${chapter.name}` : `Start: ${chapter.name}`}</button>
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={leave}>Back</button>
+        </div>
+      </> : scene && (inPlay ? <>
+          <div className="spot-focus-pictures grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
+            {[false, true].map((changed) => <section key={String(changed)} role="tabpanel" aria-label={`Picture ${changed ? 'B' : 'A'}${changed ? ' · Find changes here' : ' · Compare'}`} className={`${(changed ? 'B' : 'A') === mobilePicture ? '' : 'hidden'} min-w-0 rounded-xl border border-indigo-200 bg-white p-1.5 sm:block`}><h2 className="mb-1 text-center text-sm font-black leading-tight text-indigo-800">Picture {changed ? 'B · Find changes here' : 'A · Compare'}</h2><div ref={changed ? pictureBRef : undefined} className="relative w-full overflow-hidden rounded-xl bg-sky-100 sm:rounded-2xl" style={{ aspectRatio: scene.aspectRatio || 4 / 3 }}><img src={changed && scene.imageB && !scene.editRegions ? scene.imageB : scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
               {changed && scene.editRegions && <SceneEditLayer scene={scene} />}
               {changed && scene.colorEdits && <SceneColorEditLayer scene={scene} />}
               {scene.differences.map((difference) => { const visible = changed ? difference.visual : difference.normalVisual; const done = found.includes(difference.id); const bespoke = visible.startsWith('prop:'); if (changed && done) return <span key={difference.id} aria-label="Found difference" className="pointer-events-none absolute z-10 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-emerald-100/95 ring-4 ring-emerald-500" style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><Check className="text-emerald-800" /></span>; if (scene.pairedArt) return null; return <span key={difference.id} aria-hidden="true" className={`pointer-events-none absolute z-[1] grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full ${bespoke ? '' : 'bg-white/90 shadow'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><DifferenceVisual type={visible} /></span>; })}
@@ -428,32 +445,35 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
               {changed && scene.differences.map((difference) => !found.includes(difference.id) && <button key={`hot-${difference.id}`} type="button" onClick={(event) => inspectHotspot(event, difference)} aria-label={`Check ${difference.x < 35 ? 'left' : difference.x > 65 ? 'right' : 'middle'} ${difference.y < 35 ? 'top' : difference.y > 65 ? 'bottom' : 'middle'} detail`} className={`absolute z-20 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 focus-visible:border-indigo-600 focus-visible:bg-indigo-200/40 focus-visible:outline-none ${hintTarget === difference.id ? 'rounded-full border-amber-700 bg-amber-200/40 ring-4 ring-inset ring-yellow-300' : 'border-transparent bg-transparent'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }} />)}
             </div></section>)}
           </div>
-          <div className="mt-2 flex flex-wrap justify-center gap-1.5 sm:mt-4 sm:gap-2" aria-label="Changes found">{scene.differences.map((entry, index) => <span key={entry.id} className={`grid h-9 w-9 place-items-center rounded-full border-2 text-sm font-black sm:h-11 sm:w-11 sm:text-base ${found.includes(entry.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-800' : 'border-slate-300 bg-white text-slate-500'}`} aria-label={`Change ${index + 1}${found.includes(entry.id) ? ', found' : ', not found'}`}>{found.includes(entry.id) ? <Check size={19} /> : index + 1}</span>)}</div>
-        </> : <section className="mx-auto max-w-3xl rounded-3xl border-4 border-emerald-200 bg-white p-4 text-center shadow-xl sm:p-5">
-          <p className="text-4xl" aria-hidden="true">🏆</p>
-          <h2 ref={resultHeadingRef} tabIndex={-1} className="mt-1 text-xl font-black text-emerald-900 sm:text-2xl">{phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} pair complete!`}</h2>
-          <p className="mt-2 rounded-2xl bg-emerald-50 p-3 text-left text-sm font-bold leading-relaxed sm:text-base"><strong>Picture fact:</strong> {scene.fact}</p>
-          <div className="mt-3 flex flex-wrap justify-center gap-2">
-            {phase === 'scene-complete' && completionSaveState === 'saved' && <button type="button" onClick={nextScene} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white">{atLastPair ? 'Finish remaining pairs' : 'Next picture'} <ArrowRight size={18} /></button>}
-            {phase === 'chapter-complete' && chapterIndex < SPOT_DIFFERENCE_CHAPTERS.length - 1 && <button type="button" onClick={() => { setChapterIndex(nextSpotChapterIndex(chapterIndex, SPOT_DIFFERENCE_CHAPTERS.length)); setPhase('intro'); }} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white">Next chapter <ArrowRight size={18} /></button>}
-            {phase === 'chapter-complete' && <button type="button" onClick={() => startChapter()} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-700 px-5 py-3 font-black text-white"><RotateCcw size={18} /> Replay chapter</button>}
-            <button type="button" onClick={() => speakPackagedBatch2Line(speak, spotDifferenceNarration.completed(scene))} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={19} /> Hear fact again</button>
+          <p className="focus-game-message" aria-live="polite">{feedback}</p>
+          {saveError && completionSaveState === 'idle' && <p role="status" className="focus-game-message">{saveError}</p>}
+          {answer && <p aria-live="polite" className="focus-game-message">Look for the yellow circle. You can see that {answer.label}.</p>}
+          <div className="focus-game-actions">
+            {answer && <button type="button" className="focus-game-button is-primary" onClick={() => handleFind(answer)}>Mark this change</button>}
+            <button type="button" className="focus-game-button sm:hidden" onClick={() => setMobilePicture(picture => picture === 'B' ? 'A' : 'B')}>{mobilePicture === 'B' ? 'Compare Picture A' : 'Find changes in Picture B'}</button>
+            <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
           </div>
-          {completionSaveState === 'saving' && <p role="status" className="mt-2 text-sm font-bold text-indigo-800">Saving this picture pair…</p>}
-          {saveError && <div className="mt-2 rounded-xl bg-amber-50 p-3 text-sm font-bold text-amber-950">
-            <p role="alert">{saveError}</p>
-            <div className="mt-2 flex flex-wrap justify-center gap-2">
-              <button type="button" onClick={() => saveCompletedScene(pendingSceneRef.current)} className="min-h-12 rounded-lg bg-amber-700 px-4 font-black text-white">Retry save</button>
-              <button type="button" onClick={nextScene} className="min-h-12 rounded-lg border border-amber-700 px-4 font-black">{atLastPair ? 'Back to chapter' : 'Keep playing without saving'}</button>
-            </div>
-          </div>}
-          {claimError && <div className="mt-2 rounded-xl bg-amber-50 p-3 text-sm font-bold text-amber-950">
-            <p role="alert">{claimError}</p>
-            <button type="button" disabled={claimBusy} onClick={retryPendingClaims} className="mt-2 min-h-12 rounded-lg bg-amber-700 px-4 font-black text-white disabled:opacity-60">{claimBusy ? 'Retrying…' : 'Retry saved chapter reward'}</button>
-          </div>}
-        </section>}
+      </> : <>
+        <h2 ref={resultHeadingRef} tabIndex={-1} className="text-xl font-black text-emerald-900">{phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} pair complete!`}</h2>
+        <p className="pattern-focus-explanation">{scene.fact}</p>
+        {completionSaveState === 'saving' && <p role="status" className="focus-game-message">Saving this picture pair…</p>}
+        {saveError && <p role="alert" className="focus-game-message">{saveError}</p>}
+        {claimError && <p role="alert" className="focus-game-message">{claimError}</p>}
+        <div className="focus-game-actions">
+          {saveError ? <>
+            <button type="button" className="focus-game-button is-primary" onClick={() => saveCompletedScene(pendingSceneRef.current)}>Retry save</button>
+            <button type="button" className="focus-game-button" onClick={nextScene}>{atLastPair ? 'Back to chapter' : 'Keep playing without saving'}</button>
+          </> : <>
+            {phase === 'scene-complete' && completionSaveState === 'saved' && <button type="button" className="focus-game-button is-primary" onClick={nextScene}>{atLastPair ? 'Finish remaining pairs' : 'Next picture'}</button>}
+            {phase === 'chapter-complete' && (chapterIndex < SPOT_DIFFERENCE_CHAPTERS.length - 1
+              ? <button type="button" className="focus-game-button is-primary" onClick={() => startChapter(nextIndex)}>Next: {SPOT_DIFFERENCE_CHAPTERS[nextIndex].name}</button>
+              : <button type="button" className="focus-game-button is-primary" onClick={leave}>Finish</button>)}
+          </>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+        </div>
+      </>)}
       </>}
-    </main>}
+    </main>
   </div>;
 };
 

@@ -262,3 +262,24 @@
   .odd-focus-pictures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .odd-focus-reasons { grid-template-columns: minmax(0, 1fr); }
 }
+
+.spot-focused { background: #eef4fc; }
+.spot-focused .focus-game-body:not(.is-menu) { width: min(100%, 73rem); padding: clamp(.5rem, 2vw, 1.25rem); }
+.spot-focused .spot-focus-pictures + .focus-game-message { min-height: 1.5em; }
+
+.little-focus-header {
+  z-index: 30;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  max-width: 72rem;
+  width: 100%;
+  margin-inline: auto;
+  padding: .3rem .75rem;
+  color: #152945;
+}
+.little-focus-header h1 { flex: 1; font-size: clamp(1.2rem, 4vw, 2rem); font-weight: 850; }
+.little-focus-header p { font-weight: 750; }
+.little-focus-header button { flex: 0 0 auto; }
+.little-focus-start.focus-game-button { flex: 0 0 auto; width: min(100%, 21rem); }

@@ -8,6 +8,7 @@ import {
   activePairLevelAfterResult, commitPairLittleResult, getPairLittleStorage, getPendingPairLittleRewardReceipts, markPairLittleRewardReceiptClaimed, pairRunActionLabel, readPairLittleProgress,
 } from '../../data/pairLittleProgress.js';
 import { rewardClaimToken } from '../../data/playerRewards.js';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { RewardSticker } from '../shared/StickerArt.jsx';
 import { artUrl } from './littleArt.js';
 
@@ -114,6 +115,7 @@ const LittleGameShell = ({
   pairSafeProgress = false,
   compactStart = false,
   compactDone = false,
+  focusedControls = false,
   manualNext = false,
   manualNextPrompt = 'Great counting! Ready for the next rocket?',
   manualNextReviewLabel = 'Fuel count review',
@@ -137,6 +139,7 @@ const LittleGameShell = ({
   const config = levels[level];
   const rounds = levelRounds(gameId, config);
   const [phase, setPhase] = useState('start');
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [round, setRound] = useState(0);
   const [playId, setPlayId] = useState(0);
   const [playOrdinal, setPlayOrdinal] = useState(0);
@@ -436,10 +439,24 @@ const LittleGameShell = ({
   }, [newStickers.length, result?.levelUp, speak]);
 
   const backgroundArt = artUrl(backgroundArtName || `bg-${gameId}`);
+  const closeOptions = () => setOptionsOpen(false);
+  const openOptions = () => setOptionsOpen(true);
+  const options = focusedControls ? [
+    ...(pairSafeProgress && phase !== 'play' ? Array.from({ length: highestLevel - minimumPairLevel + 1 }, (_, offset) => {
+      const index = minimumPairLevel + offset;
+      return { label: `Level ${index + 1}`, description: LITTLE_LEVEL_GOALS[gameId]?.[index], button: 'Select level', action: () => { setLevel(index); closeOptions(); } };
+    }) : []),
+    ...(phase === 'start' && soundOn ? [{ label: 'Hear instructions', action: () => { closeOptions(); speak?.(intro); } }] : []),
+    ...(phase === 'done' && onNextGame ? [{ label: 'Next game', action: onNextGame }] : []),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound?.(); closeOptions(); } },
+    { label: 'Go home', action: onBack },
+  ] : [];
+
 
   return (
     <div
       className={`relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b ${background} bg-cover bg-center font-sans text-slate-800 select-none`}
+      data-board-focus={focusedControls ? '' : undefined}
       data-pair-compact={compactStart || compactDone ? 'true' : undefined}
       data-little-game={gameId}
       data-little-phase={phase}
@@ -451,7 +468,16 @@ const LittleGameShell = ({
           <img src={backgroundArt} alt="" className="h-full w-full object-cover" />
         </picture>
       )}
-      <header className="relative z-30 flex items-center gap-2 px-3 pb-2 pt-3 sm:gap-4 sm:px-6 sm:pt-4">
+      {focusedControls && optionsOpen && <main className="focus-game focus-game-body is-menu z-40">
+        <header className="focus-game-heading"><h1>{title}</h1></header>
+        <FocusMenu choices={options} onBack={closeOptions} />
+      </main>}
+      <div className={optionsOpen ? 'hidden' : 'contents'}>
+      {focusedControls ? <header className="little-focus-header">
+        <h1>{title}</h1>
+        {phase === 'play' && <p>Match {round + 1} of {rounds}</p>}
+        {phase !== 'save-error' && <button type="button" className="focus-game-button" onClick={openOptions}>Options</button>}
+      </header> : <header className="relative z-30 flex items-center gap-2 px-3 pb-2 pt-3 sm:gap-4 sm:px-6 sm:pt-4">
         <BigRoundButton onClick={onBack} label="Go home">
           <Home size={30} strokeWidth={2.6} />
         </BigRoundButton>
@@ -461,7 +487,7 @@ const LittleGameShell = ({
         <BigRoundButton onClick={onToggleSound} label={soundOn ? 'Turn sound off' : 'Turn sound on'}>
           {soundOn ? <Volume2 size={28} strokeWidth={2.6} /> : <VolumeX size={28} strokeWidth={2.6} />}
         </BigRoundButton>
-      </header>
+      </header>}
 
       {phase === 'start' && (
         <main className={`relative z-10 flex flex-1 flex-col items-center ${compactStart ? 'justify-start gap-2 px-4 pb-3 pt-2' : 'justify-center gap-5 px-4 pb-8'} text-center`}>
@@ -470,10 +496,12 @@ const LittleGameShell = ({
           {pairSafeProgress && gameId === 'shadowmatch' && pairSaveWarning && <button type="button" onClick={() => void drainShadowReceipts()} disabled={shadowRewardPending} className="min-h-12 rounded-full border-2 border-white bg-amber-100 px-5 font-black text-amber-950">{shadowRewardPending ? 'Checking rewards…' : 'Retry reward confirmation'}</button>}
           {restoredDinoReward && <button type="button" onClick={restoreDinoReward} className="min-h-12 rounded-full border-4 border-white bg-lime-500 px-5 font-black text-slate-950">{gameId === 'dinojigsaw' ? 'Retry saved puzzle rewards' : 'Retry saved dinosaur rewards'}</button>}
           <div className={`pair-compact-start-hero w-full animate-bounce-slow ${compactStart ? 'relative h-40 max-w-[18rem]' : 'max-w-md'}`}>{startArt}</div>
-          <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} showRange={gameId === 'shadowmatch'} onSelect={setLevel} />
-          <LevelDots level={level} total={levels.length} />
+          <PairLevelSelector enabled={pairSafeProgress && !focusedControls} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} showRange={gameId === 'shadowmatch'} onSelect={setLevel} />
+          {!focusedControls && <LevelDots level={level} total={levels.length} />}
           <p className="max-w-md rounded-2xl bg-white/90 px-5 py-2 text-lg font-black text-slate-800 shadow-lg">{level < highestLevel ? 'Practice ' : ''}Level {level + 1} of {levels.length}: {LITTLE_LEVEL_GOALS[gameId]?.[level]}{pairSafeProgress && !compactStart ? `. Available through Level ${highestLevel + 1}.` : ''}</p>
-          <button
+          {focusedControls
+            ? <button type="button" onClick={start} disabled={Boolean(restoredDinoReward) || (gameId === 'shadowmatch' && (shadowRewardPending || Boolean(pairSaveWarning)))} className="focus-game-button is-primary little-focus-start">Play level {level + 1}</button>
+            : <>          <button
             type="button"
             onClick={start}
             disabled={Boolean(restoredDinoReward) || (pairSafeProgress && gameId === 'shadowmatch' && (shadowRewardPending || Boolean(pairSaveWarning)))}
@@ -484,7 +512,7 @@ const LittleGameShell = ({
           </button>
           <button type="button" onClick={() => speak?.(intro)} className="rounded-full bg-white/70 px-5 py-2 text-lg font-black text-slate-700 shadow">
             🔊 {title}
-          </button>
+          </button></>}
         </main>
       )}
 
@@ -563,7 +591,7 @@ const LittleGameShell = ({
               ))}
             </div>
           )}
-          <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} showRange={gameId === 'shadowmatch'} onSelect={setLevel} compact={compactDone} />
+          <PairLevelSelector enabled={pairSafeProgress && !focusedControls} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} showRange={gameId === 'shadowmatch'} onSelect={setLevel} compact={compactDone} />
           <div className={`flex items-end ${compactDone ? 'gap-3' : 'mt-2 gap-5'}`}>
             <div className="flex flex-col items-center gap-1">
               <BigRoundButton
@@ -576,7 +604,7 @@ const LittleGameShell = ({
               </BigRoundButton>
               <span className={`${compactDone ? 'rounded-md bg-white/95 px-1.5 leading-4' : ''} text-sm font-black text-slate-700`}>{pairSafeProgress ? pairRunActionLabel(level, result) : result.levelUp ? 'Next level' : 'Try again'}</span>
             </div>
-            {onNextGame && (
+            {onNextGame && !focusedControls && (
               <div className="flex flex-col items-center gap-1">
                 <BigRoundButton onClick={onNextGame} label="Next game" size={compactDone ? 'h-16 w-16' : 'h-24 w-24'} tone="bg-gradient-to-b from-sky-400 to-blue-600 text-white">
                   <SkipForward size={54} strokeWidth={2.8} fill="currentColor" />
@@ -593,6 +621,7 @@ const LittleGameShell = ({
           </div>
         </main>
       )}
+      </div>
     </div>
   );
 };
