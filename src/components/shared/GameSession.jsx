@@ -28,7 +28,7 @@ const newSessionAttemptId = () => {
   catch { return `run-${Date.now()}-${Math.random().toString(36).slice(2)}`; }
 };
 
-function FocusedSpellingSession({ title, how, starting, level, levelIndex, levels, unlocked, start, onBack, hasPendingReward, sessionSaving, sessionSaveError, retryReward }) {
+function FocusedLevelSession({ title, how, starting, level, levelIndex, levels, unlocked, start, onBack, hasPendingReward, sessionSaving, sessionSaveError, retryReward, counting }) {
   const [focusOptions, setFocusOptions] = useState(false);
   const blocked = hasPendingReward || sessionSaving;
   const next = levels[levelIndex + 1];
@@ -37,16 +37,16 @@ function FocusedSpellingSession({ title, how, starting, level, levelIndex, level
         label: item.name,
         description: item.description,
         disabled: index > unlocked || blocked,
-        button: 'Start stage',
+        button: counting ? 'Start level' : 'Start stage',
         action: () => { setFocusOptions(false); start(index); },
-      })) : [{ label: 'Replay stage', action: () => { setFocusOptions(false); start(levelIndex); } }]),
-      { label: 'Back to Read & Write', action: onBack },
+      })) : [{ label: counting ? 'Replay level' : 'Replay stage', action: () => { setFocusOptions(false); start(levelIndex); } }]),
+      { label: counting ? 'Go home' : 'Back to Read & Write', action: onBack },
     ];
     return <div className="focus-game spelling-focus" data-board-focus="">
       <main className="focus-game-body is-menu">
         <header className="focus-game-heading"><h1>{starting || focusOptions ? title : `${level.name} complete!`}</h1></header>
         {focusOptions ? <FocusMenu choices={menuChoices} onBack={() => setFocusOptions(false)} /> : <>
-          <p className="focus-game-message">{starting ? level?.description || how : 'Your spelling stage and rewards are saved.'}</p>
+          <p className="focus-game-message">{starting ? level?.description || how : counting ? 'Your counting level is saved.' : 'Your spelling stage and rewards are saved.'}</p>
           {sessionSaveError && <p role="alert" className="focus-game-message">{sessionSaveError}</p>}
           <div className="focus-game-actions">
             {starting && hasPendingReward
@@ -68,6 +68,7 @@ const GameSession = ({
 }) => {
   const levels = levelsForSession(game.id, little);
   const wordsSession = game.id === 'words';
+  const focusedCounting = game.id === 'counting' && little;
   const [wordsProgressState, setWordsProgressState] = useState(() => wordsSession ? readWordsSessionProgress(playerId) : null);
   const [levelState, setLevelState] = useState(() => wordsSession
     ? { current: wordsProgressState?.progress.currentLevel || 0, unlocked: wordsProgressState?.progress.unlockedLevel || 0 }
@@ -237,6 +238,18 @@ const GameSession = ({
       return;
     }
     const { next, completedLevel, unlockedBefore } = completion;
+    const unlocked = Math.max(unlockedBefore, Math.min(levels.length - 1, completedLevel + 1));
+    const saved = { current: Math.min(completedLevel + 1, levels.length - 1), unlocked };
+    saveGameLevel(playerId, game.id, saved.current, saved.unlocked);
+    if (focusedCounting) {
+      const retained = getGameLevel(playerId, game.id, levels.length);
+      if (retained.current !== saved.current || retained.unlocked !== saved.unlocked) {
+        setSessionSaveError('The counting level hasn’t saved yet.');
+        return false;
+      }
+      setSessionSaveError('');
+    }
+
     const runMetadata = hasSeededRunTelemetry(game.id) ? seedMetadataRef.current : null;
     recordGameDiagnostic(game.id, 'level_complete', {
       level: completedLevel,
@@ -253,14 +266,12 @@ const GameSession = ({
     }
     const earned = sessionStars(next.firstTries, next.done);
     setStars(earned);
-    const unlocked = Math.max(unlockedBefore, Math.min(levels.length - 1, completedLevel + 1));
-    const saved = { current: Math.min(completedLevel + 1, levels.length - 1), unlocked };
-    saveGameLevel(playerId, game.id, saved.current, saved.unlocked);
     setLevelState(saved);
     playSfx?.('complete');
     onCelebrate?.('Level complete!', earned * 2, 0, game.id);
     setPhase('done');
-  }, [finishWordsLevel, game.id, levels.length, onCelebrate, playSfx, playerId, wordsSession]);
+    return true;
+  }, [finishWordsLevel, focusedCounting, game.id, levels.length, onCelebrate, playSfx, playerId, wordsSession]);
 
   const acknowledgeFinalAnswer = useCallback(() => {
     const pending = pendingFinishRef.current;
@@ -269,9 +280,13 @@ const GameSession = ({
       finishLevel(pending);
       return;
     }
+    if (focusedCounting) {
+      if (finishLevel(pending)) pendingFinishRef.current = null;
+      return;
+    }
     pendingFinishRef.current = null;
     finishTimer.current = setTimeout(() => finishLevel(pending), 300);
-  }, [finishLevel, wordsSession]);
+  }, [finishLevel, focusedCounting, wordsSession]);
 
   const handleEvent = useCallback((gameId, event, payload) => {
     if (hasSeededRunTelemetry(gameId) && payload && typeof payload === 'object') {
@@ -342,7 +357,7 @@ const GameSession = ({
             onReviewComplete={acknowledgeFinalAnswer}
             sessionLevel={levelIndex}
             sessionTarget={target}
-            sessionSaveError={wordsSession ? sessionSaveError : ''}
+            sessionSaveError={wordsSession || focusedCounting ? sessionSaveError : ''}
             sessionSaving={wordsSession && sessionSaving}
           />
         </ForcedDifficultyContext.Provider>
@@ -350,7 +365,7 @@ const GameSession = ({
     );
   }
 
-  if (wordsSession) return <FocusedSpellingSession
+  if (wordsSession || focusedCounting) return <FocusedLevelSession counting={focusedCounting}
     title={game.title} how={rule.how} starting={phase === 'start'}
     level={level} levelIndex={levelIndex} levels={levels} unlocked={levelState.unlocked}
     start={start} onBack={handleSessionBack} hasPendingReward={pendingRewardReceipts.length > 0}

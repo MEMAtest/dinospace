@@ -505,3 +505,12 @@
 .dino-focus-search button { min-width: 56px; min-height: 56px; }
 
 .discovery-game-surface[data-discovery-game="ladder"]:has([data-board-focus]) { --rescue-ladder-chrome: 9rem; }
+
+.little-stars-focus { background: #ecedf9; }
+.little-stars-focus .focus-game-body:not(.is-menu) { width: min(100%, 64rem); padding: clamp(.65rem, 2vw, 1.25rem); }
+.little-stars-board { position: relative; height: clamp(18rem, 49svh, 32rem); border-radius: .9rem; background: linear-gradient(150deg,#1c2861,#371e68); }
+.little-stars-board button { position: absolute; display: grid; min-width: 52px; min-height: 52px; place-items: center; translate: -50% -50%; border: 0; border-radius: 50%; background: transparent; font-size: clamp(2rem, 8vw, 3.6rem); }
+.little-stars-board button:focus-visible { outline-color: #fff; }
+.little-stars-number { position: absolute; top: -.1rem; right: -.3rem; display: grid; width: 1.6rem; aspect-ratio: 1; place-items: center; border-radius: 50%; background: #ffcf4c; color: #322650; font-size: .95rem; font-weight: 850; }
+.little-stars-choices { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .5rem; margin-top: .65rem; }
+.little-stars-choices button { font-size: 1.5rem; }

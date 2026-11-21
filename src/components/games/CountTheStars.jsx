@@ -1,21 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-import { Home } from 'lucide-react';
 import { COUNT_LEVELS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
-import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
-
-const BACKGROUND_STARS = Array.from({ length: 20 }, (_, index) => ({
-  id: `background-star-${index}`,
-  size: 1 + (index % 3),
-  top: `${(index * 37) % 100}%`,
-  left: `${(index * 61) % 100}%`,
-  delay: `${index % 4}s`,
-}));
 
 const makeCountingRound = (level) => {
   const count = Math.floor(Math.random() * level.max) + 1;
-  const emoji = pickRandom(['⭐', '🌟', '💫', '✨', '🌙', '☀️', '🪐', '🔮']);
+  const emoji = pickRandom(['⭐', '🌟']);
   // Use a loose grid instead of independent random coordinates. This keeps
   // the targets distinct on a phone as well as on a tablet, while the small
   // jitter stops every round feeling identical.
@@ -28,7 +19,6 @@ const makeCountingRound = (level) => {
       emoji,
       x: 12 + ((index % columns) * (76 / Math.max(columns - 1, 1))) + ((index * 7) % 5 - 2),
       y: 16 + (Math.floor(index / columns) * (60 / Math.max(rows - 1, 1))) + ((index * 11) % 5 - 2),
-      size: 0.9 + ((index + count) % 3) * 0.2,
     })),
   };
 };
@@ -42,10 +32,9 @@ const makeCountOptions = (target) => {
   return shuffle(candidates);
 };
 
-const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false, sessionLevel = 0 }) => {
+const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, onReviewComplete, littleMode = false, sessionLevel = 0, sessionTarget, sessionSaveError }) => {
   const difficulty = useGameDifficulty('counting');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
-  const level = COUNT_LEVELS[levelIndex];
   const littleMax = [3, 5, 7][sessionLevel] || 3;
   const [round, setRound] = useState(() => makeCountingRound(littleMode ? { max: littleMax } : COUNT_LEVELS[getDifficultyIndex(difficulty)]));
   const [tapped, setTapped] = useState([]);
@@ -53,7 +42,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   const [options, setOptions] = useState([]);
   const [feedback, setFeedback] = useState('');
   const [streak, setStreak] = useState(0);
-  const [shake, setShake] = useState(false);
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
   const timeoutRef = useRef(null);
@@ -93,12 +82,13 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     if (next.length === target) {
       setPhase('answer');
       setOptions(makeCountOptions(target));
-      setTimeout(() => speak(`How many did you count?`), 500);
+      timeoutRef.current = setTimeout(() => speak('How many did you count?'), 400);
     }
   };
 
   const handleAnswer = (ans) => {
     if (locked) return;
+    clearTimeout(timeoutRef.current);
     if (ans === target) {
       const praise = getPraise();
       setFeedback(praise);
@@ -107,79 +97,78 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       playSfx('success');
       speak(praise);
       onCelebrate(nextStreak === 5 ? 'Five in a row — Super Star bonus!' : praise, nextStreak === 5 ? 14 : 4, 200);
-      onGameEvent?.('counting', 'answer_correct', { skill: 'counting', item: target, response: ans, expected: target, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
+      onGameEvent?.('counting', 'answer_correct', { skill: 'counting', item: target, response: ans, expected: target, correct: true, firstAttempt: !hadMistake, independent: !hadMistake, difficulty, deferFinish: Boolean(onReviewComplete) });
       setStreak(nextStreak);
       setSkillRun((current) => Math.min(current + 1, 5));
-      timeoutRef.current = setTimeout(() => {
-        if (nextStreak % 5 === 0 && levelIndex < COUNT_LEVELS.length - 1) {
-          const nextLevelIndex = levelIndex + 1;
-          setLevelIndex(nextLevelIndex);
-          playSfx('levelup');
-          startRound(nextLevelIndex);
-        } else {
-          startRound();
-        }
-      }, 1100);
     } else {
       setHadMistake(true);
       setStreak(0);
-      setShake(true);
       playSfx('wrong');
       speak('Not quite, try again!');
-      setFeedback('Try again!');
-      timeoutRef.current = setTimeout(() => { setFeedback(''); setShake(false); }, 800);
+      setFeedback('Try again. Count each star once.');
     }
   };
 
-  return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-indigo-900 via-purple-900 to-indigo-900 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        {BACKGROUND_STARS.map((star) => (
-          <div key={star.id} className="absolute bg-white rounded-full animate-pulse" style={{ width: star.size, height: star.size, top: star.top, left: star.left, animationDelay: star.delay }} />
-        ))}
-      </div>
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="game-icon-button !bg-white/20 !text-white" aria-label="Back to home"><Home className="text-white" /></button>
-        <div className="text-center">
-          <h2 className="text-3xl font-black text-white">Count the Stars</h2>
-          {!littleMode && <p className="text-white/60 font-semibold">{level.emoji} {level.name} · Streak: {streak}</p>}
+  const finalReview = Boolean(sessionTarget && skillRun >= sessionTarget);
+  const showNext = () => {
+    if (finalReview) { onReviewComplete?.(); return; }
+    if (!littleMode && streak > 0 && streak % 5 === 0 && levelIndex < COUNT_LEVELS.length - 1) {
+      const nextLevel = levelIndex + 1;
+      setLevelIndex(nextLevel);
+      playSfx('levelup');
+      startRound(nextLevel);
+    } else {
+      startRound();
+    }
+  };
+  const resetCount = () => {
+    clearTimeout(timeoutRef.current);
+    setPhase('count');
+    setTapped([]);
+    setOptions([]);
+    setFeedback('');
+  };
+  const closeOptions = () => setOptionsOpen(false);
+  const menuOptions = [
+    ...(soundOn && !locked ? [{
+      label: phase === 'count' ? 'Hear how to count' : 'Hear the question',
+      action: () => { closeOptions(); speak(phase === 'count' ? 'Tap each star to count them!' : 'How many did you count?'); },
+    }] : []),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { clearTimeout(timeoutRef.current); onToggleSound?.(); closeOptions(); } },
+    { label: littleMode ? 'Go home' : 'Back to Maths Missions', action: onBack },
+  ];
+
+  return <div className="focus-game little-stars-focus" data-board-focus="">
+    <main className={`focus-game-body${optionsOpen ? ' is-menu' : ''}`}>
+      <header className="focus-game-heading">
+        {!optionsOpen && <p>Count the Stars</p>}
+        <h1>{optionsOpen ? 'Count the Stars' : locked ? `You counted ${target}!` : phase === 'answer' ? 'How many did you count?' : 'Tap each star'}</h1>
+      </header>
+      {optionsOpen ? <FocusMenu choices={menuOptions} onBack={closeOptions} /> : <>
+        <div className="little-stars-board" aria-label="Counting board">
+          {items.map(item => {
+            const count = tapped.indexOf(item.id) + 1;
+            return <button key={item.id} type="button" onClick={() => handleTapItem(item.id)}
+              aria-label={`Object ${item.id + 1}${count ? `, counted ${count}` : ''}`} aria-pressed={Boolean(count)}
+              disabled={phase !== 'count'} style={{ left: `${item.x}%`, top: `${item.y}%` }}>
+              <span aria-hidden="true">{item.emoji}</span>{count > 0 && <span className="little-stars-number" aria-hidden="true">{count}</span>}
+            </button>;
+          })}
         </div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </div>
-      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-        {!littleMode && <PracticeProgress skill="Count each object once" completed={skillRun} accent="indigo" />}
-        <p className={`${littleMode ? 'hidden' : ''} mb-3 rounded-full bg-white/10 px-4 py-2 text-sm font-bold text-white/75`} aria-live="polite">
-          {target <= 5 ? 'Look for a small group, then count each one.' : 'Count each star once. The number badges help you keep your place.'}
-        </p>
-        <div className="relative mb-4 h-[390px] w-full max-w-3xl rounded-[2.5rem] border-4 border-white/15 bg-white/5 shadow-[inset_0_0_50px_rgba(168,85,247,.18),0_20px_45px_rgba(0,0,0,.25)]" aria-label="Counting board. Tap each object once to count it.">
-          {items.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleTapItem(item.id)}
-              aria-label={`Object ${item.id + 1}${tapped.includes(item.id) ? `, counted ${tapped.indexOf(item.id) + 1}` : ''}`}
-              className={`absolute flex min-h-14 min-w-14 items-center justify-center rounded-full transition-all duration-300 ${tapped.includes(item.id) ? 'scale-125 opacity-60' : 'hover:scale-110 active:scale-95'}`}
-              style={{ left: `${item.x}%`, top: `${item.y}%`, fontSize: `${item.size * 3.2}rem` }}
-            >
-              {item.emoji}
-              {tapped.includes(item.id) && <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-black rounded-full w-6 h-6 flex items-center justify-center">{tapped.indexOf(item.id) + 1}</span>}
-            </button>
-          ))}
+        {phase === 'count' && <p className="focus-game-message" aria-live="polite">{tapped.length} counted</p>}
+        {phase === 'answer' && !locked && <div className="little-stars-choices" aria-label="Choose how many">
+          {options.map(number => <button key={number} type="button" className="focus-game-button" onClick={() => handleAnswer(number)}>{number}</button>)}
+        </div>}
+        {feedback && <p className={locked ? 'pattern-focus-explanation' : 'focus-game-message'} role="status">{locked ? `There ${target === 1 ? 'is 1 object' : `are ${target} stars`}. Count each one once.` : feedback}</p>}
+        {sessionSaveError && <p className="focus-game-message" role="alert">{sessionSaveError}</p>}
+        <div className="focus-game-actions mt-3">
+          {locked ? <button type="button" className="focus-game-button is-primary" onClick={showNext}>{sessionSaveError ? 'Retry save' : finalReview ? 'Finish level' : 'Next round'}</button>
+            : phase === 'answer' && <button type="button" className="focus-game-button" onClick={resetCount}>Count again</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
         </div>
-        {phase === 'count' && <p className="text-white/80 text-xl font-semibold">Tap each one! Tapped: {tapped.length}</p>}
-        {phase === 'answer' && (
-          <div className={`text-center ${shake ? 'animate-shake' : ''}`}>
-            <p className="text-white text-xl font-bold mb-4">How many did you count?</p>
-            <div className="flex gap-4 justify-center">
-              {options.map((n) => (
-                <button key={n} disabled={locked} onClick={() => handleAnswer(n)} className="w-16 h-16 bg-yellow-400 text-black text-2xl font-black rounded-2xl shadow-lg active:translate-y-1 transition-all disabled:opacity-60">{n}</button>
-              ))}
-            </div>
-          </div>
-        )}
-        {feedback && <div className="mt-4 text-3xl font-black text-yellow-300 animate-bounce">{feedback}</div>}
-      </div>
-    </div>
-  );
+      </>}
+    </main>
+  </div>;
 };
 
 export default CountTheStars;

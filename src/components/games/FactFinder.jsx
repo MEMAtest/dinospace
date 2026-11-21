@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, BookOpen, ExternalLink, Headphones, Search, Sparkles } from 'lucide-react';
+import { BookOpen, ExternalLink, Headphones, Search } from 'lucide-react';
 import { Dino } from '../little/DinoArt.jsx';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import {
   FACT_FINDER_CATEGORIES, filterFactFinderEntries, getFactFinderAudio, getFactFinderEntry,
 } from '../../data/factFinder.js';
@@ -27,6 +27,9 @@ function EntryArtwork({ record }) {
 
 export default function FactFinder({ onBack, onLaunchGame, soundOn = true, onToggleSound, onPhaseChange }) {
   const [query, setQuery] = useState('');
+  const [factIndex, setFactIndex] = useState(0);
+  const [page, setPage] = useState(0);
+  const [panel, setPanel] = useState(null);
   const [category, setCategory] = useState('all');
   const [selectedId, setSelectedId] = useState(null);
   const [playingKey, setPlayingKey] = useState(null);
@@ -40,7 +43,8 @@ export default function FactFinder({ onBack, onLaunchGame, soundOn = true, onTog
   const selected = selectedId ? getFactFinderEntry(selectedId) : null;
   const visibleSelection = selected && entries.some(({ id }) => id === selected.id) ? selected : null;
   const visibleSelectionId = visibleSelection?.id;
-  const articleFactAudio = visibleSelection?.facts.map(({ text }) => getFactFinderAudio(visibleSelection, text)) || [];
+  const fact = visibleSelection?.facts[factIndex];
+  const factAudio = fact && getFactFinderAudio(visibleSelection, fact.text);
   const nameClip = visibleSelection ? getFactFinderAudio(visibleSelection, visibleSelection.name) : null;
 
   useEffect(() => { onPhaseChange?.('intro'); }, [onPhaseChange]);
@@ -87,10 +91,12 @@ export default function FactFinder({ onBack, onLaunchGame, soundOn = true, onTog
     stopAudio(audioRef, audioGenerationRef, setPlayingKey);
     returnFocusIdRef.current = id;
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    setFactIndex(0);
     setSelectedId(id);
   };
   const backToTopics = () => {
     stopAudio(audioRef, audioGenerationRef, setPlayingKey);
+    setPanel(null);
     setSelectedId(null);
     requestAnimationFrame(() => {
       const button = topicButtonsRef.current.get(returnFocusIdRef.current);
@@ -99,50 +105,87 @@ export default function FactFinder({ onBack, onLaunchGame, soundOn = true, onTog
     });
   };
 
-  return <main className={`fact-finder${visibleSelection ? ' is-reading' : ''}`}>
-    <header className="fact-finder-header">
-      {selectedId
-        ? <button type="button" className="fact-finder-back" onClick={backToTopics} aria-label="Back to topics"><ArrowLeft aria-hidden="true" /> <span>Topics</span></button>
-        : onBack && <button type="button" className="fact-finder-back" onClick={onBack} aria-label="Back to Explore"><ArrowLeft aria-hidden="true" /> <span>Back</span></button>}
-      <div><p className="fact-finder-kicker"><Sparkles aria-hidden="true" size={16} /> LOOK, READ, DISCOVER</p><h1>Fact Finder</h1><p className="fact-finder-intro">Pick a topic to meet an animal, plant, dinosaur or space world.</p></div>
-      {onToggleSound && <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="fact-finder-sound-toggle" />}
-    </header>
+  const closePanel = () => setPanel(null);
+  const silence = () => stopAudio(audioRef, audioGenerationRef, setPlayingKey);
+  const leave = () => { silence(); onBack?.(); };
+  const chooseFact = index => { silence(); closePanel(); setFactIndex(index); };
+  const lastFact = visibleSelection && factIndex + 1 === visibleSelection.facts.length;
+  const launch = () => {
+    silence();
+    const options = visibleSelection.exploreModule ? { module: visibleSelection.exploreModule } : undefined;
+    onLaunchGame(visibleSelection.exploreGameId, options);
+  };
+  const options = [
+    ...(visibleSelection ? [
+      ...visibleSelection.facts.map((_, index) => ({
+        label: `Fact ${index + 1}`, disabled: index === factIndex, action: () => chooseFact(index),
+      })),
+      ...(nameClip && soundOn ? [{ label: 'Hear name', action: () => { closePanel(); playClip(nameClip, 'name'); } }] : []),
+      { label: 'Fact source', action: () => setPanel('source') },
+      { label: 'Back to topics', action: backToTopics },
+    ] : []),
+    ...(onToggleSound ? [{ label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound(); closePanel(); } }] : []),
+    ...(onBack ? [{ label: 'Back to Explore & Languages', action: leave }] : []),
+  ];
+  const pageSize = 8;
+  const pages = Math.ceil(entries.length / pageSize);
 
-    {visibleSelection ? <article className="fact-finder-detail" aria-labelledby="fact-finder-title">
-      <div className="fact-finder-art"><EntryArtwork record={visibleSelection} /><p>{visibleSelection.image.caption}</p></div>
-      <div className="fact-finder-story">
-        <p className="fact-finder-category-label">{FACT_FINDER_CATEGORIES.find(({ id }) => id === visibleSelection.category)?.label}</p>
-        <h2 id="fact-finder-title" ref={articleTitleRef} tabIndex={-1}>{visibleSelection.name}</h2>
-        <ul className="fact-finder-facts">{visibleSelection.facts.map(({ text }, index) => {
-          const clip = articleFactAudio[index]?.text === text ? articleFactAudio[index] : null;
-          return <li key={`${visibleSelection.id}-${index}`}><p>{text}</p>{clip && <button className="fact-finder-audio" type="button" disabled={!soundOn} onClick={() => playClip(clip, `fact-${index}`)} aria-label={`Hear fact: ${text}`}><Headphones aria-hidden="true" size={18} /><span>{playingKey === `fact-${index}` ? 'Playing' : 'Hear fact'}</span></button>}</li>;
-        })}</ul>
-        {nameClip && <button className="fact-finder-audio fact-finder-name-audio" type="button" disabled={!soundOn} onClick={() => playClip(nameClip, 'name')} aria-label={`Hear name: ${visibleSelection.name}`}><Headphones aria-hidden="true" size={18} /><span>{playingKey === 'name' ? 'Playing name' : `Hear name`}</span></button>}
-        <details className="fact-finder-source"><summary>Where this fact comes from</summary><p>Checked against {visibleSelection.source.publisher}.</p><a href={visibleSelection.source.url} target="_blank" rel="noreferrer noopener">Read {visibleSelection.source.title} <ExternalLink aria-hidden="true" size={15} /></a></details>
-        {onLaunchGame && <button className="fact-finder-explore" type="button" onClick={() => {
-          stopAudio(audioRef, audioGenerationRef, setPlayingKey);
-          const options = visibleSelection.exploreModule ? { module: visibleSelection.exploreModule } : undefined;
-          onLaunchGame(visibleSelection.exploreGameId, options);
-        }}>Explore in {visibleSelection.exploreLabel} <span aria-hidden="true">→</span></button>}
-      </div>
-    </article> : <>
-      <section className="fact-finder-browser" aria-label="Find a topic">
-        <label className="fact-finder-search"><Search aria-hidden="true" size={20} /><span className="sr-only">Search topics</span><input ref={searchRef} type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search animals, plants, or planets" /></label>
-        <div className="fact-finder-categories" role="group" aria-label="Filter topics by category">
-          {FACT_FINDER_CATEGORIES.map(({ id, label }) => <button type="button" key={id} aria-pressed={category === id} onClick={() => setCategory(id)}>{label}</button>)}
-        </div>
-        <p className="fact-finder-count" aria-live="polite">{entries.length} {entries.length === 1 ? 'topic' : 'topics'}</p>
-        {entries.length ? <ul className="fact-finder-results" aria-label="Topics">
-          {entries.map((record) => <li key={record.id}><button type="button" aria-pressed={false} ref={(node) => {
-            if (node) topicButtonsRef.current.set(record.id, node);
-            else topicButtonsRef.current.delete(record.id);
-          }} onClick={() => openTopic(record.id)}>
-            {record.artKind ? <span className="fact-finder-mini-dino" aria-hidden="true"><Dino kind={record.artKind} /></span> : <img src={record.image.src} alt="" aria-hidden="true" />}
-            <span>{record.name}</span><BookOpen aria-hidden="true" size={16} />
-          </button></li>)}
-        </ul> : <p className="fact-finder-empty" role="status">No topics match that search. Try another word or choose Everything.</p>}
-      </section>
-      <div className="fact-finder-prompt" role="status"><span aria-hidden="true">🔎</span><p>Choose a topic to open its picture and fact.</p></div>
-    </>}
-  </main>;
+  return <div className="focus-game fact-finder fact-finder-focus" data-board-focus="">
+    <main className={`focus-game-body${panel ? ' is-menu' : ''}`}>
+      <header className="focus-game-heading">
+        {visibleSelection && <p>Fact Finder{visibleSelection.facts.length > 1 ? ` · Fact ${factIndex + 1} of ${visibleSelection.facts.length}` : ''}</p>}
+        <h1 ref={articleTitleRef} tabIndex={-1}>{panel === 'source' ? 'Fact source' : visibleSelection?.name || 'Fact Finder'}</h1>
+      </header>
+      {panel === 'options' ? <FocusMenu choices={options} onBack={closePanel} />
+        : panel === 'source' && visibleSelection ? <>
+          <p className="focus-game-message">Checked against {visibleSelection.source.publisher}.</p>
+          <a className="inline-flex items-center gap-1 underline" href={visibleSelection.source.url} target="_blank" rel="noreferrer noopener">
+            Read {visibleSelection.source.title} <ExternalLink aria-hidden="true" size={15} />
+          </a>
+          <div className="focus-game-actions mt-3"><button type="button" className="focus-game-button" onClick={closePanel}>Back to fact</button></div>
+        </> : visibleSelection ? <article className="fact-focus-article" aria-label={visibleSelection.name}>
+          <div className="fact-finder-art"><EntryArtwork record={visibleSelection} /></div>
+          <p className="fact-focus-text" aria-live="polite">{fact?.text}</p>
+          <div className="focus-game-actions">
+            <button type="button" className="focus-game-button is-primary" onClick={!lastFact ? () => chooseFact(factIndex + 1) : onLaunchGame ? launch : backToTopics}>
+              {!lastFact ? 'Next fact' : onLaunchGame ? `Explore in ${visibleSelection.exploreLabel}` : 'Choose another topic'}
+            </button>
+            {soundOn && factAudio && <button type="button" className="focus-game-button" onClick={() => playClip(factAudio, 'fact')} aria-label="Hear fact">
+              <Headphones className="mr-1 inline" aria-hidden="true" size={18} /> {playingKey === 'fact' ? 'Playing' : 'Hear fact'}
+            </button>}
+            <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
+          </div>
+        </article> : <>
+          <div className="fact-focus-search">
+            <label className="fact-finder-search"><Search aria-hidden="true" size={20} /><span className="sr-only">Search topics</span>
+              <input ref={searchRef} type="search" value={query} onChange={event => { setQuery(event.target.value); setPage(0); }} placeholder="Search animals, plants or planets" />
+            </label>
+            <label className="focus-game-menu">Topic
+              <select value={category} onChange={event => { setCategory(event.target.value); setPage(0); }}>
+                {FACT_FINDER_CATEGORIES.map(({ id, label }) => <option key={id} value={id}>{label}</option>)}
+              </select>
+            </label>
+          </div>
+          <p className="focus-game-message">Choose a topic to see its picture and facts.</p>
+          {entries.length ? <ul className="fact-finder-results" aria-label="Topics">
+            {entries.slice(page * pageSize, (page + 1) * pageSize).map(record => <li key={record.id}><button type="button" ref={node => {
+              if (node) topicButtonsRef.current.set(record.id, node);
+              else topicButtonsRef.current.delete(record.id);
+            }} onClick={() => openTopic(record.id)}>
+              {record.artKind ? <span className="fact-finder-mini-dino" aria-hidden="true"><Dino kind={record.artKind} /></span> : <img src={record.image.src} alt="" aria-hidden="true" />}
+              <span>{record.name}</span><BookOpen aria-hidden="true" size={16} />
+            </button></li>)}
+          </ul> : <p className="fact-finder-empty" role="status">No topics found. Try another word or choose Everything.</p>}
+          {pages > 1 && <label className="focus-game-menu mt-3">More topics
+            <select value={page} onChange={event => setPage(Number(event.target.value))}>
+              {Array.from({ length: pages }, (_, index) => <option key={index} value={index}>Topics {index * pageSize + 1}–{Math.min(entries.length, (index + 1) * pageSize)}</option>)}
+            </select>
+          </label>}
+          <div className="focus-game-actions mt-3">
+            <button type="button" className="focus-game-button" onClick={() => setPanel('options')}>Options</button>
+            {onBack && <button type="button" className="focus-game-button" onClick={leave}>Back</button>}
+          </div>
+        </>}
+    </main>
+  </div>;
 }

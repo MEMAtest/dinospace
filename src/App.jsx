@@ -303,7 +303,7 @@ const PlayerSession = ({
               onPhaseChange={handlePhaseChange}
               playSfx={playSfx}
             >
-              {({ run, onGameEvent, onReviewComplete, sessionLevel, sessionTarget, sessionSaveError, sessionSaving }) => <GameComponent key={`${currentGame.id}-${run}`} {...gameProps} sessionLevel={sessionLevel} sessionTarget={sessionTarget} onGameEvent={onGameEvent} onReviewComplete={onReviewComplete} {...(currentGame.id === 'words' ? { sessionSaveError, sessionSaving } : {})} />}
+              {({ run, onGameEvent, onReviewComplete, sessionLevel, sessionTarget, sessionSaveError, sessionSaving }) => <GameComponent key={`${currentGame.id}-${run}`} {...gameProps} sessionLevel={sessionLevel} sessionTarget={sessionTarget} onGameEvent={onGameEvent} onReviewComplete={onReviewComplete} {...(['words', 'counting'].includes(currentGame.id) ? { sessionSaveError, sessionSaving } : {})} />}
             </GameSession>
           ) : (
             <GameComponent key={currentGame.id} {...gameProps} />
