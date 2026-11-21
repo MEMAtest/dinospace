@@ -1,0 +1,748 @@
+{
+  "runtime": "655e50cc9941a4c4ed7990a1d5cb2d3a9ea4b1f3",
+  "entry": "/assets/arcade-BEZeR_kf.js",
+  "worker": "amari-discovery-v86",
+  "backendUrl": "https://dinospace-b4srqvosd-memas-projects-23a0001d.vercel.app",
+  "backendDeployment": "dpl_DFmCnk8cBGLY1j4TA9Vx5uRJ9zBA",
+  "gatewayDeployment": "6b01d18f00a7d7bcc3d9247e",
+  "evidence": "docs/qa-evidence/creative-canvas-20261121/README.md",
+  "scope": "Free drawing and paint mixing, all 12 Sky Shapes flights and 18 guided paint missions with save retry on live phone and desktop browser sizes, and Askia Storybook launch with separate reading progress.",
+  "checkedAt": "2026-11-21T17:16:17.808552+00:00",
+  "repositoryTests": 767,
+  "assetHashes": {
+    "/": "4406fc723b20501557559378361ada5952f6f115edb73d36dd15d04d150e2fd2",
+    "/index.html": "4406fc723b20501557559378361ada5952f6f115edb73d36dd15d04d150e2fd2",
+    "/sw.js": "75af3af65e6bd04646b111731cc5753f8f12b241ebf345f3aab38830f6acca70",
+    "/assets/arcade-BEZeR_kf.js": "ca29c564e3f76c6789db3055105ac05d6bd4af0fdc7b0deca32f708aecd8ec06",
+    "/assets/DiscoveryHeader-WQC4hu9b.css": "922821015c3c9ebf94521e222d1a4cd0d62eca0dc28c2442b1fdc5657272abce",
+    "/assets/arcade-Bafn3-hs.css": "86939717e8caa411c2554fb02fb5bc2610b5dd2c92ecb5b56a453b3d3c430ef1",
+    "/art/catalog-v3/game-jet.webp": "d9598009cd6a7ef1909b045ab1adafca126a4afc39c1f8a0c67c0e68eb23e297",
+    "/art/catalog-v3/game-colormix.webp": "0ae052feca38c51f4e4dccb7f1604f477b1296d5c58f73f4e95fb19d6082f3cb",
+    "/art/catalog-v3/game-storybooks.webp": "cfd9cb94f53484aee6c5b6da1fc5d0cb7270763bff4e2bc60e38df6909d4cf95"
+  },
+  "cutover": {
+    "syntheticRecordsPreserved": 118,
+    "storybookFixturePreserved": true,
+    "usedRefreshGames": true
+  },
+  "live": [
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade-BEZeR_kf.js",
+      "flights": [
+        {
+          "episode": 1,
+          "index": 1,
+          "title": "Tracing board for Window Cloud",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 2,
+          "title": "Tracing board for Kite",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 3,
+          "title": "Tracing board for Mountain Peak",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 4,
+          "title": "Tracing board for Round Sun",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 1,
+          "title": "Tracing board for Cloud House",
+          "paths": 2
+        },
+        {
+          "episode": 2,
+          "index": 2,
+          "title": "Tracing board for Bright Star",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 3,
+          "title": "Tracing board for Heart Balloon",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 4,
+          "title": "Tracing board for Puffy Cloud",
+          "paths": 1
+        },
+        {
+          "episode": 3,
+          "index": 1,
+          "title": "Tracing board for Winged Jet",
+          "paths": 3
+        },
+        {
+          "episode": 3,
+          "index": 2,
+          "title": "Tracing board for Sky Castle",
+          "paths": 6
+        },
+        {
+          "episode": 3,
+          "index": 3,
+          "title": "Tracing board for Moon Observatory",
+          "paths": 4
+        },
+        {
+          "episode": 3,
+          "index": 4,
+          "title": "Tracing board for Rocket Ship",
+          "paths": 4
+        }
+      ],
+      "missions": [
+        {
+          "id": "mix-brown",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-orange",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-teal",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-lime",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-green",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-purple",
+          "lab": "mix"
+        },
+        {
+          "id": "light-peach",
+          "lab": "light"
+        },
+        {
+          "id": "light-sky",
+          "lab": "light"
+        },
+        {
+          "id": "light-coral",
+          "lab": "light"
+        },
+        {
+          "id": "light-grey",
+          "lab": "light"
+        },
+        {
+          "id": "light-charcoal",
+          "lab": "light"
+        },
+        {
+          "id": "light-pink",
+          "lab": "light"
+        },
+        {
+          "id": "make-wave",
+          "lab": "make"
+        },
+        {
+          "id": "make-leaf",
+          "lab": "make"
+        },
+        {
+          "id": "make-sun",
+          "lab": "make"
+        },
+        {
+          "id": "make-berry",
+          "lab": "make"
+        },
+        {
+          "id": "make-flower",
+          "lab": "make"
+        },
+        {
+          "id": "make-cloud",
+          "lab": "make"
+        }
+      ],
+      "checks": [
+        "blank freehand sheet drew, saved across reload and undid the stroke",
+        "Sky Shapes flight save retried",
+        "actual scoops, changing proportions, pouring, painting and canvas reload",
+        "guided mix retried after a wrong answer and a denied write",
+        "wrong authored recipe retried within the mission",
+        "partial paint chapter resumed at the next unsaved mission"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade-BEZeR_kf.js",
+      "flights": [
+        {
+          "episode": 1,
+          "index": 1,
+          "title": "Tracing board for Mountain Peak",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 2,
+          "title": "Tracing board for Kite",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 3,
+          "title": "Tracing board for Window Cloud",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 4,
+          "title": "Tracing board for Round Sun",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 1,
+          "title": "Tracing board for Heart Balloon",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 2,
+          "title": "Tracing board for Bright Star",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 3,
+          "title": "Tracing board for Puffy Cloud",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 4,
+          "title": "Tracing board for Cloud House",
+          "paths": 2
+        },
+        {
+          "episode": 3,
+          "index": 1,
+          "title": "Tracing board for Winged Jet",
+          "paths": 3
+        },
+        {
+          "episode": 3,
+          "index": 2,
+          "title": "Tracing board for Sky Castle",
+          "paths": 6
+        },
+        {
+          "episode": 3,
+          "index": 3,
+          "title": "Tracing board for Rocket Ship",
+          "paths": 4
+        },
+        {
+          "episode": 3,
+          "index": 4,
+          "title": "Tracing board for Moon Observatory",
+          "paths": 4
+        }
+      ],
+      "missions": [
+        {
+          "id": "mix-teal",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-purple",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-green",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-lime",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-brown",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-orange",
+          "lab": "mix"
+        },
+        {
+          "id": "light-peach",
+          "lab": "light"
+        },
+        {
+          "id": "light-pink",
+          "lab": "light"
+        },
+        {
+          "id": "light-charcoal",
+          "lab": "light"
+        },
+        {
+          "id": "light-sky",
+          "lab": "light"
+        },
+        {
+          "id": "light-grey",
+          "lab": "light"
+        },
+        {
+          "id": "light-coral",
+          "lab": "light"
+        },
+        {
+          "id": "make-cloud",
+          "lab": "make"
+        },
+        {
+          "id": "make-wave",
+          "lab": "make"
+        },
+        {
+          "id": "make-berry",
+          "lab": "make"
+        },
+        {
+          "id": "make-sun",
+          "lab": "make"
+        },
+        {
+          "id": "make-flower",
+          "lab": "make"
+        },
+        {
+          "id": "make-leaf",
+          "lab": "make"
+        }
+      ],
+      "checks": [
+        "blank freehand sheet drew, saved across reload and undid the stroke",
+        "Sky Shapes flight save retried",
+        "actual scoops, changing proportions, pouring, painting and canvas reload",
+        "guided mix retried after a wrong answer and a denied write",
+        "wrong authored recipe retried within the mission",
+        "partial paint chapter resumed at the next unsaved mission"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    }
+  ],
+  "localCandidate": [
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade-BEZeR_kf.js",
+      "flights": [
+        {
+          "episode": 1,
+          "index": 1,
+          "title": "Tracing board for Kite",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 2,
+          "title": "Tracing board for Round Sun",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 3,
+          "title": "Tracing board for Window Cloud",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 4,
+          "title": "Tracing board for Mountain Peak",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 1,
+          "title": "Tracing board for Puffy Cloud",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 2,
+          "title": "Tracing board for Heart Balloon",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 3,
+          "title": "Tracing board for Cloud House",
+          "paths": 2
+        },
+        {
+          "episode": 2,
+          "index": 4,
+          "title": "Tracing board for Bright Star",
+          "paths": 1
+        },
+        {
+          "episode": 3,
+          "index": 1,
+          "title": "Tracing board for Rocket Ship",
+          "paths": 4
+        },
+        {
+          "episode": 3,
+          "index": 2,
+          "title": "Tracing board for Moon Observatory",
+          "paths": 4
+        },
+        {
+          "episode": 3,
+          "index": 3,
+          "title": "Tracing board for Sky Castle",
+          "paths": 6
+        },
+        {
+          "episode": 3,
+          "index": 4,
+          "title": "Tracing board for Winged Jet",
+          "paths": 3
+        }
+      ],
+      "missions": [
+        {
+          "id": "mix-teal",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-green",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-lime",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-brown",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-orange",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-purple",
+          "lab": "mix"
+        },
+        {
+          "id": "light-peach",
+          "lab": "light"
+        },
+        {
+          "id": "light-coral",
+          "lab": "light"
+        },
+        {
+          "id": "light-sky",
+          "lab": "light"
+        },
+        {
+          "id": "light-charcoal",
+          "lab": "light"
+        },
+        {
+          "id": "light-grey",
+          "lab": "light"
+        },
+        {
+          "id": "light-pink",
+          "lab": "light"
+        },
+        {
+          "id": "make-berry",
+          "lab": "make"
+        },
+        {
+          "id": "make-leaf",
+          "lab": "make"
+        },
+        {
+          "id": "make-wave",
+          "lab": "make"
+        },
+        {
+          "id": "make-sun",
+          "lab": "make"
+        },
+        {
+          "id": "make-flower",
+          "lab": "make"
+        },
+        {
+          "id": "make-cloud",
+          "lab": "make"
+        }
+      ],
+      "checks": [
+        "blank freehand sheet drew, saved across reload and undid the stroke",
+        "Sky Shapes flight save retried",
+        "actual scoops, changing proportions, pouring, painting and canvas reload",
+        "guided mix retried after a wrong answer and a denied write",
+        "wrong authored recipe retried within the mission",
+        "partial paint chapter resumed at the next unsaved mission"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade-BEZeR_kf.js",
+      "flights": [
+        {
+          "episode": 1,
+          "index": 1,
+          "title": "Tracing board for Kite",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 2,
+          "title": "Tracing board for Mountain Peak",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 3,
+          "title": "Tracing board for Round Sun",
+          "paths": 1
+        },
+        {
+          "episode": 1,
+          "index": 4,
+          "title": "Tracing board for Window Cloud",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 1,
+          "title": "Tracing board for Puffy Cloud",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 2,
+          "title": "Tracing board for Heart Balloon",
+          "paths": 1
+        },
+        {
+          "episode": 2,
+          "index": 3,
+          "title": "Tracing board for Cloud House",
+          "paths": 2
+        },
+        {
+          "episode": 2,
+          "index": 4,
+          "title": "Tracing board for Bright Star",
+          "paths": 1
+        },
+        {
+          "episode": 3,
+          "index": 1,
+          "title": "Tracing board for Moon Observatory",
+          "paths": 4
+        },
+        {
+          "episode": 3,
+          "index": 2,
+          "title": "Tracing board for Sky Castle",
+          "paths": 6
+        },
+        {
+          "episode": 3,
+          "index": 3,
+          "title": "Tracing board for Rocket Ship",
+          "paths": 4
+        },
+        {
+          "episode": 3,
+          "index": 4,
+          "title": "Tracing board for Winged Jet",
+          "paths": 3
+        }
+      ],
+      "missions": [
+        {
+          "id": "mix-brown",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-green",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-purple",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-lime",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-orange",
+          "lab": "mix"
+        },
+        {
+          "id": "mix-teal",
+          "lab": "mix"
+        },
+        {
+          "id": "light-pink",
+          "lab": "light"
+        },
+        {
+          "id": "light-charcoal",
+          "lab": "light"
+        },
+        {
+          "id": "light-coral",
+          "lab": "light"
+        },
+        {
+          "id": "light-peach",
+          "lab": "light"
+        },
+        {
+          "id": "light-grey",
+          "lab": "light"
+        },
+        {
+          "id": "light-sky",
+          "lab": "light"
+        },
+        {
+          "id": "make-leaf",
+          "lab": "make"
+        },
+        {
+          "id": "make-flower",
+          "lab": "make"
+        },
+        {
+          "id": "make-sun",
+          "lab": "make"
+        },
+        {
+          "id": "make-berry",
+          "lab": "make"
+        },
+        {
+          "id": "make-cloud",
+          "lab": "make"
+        },
+        {
+          "id": "make-wave",
+          "lab": "make"
+        }
+      ],
+      "checks": [
+        "blank freehand sheet drew, saved across reload and undid the stroke",
+        "Sky Shapes flight save retried",
+        "actual scoops, changing proportions, pouring, painting and canvas reload",
+        "guided mix retried after a wrong answer and a denied write",
+        "wrong authored recipe retried within the mission",
+        "partial paint chapter resumed at the next unsaved mission"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    }
+  ],
+  "liveStorybook": [
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade-BEZeR_kf.js",
+      "profileList": [
+        "amari",
+        "askia"
+      ],
+      "isolatedProgress": true,
+      "readerReloaded": true,
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade-BEZeR_kf.js",
+      "profileList": [
+        "amari",
+        "askia"
+      ],
+      "isolatedProgress": true,
+      "readerReloaded": true,
+      "errors": [],
+      "failed": [],
+      "providers": []
+    }
+  ],
+  "candidateStorybook": [
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade-BEZeR_kf.js",
+      "profileList": [
+        "amari",
+        "askia"
+      ],
+      "isolatedProgress": true,
+      "readerReloaded": true,
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade-BEZeR_kf.js",
+      "profileList": [
+        "amari",
+        "askia"
+      ],
+      "isolatedProgress": true,
+      "readerReloaded": true,
+      "errors": [],
+      "failed": [],
+      "providers": []
+    }
+  ]
+}

@@ -2230,5 +2230,15 @@
     "gatewayDeployment": "6b01cd21d91891928ebf59e7",
     "evidence": "docs/qa-evidence/spot-continuation-20261121/README.md",
     "scope": "Live phone and desktop all 12 pairs, repeatable reveals, saved-pair resume, practice and reward failure recovery. Narrow 320-pixel browser layout additionally verified in candidate."
+  },
+  "latestCreativeCanvasRehearsal": {
+    "runtime": "655e50cc9941a4c4ed7990a1d5cb2d3a9ea4b1f3",
+    "entry": "/assets/arcade-BEZeR_kf.js",
+    "worker": "amari-discovery-v86",
+    "backendUrl": "https://dinospace-b4srqvosd-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_DFmCnk8cBGLY1j4TA9Vx5uRJ9zBA",
+    "gatewayDeployment": "6b01d18f00a7d7bcc3d9247e",
+    "evidence": "docs/qa-evidence/creative-canvas-20261121/README.md",
+    "scope": "Free drawing and paint mixing, all 12 Sky Shapes flights and 18 guided paint missions with save retry on live phone and desktop browser sizes, and Askia Storybook launch with separate reading progress."
   }
 }
