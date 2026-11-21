@@ -2250,5 +2250,15 @@
     "gatewayDeployment": "6b01e86f3c32541e2e7e4716",
     "evidence": "docs/qa-evidence/colouring-pictures-20261121/README.md",
     "scope": "Both Creative Lab routes. True erasing, six independently saved colouring templates, shade and texture retention, actual paint mix, undo, prior drawing preservation and guided lesson entry."
+  },
+  "latestLivePaintMixerRehearsal": {
+    "runtime": "a4f9cef1d7d9f677529fcd664dabc3db546867a3",
+    "entry": "/assets/arcade-chVr-Pji.js",
+    "worker": "amari-discovery-v88",
+    "backendUrl": "https://dinospace-2vzzyf0js-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_HSJAk75wqsCQYHP7cQLt8o7fWcrs",
+    "gatewayDeployment": "6b01e9f810d4d5123a90e306",
+    "evidence": "docs/qa-evidence/live-paint-mixer-20261121/README.md",
+    "scope": "Open paint pots, immediate mix and active colour, real brush and picture paints, reversible background, and saved art retention on public site."
   }
 }

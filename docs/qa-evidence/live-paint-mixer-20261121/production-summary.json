@@ -1,0 +1,113 @@
+{
+  "runtime": "a4f9cef1d7d9f677529fcd664dabc3db546867a3",
+  "entry": "/assets/arcade-chVr-Pji.js",
+  "worker": "amari-discovery-v88",
+  "backendUrl": "https://dinospace-2vzzyf0js-memas-projects-23a0001d.vercel.app",
+  "backendDeployment": "dpl_HSJAk75wqsCQYHP7cQLt8o7fWcrs",
+  "gatewayDeployment": "6b01e9f810d4d5123a90e306",
+  "evidence": "docs/qa-evidence/live-paint-mixer-20261121/README.md",
+  "scope": "Open paint pots, immediate mix and active colour, real brush and picture paints, reversible background, and saved art retention on public site.",
+  "checkedAt": "2026-11-21T18:59:33.395335+00:00",
+  "repositoryTests": 769,
+  "assetHashes": {
+    "/": "ac16d52bfc48b49ffb75cbec04b764b2a73dca0e9c71c4774c96ba86d82ff60b",
+    "/index.html": "ac16d52bfc48b49ffb75cbec04b764b2a73dca0e9c71c4774c96ba86d82ff60b",
+    "/sw.js": "8bbcf89e2b8c69da552eba643855da696150362d07d33b4d7f8ac6a2e7130887",
+    "/assets/arcade-chVr-Pji.js": "b3d8b45cf9d06b3ab349994ea761098ecadf8cfa6cfab5f252d699f1dd6f12a6",
+    "/assets/DiscoveryHeader-DYw-azmg.css": "6129f526a51637220f3d476975ad8ce4c71bd83b8c050a38fba801a08d24ac84",
+    "/assets/arcade-Ce0zd8mg.css": "f374190273c5aff7496c4cccc3080def24734a3c7efad097df6b3d05aaf15116",
+    "/art/catalog-v3/game-colormix.webp": "0ae052feca38c51f4e4dccb7f1604f477b1296d5c58f73f4e95fb19d6082f3cb"
+  },
+  "cutover": {
+    "syntheticRecordsPreserved": 118,
+    "storybookFixturePreserved": true,
+    "usedRefreshGames": true
+  },
+  "baseline": {
+    "passed": true,
+    "width": 390,
+    "entry": "/assets/arcade-Bsq7d-C6.js",
+    "hiddenOnOpen": true,
+    "noPreviewAfterScoops": true,
+    "requiredUseStep": true
+  },
+  "live": [
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade-chVr-Pji.js",
+      "input": "touch",
+      "checks": [
+        "five pots exposed on load, each scoop updates the preview and active paint immediately, and undo updates both",
+        "Go to canvas focuses the painting area, real touch or mouse draws in the mix, and background fill can be undone",
+        "the mix paints a picture, the regular palette is independent, and changing or emptying the bucket leaves saved art intact",
+        "guided Paint Mixer opens and Sky Shapes still opens on the free drawing sheet"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade-chVr-Pji.js",
+      "input": "mouse and keyboard",
+      "checks": [
+        "five pots exposed on load, each scoop updates the preview and active paint immediately, and undo updates both",
+        "Go to canvas focuses the painting area, real touch or mouse draws in the mix, and background fill can be undone",
+        "the mix paints a picture, the regular palette is independent, and changing or emptying the bucket leaves saved art intact",
+        "guided Paint Mixer opens and Sky Shapes still opens on the free drawing sheet"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "width": 320,
+      "entry": "/assets/arcade-chVr-Pji.js",
+      "input": "touch",
+      "checks": [
+        "five pots exposed on load, each scoop updates the preview and active paint immediately, and undo updates both",
+        "Go to canvas focuses the painting area, real touch or mouse draws in the mix, and background fill can be undone",
+        "the mix paints a picture, the regular palette is independent, and changing or emptying the bucket leaves saved art intact",
+        "guided Paint Mixer opens and Sky Shapes still opens on the free drawing sheet"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade-chVr-Pji.js",
+      "input": "touch",
+      "checks": [
+        "five pots exposed on load, each scoop updates the preview and active paint immediately, and undo updates both",
+        "Go to canvas focuses the painting area, real touch or mouse draws in the mix, and background fill can be undone",
+        "the mix paints a picture, the regular palette is independent, and changing or emptying the bucket leaves saved art intact",
+        "guided Paint Mixer opens and Sky Shapes still opens on the free drawing sheet"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade-chVr-Pji.js",
+      "input": "mouse and keyboard",
+      "checks": [
+        "five pots exposed on load, each scoop updates the preview and active paint immediately, and undo updates both",
+        "Go to canvas focuses the painting area, real touch or mouse draws in the mix, and background fill can be undone",
+        "the mix paints a picture, the regular palette is independent, and changing or emptying the bucket leaves saved art intact",
+        "guided Paint Mixer opens and Sky Shapes still opens on the free drawing sheet"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    }
+  ]
+}
