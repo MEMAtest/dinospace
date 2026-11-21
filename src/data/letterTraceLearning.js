@@ -255,8 +255,13 @@ export const completeLetterTraceLevel = ({ playerId = 'amari', level, completedR
   const completedLevels = [...new Set([...previous.completedLevels, level])].sort();
   const newlyCompleted = !previous.completedLevels.includes(level);
   const next = { ...previous, unlocked: Math.max(previous.unlocked, Math.min(2, level + 1)), completedLevels };
-  try { storage?.setItem(LETTER_TRACE_PROGRESS_KEY, JSON.stringify({ ...all, [playerId]: next })); } catch { /* local progress remains optional */ }
-  return { ...next, newlyCompleted };
+  try {
+    if (!storage?.setItem) return { ...previous, newlyCompleted: false, persisted: false };
+    storage.setItem(LETTER_TRACE_PROGRESS_KEY, JSON.stringify({ ...all, [playerId]: next }));
+    return { ...next, newlyCompleted, persisted: true };
+  } catch {
+    return { ...previous, newlyCompleted: false, persisted: false };
+  }
 };
 
 // Guided/keyboard practice belongs in replay history without granting handwriting mastery.

@@ -109,3 +109,18 @@ test('guided practice updates recent history without handwriting mastery or anot
   assert.deepEqual(progress.recentByLevel[0],['a']);
   assert.deepEqual(getLetterTraceProgress('askia',storage).recentByLevel,{0:[],1:[],2:[]});
 });
+
+test('a failed chapter write keeps the badge locked and a retry preserves both players', () => {
+  const storage = memoryStorage();
+  recordLetterTraceMastery({ playerId: 'askia', level: 0, letter: 'A', storage });
+  const result = completeLetterTraceLevel({
+    playerId: 'amari', level: 0, completedRounds: 8,
+    storage: { ...storage, setItem: () => { throw new Error('Quota exceeded'); } },
+  });
+  assert.equal(result.persisted, false);
+  assert.equal(result.newlyCompleted, false);
+  assert.equal(getLetterTraceProgress('amari', storage).unlocked, 0);
+  assert.equal(completeLetterTraceLevel({ playerId: 'amari', level: 0, completedRounds: 8, storage }).persisted, true);
+  assert.equal(getLetterTraceProgress('amari', storage).unlocked, 1);
+  assert.deepEqual(getLetterTraceProgress('askia', storage).masteredLetters, ['a']);
+});

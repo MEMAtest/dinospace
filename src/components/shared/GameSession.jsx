@@ -6,6 +6,7 @@ import { getGameLevel, levelsForSession, saveGameLevel } from '../../data/sessio
 import { getLearningProfile } from '../../data/learningProgress.js';
 import { ForcedDifficultyContext } from '../../hooks/useGameDifficulty.js';
 import { RewardSticker } from './StickerArt.jsx';
+import { FocusMenu } from './FocusMenu.jsx';
 import { recordGameDiagnostic } from '../../data/gameDiagnostics.js';
 import { awardChapterBadge, getEarnedChapterBadgeIds } from '../../data/chapterBadges.js';
 import LetterLaunchBadgeCollection from './LetterLaunchBadgeCollection.jsx';
@@ -26,6 +27,39 @@ const newSessionAttemptId = () => {
   try { return globalThis.crypto?.randomUUID?.() || `run-${Date.now()}-${Math.random().toString(36).slice(2)}`; }
   catch { return `run-${Date.now()}-${Math.random().toString(36).slice(2)}`; }
 };
+
+function FocusedSpellingSession({ title, how, starting, level, levelIndex, levels, unlocked, start, onBack, hasPendingReward, sessionSaving, sessionSaveError, retryReward }) {
+  const [focusOptions, setFocusOptions] = useState(false);
+  const blocked = hasPendingReward || sessionSaving;
+  const next = levels[levelIndex + 1];
+    const menuChoices = [
+      ...(starting ? levels.map((item, index) => ({
+        label: item.name,
+        description: item.description,
+        disabled: index > unlocked || blocked,
+        button: 'Start stage',
+        action: () => { setFocusOptions(false); start(index); },
+      })) : [{ label: 'Replay stage', action: () => { setFocusOptions(false); start(levelIndex); } }]),
+      { label: 'Back to Read & Write', action: onBack },
+    ];
+    return <div className="focus-game spelling-focus" data-board-focus="">
+      <main className="focus-game-body is-menu">
+        <header className="focus-game-heading"><h1>{starting || focusOptions ? title : `${level.name} complete!`}</h1></header>
+        {focusOptions ? <FocusMenu choices={menuChoices} onBack={() => setFocusOptions(false)} /> : <>
+          <p className="focus-game-message">{starting ? level?.description || how : 'Your spelling stage and rewards are saved.'}</p>
+          {sessionSaveError && <p role="alert" className="focus-game-message">{sessionSaveError}</p>}
+          <div className="focus-game-actions">
+            {starting && hasPendingReward
+              ? <button type="button" className="focus-game-button is-primary" disabled={sessionSaving} onClick={retryReward}>Retry saved reward</button>
+              : starting ? <button type="button" className="focus-game-button is-primary" onClick={() => start()} disabled={blocked}>Start: {level.name}</button>
+                : next && <button type="button" className="focus-game-button is-primary" onClick={() => start(levelIndex + 1)}>Next: {next.name}</button>}
+            <button type="button" className="focus-game-button" onClick={() => setFocusOptions(true)}>Options</button>
+            <button type="button" className="focus-game-button" onClick={onBack}>{starting ? 'Back' : 'Finish'}</button>
+          </div>
+        </>}
+      </main>
+    </div>;
+}
 
 // Each older game plays one named level at a time. Its saved level changes the
 // actual question pool or play mechanic through the difficulty context.
@@ -315,6 +349,13 @@ const GameSession = ({
       </>
     );
   }
+
+  if (wordsSession) return <FocusedSpellingSession
+    title={game.title} how={rule.how} starting={phase === 'start'}
+    level={level} levelIndex={levelIndex} levels={levels} unlocked={levelState.unlocked}
+    start={start} onBack={handleSessionBack} hasPendingReward={pendingRewardReceipts.length > 0}
+    sessionSaving={sessionSaving} sessionSaveError={sessionSaveError} retryReward={retryPendingWordRewards}
+  />;
 
   // Show only the newest sticker earned in this session.
   const newStickers = phase === 'done' ? STICKERS.filter((sticker) => sticker.points > startPoints && sticker.points <= points).slice(-1) : [];

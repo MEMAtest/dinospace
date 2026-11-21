@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, Check, Lightbulb, Volume2 } from 'lucide-react';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { makeLearningEvent } from '../../data/literacy.js';
 import {
   completeLetterTraceLevel,
@@ -52,11 +52,12 @@ const AmariLetterTrace = ({
   const guideRef = useRef([]);
   const strokeStateRef = useRef({ cursors: [], completed: 0, on: 0, off: 0, paths: [] });
   const pointerRef = useRef({ active: false, id: null, last: null });
-  const chapterPickerRef = useRef(null);
   const keyboardRef = useRef({ cursor: 0, active: false });
   const progressAtStartRef = useRef(null);
   const lastCompletionRef = useRef(null);
   const [phase, setPhase] = useState('map');
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const [chapterSavePending, setChapterSavePending] = useState(false);
   const [run, setRun] = useState(() => makeLetterTraceRun({ seed: getSeed(), level }));
   const [roundIndex, setRoundIndex] = useState(0);
   const [letter, setLetter] = useState(() => run.rounds[0] || { lower: 'a', upper: 'A', requested: 'A' });
@@ -116,6 +117,7 @@ const AmariLetterTrace = ({
     setWordChoices([]);
     setSelectedWord(null);
     setError('');
+    setChapterSavePending(false);
     setShowGuide(false);
     demoRef.current = null;
     usedKeyboardRef.current = false;
@@ -443,6 +445,20 @@ const AmariLetterTrace = ({
     }
   };
 
+  const saveChapter = () => {
+    if (lastCompletionRef.current === run.seed) return;
+    const result = completeLetterTraceLevel({ playerId, level, completedRounds: LETTER_TRACE_ROUNDS_PER_LEVEL });
+    if (!result.persisted) {
+      setChapterSavePending(true);
+      return;
+    }
+    setChapterSavePending(false);
+    setMastery(getLetterTraceProgress(playerId));
+    lastCompletionRef.current = run.seed;
+    if (result.newlyCompleted) onCelebrate(`${chapter.title} badge earned!`, 4, 250, 'trace');
+    onGameEvent?.('trace', 'level_completed', { level, round: roundIndex, seed: run.seed, badge: chapter.id });
+  };
+
   const completeRound = (word = null) => {
     if (roundPassed) return;
     setRoundPassed(true);
@@ -457,12 +473,7 @@ const AmariLetterTrace = ({
       ? recordLetterTraceMastery({ playerId, level, letter: letter.lower })
       : { newlyMastered: false };
     if (!nowFirstTry) recordLetterTracePractice({ playerId, level, letter: letter.lower });
-    if (roundIndex + 1 === LETTER_TRACE_ROUNDS_PER_LEVEL && lastCompletionRef.current !== run.seed) {
-      lastCompletionRef.current = run.seed;
-      const result = completeLetterTraceLevel({ playerId, level, completedRounds: LETTER_TRACE_ROUNDS_PER_LEVEL });
-      if (result.newlyCompleted) onCelebrate(`${chapter.title} badge earned!`, 4, 250, 'trace');
-      onGameEvent?.('trace', 'level_completed', { level, round: roundIndex, seed: run.seed, badge: chapter.id });
-    }
+    if (roundIndex + 1 === LETTER_TRACE_ROUNDS_PER_LEVEL) saveChapter();
     setMastery(getLetterTraceProgress(playerId));
     if (award.newlyMastered && nowFirstTry) onCelebrate('New letter mastered!', 4, 250, 'trace');
     onGameEvent?.('trace', 'learning_attempt', makeLearningEvent({
@@ -518,7 +529,7 @@ const AmariLetterTrace = ({
   };
 
   const advance = () => {
-    if (!roundPassed) return;
+    if (!roundPassed || chapterSavePending) return;
     cancelNarration();
     const nextIndex = roundIndex + 1;
     if (nextIndex < LETTER_TRACE_ROUNDS_PER_LEVEL) {
@@ -532,104 +543,99 @@ const AmariLetterTrace = ({
     playSfx('complete');
   };
 
-  const chooseLevel = (nextLevel) => {
-    if (nextLevel > mastery.unlocked) return;
-    if (nextLevel === level) return;
-    cancelNarration();
-    setActiveLevel(nextLevel);
-    setError('');
-    playSfx('click');
-  };
-
-  const chooseIntroLevel = (nextLevel) => {
-    chooseLevel(nextLevel);
-    if (nextLevel !== level && chapterPickerRef.current) chapterPickerRef.current.open = false;
-  };
-
   const toggleKeyboard = () => {
     if (!keyboardMode) { usedKeyboardRef.current = true; setFirstTry(false); }
     setKeyboardMode(value => !value);
     keyboardRef.current = { cursor: 0, active: false };
     setFeedback(keyboardMode ? 'Pointer tracing is ready.' : 'Press Space to start. Right or Down follows the dots. Left or Up goes back. Space finishes the stroke.');
   };
-  const renderIntro = () => (
-    <main className="trace-intro-main mx-auto w-full max-w-4xl">
-      <section className="trace-intro-hero rounded-3xl border-2 border-white bg-white/95 text-center shadow-md">
-        <img src="/art/catalog-v3/game-trace.webp" alt="" className="trace-intro-mark rounded-2xl border-2 border-sky-200 bg-sky-50 object-cover" />
-        <div><h1 className="font-black text-blue-950">Make letters come to life</h1>
-        <p className="font-semibold text-slate-600">Start at the green number. Follow one stroke, then lift.</p></div>
-      </section>
-      <section className="trace-selected-chapter rounded-3xl border-2 border-sky-200 bg-white/95 shadow-md" aria-labelledby="trace-selected-title">
-        <div className="trace-selected-copy">
-          <p className="trace-selected-kicker">Chapter {level + 1} · {mastery.completedLevels.includes(level) ? 'Badge earned' : 'Ready'}</p>
-          <h2 id="trace-selected-title">{chapter.title}</h2>
-          <p className="trace-selected-prompt">{chapter.prompt}</p>
-        </div>
-        <button type="button" onClick={() => beginChapter()} className="trace-start-button min-h-14 w-full rounded-2xl bg-emerald-800 px-5 text-xl font-black text-white shadow-md">Start {chapter.title} →</button>
-      </section>
-      <p className="trace-mastery-summary text-center text-sm font-semibold text-slate-600">{mastery.completedLevels.length} of 3 chapter badges · {mastery.masteredLetters.length} letters mastered</p>
-      <details ref={chapterPickerRef} className="trace-chapter-picker rounded-2xl bg-white/85 text-sm text-slate-700">
-        <summary className="min-h-12 cursor-pointer p-3 font-bold">Choose another chapter</summary>
-        <div className="trace-chapter-options" role="group" aria-label="Other trace chapters">{LETTER_TRACE_LEVELS.map((item, index) => index === level ? null : <button key={item.id} type="button" onClick={() => chooseIntroLevel(index)} disabled={index > mastery.unlocked} aria-pressed={index === level} aria-label={`${item.title}${index > mastery.unlocked ? ', locked' : ''}`} className="trace-chapter-option rounded-2xl border-2 border-white bg-white/90 text-left disabled:opacity-50">
-          <span><span className="trace-chapter-status">Chapter {index + 1} · {mastery.completedLevels.includes(index) ? 'Badge earned' : index > mastery.unlocked ? 'Locked' : 'Ready'}</span><strong>{item.title}</strong><small>{item.prompt}</small></span>
-          {index > mastery.unlocked && <span aria-hidden="true">🔒</span>}
-        </button>)}</div>
-      </details>
-      {error && <p className="rounded-xl bg-amber-50 p-3 font-bold text-amber-950" role="alert">{error}</p>}
-      <details className="trace-grownup-details rounded-2xl bg-white/75 p-3 text-sm text-slate-600"><summary className="min-h-12 cursor-pointer p-3 font-bold">For grown-ups: practice and mastery</summary><p className="p-3">Guided and keyboard practice can earn chapter badges. Letter mastery records unaided, first-try hand tracing.</p></details>
-    </main>
-  );
-  const renderComplete = () => (
-    <main className="mx-auto my-6 w-full max-w-2xl rounded-3xl border-2 border-white bg-white p-6 text-center shadow-xl">
-      <p aria-hidden="true" className="text-5xl text-amber-500">★</p><h1 className="mt-3 text-3xl font-black text-blue-950">{chapter.title} complete!</h1>
-      <p className="mt-3 font-semibold text-slate-700">Eight letters practised. Your chapter badge is saved.</p>
-      {level < 2 ? <button type="button" onClick={() => beginChapter(false, level + 1)} className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-800 px-5 font-black text-white">Next chapter: {LETTER_TRACE_LEVELS[level + 1].title} →</button> : <button type="button" onClick={() => { setActiveLevel(mastery.unlocked); setPhase('map'); }} className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-800 px-5 font-black text-white">Choose a chapter</button>}
-      <button type="button" onClick={() => beginChapter(true)} className="mt-3 min-h-12 w-full rounded-xl border-2 border-sky-300 bg-white px-5 font-black text-sky-900">Replay chapter</button>
-      <button type="button" onClick={onBack} className="mt-3 min-h-12 w-full rounded-xl px-5 font-black text-slate-700">Back to world</button>
-    </main>
-  );
+  const openOptions = () => { cancelNarration(); setOptionsOpen(true); };
+  const closeOptions = () => setOptionsOpen(false);
+  const chooseChapter = index => { closeOptions(); beginChapter(false, index); };
+  const leave = () => { cancelNarration(); onBack?.(); };
+  const optionChoices = [
+    ...(phase === 'map' ? LETTER_TRACE_LEVELS.map((item, index) => ({
+      label: item.title, description: item.prompt, disabled: index > mastery.unlocked,
+      button: 'Start chapter', action: () => chooseChapter(index),
+    })) : []),
+    ...(phase === 'play' && !roundPassed && !wordChoices.length ? [
+      { label: showGuide ? 'Watch stroke again' : 'Watch this stroke', action: () => { closeOptions(); showHint(); } },
+      { label: 'Retry trace', action: () => { closeOptions(); restartTrace(); } },
+      { label: keyboardMode ? 'Use touch or mouse' : 'Use keyboard', action: () => { closeOptions(); toggleKeyboard(); } },
+    ] : []),
+    ...(phase === 'play' && roundPassed && soundOn ? [{ label: 'Hear explanation', action: () => { closeOptions(); say(level === 2 ? AMARI_TRACE_NARRATION[5] : AMARI_TRACE_NARRATION[4]); } }] : []),
+    ...(phase === 'complete' ? [
+      { label: 'Replay chapter', action: () => { closeOptions(); beginChapter(true); } },
+      { label: 'Choose a chapter', action: () => { closeOptions(); setActiveLevel(mastery.unlocked); setPhase('map'); } },
+    ] : []),
+    { label: 'Practice and mastery', description: 'Keyboard and guided practice can earn chapter badges. Letter mastery records unaided first-try handwriting.', button: 'Back to Letter Trace', action: closeOptions },
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound?.(); closeOptions(); } },
+    { label: 'Back to Read & Write', action: leave },
+  ];
+  const renderIntro = () => <main className="focus-game-body is-menu">
+    <header className="focus-game-heading"><h1>Letter Trace</h1></header>
+    <p className="focus-game-message">Trace one stroke at a time. Start at the green number.</p>
+    {error && <p className="focus-game-message" role="alert">{error}</p>}
+    <div className="focus-game-actions">
+      <button type="button" onClick={() => beginChapter()} className="focus-game-button is-primary">Start: {chapter.title}</button>
+      <button type="button" onClick={openOptions} className="focus-game-button">Options</button>
+      <button type="button" onClick={leave} className="focus-game-button">Back</button>
+    </div>
+  </main>;
+  const renderComplete = () => <main className="focus-game-body is-menu">
+    <header className="focus-game-heading"><h1>{chapter.title} complete!</h1></header>
+    <p className="focus-game-message">Eight letters practised. Your chapter badge is saved.</p>
+    <div className="focus-game-actions">
+      {level < LETTER_TRACE_LEVELS.length - 1 && <button type="button" onClick={() => beginChapter(false, level + 1)} className="focus-game-button is-primary">Next: {LETTER_TRACE_LEVELS[level + 1].title}</button>}
+      <button type="button" onClick={openOptions} className="focus-game-button">Options</button>
+      <button type="button" onClick={leave} className="focus-game-button">Finish</button>
+    </div>
+  </main>;
   const renderRound = () => {
     const wordStep = level === 2 && wordChoices.length > 0 && !roundPassed;
-    return <main className="trace-round-main mx-auto w-full max-w-4xl space-y-4" data-trace-letter={traceLetter}>
-      <section className="trace-round-card rounded-3xl border-2 border-white bg-white/95 p-4 shadow-md">
+    return <main className="focus-game-body trace-focused-round" data-trace-letter={traceLetter}>
+      <section className="trace-focused-stage">
         <p className="trace-round-kicker text-center text-xs font-black uppercase text-blue-800">{chapter.title} · Letter {roundIndex + 1} of 8</p>
         <h1 className="trace-round-title mt-1 text-center text-2xl font-black text-blue-950">{roundPassed ? 'You did it!' : wordStep ? `Find a word for ${letter.lower}` : `Trace ${traceLetter}`}</h1>
         {!roundPassed && !wordStep && <>
           <p className="trace-round-instruction mt-2 text-center font-bold text-slate-700">{traceReady ? 'All strokes traced. Check your shape.' : `Start at green ${strokeStateRef.current.completed + 1}. Follow the arrows, then lift.`}</p>
           {level === 1 && <p className="trace-same-letter mt-2 text-center font-bold text-indigo-800" aria-label={`Same letter pair: capital ${letter.upper} and lowercase ${letter.lower}`}>Same letter: <span className="px-2 text-3xl">{letter.upper} {letter.lower}</span> · trace {traceLetter}</p>}
           <div className="trace-progress-track mt-3 h-3 overflow-hidden rounded-full bg-sky-100" role="progressbar" aria-label="Letter path progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={traceProgress}><div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-700" style={{ width: `${traceProgress}%` }} /></div>
-          <div className="trace-canvas-wrap relative mt-3 h-[min(46vh,400px)] min-h-[280px] w-full overflow-hidden rounded-2xl border-2 border-sky-200 bg-sky-50 sm:min-h-[340px]">
+          <div className="trace-focus-paper relative w-full overflow-hidden rounded-xl border border-sky-200 bg-white">
             <canvas ref={canvasRef} aria-label={`${traceLetter} letter guide. ${strokeAnnouncement}`} role="img" onPointerDown={startPointer} onPointerMove={movePointer} onPointerUp={endPointer} onPointerCancel={cancelPointer} onKeyDown={handleKeyDown} tabIndex={keyboardMode ? 0 : -1} className={`absolute inset-0 block h-full w-full touch-none ${keyboardMode ? 'focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-500' : 'cursor-crosshair'}`} />
           </div>
           <p className="trace-progress-copy mt-2 text-center text-sm font-bold text-blue-800" aria-live="polite">{traceProgress}% traced · {Math.min(strokeStateRef.current.completed, currentStrokeCount)} of {currentStrokeCount} strokes done</p>
-          <button type="button" onClick={checkTrace} disabled={!traceReady} className="trace-check-button mt-3 min-h-14 w-full rounded-2xl bg-emerald-800 px-5 text-lg font-black text-white disabled:bg-slate-200 disabled:text-slate-500"><Check className="mr-2 inline" size={20} />{level === 2 ? 'Find the word →' : 'Check shape'}</button>
-          <button type="button" onClick={showHint} className="trace-hint-button mt-3 min-h-12 w-full rounded-xl bg-amber-50 px-4 font-black text-amber-950"><Lightbulb className="mr-2 inline" size={18} />{showGuide ? 'Watch stroke again' : 'Watch this stroke'}</button>
-          <details className="trace-tools mt-3 rounded-xl bg-slate-50 p-2"><summary className="min-h-12 cursor-pointer p-3 font-bold text-slate-700">More tracing tools</summary><div className="grid gap-2 sm:grid-cols-2"><button type="button" onClick={restartTrace} className="min-h-12 rounded-xl bg-white px-4 font-black text-slate-800">Retry trace</button><button type="button" onClick={toggleKeyboard} aria-pressed={keyboardMode} className="min-h-12 rounded-xl bg-violet-100 px-4 font-black text-violet-950">{keyboardMode ? 'Use touch or mouse' : 'Use keyboard'}</button></div></details>
+          {traceReady && <button type="button" onClick={checkTrace} className="focus-game-button is-primary mt-2 w-full">{level === 2 ? 'Find the word' : 'Check shape'}</button>}
           {keyboardMode && <p className="trace-keyboard-help mt-2 text-sm font-bold text-violet-900">Focus the guide. Space starts/finishes a stroke. Right/Down follows the dots; Left/Up goes back.</p>}
         </>}
         {wordStep && <section aria-label="Choose the word that starts with this sound" className="mt-4 text-center"><span className="mx-auto block text-7xl font-black text-sky-700">{letter.lower}</span><p className="mt-2 font-bold">Which word starts with {letter.lower}?</p><div className="mt-4 grid gap-3 sm:grid-cols-3">{storyChoices.map(word => {
           const art = SPELLING_WORD_ART[word.word];
           return <button type="button" key={word.word} onClick={() => answerWord(word)} aria-label={word.word} className="flex min-h-24 items-center justify-center gap-3 rounded-2xl border-2 border-sky-200 bg-sky-50 p-3 text-xl font-black text-sky-950">{art ? <img src={art.src} alt={art.alt} className="h-16 w-16 object-contain" /> : <span aria-hidden="true" className="text-4xl">{word.emoji}</span>}<span>{word.word}</span></button>;
         })}</div></section>}
-        {roundPassed && <section aria-label="Completed letter" aria-live="polite" className="trace-completed-letter-section mt-3 rounded-2xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center"><p className="trace-completed-letter text-7xl font-black text-emerald-800">{traceLetter}</p>{selectedWord && <p className="trace-completed-word mt-3 text-2xl font-black text-emerald-900">{selectedWord.word}</p>}<p className="trace-held-explanation mt-3 text-lg font-bold text-slate-800">{feedback}</p><button type="button" onClick={() => say(level === 2 ? AMARI_TRACE_NARRATION[5] : AMARI_TRACE_NARRATION[4])} className="trace-explanation-audio mt-3 min-h-12 w-full rounded-xl border-2 border-emerald-600 bg-white px-4 font-black text-emerald-900"><Volume2 className="mr-2 inline" size={20} />Hear explanation</button><button type="button" onClick={advance} className="trace-next-button mt-3 min-h-14 w-full rounded-xl bg-emerald-800 px-5 text-lg font-black text-white">{roundIndex + 1 === LETTER_TRACE_ROUNDS_PER_LEVEL ? 'Finish chapter' : 'Next letter'} →</button></section>}
-        {!roundPassed && <p className="trace-feedback-live mt-3 min-h-8 text-center font-bold text-slate-700" aria-live="polite">{feedback}</p>}
+        {roundPassed && <section aria-label="Completed letter" aria-live="polite" className="pattern-focus-explanation">
+          <p className="text-6xl font-black">{traceLetter}</p>
+          {selectedWord && <p className="text-2xl font-black">{selectedWord.word}</p>}
+          <p className="mt-2">{feedback}</p>
+          {chapterSavePending && <p role="alert" className="mt-2">Your chapter is ready to save. Try saving again to continue.</p>}
+          <button type="button" onClick={chapterSavePending ? saveChapter : advance} className="focus-game-button is-primary mt-3 w-full">{chapterSavePending ? 'Retry saving chapter' : roundIndex + 1 === LETTER_TRACE_ROUNDS_PER_LEVEL ? 'Finish chapter' : 'Next letter'}</button>
+        </section>}
+        {!roundPassed && <p className="trace-feedback-live mt-2 font-bold text-slate-700" aria-live="polite">{feedback}</p>}
+        <button type="button" onClick={openOptions} className="focus-game-button mt-2 w-full">Options</button>
       </section>
     </main>;
   };
 
-  return (
-    <div className="trace-root flex min-h-[100dvh] flex-col bg-gradient-to-b from-blue-100 via-sky-100 to-indigo-100 text-slate-900">
-      <header className="trace-header sticky top-0 z-10 flex min-h-[68px] items-center justify-between gap-2 bg-white/95 px-3 py-2 shadow sm:px-5">
-        <button type="button" onClick={onBack} aria-label="Back to learning world" className="grid min-h-12 min-w-12 place-items-center rounded-full bg-blue-100 text-blue-950"><ArrowLeft /></button>
-        <div className="text-center"><p className="text-xs font-black uppercase tracking-wide text-blue-900">One stroke at a time</p><p className="text-xl font-black">Letter Trace</p></div>
-        <button type="button" onClick={onToggleSound} aria-label={`Sound ${soundOn ? 'on' : 'off'}`} aria-pressed={soundOn} className="grid min-h-12 min-w-12 place-items-center rounded-xl bg-slate-100 text-slate-900"><Volume2 /></button>
-      </header>
+  return <div className="focus-game trace-focused" data-board-focus="">
+    {optionsOpen && <main className="focus-game-body is-menu">
+      <header className="focus-game-heading"><h1>Letter Trace</h1></header>
+      <FocusMenu key={phase} choices={optionChoices} onBack={closeOptions} />
+    </main>}
+    <div className={optionsOpen ? 'hidden' : 'contents'}>
       {phase === 'map' && renderIntro()}
       {phase === 'play' && renderRound()}
       {phase === 'complete' && renderComplete()}
-
     </div>
-  );
+  </div>;
 };
 
 export default AmariLetterTrace;

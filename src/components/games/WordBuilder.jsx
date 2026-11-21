@@ -1,15 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, Check, RotateCcw, Volume2 } from 'lucide-react';
 import { getPraise, saveSafe, shuffle } from '../../utils.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
 import { DECODABLE_CAPTIONS, getTaughtGraphemes, LITERACY_PROFILE_KEY, makeLearningEvent } from '../../data/literacy.js';
 import { appendSpellingRecent, decodableSpellingWords, spellingLevelWords, makeSpellingQueue, qualifiesForIndependentSpelling, spellingAttemptAttribution, spellingCaptionSegments, spellingSessionMode, SPELLING_PREANSWER_CUES, SPELLING_RECENT_KEY, SPELLING_WORD_ART, spellingTrickyWordsForPhase } from '../../data/spellingStudio.js';
 import { commitSpellingAttempt, commitSpellingWritingSample, readSpellingProgress } from '../../data/spellingProgress.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
-import { SoundToggle } from '../shared/index.jsx';
-import classroomScene from '../../assets/game-scenes/spelling-studio.webp';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { learningPictureFor } from '../learning/pictureClues.js';
-import './amariScenes.css';
 
 const LETTER_BANK = ['s', 'a', 't', 'p', 'i', 'n', 'm', 'd', 'g', 'o', 'c', 'k', 'e', 'u', 'r', 'h', 'b', 'f', 'l', 'sh', 'ch', 'th', 'ai', 'ee', 'oa', 'oo'];
 
@@ -68,6 +65,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     catch { return 2; }
   });
   const [optionalMode, setOptionalMode] = useState(null);
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
   const [typed, setTyped] = useState([]);
   const [feedback, setFeedback] = useState('');
@@ -77,7 +75,6 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [hadMistake, setHadMistake] = useState(false);
   const [usedTeachingHint, setUsedTeachingHint] = useState(false);
   const [savedProgress, setSavedProgress] = useState(() => readSpellingProgress());
-  const progress = savedProgress.progress;
   const [pendingSave, setPendingSave] = useState(null);
   const pendingSaveRef = useRef(null);
   const finalizedAttemptRef = useRef(null);
@@ -116,7 +113,6 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const startedRef = useRef(false);
   const sceneRef = useRef('');
 
-  const masteredWords = Object.values(progress).filter((item) => item?.independentDays?.length >= 2).length;
 
   useEffect(() => {
     if (!onGameEvent) return;
@@ -371,148 +367,79 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     />;
   }
 
-  return (
-    <div className="amari-scene spelling-studio text-slate-800" style={{ '--scene-image': `url("${classroomScene}")` }}>
-      <header className="amari-scene-header relative z-20">
-        <button onClick={leave} className="game-icon-button" aria-label="Back to home"><ArrowLeft /></button>
-        <div className="amari-scene-title">
-          <h2 className="text-lg sm:text-2xl">✏️ Spelling Studio</h2>
-          <p className="text-xs text-sky-100">{savedProgress.ok ? `${masteredWords} words secure` : 'Saved word progress unavailable'}{sessionTarget > 0 ? '' : savedProgress.ok ? ` · ${score} today` : ''}</p>
-        </div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+  const closeOptions = () => setOptionsOpen(false);
+  const stageName = sessionTarget > 0 ? STAGE_NAMES[Math.min(sessionLevel, STAGE_NAMES.length - 1)] : MODES.find(item => item.id === mode)?.label;
+  const nextLabel = sessionTarget > 0 && stageCount >= sessionTarget ? sessionSaveError ? 'Retry saving level' : 'Finish stage' : 'Next word';
+  const menuOptions = [
+    ...(sessionTarget === 0 && !hideOptionalPractice ? MODES.map(item => ({
+      label: item.label, description: item.short, button: 'Start practice', disabled: locked,
+      action: () => { chooseMode(item.id); closeOptions(); },
+    })) : []),
+    ...(sessionTarget > 0 && !hideOptionalPractice ? MODES.slice(3).map(item => ({
+      label: item.label, description: item.short, button: 'Start practice', disabled: locked,
+      action: () => { setOptionalMode(item.id); closeOptions(); },
+    })) : []),
+    ...(mode !== 'caption' && mode !== 'copy' && !locked && !usedTeachingHint && words.length ? [{ label: 'Show a clue', action: () => { showTeachingHint(); closeOptions(); } }] : []),
+    ...(mode === 'caption' && soundOn && captionSegments ? [{ label: 'Hear the caption', action: () => { replayCaption(); closeOptions(); } }] : []),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound?.(); closeOptions(); } },
+    { label: hideOptionalPractice ? 'Back to spelling stage' : 'Back to Read & Write', action: leave },
+  ];
+
+  return <div className="focus-game spelling-focus" data-board-focus="">
+    <main className={`focus-game-body${optionsOpen ? ' is-menu' : ''}`} data-word-builder-stage={mode}>
+      <header className="focus-game-heading">
+        {!optionsOpen && <p>Spelling Studio · {stageName}{sessionTarget > 0 ? ` · ${stageCount} of ${sessionTarget} words` : ` · ${score} completed`}</p>}
+        <h1>{optionsOpen ? 'Spelling Studio' : mode === 'caption' ? 'Copy the caption' : mode === 'missing' ? 'Find the missing sound' : mode === 'copy' ? 'Build this word' : 'Listen and spell'}</h1>
       </header>
-
-      <main className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-3 pb-8">
-        <div className={`mt-3 flex w-full max-w-3xl gap-2 overflow-x-auto rounded-2xl bg-white/90 p-2 shadow-lg ${sessionTarget > 0 ? 'sm:grid sm:grid-cols-3' : 'sm:grid sm:grid-cols-5'}`} aria-label="Spelling practice modes">
-          {(sessionTarget > 0 ? MODES.slice(0, 3) : MODES).map((item) => (
-            <button
-              key={item.id}
-              onClick={() => chooseMode(item.id)}
-              disabled={sessionTarget > 0 || locked}
-              aria-pressed={mode === item.id}
-              className={`min-h-12 min-w-24 shrink-0 rounded-xl px-2 py-2 text-xs font-black transition sm:min-h-16 sm:min-w-0 sm:text-sm ${mode === item.id ? 'bg-cyan-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-cyan-50'}`}
-            >
-              <span className="mr-1" aria-hidden="true">{item.icon}</span>{item.label}
-              <span className={`mt-0.5 hidden text-[11px] font-bold sm:block ${mode === item.id ? 'text-cyan-100' : 'text-slate-400'}`}>{item.short}</span>
-            </button>
-          ))}
-        </div>
-
-        {sessionTarget > 0
-          ? <p className="mt-3 rounded-full bg-white/90 px-4 py-2 text-sm font-black text-cyan-900" aria-live="polite">{STAGE_NAMES[Math.min(sessionLevel, STAGE_NAMES.length - 1)]}: {stageCount} of {sessionTarget} words</p>
-          : <p className="mt-3 rounded-full bg-white/90 px-4 py-2 text-sm font-black text-cyan-900" aria-live="polite">{score} words completed</p>}
-
-        <section className="amari-scene-card mt-3 w-full max-w-2xl p-4 text-center sm:p-6">
-          {mode === 'caption' && !caption ? (
-            <div className="rounded-2xl bg-amber-50 p-6 text-lg font-bold text-amber-900" role="status">
-              No caption uses only this learner’s selected sounds yet. Choose more taught sounds in grown-up settings to unlock this activity.
+      {optionsOpen ? <FocusMenu choices={menuOptions} onBack={closeOptions} /> : <>
+        {mode === 'caption' && !caption ? <p className="focus-game-message" role="status">Choose more taught sounds in Grown-ups to unlock a caption.</p>
+          : !words.length && mode !== 'caption' ? <p className="focus-game-message" role="status">Choose more taught sounds in Grown-ups to unlock spelling words.</p>
+          : mode === 'caption' ? <>
+            <p className="spelling-focus-caption">{caption.text}</p>
+            <textarea aria-label="My caption" value={captionText} onChange={event => { setCaptionText(event.target.value); setCaptionSaved(false); }} disabled={Boolean(pendingCaptionSave)} rows={5} placeholder="Type your caption here" className="spelling-focus-writing" />
+            <p className="focus-game-message" aria-live="polite">{feedback || 'Your grown-up can read your saved writing.'}</p>
+          </> : <>
+            <div className="spelling-focus-cue">
+              <div className="spelling-focus-art">
+                {picture ? <img src={picture.src} alt={artworkDescription} /> : word.word === 'TAN'
+                  ? <span role="img" aria-label={artworkDescription} className="block h-20 w-20 rounded-2xl" style={{ backgroundColor: '#d2b48c' }} />
+                  : <span role="img" aria-label={artworkDescription}>{word.emoji}</span>}
+              </div>
+              {mode === 'copy'
+                ? <p aria-label={`Word to copy: ${word.word}`} className="spelling-focus-model">{word.word}</p>
+                : <p className="focus-game-message">{usedTeachingHint ? preAnswerCue : soundOn ? 'Listen to the word, then choose a tile.' : 'Turn on sound or use a clue in Options.'}</p>}
             </div>
-          ) : !words.length ? (
-            <div className="rounded-2xl bg-amber-50 p-6 text-lg font-bold text-amber-900" role="status">
-              There are no spelling words made only from the sounds selected for this learner yet. Ask a grown-up to choose more taught sounds, then come back.
+            <div className="spelling-focus-spaces" aria-label="Word spaces">
+              {word.graphemes.map((letter, index) => {
+                const shown = mode === 'missing' ? index === missingIndex ? locked ? letter : '' : letter : typed[index]?.letter;
+                return <span key={index} data-filled={Boolean(shown)}>{shown || '•'}</span>;
+              })}
             </div>
-          ) : mode === 'caption' ? (
-            <>
-              <p className="text-xs font-black uppercase tracking-widest text-cyan-700">Read it, say it, write it</p>
-              <p className="mt-3 rounded-2xl bg-cyan-50 p-4 text-2xl font-black text-cyan-900">{caption.text}</p>
-              <button onClick={replayCaption} disabled={!captionSegments} aria-label={captionSegments ? 'Hear the caption' : 'No packaged caption recording available'} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full bg-cyan-100 px-4 font-black text-cyan-800 disabled:opacity-50"><Volume2 size={19} /> {captionSegments ? 'Hear the caption' : 'Read the caption on screen'}</button>
-              <textarea value={captionText} onChange={(event) => { setCaptionText(event.target.value); setCaptionSaved(false); }} disabled={Boolean(pendingCaptionSave)} rows={3} placeholder="Type or copy the caption here" className="mt-5 w-full rounded-2xl border-4 border-cyan-200 bg-white p-4 text-xl font-black uppercase text-slate-800 outline-none focus:border-cyan-500 disabled:opacity-70" aria-label="Writing sample" />
-              <p className="mt-2 text-xs font-bold text-slate-500">This is saved as a writing sample for a grown-up to review. The app does not pretend to grade handwriting.</p>
-              {pendingCaptionSave
-                ? <button type="button" onClick={retryCaptionSave} className="mt-4 min-h-12 rounded-xl bg-amber-500 px-6 font-black text-white shadow-lg"><RotateCcw size={18} className="mr-2 inline" />Retry saving writing</button>
-                : <button onClick={saveWritingSample} disabled={captionSaved} className="mt-4 min-h-12 rounded-xl bg-emerald-500 px-6 font-black text-white shadow-lg disabled:opacity-60">{captionSaved ? 'Saved!' : 'Save my writing'}</button>}
-            </>
-          ) : <>
-          <div className="spelling-word-cue">
-          <div className="spelling-word-art mx-auto grid h-28 w-36 place-items-center rounded-3xl bg-cyan-50 text-6xl shadow-inner sm:h-32 sm:w-40">
-            {picture
-              ? <img src={picture.src} alt={artworkDescription} className="h-full w-full object-contain p-1" />
-              : word.word === 'TAN' ? <span role="img" aria-label={artworkDescription} className="block h-20 w-20 rounded-2xl border-2 border-white" style={{ backgroundColor: '#d2b48c' }} />
-                : <span role="img" aria-label={artworkDescription}>{word.emoji}</span>}
-          </div>
-          <div className="spelling-word-teaching">
-          {mode === 'copy'
-            ? <p className="mt-3 text-lg font-bold text-slate-700">{word.hint}</p>
-            : <div className="mt-3 min-h-12">
-              {usedTeachingHint
-                ? <p className="text-lg font-bold text-slate-700">{preAnswerCue}</p>
-                : <p className="text-sm font-bold text-slate-600">Listen to the word. Ask for a clue if you need one.</p>}
-              <button type="button" onClick={showTeachingHint} disabled={locked || usedTeachingHint} className="mt-2 min-h-11 rounded-full bg-amber-100 px-4 font-black text-amber-950 disabled:opacity-60">{usedTeachingHint ? 'Clue shown' : 'Show a clue'}</button>
+            {!locked && <div className="spelling-focus-tiles" aria-label={mode === 'missing' ? 'Choose the missing sound' : 'Letter tiles'}>
+              {mode === 'missing'
+                ? missingOptions.map(letter => <button type="button" key={letter} onClick={() => handleMissingSound(letter)}>{letter}</button>)
+                : tiles.map(item => <button type="button" key={item.id} onClick={() => handleLetterTap(item)}>{item.letter}</button>)}
             </div>}
-          <button onClick={replayWord} className="mt-2 inline-flex min-h-11 items-center gap-2 rounded-full bg-cyan-100 px-4 font-black text-cyan-800">
-            <Volume2 size={19} /> Hear the word
-          </button>
-
-          {mode === 'copy' && (
-            <div className="mt-3" aria-label={`Word to copy: ${word.word}`}>
-              <p className="text-xs font-black uppercase tracking-widest text-cyan-700">Look, say, build</p>
-              <p className="mt-1 text-3xl font-black tracking-[0.28em] text-cyan-800">{word.word}</p>
-            </div>
-          )}
-
-          </div>
-          </div>
-          <div className="spelling-word-spaces mt-5 flex flex-wrap justify-center gap-1 sm:gap-3" aria-label="Word spaces">
-            {word.graphemes.map((letter, index) => {
-              const shown = mode === 'missing' ? (index === missingIndex ? (locked ? letter : '') : letter) : typed[index]?.letter;
-              return (
-                <div key={`${letter}-${index}`} className={`grid h-12 w-9 place-items-center rounded-xl border-4 text-xl font-black shadow-md sm:h-16 sm:w-16 sm:text-3xl ${shown ? 'border-blue-700 bg-blue-500 text-white' : 'border-dashed border-blue-300 bg-white text-blue-300'}`}>
-                  {shown || '•'}
-                </div>
-              );
-            })}
-          </div>
-
-          {mode === 'missing' ? (
-            <div className="mt-5 flex flex-wrap justify-center gap-3" aria-label="Choose the missing sound">
-              {missingOptions.map((letter) => (
-                <button key={letter} disabled={locked} onClick={() => handleMissingSound(letter)} className="amari-choice grid h-16 w-16 place-items-center text-3xl disabled:opacity-60">
-                  {letter}
-                </button>
-              ))}
-            </div>
-          ) : (
-            <div className="mt-5 flex flex-wrap justify-center gap-3" aria-label="Letter tiles">
-              {tiles.map((item) => (
-                <button key={item.id} disabled={locked} onClick={() => handleLetterTap(item)} className="amari-choice grid h-16 w-16 place-items-center text-3xl disabled:opacity-60">
-                  {item.letter}
-                </button>
-              ))}
-            </div>
-          )}
-
-          <div className="spelling-word-feedback mt-4 min-h-12" aria-live="polite">
-            {feedback && <p className={`text-lg font-black ${locked ? 'text-emerald-600' : 'text-amber-700'}`}>{feedback}</p>}
-            {sessionSaveError && <p role="alert" className="mt-2 text-sm font-black text-rose-700">{sessionSaveError}</p>}
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            {!locked && mode !== 'missing' && typed.length > 0 && (
-              <button onClick={handleUndo} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 font-black text-cyan-700 shadow"><RotateCcw size={18} /> Undo</button>
-            )}
-            {locked && (
-              pendingSave
-                ? <button type="button" onClick={retrySpellingSave} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-500 px-6 font-black text-white shadow-lg"><RotateCcw size={18} /> Retry saving word</button>
-                : <button onClick={nextWord} disabled={sessionTarget > 0 && stageCount >= sessionTarget && sessionSaving} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald-500 px-6 font-black text-white shadow-lg transition hover:bg-emerald-600 disabled:opacity-60"><Check size={20} /> {sessionTarget > 0 && stageCount >= sessionTarget ? (sessionSaveError ? 'Retry saving level' : 'Finish stage') : 'Next word'}</button>
-            )}
-          </div>
+            {feedback && <p className="focus-game-message" role="status">{feedback}</p>}
           </>}
-        </section>
-
-        <p className="mt-3 max-w-xl rounded-xl bg-white/90 p-2 text-center text-xs font-bold text-cyan-900">
-          Keep practising! Try spelling the word again another day.
-        </p>
-        {sessionTarget > 0 && !hideOptionalPractice && (
-          <details className="mt-2 w-full max-w-2xl rounded-xl bg-white/90 p-3 text-cyan-950">
-            <summary className="cursor-pointer font-black">Optional practice (does not change this stage)</summary>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {MODES.slice(3).map((item) => <button key={item.id} disabled={locked} onClick={() => setOptionalMode(item.id)} className="min-h-11 rounded-lg bg-cyan-100 px-4 font-black text-cyan-900 disabled:opacity-50">{item.label}</button>)}
-            </div>
-          </details>
-        )}
-      </main>
-    </div>
-  );
+        {sessionSaveError && <p role="alert" className="focus-game-message">{sessionSaveError}</p>}
+        {!savedProgress.ok && <p role="status" className="text-sm">Saved word progress is unavailable.</p>}
+        <div className="focus-game-actions mt-3">
+          {mode === 'caption' && caption && (pendingCaptionSave ? <button type="button" className="focus-game-button is-primary" onClick={retryCaptionSave}>Retry saving writing</button>
+            : !captionSaved && <button type="button" className="focus-game-button is-primary" onClick={saveWritingSample}>Save my writing</button>)}
+          {mode !== 'caption' && words.length > 0 && (locked
+            ? pendingSave
+              ? <button type="button" className="focus-game-button is-primary" onClick={retrySpellingSave}>Retry saving word</button>
+              : <button type="button" className="focus-game-button is-primary" onClick={nextWord} disabled={sessionTarget > 0 && stageCount >= sessionTarget && sessionSaving}>{nextLabel}</button>
+            : <>
+              {soundOn && <button type="button" className="focus-game-button" onClick={replayWord}>Hear the word</button>}
+              {mode !== 'missing' && typed.length > 0 && <button type="button" className="focus-game-button" onClick={handleUndo}>Undo</button>}
+            </>)}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+        </div>
+      </>}
+    </main>
+  </div>;
 };
 
 export default WordBuilder;
