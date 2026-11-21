@@ -2330,5 +2330,15 @@
     "gatewayDeployment": "6b0204b97f7b8404fa18fbba",
     "evidence": "docs/qa-evidence/count-monster-focus-20261121/README.md",
     "scope": "Amari\u2019s Count the Stars and Monster Math each open on one recommended activity with access to other levels in Options. Counting tiles and pictured objects occupy the main play area. Each explanation stays visible until the child chooses the named next action."
+  },
+  "latestBoardMenusFocusRehearsal": {
+    "runtime": "92200212cf1a21cefb8abf9f4e64eddd1876d3af",
+    "entry": "/assets/arcade-Y4MZGkkC.js",
+    "worker": "amari-discovery-v96",
+    "backendUrl": "https://dinospace-30vu2gh5f-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_5NSGDGx6yu3gwZTaH1ipCnnJdajN",
+    "gatewayDeployment": "6b02066cc313142afa4cffc7",
+    "evidence": "docs/qa-evidence/board-menu-focus-20261121/README.md",
+    "scope": "Cosmic Tic-Tac-Toe and Puzzle Pop now use the large play areas without the surrounding menu cards. The main action names the next lesson, match or picture. Mode selection and secondary controls are available through Options."
   }
 }

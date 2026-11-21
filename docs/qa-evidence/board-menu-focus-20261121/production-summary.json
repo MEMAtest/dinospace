@@ -1,0 +1,947 @@
+{
+  "release": {
+    "runtime": "92200212cf1a21cefb8abf9f4e64eddd1876d3af",
+    "entry": "/assets/arcade-Y4MZGkkC.js",
+    "worker": "amari-discovery-v96",
+    "backendUrl": "https://dinospace-30vu2gh5f-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_5NSGDGx6yu3gwZTaH1ipCnnJdajN",
+    "gatewayDeployment": "6b02066cc313142afa4cffc7",
+    "evidence": "docs/qa-evidence/board-menu-focus-20261121/README.md",
+    "scope": "Cosmic Tic-Tac-Toe and Puzzle Pop now use the large play areas without the surrounding menu cards. The main action names the next lesson, match or picture. Mode selection and secondary controls are available through Options."
+  },
+  "live": [
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-Y4MZGkkC.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Cosmic entry",
+          "buttons": [
+            "Start: Make a line",
+            "Play Nova Bot",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic active game",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Cosmic rematch",
+          "buttons": [
+            "Play again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic solved lesson",
+          "buttons": [
+            "Next tactic board",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Puzzle Pop entry",
+          "buttons": [
+            "Start: Picture Pioneers",
+            "Options",
+            "Back to Creative Lab"
+          ]
+        },
+        {
+          "label": "Puzzle 3\u00d73 play",
+          "buttons": [
+            "Hint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Puzzle save retry",
+          "buttons": [
+            "Retry saving this picture"
+          ]
+        },
+        {
+          "label": "Puzzle 4\u00d74 play",
+          "buttons": [
+            "Hint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Puzzle 5\u00d75 play",
+          "buttons": [
+            "Show a piece mapping",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        }
+      ],
+      "cosmicSize": {
+        "x": 8,
+        "y": 69.359375,
+        "width": 374,
+        "height": 374
+      },
+      "rocketLine": [
+        4,
+        5,
+        6
+      ],
+      "botResponse": true,
+      "tacticRetryAndNext": true,
+      "puzzleSizes": [
+        {
+          "grid": 3,
+          "width": 358.8125
+        },
+        {
+          "grid": 4,
+          "width": 358.8125
+        },
+        {
+          "grid": 5,
+          "width": 358.8125
+        }
+      ],
+      "puzzleSaveRecovery": true,
+      "puzzleDragWrongAndCorrect": true,
+      "progressCheckpoints": "4\u00d74 and 5\u00d75 use isolated unlocked test checkpoints",
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-Y4MZGkkC.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Cosmic entry",
+          "buttons": [
+            "Start: Make a line",
+            "Play Nova Bot",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic active game",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Cosmic rematch",
+          "buttons": [
+            "Play again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic solved lesson",
+          "buttons": [
+            "Next tactic board",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Puzzle Pop entry",
+          "buttons": [
+            "Start: Picture Pioneers",
+            "Options",
+            "Back to Creative Lab"
+          ]
+        },
+        {
+          "label": "Puzzle 3\u00d73 play",
+          "buttons": [
+            "Hint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Puzzle save retry",
+          "buttons": [
+            "Retry saving this picture"
+          ]
+        },
+        {
+          "label": "Puzzle 4\u00d74 play",
+          "buttons": [
+            "Hint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Puzzle 5\u00d75 play",
+          "buttons": [
+            "Show a piece mapping",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        }
+      ],
+      "cosmicSize": {
+        "x": 192,
+        "y": 16,
+        "width": 608,
+        "height": 608
+      },
+      "rocketLine": [
+        4,
+        5,
+        6
+      ],
+      "botResponse": true,
+      "tacticRetryAndNext": true,
+      "puzzleSizes": [
+        {
+          "grid": 3,
+          "width": 544
+        },
+        {
+          "grid": 4,
+          "width": 544
+        },
+        {
+          "grid": 5,
+          "width": 544
+        }
+      ],
+      "puzzleSaveRecovery": true,
+      "puzzleDragWrongAndCorrect": true,
+      "progressCheckpoints": "4\u00d74 and 5\u00d75 use isolated unlocked test checkpoints",
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4207",
+      "entry": "/assets/arcade-Y4MZGkkC.js",
+      "viewport": [
+        390,
+        740
+      ],
+      "input": "Chromium touch emulation",
+      "checks": [
+        {
+          "label": "Cosmic entry",
+          "buttons": [
+            "Start: Make a line",
+            "Play Nova Bot",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic active game",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Cosmic rematch",
+          "buttons": [
+            "Play again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic solved lesson",
+          "buttons": [
+            "Next tactic board",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Puzzle Pop entry",
+          "buttons": [
+            "Start: Picture Pioneers",
+            "Options",
+            "Back to Creative Lab"
+          ]
+        },
+        {
+          "label": "Puzzle 3\u00d73 play",
+          "buttons": [
+            "Hint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Puzzle save retry",
+          "buttons": [
+            "Retry saving this picture"
+          ]
+        },
+        {
+          "label": "Puzzle 4\u00d74 play",
+          "buttons": [
+            "Hint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Puzzle 5\u00d75 play",
+          "buttons": [
+            "Show a piece mapping",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        }
+      ],
+      "cosmicSize": {
+        "x": 8,
+        "y": 69.359375,
+        "width": 374,
+        "height": 374
+      },
+      "rocketLine": [
+        4,
+        5,
+        6
+      ],
+      "botResponse": true,
+      "tacticRetryAndNext": true,
+      "puzzleSizes": [
+        {
+          "grid": 3,
+          "width": 358.8125
+        },
+        {
+          "grid": 4,
+          "width": 358.8125
+        },
+        {
+          "grid": 5,
+          "width": 358.8125
+        }
+      ],
+      "puzzleSaveRecovery": true,
+      "puzzleDragWrongAndCorrect": true,
+      "progressCheckpoints": "4\u00d74 and 5\u00d75 use isolated unlocked test checkpoints",
+      "errors": [],
+      "http": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "origin": "http://127.0.0.1:4207",
+      "entry": "/assets/arcade-Y4MZGkkC.js",
+      "viewport": [
+        1440,
+        900
+      ],
+      "input": "Desktop keyboard and pointer",
+      "checks": [
+        {
+          "label": "Cosmic entry",
+          "buttons": [
+            "Start: Make a line",
+            "Play Nova Bot",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic active game",
+          "buttons": [
+            "Options"
+          ]
+        },
+        {
+          "label": "Cosmic rematch",
+          "buttons": [
+            "Play again",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Show hint",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic solved lesson",
+          "buttons": [
+            "Next tactic board",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Reset board",
+            "Back"
+          ]
+        },
+        {
+          "label": "Cosmic leave board",
+          "buttons": [
+            "Keep playing",
+            "Leave board"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Start: Make a line",
+            "Back"
+          ]
+        },
+        {
+          "label": "Puzzle Pop entry",
+          "buttons": [
+            "Start: Picture Pioneers",
+            "Options",
+            "Back to Creative Lab"
+          ]
+        },
+        {
+          "label": "Puzzle 3\u00d73 play",
+          "buttons": [
+            "Hint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Puzzle save retry",
+          "buttons": [
+            "Retry saving this picture"
+          ]
+        },
+        {
+          "label": "Puzzle 4\u00d74 play",
+          "buttons": [
+            "Hint",
+            "Options"
+          ]
+        },
+        {
+          "label": "Puzzle 5\u00d75 play",
+          "buttons": [
+            "Show a piece mapping",
+            "Options"
+          ]
+        },
+        {
+          "label": "Options",
+          "buttons": [
+            "Turn sound on",
+            "Back"
+          ]
+        }
+      ],
+      "cosmicSize": {
+        "x": 192,
+        "y": 16,
+        "width": 608,
+        "height": 608
+      },
+      "rocketLine": [
+        4,
+        5,
+        6
+      ],
+      "botResponse": true,
+      "tacticRetryAndNext": true,
+      "puzzleSizes": [
+        {
+          "grid": 3,
+          "width": 544
+        },
+        {
+          "grid": 4,
+          "width": 544
+        },
+        {
+          "grid": 5,
+          "width": 544
+        }
+      ],
+      "puzzleSaveRecovery": true,
+      "puzzleDragWrongAndCorrect": true,
+      "progressCheckpoints": "4\u00d74 and 5\u00d75 use isolated unlocked test checkpoints",
+      "errors": [],
+      "http": [],
+      "providers": []
+    }
+  ],
+  "assets": {
+    "backend": {
+      "origin": "https://dinospace-30vu2gh5f-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "6ba59048acdfb29907197bd3252fe0b911d797805042a420fd4d237e9313c935"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "6ba59048acdfb29907197bd3252fe0b911d797805042a420fd4d237e9313c935"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "08c21bfc92840d15a66edcb65cdf4f8e6d0553fc311137796e3e173e52489d18"
+        },
+        {
+          "path": "/art/catalog-v3/game-tictactoe.webp",
+          "bytes": 63732,
+          "sha256": "935f864071f0e3b98d1d5030b020cb26b6ad98532b11d765711a3295d789667a"
+        },
+        {
+          "path": "/art/catalog-v3/game-puzzle.webp",
+          "bytes": 71080,
+          "sha256": "b3e57a432e510e36da1f0a520e2ce68b749c07988a328265564c29e1a5c33632"
+        },
+        {
+          "path": "/assets/arcade-Y4MZGkkC.js",
+          "bytes": 2130776,
+          "sha256": "ff768a82b632713264c5660cec98dbc936b521786fa1e081ea6d4229c0310af0"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BMMutH9Q.css",
+          "bytes": 28104,
+          "sha256": "a8c2f4756cc5c99489f39f481c2b687fbb5f06942f99d51b4d8cecc5799c63a7"
+        },
+        {
+          "path": "/assets/arcade-Dz7KRJAA.css",
+          "bytes": 282232,
+          "sha256": "16573dcf81bd181f564fd70fce21c048b115bb950b2af751e13b1b78f582f0a3"
+        }
+      ]
+    },
+    "draft": {
+      "origin": "https://6b02065e46147e1f1fa9daa5--dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "6ba59048acdfb29907197bd3252fe0b911d797805042a420fd4d237e9313c935"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "6ba59048acdfb29907197bd3252fe0b911d797805042a420fd4d237e9313c935"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "08c21bfc92840d15a66edcb65cdf4f8e6d0553fc311137796e3e173e52489d18"
+        },
+        {
+          "path": "/art/catalog-v3/game-tictactoe.webp",
+          "bytes": 63732,
+          "sha256": "935f864071f0e3b98d1d5030b020cb26b6ad98532b11d765711a3295d789667a"
+        },
+        {
+          "path": "/art/catalog-v3/game-puzzle.webp",
+          "bytes": 71080,
+          "sha256": "b3e57a432e510e36da1f0a520e2ce68b749c07988a328265564c29e1a5c33632"
+        },
+        {
+          "path": "/assets/arcade-Y4MZGkkC.js",
+          "bytes": 2130776,
+          "sha256": "ff768a82b632713264c5660cec98dbc936b521786fa1e081ea6d4229c0310af0"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BMMutH9Q.css",
+          "bytes": 28104,
+          "sha256": "a8c2f4756cc5c99489f39f481c2b687fbb5f06942f99d51b4d8cecc5799c63a7"
+        },
+        {
+          "path": "/assets/arcade-Dz7KRJAA.css",
+          "bytes": 282232,
+          "sha256": "16573dcf81bd181f564fd70fce21c048b115bb950b2af751e13b1b78f582f0a3"
+        }
+      ]
+    },
+    "live": {
+      "origin": "https://dinospace.netlify.app",
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 1441,
+          "sha256": "6ba59048acdfb29907197bd3252fe0b911d797805042a420fd4d237e9313c935"
+        },
+        {
+          "path": "/index.html",
+          "bytes": 1441,
+          "sha256": "6ba59048acdfb29907197bd3252fe0b911d797805042a420fd4d237e9313c935"
+        },
+        {
+          "path": "/sw.js",
+          "bytes": 16575,
+          "sha256": "08c21bfc92840d15a66edcb65cdf4f8e6d0553fc311137796e3e173e52489d18"
+        },
+        {
+          "path": "/art/catalog-v3/game-tictactoe.webp",
+          "bytes": 63732,
+          "sha256": "935f864071f0e3b98d1d5030b020cb26b6ad98532b11d765711a3295d789667a"
+        },
+        {
+          "path": "/art/catalog-v3/game-puzzle.webp",
+          "bytes": 71080,
+          "sha256": "b3e57a432e510e36da1f0a520e2ce68b749c07988a328265564c29e1a5c33632"
+        },
+        {
+          "path": "/assets/arcade-Y4MZGkkC.js",
+          "bytes": 2130776,
+          "sha256": "ff768a82b632713264c5660cec98dbc936b521786fa1e081ea6d4229c0310af0"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-BMMutH9Q.css",
+          "bytes": 28104,
+          "sha256": "a8c2f4756cc5c99489f39f481c2b687fbb5f06942f99d51b4d8cecc5799c63a7"
+        },
+        {
+          "path": "/assets/arcade-Dz7KRJAA.css",
+          "bytes": 282232,
+          "sha256": "16573dcf81bd181f564fd70fce21c048b115bb950b2af751e13b1b78f582f0a3"
+        }
+      ]
+    }
+  },
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 1,
+        "sha256": "60f67ffc00228da4821c377617bdfa0126c9460da0100366151881b23065f503"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 770
+}
