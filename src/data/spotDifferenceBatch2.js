@@ -569,3 +569,19 @@ export const createSpotDifferenceRun = (chapterIndex, seed, previousQueue = [], 
     chapter,
   }));
 };
+
+export const planSpotDifferenceChapter = (chapterIndex, seed, progress) => {
+  const { completedSceneIds, lastQueue, lastCompletedSceneId } = progress;
+  const queue = createSpotDifferenceRun(chapterIndex, seed, lastQueue, lastCompletedSceneId);
+  const completedIds = new Set(completedSceneIds);
+  const savedCount = queue.filter(({ id }) => completedIds.has(id)).length;
+  if (savedCount === 0 || savedCount === queue.length) return { queue, startIndex: 0 };
+
+  const scenesById = new Map(queue.map((scene) => [scene.id, scene]));
+  const priorOrder = lastQueue.map((id) => scenesById.get(id));
+  const ordered = priorOrder.length === queue.length && priorOrder.every(Boolean) ? priorOrder : queue;
+  return {
+    queue: [...ordered.filter(({ id }) => completedIds.has(id)), ...ordered.filter(({ id }) => !completedIds.has(id))],
+    startIndex: savedCount,
+  };
+};

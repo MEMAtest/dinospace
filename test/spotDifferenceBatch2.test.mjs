@@ -5,6 +5,7 @@ import {
   createSpotDifferenceRun,
   getNextSpotDifferenceHint,
   getSpotDifferenceProgress,
+  planSpotDifferenceChapter,
   resolveSpotDifferenceTap,
   resolveSpotDifferenceHotspotTap,
   SPOT_DIFFERENCE_CHAPTERS,
@@ -172,6 +173,25 @@ test('Spot records each actual completed pair independently for the child during
   for (let seed = 1; seed <= 100; seed += 1) {
     assert.notEqual(createSpotDifferenceRun(0, seed, [], first.id)[0].id, first.id);
   }
+});
+
+test('Spot resumes the first missing pair in the saved order and still replays a finished chapter', () => {
+  const original = createSpotDifferenceRun(1, 75).map(({ id }) => id);
+  const partial = {
+    completedSceneIds: [original[2], original[0]],
+    lastQueue: original,
+    lastCompletedSceneId: original[2],
+  };
+  const { queue, startIndex } = planSpotDifferenceChapter(1, 91, partial);
+  assert.equal(startIndex, 2);
+  assert.deepEqual(queue.map(({ id }) => id), [original[0], original[2], original[1], original[3]]);
+  const legacy = planSpotDifferenceChapter(1, 91, { ...partial, lastQueue: [] });
+  assert.equal(legacy.startIndex, 2);
+  assert.deepEqual(legacy.queue.slice(2).map(({ id }) => id).sort(), [original[1], original[3]].sort());
+  const replay = planSpotDifferenceChapter(1, 91, { ...partial, completedSceneIds: original });
+  assert.equal(replay.startIndex, 0);
+  assert.equal(replay.queue.length, 4);
+  assert.notEqual(replay.queue[0].id, partial.lastCompletedSceneId);
 });
 
 // Real paired art must keep every actual object target reachable after the mobile crop.
