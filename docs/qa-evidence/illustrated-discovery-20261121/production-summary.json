@@ -1,0 +1,236 @@
+{
+  "release": {
+    "runtime": "424ce1e479da25d6bcedc860189de718820595a7",
+    "entry": "/assets/arcade-CI2bJ51z.js",
+    "worker": "amari-discovery-v111",
+    "backendUrl": "https://dinospace-db3ea8w7r-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_4q1Zt6h1tqLbz4XhyXzSXq36y9xV",
+    "gatewayDeployment": "6b0224733e33995f72617652",
+    "evidence": "docs/qa-evidence/illustrated-discovery-20261121/README.md",
+    "scope": "Restored illustrated world and game navigation, direct game search, shared persistent sticker album, earned-sticker placement, and illustrated focused game surfaces."
+  },
+  "live": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "checks": {
+        "catalogue": {
+          "worlds": 5,
+          "readingGames": 6,
+          "searchWorked": true,
+          "controls": [
+            "Start: Word sound finder",
+            "Options",
+            "Back to Read & Write"
+          ],
+          "letterLaunchArt": true
+        },
+        "stickers": {
+          "openedDetails": true,
+          "creatureRetained": true,
+          "badgesVisible": true,
+          "earned": "Bronze Rocket",
+          "visibleAnimation": "sticker-land",
+          "retainedOnReload": true,
+          "profileSeparation": true
+        }
+      },
+      "entry": "/assets/arcade-CI2bJ51z.js"
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "checks": {
+        "catalogue": {
+          "worlds": 5,
+          "readingGames": 6,
+          "searchWorked": true,
+          "controls": [
+            "Start: Word sound finder",
+            "Options",
+            "Back to Read & Write"
+          ],
+          "letterLaunchArt": true
+        },
+        "stickers": {
+          "openedDetails": true,
+          "creatureRetained": true,
+          "badgesVisible": true,
+          "earned": "Bronze Rocket",
+          "visibleAnimation": "sticker-land",
+          "retainedOnReload": true,
+          "profileSeparation": true
+        }
+      },
+      "entry": "/assets/arcade-CI2bJ51z.js"
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "viewport": [
+        390,
+        740
+      ],
+      "checks": {
+        "catalogue": {
+          "worlds": 5,
+          "readingGames": 6,
+          "searchWorked": true,
+          "controls": [
+            "Start: Word sound finder",
+            "Options",
+            "Back to Read & Write"
+          ],
+          "letterLaunchArt": true
+        },
+        "stickers": {
+          "openedDetails": true,
+          "creatureRetained": true,
+          "badgesVisible": true,
+          "earned": "Bronze Rocket",
+          "visibleAnimation": "sticker-land",
+          "retainedOnReload": true,
+          "profileSeparation": true
+        }
+      },
+      "entry": "/assets/arcade-CI2bJ51z.js"
+    },
+    {
+      "passed": true,
+      "viewport": [
+        1440,
+        900
+      ],
+      "checks": {
+        "catalogue": {
+          "worlds": 5,
+          "readingGames": 6,
+          "searchWorked": true,
+          "controls": [
+            "Start: Word sound finder",
+            "Options",
+            "Back to Read & Write"
+          ],
+          "letterLaunchArt": true
+        },
+        "stickers": {
+          "openedDetails": true,
+          "creatureRetained": true,
+          "badgesVisible": true,
+          "earned": "Bronze Rocket",
+          "visibleAnimation": "sticker-land",
+          "retainedOnReload": true,
+          "profileSeparation": true
+        }
+      },
+      "entry": "/assets/arcade-CI2bJ51z.js"
+    }
+  ],
+  "assetHashes": {
+    "/sw.js": "cc067198bcea0cd0762dc6581baae6cc489beb5c7992051697e74b2f6791374f",
+    "/art/catalog-v3/world-read-write.webp": "b30e55335b5c7be2470c7a2809fdb6b027a80d40ed8a1f2fb1274545432aacb9",
+    "/art/catalog-v3/game-letters.webp": "b5d839c2382ba2b1bb4ee0aacf3a7b5baf0adcdce05f333e9af1593e91fe05cf",
+    "/art/discovery-v2/environment.webp": "91f95b21b188bf779f10fc8b9b9a39a0117a718defa6446e8cff3a4f6cee18a3",
+    "/assets/arcade-CI2bJ51z.js": "0938ee405fae5ef009dc86b76b4517cb2ca94676d7f30fa068f03a10e6ed72d6",
+    "/assets/DiscoveryHeader-CpjdBqiT.js": "6bc7f37edf235cf4ee4d8c25bca84b4adac4c468e835b3ef8f70a48f59f4bacc",
+    "/assets/codeProgress-0F1BWzlV.js": "0191a33e035f2168f65a11919a71ca0c1607cb033ad80b8cc0a088b503b48e66",
+    "/assets/FocusMenu-CJOrtF1S.js": "4bdabe1b9c84e1bdd290d77f1df5e9c8f8ef203a9f6efbcd7d7e52ddfaceef73",
+    "/assets/DiscoveryHeader-DHciIr--.css": "9f052787093567d02cad2c1e127d1fd4f194710ca765105a3eaf9322cbcad899",
+    "/assets/arcade-BS_o_2eM.css": "15e962d1a8b61b0355e8c44ff43c6fe990d5083a3d455788dd45bd16a09d0eb3"
+  },
+  "themeSmoke": [
+    {
+      "game": "solar",
+      "width": 390,
+      "world": "explore"
+    },
+    {
+      "game": "chess",
+      "width": 390,
+      "world": "thinking"
+    },
+    {
+      "game": "jet",
+      "width": 390,
+      "world": "creative"
+    },
+    {
+      "game": "colormix",
+      "width": 390,
+      "world": "creative"
+    },
+    {
+      "game": "codecadets",
+      "width": 390,
+      "world": "creative"
+    },
+    {
+      "game": "ladder",
+      "width": 390,
+      "world": "thinking"
+    },
+    {
+      "game": "solar",
+      "width": 1440,
+      "world": "explore"
+    },
+    {
+      "game": "chess",
+      "width": 1440,
+      "world": "thinking"
+    },
+    {
+      "game": "jet",
+      "width": 1440,
+      "world": "creative"
+    },
+    {
+      "game": "colormix",
+      "width": 1440,
+      "world": "creative"
+    },
+    {
+      "game": "codecadets",
+      "width": 1440,
+      "world": "creative"
+    },
+    {
+      "game": "ladder",
+      "width": 1440,
+      "world": "thinking"
+    }
+  ],
+  "retainedSyntheticRecords": 118,
+  "storybookFixture": {
+    "present": true,
+    "version": 2,
+    "stores": {
+      "assets": {
+        "count": 14,
+        "sha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9"
+      },
+      "books": {
+        "count": 1,
+        "sha256": "630d1648829cf3192ff16c9afd309ed76d8ffb925ca21032f97bf8565dab1ac7"
+      },
+      "profiles": {
+        "count": 2,
+        "sha256": "519711d1e83a1f76e8df55619ca9fd5bc82993dc1edf6ed6e80d50800cb49500"
+      },
+      "series": {
+        "count": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "blobBytes": 3729264
+  },
+  "usedRefreshGames": true,
+  "testsPassed": 771
+}

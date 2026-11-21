@@ -2470,5 +2470,15 @@
     "gatewayDeployment": "6b021c3a0455f7d64c227ed8",
     "evidence": "docs/qa-evidence/facts-askia-focus-20261121/README.md",
     "scope": "Fact Finder shows one large picture and one fact at a time. Topic filters, sources and audio remain available. Askia\u2019s Count the Stars has a large field of touchable objects, visible count badges and a held result with one next action."
+  },
+  "latestIllustratedDiscoveryRepair": {
+    "runtime": "424ce1e479da25d6bcedc860189de718820595a7",
+    "entry": "/assets/arcade-CI2bJ51z.js",
+    "worker": "amari-discovery-v111",
+    "backendUrl": "https://dinospace-db3ea8w7r-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_4q1Zt6h1tqLbz4XhyXzSXq36y9xV",
+    "gatewayDeployment": "6b0224733e33995f72617652",
+    "evidence": "docs/qa-evidence/illustrated-discovery-20261121/README.md",
+    "scope": "Restored illustrated world and game navigation, direct game search, shared persistent sticker album, earned-sticker placement, and illustrated focused game surfaces."
   }
 }
