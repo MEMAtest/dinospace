@@ -2260,5 +2260,15 @@
     "gatewayDeployment": "6b01e9f810d4d5123a90e306",
     "evidence": "docs/qa-evidence/live-paint-mixer-20261121/README.md",
     "scope": "Open paint pots, immediate mix and active colour, real brush and picture paints, reversible background, and saved art retention on public site."
+  },
+  "latestArtStudioReliefRehearsal": {
+    "runtime": "a2cacd87a2b6604b4442e1d7e1ef8c19e384da20",
+    "entry": "/assets/arcade--NhhozRQ.js",
+    "worker": "amari-discovery-v89",
+    "backendUrl": "https://dinospace-7banybtj5-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_9Sw99CmyzjKQdyJp5dfytfmqPVNT",
+    "gatewayDeployment": "6b01ef40048a5e7a423ba0ea",
+    "evidence": "docs/qa-evidence/art-studio-relief-20261121/README.md",
+    "scope": "Region-bounded brush, 18 picture options, saved texture and stamps, and live rotating painted WebGL relief on both Creative Lab routes."
   }
 }

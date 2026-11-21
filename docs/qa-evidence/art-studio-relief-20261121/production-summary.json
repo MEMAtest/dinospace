@@ -1,0 +1,140 @@
+{
+  "runtime": "a2cacd87a2b6604b4442e1d7e1ef8c19e384da20",
+  "entry": "/assets/arcade--NhhozRQ.js",
+  "worker": "amari-discovery-v89",
+  "backendUrl": "https://dinospace-7banybtj5-memas-projects-23a0001d.vercel.app",
+  "backendDeployment": "dpl_9Sw99CmyzjKQdyJp5dfytfmqPVNT",
+  "gatewayDeployment": "6b01ef40048a5e7a423ba0ea",
+  "evidence": "docs/qa-evidence/art-studio-relief-20261121/README.md",
+  "scope": "Region-bounded brush, 18 picture options, saved texture and stamps, and live rotating painted WebGL relief on both Creative Lab routes.",
+  "checkedAt": "2026-11-21T19:22:09.507549+00:00",
+  "repositoryTests": 770,
+  "assetHashes": {
+    "/": "decfd36a43b54d0ad6211b8e8cf3f7d5d4dfb50e483025c2936396cc0695d121",
+    "/index.html": "decfd36a43b54d0ad6211b8e8cf3f7d5d4dfb50e483025c2936396cc0695d121",
+    "/sw.js": "9c9fcbc347a36f5ec774b3305d6a8657474b5f55cd51d2e473b46c5547d6b8d7",
+    "/assets/arcade--NhhozRQ.js": "2cd21ca7a08dd4784d9cd3bdeb002f808151b182048a5d6f0e01c815626f6057",
+    "/assets/DiscoveryHeader-DYw-azmg.css": "6129f526a51637220f3d476975ad8ce4c71bd83b8c050a38fba801a08d24ac84",
+    "/assets/arcade-DXSPRaV1.css": "dee1b8cd142f1cf5b6823d7407b457ac9e52afa6b5dfb314fd380c4fb5eeaaf4",
+    "/art/catalog-v3/game-jet.webp": "d9598009cd6a7ef1909b045ab1adafca126a4afc39c1f8a0c67c0e68eb23e297",
+    "/art/catalog-v3/game-colormix.webp": "0ae052feca38c51f4e4dccb7f1604f477b1296d5c58f73f4e95fb19d6082f3cb"
+  },
+  "compiledPrecache": {
+    "count": 171,
+    "bytes": 31443057
+  },
+  "cutover": {
+    "syntheticRecordsPreserved": 118,
+    "storybookFixturePreserved": true,
+    "usedRefreshGames": true
+  },
+  "live": [
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade--NhhozRQ.js",
+      "input": "touch",
+      "counts": {
+        "Animals": 6,
+        "Shapes": 6,
+        "Vehicles": 6
+      },
+      "checks": [
+        "all 18 pictures are available across three categories and a legacy blank sheet retains its background",
+        "real brush motion stays in its starting area, leaves outside pixels and the overlapping eye transparent, and undo works",
+        "fur layers over the chosen colour and a placed leaf remains on the canvas and after reload",
+        "WebGL relief renders the painted tiger, visibly rotates, resets and returns to the same drawing",
+        "Mosaic geometry and a rocket painted from the live bucket render in 3D and both return to 2D"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade--NhhozRQ.js",
+      "input": "mouse",
+      "counts": {
+        "Animals": 6,
+        "Shapes": 6,
+        "Vehicles": 6
+      },
+      "checks": [
+        "all 18 pictures are available across three categories and a legacy blank sheet retains its background",
+        "real brush motion stays in its starting area, leaves outside pixels and the overlapping eye transparent, and undo works",
+        "fur layers over the chosen colour and a placed leaf remains on the canvas and after reload",
+        "WebGL relief renders the painted tiger, visibly rotates, resets and returns to the same drawing",
+        "Mosaic geometry and a rocket painted from the live bucket render in 3D and both return to 2D"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    }
+  ],
+  "candidate": [
+    {
+      "passed": true,
+      "width": 320,
+      "entry": "/assets/arcade--NhhozRQ.js",
+      "input": "touch",
+      "counts": {
+        "Animals": 6,
+        "Shapes": 6,
+        "Vehicles": 6
+      },
+      "checks": [
+        "all 18 pictures are available across three categories and a legacy blank sheet retains its background",
+        "real brush motion stays in its starting area, leaves outside pixels and the overlapping eye transparent, and undo works",
+        "fur layers over the chosen colour and a placed leaf remains on the canvas and after reload",
+        "WebGL relief renders the painted tiger, visibly rotates, resets and returns to the same drawing",
+        "Mosaic geometry and a rocket painted from the live bucket render in 3D and both return to 2D"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 390,
+      "entry": "/assets/arcade--NhhozRQ.js",
+      "input": "touch",
+      "counts": {
+        "Animals": 6,
+        "Shapes": 6,
+        "Vehicles": 6
+      },
+      "checks": [
+        "all 18 pictures are available across three categories and a legacy blank sheet retains its background",
+        "real brush motion stays in its starting area, leaves outside pixels and the overlapping eye transparent, and undo works",
+        "fur layers over the chosen colour and a placed leaf remains on the canvas and after reload",
+        "WebGL relief renders the painted tiger, visibly rotates, resets and returns to the same drawing",
+        "Mosaic geometry and a rocket painted from the live bucket render in 3D and both return to 2D"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    },
+    {
+      "passed": true,
+      "width": 1440,
+      "entry": "/assets/arcade--NhhozRQ.js",
+      "input": "mouse",
+      "counts": {
+        "Animals": 6,
+        "Shapes": 6,
+        "Vehicles": 6
+      },
+      "checks": [
+        "all 18 pictures are available across three categories and a legacy blank sheet retains its background",
+        "real brush motion stays in its starting area, leaves outside pixels and the overlapping eye transparent, and undo works",
+        "fur layers over the chosen colour and a placed leaf remains on the canvas and after reload",
+        "WebGL relief renders the painted tiger, visibly rotates, resets and returns to the same drawing",
+        "Mosaic geometry and a rocket painted from the live bucket render in 3D and both return to 2D"
+      ],
+      "errors": [],
+      "failed": [],
+      "providers": []
+    }
+  ]
+}
