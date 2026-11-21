@@ -421,3 +421,62 @@
 .trace-focused-round { padding: .65rem; }
 .trace-focus-paper { min-height: 290px; height: min(56dvh, 510px); }
 .trace-focused-stage .trace-round-title { margin-top: 0; font-size: clamp(1.6rem, 4vw, 2.25rem); }
+
+.hangman-focus, .stories-focus { background: #ecf2fa; }
+.hangman-focus-clue {
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr) auto;
+  align-items: center;
+  gap: .75rem;
+  min-height: 7.25rem;
+  padding: .6rem;
+  border-radius: .8rem;
+  background: #fff;
+  font-weight: 850;
+  font-size: clamp(1rem,3.2vw,1.55rem);
+}
+.hangman-focus-clue > span { font-size: clamp(2rem,9vw,3.5rem); }
+.hangman-focus-clue img { width: clamp(4rem,14vw,8rem); height: auto; }
+.hangman-focus-keyboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(2.75rem,1fr));
+  gap: .35rem;
+}
+.hangman-focus-keyboard button {
+  min-height: 48px;
+  border: 1px solid #a2bacf;
+  border-radius: .55rem;
+  background: white;
+  font-size: 1.35rem;
+  font-weight: 850;
+}
+.hangman-focus-keyboard button[data-guess="correct"] { background: #d6f2da; color: #24683c; }
+.hangman-focus-keyboard button[data-guess="wrong"] { background: #ffe1e1; color: #8b3437; text-decoration: line-through; }
+.stories-focus-library { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .6rem; margin-top: .8rem; }
+.stories-focus-library > button {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  min-height: 5.2rem;
+  padding: .4rem;
+  border: 1px solid #b3c6da;
+  border-radius: .75rem;
+  background: #fff;
+  text-align: left;
+}
+.stories-focus-library strong, .stories-focus-library small { display: block; overflow-wrap: anywhere; }
+.stories-focus-library strong { font-weight: 850; }
+.stories-focus-cover { display: grid; place-items: center; width: 5.2rem; height: 4.45rem; flex: 0 0 auto; overflow: hidden; border-radius: .5rem; background: #dee9f7; font-size: 2rem; }
+.stories-focus-cover img { width: 100%; height: 100%; object-fit: cover; }
+.stories-focus .focus-game-menu input[type="search"] { display: block; width: 100%; min-height: 48px; padding: .5rem; border: 1px solid #acbfd2; border-radius: .55rem; background: white; }
+.stories-focus .stories-focus-reader { width: min(100%, 75rem); padding: clamp(.5rem, 2vw, 1.25rem); }
+.stories-focus-reading { display: grid; gap: .7rem; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); }
+.stories-focus-illustration { display: grid; place-items: center; min-height: 13rem; overflow: hidden; border-radius: .7rem; background: #dce8f6; font-size: 4rem; }
+.stories-focus-illustration img { width: 100%; max-height: 61dvh; object-fit: contain; }
+.stories-focus-page { align-content: center; padding: clamp(.55rem, 2vw, 1.25rem); border-radius: .7rem; background: white; font-size: clamp(1.15rem,2.1vw,1.7rem); line-height: 1.54; }
+.stories-focus-page h2 { margin-bottom: .35rem; font-weight: 850; }
+.stories-quiz-answers { display: grid; gap: .5rem; }
+@media(max-width: 620px) {
+  .stories-focus-library, .stories-focus-reading { grid-template-columns: minmax(0,1fr); }
+  .stories-focus-illustration img { max-height: 45dvh; }
+}

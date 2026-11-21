@@ -1,8 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import {
-  ArrowLeft, ArrowRight, BookOpen, Check, Download, Headphones, Pause, Play, RotateCcw, Upload,
-  Volume2, VolumeX,
-} from 'lucide-react';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import { loadStoryBookManifest, STORYBOOK_CATALOG } from '../../data/storybooks.js';
 import StorybookCreator from './StorybookCreator.jsx';
 import StorybookProfiles from './StorybookProfiles.jsx';
@@ -30,7 +27,6 @@ const readCompletion = (slug, childId = 'amari') => {
   }
 };
 
-const assetLabel = (book) => `${book.title}, ${book.style}, ages ${book.ageBand}`;
 
 const DAILY_LIMIT = 3;
 const LIBRARY_LIMIT = 20;
@@ -166,7 +162,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   const customRecordsRef = useRef(customRecords);
   customRecordsRef.current = customRecords;
   const [showCreator, setShowCreator] = useState(false);
-  const [parentToolsOpen, setParentToolsOpen] = useState(false);
+  const [focusPanel, setFocusPanel] = useState('');
   const [creatorBusy, setCreatorBusy] = useState(false);
   const [creatorError, setCreatorError] = useState('');
   const [creatorProgress, setCreatorProgress] = useState(null);
@@ -571,6 +567,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   }, [soundOn, currentAudio]);
 
   const openBook = (book) => {
+    setFocusPanel('');
     playSfx?.('click');
     stopAudio();
     hydratorRef.current?.releaseReader();
@@ -596,6 +593,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   };
 
   const closeBook = () => {
+    setFocusPanel('');
     playSfx?.('click');
     if (selectedBook) onGameEvent?.('storybooks', 'leave', {
       seed: comprehensionSeed,
@@ -624,7 +622,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
       goToScreen(0, { shouldPlay: false });
       return;
     }
-    if (isCover && !autoRead) {
+    if (isCover && (!autoRead || !soundOn)) {
       // Manual readers should enter the story without waiting for narration
       // to turn a page. Replay remains available on the first story page.
       stopAudio();
@@ -1102,157 +1100,175 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   };
   const readingActionLabel = (book) => activeBookProgress(book.slug).pageIndex >= 0 && !activeReaderCompleted(book.slug) ? 'Continue story' : 'Read story';
 
+  const closeOptions = () => setFocusPanel('');
+  const showShelf = next => {
+    setShelf(next); setAgeFilter('all'); setSeriesFilter('all'); setStorySearch(''); setLibraryPage(0);
+  };
+  const beginCreation = () => {
+    if (creatorBusy || !verifiedActiveReader(activeChildIdRef.current)) return;
+    closeOptions();
+    setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT);
+    setCreatorError(''); setCreatorProgress(null); setShowCreator(true);
+  };
+  const soundChoice = { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound?.(); closeOptions(); } };
+  const recoveryChoices = [
+    ...(!readerAccess.verified ? [{ label: 'Retry reader check', action: retryReaderCheck, disabled: readerCheckBusy }] : []),
+    ...(progressSaveError ? [{ label: 'Retry saved progress', action: retryProgressSave }] : []),
+    ...(!progressStorageReadable && !progressSaveError ? [{ label: 'Retry progress check', action: () => void reconcileStoryRewards() }] : []),
+  ];
+
   if (selectedBook && comprehensionActive) {
     const question = comprehension[comprehensionStep];
     const answerIsCorrect = comprehensionChoice === question?.answer;
-    return (
-      <main className={`storybook-reader storybook-quiz min-h-screen w-full bg-gradient-to-br ${selectedBook.accent} px-4 py-6 text-white`}>
-        <div className="mx-auto flex min-h-[80vh] max-w-3xl flex-col justify-center rounded-[2rem] border border-white/25 bg-slate-950/25 p-6 shadow-2xl sm:p-10">
-          {!readerAccess.verified && <div role="status" className="mb-4 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{readerCheckError || readerAccessMessage}<button type="button" onClick={retryReaderCheck} disabled={readerCheckBusy} className="min-h-11 rounded-lg bg-white px-3 font-black disabled:opacity-60">{readerCheckBusy ? 'Checking…' : 'Retry reader check'}</button></div>}
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">Story Detective · {comprehensionStep + 1} of {comprehension.length}</p>
-          <div className="mt-3 flex items-center gap-3"><h1 className="text-3xl font-black sm:text-4xl">{question?.prompt}</h1><button type="button" onClick={() => hearComprehensionAudio(question.prompt, 'question')} className="storybook-icon-button shrink-0" aria-label="Hear question again"><Volume2 /></button></div>
-          <div className="mt-6 grid gap-3">{question?.choices.map((choice) => <button key={choice} type="button" onClick={() => chooseComprehensionAnswer(choice)} disabled={answerIsCorrect} aria-pressed={comprehensionChoice === choice} className={`min-h-14 rounded-2xl border-2 px-5 py-4 text-left text-lg font-black disabled:cursor-default ${comprehensionChoice === choice ? (answerIsCorrect ? 'border-emerald-300 bg-emerald-300 text-slate-950' : 'border-amber-300 bg-amber-300 text-slate-950') : 'border-white/40 bg-white/10 hover:bg-white/20'}`}>{choice}</button>)}</div>
-          {comprehensionChoice && <div role="status" className="mt-5 flex items-start gap-3 rounded-2xl bg-white/10 p-4 text-base font-bold"><p className="flex-1">{answerIsCorrect ? question.why : question.clue}</p><button type="button" onClick={() => hearComprehensionAudio(answerIsCorrect ? question.why : question.clue, answerIsCorrect ? 'explanation' : 'clue')} className="storybook-icon-button shrink-0" aria-label={answerIsCorrect ? 'Hear why the answer is right' : 'Hear the clue again'}><Volume2 /></button></div>}
-          <div className="mt-6 flex justify-between gap-3"><button type="button" onClick={() => { setComprehensionActive(false); closeBook(); }} className="storybook-nav-button">Back to stories</button>{comprehensionChoice && <button type="button" onClick={() => { if (!answerIsCorrect) { setComprehensionChoice(''); return; } if (comprehensionStep + 1 >= comprehension.length) { if (completedRunSeedRef.current !== comprehensionSeed) { completedRunSeedRef.current = comprehensionSeed; onGameEvent?.('storybooks', 'level_complete', { round: comprehension.length, seed: comprehensionSeed, pageIndex }); } onGameEvent?.('storybooks', 'comprehension_complete', { round: comprehension.length, seed: comprehensionSeed }); setComprehensionActive(false); closeBook(); return; } const nextStep = comprehensionStep + 1; setComprehensionStep(nextStep); setComprehensionChoice(''); setComprehensionHadMistake(false); onGameEvent?.('storybooks', 'question', { round: nextStep + 1, seed: comprehensionSeed, pageIndex }); }} className="storybook-nav-button">{answerIsCorrect ? (comprehensionStep + 1 >= comprehension.length ? 'Finish' : 'Next clue') : 'Try again'} <ArrowRight /></button>}</div>
-        </div>
+    const advance = () => { if (!answerIsCorrect) { setComprehensionChoice(''); return; } if (comprehensionStep + 1 >= comprehension.length) { if (completedRunSeedRef.current !== comprehensionSeed) { completedRunSeedRef.current = comprehensionSeed; onGameEvent?.('storybooks', 'level_complete', { round: comprehension.length, seed: comprehensionSeed, pageIndex }); } onGameEvent?.('storybooks', 'comprehension_complete', { round: comprehension.length, seed: comprehensionSeed }); setComprehensionActive(false); closeBook(); return; } const nextStep = comprehensionStep + 1; setComprehensionStep(nextStep); setComprehensionChoice(''); setComprehensionHadMistake(false); onGameEvent?.('storybooks', 'question', { round: nextStep + 1, seed: comprehensionSeed, pageIndex }); };
+    return <div className="focus-game stories-focus" data-board-focus="">
+      <main className="focus-game-body is-menu">
+        <header className="focus-game-heading"><p>Story Detective · {comprehensionStep + 1} of {comprehension.length}</p><h1>{focusPanel ? selectedBook.title : question?.prompt}</h1></header>
+        {focusPanel ? <FocusMenu choices={[
+          { label: 'Hear the question', action: () => { closeOptions(); hearComprehensionAudio(question.prompt, 'question'); } },
+          ...(comprehensionChoice ? [{ label: 'Hear the response', action: () => { closeOptions(); hearComprehensionAudio(answerIsCorrect ? question.why : question.clue, 'feedback'); } }] : []),
+          ...recoveryChoices, soundChoice, { label: 'Back to stories', action: closeBook },
+        ]} onBack={closeOptions} /> : <>
+          {!readerAccess.verified && <p role="status" className="focus-game-message">{readerCheckError || readerAccessMessage}</p>}
+          {!answerIsCorrect && <div className="stories-quiz-answers" aria-label="Choose your answer">
+            {question?.choices.map(choice => <button key={choice} type="button" className="focus-game-button" aria-pressed={choice === comprehensionChoice} onClick={() => chooseComprehensionAnswer(choice)}>{choice}</button>)}
+          </div>}
+          {comprehensionChoice && <p className="pattern-focus-explanation" role="status">{answerIsCorrect ? question.why : question.clue}</p>}
+          <div className="focus-game-actions mt-3">
+            {comprehensionChoice && <button type="button" className="focus-game-button is-primary" onClick={advance}>{answerIsCorrect ? comprehensionStep + 1 === comprehension.length ? 'Finish' : 'Next question' : 'Try again'}</button>}
+            <button type="button" className="focus-game-button" onClick={() => setFocusPanel('quiz')}>Options</button>
+          </div>
+        </>}
       </main>
-    );
+    </div>;
   }
 
   if (!selectedBook) {
-    return (
-      <main className="storybook-shell min-h-screen w-full overflow-hidden bg-gradient-to-br from-[#10154d] via-[#223a91] to-[#0d7491] px-3 py-3 text-white sm:px-7 sm:py-8">
-        <div className="mx-auto max-w-7xl">
-          <header className="flex items-center justify-between gap-2 sm:gap-4">
-            <button type="button" onClick={leaveToWorld} className="storybook-icon-button" aria-label="Back to learning world"><ArrowLeft /></button>
-            <div className="flex min-w-0 items-center justify-center gap-1.5 text-center sm:gap-2"><img src="/art/storybook-v4/reading-crew.webp" alt="" aria-hidden="true" className="h-8 w-10 shrink-0 object-contain sm:h-12 sm:w-[4.5rem]" /><div className="min-w-0"><p className="hidden text-xs font-black uppercase tracking-[0.22em] text-cyan-200 sm:block">Read &amp; Write</p><h1 className="text-2xl font-black leading-tight sm:text-5xl">Storybook Studio</h1></div></div>
-            <button type="button" onClick={onToggleSound} className="storybook-icon-button" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}>{soundOn ? <Volume2 /> : <VolumeX />}</button>
-          </header>
-          <div role="status" aria-label="Story library inventory" className="mt-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-bold text-cyan-50">
-            <strong>{libraryStorageState === 'available' ? `${bundledBooks.length + customRecords.length} stories in this library` : `${bundledBooks.length} included stories currently available`}</strong>
-            <span className="block text-cyan-100">{bundledBooks.length} included · {libraryStorageState === 'loading' ? 'checking My stories…' : libraryStorageState === 'unavailable' ? 'My stories could not be read here; this does not mean they were deleted.' : `My stories (${customRecords.length}) saved in this browser`}</span>
-            {libraryStorageState === 'unavailable' && <span className="block text-amber-100">Keep this browser’s site data intact. Included stories remain available.</span>}
-            <div className="mt-2 flex flex-wrap gap-2"><button type="button" disabled={libraryStorageState !== 'available'} onClick={() => { setShelf('my-stories'); setAgeFilter('all'); setSeriesFilter('all'); setStorySearch(''); }} className="min-h-12 rounded-xl bg-amber-300 px-4 font-black text-indigo-950 disabled:opacity-50">My stories ({libraryStorageState === 'available' ? customRecords.length : '—'})</button><button type="button" onClick={() => { setShelf('all'); setAgeFilter('all'); setSeriesFilter('all'); setStorySearch(''); }} className="min-h-12 rounded-xl bg-white/20 px-4 font-black text-white">Included ({bundledBooks.length})</button></div>
-            <span className="block text-xs text-cyan-100">Showing {filteredBooks.length ? libraryPage * LIBRARY_PAGE_SIZE + 1 : 0}–{Math.min(filteredBooks.length, (libraryPage + 1) * LIBRARY_PAGE_SIZE)} of {filteredBooks.length} matching stories</span>
-          </div>
-          <div className="storybook-library-alerts" aria-label="Story library saving status">
-          {progressSaveError && <div role="status" className="mt-2 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{progressSaveError}<button type="button" onClick={retryProgressSave} className="min-h-11 rounded-lg bg-white px-3 font-black">Retry saved progress</button></div>}
-          {!progressStorageReadable && !progressSaveError && <div role="status" className="mt-2 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">Reading places and favourites could not be safely read or saved. Stories remain readable; stored data was left untouched.<button type="button" onClick={() => reconcileStoryRewards()} className="min-h-11 rounded-lg bg-white px-3 font-black">Retry progress check</button></div>}
-          {completionSaveError && <div role="status" className="mt-2 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{completionSaveError}<button type="button" onClick={retryLibraryCompletion} className="min-h-11 rounded-lg bg-white px-3 font-black">{pendingCompletionReceiptRef.current ? 'Retry saved reward' : 'Return to story'}</button></div>}
-          </div>
-          <div className="mt-2 flex justify-end sm:mt-4"><button type="button" onClick={() => setParentToolsOpen((open) => !open)} aria-expanded={parentToolsOpen} className="min-h-11 rounded-xl border border-white/25 bg-white/10 px-4 py-2 text-sm font-black text-white">{parentToolsOpen ? 'Hide parent tools' : 'Parent tools'}</button></div>
-          {parentToolsOpen && <section className="mt-3 rounded-[2rem] border border-white/20 bg-white/10 p-5 text-center shadow-2xl backdrop-blur-xl sm:p-8">
-            <div className="mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-gradient-to-br from-amber-300 to-orange-500 text-5xl shadow-lg">📚</div>
-            <h2 className="mt-4 text-2xl font-black sm:text-4xl">Choose a story to explore</h2>
-            <p className="mx-auto mt-2 max-w-2xl font-semibold text-blue-100">Every story has pictures, short pages and a voice to read along with. Saved stories are ready to enjoy offline.</p>
-            <button type="button" onClick={() => { if (creatorBusy || !verifiedActiveReader(activeChildIdRef.current)) return; setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT); setCreatorError(''); setCreatorProgress(null); setShowCreator(true); }} className="mt-5 inline-flex min-h-12 items-center gap-2 rounded-2xl bg-amber-300 px-5 py-3 font-black text-slate-950 shadow-lg transition hover:-translate-y-0.5 disabled:opacity-50" disabled={creatorBusy || customRecords.length >= LIBRARY_LIMIT || libraryStorageState !== 'available' || !readerAccess.verified}>
-              ✨ Create a new story
-            </button>
-            {customRecords.length >= LIBRARY_LIMIT && <p className="mt-2 text-xs font-bold text-amber-100">You can keep up to twenty saved storybooks on this device.</p>}
-            {libraryStorageState === 'unavailable' && <p className="mt-2 text-sm font-bold text-amber-100">Story creation is paused until saved-story storage can be read, so a new draft can be kept safely.</p>}
-          </section>}
-          {!readerAccess.verified && <div role="status" className="mt-2 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{readerCheckError || readerAccessMessage}<button type="button" onClick={retryReaderCheck} disabled={readerCheckBusy} className="min-h-11 rounded-lg bg-white px-3 font-black disabled:opacity-60">{readerCheckBusy ? 'Checking…' : 'Retry reader check'}</button></div>}
-          <section className="mt-3 rounded-2xl border border-white/20 bg-white/10 p-3 sm:mt-4 sm:p-4" aria-label="Storybook filters">
-            {askia ? <p className="py-2 text-sm font-black text-cyan-100">Reading as Askia</p> : <div className="flex flex-wrap items-center gap-2"><label className="flex min-h-12 flex-wrap items-center gap-2 text-xs font-black uppercase tracking-wide text-cyan-100"><span>Reading progress for</span><select value={readerAccess.verified ? activeChild.id : ''} disabled={profileStorageState !== 'available' || readerCheckBusy} onChange={(event) => selectChild(event.target.value)} className="min-h-11 border-0 rounded-xl bg-white px-3 py-2 text-sm font-black text-slate-800 disabled:opacity-60">{!readerAccess.verified && <option value="" disabled>Choose a saved reader</option>}{profiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.displayName} · {profile.ageBand}</option>)}</select></label></div>}
-            {parentToolsOpen && <><div className="mt-3 flex flex-wrap items-center gap-2">{!askia && <button type="button" onClick={() => setShowProfiles(true)} className="min-h-12 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Edit children</button>}<button type="button" onClick={() => setShowSeries(true)} className="min-h-12 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Characters &amp; series</button><button type="button" disabled={backupBusy || !customRecords.length || libraryStorageState !== 'available' || !progressStorageReadable} onClick={exportStories} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-3 py-2 text-xs font-black text-indigo-900 disabled:opacity-50"><Download size={16} /> Back up saved stories</button><button type="button" disabled={backupBusy} onClick={() => backupInputRef.current?.click()} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white disabled:opacity-50"><Upload size={16} /> Restore a story backup</button><input ref={backupInputRef} type="file" accept="application/json,.json" onChange={importStories} className="hidden" aria-label="Choose a story backup file" />{backupMessage && <p role="status" className="self-center text-xs font-bold text-amber-100">{backupMessage}</p>}</div><p className="mt-2 text-xs font-bold text-cyan-100/80">Stories on this device are shared. Each reader has their own place and favourites.</p>{profileStorageState === 'unavailable' && <p role="status" className="text-xs font-bold text-amber-100">Reader profiles could not be read. This does not mean they were deleted.</p>}{seriesStorageState === 'unavailable' && <p role="status" className="text-xs font-bold text-amber-100">Saved characters and series could not be read. This does not mean they were deleted.</p>}{!progressStorageReadable && <p role="status" className="text-xs font-bold text-amber-100">Reading progress could not be verified; backup is paused so saved positions and favourites are not omitted.</p>}</>}
-            <details className="group mt-1">
-              <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-2 text-sm font-black text-white outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300 [&::-webkit-details-marker]:hidden"><span>Find a story</span>{(shelf !== 'all' || ageFilter !== 'all' || seriesFilter !== 'all') && <span className="min-w-0 flex-1 truncate text-right text-xs font-bold text-cyan-100">Showing {shelf !== 'all' ? STORYBOOK_SHELVES.find((item) => item.id === shelf)?.label : 'all stories'}{ageFilter !== 'all' ? ` · Ages ${ageFilter.replace('-', '–')}` : ''}{seriesFilter !== 'all' ? ` · ${availableSeries.find((item) => item.id === seriesFilter)?.name || 'selected series'}` : ''}</span>}<span aria-hidden="true" className="text-lg transition-transform group-open:rotate-180">⌄</span></summary>
-              <div className="mt-2 flex flex-wrap gap-2">{STORYBOOK_SHELVES.map((item) => <button key={item.id} type="button" onClick={() => setShelf(item.id)} className={`min-h-12 rounded-full px-3 py-2 text-xs font-black ${shelf === item.id ? 'bg-amber-300 text-slate-900' : 'bg-white/15 text-white'}`} aria-pressed={shelf === item.id}>{item.label}</button>)}<select value={ageFilter} onChange={(event) => setAgeFilter(event.target.value)} className="min-h-12 rounded-full border-0 bg-white px-3 py-2 text-xs font-black text-slate-800" aria-label="Filter by age band"><option value="all">All ages</option><option value="3-4">Ages 3–4</option><option value="5-6">Ages 5–6</option><option value="7-8">Ages 7–8</option></select>{availableSeries.length > 0 && <select value={seriesFilter} onChange={(event) => setSeriesFilter(event.target.value)} className="min-h-12 rounded-full border-0 bg-white px-3 py-2 text-xs font-black text-slate-800" aria-label="Filter by series"><option value="all">All series</option>{availableSeries.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select>}</div>
-            </details>
-            <label className="mt-3 block text-sm font-black text-cyan-50">Search included and saved stories<input value={storySearch} onChange={(event) => setStorySearch(event.target.value)} type="search" className="mt-1 min-h-12 w-full rounded-xl border-0 bg-white px-4 py-2 font-semibold text-slate-900 placeholder:text-slate-500" placeholder="Search titles, story details or series" /></label>
-          </section>
-          {!showCreator && creatorError && <p className="mt-4 rounded-xl bg-rose-100 px-4 py-3 text-sm font-bold text-rose-900" role="alert">{creatorError}</p>}
-          <section className="mt-3 grid gap-4 md:mt-6 md:grid-cols-3 md:gap-5" aria-label="Storybook library">
-            {visibleBooks.map((book) => (
-              <article key={book.slug} className="group overflow-hidden rounded-[2rem] border border-white/25 bg-white/95 text-slate-900 shadow-[0_18px_45px_rgba(0,0,0,.22)] transition hover:-translate-y-1">
-                {book.custom && book.status !== 'ready' ? (
-                  <div>
-                    <div className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br ${book.accent}`}><span className="text-7xl" aria-hidden="true">✨</span><div className="absolute left-3 top-3 flex flex-wrap gap-1"><span className="rounded-full bg-slate-950/65 px-3 py-1 text-xs font-black text-white backdrop-blur">Ages {book.ageBand}</span><span className="rounded-full bg-indigo-700/80 px-3 py-1 text-xs font-black text-white backdrop-blur">Shared on this device</span></div></div>
-                    <div className="p-5"><h3 className="text-xl font-black leading-tight">{book.title}</h3><p className="mt-2 text-sm font-bold text-slate-600">{book.status === 'error' ? 'Story needs a retry' : book.status === 'paused' ? 'Paused · saved text is ready to read' : 'Story text is ready; pictures and recordings may still be arriving'}</p><p className="mt-2 text-xs font-bold text-slate-500">{book.generation?.imagesReady || 0} of {(book.pages?.length || 0) + 1} pictures · {book.generation?.audioReady || 0} of {(book.pages?.length || 0) + 1} recordings saved</p><div className="mt-3 h-3 overflow-hidden rounded-full bg-slate-200"><div className="h-full rounded-full bg-indigo-600 transition-all" style={{ width: `${Math.round(((book.generation?.completed || 0) / (book.generation?.total || 22)) * 100)}%` }} /></div>{book.status === 'error' && <p className="mt-2 text-xs font-bold text-rose-700">{book.generation?.error}</p>}<div className="mt-4 flex flex-wrap gap-2"><button type="button" onClick={() => openBook(book)} className="inline-flex min-h-11 items-center gap-2 rounded-xl border-2 border-indigo-200 px-3 py-2 text-sm font-black text-indigo-800"><BookOpen size={16} /> Read draft</button>{activeGenerationId === book.id ? <button type="button" onClick={pauseGeneration} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-amber-300 px-3 py-2 text-sm font-black text-slate-900">Pause and save</button> : parentToolsOpen && <button type="button" onClick={() => resumeCustomStory(book)} disabled={creatorBusy} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-indigo-600 px-3 py-2 text-sm font-black text-white shadow-md disabled:opacity-50"><RotateCcw size={16} /> {book.status === 'error' ? 'Retry missing assets' : 'Resume making'}</button>}</div></div>
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-[112px_minmax(0,1fr)] items-stretch sm:block">
-                    <button type="button" onClick={() => openBook(book)} className={`relative flex aspect-square w-full items-center justify-center overflow-hidden bg-gradient-to-br ${book.accent} sm:aspect-[4/3]`} aria-label={`Open ${assetLabel(book)}`}>
-                      {!imageErrors[`${book.slug}-cover`] && (book.custom ? coverMedia[book.id]?.image : book.cover) && <img src={book.custom ? coverMedia[book.id].image : book.cover} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" onError={() => onImageError(`${book.slug}-cover`)} />}
-                      {(imageErrors[`${book.slug}-cover`] || !(book.custom ? coverMedia[book.id]?.image : book.cover)) && <span className="text-7xl" aria-hidden="true">{book.emoji}</span>}
-                      <div className="absolute left-1 top-1 hidden flex-col items-start gap-1 sm:left-3 sm:top-3 sm:flex sm:flex-row"><span className="rounded-full bg-slate-950/65 px-2 py-1 text-[10px] font-black text-white backdrop-blur sm:px-3 sm:text-xs">Ages {book.ageBand}</span><span className="rounded-full bg-indigo-700/80 px-2 py-1 text-[10px] font-black text-white backdrop-blur sm:px-3 sm:text-xs">{book.custom ? 'Shared on this device' : readerAccess.verified ? `Reading as ${activeChild.displayName}` : 'Reader not verified'}</span></div>
-                      <span aria-hidden="true" className="storybook-cover-read-label absolute bottom-3 right-3 hidden min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-black text-white shadow-lg sm:inline-flex">{readingActionLabel(book)} <ArrowRight size={17} /></span>
-                    </button>
-                    <div className="min-w-0 p-3 sm:p-5"><div className="flex items-start justify-between gap-1.5"><div className="min-w-0"><h3 className="text-base font-black leading-tight sm:text-xl"><button type="button" onClick={() => openBook(book)} className="text-left">{book.title}</button></h3><p className="mt-1 line-clamp-1 text-xs font-bold text-slate-500 sm:mt-2 sm:text-sm">{book.subtitle}</p></div><button type="button" onClick={() => toggleBookFavourite(book)} className="min-h-11 min-w-11 shrink-0 rounded-xl px-1 text-2xl text-amber-500" aria-label={`${activeBookProgress(book.slug).favourite ? 'Remove' : 'Add'} favourite`} aria-pressed={Boolean(activeBookProgress(book.slug).favourite)}>{activeBookProgress(book.slug).favourite ? '★' : '☆'}</button></div>{book.custom && (!coverMedia[book.id] || coverMedia[book.id].status !== 'ready') && <div className="mt-2 rounded-lg bg-amber-50 p-2 text-xs font-bold text-amber-900" role="status">{!coverMedia[book.id] || coverMedia[book.id].status === 'loading' ? 'Loading saved cover…' : coverMedia[book.id].status === 'unavailable' ? 'Cover storage is unavailable; your story remains saved.' : 'Cover picture is missing; your story remains saved.'}{coverMedia[book.id]?.status !== 'loading' && <button type="button" className="ml-2 min-h-11 rounded-lg bg-white px-3 font-black" onClick={() => retryCover(book)}>Retry cover</button>}</div>}<div className="mt-1.5 flex flex-wrap gap-2 sm:mt-3"><span className="rounded-full bg-indigo-50 px-2 py-1 text-[10px] font-black text-indigo-700 sm:text-xs">{book.seriesName}</span>{activeReaderCompleted(book.slug) && <span className="rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-black text-emerald-700 sm:text-xs">Completed</span>}</div><div className="mt-2 flex flex-wrap gap-2 sm:mt-4">{(() => { const actionLabel = readingActionLabel(book); return <button type="button" onClick={() => openBook(book)} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-3 py-2 text-sm font-black text-white shadow-md sm:px-4" aria-label={`${actionLabel}: ${book.title}`}>{actionLabel} <ArrowRight size={17} /></button>; })()}{parentToolsOpen && book.seriesId && <button type="button" onClick={() => startSeriesStory(book)} className="rounded-2xl border-2 border-indigo-200 px-3 py-2 text-xs font-black text-indigo-700">New story with {book.seriesName}</button>}</div></div>
-                  </div>
-                )}
-              </article>
-            ))}
-            {!visibleBooks.length && <p className="rounded-2xl bg-white/10 p-6 text-center font-bold text-cyan-100 md:col-span-3">No stories match this shelf yet. Try another filter—every story stays available.</p>}
-          </section>
-          {filteredBooks.length > LIBRARY_PAGE_SIZE && <nav className="mt-5 flex justify-between gap-3" aria-label="Story pages"><button type="button" disabled={libraryPage === 0} onClick={() => setLibraryPage((page) => Math.max(0, page - 1))} className="min-h-12 rounded-xl bg-white px-4 font-black text-indigo-950 disabled:opacity-50">Previous 8 stories</button><button type="button" disabled={(libraryPage + 1) * LIBRARY_PAGE_SIZE >= filteredBooks.length} onClick={() => setLibraryPage((page) => page + 1)} className="min-h-12 rounded-xl bg-white px-4 font-black text-indigo-950 disabled:opacity-50">Show next {Math.min(LIBRARY_PAGE_SIZE, Math.max(0, filteredBooks.length - (libraryPage + 1) * LIBRARY_PAGE_SIZE))} stories</button></nav>}
-          <p className="mt-7 flex items-center justify-center gap-2 text-center text-sm font-bold text-cyan-100"><Headphones size={17} /> Saved stories can be read aloud offline.</p>
-        </div>
-        {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) { setShowCreator(false); setInitialSeriesId(''); setCreatorProgress(null); } }} onCreate={createCustomStory} onPause={pauseGeneration} onShelf={() => { if (activeGenerationId) setShowCreator(false); }} seriesOptions={availableSeries} selectedChild={activeChild} initialSeriesId={initialSeriesId} busy={creatorBusy} progress={creatorProgress} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= LIBRARY_LIMIT} />}
+    const inMyStories = shelf === 'my-stories';
+    const totalPages = Math.max(1, Math.ceil(filteredBooks.length / LIBRARY_PAGE_SIZE));
+    const libraryChoices = [
+      { label: 'Find a story', action: () => setFocusPanel('filters') },
+      ...(!askia ? [{ label: 'Edit children', action: () => setShowProfiles(true) }] : []),
+      { label: 'Characters and series', action: () => setShowSeries(true) },
+      { label: 'Back up saved stories', disabled: backupBusy || !customRecords.length || libraryStorageState !== 'available' || !progressStorageReadable, action: exportStories },
+      { label: 'Restore a story backup', disabled: backupBusy, action: () => backupInputRef.current?.click() },
+      ...recoveryChoices,
+      ...(completionSaveError ? [{ label: pendingCompletionReceiptRef.current ? 'Retry saved reward' : 'Return to story', action: retryLibraryCompletion }] : []),
+      soundChoice, { label: askia ? 'Go home' : 'Back to Read & Write', action: leaveToWorld },
+    ];
+    return <div className="focus-game stories-focus" data-board-focus="">
+      <main className={`focus-game-body${focusPanel ? ' is-menu' : ''}`}>
+        <header className="focus-game-heading"><h1>{focusPanel === 'filters' ? 'Find a story' : inMyStories && !focusPanel ? 'My stories' : 'Storybook Studio'}</h1></header>
+        {focusPanel === 'library' ? <FocusMenu choices={libraryChoices} onBack={closeOptions} />
+          : focusPanel === 'filters' ? <div className="focus-game-menu">
+            <label>Search stories <input type="search" value={storySearch} onChange={event => setStorySearch(event.target.value)} placeholder="Title or series" /></label>
+            <label>Shelf <select value={shelf} onChange={event => setShelf(event.target.value)}>{STORYBOOK_SHELVES.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
+            <label>Age <select value={ageFilter} onChange={event => setAgeFilter(event.target.value)}><option value="all">All ages</option><option value="3-4">Ages 3–4</option><option value="5-6">Ages 5–6</option><option value="7-8">Ages 7–8</option></select></label>
+            {availableSeries.length > 0 && <label>Series <select value={seriesFilter} onChange={event => setSeriesFilter(event.target.value)}><option value="all">All series</option>{availableSeries.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>}
+            {!askia && <label>Reading as <select value={readerAccess.verified ? activeChild.id : ''} disabled={profileStorageState !== 'available' || readerCheckBusy} onChange={event => selectChild(event.target.value)}>
+              {!readerAccess.verified && <option value="" disabled>Choose a saved reader</option>}{profiles.map(profile => <option key={profile.id} value={profile.id}>{profile.displayName} · {profile.ageBand}</option>)}
+            </select></label>}
+            <button type="button" className="focus-game-button is-primary" onClick={closeOptions}>Show stories</button>
+          </div> : <>
+            <p role="status" aria-label="Story library inventory" className="focus-game-message">
+              {bundledBooks.length} included · {libraryStorageState === 'available' ? `${customRecords.length} saved on this browser` : libraryStorageState === 'loading' ? 'checking saved stories' : 'saved stories could not be read'}
+            </p>
+            {libraryStorageState === 'unavailable' && <p role="status">Keep this browser’s site data intact. You can still read included stories.</p>}
+            <div className="focus-game-actions">
+              <button type="button" className="focus-game-button" onClick={() => showShelf(inMyStories ? 'all' : 'my-stories')} disabled={!inMyStories && libraryStorageState !== 'available'}>{inMyStories ? 'All stories' : 'My stories'}</button>
+              <button type="button" className="focus-game-button" onClick={beginCreation} disabled={creatorBusy || customRecords.length >= LIBRARY_LIMIT || libraryStorageState !== 'available' || !readerAccess.verified}>Create a story</button>
+              <button type="button" className="focus-game-button" onClick={() => setFocusPanel('library')}>Options</button>
+            </div>
+            <section className="stories-focus-library" aria-label="Storybook library">
+              {visibleBooks.map(book => {
+                const cover = book.custom ? coverMedia[book.id]?.image : book.cover;
+                const hasPlace = readingActionLabel(book) === 'Continue story';
+                return <button type="button" key={book.slug} onClick={() => openBook(book)} aria-label={`${hasPlace ? 'Continue' : 'Open'} ${book.title}`}>
+                  <span className="stories-focus-cover">
+                    {cover && !imageErrors[`${book.slug}-cover`] ? <img src={cover} alt="" onError={() => onImageError(`${book.slug}-cover`)} /> : <span aria-hidden="true">{book.emoji}</span>}
+                  </span>
+                  <span><strong>{book.title}</strong><small>{book.custom && book.status !== 'ready' ? 'Saved draft' : hasPlace ? 'Continue reading' : activeReaderCompleted(book.slug) ? 'Read again' : book.seriesName}</small></span>
+                </button>;
+              })}
+            </section>
+            {!visibleBooks.length && <p className="focus-game-message">{inMyStories ? 'No saved stories are visible on this shelf.' : 'No stories match these filters.'}</p>}
+            {totalPages > 1 && <label className="focus-game-menu mt-3">Library page
+              <select value={libraryPage} onChange={event => setLibraryPage(Number(event.target.value))}>{Array.from({ length: totalPages }, (_, page) => <option key={page} value={page}>{page + 1} of {totalPages}</option>)}</select>
+            </label>}
+          </>}
+        {(progressSaveError || completionSaveError || !readerAccess.verified || backupMessage || (!showCreator && creatorError)) && <p role="status" className="focus-game-message">{progressSaveError || completionSaveError || (!readerAccess.verified && (readerCheckError || readerAccessMessage)) || backupMessage || creatorError}</p>}
+        <input ref={backupInputRef} type="file" accept="application/json,.json" onChange={importStories} className="hidden" aria-label="Choose a story backup file" />
+      </main>
+      {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) { setShowCreator(false); setInitialSeriesId(''); setCreatorProgress(null); } }} onCreate={createCustomStory} onPause={pauseGeneration} onShelf={() => { if (activeGenerationId) setShowCreator(false); }} seriesOptions={availableSeries} selectedChild={activeChild} initialSeriesId={initialSeriesId} busy={creatorBusy} progress={creatorProgress} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= LIBRARY_LIMIT} />}
         {!askia && showProfiles && <StorybookProfiles profiles={profiles} storageState={profileStorageState} activeId={activeChild.id} onSelect={selectChild} onSave={saveProfile} onDelete={removeProfile} onClose={() => setShowProfiles(false)} />}
         {showSeries && <StorybookSeriesLibrary series={series} storageState={seriesStorageState} onSave={saveSeries} onGenerateReference={generateSeriesReference} onUse={(item) => { setInitialSeriesId(item.id); setShowSeries(false); setShowCreator(true); }} onClose={() => setShowSeries(false)} />}
-      </main>
-    );
+    </div>;
   }
 
-  const progress = totalScreens > 0 ? ((pageIndex + 1) / totalScreens) * 100 : 0;
-  const IllustrationFrame = isCover ? 'button' : 'div';
-  return (
-    <main className={`storybook-reader min-h-screen w-full overflow-hidden bg-gradient-to-br ${selectedBook.accent} px-3 py-4 text-white sm:px-6 sm:py-6`}>
-      <div className="storybook-reader-frame mx-auto flex h-full min-h-0 max-w-7xl flex-col">
-        {activeGenerationId === selectedBook.id && <div className="mb-3 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/25 bg-slate-950/30 px-4 py-3 text-sm font-bold"><span role="status">Making this draft · {creatorProgress?.imagesReady || 0} pictures and {creatorProgress?.audioReady || 0} recordings saved</span><button type="button" onClick={pauseGeneration} className="min-h-11 rounded-xl bg-amber-300 px-4 py-2 font-black text-slate-950">Pause and save</button></div>}
-        <header className="flex items-center justify-between gap-3">
-          <button type="button" onClick={closeBook} className="storybook-icon-button" aria-label="Back to storybooks"><ArrowLeft /></button>
-          <div className="min-w-0 text-center"><p className="truncate text-xs font-black uppercase tracking-[0.18em] text-white/70">{selectedBook.emoji} {selectedBook.style}</p><h1 className="truncate text-xl font-black sm:text-3xl">{selectedBook.title}</h1></div>
-          <div className="flex items-center gap-2"><button type="button" onClick={onToggleSound} className="storybook-icon-button" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}>{soundOn ? <Volume2 /> : <VolumeX />}</button><button type="button" onClick={leaveToWorld} className="storybook-icon-button" aria-label="Back to learning world"><ArrowLeft /></button></div>
-        </header>
-        <div className="mt-4 flex items-center gap-3" aria-label={`Page ${Math.max(1, screenNumber)} of ${totalScreens}`}>
-          <span className="text-sm font-black text-white/85">{isCover ? 'Cover' : `Page ${pageIndex + 1}`}</span>
-          <div className="h-3 flex-1 overflow-hidden rounded-full bg-white/20"><div className="h-full rounded-full bg-amber-300 transition-all duration-500" style={{ width: `${Math.max(8, progress)}%` }} /></div>
-          <span className="text-sm font-black text-white/85">{screenNumber}/{totalScreens}</span>
-        </div>
-        {!readerAccess.verified && <div role="status" className="mt-3 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{readerCheckError || readerAccessMessage}<button type="button" onClick={retryReaderCheck} disabled={readerCheckBusy} className="min-h-11 rounded-lg bg-white px-3 font-black disabled:opacity-60">{readerCheckBusy ? 'Checking…' : 'Retry reader check'}</button></div>}
-        {progressSaveError && <div role="status" className="mt-3 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{progressSaveError}<button type="button" onClick={retryProgressSave} className="min-h-11 rounded-lg bg-white px-3 font-black">Retry saved progress</button></div>}
-        {!progressStorageReadable && !progressSaveError && <div role="status" className="mt-3 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">Reading position could not be safely read or saved. You can keep reading; progress is not confirmed.<button type="button" onClick={() => reconcileStoryRewards()} className="min-h-11 rounded-lg bg-white px-3 font-black">Retry progress check</button></div>}
-        {completionSaveError && completionErrorSlugRef.current === selectedBook.slug && <div role="status" className="mt-3 flex flex-wrap items-center gap-2 rounded-xl bg-amber-100 p-3 text-sm font-bold text-amber-950">{completionSaveError}{pageIndex >= pages.length - 1 && <button type="button" onClick={() => finishBook()} className="min-h-11 rounded-lg bg-white px-3 font-black">Retry finish</button>}</div>}
-        <section className="storybook-reading-layout mt-4 grid flex-1 gap-4 lg:grid-cols-[1.35fr_.65fr] lg:items-center">
-          <IllustrationFrame type={isCover ? 'button' : undefined} onClick={isCover ? startReading : undefined} aria-label={isCover ? `Start reading ${selectedBook.title}` : undefined} className={`relative flex min-h-[45vh] items-center justify-center overflow-hidden rounded-[2rem] border-4 border-white/35 bg-white/10 p-2 shadow-2xl backdrop-blur-sm sm:p-4 ${isCover ? 'w-full cursor-pointer text-left transition active:scale-[.99]' : ''}`}>
-            {currentImage && !imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`] && <img src={currentImage} alt={isCover ? `${selectedBook.title} cover` : `${selectedBook.title}, ${currentPage?.title || ''}`} className="h-full max-h-[64vh] w-full rounded-[1.5rem] object-cover" onError={() => onImageError(`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`)} />}
-            {(!currentImage || imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`]) && <div className="grid h-full min-h-[40vh] w-full place-items-center rounded-[1.5rem] bg-slate-950/20 text-8xl" aria-label={selectedBook.custom && selectedBook.status !== 'ready' ? 'Picture still being made; read the story text below' : 'Illustration unavailable'}>{selectedBook.emoji}</div>}
-            <span className="absolute bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-slate-950/70 px-4 py-2 text-xs font-black text-white backdrop-blur">{isCover && <Play size={14} fill="currentColor" />}{isCover ? (activeReaderCompleted(selectedBook.slug) ? 'Tap to Start Again' : 'Tap to Start Reading') : `Illustration ${pageIndex + 1} of ${pages.length}`}</span>
-          </IllustrationFrame>
-          <div role="region" aria-label="Story words and reading tools" tabIndex={0} className="storybook-reading-panel flex flex-col rounded-[2rem] border-2 border-white/25 bg-slate-950/25 p-5 shadow-2xl backdrop-blur-md sm:p-7">
-            {selectedBook.custom && readerScreenMedia.status !== 'ready' && <div className="mb-3 rounded-xl bg-slate-950/45 p-3 text-sm font-bold" role="status">{readerScreenMedia.status === 'loading' || readerScreenMedia.status === 'idle' ? 'Loading this saved page’s picture and recording…' : readerScreenMedia.status === 'unavailable' ? 'Saved media storage is unavailable right now. Your story text is still here.' : 'A saved picture or recording is missing. Your story text is still here.'}{readerScreenMedia.status !== 'loading' && <button type="button" onClick={retryReaderMedia} className="ml-2 min-h-11 rounded-lg bg-white px-3 font-black text-indigo-950">Retry saved media</button>}</div>}
-            {isCover ? (
-              <>
-                <div className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">A {pages.length}-page adventure</div>
-                <h2 className="storybook-cover-title mt-2 text-3xl font-black leading-tight sm:text-5xl">{selectedBook.title}</h2>
-                <p className="mt-3 text-base font-bold leading-relaxed text-white/85 sm:text-lg">{selectedBook.summary}</p>
-                {selectedBook.custom && selectedBook.status !== 'ready' && <p className="mt-4 rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-white/90">This is a readable draft. Pictures and recordings still being made will be labelled on each page.</p>}
-                <button type="button" onClick={startReading} className="storybook-start-reading mt-7 inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-amber-300 px-6 py-4 text-lg font-black text-slate-950 shadow-[0_6px_0_rgba(120,53,15,.4)] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none"><Play fill="currentColor" /> {activeReaderCompleted(selectedBook.slug) ? 'Start Again' : 'Start Reading'}</button>
-                {started && currentAudio && <button type="button" onClick={togglePlayback} className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/30 px-4 py-3 font-black text-white hover:bg-white/10" aria-label={playing ? 'Pause narration' : 'Play narration'}>{playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />}{playing ? 'Pause introduction' : 'Resume introduction'}</button>}
-                <button type="button" onClick={() => setAutoRead((value) => !value)} className="mt-3 inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 px-4 py-3 text-sm font-black text-white/90 hover:bg-white/10" aria-pressed={autoRead}>{autoRead ? <Check size={17} /> : <span className="h-4 w-4 rounded border border-white/70" />} Auto-turn pages after narration</button>
-              </>
-            ) : (
-              <>
-                <p className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">{currentPage.title}</p>
-                <p className="mt-5 text-xl font-black leading-relaxed text-white sm:text-3xl">{currentPage.text}</p>
-                {currentAudio ? <div className="mt-6 flex flex-wrap gap-2"><button type="button" onClick={togglePlayback} className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-slate-900 shadow-lg" aria-label={playing ? 'Pause narration' : 'Play narration'}>{playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />} {playing ? 'Pause' : 'Hear page'}</button><button type="button" onClick={replayNarration} className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-4 py-3 font-black hover:bg-white/10"><RotateCcw size={17} /> Replay</button></div> : selectedBook.custom && selectedBook.status !== 'ready' ? <p className="mt-6 rounded-xl bg-white/10 p-3 text-sm font-bold">The recording is still being made. You can read this page now.</p> : <p className="mt-6 rounded-xl bg-white/10 p-3 text-sm font-bold">Read-aloud is unavailable for this page.</p>}
-                <div className="mt-5 flex items-center gap-2 text-sm font-bold text-white/75"><Headphones size={17} /> {audioError ? 'Read-aloud is unavailable for this page.' : !currentAudio && selectedBook.custom && readerScreenMedia.status === 'loading' ? 'Loading the saved recording. Read the words above meanwhile.' : !currentAudio && selectedBook.custom && readerScreenMedia.status === 'unavailable' ? 'Saved recording storage is unavailable. Read the words above.' : !currentAudio && selectedBook.custom && readerScreenMedia.status === 'missing' ? 'This page’s saved recording is missing or unreadable. Read the words above.' : !currentAudio && selectedBook.custom && selectedBook.status !== 'ready' ? 'The recording is still being made. Read the words above.' : 'Read-aloud story'}{audioError && selectedBook.custom && <button type="button" onClick={retryReaderMedia} className="ml-2 min-h-11 rounded-lg bg-white px-3 font-black text-indigo-950">Retry saved media</button>}</div>
-                {STORYBOOK_WORD_HELP[selectedBook.slug]?.length > 0 && <details className="mt-5 rounded-xl border border-white/25 bg-white/10 p-3"><summary className="cursor-pointer font-black">Word help</summary><dl className="mt-3 space-y-2">{STORYBOOK_WORD_HELP[selectedBook.slug].map(([word, meaning]) => <div key={word} className="flex items-start gap-2"><div className="flex-1"><dt className="font-black text-amber-200">{word}</dt><dd className="text-sm font-semibold text-white/90">{meaning}</dd></div><button type="button" onClick={() => { onGameEvent?.('storybooks', 'hint', { seed: comprehensionSeed, round: Math.max(0, pageIndex + 1), pageIndex, hintType: 'word_help' }); speak(meaning); }} className="storybook-icon-button shrink-0" aria-label={`Hear meaning of ${word}`}><Volume2 /></button></div>)}</dl></details>}
-              </>
-            )}
+  const pendingCompletion = completionSaveError && completionErrorSlugRef.current === selectedBook.slug;
+  const nextPage = async () => {
+    if (pageIndex < pages.length - 1) { goToScreen(pageIndex + 1, { shouldPlay: started && autoRead }); return; }
+    if (!await finishBook()) return;
+    if (comprehension.length) {
+      stopAudio();
+      onGameEvent?.('storybooks', 'comprehension_started', { round: 1, seed: comprehensionSeed });
+      onGameEvent?.('storybooks', 'question', { round: 1, seed: comprehensionSeed, pageIndex });
+      setComprehensionActive(true);
+    } else closeBook();
+  };
+  const readerChoices = [
+    ...(!isCover ? [{ label: 'Previous page', action: () => { closeOptions(); goToScreen(pageIndex - 1, { shouldPlay: false }); } }] : []),
+    ...(currentAudio ? [{ label: 'Replay narration', action: () => { closeOptions(); replayNarration(); } }] : []),
+    { label: autoRead ? 'Turn auto-read off' : 'Turn auto-read on', action: () => { setAutoRead(value => !value); closeOptions(); } },
+    { label: activeBookProgress(selectedBook.slug).favourite ? 'Remove favourite' : 'Add favourite', action: () => { toggleBookFavourite(selectedBook); closeOptions(); } },
+    ...(selectedBook.seriesId ? [{ label: `New story with ${selectedBook.seriesName}`, disabled: creatorBusy || !readerAccess.verified, action: () => { const book = selectedBook; closeBook(); startSeriesStory(book); } }] : []),
+    ...(selectedBook.custom && selectedBook.status !== 'ready'
+      ? activeGenerationId === selectedBook.id ? [{ label: 'Pause and save', action: () => { closeOptions(); pauseGeneration(); } }]
+        : [{ label: 'Resume making this draft', disabled: creatorBusy, action: () => { const book = selectedBook; closeBook(); resumeCustomStory(book); } }]
+      : []),
+    ...(selectedBook.custom && coverMedia[selectedBook.id]?.status !== 'ready' ? [{ label: 'Retry saved cover', action: () => { closeOptions(); void retryCover(selectedBook); } }] : []),
+    ...(selectedBook.custom && (audioError || readerScreenMedia.status === 'unavailable' || readerScreenMedia.status === 'missing') ? [{ label: 'Retry saved media', action: () => { closeOptions(); retryReaderMedia(); } }] : []),
+    ...(!isCover ? (STORYBOOK_WORD_HELP[selectedBook.slug] || []).map(([word, meaning]) => ({
+      label: `Word help: ${word}`, description: meaning, button: 'Hear meaning', action: () => {
+        onGameEvent?.('storybooks', 'hint', { seed: comprehensionSeed, round: pageIndex + 1, pageIndex, hintType: 'word_help' });
+        speak(meaning);
+      },
+    })) : []),
+    ...recoveryChoices, soundChoice, { label: 'Back to stories', action: closeBook },
+  ];
+
+  return <div className="focus-game stories-focus" data-board-focus="">
+    <main className={`focus-game-body${focusPanel ? ' is-menu' : ' stories-focus-reader'}`}>
+      <header className="focus-game-heading">
+        <p aria-label={`Page ${Math.max(1, screenNumber)} of ${totalScreens}`}>{isCover ? 'Cover' : `Page ${pageIndex + 1} of ${pages.length}`}</p>
+        <h1>{selectedBook.title}</h1>
+      </header>
+      {focusPanel ? <FocusMenu choices={readerChoices} onBack={closeOptions} /> : <>
+        {(!readerAccess.verified || progressSaveError || pendingCompletion) && <p className="focus-game-message" role="status">{pendingCompletion ? completionSaveError : progressSaveError || readerCheckError || readerAccessMessage}</p>}
+        <section className="stories-focus-reading" aria-label="Story page">
+          <div className="stories-focus-illustration">
+            {currentImage && !imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`]
+              ? <img src={currentImage} alt={isCover ? `${selectedBook.title} cover` : `${selectedBook.title}, ${currentPage.title}`} onError={() => onImageError(`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`)} />
+              : <span aria-hidden="true">{selectedBook.emoji}</span>}
+          </div>
+          <div className="stories-focus-page" role="region" aria-label="Story words">
+            {!isCover && <h2>{currentPage.title}</h2>}
+            <p>{isCover ? selectedBook.summary : currentPage.text}</p>
+            {selectedBook.custom && selectedBook.status !== 'ready' && <p className="text-sm">Saved draft. You can read the text now.</p>}
+            {audioError && <p role="status" className="text-sm">Read-aloud is unavailable for this page.</p>}
           </div>
         </section>
-        <footer className="mt-4 flex items-center justify-between gap-3">
-          <button type="button" onClick={() => goToScreen(pageIndex - 1, { shouldPlay: false })} disabled={isCover} className="storybook-nav-button" aria-label="Previous page"><ArrowLeft /> <span className="hidden sm:inline">Previous</span></button>
-          <div className="flex gap-1.5" aria-hidden="true">{[...Array(totalScreens)].map((_, index) => <span key={index} className={`h-2.5 w-2.5 rounded-full ${index === pageIndex + 1 ? 'bg-amber-300' : index < pageIndex + 1 ? 'bg-white/80' : 'bg-white/25'}`} />)}</div>
-          <button type="button" onClick={async () => { if (pageIndex >= pages.length - 1) { if (!await finishBook()) return; if (comprehension.length) { stopAudio(); onGameEvent?.('storybooks', 'comprehension_started', { round: 1, seed: comprehensionSeed }); onGameEvent?.('storybooks', 'question', { round: 1, seed: comprehensionSeed, pageIndex }); setComprehensionActive(true); } else closeBook(); } else goToScreen(pageIndex + 1, { shouldPlay: started && autoRead }); }} className="storybook-nav-button" aria-label={pageIndex >= pages.length - 1 ? (comprehension.length ? 'Start story questions' : 'Finish story') : 'Next page'}><span className="hidden sm:inline">{pageIndex >= pages.length - 1 ? (comprehension.length ? 'Story Detective' : 'Finish story') : 'Next'}</span> <ArrowRight /></button>
-        </footer>
-        <audio ref={audioRef} src={currentAudio || undefined} preload="auto" onEnded={onEnded} onError={() => { setAudioError(true); setPlaying(false); }} aria-label="Story narration" />
-      </div>
+        <div className="focus-game-actions mt-3">
+          {isCover
+            ? <button type="button" className="focus-game-button is-primary" onClick={startReading}>Start reading</button>
+            : <button type="button" className="focus-game-button is-primary" onClick={nextPage}>{pendingCompletion ? 'Retry saving story' : pageIndex >= pages.length - 1 ? comprehension.length ? 'Start story questions' : 'Finish story' : 'Next page'}</button>}
+          {currentAudio && soundOn && (started || !isCover) && <button type="button" className="focus-game-button" onClick={togglePlayback}>{playing ? 'Pause' : 'Hear page'}</button>}
+          <button type="button" className="focus-game-button" onClick={() => setFocusPanel('reader')}>Options</button>
+        </div>
+      </>}
+      <audio ref={audioRef} src={currentAudio || undefined} preload="auto" onEnded={onEnded} onError={() => { setAudioError(true); setPlaying(false); }} aria-label="Story narration" />
     </main>
-  );
+  </div>;
 };
 
 export default StorybookStudio;

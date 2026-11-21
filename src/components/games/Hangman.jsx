@@ -1,21 +1,19 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, Home, Lightbulb, RotateCcw, ShieldCheck, Sparkles, Volume2 } from 'lucide-react';
-import { SoundToggle } from '../shared/index.jsx';
+import { FocusMenu } from '../shared/FocusMenu.jsx';
 import rescueDinoArt from '../../assets/little/detective-trex.webp';
-import rescueLandscape from '../../assets/little/jigsaw-lake-v1.webp';
 import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
 import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
 import { hangmanLettersForLevel, HANGMAN_LEVELS, hangmanWordsForLevel, makeHangmanQueue, makeHangmanSeed, markHangmanWordRescued, nextHangmanWordIndex } from '../../data/hangmanLevels.js';
 import { commitHangmanLevel, hangmanPointsForRun, isHangmanLevelUnlocked, positiveHangmanRewardTransactions, readHangmanProgress, rememberHangmanWord } from '../../data/hangmanProgress.js';
 
 const MAX_MISTAKES = 6;
-const RESCUE_BACKGROUND = { backgroundImage: `linear-gradient(rgba(7, 19, 47, .76), rgba(7, 19, 47, .88)), url(${rescueLandscape})`, backgroundSize: 'cover', backgroundPosition: 'center' };
 const freshRound = () => ({ guessedLetters: [], roundState: 'playing', hintsUsed: 0, hadMistake: false, repeated: false });
 
 const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => {}, soundOn = true, onToggleSound = () => {}, cancelNarration = () => {}, onCelebrate = () => {}, onGameEvent = () => {}, playerId = 'amari' }) => {
   const [progress, setProgress] = useState(() => readHangmanProgress(playerId));
   const [recentWords, setRecentWords] = useState(() => progress.recentWordsByLevel[progress.currentLevel] || []);
   const [phase, setPhase] = useState('intro');
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [selectedLevel, setSelectedLevel] = useState(() => progress.currentLevel);
   const [clueOnly, setClueOnly] = useState(false);
   useLayoutEffect(() => { window.scrollTo(0, 0); }, [phase, selectedLevel]);
@@ -229,7 +227,7 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
     }
   }, [completedWordRef, guessedLetters, level, onGameEvent, playSfx, playWordAudio, progress.completedLevels, round, runStats, selectedLevel, soundOn, word.id, word.word, word.category, word.family, wordLetters, wrongLetters]);
 
-  const useHint = () => {
+  const revealHint = () => {
     if (round.roundState !== 'playing' || round.hintsUsed >= 1) return;
     const letterToReveal = wordLetters.find((letter) => !guessedLetters.includes(letter));
     if (!letterToReveal) return;
@@ -254,120 +252,100 @@ const HangmanExperience = ({ onBack, onNextGame, onPhaseChange, playSfx = () => 
 
   const statusMessage = round.roundState === 'won' ? round.repeated ? 'Word already rescued' : 'Word rescued!' : round.roundState === 'lost' ? `The word was ${word.word}` : `${shieldsLeft} shield${shieldsLeft === 1 ? '' : 's'} left`;
 
-  if (phase === 'intro') return (
-    <div className="min-h-[100dvh] overflow-x-hidden bg-[#07132f] px-4 pb-8 pt-4 text-white" style={RESCUE_BACKGROUND}>
-      <header className="mx-auto flex max-w-5xl items-center justify-between gap-3">
-        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
-        <div className="min-w-0 text-center"><p className="text-xs font-bold uppercase tracking-[0.2em] text-fuchsia-200">Letter rescue mission</p><h1 className="text-2xl font-black sm:text-4xl">Dino Hangman</h1></div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" />
+  const closeOptions = () => setOptionsOpen(false);
+  const nextLevel = HANGMAN_LEVELS[selectedLevel + 1];
+  const canStart = index => unlocked(index) && poolForLevel(index).length >= HANGMAN_LEVELS[index].target;
+  const openLevel = index => { closeOptions(); startLevel(index); };
+  const audioAvailable = Boolean(wordAudio && soundOn && (!clueOnly || isRoundOver));
+  const options = [
+    ...(phase === 'intro' ? HANGMAN_LEVELS.map((item, index) => ({
+      label: item.name, description: completed(index) ? 'Level saved. Replay these words.' : item.description,
+      disabled: !canStart(index), button: 'Start rescue', action: () => openLevel(index),
+    })) : []),
+    ...(phase === 'intro' ? [
+      { label: clueOnly ? 'Turn clue-only mode off' : 'Turn clue-only mode on', description: 'In clue-only mode, listen to the recording after answering.', action: () => { setClueOnly(value => !value); closeOptions(); } },
+    ] : []),
+    ...(phase === 'play' && !isRoundOver ? [
+      ...(round.hintsUsed < 1 ? [{ label: 'Reveal one letter', action: () => { closeOptions(); revealHint(); } }] : []),
+      { label: 'Skip word', action: () => { closeOptions(); startNextWord(); } },
+    ] : []),
+    ...(phase === 'play' && round.roundState === 'lost' ? [{ label: 'Next word', action: () => { closeOptions(); startNextWord(); } }] : []),
+    ...(phase === 'finish' ? [{ label: 'Replay level', action: () => openLevel(selectedLevel) }] : []),
+    ...(phase !== 'intro' ? [{ label: 'Choose a level', action: () => { closeOptions(); goToLevelMap(); } }] : []),
+    { label: soundOn ? 'Turn sound off' : 'Turn sound on', action: () => { onToggleSound?.(); closeOptions(); } },
+    { label: 'Back to Read & Write', action: onBack },
+  ];
+
+  if (phase !== 'play' || optionsOpen || !practiceWords.length || practiceWords.length < level.target) return <div className="focus-game hangman-focus" data-board-focus="" data-hangman-level={level.id} data-hangman-phase={phase}>
+    <main className="focus-game-body is-menu" tabIndex={phase === 'finish' ? -1 : undefined} ref={phase === 'finish' ? successRef : undefined}>
+      <header className="focus-game-heading"><h1>{phase === 'finish' && !optionsOpen ? `${level.name} complete!` : 'Dino Hangman'}</h1></header>
+      {optionsOpen ? <FocusMenu key={phase} choices={options} onBack={closeOptions} /> : phase === 'intro' ? <>
+        <p className="focus-game-message">Read the clue. Choose letters to rescue the word.</p>
+        {!progress.persistenceSafe && <p role="status" className="focus-game-message">Saved progress is unavailable. You can still practise the first level.</p>}
+        {pendingReward && <p role="alert" className="focus-game-message">A saved level reward needs confirmation.</p>}
+        <div className="focus-game-actions">
+          {pendingReward ? <button type="button" className="focus-game-button is-primary" onClick={retryPendingReward}>Retry saved reward</button>
+            : <button type="button" className="focus-game-button is-primary" disabled={!canStart(selectedLevel)} onClick={() => openLevel(selectedLevel)}>Start: {level.name}</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={onBack}>Back</button>
+        </div>
+      </> : phase === 'finish' ? <>
+        <p className="focus-game-message">{saveStatus || 'Your rescue level is saved.'} You rescued {runStats.rescued} words.</p>
+        {lastRewardDelta > 0 && <p className="focus-game-message">{lastRewardDelta} reward points added.</p>}
+        <div className="focus-game-actions">
+          {nextLevel && canStart(selectedLevel + 1) ? <button type="button" className="focus-game-button is-primary" onClick={() => openLevel(selectedLevel + 1)}>Next: {nextLevel.name}</button>
+            : !nextLevel && onNextGame && <button type="button" className="focus-game-button is-primary" onClick={onNextGame}>Next game</button>}
+          <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+          <button type="button" className="focus-game-button" onClick={onBack}>Finish</button>
+        </div>
+      </> : <>
+        <p className="focus-game-message">Choose an earlier level or add taught sounds in Grown-ups.</p>
+        <button type="button" className="focus-game-button" onClick={goToLevelMap}>Back to levels</button>
+      </>}
+    </main>
+  </div>;
+
+  return <div className="focus-game hangman-focus" data-board-focus="" data-hangman-level={level.id} data-hangman-phase="play" data-hangman-seed={runSeed}>
+    <main className="focus-game-body">
+      <header className="focus-game-heading">
+        <p>Dino Hangman · {runStats.rescued} of {level.target} rescued · {shieldsLeft} shields left</p>
+        <h1>{round.roundState === 'won' ? 'Word rescued!' : round.roundState === 'lost' ? 'Try the word again' : 'Rescue the word'}</h1>
       </header>
-      <main className="mx-auto mt-3 grid max-w-5xl gap-5 lg:mt-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,.8fr)]">
-        <section className="rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-xl sm:p-7">
-          <div className="flex items-center gap-4"><img src={rescueDinoArt} alt="" className="h-20 w-20 shrink-0 object-contain drop-shadow-lg" /><div><p className="text-sm font-black uppercase tracking-[0.18em] text-cyan-200">Choose your rescue</p><h2 className="text-2xl font-black">Four levels of word clues</h2></div></div>
-          <p className="mt-4 text-white/80">Use the picture and meaning clue, then choose letters. Longer words unlock as you rescue words. Only words made from the selected taught sounds appear.</p>
-          {!progress.persistenceSafe && <p className="mt-3 rounded-xl border border-amber-200/40 bg-amber-100/10 p-3 text-sm font-bold text-amber-100" role="status">Saved progress cannot be checked safely. You can practise the first level, but rewards and unlocks are paused until saved data can be verified.</p>}
-          {pendingReward && <div className="mt-3 rounded-xl border border-rose-200/40 bg-rose-100/10 p-3 text-sm font-bold text-rose-50" role="alert"><p>A saved level reward still needs confirmation. Retry it before leaving this game.</p><button onClick={retryPendingReward} className="mt-2 min-h-12 rounded-xl bg-white px-4 font-black text-slate-900">Retry saved reward</button></div>}
-          <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-lime-200/30 bg-lime-200/10 p-3 sm:p-4">
-            <button type="button" onClick={() => startLevel(selectedLevel)} disabled={!unlocked(selectedLevel) || poolForLevel(selectedLevel).length < HANGMAN_LEVELS[selectedLevel].target} className="min-h-14 rounded-2xl bg-gradient-to-b from-lime-400 to-green-600 px-5 font-black text-white shadow-[0_5px_0_#166534] disabled:cursor-not-allowed disabled:opacity-40">Start {HANGMAN_LEVELS[selectedLevel].name} →</button>
-            <p className="min-w-0 flex-1 text-sm text-white/80"><strong className="text-white">{HANGMAN_LEVELS[selectedLevel].lengthLabel} · rescue {HANGMAN_LEVELS[selectedLevel].target}</strong><br />Progress saves separately for each child. Replaying keeps your best score.</p>
-          </div>
-          <div className="mt-3 flex flex-wrap items-center gap-3 rounded-2xl border border-cyan-200/30 bg-cyan-100/10 p-3">
-            <button type="button" aria-pressed={clueOnly} onClick={() => setClueOnly((value) => !value)} className="min-h-12 rounded-xl border-2 border-cyan-200/60 bg-slate-950/50 px-4 font-black text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-300">Clue-only challenge: {clueOnly ? 'On' : 'Off'}</button>
-            <p className="text-sm text-cyan-50">{clueOnly ? 'Use the meaning clue first. Hear the word after the answer.' : 'Hear the word whenever a recording is available.'}</p>
-          </div>
-          <div className="mt-5 grid gap-3 sm:grid-cols-2" aria-label="Hangman levels">
-            {HANGMAN_LEVELS.map((item, index) => {
-              const levelWords = poolForLevel(index);
-              const isUnlocked = unlocked(index);
-              const isCompleted = completed(index);
-              return <button key={item.id} type="button" disabled={!isUnlocked || levelWords.length < item.target} onClick={() => { setSelectedLevel(index); window.scrollTo(0, 0); }} aria-pressed={selectedLevel === index} className={`min-h-28 rounded-2xl border p-4 text-left transition ${selectedLevel === index ? 'border-fuchsia-200 bg-fuchsia-300/20 ring-2 ring-fuchsia-200' : isUnlocked ? 'border-white/20 bg-black/15 hover:bg-white/10' : 'cursor-not-allowed border-white/10 bg-black/20 opacity-55'}`}>
-                <span className="flex items-center justify-between gap-2"><strong className="text-lg">{index + 1}. {item.name}</strong><span>{isCompleted ? '✓ Complete' : isUnlocked ? 'Unlocked' : '🔒 Locked'}</span></span>
-                <span className="mt-1 block font-bold text-cyan-100">{item.lengthLabel} · rescue {item.target}</span>
-                <span className="mt-1 block text-sm text-white/75">{levelWords.length < item.target ? 'Choose more taught sounds to build this word pool.' : item.description}</span>
-              </button>;
-            })}
-          </div>
-        </section>
-        <aside className="flex flex-col justify-center rounded-[2rem] border border-white/15 bg-slate-950/35 p-6">
-          <div className="flex items-center justify-between"><h2 className="text-2xl font-black">How to play</h2><ShieldCheck className="text-cyan-300" size={28} /></div>
-          <ol className="mt-4 list-inside list-decimal space-y-3 text-white/80"><li>Read the clue or hear the recorded word when a clip is available.</li><li>Pick a letter. A wrong guess uses one of six shields.</li><li>A star can reveal one letter. It lowers the first-try score.</li><li>After each result, choose New word or Finish level. The answer stays visible.</li></ol>
-          <p className="mt-4 rounded-xl bg-cyan-100/10 p-3 text-sm font-bold text-cyan-50">Selected sounds are checked before every word is shown.</p>
-        </aside>
-      </main>
-    </div>
-  );
-
-  if (!practiceWords.length || practiceWords.length < level.target) return <div className="min-h-[100dvh] bg-slate-950 p-6 text-white"><h1 className="text-2xl font-black">More sounds needed</h1><p className="my-4">There are not enough words at this level using the sounds selected in Grown-ups. Choose an earlier level or review the sound selection together.</p><button className="min-h-12 rounded-xl bg-white px-5 text-slate-900" onClick={goToLevelMap}>Back to levels</button></div>;
-
-  if (phase === 'finish') return (
-    <div className="min-h-[calc(100dvh-11rem)] overflow-x-hidden bg-[#07132f] px-4 pb-4 pt-3 text-white sm:pb-8 sm:pt-4" style={RESCUE_BACKGROUND} data-hangman-level={level.id} data-hangman-phase="finish">
-      <header className="mx-auto flex max-w-4xl items-center justify-between gap-3"><button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button><div className="text-center"><p className="text-xs font-bold uppercase tracking-[0.2em] text-fuchsia-200">Dino Hangman</p><h1 className="text-2xl font-black">{level.name} complete</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" /></header>
-      <main className="mx-auto mt-3 max-w-xl rounded-[2rem] border border-white/15 bg-white/10 p-4 text-center shadow-2xl sm:mt-6 sm:p-6" tabIndex={-1} ref={successRef}>
-        <img src={rescueDinoArt} alt="" className="mx-auto h-20 w-20 object-contain" /><Sparkles className="mx-auto mt-1 text-amber-300" size={20} />
-        <h2 className="mt-2 text-2xl font-black sm:text-3xl">Level saved!</h2><p className="mt-2 text-sm font-semibold text-emerald-100">{saveStatus || 'Your level result is saved.'}</p>
-        <p className="mt-3 text-white/80">You rescued {runStats.rescued} words. First-try rescues: {runStats.firstTry} of {runStats.rescued}.</p>
-        <p className="mt-2 font-bold text-amber-200">{lastRewardDelta > 0 ? `${lastRewardDelta} reward points added to this level’s best.` : 'No new points this time. Your saved best remains.'}</p>
-        <div className="mt-3 flex flex-wrap justify-center gap-2 sm:mt-6 sm:gap-3"><button onClick={goToLevelMap} className="min-h-12 rounded-xl bg-white/15 px-5 font-black">Level map</button>{selectedLevel < HANGMAN_LEVELS.length - 1 && unlocked(selectedLevel + 1) && <button onClick={() => startLevel(selectedLevel + 1)} className="min-h-12 rounded-xl bg-lime-500 px-5 font-black">Next level →</button>}{selectedLevel === HANGMAN_LEVELS.length - 1 && onNextGame && <button onClick={onNextGame} className="min-h-12 rounded-xl bg-lime-500 px-5 font-black">Next game →</button>}</div>
-      </main>
-    </div>
-  );
-
-  return (
-    <div className="min-h-[100dvh] overflow-x-hidden bg-[#07132f] text-white relative" style={RESCUE_BACKGROUND} data-hangman-level={level.id} data-hangman-phase="play" data-hangman-seed={runSeed}>
-      <img src={rescueDinoArt} alt="" aria-hidden="true" className="pointer-events-none absolute right-0 top-24 h-44 w-44 object-contain opacity-20" />
-      <header className="relative z-20 mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 pt-0 sm:px-7 sm:pt-4">
-        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
-        <div className="min-w-0 text-center"><p className="text-xs font-bold uppercase tracking-[0.18em] text-fuchsia-200">Level {selectedLevel + 1} of {HANGMAN_LEVELS.length} · {level.lengthLabel}</p><h1 className="flex items-center justify-center gap-1 text-2xl font-black sm:text-4xl"><img src={rescueDinoArt} alt="" className="h-11 w-11 shrink-0 object-contain" />Dino Hangman</h1></div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" />
-      </header>
-      <main className="relative z-10 mx-auto grid max-w-6xl gap-3 px-2 pb-5 pt-0 sm:gap-4 sm:px-4 sm:pb-8 sm:pt-3 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,.95fr)] lg:items-start">
-        <section className="rounded-[1.5rem] border border-white/15 bg-white/10 p-2 shadow-2xl backdrop-blur-xl sm:rounded-[2rem] sm:p-5 xl:p-7">
-          <div className="flex flex-nowrap items-center justify-between gap-2">
-            <div className="flex min-w-0 flex-1 items-center gap-2"><div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-fuchsia-400/20 text-2xl">{word.emoji}</div><div className="min-w-0"><p className="text-[0.65rem] font-black uppercase tracking-[0.12em] text-fuchsia-200 sm:text-xs sm:tracking-[0.2em]">{level.lengthLabel} · {word.category}</p><p className="text-base font-black sm:text-lg" aria-live="polite">{statusMessage}</p></div></div>
-            <div className="flex items-center gap-2 rounded-xl bg-black/20 px-2 py-1.5 sm:gap-4 sm:rounded-2xl sm:px-4 sm:py-2">
-              <p className="text-sm font-black text-amber-300" aria-label={`${runStats.rescued} of ${level.target} rescued`}>{runStats.rescued}/{level.target} ⭐</p>
-              <p className="text-sm font-bold text-cyan-100" aria-label={`${shieldsLeft} of ${MAX_MISTAKES} shields remaining`}>🛡️ {shieldsLeft}/{MAX_MISTAKES}</p>
-            </div>
-          </div>
-          <div className="mt-2 flex flex-wrap items-center gap-2 sm:mt-3"><p className="min-h-11 min-w-0 flex-1 rounded-xl bg-cyan-100/10 p-2.5 font-bold leading-snug text-cyan-50 sm:min-h-12 sm:rounded-2xl sm:p-3">{word.clue}</p>{wordAudio && (!clueOnly || isRoundOver) ? <button aria-label="Hear the word" onClick={playWordAudio} disabled={!soundOn} className="min-h-12 shrink-0 rounded-xl bg-white/15 px-3 font-black disabled:opacity-50"><Volume2 size={18} className="mr-1 inline" />Hear</button> : <p className="sr-only">{clueOnly && wordAudio ? 'Clue-only challenge: hear the word after your answer.' : 'Use the clue and choose letters.'}</p>}</div>
-          {hintFeedback && <p className="mt-2 rounded-xl bg-amber-200/10 px-2 py-1 text-xs font-bold text-amber-100 sm:p-3 sm:text-sm" role="status" aria-label={hintFeedback}><span aria-hidden="true">Hint: one letter revealed · helped</span></p>}
-          <div className="mt-2 rounded-2xl border border-white/10 bg-slate-950/45 p-2 sm:mt-4 sm:rounded-[1.75rem] sm:p-6"><div className="flex flex-wrap items-end justify-center gap-1 sm:gap-3" aria-label={`Word has ${word.word.length} letters`}>{word.word.split('').map((letter, index) => {
-            const visible = guessedLetters.includes(letter) || round.roundState !== 'playing';
-            return <div key={`${letter}-${index}`} className={`grid h-11 w-8 place-items-center rounded-lg border-b-4 text-xl font-black sm:h-20 sm:w-14 sm:rounded-xl sm:text-4xl ${visible ? 'border-fuchsia-300 bg-white text-slate-900' : 'border-white/50 bg-white/10 text-transparent'}`} aria-label={visible ? `Letter ${letter}` : `Letter ${index + 1}, hidden`}>{visible ? letter : '•'}</div>;
-          })}</div></div>
-          {round.roundState !== 'playing' && <p className={`mt-2 rounded-xl p-2 text-sm font-bold sm:p-3 ${round.roundState === 'won' ? 'bg-emerald-300/15 text-emerald-50' : 'bg-rose-500/15 text-rose-50'}`} role="status">{round.roundState === 'won' ? round.repeated ? `Already rescued: ${word.word}. Choose a different word. ${word.clue}` : `Word rescued: ${word.word}. ${word.clue}` : `The word was ${word.word}. ${word.clue}`}</p>}
-          <div className="mt-2 flex flex-nowrap items-center justify-center gap-1.5 sm:mt-4 sm:flex-wrap sm:gap-2">
-            <button aria-label="Reveal one letter" onClick={useHint} disabled={round.hintsUsed >= 1 || isRoundOver} className="min-h-12 min-w-0 rounded-xl bg-amber-300/15 px-2 font-black disabled:opacity-40 sm:px-4"><Lightbulb size={18} className="mr-1 inline" /><span className="sm:hidden">{round.hintsUsed ? 'Used' : 'Hint'}</span><span className="hidden sm:inline">{round.hintsUsed ? 'Star used' : 'Reveal one letter'}</span></button>
-            <button aria-label="Level map" onClick={goToLevelMap} className="min-h-12 min-w-0 rounded-xl bg-white/10 px-2 font-black sm:px-4"><ArrowLeft size={18} className="mr-1 inline" /><span className="sm:hidden">Levels</span><span className="hidden sm:inline">Level map</span></button>
-            {round.roundState === 'lost' && <button aria-label="Try this word again" onClick={retryWord} className="min-h-12 min-w-0 rounded-xl bg-rose-400/20 px-2 font-black sm:px-4"><span className="sm:hidden">Retry</span><span className="hidden sm:inline">Try this word again</span></button>}
-            {round.roundState === 'won' && awaitingLevelFinish && <button aria-label={saveFailed ? 'Retry save level' : 'Finish level'} onClick={finishLevel} className="min-h-12 min-w-0 rounded-xl bg-lime-500 px-3 font-black sm:px-5"><span className="sm:hidden">{saveFailed ? 'Retry' : 'Finish'}</span><span className="hidden sm:inline">{saveFailed ? 'Retry save level' : 'Finish level →'}</span></button>}
-            {round.roundState === 'won' && !awaitingLevelFinish && <button aria-label="Next word" onClick={startNextWord} className="min-h-12 min-w-0 rounded-xl bg-white/15 px-2 font-black sm:px-4"><RotateCcw size={18} className="mr-1 inline" /><span className="sm:hidden">Next</span><span className="hidden sm:inline">Next word</span></button>}
-            {round.roundState === 'lost' && <button aria-label="Next word" onClick={startNextWord} className="min-h-12 min-w-0 rounded-xl bg-white/15 px-2 font-black sm:px-4"><span className="sm:hidden">Next</span><span className="hidden sm:inline">Next word</span></button>}
-            {round.roundState === 'playing' && <button aria-label="Skip word" onClick={startNextWord} className="min-h-12 min-w-0 rounded-xl bg-white/10 px-2 font-black sm:px-4"><span className="sm:hidden">Skip</span><span className="hidden sm:inline">Skip word</span></button>}
-          </div>
-          {saveFailed && <p className="mt-2 rounded-xl border border-rose-300/40 bg-rose-500/15 p-2 text-sm font-bold" role="alert">{saveStatus} Your result is still here. Choose Retry above.</p>}
-          {awaitingLevelFinish && !saveFailed && <p className="mt-3 rounded-xl bg-emerald-300/15 p-3 font-bold text-emerald-50" role="status">Your last word is safe here. Read the clue and explanation, then choose Finish level.</p>}
-          {round.roundState === 'playing' && <div className="mt-2 sm:mt-5" role="group" aria-label="Helpful letter choices"><p className="mb-2 text-center text-xs font-bold text-cyan-100 sm:mb-3 sm:text-sm">Choose a letter — wrong guesses use one shield</p><div className="mx-auto grid w-full max-w-2xl grid-cols-7 gap-1 sm:grid-cols-9 sm:gap-2">{keyboardLetters.map((letter) => {
-            const guessed = guessedLetters.includes(letter); const correct = guessed && word.word.includes(letter); const wrong = guessed && !correct;
-            return <button key={letter} type="button" onClick={() => chooseLetter(letter)} disabled={guessed || isRoundOver || awaitingLevelFinish} className={`grid min-h-11 min-w-11 place-items-center rounded-lg border px-0 text-base font-black transition sm:min-h-14 sm:min-w-14 sm:rounded-xl sm:px-1 sm:text-xl ${correct ? 'border-emerald-300 bg-emerald-400 text-emerald-950' : wrong ? 'border-rose-400/30 bg-rose-500/25 text-rose-100 line-through' : 'border-white/15 bg-white/10 text-white hover:border-fuchsia-300/70 hover:bg-white/15 disabled:cursor-default'}`} aria-label={`${letter}${guessed ? correct ? ', correct letter' : ', not in the word' : ''}`}>{letter}</button>;
-          })}</div></div>}
-        </section>
-        <aside className="hidden rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur-xl lg:block lg:p-6">
-          <div className="flex items-center justify-between"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-200">Dino shield bay</p><h2 className="mt-1 text-2xl font-black">Keep Dino safe!</h2></div><img src={rescueDinoArt} alt="" className="h-20 w-20 object-contain animate-bounce-slow" /></div>
-          <div className="mt-4 rounded-[1.5rem] border border-white/10 bg-slate-950/35 p-4"><div className="flex items-center justify-between text-sm font-bold text-white/70"><span>Comet shields</span><span>{wrongLetters.length}/{MAX_MISTAKES} used</span></div><div className="mt-3 grid grid-cols-3 gap-3" aria-label={`${shieldsLeft} of ${MAX_MISTAKES} comet shields remaining`}>{Array.from({ length: MAX_MISTAKES }, (_, index) => {
-            const hit = index < wrongLetters.length;
-            return <div key={index} className={`grid aspect-square place-items-center rounded-2xl border text-3xl transition ${hit ? 'border-rose-400/25 bg-rose-500/15 grayscale' : 'border-cyan-300/40 bg-cyan-300/15 shadow-[0_0_18px_rgba(103,232,249,0.12)]'}`} aria-label={hit ? `Shield ${index + 1} used` : `Shield ${index + 1} ready`}>{hit ? '💥' : '🛡️'}</div>;
-          })}</div></div>
-          {wrongLetters.length > 0 && <div className="mt-4 rounded-2xl border border-rose-300/15 bg-rose-500/10 p-4"><p className="text-xs font-black uppercase tracking-[0.18em] text-rose-200">Try different letters</p><p className="mt-2 text-xl font-black tracking-[0.3em] text-white">{wrongLetters.join(' ')}</p></div>}
-          {round.roundState === 'won' && <div className="mt-4 rounded-2xl border border-amber-300/40 bg-amber-300/15 p-4 text-amber-50" role="status"><p className="font-black">{round.repeated ? 'Already rescued in this level.' : 'Dino says: brilliant spelling!'}</p><p className="mt-1 text-sm">{awaitingLevelFinish ? 'This was the last rescue for this level. Your answer stays visible until you finish.' : 'Your word stays visible until you choose another word.'}</p></div>}
-          {round.roundState === 'lost' && <div className="mt-4 rounded-2xl border border-rose-300/40 bg-rose-500/15 p-4 text-white" role="status"><p className="font-black">Dino showed you the word: {word.word}</p><p className="mt-1 text-sm">Try it again or choose another word. Your answer stays on screen.</p></div>}
-          <div className="mt-4 rounded-2xl bg-black/20 p-4 text-sm text-white/75"><div className="flex items-center gap-2 text-white"><ShieldCheck size={19} className="text-cyan-300" /><strong>How to play</strong></div><p className="mt-2">Use the meaning clue or a recorded word when available. Each wrong letter uses one shield. A star reveals one letter, but it lowers the first-try score.</p></div>
-        </aside>
-      </main>
-    </div>
-  );
+      <div className="hangman-focus-clue">
+        <span aria-hidden="true">{word.emoji}</span>
+        <p>{word.clue}</p>
+        <img src={rescueDinoArt} alt="" aria-hidden="true" />
+      </div>
+      <p role="status" className="focus-game-message">{isRoundOver ? `The word was ${word.word}.` : statusMessage}</p>
+      {hintFeedback && <p className="focus-game-message" role="status">{hintFeedback}</p>}
+      <div className="spelling-focus-spaces" aria-label={`Word has ${word.word.length} letters`}>
+        {word.word.split('').map((letter, index) => {
+          const visible = guessedLetters.includes(letter) || isRoundOver;
+          return <span key={index} data-filled={visible} aria-label={visible ? `Letter ${letter}` : `Letter ${index + 1}, hidden`}>{visible ? letter : '•'}</span>;
+        })}
+      </div>
+      {!isRoundOver && <div className="hangman-focus-keyboard" aria-label="Letter keyboard">
+        {keyboardLetters.map(letter => {
+          const guessed = guessedLetters.includes(letter);
+          const correct = guessed && word.word.includes(letter);
+          return <button key={letter} type="button" onClick={() => chooseLetter(letter)} disabled={guessed || awaitingLevelFinish}
+            data-guess={guessed ? correct ? 'correct' : 'wrong' : undefined}
+            aria-label={`${letter}${guessed ? correct ? ', correct letter' : ', not in the word' : ''}`}>{letter}</button>;
+        })}
+      </div>}
+      {saveFailed && <p className="focus-game-message" role="alert">{saveStatus}</p>}
+      <div className="focus-game-actions mt-3">
+        {round.roundState === 'lost' && <button type="button" className="focus-game-button is-primary" onClick={retryWord}>Try this word again</button>}
+        {round.roundState === 'won' && (awaitingLevelFinish
+          ? <button type="button" className="focus-game-button is-primary" onClick={finishLevel}>{saveFailed ? 'Retry save level' : 'Finish level'}</button>
+          : <button type="button" className="focus-game-button is-primary" onClick={startNextWord}>Next word</button>)}
+        {audioAvailable && <button type="button" className="focus-game-button" onClick={playWordAudio}>Hear the word</button>}
+        <button type="button" className="focus-game-button" onClick={() => setOptionsOpen(true)}>Options</button>
+      </div>
+    </main>
+  </div>;
 };
 
-const DinoHangman = (props) => <HangmanExperience key={props.playerId || 'amari'} {...props} />;
+const DinoHangman = props => <HangmanExperience key={props.playerId || 'amari'} {...props} />;
 
 export default DinoHangman;
