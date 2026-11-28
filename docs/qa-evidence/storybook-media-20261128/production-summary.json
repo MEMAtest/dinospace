@@ -1,0 +1,234 @@
+{
+  "runtime": {
+    "source": "32bfeb29dc3a9965320348724a851e72b5d84322",
+    "entry": "/assets/arcade-CCw3nQbo.js",
+    "worker": "amari-discovery-v112",
+    "backendUrl": "https://dinospace-dt6lw6g07-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_7VwQQKENf3JCeL1nZgue86JevJzD",
+    "gatewayDeployment": "6b0ad12eb18522b939ed7944"
+  },
+  "tests": 771,
+  "assetDecode": {
+    "narrationClips": 77,
+    "quietestPeakDb": -5.4,
+    "illustrations": 77,
+    "distinctIllustrations": 77,
+    "smallestImageEdge": 1200
+  },
+  "liveMediaAvailability": {
+    "total": 301,
+    "passed": 301,
+    "failures": []
+  },
+  "localBrowser": {
+    "results": [
+      {
+        "viewport": [
+          390,
+          740
+        ],
+        "books": 7,
+        "pages": 70,
+        "rounds": 21,
+        "coverClips": 7,
+        "coverArt": 7,
+        "creatorControls": true,
+        "overflow": false
+      },
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "books": 2,
+        "pages": 20,
+        "rounds": 6,
+        "coverClips": 2,
+        "coverArt": 2,
+        "creatorControls": true,
+        "overflow": false
+      }
+    ],
+    "distinctIllustrations": 77,
+    "errors": [],
+    "apiAttempts": []
+  },
+  "liveBrowser": {
+    "results": [
+      {
+        "viewport": [
+          390,
+          740
+        ],
+        "books": 7,
+        "pages": 70,
+        "rounds": 21,
+        "coverClips": 7,
+        "coverArt": 7,
+        "creatorControls": true,
+        "overflow": false
+      },
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "books": 2,
+        "pages": 20,
+        "rounds": 6,
+        "coverClips": 2,
+        "coverArt": 2,
+        "creatorControls": true,
+        "overflow": false
+      }
+    ],
+    "distinctIllustrations": 77,
+    "errors": [],
+    "apiAttempts": []
+  },
+  "matchingPublicAssets": [
+    {
+      "path": "/",
+      "sha256": "785699e4b13a5fdc904e1d0211c29d3dcd6a2f781347aeef84ea2f3d70ec4804",
+      "match": true
+    },
+    {
+      "path": "/sw.js",
+      "sha256": "c27a7d000658491e1f32fbfffd85bdca151cd459db071417b605b85d13380e24",
+      "match": true
+    },
+    {
+      "path": "/assets/arcade-CCw3nQbo.js",
+      "sha256": "915fe16461a59bcc619bc8e5d2a354cf8a0f58fd8b2e4a384cbd7f7cfc826bb7",
+      "match": true
+    },
+    {
+      "path": "/assets/DiscoveryHeader-CpjdBqiT.js",
+      "sha256": "6bc7f37edf235cf4ee4d8c25bca84b4adac4c468e835b3ef8f70a48f59f4bacc",
+      "match": true
+    },
+    {
+      "path": "/assets/codeProgress-0F1BWzlV.js",
+      "sha256": "0191a33e035f2168f65a11919a71ca0c1607cb033ad80b8cc0a088b503b48e66",
+      "match": true
+    },
+    {
+      "path": "/assets/FocusMenu-CJOrtF1S.js",
+      "sha256": "4bdabe1b9c84e1bdd290d77f1df5e9c8f8ef203a9f6efbcd7d7e52ddfaceef73",
+      "match": true
+    },
+    {
+      "path": "/assets/DiscoveryHeader-DHciIr--.css",
+      "sha256": "9f052787093567d02cad2c1e127d1fd4f194710ca765105a3eaf9322cbcad899",
+      "match": true
+    },
+    {
+      "path": "/assets/arcade-BS_o_2eM.css",
+      "sha256": "15e962d1a8b61b0355e8c44ff43c6fe990d5083a3d455788dd45bd16a09d0eb3",
+      "match": true
+    }
+  ],
+  "coverFailureAndMute": [
+    {
+      "width": 390,
+      "failedCoverBypassed": true,
+      "art": "/storybooks/rex-missing-moon-map/page-01.webp",
+      "nextPageNarrated": true,
+      "mutedPageStable": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "failedCoverBypassed": true,
+      "art": "/storybooks/rex-missing-moon-map/page-01.webp",
+      "nextPageNarrated": true,
+      "mutedPageStable": true,
+      "overflow": false
+    }
+  ],
+  "sampledGameMedia": [
+    {
+      "width": 390,
+      "game": "phonics",
+      "decodedImages": 4,
+      "startedClip": "/audio/phonemes/en/p-daniel-v1.mp3",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "game": "german",
+      "decodedImages": 2,
+      "startedClip": "/audio/de/gruen.mp3",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "game": "factfinder",
+      "decodedImages": 1,
+      "startedClip": "/audio/en/6fcd80c6-matilda.mp3",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "game": "phonics",
+      "decodedImages": 4,
+      "startedClip": "/audio/phonemes/en/p-daniel-v1.mp3",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "game": "german",
+      "decodedImages": 2,
+      "startedClip": "/audio/de/braun.mp3",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "game": "factfinder",
+      "decodedImages": 1,
+      "startedClip": "/audio/en/6fcd80c6-matilda.mp3",
+      "overflow": false
+    },
+    {
+      "id": "words",
+      "width": 390,
+      "picture": null,
+      "label": "\ud83d\udc14",
+      "voice": true
+    },
+    {
+      "id": "words",
+      "width": 1440,
+      "picture": "/art/spelling-v1/pat.webp",
+      "label": "",
+      "voice": true
+    },
+    {
+      "width": 390,
+      "clue": "Picture clue for Cat",
+      "illustration": null,
+      "fallback": "\ud83d\udc31",
+      "narration": true
+    },
+    {
+      "width": 1440,
+      "clue": "Picture clue for Fish",
+      "illustration": "/assets/pond-fish-v1-card-BYAE9YP7.webp",
+      "fallback": null,
+      "narration": true
+    }
+  ],
+  "mockCreation": {
+    "saved": true,
+    "pageCount": 6,
+    "imageDecodedAfterReload": true,
+    "blobNarrationStartedAfterReload": true,
+    "requestsReplayed": {
+      "session": 1,
+      "outline": 1,
+      "image": 7,
+      "narration": 7
+    }
+  },
+  "providerRequestsSent": 0
+}

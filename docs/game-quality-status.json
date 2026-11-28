@@ -2480,5 +2480,15 @@
     "gatewayDeployment": "6b0224733e33995f72617652",
     "evidence": "docs/qa-evidence/illustrated-discovery-20261121/README.md",
     "scope": "Restored illustrated world and game navigation, direct game search, shared persistent sticker album, earned-sticker placement, and illustrated focused game surfaces."
+  },
+  "latestStorybookMediaRehearsal": {
+    "entry": "/assets/arcade-CCw3nQbo.js",
+    "worker": "amari-discovery-v112",
+    "backendUrl": "https://dinospace-dt6lw6g07-memas-projects-23a0001d.vercel.app",
+    "backendDeployment": "dpl_7VwQQKENf3JCeL1nZgue86JevJzD",
+    "gatewayDeployment": "6b0ad12eb18522b939ed7944",
+    "runtime": "32bfeb29dc3a9965320348724a851e72b5d84322",
+    "evidence": "docs/qa-evidence/storybook-media-20261128/README.md",
+    "scope": "Visible packaged Story Detective question and answer narration, cover-audio recovery and mute. All seven included books at phone size, two at desktop, six-page mocked save and replay, and five live game media samples."
   }
 }
