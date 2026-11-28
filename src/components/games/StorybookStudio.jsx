@@ -150,7 +150,7 @@ const validateCompleteStoryAssets = async (book, controller) => {
 
 const continuityPrompt = (book) => book.characters.map((character) => `${character.name}: ${character.visualDescription}`).join('; ');
 
-const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}, soundOn, onToggleSound, onCelebrate, onGameEvent }) => {
+const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}, cancelNarration, soundOn, onToggleSound, onCelebrate, onGameEvent }) => {
   const askia = playerId === 'askia';
   const loadReaders = askia ? getAskiaStoryReaderInventory : getChildProfilesInventory;
   const [library, setLibrary] = useState(STORYBOOK_CATALOG);
@@ -519,6 +519,10 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
 
   const goToScreen = useCallback((nextIndex, { shouldPlay = autoRead } = {}) => {
     if (!selectedBook) return;
+    if (advanceTimerRef.current) {
+      clearTimeout(advanceTimerRef.current);
+      advanceTimerRef.current = null;
+    }
     const clamped = Math.max(-1, Math.min(pages.length - 1, nextIndex));
     setPageIndex(clamped);
     onGameEvent?.('storybooks', 'scene', {
@@ -528,8 +532,8 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
     });
     persistProgress(activeChild.id, selectedBook.slug, { pageIndex: clamped });
     setAudioError(false);
-    setPlaying(Boolean(shouldPlay && started));
-  }, [activeChild.id, autoRead, comprehensionSeed, onGameEvent, pages.length, persistProgress, selectedBook, started]);
+    setPlaying(Boolean(shouldPlay && started && soundOn));
+  }, [activeChild.id, autoRead, comprehensionSeed, onGameEvent, pages.length, persistProgress, selectedBook, soundOn, started]);
 
   const playCurrentAudio = useCallback(async () => {
     const audio = audioRef.current;
@@ -557,14 +561,14 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
     if (!audio) return undefined;
     audio.pause();
     audio.currentTime = 0;
-    if (!started || !autoRead || !currentAudio) { setPlaying(false); return undefined; }
+    if (!soundOn || !started || !autoRead || !currentAudio) { setPlaying(false); return undefined; }
     const timer = window.setTimeout(() => { playCurrentAudio(); }, 80);
     return () => window.clearTimeout(timer);
-  }, [autoRead, currentAudio, pageIndex, playCurrentAudio, started]);
+  }, [autoRead, currentAudio, pageIndex, playCurrentAudio, soundOn, started]);
 
   useEffect(() => {
-    if (audioRef.current) audioRef.current.volume = soundOn ? 1 : 0;
-  }, [soundOn, currentAudio]);
+    if (!soundOn) stopAudio();
+  }, [soundOn, stopAudio]);
 
   const openBook = (book) => {
     setFocusPanel('');
@@ -595,6 +599,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   const closeBook = () => {
     setFocusPanel('');
     playSfx?.('click');
+    cancelNarration?.();
     if (selectedBook) onGameEvent?.('storybooks', 'leave', {
       seed: comprehensionSeed,
       round: comprehensionActive ? comprehensionStep + 1 : Math.max(0, pageIndex + 1),
@@ -663,7 +668,8 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
 
   const hearComprehensionAudio = (text, hintType) => {
     onGameEvent?.('storybooks', 'hint', { seed: comprehensionSeed, round: comprehensionStep + 1, pageIndex, hintType });
-    speak(text);
+    if (Array.isArray(text)) speak(text.join(' '), { segments: text });
+    else speak(text);
   };
 
   const replayNarration = () => {
@@ -690,7 +696,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
       finishBook();
       return;
     }
-    if (!autoRead) return;
+    if (!autoRead || !soundOn) return;
     advanceTimerRef.current = window.setTimeout(() => {
       goToScreen(pageIndex + 1, { shouldPlay: true });
     }, 420);
@@ -1120,13 +1126,33 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   if (selectedBook && comprehensionActive) {
     const question = comprehension[comprehensionStep];
     const answerIsCorrect = comprehensionChoice === question?.answer;
-    const advance = () => { if (!answerIsCorrect) { setComprehensionChoice(''); return; } if (comprehensionStep + 1 >= comprehension.length) { if (completedRunSeedRef.current !== comprehensionSeed) { completedRunSeedRef.current = comprehensionSeed; onGameEvent?.('storybooks', 'level_complete', { round: comprehension.length, seed: comprehensionSeed, pageIndex }); } onGameEvent?.('storybooks', 'comprehension_complete', { round: comprehension.length, seed: comprehensionSeed }); setComprehensionActive(false); closeBook(); return; } const nextStep = comprehensionStep + 1; setComprehensionStep(nextStep); setComprehensionChoice(''); setComprehensionHadMistake(false); onGameEvent?.('storybooks', 'question', { round: nextStep + 1, seed: comprehensionSeed, pageIndex }); };
+    const advance = () => {
+      cancelNarration?.();
+      if (!answerIsCorrect) {
+        setComprehensionChoice('');
+        return;
+      }
+      if (comprehensionStep + 1 >= comprehension.length) {
+        if (completedRunSeedRef.current !== comprehensionSeed) {
+          completedRunSeedRef.current = comprehensionSeed;
+          onGameEvent?.('storybooks', 'level_complete', { round: comprehension.length, seed: comprehensionSeed, pageIndex });
+        }
+        onGameEvent?.('storybooks', 'comprehension_complete', { round: comprehension.length, seed: comprehensionSeed });
+        setComprehensionActive(false);
+        closeBook();
+        return;
+      }
+      const nextStep = comprehensionStep + 1;
+      setComprehensionStep(nextStep);
+      setComprehensionChoice('');
+      setComprehensionHadMistake(false);
+      onGameEvent?.('storybooks', 'question', { round: nextStep + 1, seed: comprehensionSeed, pageIndex });
+    };
     return <div className="focus-game stories-focus" data-board-focus="">
       <main className="focus-game-body is-menu">
         <header className="focus-game-heading"><p>Story Detective · {comprehensionStep + 1} of {comprehension.length}</p><h1>{focusPanel ? selectedBook.title : question?.prompt}</h1></header>
         {focusPanel ? <FocusMenu choices={[
-          { label: 'Hear the question', action: () => { closeOptions(); hearComprehensionAudio(question.prompt, 'question'); } },
-          ...(comprehensionChoice ? [{ label: 'Hear the response', action: () => { closeOptions(); hearComprehensionAudio(answerIsCorrect ? question.why : question.clue, 'feedback'); } }] : []),
+          ...(soundOn && comprehensionChoice && !answerIsCorrect ? [{ label: 'Hear the clue', action: () => { closeOptions(); hearComprehensionAudio(question.clue, 'feedback'); } }] : []),
           ...recoveryChoices, soundChoice, { label: 'Back to stories', action: closeBook },
         ]} onBack={closeOptions} /> : <>
           {!readerAccess.verified && <p role="status" className="focus-game-message">{readerCheckError || readerAccessMessage}</p>}
@@ -1136,6 +1162,10 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
           {comprehensionChoice && <p className="pattern-focus-explanation" role="status">{answerIsCorrect ? question.why : question.clue}</p>}
           <div className="focus-game-actions mt-3">
             {comprehensionChoice && <button type="button" className="focus-game-button is-primary" onClick={advance}>{answerIsCorrect ? comprehensionStep + 1 === comprehension.length ? 'Finish' : 'Next question' : 'Try again'}</button>}
+            {soundOn && <button type="button" className="focus-game-button" onClick={() => answerIsCorrect
+              ? hearComprehensionAudio(question.why, 'feedback')
+              : hearComprehensionAudio([question.prompt, ...question.choices], 'question')
+            }>{answerIsCorrect ? 'Hear explanation' : 'Hear question and choices'}</button>}
             <button type="button" className="focus-game-button" onClick={() => setFocusPanel('quiz')}>Options</button>
           </div>
         </>}
@@ -1218,7 +1248,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
   };
   const readerChoices = [
     ...(!isCover ? [{ label: 'Previous page', action: () => { closeOptions(); goToScreen(pageIndex - 1, { shouldPlay: false }); } }] : []),
-    ...(currentAudio ? [{ label: 'Replay narration', action: () => { closeOptions(); replayNarration(); } }] : []),
+    ...(currentAudio && soundOn ? [{ label: 'Replay narration', action: () => { closeOptions(); replayNarration(); } }] : []),
     { label: autoRead ? 'Turn auto-read off' : 'Turn auto-read on', action: () => { setAutoRead(value => !value); closeOptions(); } },
     { label: activeBookProgress(selectedBook.slug).favourite ? 'Remove favourite' : 'Add favourite', action: () => { toggleBookFavourite(selectedBook); closeOptions(); } },
     ...(selectedBook.seriesId ? [{ label: `New story with ${selectedBook.seriesName}`, disabled: creatorBusy || !readerAccess.verified, action: () => { const book = selectedBook; closeBook(); startSeriesStory(book); } }] : []),
@@ -1260,7 +1290,7 @@ const StorybookStudio = ({ playerId = 'amari', onBack, playSfx, speak = () => {}
         </section>
         <div className="focus-game-actions mt-3">
           {isCover
-            ? <button type="button" className="focus-game-button is-primary" onClick={startReading}>Start reading</button>
+            ? <button type="button" className="focus-game-button is-primary" onClick={started ? nextPage : startReading}>{started ? 'Go to page 1' : 'Start reading'}</button>
             : <button type="button" className="focus-game-button is-primary" onClick={nextPage}>{pendingCompletion ? 'Retry saving story' : pageIndex >= pages.length - 1 ? comprehension.length ? 'Start story questions' : 'Finish story' : 'Next page'}</button>}
           {currentAudio && soundOn && (started || !isCover) && <button type="button" className="focus-game-button" onClick={togglePlayback}>{playing ? 'Pause' : 'Hear page'}</button>}
           <button type="button" className="focus-game-button" onClick={() => setFocusPanel('reader')}>Options</button>
